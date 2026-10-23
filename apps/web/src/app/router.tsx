@@ -12,12 +12,12 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: HomePage },
       {
-        path: 'explorar',
-        lazy: () => import('../features/explore/ExplorePage').then((m) => ({ Component: m.default })),
+        path: 'carreiras',
+        lazy: () => import('../features/careers/CareersPage').then((m) => ({ Component: m.default })),
       },
       {
-        path: 'vagas',
-        lazy: () => import('../features/jobs/JobsPage').then((m) => ({ Component: m.default })),
+        path: 'formacao',
+        lazy: () => import('../features/training/TrainingPage').then((m) => ({ Component: m.default })),
       },
       {
         path: 'cv',

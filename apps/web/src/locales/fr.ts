@@ -6,15 +6,15 @@ export const fr: Messages = {
   },
   nav: {
     home: 'Accueil',
-    explore: 'Explorer',
-    jobs: 'Offres',
+    careers: 'Métiers',
+    training: 'Formation',
     cv: 'CV',
     profile: 'Profil',
   },
   home: {
     greeting: 'Bonjour ! Voici Kayé',
     intro:
-      'Découvre les métiers de la tech qui te correspondent, combien coûte la formation et qui recrute à Luanda.',
+      'Découvre les métiers de la tech qui te correspondent, ce que chacun exige et le chemin pour y arriver.',
     testTitle: "Test d'orientation",
     testBody:
       '42 questions, environ 8 minutes. Découvre ton profil et les 5 métiers qui te correspondent le mieux.',
@@ -26,17 +26,17 @@ export const fr: Messages = {
   },
   comingSoon: 'Bientôt',
   loading: 'Chargement…',
-  explore: {
-    title: 'Explorer',
-    body: 'Métiers, classements, établissements et formations.',
+  careers: {
+    title: 'Métiers',
+    body: "Ce que fait chaque métier, ce qu'il exige et comment y arriver : études, formation et expérience.",
   },
-  jobs: {
-    title: 'Offres',
-    body: "Offres d'emploi tech récentes, avec le lien vers l'annonce d'origine.",
+  training: {
+    title: 'Formation',
+    body: 'Les meilleurs établissements et formations pour chaque métier, avec les critères et les coûts bien visibles.',
   },
   cv: {
     title: 'CV',
-    body: 'Crée ton CV section par section et télécharge-le en PDF.',
+    body: 'Crée ton CV et découvre des CV modèles pour chaque métier.',
   },
   profile: {
     title: 'Profil',

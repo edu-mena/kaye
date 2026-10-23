@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router'
-import { BriefcaseIcon, CompassIcon, DocumentIcon, HomeIcon, UserIcon } from './icons'
+import { CompassIcon, DocumentIcon, GraduationCapIcon, HomeIcon, UserIcon } from './icons'
 
 const TABS = [
   { to: '/', key: 'home', Icon: HomeIcon },
-  { to: '/explorar', key: 'explore', Icon: CompassIcon },
-  { to: '/vagas', key: 'jobs', Icon: BriefcaseIcon },
+  { to: '/carreiras', key: 'careers', Icon: CompassIcon },
+  { to: '/formacao', key: 'training', Icon: GraduationCapIcon },
   { to: '/cv', key: 'cv', Icon: DocumentIcon },
   { to: '/perfil', key: 'profile', Icon: UserIcon },
 ] as const

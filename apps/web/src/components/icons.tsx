@@ -38,12 +38,12 @@ export function CompassIcon(props: IconProps) {
   )
 }
 
-export function BriefcaseIcon(props: IconProps) {
+export function GraduationCapIcon(props: IconProps) {
   return (
     <Icon {...props}>
-      <rect x="3" y="7" width="18" height="13" rx="2" />
-      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-      <path d="M3 13h18" />
+      <path d="M2 9.5 12 5l10 4.5-10 4.5L2 9.5Z" />
+      <path d="M6 11.3V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.7" />
+      <path d="M22 9.5V15" />
     </Icon>
   )
 }
