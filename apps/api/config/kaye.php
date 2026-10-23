@@ -4,14 +4,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Supported locales
+    | Admin allowlist
     |--------------------------------------------------------------------------
     |
-    | Everything the user sees exists in these languages. The first one is the
-    | fallback when a translation is missing.
+    | Only these emails can open /admin, on top of having the admin or
+    | moderator role. Comma-separated in ADMIN_EMAILS. Empty means nobody.
     |
     */
 
-    'locales' => ['pt', 'en', 'fr'],
+    'admin_emails' => array_values(array_filter(array_map(
+        fn (string $email): string => strtolower(trim($email)),
+        explode(',', (string) env('ADMIN_EMAILS', '')),
+    ))),
 
 ];

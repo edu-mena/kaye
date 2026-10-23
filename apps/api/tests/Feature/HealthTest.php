@@ -2,18 +2,33 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class HealthTest extends TestCase
 {
-    public function test_health_endpoint_answers_under_v1(): void
+    public function test_health_endpoint_reports_ok_when_the_database_answers(): void
     {
         $this->getJson('/api/v1/health')
             ->assertOk()
+            ->assertHeader('Cache-Control', 'no-store, private')
             ->assertJson([
                 'status' => 'ok',
                 'locales' => ['pt', 'en', 'fr'],
+                'checks' => ['database' => 'ok'],
             ]);
+    }
+
+    public function test_health_endpoint_returns_503_without_details_when_the_database_is_down(): void
+    {
+        config(['database.connections.mysql.database' => 'kaye_does_not_exist']);
+        DB::purge('mysql');
+
+        $this->getJson('/api/v1/health')
+            ->assertServiceUnavailable()
+            ->assertJson(['status' => 'degraded', 'checks' => ['database' => 'down']])
+            ->assertDontSee('SQLSTATE')
+            ->assertDontSee('kaye_does_not_exist');
     }
 
     public function test_language_follows_accept_language_header(): void

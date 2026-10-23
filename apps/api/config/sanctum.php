@@ -50,7 +50,8 @@ return [
     |
     */
 
-    'expiration' => null,
+    // 30 days (docs/arquitetura.md, 5.1). Expired tokens are pruned daily (routes/console.php).
+    'expiration' => (int) env('SANCTUM_TOKEN_EXPIRATION', 60 * 24 * 30),
 
     /*
     |--------------------------------------------------------------------------

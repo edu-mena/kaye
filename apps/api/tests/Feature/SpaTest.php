@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\File;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
 class SpaTest extends TestCase
@@ -37,5 +38,25 @@ class SpaTest extends TestCase
     public function test_deep_links_serve_the_react_app(): void
     {
         $this->get('/carreiras/desenvolvedor-backend')->assertOk()->assertSee('<div id="root">', false);
+    }
+
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function pathsThatAreNotPages(): array
+    {
+        return [
+            'dotfile' => ['/.env'],
+            'git folder' => ['/.git/config'],
+            'project file' => ['/composer.json'],
+            'missing asset' => ['/spa/assets/missing.js'],
+            'missing image' => ['/logo.png'],
+        ];
+    }
+
+    #[DataProvider('pathsThatAreNotPages')]
+    public function test_files_and_dotfiles_get_a_real_404_not_the_app(string $path): void
+    {
+        $this->get($path)->assertNotFound()->assertDontSee('<div id="root">', false);
     }
 }

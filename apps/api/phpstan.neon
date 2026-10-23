@@ -1,0 +1,17 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+
+parameters:
+    level: max
+    # Read the casts() body so enum casts (role, locale) are typed.
+    parseModelCastsMethod: true
+    # config/ is left out: the stock Laravel files read env() values, which are untyped.
+    paths:
+        - app
+        - bootstrap/app.php
+        - database
+        - routes
+        - tests
+    tmpDir: storage/framework/cache/phpstan
