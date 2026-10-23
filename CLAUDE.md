@@ -41,3 +41,9 @@ Eduardo requires a DevOps methodology: **everything is tested and verified**. Fo
 - The old folder `C:\Projects\___Kayé` has an accent and breaks the Android build (Gradle); the code lives in `C:\Projects\kaye`.
 - `php artisan serve` drops environment variables; the E2E server uses `php -S` with Laravel's `server.php` instead.
 - `npm` install scripts are blocked (`.npmrc`); after `npm ci` at the root, run `npm run hooks:install`.
+
+## Agent-session pitfalls
+
+- In an agent session, `php artisan test` prints JSON (laravel/pao) and **exits 0 even when tests fail**. Read `result`, `failed` and `errors` from the JSON, or use `vendor/bin/phpunit`, whose exit code is reliable. CI has no agent variables, so it fails correctly.
+- `$this->artisan(...)` runs the command in a destructor, where exceptions are lost; to assert that a command works, use `Artisan::call()` and check the exit code.
+- Git does not keep empty folders: test on a clean clone (or let CI do it) before trusting a build that passes locally.
