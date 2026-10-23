@@ -1,4 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router'
+import { AppLoading } from '../components/AppLoading'
 import HomePage from '../features/home/HomePage'
 import { Layout } from './Layout'
 
@@ -6,6 +7,8 @@ import { Layout } from './Layout'
 export const router = createBrowserRouter([
   {
     Component: Layout,
+    // Shown while a tab's code downloads on the first visit (deep links, slow networks).
+    HydrateFallback: AppLoading,
     children: [
       { index: true, Component: HomePage },
       {

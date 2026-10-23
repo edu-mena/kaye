@@ -15,7 +15,8 @@ export const pt = {
     intro:
       'Descobre as profissões tech que combinam contigo, quanto custa chegar lá e quem está a contratar em Luanda.',
     testTitle: 'Teste vocacional',
-    testBody: '42 perguntas, cerca de 8 minutos. Descobre o teu perfil e as 5 profissões que mais combinam contigo.',
+    testBody:
+      '42 perguntas, cerca de 8 minutos. Descobre o teu perfil e as 5 profissões que mais combinam contigo.',
   },
   status: {
     checking: 'A ligar ao servidor…',
@@ -23,6 +24,7 @@ export const pt = {
     offline: 'Sem ligação ao servidor',
   },
   comingSoon: 'Em breve',
+  loading: 'A carregar…',
   explore: {
     title: 'Explorar',
     body: 'Carreiras, rankings, instituições e cursos.',

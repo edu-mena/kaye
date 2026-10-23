@@ -1,4 +1,4 @@
-import i18n from './i18n'
+import { i18n } from './i18n'
 
 // The web app talks to the API on the same domain; the native apps need the full URL.
 const BASE_URL = import.meta.env.VITE_API_URL ?? '/api/v1'

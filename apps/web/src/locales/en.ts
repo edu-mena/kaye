@@ -23,6 +23,7 @@ export const en: Messages = {
     offline: 'No connection to the server',
   },
   comingSoon: 'Coming soon',
+  loading: 'Loading…',
   explore: {
     title: 'Explore',
     body: 'Careers, rankings, institutions and courses.',

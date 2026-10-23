@@ -4,7 +4,10 @@ import { App } from './app/App'
 import './lib/i18n'
 import './index.css'
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')
+if (!container) throw new Error('index.html is missing the #root element')
+
+createRoot(container).render(
   <StrictMode>
     <App />
   </StrictMode>,

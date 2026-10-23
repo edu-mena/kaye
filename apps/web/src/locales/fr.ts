@@ -16,7 +16,8 @@ export const fr: Messages = {
     intro:
       'Découvre les métiers de la tech qui te correspondent, combien coûte la formation et qui recrute à Luanda.',
     testTitle: "Test d'orientation",
-    testBody: '42 questions, environ 8 minutes. Découvre ton profil et les 5 métiers qui te correspondent le mieux.',
+    testBody:
+      '42 questions, environ 8 minutes. Découvre ton profil et les 5 métiers qui te correspondent le mieux.',
   },
   status: {
     checking: 'Connexion au serveur…',
@@ -24,6 +25,7 @@ export const fr: Messages = {
     offline: 'Pas de connexion au serveur',
   },
   comingSoon: 'Bientôt',
+  loading: 'Chargement…',
   explore: {
     title: 'Explorer',
     body: 'Métiers, classements, établissements et formations.',

@@ -35,9 +35,9 @@ function ApiStatus() {
       : [t('status.online'), 'bg-emerald-500']
 
   return (
-    <p role="status" className="flex items-center gap-2 text-sm text-muted">
+    <output className="flex items-center gap-2 text-sm text-muted">
       <span className={`size-2 rounded-full ${dot}`} />
       {label}
-    </p>
+    </output>
   )
 }
