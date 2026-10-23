@@ -23,7 +23,7 @@ health="$(curl -s "$base/api/v1/health")"
 echo "$health" | grep -q '"database":"ok"' && pass "API reaches the database" || fail "API reaches the database ($health)"
 
 [ "$(status /)" = 200 ] && pass "web app loads" || fail "web app loads"
-[ "$(status /vagas)" = 200 ] && pass "deep links load" || fail "deep links load"
+[ "$(status /carreiras)" = 200 ] && pass "deep links load" || fail "deep links load"
 
 asset="$(curl -s "$base/" | grep -o '/spa/assets/index-[A-Za-z0-9_-]*\.js' | head -1)"
 [ -n "$asset" ] && [ "$(status "$asset")" = 200 ] && pass "web app assets are served" || fail "web app assets are served"

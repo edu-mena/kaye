@@ -45,7 +45,7 @@ Quando a lógica de negócio crescer (por exemplo, a fórmula das recomendaçõe
 | Pasta | O que vai lá |
 |---|---|
 | `src/app` | Arranque: `App` (providers), `router`, `Layout` |
-| `src/features/<área>` | Um ecrã e o que só ele usa (hooks, componentes). Áreas: `home`, `explore`, `jobs`, `cv`, `profile` e outras novas |
+| `src/features/<área>` | Um ecrã e o que só ele usa (hooks, componentes). Áreas: `home`, `careers`, `training`, `cv`, `profile` e outras novas (`fit`, `assessment`…) |
 | `src/components` | Peças usadas por mais de uma área (`BottomNav`, `PagePlaceholder`, `AppLoading`, `icons`) |
 | `src/lib` | Código sem interface: cliente da API (`api.ts`) e idiomas (`i18n.ts`) |
 | `src/locales` | Textos em `pt.ts` (a fonte), `en.ts` e `fr.ts` |
@@ -60,7 +60,7 @@ Regra das dependências: `features` pode usar `components` e `lib`, mas `compone
 | O quê | Convenção | Exemplo |
 |---|---|---|
 | Código, comentários, tabelas, colunas | Inglês | `occupation_program` |
-| URLs da app | Português | `/vagas`, `/perfil` |
+| URLs da app | Português | `/carreiras`, `/formacao` |
 | Textos para o utilizador | Chaves em inglês, textos em pt, en e fr | `t('nav.jobs')` |
 | Classes PHP | PascalCase, uma por ficheiro | `CheckProductionConfig` |
 | Casos de enum | TitleCase | `UserRole::Moderator` |
