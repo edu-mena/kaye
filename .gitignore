@@ -1,0 +1,6 @@
+# Each app has its own .gitignore (apps/api, apps/web, apps/web/android).
+.DS_Store
+Thumbs.db
+/.idea
+/.vscode/*
+!/.vscode/extensions.json

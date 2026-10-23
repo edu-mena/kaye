@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kayé</string>
+    <string name="title_activity_main">Kayé</string>
+    <string name="package_name">ao.kaye.app</string>
+    <string name="custom_url_scheme">ao.kaye.app</string>
+</resources>

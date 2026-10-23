@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+/* Kayé brand. Provisional until the design system is defined. */
+@theme {
+  --color-navy: #1b2a43;
+  --color-navy-soft: #2c3e5c;
+  --color-gold: #ffc000;
+  --color-gold-soft: #fff4cc;
+  --color-ink: #1b2a43;
+  --color-muted: #5b6b82;
+  --color-surface: #f5f7fa;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
