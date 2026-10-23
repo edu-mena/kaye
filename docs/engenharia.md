@@ -107,9 +107,15 @@ Antes de criar alguma coisa, procura se já existe:
 |---|---|
 | Chamar a API | `api()` em `apps/web/src/lib/api.ts` (idioma, erros e URL já tratados) |
 | Mudar ou ler o idioma | `changeLocale`, `LOCALES` e `LOCALE_NAMES` em `apps/web/src/lib/i18n.ts` |
-| Um ecrã "em breve" | `PagePlaceholder` |
-| Um ícone | `apps/web/src/components/icons.tsx` (acrescenta lá) |
-| Montar um componente num teste | `renderWithApp`, `mockFetchJson` |
+| Botões, cartões, etiquetas, campos, janelas, barras | `apps/web/src/components/ui/` (ver [design.md](design.md#peças-base-srccomponentsui)) |
+| Um ícone | `<Icon name>` em `apps/web/src/components/icons.tsx` (acrescenta lá o desenho) |
+| Ler dados (carreiras, cursos, teste, CVs modelo) | Os hooks de `apps/web/src/data/queries.ts` |
+| Ler ou mudar o que a pessoa fez | `useUser()` e `userActions` em `apps/web/src/state/userStore.ts` |
+| Filtros no URL | `useUrlFilters` em `apps/web/src/lib/useUrlFilters.ts` |
+| Mostrar Kz, percentagens, durações, avaliações | `formatKz`, `formatPercent` (`domain/format.ts`), `useDuration`, `useRatingLabel` (`lib/useFormat.ts`) |
+| A carregar ou erro | `QueryState` |
+| Um ecrã que precisa de perfil | `withProfile()` em `router.tsx` |
+| Montar um componente num teste | `renderWithApp`, `mockFetchJson`; dados da pessoa com `seedUser`, `seedTested` (`src/test/user.ts`) |
 | A lista de idiomas no PHP | `App\Enums\Locale` |
 | Papéis de utilizador | `App\Enums\UserRole` |
 | Um utilizador de teste | `User::factory()`, com os estados `admin()` e `minor()` |

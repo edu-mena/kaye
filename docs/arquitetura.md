@@ -449,12 +449,17 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 ```
 apps/web/src/
   app/          router, providers, layout
-  features/     auth, onboarding, assessment, careers, fit, training,
-                cv, profile, contributions, gamification
-  components/   peças de interface partilhadas
-  lib/          cliente da API, i18n, eventos
-  locales/      pt/ en/ fr/
+  features/     home, onboarding, assessment, careers, training, cv, profile
+                (mais tarde: contributions)
+  components/   ui/ (peças base) e peças do produto partilhadas
+  data/         tipos (contrato com a API), source.ts (a única porta), queries
+  domain/       regras em funções puras: RIASEC, encaixe, recomendações, ranking
+  state/        o que a pessoa fez (hoje no aparelho; depois na API)
+  lib/          cliente da API, i18n, ajudas
+  locales/      pt.ts, en.ts, fr.ts
 ```
+
+Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O aspeto visual está em [design.md](design.md). Enquanto a API não tem conteúdos, a app usa dados de demonstração ([ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md)).
 
 ### Pensado para Angola
 

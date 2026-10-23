@@ -11,6 +11,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0002](0002-csp-do-painel-admin.md) | CSP mais permissiva só no painel de administração | Aceite |
 | [0003](0003-sessao-web-em-cookie.md) | Sessão da app web em cookie `HttpOnly`, não em `localStorage` | Aceite |
 | [0004](0004-containers-fora-de-producao.md) | Containers para desenvolvimento e CI, não na produção atual | Aceite |
+| [0005](0005-frontend-primeiro-com-dados-de-demonstracao.md) | Frontend primeiro, com dados de demonstração atrás de uma só porta | Aceite |
 
 Modelo para um novo ADR:
 
