@@ -1,11 +1,17 @@
 # Kayé — Arquitetura Técnica
 
-Versão 1 · 19 de outubro de 2026 · Âmbito: MVP "Kayé Tech" e o caminho para crescer.
+Versão 2 · 23 de outubro de 2026 (v1: 19 de outubro) · Âmbito: MVP "Kayé Tech" e o caminho para crescer.
 
 > Os diagramas usam Mermaid. Aparecem desenhados no GitHub, ou no VS Code com a extensão *Markdown Preview Mermaid Support*.
 
 ## 0. Resumo num minuto
 
+- **O Kayé orienta, não recruta.** É uma app de orientação vocacional e profissional, não um site de emprego. Ajuda cada jovem a:
+  - descobrir as profissões que combinam com ele;
+  - perceber o que cada uma faz e exige;
+  - planear o caminho até lá: estudos, formação profissional e experiência.
+
+  As vagas recolhidas servem só para medir o que o mercado pede e **nunca são publicadas** ([fontes-de-vagas.md](fontes-de-vagas.md)).
 - **Um só servidor.** Laravel (PHP) + MySQL na Hostinger partilhada servem a API, o painel de administração e a app web React.
 - **Uma só app.** O mesmo código React corre no browser e no telemóvel; o Capacitor gera as apps Android e iOS.
 - **O trabalho pesado sai da Hostinger.** A recolha de vagas corre grátis no GitHub Actions, uma vez por semana, e envia os resultados para a API.
@@ -140,8 +146,13 @@ erDiagram
   OCCUPATION }o--o{ SKILL : "exige"
   OCCUPATION ||--o{ PATHWAY : "chega-se por"
   PATHWAY ||--|{ PATHWAY_STEP : "passos"
+  OCCUPATION ||--|{ CAREER_STAGE : "progride por"
+  OCCUPATION ||--o{ CV_EXAMPLE : "CVs modelo"
   INSTITUTION ||--o{ PROGRAM : "oferece"
   PROGRAM }o--o{ OCCUPATION : "prepara para"
+  PROGRAM ||--o| PROGRAM_SCORE : "classificação"
+  USER ||--o{ USER_SKILL : "diz que sabe"
+  SKILL ||--o{ USER_SKILL : "é sabida"
   JOB_SOURCE ||--o{ JOB_POSTING_RAW : "recolhida de"
   JOB_POSTING_RAW ||--o| JOB_POSTING : "origina"
   COMPANY ||--o{ JOB_POSTING : "publica"
@@ -162,7 +173,8 @@ erDiagram
 | Tabela | Campos principais | Notas |
 |---|---|---|
 | `sectors` | id, slug, name* | Fase 1: só `tecnologia`. |
-| `occupations` | id, sector_id, slug, esco_uri, isco_code, name*, summary*, description*, day_to_day*, riasec (6 valores 0–1), is_published, last_reviewed_at | A entidade central. |
+| `occupations` | id, sector_id, slug, esco_uri, isco_code, name*, summary*, description*, day_to_day*, work_context* (JSON: ambiente, horários, viagens, trabalho em equipa), work_styles (JSON: as características profissionais, por exemplo atenção ao detalhe ou comunicação), riasec (6 valores 0–1), is_published, last_reviewed_at | A entidade central. |
+| `career_stages` | occupation_id, position, level (estágio, júnior, pleno, sénior, liderança), title*, typical_years_min, typical_years_max, responsibilities*, what_changes* | O **histórico profissional**: como se progride na profissão e quanto tempo leva cada etapa. |
 | `occupation_aliases` | occupation_id, alias, locale | "Programador PHP", "Dev Backend" → Desenvolvedor Backend. É o que permite classificar vagas. |
 | `skills` | id, esco_uri, name*, kind (técnica, transversal, ferramenta) | Da ESCO, mais ferramentas tech (React, Laravel, AWS…). |
 | `skill_aliases` | skill_id, alias | "ReactJS", "React.js" → React. |
@@ -176,7 +188,8 @@ erDiagram
 | `programs` | id, institution_id, name, level (formacao_profissional, medio_tecnico, licenciatura, mestrado, certificacao, curso_livre), duration_months, schedule (diurno, pós-laboral, online), enrollment_fee, tuition_amount, tuition_period (mensal, anual, total), other_costs_estimate, admission_requirements*, has_entrance_exam, description*, source_url, last_verified_at | Valores em Kz. |
 | `occupation_program` | occupation_id, program_id, relevance (direta, relacionada) | Que cursos levam a que profissão. |
 | `pathways` | id, occupation_id, name*, summary* | Ex.: "Via universitária", "Via técnica rápida". |
-| `pathway_steps` | pathway_id, position, kind (formação, certificação, experiência, portfólio), level, description*, typical_months | Um passo aponta para um nível, não para um curso concreto. A app mostra os cursos desse nível que levam à profissão. |
+| `pathway_steps` | pathway_id, position, kind (formação, certificação, experiência, portfólio), level, description*, typical_months | Um passo aponta para um nível, não para um curso concreto. A app mostra os cursos desse nível que levam à profissão. Os passos cobrem o **percurso académico**, a **formação profissional** e a experiência. |
+| `program_scores` | program_id, is_recognized, rating_avg, rating_n, total_cost_aoa, duration_months, score, criteria (JSON), computed_at | Calculada todas as semanas. É a base das "melhores instituições para este curso" (5.7). |
 
 **Custo total do caminho.** Para cada passo de formação, soma-se inscrição + propina × duração + outros custos, para o curso mais barato e para o curso mediano disponíveis na província do utilizador. Mostra-se sempre como faixa ("entre X e Y Kz"), nunca como um número único.
 
@@ -187,10 +200,10 @@ erDiagram
 | `job_sources` | id, name, kind (site, whatsapp_manual, utilizador, parceiro), base_url, enabled, terms_checked_at, last_run_at | Uma linha por fonte. |
 | `job_postings_raw` | id, source_id, external_id, url, payload (JSON tal como veio), content_hash, fetched_at, status (pendente, processada, duplicada, rejeitada) | Único por (source_id, external_id). Nunca se apaga. |
 | `companies` | id, name, normalized_name, slug, website, province | |
-| `job_postings` | id, country_code, raw_id, source_id, company_id, title_original, occupation_id, match_confidence (0–1), needs_review, province, work_mode (presencial, remoto, híbrido), contract_type, experience_min_years, education_level_required, salary_min_aoa, salary_max_aoa, salary_original_text, salary_disclosed, posted_at, expires_at, url, dedupe_key, status (ativa, expirada, oculta) | `occupation_id` pode ficar vazio até alguém rever. |
+| `job_postings` | id, country_code, raw_id, source_id, company_id, title_original, occupation_id, match_confidence (0–1), needs_review, province, work_mode (presencial, remoto, híbrido), contract_type, experience_min_years, education_level_required, certifications (JSON), salary_min_aoa, salary_max_aoa, salary_original_text, salary_disclosed, posted_at, expires_at, url, dedupe_key, status (ativa, expirada, oculta) | `occupation_id` pode ficar vazio até alguém rever. **Nunca é mostrada a ninguém**: só entra nas estatísticas. |
 | `job_posting_skill` | job_posting_id, skill_id | Competências pedidas na vaga. |
 | `salary_reports` | id, country_code, user_id, occupation_id, seniority (júnior, pleno, sénior), monthly_gross_aoa, province, company_size, reported_year, status (pendente, aprovado, rejeitado) | `user_id` nunca é exposto. Só para maiores de 18. |
-| `market_stats` | occupation_id, country_code, province (vazio = nacional), week_start, postings_90d, postings_trend_pct, salary_p25, salary_p50, salary_p75, salary_n, salary_basis (vagas, relatos, misto, grupo_semelhante), top_companies (JSON), top_skills (JSON), computed_at | Uma linha por profissão por semana: o histórico de tendências sai daqui sem custo extra. |
+| `market_stats` | occupation_id, country_code, province (vazio = nacional), week_start, postings_90d, postings_trend_pct, salary_p25, salary_p50, salary_p75, salary_n, salary_basis (vagas, relatos, misto, grupo_semelhante), top_companies (JSON), top_skills (JSON), education_levels (JSON: % por nível pedido), top_certifications (JSON), experience_years_p50, computed_at | Uma linha por profissão por semana: o histórico de tendências sai daqui sem custo extra. |
 
 ### 4.4 Utilizadores e comunidade
 
@@ -202,9 +215,11 @@ erDiagram
 | `assessment_attempts` | id, user_id, version, started_at, completed_at, scores (JSON), code (ex.: "IAC") | |
 | `assessment_answers` | attempt_id, question_id, value (1–5) | Guardadas para poder recalcular se a fórmula mudar. |
 | `recommendations` | attempt_id, occupation_id, rank, score, fit, market, feasibility, reasons (JSON) | |
-| `saved_items` | user_id, item_type, item_id | Carreiras, cursos e vagas guardados. |
+| `saved_items` | user_id, item_type, item_id | Carreiras, cursos e instituições guardados. |
+| `user_skills` | user_id, skill_id, level (a aprender, sei fazer, domino), updated_at | O que a pessoa diz que sabe. Alimenta o encaixe (5.4). |
 | `cvs` | id, user_id, template, locale, data (JSON), updated_at | O CV é um documento: o JSON evita seis tabelas. |
-| `testimonials` | id, user_id, target_type, target_id, author_role (estudante, ex-aluno, profissional), body, status, moderated_by, moderated_at | Só aparece depois de aprovado. |
+| `cv_examples` | id, occupation_id, seniority (primeiro emprego, júnior, experiente), locale, template, data (JSON, no formato de `cvs`), annotations* (JSON), is_published, reviewed_at | **CVs modelo** de pessoas fictícias, escritos pela equipa. Nunca de pessoas reais. |
+| `testimonials` | id, user_id, target_type, target_id, author_role (estudante, ex-aluno, profissional), rating (1–5, só para cursos), body, status, moderated_by, moderated_at | Só aparece depois de aprovado. As notas dos cursos entram em `program_scores`. |
 | `error_reports` | id, user_id, target_type, target_id, field, message, status | Botão "Reportar erro". |
 | `xp_ledger` | user_id, action, points, ref_type, ref_id, created_at | Único por (user_id, action, ref): ninguém ganha pontos duas vezes pela mesma coisa. |
 | `badges`, `user_badges` | | |
@@ -226,7 +241,7 @@ erDiagram
 
 **iOS (Fase 2).** A Apple obriga a oferecer "Iniciar sessão com a Apple" sempre que há login social (regra 4.8). O fluxo é o mesmo, com `apple_sub`.
 
-**Sem conta** pode-se explorar carreiras, cursos, instituições e vagas. **Com conta** faz-se o teste vocacional e o CV, guarda-se e contribui-se.
+**Sem conta** pode-se explorar carreiras, cursos e instituições. **Com conta** faz-se o teste vocacional e o CV, guarda-se e contribui-se.
 
 ### 5.2 Recolha e tratamento de vagas
 
@@ -250,7 +265,7 @@ flowchart TD
 
 **Regras de recolha**
 - Respeitar o `robots.txt` e os termos de cada site. Um pedido a cada 3–5 segundos, com um User-Agent identificado e um contacto.
-- Guardar factos (título, empresa, local, salário, data) e um resumo, e mostrar sempre **"Ver vaga original"** com o link. O site de origem ganha tráfego, o que é a base para uma parceria futura.
+- Guardar os factos que interessam às estatísticas: profissão, competências, formação pedida, anos de experiência, certificações, salário, província e data. **As vagas nunca são mostradas:** só entram em números agregados, com as fontes citadas. Os termos de cada fonte e as decisões estão em [fontes-de-vagas.md](fontes-de-vagas.md).
 - **WhatsApp nunca é automatizado:** violaria os termos do WhatsApp e exporia dados de pessoas. O admin cola o texto de canais e páginas públicas, o parser pré-preenche o formulário e o admin confirma. Os números de telefone pessoais são removidos.
 - **Salário.** O parser entende "150.000 Kz", "AOA 150 000,00", "150 mil", "USD 500" (convertido à taxa do BNA do dia) e "a combinar" (não divulgado). O texto original fica guardado.
 - **Duplicados.** Conta como a mesma vaga quando coincidem empresa, profissão, província e semana, ou quando o conteúdo é igual.
@@ -266,6 +281,7 @@ Há uma tarefa semanal (domingo de madrugada, depois dos scrapers) que calcula, 
   - **Com menos de 5:** sobe um nível na taxonomia e usa o grupo ISCO (ex.: todos os "Desenvolvedores de software"), com a etiqueta "estimado a partir de profissões semelhantes".
   - **Se ainda houver menos de 5:** mostra "Ainda não temos dados suficientes" e o botão "Contribui com o teu salário".
 - **Empresas que mais contratam** e **competências mais pedidas**.
+- **O que os empregadores pedem.** Mostra a percentagem das vagas que pede cada competência, cada nível de formação e cada certificação, e os anos de experiência típicos (a mediana). Só aparece com 10 ou mais vagas da profissão. Por exemplo: "Em 64 vagas de Analista de Dados: 78% pedem SQL, 61% pedem licenciatura, 2 anos de experiência".
 
 É esta a "probabilidade" honesta: um número com a incerteza declarada, nunca um número inventado.
 
@@ -294,6 +310,16 @@ pontuação = 0,60 × compatibilidade   perfil do utilizador vs perfil da profis
 - Nada pago entra na fórmula.
 - Os resultados ficam guardados com a versão do teste, para se poderem recalcular.
 
+**Encaixe com uma profissão.** Em cada página de carreira, a pessoa vê o seu encaixe em três partes, nunca reduzidas a um número mágico:
+
+| Parte | Como se mede | O que mostra |
+|---|---|---|
+| Interesses | Perfil RIASEC do teste vs. perfil da profissão | "Combina muito", "em parte" ou "pouco", e porquê |
+| Formação | Escolaridade atual vs. o primeiro passo de cada caminho | Quantos passos faltam e quanto tempo levam |
+| Competências | As competências que a pessoa marcou (`user_skills`) vs. as essenciais da profissão | "Já tens 4 de 12", e a lista das que faltam |
+
+O que falta passa a ser os próximos passos sugeridos e, na Fase 2, "O meu plano". Sem o teste, a parte dos interesses diz "Faz o teste para saber".
+
 **Perfis fora da tecnologia.** O teste mede todas as áreas. Se o perfil apontar fortemente para outra área (ex.: Saúde), dizemos isso com honestidade ("A tua área forte é X, que chega ao Kayé em breve") e mostramos as profissões tech que combinam com esse perfil. A tecnologia tem lugar para todos os perfis:
 
 | Perfil forte | Profissões tech que combinam |
@@ -315,6 +341,9 @@ pontuação = 0,60 × compatibilidade   perfil do utilizador vs perfil da profis
   - A verificação de permissão (`cv.export`) já existe no servidor. Quando houver assinatura, basta mudar a regra, sem mudar a app.
   - Gerar o PDF no telemóvel seria mais simples, mas qualquer pessoa conseguiria contornar o pagamento no futuro.
 - **Limitação:** o dompdf só entende CSS simples (sem flexbox nem grid). Os modelos são desenhados com tabelas e blocos, o que chega bem para CVs.
+- **CVs modelo por profissão.** Cada profissão tem CVs modelo de pessoas fictícias, por nível (primeiro emprego, júnior, experiente). Têm notas que explicam porque cada parte funciona, por exemplo: "o resumo diz o que a pessoa faz e para onde quer ir".
+  - São escritos pela equipa a partir do que as vagas pedem. **Nunca se usam CVs de pessoas reais.**
+  - Usam o mesmo formato de dados e os mesmos modelos visuais do editor. "Começar o meu CV a partir deste modelo" copia a estrutura, não os dados.
 
 ### 5.6 Qualidade dos dados e moderação (3 camadas)
 
@@ -325,6 +354,25 @@ pontuação = 0,60 × compatibilidade   perfil do utilizador vs perfil da profis
 | Instituições | Reclamam a sua página e atualizam cursos e preços, com aprovação. | Fase 4 |
 
 A gamificação só dá pontos por contribuições **aprovadas**, o que desencoraja lixo.
+
+### 5.7 As melhores instituições para cada curso
+
+"Melhor" depende do que a pessoa precisa. Por isso a classificação é transparente e a pessoa pode reordená-la.
+
+- **Só entram cursos com reconhecimento oficial confirmado:** MESCTI para o ensino superior; MED e INEFOP para o ensino técnico e a formação profissional. Os outros aparecem à parte, marcados "reconhecimento por confirmar".
+- **Pontuação Kayé**, calculada todas as semanas em `program_scores`, com os pesos publicados na própria página:
+
+| Critério | Peso | De onde vem |
+|---|---|---|
+| Avaliação de alunos e ex-alunos | 40% | Testemunhos moderados com nota de 1 a 5. Só conta com 5 ou mais avaliações |
+| Custo total do curso | 25% | Inscrição, propinas e outros custos, recolhidos e verificados pela equipa |
+| Ligação ao mercado | 20% | Fase 2: a percentagem de quem fez o curso e diz trabalhar na área (agregado, 5 ou mais pessoas). Até lá, este critério fica de fora e os outros pesos sobem na mesma proporção |
+| Duração e horários | 15% | Os horários pós-laboral e online valem mais para quem já trabalha |
+
+- A pessoa pode ordenar por pontuação, preço, proximidade (província) ou avaliação.
+- Com dados insuficientes, diz-se isso. Nunca se inventa uma posição.
+- **Nada pago entra na pontuação.** O conteúdo patrocinado aparece sempre marcado e à parte.
+- Apresentar como "mais bem classificadas segundo os critérios do Kayé", nunca como verdade absoluta. Validar a forma com um advogado.
 
 ## 6. API v1
 
@@ -348,15 +396,19 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | GET | `/occupations` | Lista, pesquisa e rankings (`?sort=demand` ou `salary`) | — |
 | GET | `/occupations/{slug}` | Página de carreira completa | — |
 | GET | `/occupations/{slug}/pathways` | Caminhos e custo estimado (`?province=`) | — |
-| GET | `/occupations/{slug}/jobs` | Vagas recentes da profissão | — |
+| GET | `/occupations/{slug}/stages` | Histórico profissional: etapas da carreira | — |
+| GET | `/occupations/{slug}/market` | O que os empregadores pedem, procura e salários (só agregados) | — |
+| GET | `/occupations/{slug}/cv-examples` | CVs modelo da profissão | — |
+| GET | `/occupations/{slug}/fit` | O meu encaixe com a profissão | sim |
+| GET, PUT | `/me/skills` | As competências que sei | sim |
 | GET | `/institutions`, `/institutions/{slug}` | Instituições | — |
 | GET | `/programs` | Cursos (`?occupation=&level=&province=`) | — |
+| GET | `/programs/ranking` | As melhores instituições para os cursos de uma profissão (`?occupation=&province=&sort=`) | — |
 | GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |
-| GET | `/jobs` | Vagas tech com filtros | — |
 | GET, PUT | `/cv` | Dados do CV | sim |
 | GET | `/cv/preview` | Pré-visualização em HTML | sim |
 | POST | `/cv/export` | PDF | sim |
-| POST | `/contributions/jobs` | Partilhar uma vaga | sim |
+| POST | `/contributions/jobs` | Partilhar uma vaga (entra só nas estatísticas) | sim |
 | POST | `/contributions/salaries` | Partilhar salário (anónimo) | sim |
 | POST | `/reports` | Reportar um erro | sim |
 | POST | `/testimonials` | Escrever um testemunho | sim |
@@ -370,19 +422,35 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 
 | Separador | Conteúdo |
 |---|---|
-| Início | Recomendações, progresso, próxima ação sugerida |
-| Explorar | Carreiras, rankings, instituições, cursos |
-| Vagas | Vagas tech recentes |
-| CV | Editor e modelos |
-| Perfil | Conta, idioma, contribuições, badges, privacidade |
+| Início | Teste vocacional, recomendações, progresso, próxima ação sugerida |
+| Carreiras | Todas as profissões e a página de cada uma: o que faz, características, o que os empregadores pedem, como lá chegar, o meu encaixe, CVs modelo |
+| Formação | Instituições e cursos, as melhores para cada curso, comparar, custos |
+| CV | Editor, modelos visuais e CVs modelo por área |
+| Perfil | Conta, resultado do teste, as minhas competências, guardados, idioma, privacidade |
+
+### Página de uma carreira
+
+1. **O que faz:** resumo, dia a dia e contexto de trabalho.
+2. **Características profissionais:** perfil RIASEC e estilos de trabalho.
+3. **O que é preciso saber:** competências essenciais e o que os empregadores pedem em Angola.
+4. **Como lá chegar:**
+   - percurso académico;
+   - formação profissional;
+   - histórico profissional (etapas da carreira);
+   - custo total e duração.
+5. **Onde estudar:** as melhores instituições para os cursos desse caminho.
+6. **Mercado:** procura, tendência, salários com fonte e empresas que contratam.
+7. **CVs modelo** para esta profissão.
+8. **O meu encaixe:** interesses, formação e competências, e o que falta.
+9. **Testemunhos** de quem estuda ou trabalha na área.
 
 ### Organização do código
 
 ```
 apps/web/src/
   app/          router, providers, layout
-  features/     auth, onboarding, assessment, careers, institutions,
-                jobs, cv, profile, contributions, gamification
+  features/     auth, onboarding, assessment, careers, fit, training,
+                cv, profile, contributions, gamification
   components/   peças de interface partilhadas
   lib/          cliente da API, i18n, eventos
   locales/      pt/ en/ fr/
@@ -514,3 +582,6 @@ Basta uma linha de cron no hPanel: `* * * * * php artisan schedule:run`.
 | 10 | WhatsApp só manual | Termos do WhatsApp; dados pessoais | Bots ou automação |
 | 11 | Métricas em tabela própria | Privacidade, menores, custo zero | Trackers de terceiros |
 | 12 | Login Google (+ Apple no iOS) | Sem senhas; regra 4.8 da Apple | Email e senha |
+| 13 | Vagas só como dados agregados, nunca publicadas | O Kayé orienta, não recruta; muito menos risco com os termos das fontes | Quadro de vagas com pesquisa e alertas |
+| 14 | Classificação das instituições com critérios e pesos públicos | "Melhor" depende de cada pessoa; transparência e nada pago | Ranking único e fechado |
+| 15 | CVs modelo fictícios, escritos pela equipa | Privacidade; qualidade controlada | CVs reais de utilizadores |

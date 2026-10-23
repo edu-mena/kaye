@@ -1,14 +1,14 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import CareersPage from '../features/careers/CareersPage'
 import CvPage from '../features/cv/CvPage'
-import ExplorePage from '../features/explore/ExplorePage'
-import JobsPage from '../features/jobs/JobsPage'
+import TrainingPage from '../features/training/TrainingPage'
 import { renderWithApp } from '../test/render'
 
 describe('tabs that are not built yet', () => {
   it.each([
-    [ExplorePage, 'Explorar'],
-    [JobsPage, 'Vagas'],
+    [CareersPage, 'Carreiras'],
+    [TrainingPage, 'Formação'],
     [CvPage, 'CV'],
   ])('show their title and a "coming soon" badge', (Page, title) => {
     renderWithApp(<Page />)

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { PagePlaceholder } from '../../components/PagePlaceholder'
 
-export default function ExplorePage() {
+export default function CareersPage() {
   const { t } = useTranslation()
 
-  return <PagePlaceholder title={t('explore.title')} body={t('explore.body')} />
+  return <PagePlaceholder title={t('careers.title')} body={t('careers.body')} />
 }

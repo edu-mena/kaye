@@ -6,14 +6,14 @@ export const en: Messages = {
   },
   nav: {
     home: 'Home',
-    explore: 'Explore',
-    jobs: 'Jobs',
+    careers: 'Careers',
+    training: 'Education',
     cv: 'CV',
     profile: 'Profile',
   },
   home: {
     greeting: 'Hi! This is Kayé',
-    intro: 'Discover the tech careers that fit you, what it costs to get there and who is hiring in Luanda.',
+    intro: 'Discover the tech careers that fit you, what each one requires and the path to get there.',
     testTitle: 'Career test',
     testBody: '42 questions, about 8 minutes. Find your profile and the 5 careers that fit you best.',
   },
@@ -24,17 +24,17 @@ export const en: Messages = {
   },
   comingSoon: 'Coming soon',
   loading: 'Loading…',
-  explore: {
-    title: 'Explore',
-    body: 'Careers, rankings, institutions and courses.',
+  careers: {
+    title: 'Careers',
+    body: 'What each career involves, what it requires and how to get there: studies, training and experience.',
   },
-  jobs: {
-    title: 'Jobs',
-    body: 'Recent tech jobs, with a link to the original posting.',
+  training: {
+    title: 'Education',
+    body: 'The best institutions and courses for each career, with the criteria and the costs in plain sight.',
   },
   cv: {
     title: 'CV',
-    body: 'Build your CV section by section and download it as a PDF.',
+    body: 'Build your CV and see model CVs for each career.',
   },
   profile: {
     title: 'Profile',

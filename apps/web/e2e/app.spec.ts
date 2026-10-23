@@ -13,11 +13,11 @@ test.describe('app shell', () => {
 
   test('tabs navigate without reloading the page', async ({ page, consoleErrors }) => {
     await page.goto('/')
-    await page.getByRole('link', { name: 'Vagas' }).click()
+    await page.getByRole('link', { name: 'Formação' }).click()
 
-    await expect(page).toHaveURL(/\/vagas$/)
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Vagas')
-    await expect(page.getByRole('link', { name: 'Vagas' })).toHaveAttribute('aria-current', 'page')
+    await expect(page).toHaveURL(/\/formacao$/)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Formação')
+    await expect(page.getByRole('link', { name: 'Formação' })).toHaveAttribute('aria-current', 'page')
     expect(consoleErrors).toEqual([])
   })
 

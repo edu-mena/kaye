@@ -49,7 +49,7 @@ São aplicados a todas as respostas por `App\Http\Middleware\SecurityHeaders`.
 
 | Zona | Política | Notas |
 |---|---|---|
-| App React (`/`, `/vagas`…) | Só ficheiros do próprio domínio; **sem código inline nem `eval`** | O E2E falha se a página tiver qualquer violação. O login Google vai acrescentar `accounts.google.com`, e só isso |
+| App React (`/`, `/carreiras`…) | Só ficheiros do próprio domínio; **sem código inline nem `eval`** | O E2E falha se a página tiver qualquer violação. O login Google vai acrescentar `accounts.google.com`, e só isso |
 | Painel (`/admin`) | Como a app, mas com `unsafe-inline` e `unsafe-eval` nos scripts | O Livewire e o Alpine precisam deles. Aceite porque só pessoal autorizado lá entra. Ver [ADR-0002](decisoes/0002-csp-do-painel-admin.md) |
 | API (`/api/*`) | `default-src 'none'` | Só devolve JSON; não carrega nada |
 
