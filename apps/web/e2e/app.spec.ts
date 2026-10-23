@@ -1,12 +1,14 @@
 import { expect, expectAccessible, test } from './fixtures'
 
 test.describe('app shell', () => {
-  test('home loads, talks to the API and is accessible', async ({ page, consoleErrors }) => {
+  test('a first visit welcomes, explains the demo and is accessible', async ({ page, consoleErrors }) => {
     await page.goto('/')
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Olá! Este é o Kayé')
-    await expect(page.getByText('Ligado ao servidor')).toBeVisible()
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(5)
+    await expect(page.getByText(/Demonstração: carreiras, cursos e números são exemplos/)).toBeVisible()
+    await expect(page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link')).toHaveCount(
+      5,
+    )
     await expectAccessible(page)
     expect(consoleErrors).toEqual([])
   })
@@ -22,14 +24,19 @@ test.describe('app shell', () => {
   })
 
   test('deep links open directly (server fallback)', async ({ page, consoleErrors }) => {
-    await page.goto('/cv')
+    await page.goto('/carreiras/analista-de-dados')
 
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('CV')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Analista de Dados')
+    await expectAccessible(page)
     expect(consoleErrors).toEqual([])
   })
 
-  test('the chosen language survives a reload', async ({ page, consoleErrors }) => {
+  test('the chosen language survives a reload, and the app reaches the API', async ({
+    page,
+    consoleErrors,
+  }) => {
     await page.goto('/perfil')
+    await expect(page.getByText('Ligado ao servidor')).toBeVisible()
     await page.getByRole('button', { name: 'Français' }).click()
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Profil')

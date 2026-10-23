@@ -1,31 +1,129 @@
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource-variable/figtree/wght.css';
 @import 'tailwindcss';
 
-/* Kayé brand. Provisional until the design system is defined. */
+/*
+ * Kayé design tokens. Brand: azul-marinho + amarelo. Structure inspired by NOVU,
+ * identity from the logo: the winding path. See docs/design.md.
+ * Contrast (AA) is checked for every text colour on --color-paper and white.
+ */
 @theme {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Figtree Variable', ui-sans-serif, sans-serif;
+
   --color-navy: #1b2a43;
+  --color-navy-900: #111c2e;
   --color-navy-soft: #2c3e5c;
+  --color-navy-100: #e8ecf3;
   --color-gold: #ffc000;
   --color-gold-soft: #fff4cc;
+  --color-gold-ink: #8a6400;
+
   --color-ink: #1b2a43;
   --color-muted: #5b6b82;
-  --color-surface: #f5f7fa;
+  --color-paper: #f7f4ee;
+  --color-surface: #ffffff;
+  --color-line: #e6e0d4;
+  --color-track: #9aa6b8;
+
+  --color-success: #1a7a50;
+  --color-success-soft: #dcf2e6;
+  --color-coral: #b33a24;
+  --color-coral-soft: #fbe5de;
+
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(27 42 67 / 0.05), 0 10px 30px -18px rgb(27 42 67 / 0.25);
+  --shadow-lift: 0 2px 4px rgb(27 42 67 / 0.06), 0 18px 40px -20px rgb(27 42 67 / 0.35);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 520ms var(--ease-out) both;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 192 0 / 0.55);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 12px rgb(255 192 0 / 0);
+    }
+  }
 }
 
-html,
-body,
-#root {
-  min-height: 100%;
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+  }
 }
 
-body {
-  margin: 0;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
+/* Staggered entrance: give children `style="--i: n"` (set in components, not inline in HTML). */
+@utility rise {
+  animation: var(--animate-rise);
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Sideways rows (filters, section tabs) still scroll by touch, without a grey bar. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }

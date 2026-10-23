@@ -1,8 +1,131 @@
-import type { SVGProps } from 'react'
+import type { ReactNode, SVGProps } from 'react'
 
-type IconProps = SVGProps<SVGSVGElement>
+// 24×24 line icons, 1.8px stroke. Add new ones here so every screen draws from one set.
+const PATHS = {
+  home: (
+    <>
+      <path d="M3 10.5 12 3l9 7.5" />
+      <path d="M5 9.5V21h14V9.5" />
+      <path d="M10 21v-6h4v6" />
+    </>
+  ),
+  compass: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
+    </>
+  ),
+  cap: (
+    <>
+      <path d="M2 9.5 12 5l10 4.5-10 4.5L2 9.5Z" />
+      <path d="M6 11.3V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.7" />
+      <path d="M22 9.5V15" />
+    </>
+  ),
+  document: (
+    <>
+      <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z" />
+      <path d="M14 3v6h6" />
+      <path d="M8 13h8M8 17h5" />
+    </>
+  ),
+  user: (
+    <>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21a8 8 0 0 1 16 0" />
+    </>
+  ),
+  search: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </>
+  ),
+  arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
+  arrowLeft: <path d="M19 12H5M11 6l-6 6 6 6" />,
+  chevronRight: <path d="m9 6 6 6-6 6" />,
+  check: <path d="m5 12.5 4.5 4.5L19 7" />,
+  close: <path d="M6 6l12 12M18 6 6 18" />,
+  plus: <path d="M12 5v14M5 12h14" />,
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </>
+  ),
+  bookmark: <path d="M6 4h12v17l-6-4-6 4V4Z" />,
+  briefcase: (
+    <>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" />
+    </>
+  ),
+  award: (
+    <>
+      <circle cx="12" cy="9" r="5" />
+      <path d="m8.5 13-1.5 8 5-3 5 3-1.5-8" />
+    </>
+  ),
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </>
+  ),
+  wallet: (
+    <>
+      <path d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V7Z" />
+      <path d="M4 7V6a2 2 0 0 1 2-2h10v3M16 13.5h2" />
+    </>
+  ),
+  pin: (
+    <>
+      <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </>
+  ),
+  pencil: <path d="M4 20h4L19 9l-4-4L4 16v4ZM13 7l4 4" />,
+  info: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 11v5M12 8h.01" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1" />
+    </>
+  ),
+  path: <path d="M5 20c0-4 4-4 7-6s7-2 7-6M5 4h4" />,
+  download: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
+  trash: <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" />,
+  eye: (
+    <>
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  code: <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" />,
+  chart: <path d="M4 20h16M7 16v-5M12 16V7M17 16v-8" />,
+  server: (
+    <>
+      <rect x="4" y="4" width="16" height="7" rx="2" />
+      <rect x="4" y="13" width="16" height="7" rx="2" />
+      <path d="M8 7.5h.01M8 16.5h.01" />
+    </>
+  ),
+  shield: <path d="M12 3 5 6v6c0 4.4 3 7.7 7 9 4-1.3 7-4.6 7-9V6l-7-3Z" />,
+  signal: <path d="M12 20v-6M8.5 10.5a5 5 0 0 1 7 0M5.5 7.5a9 9 0 0 1 13 0M12 14h.01" />,
+  megaphone: <path d="M4 10v4h3l7 4V6L7 10H4ZM18 9a4 4 0 0 1 0 6" />,
+} satisfies Record<string, ReactNode>
 
-function Icon({ children, ...props }: IconProps) {
+export type IconName = keyof typeof PATHS
+
+type IconProps = SVGProps<SVGSVGElement> & { name: IconName }
+
+export function Icon({ name, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -14,55 +137,7 @@ function Icon({ children, ...props }: IconProps) {
       aria-hidden="true"
       {...props}
     >
-      {children}
+      {PATHS[name]}
     </svg>
-  )
-}
-
-export function HomeIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M3 10.5 12 3l9 7.5" />
-      <path d="M5 9.5V21h14V9.5" />
-      <path d="M10 21v-6h4v6" />
-    </Icon>
-  )
-}
-
-export function CompassIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
-    </Icon>
-  )
-}
-
-export function GraduationCapIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M2 9.5 12 5l10 4.5-10 4.5L2 9.5Z" />
-      <path d="M6 11.3V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.7" />
-      <path d="M22 9.5V15" />
-    </Icon>
-  )
-}
-
-export function DocumentIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z" />
-      <path d="M14 3v6h6" />
-      <path d="M8 13h8M8 17h5" />
-    </Icon>
-  )
-}
-
-export function UserIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21a8 8 0 0 1 16 0" />
-    </Icon>
   )
 }
