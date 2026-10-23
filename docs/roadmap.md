@@ -32,10 +32,24 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Repositório único (`apps/api`, `apps/web`, `scrapers`, `docs`) em `C:\Projects\kaye`
 - [x] Laravel + MySQL local, com o Filament instalado
 - [x] React + TypeScript + Vite + Tailwind + i18n (pt/en/fr) + Capacitor Android (projeto Android criado; falta compilar no Android Studio)
-- [ ] Login Google de ponta a ponta (web e Android)
-- [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare
-- [x] CI no GitHub Actions (corre quando o repositório estiver no GitHub)
-- [ ] Sentry
+- [x] Metodologia DevOps ([engenharia.md](engenharia.md)):
+  - portões de qualidade, Definição de Pronto e hooks do git;
+  - documentação de código, base de dados, segurança, observabilidade e infraestrutura.
+- [x] Testes: PHPUnit (MySQL real), Vitest com 100% de cobertura, E2E com Playwright e axe
+- [x] Segurança base:
+  - cabeçalhos e CSP;
+  - limite de pedidos;
+  - CORS;
+  - painel com papel e lista de emails;
+  - `kaye:check-production`.
+- [x] Observabilidade base: logs JSON com `request_id`, saúde com base de dados, Sentry na API (falta a conta e o DSN)
+- [x] Containers: imagem de produção + `compose.yaml`, testados com o teste de fumo e o E2E
+- [x] CI no GitHub Actions: qualidade, testes, container, segurança e pacote de release (corre quando o repositório estiver no GitHub)
+- [ ] Repositório no GitHub, com proteção do `main`
+- [ ] Login Google de ponta a ponta (web com cookie, Android com token)
+- [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy
+- [ ] Sentry: conta, DSN e Sentry na app React
+- [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
 
 ### 0.2 Recolha de vagas (cedo: o histórico só se ganha com tempo)
 - [ ] Levantar as fontes: sites de emprego angolanos e canais/páginas de WhatsApp com vagas tech; verificar termos e `robots.txt`
@@ -56,6 +70,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Primeiro cálculo de `market_stats`
 
 ### O que só tu podes fazer
+- Ativar a autenticação de dois fatores (2FA) no GitHub, Google, Hostinger e Cloudflare
+- Criar as contas gratuitas do Sentry e do UptimeRobot
 - Listar os sites de emprego e os canais de WhatsApp que conheces
 - Confirmar o plano da Hostinger: acesso SSH, PHP 8.4 ou mais recente (o Laravel 13 exige), data center
 - Registar o domínio

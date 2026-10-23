@@ -1,0 +1,41 @@
+# Weekly updates for every dependency source. New versions wait 7 days (cooldown)
+# in case a malicious release is caught and pulled; security fixes skip the wait.
+# Every update goes through CI like any other change.
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /apps/api
+    schedule: { interval: weekly, day: monday }
+    cooldown: { default-days: 7 }
+    groups:
+      laravel: { patterns: ['laravel/*', 'filament/*', 'livewire/*'] }
+      dev-tools: { dependency-type: development }
+    commit-message: { prefix: build, include: scope }
+
+  - package-ecosystem: npm
+    directory: /apps/web
+    schedule: { interval: weekly, day: monday }
+    cooldown: { default-days: 7 }
+    groups:
+      react: { patterns: ['react', 'react-dom', '@types/react*', 'react-router'] }
+      capacitor: { patterns: ['@capacitor/*'] }
+      dev-tools: { dependency-type: development }
+    commit-message: { prefix: build, include: scope }
+
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: monthly }
+    cooldown: { default-days: 7 }
+    commit-message: { prefix: build, include: scope }
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly, day: monday }
+    cooldown: { default-days: 7 }
+    commit-message: { prefix: ci }
+
+  - package-ecosystem: docker
+    directory: /docker
+    schedule: { interval: weekly, day: monday }
+    cooldown: { default-days: 7 }
+    commit-message: { prefix: build, include: scope }

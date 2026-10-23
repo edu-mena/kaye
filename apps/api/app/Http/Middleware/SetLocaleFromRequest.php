@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\Locale;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,11 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class SetLocaleFromRequest
 {
+    /**
+     * @param  Closure(Request): Response  $next
+     */
     public function handle(Request $request, Closure $next): Response
     {
-        $locales = config('kaye.locales');
-
-        app()->setLocale($request->getPreferredLanguage($locales) ?? $locales[0]);
+        app()->setLocale($request->getPreferredLanguage(Locale::values()) ?? Locale::fallback()->value);
 
         $response = $next($request);
         $response->headers->set('Content-Language', app()->getLocale());

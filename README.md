@@ -2,8 +2,7 @@
 
 Orientação de carreira para jovens angolanos. O MVP é o **"Kayé Tech: descobre o teu lugar na tecnologia"**.
 
-- [Arquitetura](docs/arquitetura.md)
-- [Roadmap](docs/roadmap.md)
+Toda a documentação está em [docs/](docs/README.md). Para começar: [arquitetura](docs/arquitetura.md), [roadmap](docs/roadmap.md) e [como trabalhamos](docs/engenharia.md).
 
 ## Estrutura
 
@@ -11,8 +10,12 @@ Orientação de carreira para jovens angolanos. O MVP é o **"Kayé Tech: descob
 |---|---|
 | `apps/api` | Laravel 13: API (`/api/v1`), painel de administração (`/admin`) e a app web compilada |
 | `apps/web` | React + TypeScript + Vite + Tailwind + Capacitor: a app (web e Android) |
+| `docker` | Imagem de produção (PHP 8.4 + Apache) |
+| `scripts` | Pacote de release e teste de fumo |
 | `scrapers` | Recolha de vagas em Python, no GitHub Actions (Fase 0.2) |
-| `docs` | Arquitetura e roadmap |
+| `docs` | Documentação e decisões (ADR) |
+
+O detalhe está em [organizacao-do-codigo.md](docs/organizacao-do-codigo.md).
 
 ## Requisitos
 
@@ -20,6 +23,7 @@ Orientação de carreira para jovens angolanos. O MVP é o **"Kayé Tech: descob
 - Composer 2
 - MySQL ou MariaDB (no teu PC: o do XAMPP)
 - Node 22
+- Docker Desktop, para a stack em containers
 - Android Studio, só para compilar a app Android
 
 ## Primeira vez
@@ -41,12 +45,16 @@ Orientação de carreira para jovens angolanos. O MVP é o **"Kayé Tech: descob
    php artisan migrate --seed
    ```
 
-3. Instala a app:
+   No `.env` local, põe `ADMIN_EMAILS=admin@kaye.test`.
+
+3. Instala a app e as ferramentas da raiz (os scripts de instalação npm estão bloqueados por segurança):
 
    ```sh
-   cd apps/web
-   npm install
+   cd apps/web && npm ci
+   cd ../.. && npm ci && npm run hooks:install
    ```
+
+   O último comando instala os hooks do git, que formatam e verificam o código antes de cada commit.
 
 ## No dia a dia
 
@@ -66,12 +74,27 @@ O painel de administração fica em http://127.0.0.1:8000/admin. Localmente, ent
 
 ## Verificações
 
+Antes de abrir um PR, corre o mesmo que o CI:
+
 ```sh
-cd apps/api && php artisan test && vendor/bin/pint --test
-cd apps/web && npm run lint && npm run typecheck
+cd apps/api && vendor/bin/pint --test && vendor/bin/phpstan analyse && php artisan test
+cd apps/web && npm run check && npm run build && npm run e2e
+cd ../.. && npm run duplication
 ```
 
-O GitHub Actions corre estas verificações em cada push (`.github/workflows/ci.yml`).
+A lista completa e o que cada verificação faz estão em [engenharia.md](docs/engenharia.md#portões-de-qualidade).
+
+## Containers
+
+A stack de produção no teu PC (a imagem do Kayé + MariaDB):
+
+```sh
+docker compose up --build --wait        # http://localhost:8080
+scripts/smoke-test.sh http://localhost:8080
+docker compose down
+```
+
+O detalhe está em [infraestrutura.md](docs/infraestrutura.md).
 
 ## Compilar
 
@@ -80,3 +103,7 @@ O GitHub Actions corre estas verificações em cada push (`.github/workflows/ci.
 | `npm run build` | Compila a app web para `apps/api/public/spa`; o Laravel serve-a em http://127.0.0.1:8000 |
 | `npm run build:native` | Compila para o Android e copia para `apps/web/android` |
 | `npm run android` | Abre o projeto Android no Android Studio |
+
+## Segurança
+
+Para reportar uma vulnerabilidade, vê [SECURITY.md](SECURITY.md).

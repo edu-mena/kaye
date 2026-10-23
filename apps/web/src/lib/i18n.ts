@@ -1,4 +1,4 @@
-import i18n from 'i18next'
+import { createInstance } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { en } from '../locales/en'
 import { fr } from '../locales/fr'
@@ -15,6 +15,9 @@ export const LOCALE_NAMES: Record<Locale, string> = {
 }
 
 const STORAGE_KEY = 'kaye.locale'
+
+// Own instance instead of the i18next global, so nothing else can change it.
+export const i18n = createInstance()
 
 declare module 'i18next' {
   interface CustomTypeOptions {
@@ -60,5 +63,3 @@ void i18n.use(initReactI18next).init({
   fallbackLng: 'pt',
   interpolation: { escapeValue: false },
 })
-
-export default i18n

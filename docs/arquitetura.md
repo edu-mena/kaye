@@ -124,7 +124,8 @@ Python 3 com `httpx` e `selectolax` (ou BeautifulSoup). Playwright só para site
 
 ### Observabilidade
 
-- **Erros:** Sentry (plano grátis) na app, na API e nos scrapers.
+- **Erros:** Sentry (plano grátis) na app, na API e nos scrapers, sem dados pessoais.
+- **Logs** em JSON com um `request_id` por pedido. O detalhe está em [observabilidade.md](observabilidade.md).
 - **Métricas de produto:** tabela própria `events`, sem trackers de terceiros. É mais simples perante a lei, sobretudo com menores, e custa zero.
 
 ## 4. Modelo de dados
@@ -216,8 +217,10 @@ erDiagram
 1. A app pede ao Google um *ID token*: na web com o Google Identity Services, no telemóvel com o plugin nativo.
 2. A app envia-o para `POST /api/v1/auth/google`.
 3. A API confirma que a assinatura é do Google, que o token foi emitido para o Kayé e que não expirou.
-4. A API encontra ou cria o utilizador pelo `google_sub` e devolve um token Kayé (Sanctum, válido 30 dias).
-5. A app guarda o token (Preferences no telemóvel, localStorage na web) e envia-o em cada pedido.
+4. A API encontra ou cria o utilizador pelo `google_sub` e abre a sessão:
+   - **na web**, uma sessão Sanctum em cookie `HttpOnly`, que o JavaScript não consegue ler;
+   - **no telemóvel**, um token Sanctum válido 30 dias.
+5. No telemóvel, a app guarda o token no armazenamento seguro do sistema e envia-o em cada pedido. Na web, o browser envia o cookie sozinho. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
 
 **Primeiro acesso → onboarding.** O utilizador escolhe o idioma, indica o ano de nascimento, a província e a escolaridade atual, e aceita os termos e a política de privacidade. Quem tem menos de 18 anos vê um ecrã extra (confirma que o encarregado de educação tem conhecimento) e fica sem perfil público.
 
@@ -394,6 +397,8 @@ apps/web/src/
 
 ## 8. Segurança e privacidade
 
+> O detalhe está em [seguranca.md](seguranca.md): modelo de ameaças, cabeçalhos, CSP, segredos, cadeia de fornecimento e resposta a incidentes. Esta secção resume as regras.
+
 ### Segurança
 
 - **HTTPS em tudo:** certificado grátis da Hostinger + Cloudflare.
@@ -423,6 +428,8 @@ apps/web/src/
   3. os termos de cada site de vagas de onde recolhemos dados.
 
 ## 9. Infraestrutura e deploy
+
+> Os containers, a pipeline de CI, o pacote de release, o deploy e as variáveis de ambiente estão em [infraestrutura.md](infraestrutura.md).
 
 ### Repositório (um só)
 
