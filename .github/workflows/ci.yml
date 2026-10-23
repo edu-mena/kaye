@@ -1,3 +1,5 @@
+# Quality gates for every push and pull request. Nothing reaches main unless
+# all jobs pass. What each job checks and why: docs/engenharia.md.
 name: CI
 
 on:
@@ -5,9 +7,28 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  pr-title:
+    name: PR title (Conventional Commits)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "$TITLE" | grep -Eq '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert|security)(\([a-z0-9-]+\))?!?: .+' \
+            || { echo "::error::Use Conventional Commits, e.g. 'feat(api): add login'"; exit 1; }
+
   api:
-    name: API (Laravel)
+    name: API (lint, static analysis, tests)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -21,35 +42,146 @@ jobs:
         ports: ['3306:3306']
         options: >-
           --health-cmd="healthcheck.sh --connect --innodb_initialized"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+          --health-interval=10s --health-timeout=5s --health-retries=5
     steps:
-      - uses: actions/checkout@v5
-      - uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           # Same version as production (composer.json pins the platform to 8.4).
           php-version: '8.4'
           extensions: intl, pdo_mysql, mbstring, zip, gd, sodium
-          coverage: none
+          coverage: pcov
+      - run: composer validate --strict
       - run: composer install --no-interaction --prefer-dist --no-progress
+      - run: composer audit
       - run: cp .env.example .env && php artisan key:generate
       - run: vendor/bin/pint --test
-      - run: php artisan test
+      - run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+      - run: php artisan test --coverage --min=90
 
   web:
-    name: Web (React)
+    name: Web (format, lint, types, tests, build)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: apps/web
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: apps/web/package-lock.json
       - run: npm ci
-      - run: npm run lint
+      - run: npm audit --audit-level=moderate
+      - run: npm run check
       - run: npm run build
+
+  reuse:
+    name: Duplicated code and workflow lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run duplication
+      - name: Lint the workflows (actionlint + shellcheck)
+        run: docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.12 -color
+
+  container:
+    name: Container (build, scan, end-to-end)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build and start the stack (production image + MariaDB)
+        run: docker compose up --build --detach --wait --wait-timeout 180
+      - name: Smoke test (same script as after a deploy)
+        run: scripts/smoke-test.sh http://localhost:8080
+      - name: Scan the image for known vulnerabilities
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: kaye:local
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: '1'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: End-to-end tests against the container
+        working-directory: apps/web
+        env:
+          E2E_BASE_URL: http://localhost:8080
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npx playwright test
+      - name: Container logs
+        if: failure()
+        run: docker compose logs app
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: failure()
+        with:
+          name: playwright-report
+          path: apps/web/playwright-report
+          retention-days: 7
+
+  security:
+    name: Security (secrets, code, dependencies)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Secrets in the whole git history (Gitleaks)
+        run: docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 git /repo --redact --verbose
+      - name: Insecure code patterns (Semgrep)
+        run: >-
+          docker run --rm -v "$PWD:/src" semgrep/semgrep:1.182.0
+          semgrep scan --error --metrics=off
+          --config p/php --config p/typescript --config p/react --config p/secrets
+          --config p/owasp-top-ten --config p/dockerfile
+          --exclude-rule package_managers.npm.npm-missing-minimum-release-age.npm-missing-minimum-release-age
+          --exclude-rule java.android.security.exported_activity.exported_activity
+        # Excluded, see docs/seguranca.md: npm 11.12 has no minimum release age (npm ci +
+        # Dependabot cooldown cover it); the launcher activity must be exported to open the app.
+      - name: Vulnerable dependencies and misconfiguration (Trivy)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,misconfig,secret
+          # The first run downloads the vulnerability databases (Java included, for Android).
+          timeout: 15m
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: '1'
+
+  package:
+    name: Release package
+    needs: [api, web, reuse, container, security]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          extensions: intl, pdo_mysql, mbstring, zip, gd, sodium
+          coverage: none
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Build what goes to the server (no dev dependencies)
+        run: scripts/package-release.sh "${GITHUB_SHA::12}"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: kaye-release-${{ github.sha }}
+          path: build/kaye-*.tar.gz
+          retention-days: 30

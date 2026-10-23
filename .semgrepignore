@@ -1,0 +1,18 @@
+# Semgrep scans our code only (it cannot read .gitignore inside Docker).
+node_modules/
+vendor/
+build/
+apps/api/storage/
+apps/api/bootstrap/cache/
+apps/api/public/spa/
+apps/api/public/css/
+apps/api/public/js/
+apps/api/public/fonts/
+apps/web/android/
+apps/web/dist/
+apps/web/coverage/
+apps/web/playwright-report/
+apps/web/test-results/
+*.min.js
+*.lock
+package-lock.json
