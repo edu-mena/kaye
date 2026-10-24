@@ -14,81 +14,113 @@ import { SkillsDialog } from './SkillsDialog'
 
 function Part({ icon, title, children }: { icon: IconName; title: string; children: ReactNode }) {
   return (
-    <div className="flex gap-3">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-navy-100 text-navy">
+    <div className="flex gap-3 bg-night p-5">
+      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white text-night">
         <Icon name={icon} className="size-5" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-muted">{title}</p>
-        <div className="mt-0.5 text-sm text-navy">{children}</div>
+        <p className="text-xs font-bold tracking-[0.14em] text-white/75 uppercase">{title}</p>
+        <div className="mt-1.5 text-white">{children}</div>
       </div>
     </div>
   )
 }
 
+type FitPanelProps = {
+  career: Career
+  /** Controlled by the page, so the hero's "Encaixe" button can open it. */
+  expanded: boolean
+  onToggle: () => void
+}
+
 /** "O meu encaixe": interests, education and skills, each on its own (docs/arquitetura.md, 5.4). */
-export function FitPanel({ career }: { career: Career }) {
+export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
   const { t } = useTranslation()
   const user = useUser()
   const { profile } = useRiasecProfile()
   const [open, setOpen] = useState(false)
   const fit = careerFit(career, { profile, education: user.profile?.education ?? null, skills: user.skills })
+  const link = 'font-semibold text-white underline underline-offset-4'
 
   return (
-    <Card as="section" aria-labelledby="fit-title" className="space-y-5">
-      <h2 id="fit-title" className="text-xl font-semibold text-navy">
-        {t('fit.title')}
+    <Card as="section" tone="night" id="encaixe" aria-labelledby="fit-title" className="scroll-mt-24 sm:p-8">
+      <h2 id="fit-title" className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+        <button
+          type="button"
+          aria-expanded={expanded}
+          aria-controls="fit-body"
+          onClick={onToggle}
+          className="flex w-full items-center justify-between gap-3 rounded-xl text-left"
+        >
+          {t('fit.title')}
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white text-night">
+            <Icon
+              name="chevronRight"
+              className={`size-5 transition ${expanded ? '-rotate-90' : 'rotate-90'}`}
+            />
+          </span>
+        </button>
       </h2>
+      <p className="mt-1 max-w-2xl text-white/80">{t('fit.subtitle')}</p>
 
-      <Part icon="target" title={t('fit.interests')}>
-        {fit.interests ? (
-          <>
-            <Chip tone={fit.interests.level === 'alto' ? 'success' : 'neutral'}>
-              {t(`fit.${fit.interests.level}`)}
-            </Chip>
-            <p className="mt-1">
-              {t('fit.interestsWhy', { dimension: t(`riasec.${fit.interests.strength}`) })}
+      <div
+        id="fit-body"
+        hidden={!expanded}
+        className="mt-6 grid gap-px overflow-hidden rounded-2xl bg-white/15 lg:grid-cols-3"
+      >
+        <Part icon="target" title={t('fit.interests')}>
+          {fit.interests ? (
+            <>
+              <Chip tone={fit.interests.level === 'alto' ? 'gold' : 'onDark'}>
+                {t(`fit.${fit.interests.level}`)}
+              </Chip>
+              <p className="mt-2 text-sm">
+                {t('fit.interestsWhy', { dimension: t(`riasec.${fit.interests.strength}`) })}
+              </p>
+            </>
+          ) : (
+            <Link to="/teste" className={link}>
+              {t('fit.interestsNone')}
+            </Link>
+          )}
+        </Part>
+
+        <Part icon="cap" title={t('fit.education')}>
+          {fit.education ? (
+            <p className="text-sm">
+              {t('fit.educationSteps', {
+                count: fit.education.steps.length,
+                pathway: fit.education.pathwayName.toLowerCase(),
+              })}
             </p>
-          </>
-        ) : (
-          <Link to="/teste" className="font-semibold underline underline-offset-4">
-            {t('fit.interestsNone')}
-          </Link>
-        )}
-      </Part>
+          ) : (
+            <Link to="/entrar" className={link}>
+              {t('fit.educationNone')}
+            </Link>
+          )}
+        </Part>
 
-      <Part icon="cap" title={t('fit.education')}>
-        {fit.education ? (
-          <p>
-            {t('fit.educationSteps', {
-              count: fit.education.steps.length,
-              pathway: fit.education.pathwayName.toLowerCase(),
-            })}
+        <Part icon="check" title={t('fit.skills')}>
+          <p className="font-semibold">
+            {t('fit.skillsCount', { have: fit.skills.have, total: fit.skills.total })}
           </p>
-        ) : (
-          <Link to="/entrar" className="font-semibold underline underline-offset-4">
-            {t('fit.educationNone')}
-          </Link>
-        )}
-      </Part>
-
-      <Part icon="check" title={t('fit.skills')}>
-        <p>{t('fit.skillsCount', { have: fit.skills.have, total: fit.skills.total })}</p>
-        <ProgressBar
-          className="my-2"
-          tone="success"
-          value={fit.skills.total ? fit.skills.have / fit.skills.total : 0}
-          label={t('fit.skills')}
-        />
-        <p className="text-muted">
-          {fit.skills.missing.length === 0
-            ? t('fit.skillsAll')
-            : t('fit.skillsMissing', { list: fit.skills.missing.map((skill) => skill.name).join(', ') })}
-        </p>
-        <Button variant="secondary" size="sm" className="mt-3" onClick={() => setOpen(true)}>
-          {t('fit.markSkills')}
-        </Button>
-      </Part>
+          <ProgressBar
+            className="my-2"
+            tone="gold"
+            track="bg-white/15"
+            value={fit.skills.total ? fit.skills.have / fit.skills.total : 0}
+            label={t('fit.skills')}
+          />
+          <p className="text-sm text-white/80">
+            {fit.skills.missing.length === 0
+              ? t('fit.skillsAll')
+              : t('fit.skillsMissing', { list: fit.skills.missing.map((skill) => skill.name).join(', ') })}
+          </p>
+          <Button variant="onNavy" size="sm" className="mt-3" onClick={() => setOpen(true)}>
+            {t('fit.markSkills')}
+          </Button>
+        </Part>
+      </div>
 
       <SkillsDialog skills={career.skills} open={open} onClose={() => setOpen(false)} />
     </Card>

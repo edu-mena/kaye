@@ -134,8 +134,8 @@ function EditorSection({
   return (
     <Card as="section" aria-label={t(`cv.${section}`)} className="space-y-3">
       {tip && (
-        <p className="rounded-xl bg-gold-soft p-3 text-sm text-navy">
-          <span className="font-bold">{t('cv.tip')}: </span>
+        <p className="rounded-xl border border-line bg-paper p-3 text-sm text-navy">
+          <span className="font-bold text-gold-ink">{t('cv.tip')}: </span>
           {tip}
         </p>
       )}

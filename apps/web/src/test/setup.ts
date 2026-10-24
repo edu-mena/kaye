@@ -17,6 +17,8 @@ if (!HTMLDialogElement.prototype.showModal) {
   HTMLDialogElement.prototype.close = close
 }
 window.scrollTo = () => {}
+Element.prototype.scrollTo = () => {}
+Element.prototype.scrollIntoView = () => {}
 
 // jsdom reports an en-US device; every test starts in Portuguese, with no saved data.
 beforeEach(async () => {

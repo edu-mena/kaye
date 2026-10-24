@@ -105,7 +105,7 @@ export function ProfileForm({ onSaved }: { onSaved: () => void }) {
       />
 
       {minor && (
-        <Card tone="gold" className="space-y-3">
+        <Card tone="notice" className="space-y-3">
           <p className="font-semibold">{t('onboarding.minorTitle')}</p>
           <p className="text-sm">{t('onboarding.minorBody')}</p>
           <CheckboxField

@@ -9,13 +9,38 @@ import CareerPage from './CareerPage'
 const open = (slug: string) =>
   renderWithApp(<CareerPage />, { route: `/carreiras/${slug}`, path: '/carreiras/:slug' })
 
+const openTab = async (name: string) => userEvent.click(await screen.findByRole('tab', { name }))
+
 describe('CareerPage', () => {
-  it('shows every part of the career, with employer asks as aggregated numbers only', async () => {
+  it('opens with a credited photo and the three key numbers', async () => {
     open('desenvolvedor-frontend')
     expect(
       await screen.findByRole('heading', { level: 1, name: 'Desenvolvedor Frontend' }),
     ).toBeInTheDocument()
-    for (const section of [
+    expect(screen.getByRole('img', { name: /Programador a sorrir/ })).toHaveAttribute('srcset')
+    expect(screen.getByRole('link', { name: 'Foto: Daudi Mukiibi · CC BY-SA 4.0' })).toHaveAttribute(
+      'href',
+      'https://commons.wikimedia.org/wiki/File:Software_Developer_at_work_03.jpg',
+    )
+    expect(screen.getByText('Salário').closest('div')).toHaveTextContent('350 mil Kz/mês')
+    expect(screen.getByText('Procura').closest('div')).toHaveTextContent('+12% em 3 meses')
+    expect(screen.getByText('Até lá').closest('div')).toHaveTextContent(/anos?$/)
+  })
+
+  it('opens what the career is in a popup from the "i" next to the name', async () => {
+    open('desenvolvedor-frontend')
+    await userEvent.click(await screen.findByRole('button', { name: 'O que é esta profissão?' }))
+    const about = screen.getByRole('dialog', { name: 'Desenvolvedor Frontend' })
+    expect(about).toHaveTextContent('Constrói os ecrãs de sites e apps: o que as pessoas veem e tocam.')
+    expect(about).toHaveTextContent('Desenvolvimento')
+    expect(about).toHaveTextContent('Procura alta')
+    await userEvent.click(screen.getByRole('button', { name: 'Fechar' }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('shows one part at a time, each behind its tab', async () => {
+    open('desenvolvedor-frontend')
+    const sections = [
       'O que faz',
       'Características',
       'O que pedem',
@@ -23,10 +48,35 @@ describe('CareerPage', () => {
       'Onde estudar',
       'Mercado',
       'CVs modelo',
-    ]) {
-      expect(screen.getByRole('heading', { level: 2, name: section })).toBeInTheDocument()
+    ]
+    for (const section of sections) {
+      await openTab(section)
+      expect(screen.getByRole('tab', { name: section })).toHaveAttribute('aria-selected', 'true')
+      expect(screen.getAllByRole('tabpanel')).toHaveLength(1)
+      expect(screen.getByRole('tabpanel')).toContainElement(
+        screen.getByRole('heading', { level: 2, name: section }),
+      )
     }
-    expect(screen.getByText('Em 58 vagas de exemplo desta profissão:')).toBeInTheDocument()
+    // The open tab lives in the URL, so back and shared links keep it.
+    expect(screen.getByTestId('location')).toHaveTextContent('/carreiras/desenvolvedor-frontend?secao=cvs')
+  })
+
+  it('moves between tabs with the arrow keys', async () => {
+    open('desenvolvedor-frontend')
+    await userEvent.click(await screen.findByRole('tab', { name: 'O que faz' }))
+    await userEvent.keyboard('{ArrowRight}')
+    expect(screen.getByRole('tab', { name: 'Características' })).toHaveFocus()
+    expect(screen.getByRole('tab', { name: 'Características' })).toHaveAttribute('aria-selected', 'true')
+    await userEvent.keyboard('{ArrowLeft}{ArrowLeft}')
+    expect(screen.getByRole('tab', { name: 'CVs modelo' })).toHaveAttribute('aria-selected', 'true')
+    await userEvent.keyboard('{Home}')
+    expect(screen.getByRole('tab', { name: 'O que faz' })).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('shows employer asks as aggregated numbers only', async () => {
+    open('desenvolvedor-frontend')
+    await openTab('O que pedem')
+    expect(screen.getByText('Vagas de exemplo analisadas').closest('div')).toHaveTextContent('58')
     expect(screen.getByRole('list', { name: 'Competências mais pedidas' })).toHaveTextContent('JavaScript86%')
     expect(screen.getByText('Só números agregados: o Kayé não publica vagas.')).toBeInTheDocument()
     expect(getUser().visitedCareers).toEqual(['desenvolvedor-frontend'])
@@ -48,6 +98,7 @@ describe('CareerPage', () => {
   it('draws the path with what is done, where the person is, and what is ahead', async () => {
     seedUser()
     open('desenvolvedor-frontend')
+    await openTab('Como lá chegar')
     await userEvent.click(await screen.findByRole('button', { name: 'Via técnica' }))
     const path = screen.getByRole('heading', { name: 'Como lá chegar' }).closest('section')!
     expect(within(path).getAllByText(/· Feito/)).toHaveLength(2)
@@ -58,6 +109,7 @@ describe('CareerPage', () => {
 
   it('ranks where to study with the same scores as the Formação page', async () => {
     open('desenvolvedor-frontend')
+    await openTab('Onde estudar')
     const study = (await screen.findByRole('heading', { name: 'Onde estudar' })).closest('section')!
     expect(await within(study).findByText('Desenvolvimento Web com React')).toBeInTheDocument()
     expect(within(study).getByRole('link', { name: /Ver todos os cursos/ })).toHaveAttribute(
@@ -70,6 +122,7 @@ describe('CareerPage', () => {
     open('product-manager')
     expect(await screen.findByRole('heading', { level: 1, name: 'Product Manager' })).toBeInTheDocument()
     expect(screen.getByText(/Estamos a preparar esta página/)).toBeInTheDocument()
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 
   it('says when a career does not exist', async () => {
@@ -81,6 +134,21 @@ describe('CareerPage', () => {
 })
 
 describe('FitPanel', () => {
+  it('comes after the tabs and can be minimized', async () => {
+    open('desenvolvedor-frontend')
+    const fit = await screen.findByRole('region', { name: 'O meu encaixe' })
+    expect(screen.getByRole('tabpanel').compareDocumentPosition(fit)).toBe(Node.DOCUMENT_POSITION_FOLLOWING)
+    const toggle = within(fit).getByRole('button', { name: 'O meu encaixe' })
+    expect(within(fit).getByText('Interesses')).toBeVisible()
+    await userEvent.click(toggle)
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(within(fit).getByText('Interesses')).not.toBeVisible()
+
+    // The hero's "Encaixe" button opens it again.
+    await userEvent.click(screen.getByRole('button', { name: 'Encaixe' }))
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+  })
+
   it('invites the test and the profile when they are missing', async () => {
     open('designer-ui-ux')
     const fit = await screen.findByRole('region', { name: 'O meu encaixe' })

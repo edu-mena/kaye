@@ -2,8 +2,8 @@ type ProgressBarProps = {
   /** 0 to 1. */
   value: number
   label: string
-  tone?: 'navy' | 'gold' | 'success'
-  /** Track colour; on navy cards use "bg-white/15". */
+  tone?: 'navy' | 'gold' | 'white' | 'success'
+  /** Track colour; on navy cards use "bg-white/15" with tone="white". */
   track?: string
   className?: string
 }
@@ -11,6 +11,7 @@ type ProgressBarProps = {
 const FILL = {
   navy: '[&::-webkit-progress-value]:bg-navy [&::-moz-progress-bar]:bg-navy',
   gold: '[&::-webkit-progress-value]:bg-gold [&::-moz-progress-bar]:bg-gold',
+  white: '[&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white',
   success: '[&::-webkit-progress-value]:bg-success [&::-moz-progress-bar]:bg-success',
 }
 

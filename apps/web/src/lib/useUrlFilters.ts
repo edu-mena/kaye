@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router'
 /**
  * Filters kept in the URL, so the back button and shared links keep them.
  * `setParam(key, null)` removes a filter; changes replace the history entry
- * instead of adding one per tap.
+ * instead of adding one per tap, and keep the scroll where it is.
  */
 export function useUrlFilters() {
   const [params, setParams] = useSearchParams()
@@ -16,7 +16,7 @@ export function useUrlFilters() {
         else next.delete(key)
         return next
       },
-      { replace: true },
+      { replace: true, preventScrollReset: true },
     )
 
   return [params, setParam] as const

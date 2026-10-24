@@ -3,7 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router'
 import { AppLoading } from '../components/AppLoading'
 import { RequireProfile } from '../components/RequireProfile'
 import HomePage from '../features/home/HomePage'
-import { Layout } from './Layout'
+import { Layout, type RouteHandle } from './Layout'
 
 type PageModule = { default: ComponentType }
 
@@ -32,7 +32,11 @@ export const router = createBrowserRouter([
       { path: 'teste', lazy: withProfile(() => import('../features/assessment/AssessmentPage')) },
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
       { path: 'carreiras', lazy: page(() => import('../features/careers/CareersPage')) },
-      { path: 'carreiras/:slug', lazy: page(() => import('../features/careers/CareerPage')) },
+      {
+        path: 'carreiras/:slug',
+        handle: { hideDemoBanner: true, wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/careers/CareerPage')),
+      },
       { path: 'formacao', lazy: page(() => import('../features/training/TrainingPage')) },
       { path: 'formacao/comparar', lazy: page(() => import('../features/training/ComparePage')) },
       { path: 'cv', lazy: page(() => import('../features/cv/CvPage')) },

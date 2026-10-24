@@ -70,7 +70,7 @@ export default function TrainingPage() {
                 </div>
               </div>
 
-              <Card tone="gold" className="mb-6">
+              <Card tone="notice" className="mb-6">
                 <h2 className="flex items-center gap-2 text-base font-semibold">
                   <Icon name="info" className="size-5" />
                   {t('training.howTitle')}
@@ -121,7 +121,7 @@ export default function TrainingPage() {
             <span className="text-sm font-semibold">
               {t('training.compareTray', { count: compare.length })}
             </span>
-            <ButtonLink to="/formacao/comparar" variant="accent" size="sm">
+            <ButtonLink to="/formacao/comparar" variant="onNavy" size="sm">
               {t('training.compareCta')}
             </ButtonLink>
           </div>

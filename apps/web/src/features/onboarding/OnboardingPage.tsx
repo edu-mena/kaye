@@ -38,7 +38,7 @@ export default function OnboardingPage() {
         <h1 className="text-3xl leading-tight font-bold sm:text-4xl">{t('onboarding.welcomeTitle')}</h1>
         <p className="mt-3 text-white/80">{t('onboarding.welcomeBody')}</p>
         <Button
-          variant="accent"
+          variant="onNavy"
           size="lg"
           className="mt-6 w-full sm:w-auto"
           onClick={() => setStep('profile')}
@@ -77,7 +77,7 @@ function StartChoices() {
               to={choice.to}
               className="flex items-center gap-4 rounded-card bg-surface p-4 shadow-card transition-shadow hover:shadow-lift"
             >
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-gold-soft text-navy">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl border border-line bg-surface text-navy">
                 <Icon name={choice.icon} className="size-6" />
               </span>
               <span className="flex-1">

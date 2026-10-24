@@ -48,7 +48,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
         <ul className="mt-5 space-y-2">
           {points.map((point) => (
             <li key={point} className="flex items-start gap-2 text-sm">
-              <Icon name="check" className="mt-0.5 size-4 shrink-0 text-gold" />
+              <Icon name="check" className="mt-0.5 size-4 shrink-0 text-white" />
               {point}
             </li>
           ))}
@@ -56,7 +56,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
         <div className="mt-6 flex flex-wrap gap-3">
           {completed ? (
             <>
-              <ButtonLink to="/teste/resultado" variant="accent" size="lg">
+              <ButtonLink to="/teste/resultado" variant="onNavy" size="lg">
                 {t('home.seeResult')}
               </ButtonLink>
               <Button
@@ -72,7 +72,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
               </Button>
             </>
           ) : (
-            <Button variant="accent" size="lg" onClick={onStart}>
+            <Button variant="onNavy" size="lg" onClick={onStart}>
               {answered > 0 ? t('assessment.continue') : t('assessment.start')}
             </Button>
           )}
@@ -112,7 +112,7 @@ function Question({ questions, index, onMove }: QuestionProps) {
         <p className="mb-2 text-sm font-semibold text-muted">
           {t('assessment.progress', { current: index + 1, total: questions.length })}
         </p>
-        <ProgressBar value={(index + 1) / questions.length} label={t('assessment.title')} tone="gold" />
+        <ProgressBar value={(index + 1) / questions.length} label={t('assessment.title')} />
       </div>
 
       <fieldset key={question.id} className="rise">
@@ -136,7 +136,7 @@ function Question({ questions, index, onMove }: QuestionProps) {
               <span
                 aria-hidden="true"
                 className={`grid size-7 shrink-0 place-items-center rounded-full text-sm ${
-                  current === value ? 'bg-gold text-navy' : 'bg-navy-100'
+                  current === value ? 'bg-navy text-white' : 'bg-navy-100'
                 }`}
               >
                 {value}
@@ -153,7 +153,7 @@ function Question({ questions, index, onMove }: QuestionProps) {
           {t('assessment.previous')}
         </Button>
         {isLast && allAnswered && (
-          <Button variant="accent" onClick={finish}>
+          <Button onClick={finish}>
             {t('assessment.finish')}
             <Icon name="arrowRight" className="size-4" />
           </Button>

@@ -29,8 +29,8 @@ export const CvDocument = memo(function CvDocument({ cv, notes = NO_NOTES }: CvD
         {content}
       </div>
       {notes[key] && (
-        <aside className="h-fit rounded-xl bg-gold-soft p-3 text-sm text-navy">
-          <p className="mb-1 flex items-center gap-1 text-xs font-bold">
+        <aside className="h-fit rounded-xl border border-line bg-paper p-3 text-sm text-navy">
+          <p className="mb-1 flex items-center gap-1 text-xs font-bold text-gold-ink">
             <Icon name="info" className="size-4" />
             {t('cv.why')}
           </p>
@@ -70,7 +70,7 @@ export const CvDocument = memo(function CvDocument({ cv, notes = NO_NOTES }: CvD
 
   return (
     <div className="space-y-6 rounded-card bg-surface p-5 shadow-card sm:p-8">
-      <header className="border-b-4 border-gold pb-4">
+      <header className="border-b-4 border-navy pb-4">
         <p className="font-display text-2xl font-bold text-navy">{cv.name || empty}</p>
         <p className="font-semibold text-navy">{cv.headline || empty}</p>
         <p className="mt-1 text-sm text-muted">{cv.contact}</p>

@@ -100,7 +100,7 @@ function PersonCard() {
   return (
     <Card>
       <div className="mb-3 flex items-center gap-4">
-        <span className="grid size-14 place-items-center rounded-full bg-navy font-display text-2xl font-bold text-gold">
+        <span className="grid size-14 place-items-center rounded-full bg-navy font-display text-2xl font-bold text-white">
           {person.name.charAt(0).toUpperCase()}
         </span>
         <div>

@@ -54,7 +54,7 @@ function ExampleView({ example }: { example: CvExample }) {
       />
       <div className="mb-6 flex flex-wrap items-center gap-3">
         {/* Starting from a model replaces the current CV: ask first if there is one. */}
-        <Button variant="accent" onClick={() => (cvCompleteness(cv) > 0 ? setConfirming(true) : start())}>
+        <Button onClick={() => (cvCompleteness(cv) > 0 ? setConfirming(true) : start())}>
           {t('cv.useThis')}
         </Button>
         <span className="text-sm text-muted">{t('cv.useThisNote')}</span>

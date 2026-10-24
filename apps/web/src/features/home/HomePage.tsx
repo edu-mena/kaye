@@ -54,7 +54,7 @@ function Welcome() {
         <h1 className="max-w-xl text-3xl leading-tight font-bold sm:text-5xl">{t('home.greetingGuest')}</h1>
         <p className="mt-3 max-w-prose text-white/80">{t('home.intro')}</p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <ButtonLink to="/entrar" variant="accent" size="lg">
+          <ButtonLink to="/entrar" variant="onNavy" size="lg">
             {t('home.startCta')}
           </ButtonLink>
           <ButtonLink to="/carreiras" variant="ghost" size="lg" className="text-white hover:bg-white/10">
@@ -102,12 +102,12 @@ function TestCard() {
         <ProgressBar
           value={answered / Math.max(total, 1)}
           label={t('home.testTitle')}
-          tone="gold"
+          tone="white"
           track="bg-white/15"
           className="mt-4"
         />
       )}
-      <ButtonLink to="/teste" variant="accent" className="mt-5">
+      <ButtonLink to="/teste" variant="onNavy" className="mt-5">
         {answered > 0 ? t('home.testContinue', { answered, total }) : t('home.testCta')}
         <Icon name="arrowRight" className="size-4" />
       </ButtonLink>
@@ -168,7 +168,7 @@ function TargetCard() {
   const quickest = quickestPathway(career, user.profile?.education ?? null)
   const next = quickest?.steps[0]
   return (
-    <Card tone="gold">
+    <Card tone="notice">
       <p className="text-sm font-semibold">{t('home.targetTitle')}</p>
       <Link
         to={`/carreiras/${career.slug}#path`}
@@ -198,12 +198,7 @@ function Progress() {
         <h2 className="font-semibold text-navy">{t('home.progressTitle')}</h2>
         <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
       </div>
-      <ProgressBar
-        value={earned / list.length}
-        label={t('home.progressTitle')}
-        tone="gold"
-        className="my-3"
-      />
+      <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="my-3" />
       <Link to="/perfil" className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
         {t('profile.achievements')} · {earned}/{list.length}
       </Link>

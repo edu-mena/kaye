@@ -8,7 +8,7 @@ type HexagonProps = {
 }
 
 const TONES = {
-  navy: { fill: 'fill-navy', stroke: 'stroke-gold', text: 'text-white' },
+  navy: { fill: 'fill-navy', stroke: 'stroke-white/50', text: 'text-white' },
   gold: { fill: 'fill-gold', stroke: 'stroke-navy', text: 'text-navy' },
   locked: { fill: 'fill-navy-100', stroke: 'stroke-track', text: 'text-muted' },
 }

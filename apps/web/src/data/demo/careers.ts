@@ -1,4 +1,5 @@
 import type { Career, CareerGroup, CareerSummary, Demand, PathwayStep, RiasecProfile } from '../types'
+import { CAREER_IMAGES } from './images'
 
 // DEMO DATA. Profiles approximate O*NET interest profiles; demand and salaries are
 // illustrative, not measured. Real values come from curation (roadmap, Fase 0.4).
@@ -16,7 +17,18 @@ function summary(
   demand: Demand,
   salaryMedian: number,
 ): CareerSummary {
-  return { slug, name, group, summary: text, riasec: profile, demand, salaryMedian, detailed: false }
+  const image = CAREER_IMAGES[slug]
+  return {
+    slug,
+    name,
+    group,
+    summary: text,
+    riasec: profile,
+    demand,
+    salaryMedian,
+    detailed: false,
+    ...(image ? { image } : {}),
+  }
 }
 
 export const CAREER_SUMMARIES: CareerSummary[] = [

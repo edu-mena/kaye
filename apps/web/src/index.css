@@ -1,5 +1,5 @@
-@import '@fontsource-variable/bricolage-grotesque/wght.css';
-@import '@fontsource-variable/figtree/wght.css';
+/* One family for titles and text; its optical size axis keeps small text readable. */
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
 @import 'tailwindcss';
 
 /*
@@ -8,28 +8,32 @@
  * Contrast (AA) is checked for every text colour on --color-paper and white.
  */
 @theme {
-  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Bricolage Grotesque Variable', 'Figtree Variable', ui-sans-serif, sans-serif;
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
 
   --color-navy: #1b2a43;
   --color-navy-900: #111c2e;
   --color-navy-soft: #2c3e5c;
   --color-navy-100: #e8ecf3;
   --color-gold: #ffc000;
-  --color-gold-soft: #fff4cc;
   --color-gold-ink: #8a6400;
 
   --color-ink: #1b2a43;
-  --color-muted: #5b6b82;
+  /* Near-black for active states, headings and strong blocks; warm grays around it. */
+  --color-night: #16171b;
+  --color-ash-100: #efede9;
+  --color-ash-200: #e2dfd9;
+  --color-ash-300: #cdc9c1;
+  --color-ash-500: #8a857c;
+  --color-copy: #45423c;
+  --color-muted: #66625b;
   --color-paper: #f7f4ee;
   --color-surface: #ffffff;
   --color-line: #e6e0d4;
-  --color-track: #9aa6b8;
+  --color-track: #b5b0a6;
 
   --color-success: #1a7a50;
-  --color-success-soft: #dcf2e6;
   --color-coral: #b33a24;
-  --color-coral-soft: #fbe5de;
 
   --radius-card: 1.25rem;
   --shadow-card: 0 1px 2px rgb(27 42 67 / 0.05), 0 10px 30px -18px rgb(27 42 67 / 0.25);

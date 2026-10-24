@@ -31,31 +31,46 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 |---|---|---|---|
 | `navy` | `#1B2A43` | Texto principal, botão principal, item ativo | 13,1 no papel |
 | `navy-100` | `#E8ECF3` | Fundos suaves, trilho das barras | Texto `navy` em cima: 12,1 |
-| `gold` | `#FFC000` | Destaque: botão de ação, foco, "Estás aqui" | Texto `navy` em cima: 8,8 |
-| `gold-soft` | `#FFF4CC` | Fundo das razões e das notas "Porque funciona" | Texto `gold-ink` em cima: 4,9 |
-| `gold-ink` | `#8A6400` | Texto amarelo-escuro (o `gold` não serve para texto) | 5,4 no branco |
+| `gold` | `#FFC000` | Detalhes e formas: losangos, a barra sob os títulos, a risca dos blocos, o ponto da mediana, a bandeira do caminho, o botão "Encaixe". Também o logótipo, o "Estás aqui" e o foco | Texto `night` em cima: 10,9; amarelo sobre `night`: 10,9 |
+| `gold-ink` | `#8A6400` | Texto amarelo-escuro (o `gold` não serve para texto): rótulos "Dica" e "Porque funciona" | 5,4 no branco |
 | `paper` | `#F7F4EE` | Fundo da app | |
 | `surface` | `#FFFFFF` | Cartões e campos | |
-| `muted` | `#5B6B82` | Texto secundário | 4,9 no papel, 5,4 no branco |
+| `night` | `#16171B` | Quase-preto: separador ativo, títulos, blocos fortes, hero, "O meu encaixe" | 17,9 no branco |
+| `ash-100` … `ash-500` | `#EFEDE9` `#E2DFD9` `#CDC9C1` `#8A857C` | Cinzentos quentes: separadores inativos, blocos dentro de cartões, trilhos, números de ordem | `ash-500` só decorativo (3,7) |
+| `copy` | `#45423C` | Texto corrido: parágrafos e listas | 10,0 no branco, 9,1 no papel |
+| `muted` | `#66625B` | Texto secundário (cinzento quente) | 6,1 no branco, 5,5 no papel |
 | `line` | `#E6E0D4` | Linhas e contornos | Decorativo |
-| `track` | `#9AA6B8` | Barras de contexto nos gráficos | 2,5 no branco: só com o valor escrito ao lado |
-| `success` / `success-soft` | `#1A7A50` / `#DCF2E6` | Feito, "Combina muito" | 4,5 |
-| `coral` / `coral-soft` | `#B33A24` / `#FBE5DE` | Erros, apagar, "Combina pouco" | 4,9 (5,9 no branco) |
+| `track` | `#B5B0A6` | Barras de contexto nos gráficos | Só com o valor escrito ao lado |
+| `success` | `#1A7A50` | Feito, "Combina muito", tendência a subir | 5,3 no branco |
+| `coral` | `#B33A24` | Erros, apagar, "Combina pouco" | 5,9 no branco |
 
 Regras:
-- **Uma só cor de destaque por ecrã.** O amarelo marca a ação principal ou o sítio onde a pessoa está, nunca as duas coisas ao mesmo tempo.
-- **Verde e coral só servem para estados** (feito, erro, encaixe) e vêm sempre com texto ou ícone.
+- **Sobre azul-marinho, só branco.** Botões, ícones, números e barras em cima de azul-marinho são brancos (botão `onNavy`, barra `tone="white"`). O amarelo aparece sobre fundos claros. O caminho da marca (`PathMark`) é a exceção, porque é uma ilustração e não um controlo.
+- **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo dá vida em detalhes e formas (o losango, que é a bandeira do caminho do logótipo). O azul-marinho fica para a marca e para os botões principais.
+- **Amarelo sobre quase-preto, sim; amarelo sobre azul-marinho, não.**
+- **Ícones em quadrado ou círculo:** fundo branco, contorno fino (`border-line`) e ícone azul-marinho. Nunca um quadrado colorido.
+- **Sem fundos de cor translúcidos.** Etiquetas, avisos e dicas usam contorno (`border-line`, ou `border-navy` num aviso importante) e texto. Fundos claros de amarelo, verde ou vermelho parecem genéricos e foram retirados, incluindo os tokens.
+- **Verde e coral só servem para estados** (feito, erro, encaixe) e vêm sempre com texto, ícone ou um ponto da mesma cor.
 - **Cor nova:** acrescenta-a como token em `index.css`, mede o contraste e acrescenta-a a esta tabela.
 
 ## Letras
 
-| Uso | Fonte | Porquê |
-|---|---|---|
-| Títulos (`h1`–`h3`, números grandes) | Bricolage Grotesque, variável | Tem carácter e continua legível em tamanhos pequenos |
-| Texto | Figtree, variável | Clara num ecrã pequeno |
-
-- As duas vêm com a app (`@fontsource-variable`), só com os caracteres latinos (cerca de 61 KB). Não dependem do Google Fonts nem da rede.
+- **Uma só família para títulos e texto:** Bricolage Grotesque, variável, com o eixo de tamanho ótico (`opsz`). O browser ajusta o desenho ao tamanho, por isso o texto pequeno continua legível e os títulos ganham carácter.
+- Vem com a app (`@fontsource-variable/bricolage-grotesque/opsz.css`), só com os caracteres latinos (cerca de 77 KB). Não depende do Google Fonts nem da rede.
 - Os números alinhados (tabelas, barras) usam `tabular-nums`.
+
+## Hierarquia
+
+Cada secção tem 3 níveis, sempre pela mesma ordem:
+
+1. **Título da secção:** `text-2xl`/`3xl`, `font-extrabold`, azul-marinho.
+2. **Subtítulo:** pequeno, em maiúsculas, `text-muted`, com uma linha fina até ao fim (`Subheading`).
+3. **Conteúdo:** texto corrido em `text-copy`. Os valores e os nomes que importam ficam a `font-semibold`/`bold` azul-marinho.
+
+- A primeira frase de uma secção pode ser maior (`text-xl`, `font-medium`), como abertura.
+- Os poucos números de que uma secção trata vão para blocos azul-marinho com o valor grande (`StatBlock`). É o bloco de cor forte que dá ritmo à leitura.
+- Listas longas com linhas finas entre itens, sem um cartão para cada item. Números de ordem grandes (`01`, `02`) em `text-track`.
+- O que a pessoa deve fazer ou ver primeiro tem o maior contraste: botão branco cheio sobre azul-marinho, ou um bloco azul-marinho sobre fundo claro. "O meu encaixe" é um bloco azul-marinho, e o hero tem um botão "Encaixe" que leva até ele.
 
 ## Forma, profundidade e movimento
 
@@ -70,12 +85,13 @@ Regras:
 
 | Peça | Para quê | Notas |
 |---|---|---|
-| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary`, `accent` (amarelo), `secondary`, `ghost`. Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
-| `Card` | Agrupar conteúdo | Tons `surface`, `navy`, `gold`. `as="section"` ou `"article"` quando tem título |
-| `Chip` | Etiquetas curtas: procura, encaixe, razões | Tons `neutral`, `navy`, `gold`, `goldSoft`, `success`, `coral` |
+| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary` (azul-marinho), `secondary`, `ghost`, `onNavy` (branco, para fundos azul-marinho). Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
+| `Card` | Agrupar conteúdo | Tons `surface`, `paper` (blocos dentro de um cartão branco), `navy`, `notice` (aviso com contorno azul-marinho, fundo branco). `as="section"` ou `"article"` quando tem título |
+| `Chip` | Etiquetas curtas: procura, encaixe, razões | Contorno fino, sem fundo. Tons `neutral`, `navy` (cheio), `success` e `coral` (com um ponto da cor) |
 | `ProgressBar` | Progresso (teste, CV) | É um `<progress>` nativo |
 | `BarList` | Gráfico de barras horizontais | Ver [Gráficos](#gráficos) |
 | `Dialog` | Confirmações e listas | É um `<dialog>` nativo. No telemóvel abre de baixo para cima. Fecha com Esc |
+| `Tabs`, `TabPanel` | Partes de um ecrã, uma de cada vez | Padrão WAI-ARIA: setas, Home e End mudam de separador. A linha desliza para o lado no telemóvel e mantém o ativo à vista. O ativo é azul-marinho, com texto e ícone brancos. O painel é um cartão branco com padding, e os blocos lá dentro usam o fundo papel |
 | `Segmented` | Escolher uma opção (filtros, separadores) | `fieldset` com `legend` e botões com `aria-pressed`. `clearable` deixa desmarcar |
 | `TextField`, `TextAreaField`, `SelectField`, `CheckboxField` | Formulários | O erro e a dica ficam ligados ao campo (`aria-describedby`, `aria-invalid`) |
 | `PageHeader`, `SectionHeading` | Título do ecrã (com "voltar") e das secções | |
@@ -91,7 +107,9 @@ Peças de produto em `src/components`:
 
 | Situação | Como se faz |
 |---|---|
-| Filtros e ordenação | No URL, com `useUrlFilters` (`src/lib`): o "voltar" e as ligações partilhadas mantêm-nos |
+| Filtros, ordenação e separador aberto | No URL, com `useUrlFilters` (`src/lib`): o "voltar" e as ligações partilhadas mantêm-nos (ex.: `?secao=path`) |
+| Topo de uma página de detalhe (carreira) | Hero de altura fixa (288 px no telemóvel, 384 px no computador), com a foto e um gradiente azul-marinho (sem foto, mostra o caminho da marca). Ao lado do título ficam só ícones: a área, a procura e um "i", que abre numa janela a descrição com a área e a procura por extenso. As ações (destino e guardar) ficam no hero. Por baixo dele, os 3 números (salário, procura, tempo até lá), cada um com um mini-gráfico: uma lista curta no telemóvel e 3 cartões no computador. Depois vêm os separadores e, no fim, "O meu encaixe", que se pode minimizar. A rota pede `handle: { hideDemoBanner: true, wide: true }`: sem a faixa "Demonstração" e com a largura toda no computador (margem de 10 px) |
+| Fotos | WebP em 800 e 1600 px (`srcSet`), com licença livre e o crédito visível com ligação ao original |
 | A carregar ou com erro | `QueryState`, nunca um ecrã em branco |
 | Ecrã que precisa de perfil | `withProfile()` no `router.tsx`. Leva a `/entrar?next=…` e volta depois (`safeNext` só aceita caminhos da própria app) |
 | Apagar ou substituir algo da pessoa | Pede confirmação num `Dialog` e diz que não dá para desfazer |

@@ -95,6 +95,18 @@ export type CareerSummary = {
   salaryMedian: number | null
   /** False while the career page is still being curated. */
   detailed: boolean
+  /** Photo for the top of the career page; without one, the page shows the brand pattern. */
+  image?: CareerImage
+}
+
+/** A career photo, with the credit its licence asks for. */
+export type CareerImage = {
+  /** 800 px wide, for phones. */
+  small: string
+  /** 1600 px wide. */
+  large: string
+  alt: string
+  credit: { author: string; license: string; url: string }
 }
 
 export type Career = CareerSummary & {

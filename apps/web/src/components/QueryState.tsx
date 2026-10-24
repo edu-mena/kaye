@@ -20,7 +20,7 @@ export function QueryState<T>({ query, children }: QueryStateProps<T>) {
   }
   if (query.isError) {
     return (
-      <p role="alert" className="rounded-xl bg-coral-soft px-4 py-3 text-sm text-coral">
+      <p role="alert" className="rounded-xl border border-coral bg-surface px-4 py-3 text-sm text-coral">
         {t('common.loadError')}
       </p>
     )

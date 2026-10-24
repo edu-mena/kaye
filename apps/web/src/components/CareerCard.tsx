@@ -23,7 +23,7 @@ export function CareerCard({ career, match, reasons = NO_REASONS }: CareerCardPr
       to={`/carreiras/${career.slug}`}
       className="group flex h-full gap-4 rounded-card bg-surface p-4 shadow-card transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-lift"
     >
-      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-navy-100 text-navy">
+      <span className="grid size-12 shrink-0 place-items-center rounded-2xl border border-line bg-surface text-navy">
         <Icon name={GROUP_ICONS[career.group]} className="size-6" />
       </span>
       <span className="min-w-0 flex-1">
@@ -42,9 +42,7 @@ export function CareerCard({ career, match, reasons = NO_REASONS }: CareerCardPr
         {reasons.length > 0 && (
           <span className="mt-2 flex flex-wrap gap-1.5">
             {reasons.map((reason) => (
-              <Chip key={reason} tone="goldSoft">
-                {reason}
-              </Chip>
+              <Chip key={reason}>{reason}</Chip>
             ))}
           </span>
         )}

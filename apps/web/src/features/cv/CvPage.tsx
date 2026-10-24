@@ -24,7 +24,7 @@ export default function CvPage() {
       <PageHeader title={t('cv.title')} subtitle={t('cv.body')} />
 
       <Card tone="navy" className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <Icon name="document" className="size-10 shrink-0 text-gold" />
+        <Icon name="document" className="size-10 shrink-0 text-white" />
         <div className="flex-1">
           <h2 className="text-xl font-semibold">{t('cv.mine')}</h2>
           {started ? (
@@ -35,7 +35,7 @@ export default function CvPage() {
               <ProgressBar
                 value={completeness}
                 label={t('cv.mine')}
-                tone="gold"
+                tone="white"
                 track="bg-white/15"
                 className="mt-2"
               />
@@ -44,7 +44,7 @@ export default function CvPage() {
             <p className="mt-1 text-sm text-white/80">{t('cv.mineEmpty')}</p>
           )}
         </div>
-        <ButtonLink to="/cv/editar" variant="accent">
+        <ButtonLink to="/cv/editar" variant="onNavy">
           {started ? t('cv.edit') : t('cv.start')}
         </ButtonLink>
       </Card>
@@ -63,7 +63,7 @@ export default function CvPage() {
                   >
                     <span className="mb-3 space-y-1.5 rounded-xl bg-paper p-3" aria-hidden="true">
                       <span className="block h-2 w-1/2 rounded bg-navy" />
-                      <span className="block h-1.5 w-1/3 rounded bg-gold" />
+                      <span className="block h-1.5 w-1/3 rounded bg-navy-soft" />
                       <span className="block h-1.5 w-full rounded bg-navy-100" />
                       <span className="block h-1.5 w-5/6 rounded bg-navy-100" />
                     </span>

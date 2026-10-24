@@ -37,7 +37,7 @@ export function BottomNav() {
                 <>
                   <span
                     aria-hidden="true"
-                    className={`absolute top-0 h-1 w-8 rounded-b-full bg-gold transition-opacity ${isActive ? 'opacity-100' : 'opacity-0'}`}
+                    className={`absolute top-0 h-1 w-8 rounded-b-full bg-navy transition-opacity ${isActive ? 'opacity-100' : 'opacity-0'}`}
                   />
                   <Icon name={icon} className="size-6" />
                   {t(`nav.${key}`)}
@@ -71,12 +71,8 @@ export function SideNav() {
                   }`
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    <Icon name={icon} className={`size-5 ${isActive ? 'text-gold' : ''}`} />
-                    {t(`nav.${key}`)}
-                  </>
-                )}
+                <Icon name={icon} className="size-5" />
+                {t(`nav.${key}`)}
               </NavLink>
             </li>
           ))}
@@ -93,7 +89,7 @@ export function DemoBanner() {
   if (DATA_SOURCE !== 'demo') return null
 
   return (
-    <p className="mb-5 flex items-start gap-2 rounded-xl bg-gold-soft px-3 py-2 text-xs text-navy">
+    <p className="mb-5 flex items-start gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs text-navy">
       <Icon name="info" className="mt-px size-4 shrink-0" />
       {t('common.demo')}
     </p>

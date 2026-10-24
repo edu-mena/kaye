@@ -1,11 +1,22 @@
 import { useTranslation } from 'react-i18next'
-import { Link, Outlet, ScrollRestoration } from 'react-router'
+import { Link, Outlet, ScrollRestoration, useMatches } from 'react-router'
 import logo from '../assets/kaye-logo.png'
 import { Icon } from '../components/icons'
 import { BottomNav, DemoBanner, SideNav } from '../components/Navigation'
 
+/** What a route can ask of the layout, through its `handle`. */
+export type RouteHandle = {
+  /** The screen opens with a full-width hero, so the demo notice moves out of the way. */
+  hideDemoBanner?: boolean
+  /** Use the whole width on large screens, with a thin margin. */
+  wide?: boolean
+}
+
 export function Layout() {
   const { t } = useTranslation()
+  const handles = useMatches().map((match) => match.handle as RouteHandle | undefined)
+  const hideBanner = handles.some((handle) => handle?.hideDemoBanner)
+  const wide = handles.some((handle) => handle?.wide)
 
   return (
     <div className="flex min-h-dvh">
@@ -31,9 +42,9 @@ export function Layout() {
         </header>
         <main
           id="conteudo"
-          className="mx-auto w-full max-w-5xl flex-1 px-4 pt-3 pb-28 lg:px-10 lg:pt-10 lg:pb-12"
+          className={`mx-auto w-full flex-1 px-4 pt-3 pb-28 lg:pb-12 ${wide ? 'lg:px-2.5 lg:pt-2.5' : 'max-w-5xl lg:px-10 lg:pt-10'}`}
         >
-          <DemoBanner />
+          {!hideBanner && <DemoBanner />}
           <Outlet />
         </main>
       </div>
