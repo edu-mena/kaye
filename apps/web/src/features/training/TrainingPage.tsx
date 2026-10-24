@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
@@ -8,18 +7,18 @@ import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
 import { CardRow, ROW_ITEM } from '../../components/ui/CardRow'
-import { Dialog } from '../../components/ui/Dialog'
-import { FilterSelect, FilterTiles } from '../../components/ui/Filters'
+import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Segmented } from '../../components/ui/Segmented'
-import { useCareer, useCareers, usePrograms } from '../../data/queries'
-import type { Program } from '../../data/types'
+import { useCareers, usePrograms } from '../../data/queries'
+import type { Institution, Program, Schedule } from '../../data/types'
+import { COST_BANDS, DURATION_BANDS, findBand } from '../../domain/bands'
 import { formatPercent } from '../../domain/format'
-import { CRITERIA, rankPrograms, scorePrograms, type ScoredProgram, type SortKey } from '../../domain/ranking'
+import { matchesProgram } from '../../domain/programs'
+import { CRITERIA, rankPrograms, scorePrograms, type SortKey } from '../../domain/ranking'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useUser } from '../../state/userStore'
 import { ProgramCard } from './ProgramCard'
-import { ProgramSummary } from './ProgramSummary'
 
 const SORTS: SortKey[] = ['score', 'price', 'rating']
 const LEVELS: { level: Program['level']; icon: IconName }[] = [
@@ -30,6 +29,10 @@ const LEVELS: { level: Program['level']; icon: IconName }[] = [
 ]
 const isLevel = (value: string | null): value is Program['level'] =>
   LEVELS.some((item) => item.level === value)
+const SCHEDULES: Schedule[] = ['diurno', 'pos_laboral', 'online']
+const OWNERSHIPS: Institution['ownership'][] = ['publica', 'privada']
+/** The list's filters in the URL; "Limpar filtros" removes them all. */
+const FILTER_KEYS = ['onde', 'duracao', 'preco', 'horario', 'gestao', 'nivel']
 
 // CC BY 4.0 asks for the author, the source and the licence, next to the photo.
 const PHOTO = {
@@ -44,12 +47,15 @@ export default function TrainingPage() {
   const { data: careers = [] } = useCareers()
   const { compare } = useUser()
   const [params, setParam] = useUrlFilters()
-  const [openId, setOpenId] = useState<string | null>(null)
   const career = params.get('carreira')
   const province = params.get('onde')
   const levelParam = params.get('nivel')
   const level = isLevel(levelParam) ? levelParam : null
   const sort = SORTS.find((value) => value === params.get('ordem')) ?? 'score'
+  const duration = findBand(DURATION_BANDS, params.get('duracao'))
+  const cost = findBand(COST_BANDS, params.get('preco'))
+  const schedule = SCHEDULES.find((value) => value === params.get('horario')) ?? null
+  const ownership = OWNERSHIPS.find((value) => value === params.get('gestao')) ?? null
   const careerName = careers.find((item) => item.slug === career)?.name
   const setFilter = (key: string, value: string | null) => setParam(key, value)
 
@@ -61,16 +67,13 @@ export default function TrainingPage() {
             .map((slug) => ({ value: slug, label: careers.find((item) => item.slug === slug)?.name ?? slug }))
             .toSorted((a, b) => a.label.localeCompare(b.label))
           const provinces = [...new Set(programs.map((program) => program.institution.province))]
-          const forCareer = scorePrograms(programs).filter(
-            ({ program }) =>
-              (!career || program.careers.includes(career)) &&
-              (!province || program.institution.province === province),
+          // Every filter but the level: the level tiles count what each level would show.
+          const forCareer = scorePrograms(programs).filter(({ program }) =>
+            matchesProgram(program, { career, province, duration, cost, schedule, ownership }),
           )
           const visible = forCareer.filter(({ program }) => !level || program.level === level)
           const { ranked, unrecognized } = rankPrograms(visible, sort)
-          // The popup always gives the place by score, whatever order the list is in.
-          const byScore = rankPrograms(visible, 'score').ranked
-          const open = byScore.find((item) => item.program.id === openId)
+          const courseLink = (id: string) => `/cursos/${id}${career ? `?carreira=${career}` : ''}`
 
           return (
             <>
@@ -117,21 +120,65 @@ export default function TrainingPage() {
                       {t('training.count', { count: ranked.length })}
                     </output>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <FilterSelect
-                      label={t('training.provinceLabel')}
-                      placeholder={t('training.allProvinces')}
-                      value={province}
-                      onChange={(value) => setFilter('onde', value)}
-                      options={provinces.map((value) => ({ value, label: value }))}
-                    />
-                    <Segmented<SortKey>
-                      label={t('training.sortLabel')}
-                      value={sort}
-                      onChange={(value) => setFilter('ordem', value)}
-                      options={SORTS.map((value) => ({ value, label: t(`training.sort${value}`) }))}
-                    />
-                  </div>
+                  <Segmented<SortKey>
+                    label={t('training.sortLabel')}
+                    value={sort}
+                    onChange={(value) => setFilter('ordem', value)}
+                    options={SORTS.map((value) => ({ value, label: t(`training.sort${value}`) }))}
+                  />
+                </div>
+                <div className="mb-6">
+                  <FilterBar
+                    clearLabel={t('common.clearFilters')}
+                    onChange={setFilter}
+                    onClear={() => setParam('onde', null, FILTER_KEYS)}
+                    filters={[
+                      {
+                        key: 'onde',
+                        label: t('training.provinceLabel'),
+                        placeholder: t('training.allProvinces'),
+                        value: province,
+                        options: provinces.map((value) => ({ value, label: value })),
+                      },
+                      {
+                        key: 'duracao',
+                        label: t('training.duration'),
+                        placeholder: t('training.anyDuration'),
+                        value: duration?.key ?? null,
+                        options: DURATION_BANDS.map((band) => ({
+                          value: band.key,
+                          label: t(`training.duration_${band.key}`),
+                        })),
+                      },
+                      {
+                        key: 'preco',
+                        label: t('training.cost'),
+                        placeholder: t('training.anyCost'),
+                        value: cost?.key ?? null,
+                        options: COST_BANDS.map((band) => ({
+                          value: band.key,
+                          label: t(`training.cost_${band.key}`),
+                        })),
+                      },
+                      {
+                        key: 'horario',
+                        label: t('training.schedule'),
+                        placeholder: t('training.anySchedule'),
+                        value: schedule,
+                        options: SCHEDULES.map((value) => ({ value, label: t(`training.${value}`) })),
+                      },
+                      {
+                        key: 'gestao',
+                        label: t('training.institution'),
+                        placeholder: t('training.anyOwnership'),
+                        value: ownership,
+                        options: OWNERSHIPS.map((value) => ({
+                          value,
+                          label: t(`training.ownership_${value}`),
+                        })),
+                      },
+                    ]}
+                  />
                 </div>
 
                 {ranked.length === 0 && (
@@ -146,7 +193,7 @@ export default function TrainingPage() {
                         item={item}
                         rank={index + 1}
                         featured={index === 0}
-                        onOpen={() => setOpenId(item.program.id)}
+                        to={courseLink(item.program.id)}
                       />
                     </li>
                   ))}
@@ -162,7 +209,7 @@ export default function TrainingPage() {
                   <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
                     {unrecognized.map((item) => (
                       <li key={item.program.id}>
-                        <ProgramCard item={item} />
+                        <ProgramCard item={item} to={courseLink(item.program.id)} />
                       </li>
                     ))}
                   </ul>
@@ -170,10 +217,6 @@ export default function TrainingPage() {
               )}
 
               <PhotoCredits photos={programs.map((program) => program.image)} />
-
-              <Dialog open={Boolean(open)} onClose={() => setOpenId(null)} title={open?.program.name ?? ''}>
-                {open && <OpenProgram item={open} rank={byScore.indexOf(open) + 1} careerSlug={career} />}
-              </Dialog>
             </>
           )
         }}
@@ -291,11 +334,11 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
 function Method() {
   const { t } = useTranslation()
   return (
-    <section aria-labelledby="method" className="rounded-card bg-surface p-6 shadow-card sm:p-8">
+    <section aria-labelledby="method" className="rounded-card bg-coal p-6 text-white shadow-card sm:p-8">
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
-          <SectionHeading id="method" title={t('training.howTitle')} icon="info" />
-          <p className="max-w-prose text-sm font-light text-copy">{t('training.howBody')}</p>
+          <SectionHeading id="method" title={t('training.howTitle')} icon="info" tone="dark" />
+          <p className="max-w-prose text-sm font-light text-white/80">{t('training.howBody')}</p>
         </div>
         <ul aria-label={t('training.criteriaList')} className="space-y-4">
           {CRITERIA.map((criterion) => {
@@ -303,18 +346,18 @@ function Method() {
             return (
               <li key={criterion.key}>
                 <div className="mb-2 flex items-baseline justify-between gap-4 text-sm">
-                  <span className="font-normal text-night">{t(`training.${criterion.key}`)}</span>
-                  <span className={`font-semibold tabular-nums ${soon ? 'text-muted' : 'text-blue'}`}>
+                  <span className="font-normal">{t(`training.${criterion.key}`)}</span>
+                  <span className={`font-semibold tabular-nums ${soon ? 'text-white/60' : ''}`}>
                     {formatPercent(criterion.weight)}
                   </span>
                 </div>
-                <span aria-hidden="true" className="block h-2 rounded-full bg-ash-100">
+                <span aria-hidden="true" className="block h-2 rounded-full bg-white/10">
                   <span
-                    className={`block h-full rounded-full ${soon ? 'bg-ash-300' : 'bg-blue'}`}
+                    className={`block h-full rounded-full ${soon ? 'bg-white/30' : 'bg-white'}`}
                     style={{ width: `${criterion.weight * 100}%` }}
                   />
                 </span>
-                {soon && <p className="mt-2 text-xs font-light text-muted">{t('training.marketSoon')}</p>}
+                {soon && <p className="mt-2 text-xs font-light text-white/60">{t('training.marketSoon')}</p>}
               </li>
             )
           })}
@@ -322,17 +365,4 @@ function Method() {
       </div>
     </section>
   )
-}
-
-type OpenProgramProps = { item: ScoredProgram; rank: number; careerSlug: string | null }
-
-/** With a career chosen, the popup also says which step of its path the course serves. */
-function OpenProgram({ item, rank, careerSlug }: OpenProgramProps) {
-  if (!careerSlug) return <ProgramSummary item={item} rank={rank} />
-  return <ProgramForCareer item={item} rank={rank} slug={careerSlug} />
-}
-
-function ProgramForCareer({ item, rank, slug }: { item: ScoredProgram; rank: number; slug: string }) {
-  const { data: career } = useCareer(slug)
-  return <ProgramSummary item={item} career={career} rank={rank} />
 }

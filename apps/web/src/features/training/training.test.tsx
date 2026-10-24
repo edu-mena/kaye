@@ -51,10 +51,29 @@ describe('TrainingPage', () => {
     expect(rankedNames()).toHaveLength(4)
   })
 
-  it('opens a course from its card', async () => {
+  it('opens each course on its own page, from the eye beside "Comparar"', async () => {
+    renderWithApp(<TrainingPage />, { route: '/cursos?carreira=designer-ui-ux' })
+    expect(await screen.findByRole('link', { name: 'Ver Figma e Design de Interfaces' })).toHaveAttribute(
+      'href',
+      '/cursos/figma-benguela?carreira=designer-ui-ux',
+    )
+  })
+
+  it('filters by length, price, schedule and ownership, and clears them all', async () => {
     renderWithApp(<TrainingPage />)
-    await userEvent.click(await screen.findByRole('button', { name: 'Figma e Design de Interfaces' }))
-    expect(screen.getByRole('dialog', { name: 'Figma e Design de Interfaces' })).toBeInTheDocument()
+    await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'Duração' }), 'longa')
+    expect(screen.getByText('5 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Instituição' }), 'publica')
+    expect(screen.getByTestId('location')).toHaveTextContent('duracao=longa&gestao=publica')
+    expect(screen.getByText('3 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+
+    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    expect(screen.getByText('10 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Limpar filtros' })).not.toBeInTheDocument()
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Custo total' }), 'ate200')
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Horários' }), 'online')
+    expect(screen.getByText('Bootcamp de Frontend')).toBeInTheDocument()
+    expect(screen.getByText(/Nenhum curso reconhecido com estes filtros/)).toBeInTheDocument()
   })
 
   it('collects up to 3 courses to compare', async () => {

@@ -17,7 +17,10 @@ type ProgramSummaryProps = {
   item: ScoredProgram
   /** When the course is seen for one career: adds the path step it serves. */
   career?: Career | null
-  rank: number
+  /** Place by score; none for a course still awaiting recognition. */
+  rank?: number
+  /** On the course's own page, which has its own actions. */
+  onPage?: boolean
 }
 
 /**
@@ -25,7 +28,7 @@ type ProgramSummaryProps = {
  * the rank and the score ring; then the offer, the path step it serves and how the score adds up.
  * The fuller institution page comes with Academias.
  */
-export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
+export function ProgramSummary({ item, career, rank, onPage = false }: ProgramSummaryProps) {
   const { t } = useTranslation()
   const duration = useDuration()
   const ratingLabel = useRatingLabel()
@@ -62,11 +65,13 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
       <section aria-labelledby="program-institution" className="rounded-2xl bg-coal p-6 text-white">
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
-            <p className="text-xs font-light text-white/70">
-              {career
-                ? t('career.studyRank', { rank, career: career.name })
-                : t('training.rankAll', { rank })}
-            </p>
+            {rank !== undefined && (
+              <p className="text-xs font-light text-white/70">
+                {career
+                  ? t('career.studyRank', { rank, career: career.name })
+                  : t('training.rankAll', { rank })}
+              </p>
+            )}
             <h3 id="program-institution" className="sr-only">
               {t('training.institution')}
             </h3>
@@ -152,15 +157,25 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
         </section>
       )}
 
-      <div className="flex flex-wrap gap-2 border-t border-line pt-6">
-        <CompareButton programId={program.id} />
-        {career && (
-          <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" size="sm">
-            {t('career.studyAll')}
-            <Icon name="arrowRight" className="size-4" />
+      {!onPage && (
+        <div className="flex flex-wrap gap-2 border-t border-line pt-6">
+          <CompareButton programId={program.id} />
+          <ButtonLink
+            to={`/cursos/${program.id}${career ? `?carreira=${career.slug}` : ''}`}
+            variant="secondary"
+            size="sm"
+          >
+            <Icon name="eye" className="size-4" />
+            {t('training.viewCourse')}
           </ButtonLink>
-        )}
-      </div>
+          {career && (
+            <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" size="sm">
+              {t('career.studyAll')}
+              <Icon name="arrowRight" className="size-4" />
+            </ButtonLink>
+          )}
+        </div>
+      )}
     </div>
   )
 }

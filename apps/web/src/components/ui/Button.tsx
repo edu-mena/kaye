@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from 'react'
 import { Link, type LinkProps } from 'react-router'
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'onDark' | 'onDarkOutline'
-type Size = 'sm' | 'md' | 'lg'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 type Style = { variant?: Variant; size?: Size; className?: string }
 
@@ -17,14 +17,15 @@ const VARIANTS: Record<Variant, string> = {
 }
 
 const SIZES: Record<Size, string> = {
-  sm: 'h-9 px-4 text-sm',
-  md: 'h-11 px-5 text-sm',
-  lg: 'h-13 px-6 text-base',
+  xs: 'h-9 gap-1 px-2.5 text-xs',
+  sm: 'h-9 gap-2 px-4 text-sm',
+  md: 'h-11 gap-2 px-5 text-sm',
+  lg: 'h-13 gap-2 px-6 text-base',
 }
 
 function buttonClasses({ variant = 'primary', size = 'md', className = '' }: Style = {}) {
   return [
-    'inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap',
+    'inline-flex shrink-0 items-center justify-center rounded-full font-semibold whitespace-nowrap',
     'transition-[background-color,border-color,transform] duration-200 active:scale-[0.98]',
     'disabled:pointer-events-none disabled:opacity-45',
     VARIANTS[variant],

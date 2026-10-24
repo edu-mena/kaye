@@ -1,4 +1,5 @@
 import type { CareerGroup, CareerSummary, Demand, RiasecProfile } from '../data/types'
+import { inBand, type Band } from './bands'
 import { compatibility } from './riasec'
 
 /** Lowercase without accents: "informatica" finds "Informática". */
@@ -16,15 +17,28 @@ const DEMAND_ORDER: Record<Demand, number> = { alta: 0, media: 1, baixa: 2 }
 
 const bySalary = (a: CareerSummary, b: CareerSummary) => (b.salaryMedian ?? 0) - (a.salaryMedian ?? 0)
 
-type Filter = { query: string; group: CareerGroup | null; sort: CareerSort; profile: RiasecProfile | null }
+type Filter = {
+  query: string
+  group: CareerGroup | null
+  sort: CareerSort
+  profile: RiasecProfile | null
+  demand?: Demand | null
+  /** Median monthly salary. */
+  salary?: Band
+  /** Only careers with a full page ("guia") or only those still being curated. */
+  guide?: 'guia' | 'curadoria' | null
+}
 
 export function filterCareers(
   careers: CareerSummary[],
-  { query, group, sort, profile }: Filter,
+  { query, group, sort, profile, demand, salary, guide }: Filter,
 ): CareerSummary[] {
   const words = normalize(query).split(/\s+/).filter(Boolean)
   const matches = careers.filter((career) => {
     if (group && career.group !== group) return false
+    if (demand && career.demand !== demand) return false
+    if (!inBand(career.salaryMedian, salary)) return false
+    if (guide && career.detailed !== (guide === 'guia')) return false
     const haystack = normalize(`${career.name} ${career.summary} ${career.group}`)
     return words.every((word) => haystack.includes(word))
   })

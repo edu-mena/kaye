@@ -8,12 +8,13 @@ import { Icon, type IconName } from '../../components/icons'
 import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
 import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
-import { FilterSelect, FilterTiles } from '../../components/ui/Filters'
+import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareers } from '../../data/queries'
-import { CAREER_GROUPS, type CareerGroup, type CareerSummary } from '../../data/types'
+import { CAREER_GROUPS, type CareerGroup, type CareerSummary, type Demand } from '../../data/types'
+import { SALARY_BANDS, findBand } from '../../domain/bands'
 import { filterCareers, type CareerSort } from '../../domain/careers'
 import { interestLevel } from '../../domain/fit'
 import { formatKz } from '../../domain/format'
@@ -23,6 +24,10 @@ import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 
 const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.some((group) => group === value)
+const DEMANDS: Demand[] = ['alta', 'media', 'baixa']
+const GUIDES = ['guia', 'curadoria'] as const
+/** The list's filters in the URL; "Limpar filtros" removes them all (and the page). */
+const FILTER_KEYS = ['area', 'procura', 'salario', 'guia']
 
 /** Four rows of three on a wide screen. */
 const PAGE_SIZE = 12
@@ -38,6 +43,9 @@ export default function CareersPage() {
   const sortParam = params.get('ordem')
   const sorts: CareerSort[] = profile ? ['forYou', 'demand', 'salary'] : ['demand', 'salary']
   const sort = sorts.find((option) => option === sortParam) ?? sorts[0] ?? 'demand'
+  const demand = DEMANDS.find((value) => value === params.get('procura')) ?? null
+  const salary = findBand(SALARY_BANDS, params.get('salario'))
+  const guide = GUIDES.find((value) => value === params.get('guia')) ?? null
   const list = useRef<HTMLElement>(null)
   // A new search, area or order starts again on the first page.
   const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
@@ -51,7 +59,7 @@ export default function CareersPage() {
   return (
     <QueryState query={query}>
       {(careers) => {
-        const results = filterCareers(careers, { query: search, group, sort, profile })
+        const results = filterCareers(careers, { query: search, group, sort, profile, demand, salary, guide })
         const guides = careers.filter((career) => career.detailed && career.image)
         const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
         const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
@@ -80,21 +88,55 @@ export default function CareersPage() {
                     {t('careers.count', { count: results.length })}
                   </output>
                 </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <FilterSelect
-                    label={t('careers.groupsLabel')}
-                    placeholder={t('careers.allAreas')}
-                    value={group}
-                    onChange={(value) => setFilter('area', value)}
-                    options={groups.map((item) => ({ value: item, label: t(`groups.${item}`) }))}
-                  />
-                  <Segmented
-                    label={t('careers.sortLabel')}
-                    value={sort}
-                    onChange={(value) => setFilter('ordem', value)}
-                    options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
-                  />
-                </div>
+                <Segmented
+                  label={t('careers.sortLabel')}
+                  value={sort}
+                  onChange={(value) => setFilter('ordem', value)}
+                  options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
+                />
+              </div>
+              <div className="mb-6">
+                <FilterBar
+                  clearLabel={t('common.clearFilters')}
+                  onChange={setFilter}
+                  onClear={() => setParam('pagina', null, FILTER_KEYS)}
+                  filters={[
+                    {
+                      key: 'area',
+                      label: t('careers.groupsLabel'),
+                      placeholder: t('careers.allAreas'),
+                      value: group,
+                      options: groups.map((item) => ({ value: item, label: t(`groups.${item}`) })),
+                    },
+                    {
+                      key: 'procura',
+                      label: t('careers.demandLabel'),
+                      placeholder: t('careers.anyDemand'),
+                      value: demand,
+                      options: DEMANDS.map((value) => ({ value, label: t(`demand.${value}`) })),
+                    },
+                    {
+                      key: 'salario',
+                      label: t('careers.salaryLabel'),
+                      placeholder: t('careers.anySalary'),
+                      value: salary?.key ?? null,
+                      options: SALARY_BANDS.map((band) => ({
+                        value: band.key,
+                        label: t(`careers.salary_${band.key}`),
+                      })),
+                    },
+                    {
+                      key: 'guia',
+                      label: t('careers.guideLabel'),
+                      placeholder: t('careers.anyGuide'),
+                      value: guide,
+                      options: [
+                        { value: 'guia', label: t('careers.guideTag') },
+                        { value: 'curadoria', label: t('careers.inCuration') },
+                      ],
+                    },
+                  ]}
+                />
               </div>
               {results.length === 0 ? (
                 <p className="rounded-card bg-surface py-10 text-center text-sm font-light text-muted shadow-card">

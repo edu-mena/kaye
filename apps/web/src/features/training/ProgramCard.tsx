@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router'
 import { Icon } from '../../components/icons'
 import { InstitutionLogo } from '../../components/InstitutionLogo'
 import { ScoreRing } from '../../components/ScoreRing'
@@ -52,10 +53,15 @@ export function ScoreBreakdown({ criteria }: { criteria: ScoredProgram['criteria
   )
 }
 
-type CompareButtonProps = { programId: string; tone?: Tone; className?: string }
+type CompareButtonProps = {
+  programId: string
+  tone?: Tone
+  /** Smaller, and grows to fill its row (inside a course card). */
+  compact?: boolean
+}
 
 /** Adds or removes a course from the comparison (up to MAX_COMPARE). White on dark cards. */
-export function CompareButton({ programId, tone = 'light', className }: CompareButtonProps) {
+export function CompareButton({ programId, tone = 'light', compact = false }: CompareButtonProps) {
   const { t } = useTranslation()
   const { compare } = useUser()
   const comparing = compare.includes(programId)
@@ -65,13 +71,13 @@ export function CompareButton({ programId, tone = 'light', className }: CompareB
   return (
     <Button
       variant={variant}
-      size="sm"
+      size={compact ? 'xs' : 'sm'}
       aria-pressed={comparing}
       disabled={full}
       onClick={() => userActions.toggleCompare(programId)}
-      className={className}
+      className={compact ? 'grow' : undefined}
     >
-      <Icon name={comparing ? 'check' : 'plus'} className="size-4" />
+      <Icon name={comparing ? 'check' : 'plus'} className={compact ? 'size-3.5' : 'size-4'} />
       {comparing ? t('training.comparing') : t('training.compare')}
     </Button>
   )
@@ -83,16 +89,17 @@ type ProgramCardProps = {
   rank?: number
   /** The first place: a dark card. */
   featured?: boolean
-  /** Opens the course in full; the whole card is the target (ranked courses). */
-  onOpen?: () => void
+  /** The course's own page. */
+  to: string
 }
 
 /**
  * A course, small enough for two side by side on a phone: the photo with the place and the score,
- * the name, the institution, the cost and how long, and the compare button. The rest is on the
- * course's own view. The photo is decorative (the name says it).
+ * the name, the institution, how long (and the cost from sm), then "Comparar" and an eye that opens
+ * the course's page. The photo is decorative (the name says it).
  */
-export function ProgramCard({ item, rank, featured = false, onOpen }: ProgramCardProps) {
+export function ProgramCard({ item, rank, featured = false, to }: ProgramCardProps) {
+  const { t } = useTranslation()
   const duration = useDuration()
   const { program, score } = item
   const tone: Tone = featured ? 'dark' : 'light'
@@ -100,7 +107,7 @@ export function ProgramCard({ item, rank, featured = false, onOpen }: ProgramCar
 
   return (
     <article
-      className={`relative flex h-full flex-col overflow-hidden rounded-card shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift ${featured ? 'bg-coal text-white' : 'bg-surface text-night'}`}
+      className={`flex h-full flex-col overflow-hidden rounded-card shadow-card ${featured ? 'bg-coal text-white' : 'bg-surface text-night'}`}
     >
       <div className="relative h-28 shrink-0 bg-coal sm:h-36">
         {program.image && (
@@ -121,28 +128,33 @@ export function ProgramCard({ item, rank, featured = false, onOpen }: ProgramCar
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-3 sm:p-4">
-        <h3 className="line-clamp-2 text-sm leading-snug font-semibold sm:text-base">
-          {onOpen ? (
-            <button type="button" onClick={onOpen} className="text-left after:absolute after:inset-0">
-              {program.name}
-            </button>
-          ) : (
-            program.name
-          )}
-        </h3>
+      <div className="flex flex-1 flex-col p-2.5 sm:p-4">
+        <h3 className="line-clamp-2 text-sm leading-snug font-semibold sm:text-base">{program.name}</h3>
         <p className={`mt-2 flex items-center gap-2 text-xs font-light ${quiet}`}>
           <InstitutionLogo institution={program.institution} size="sm" />
           <span className="line-clamp-2 min-w-0">{program.institution.name}</span>
         </p>
         <p className="mt-auto pt-3 text-sm font-semibold">
-          {program.totalCost === null ? '—' : formatKz(program.totalCost)}
+          <span className="hidden sm:block">
+            {program.totalCost === null ? '—' : formatKz(program.totalCost)}
+          </span>
           <span className={`block text-xs font-light ${quiet}`}>
             {duration({ min: program.durationMonths, max: program.durationMonths })}
           </span>
         </p>
-        <div className="relative z-10 mt-3">
-          <CompareButton programId={program.id} tone={tone} className="w-full" />
+        <div className="mt-3 flex items-center gap-1.5 sm:gap-2">
+          <CompareButton programId={program.id} tone={tone} compact />
+          <Link
+            to={to}
+            aria-label={t('training.view', { name: program.name })}
+            className={`grid size-9 shrink-0 place-items-center rounded-full border transition-colors ${
+              featured
+                ? 'border-white/30 text-white hover:bg-white/10'
+                : 'border-line text-night hover:bg-ash-100'
+            }`}
+          >
+            <Icon name="eye" className="size-4" />
+          </Link>
         </div>
       </div>
     </article>

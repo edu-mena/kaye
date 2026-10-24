@@ -55,6 +55,21 @@ describe('CareersPage', () => {
     expect(screen.queryByRole('navigation', { name: 'Páginas de profissões' })).not.toBeInTheDocument()
   })
 
+  it('filters by demand, salary and guide, and clears them all', async () => {
+    renderWithApp(<CareersPage />)
+    await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'Salário mediano' }), 'mais500')
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Procura' }), 'alta')
+    expect(screen.getByTestId('location')).toHaveTextContent('salario=mais500&procura=alta')
+    const count = Number(screen.getByText(/profiss/, { selector: 'output' }).textContent?.split(' ')[0])
+    expect(count).toBeGreaterThan(0)
+    expect(count).toBeLessThan(27)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    expect(screen.getByText('27 profissões', { selector: 'output' })).toBeInTheDocument()
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Página' }), 'guia')
+    expect(screen.getByText('3 profissões', { selector: 'output' })).toBeInTheDocument()
+  })
+
   it('says so when nothing matches', async () => {
     renderWithApp(<CareersPage />, { route: '/carreiras?q=medicina' })
     expect(await screen.findByText('Nenhuma profissão encontrada. Tenta outra palavra.')).toBeInTheDocument()
