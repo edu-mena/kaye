@@ -13,15 +13,13 @@ import { Dialog } from './ui/Dialog'
 import { CheckboxField, SelectField, TextAreaField, TextField } from './ui/Field'
 import { ProgressBar } from './ui/ProgressBar'
 import { Segmented } from './ui/Segmented'
-import { Slides } from './ui/Slides'
+import { CardRow, ROW_ITEM } from './ui/CardRow'
 
 /** Page items as text: "1 … 4 5 6 … 10". */
 const pageNumbers = (page: number, pages: number) =>
   pageItems(page, pages)
     .map((item) => (item.gap ? '…' : item.page))
     .join(' ')
-
-const slide = (name: RegExp) => screen.getByRole('group', { name })
 
 function DialogHarness() {
   const [open, setOpen] = useState(false)
@@ -121,32 +119,32 @@ describe('ui', () => {
     expect(pageNumbers(1, 10)).toBe('1 2 … 10')
   })
 
-  it('Slides shows one slide at a time, with arrows that wrap, a dot per slide and a swipe', async () => {
+  it('CardRow lists the cards in one row, with arrows that move a screenful', async () => {
     renderWithApp(
-      <Slides
-        label="Curso"
-        slides={[
-          { id: 'a', label: 'A', content: 'um' },
-          { id: 'b', label: 'B', content: 'dois' },
-          { id: 'c', label: 'C', content: 'três' },
-        ]}
-      />,
+      <CardRow label="Cursos">
+        {['A', 'B', 'C'].map((name) => (
+          <li key={name} className={ROW_ITEM}>
+            {name}
+          </li>
+        ))}
+      </CardRow>,
     )
-    expect(slide(/^1 de 3: A/)).not.toHaveAttribute('inert')
-    expect(slide(/^2 de 3: B/)).toHaveAttribute('inert')
+    const row = screen.getByRole('list', { name: 'Cursos' })
+    expect(within(row).getAllByRole('listitem')).toHaveLength(3)
+    const next = screen.getByRole('button', { name: 'Seguinte' })
+    expect(next).toBeDisabled()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Diapositivo anterior' }))
-    expect(slide(/^3 de 3: C/)).not.toHaveAttribute('inert')
-    await userEvent.click(screen.getByRole('button', { name: 'Diapositivo seguinte' }))
-    expect(screen.getByRole('button', { name: 'A' })).toHaveAttribute('aria-current', 'true')
-    await userEvent.click(screen.getByRole('button', { name: 'B' }))
-    expect(slide(/^2 de 3: B/)).not.toHaveAttribute('inert')
-
-    const viewport = slide(/^1 de 3/).parentElement?.parentElement
-    if (!viewport) throw new Error('no viewport')
-    fireEvent.touchStart(viewport, { touches: [{ clientX: 200 }] })
-    fireEvent.touchEnd(viewport, { changedTouches: [{ clientX: 100 }] })
-    expect(slide(/^3 de 3: C/)).not.toHaveAttribute('inert')
+    const scrollBy = vi.fn<(options: ScrollToOptions) => void>()
+    Object.defineProperties(row, {
+      clientWidth: { value: 100 },
+      scrollWidth: { value: 300 },
+      scrollBy: { value: scrollBy },
+    })
+    fireEvent.scroll(row)
+    expect(next).toBeEnabled()
+    expect(screen.getByRole('button', { name: 'Anterior' })).toBeDisabled()
+    await userEvent.click(next)
+    expect(scrollBy).toHaveBeenCalledWith({ left: 100, behavior: 'smooth' })
   })
 
   it('ProgressBar is a native progress bar with a name', () => {

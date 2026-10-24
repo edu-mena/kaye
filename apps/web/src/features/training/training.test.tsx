@@ -41,18 +41,20 @@ describe('TrainingPage', () => {
     expect(screen.queryByText('Figma e Design de Interfaces')).not.toBeInTheDocument()
   })
 
-  it('filters by level and shows the ranking 9 at a time', async () => {
+  it('shows the ranked courses in one row and filters by level', async () => {
     renderWithApp(<TrainingPage />)
     expect(await screen.findByText('10 cursos classificados', { selector: 'output' })).toBeInTheDocument()
-    expect(rankedNames()).toHaveLength(9)
-    const pages = screen.getByRole('navigation', { name: 'Páginas de cursos' })
-    await userEvent.click(within(pages).getByRole('button', { name: 'Página 2' }))
-    expect(rankedNames()).toHaveLength(1)
+    expect(rankedNames()).toHaveLength(10)
 
-    await userEvent.click(screen.getByRole('button', { name: /^Licenciatura/ }))
+    await userEvent.click(screen.getByRole('button', { name: /^Licenciatura\s*4 cursos$/ }))
     expect(screen.getByTestId('location')).toHaveTextContent('nivel=licenciatura')
-    expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
-    expect(screen.getByText('4 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(rankedNames()).toHaveLength(4)
+  })
+
+  it('opens a course from its card', async () => {
+    renderWithApp(<TrainingPage />)
+    await userEvent.click(await screen.findByRole('button', { name: 'Figma e Design de Interfaces' }))
+    expect(screen.getByRole('dialog', { name: 'Figma e Design de Interfaces' })).toBeInTheDocument()
   })
 
   it('collects up to 3 courses to compare', async () => {

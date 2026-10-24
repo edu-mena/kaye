@@ -5,9 +5,10 @@ import { CareerCard } from '../../components/CareerCard'
 import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
+import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
 import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
-import { FilterSelect, FilterTiles, StatPills } from '../../components/ui/Filters'
+import { FilterSelect, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
@@ -100,7 +101,7 @@ export default function CareersPage() {
                   {t('careers.empty')}
                 </p>
               ) : (
-                <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <ul className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3 2xl:grid-cols-4">
                   {shown.map((career) => (
                     <li key={career.slug}>
                       <CareerCard
@@ -130,7 +131,7 @@ type HeroProps = {
   onSearch: (value: string) => void
 }
 
-/** Dark hero: what the section is, a large search, three numbers, and the career photos as a mosaic. */
+/** What the section is, a large search, three numbers, and the career photos as a mosaic. */
 function Hero({ careers, guides, search, onSearch }: HeroProps) {
   const { t } = useTranslation()
   const areas = new Set(careers.map((career) => career.group)).size
@@ -145,34 +146,29 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
   ] satisfies { icon: IconName; value: number; label: string }[]
 
   return (
-    <section className="overflow-hidden rounded-card bg-coal text-white">
-      <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-        <div className="p-6 sm:p-10">
-          <h1 className="text-3xl leading-tight font-extrabold sm:text-5xl">{t('careers.title')}</h1>
-          <p className="mt-4 max-w-md text-sm font-light text-white/80">{t('careers.body')}</p>
-
-          <label className="relative mt-8 block max-w-lg">
-            <span className="sr-only">{t('careers.search')}</span>
-            <Icon
-              name="search"
-              className="pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2 text-gold"
-            />
+    <ListHero
+      title={t('careers.title')}
+      body={t('careers.body')}
+      stats={stats}
+      control={
+        <label className="block">
+          <span className="sr-only">{t('careers.search')}</span>
+          <HeroField icon="search">
             <input
               type="search"
               value={search}
               placeholder={t('careers.searchPlaceholder')}
               onChange={(event) => onSearch(event.target.value)}
-              className="h-14 w-full rounded-full bg-white pr-5 pl-13 text-base text-night placeholder:text-muted"
+              className={HERO_CONTROL}
             />
-          </label>
-
-          <StatPills stats={stats} className="mt-6" />
-        </div>
-
-        {guides.length >= 3 && (
+          </HeroField>
+        </label>
+      }
+      media={
+        guides.length >= 3 && (
           <div
             aria-hidden="true"
-            className="grid h-56 grid-cols-3 gap-2 p-2 lg:h-auto lg:grid-cols-2 lg:grid-rows-2"
+            className="grid h-44 grid-cols-3 gap-2 sm:h-56 lg:h-full lg:grid-cols-2 lg:grid-rows-2"
           >
             {guides.slice(0, 3).map((career, index) => (
               <img
@@ -183,9 +179,9 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
               />
             ))}
           </div>
-        )}
-      </div>
-    </section>
+        )
+      }
+    />
   )
 }
 

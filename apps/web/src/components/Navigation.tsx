@@ -203,9 +203,11 @@ export function TopBar() {
       </Link>
       <Link
         to="/pesquisa"
-        className="hidden h-11 w-full max-w-md items-center gap-2 rounded-full bg-ash-100 px-4 text-sm text-muted transition-colors hover:bg-ash-200 lg:flex"
+        className="hidden h-11 w-full max-w-md items-center gap-3 rounded-full bg-ash-100 pr-4 pl-1.5 text-sm text-muted transition-colors hover:bg-ash-200 lg:flex"
       >
-        <Icon name="search" className="size-5 text-gold" />
+        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-white">
+          <Icon name="search" className="size-4" />
+        </span>
         {t('nav.searchPlaceholder')}
       </Link>
       <div className="ml-auto flex items-center gap-2">

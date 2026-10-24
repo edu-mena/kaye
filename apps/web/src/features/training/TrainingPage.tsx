@@ -1,29 +1,27 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
 import { Icon, type IconName } from '../../components/icons'
+import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
 import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
+import { CardRow, ROW_ITEM } from '../../components/ui/CardRow'
 import { Dialog } from '../../components/ui/Dialog'
-import { FilterSelect, FilterTiles, StatPills } from '../../components/ui/Filters'
+import { FilterSelect, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
-import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareer, useCareers, usePrograms } from '../../data/queries'
 import type { Program } from '../../data/types'
 import { formatPercent } from '../../domain/format'
 import { CRITERIA, rankPrograms, scorePrograms, type ScoredProgram, type SortKey } from '../../domain/ranking'
-import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useUser } from '../../state/userStore'
 import { ProgramCard } from './ProgramCard'
 import { ProgramSummary } from './ProgramSummary'
 
 const SORTS: SortKey[] = ['score', 'price', 'rating']
-/** Three rows of three on a wide screen. */
-const PAGE_SIZE = 9
 const LEVELS: { level: Program['level']; icon: IconName }[] = [
   { level: 'licenciatura', icon: 'cap' },
   { level: 'medio_tecnico', icon: 'building' },
@@ -47,15 +45,13 @@ export default function TrainingPage() {
   const { compare } = useUser()
   const [params, setParam] = useUrlFilters()
   const [openId, setOpenId] = useState<string | null>(null)
-  const list = useRef<HTMLElement>(null)
   const career = params.get('carreira')
   const province = params.get('onde')
   const levelParam = params.get('nivel')
   const level = isLevel(levelParam) ? levelParam : null
   const sort = SORTS.find((value) => value === params.get('ordem')) ?? 'score'
   const careerName = careers.find((item) => item.slug === career)?.name
-  // A new career, place, level or order starts again on the first page.
-  const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
+  const setFilter = (key: string, value: string | null) => setParam(key, value)
 
   return (
     <div className="space-y-12">
@@ -72,14 +68,9 @@ export default function TrainingPage() {
           )
           const visible = forCareer.filter(({ program }) => !level || program.level === level)
           const { ranked, unrecognized } = rankPrograms(visible, sort)
-          const { page, pages, offset, shown } = paginate(ranked, Number(params.get('pagina')), PAGE_SIZE)
           // The popup always gives the place by score, whatever order the list is in.
           const byScore = rankPrograms(visible, 'score').ranked
           const open = byScore.find((item) => item.program.id === openId)
-          const goTo = (next: number) => {
-            setParam('pagina', next > 1 ? String(next) : null)
-            list.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
-          }
 
           return (
             <>
@@ -114,7 +105,7 @@ export default function TrainingPage() {
 
               <Method />
 
-              <section ref={list} aria-labelledby="ranking" className="scroll-mt-24">
+              <section aria-labelledby="ranking">
                 <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                   <div>
                     <h2 id="ranking" className="text-xl font-extrabold text-night sm:text-2xl">
@@ -148,22 +139,18 @@ export default function TrainingPage() {
                     {unrecognized.length === 0 ? t('training.empty') : t('training.emptyRanked')}
                   </p>
                 )}
-                <ol aria-label={t('training.ranked')} className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {shown.map((item, index) => {
-                    const rank = offset + index + 1
-                    return (
-                      <li key={item.program.id}>
-                        <ProgramCard
-                          item={item}
-                          rank={rank}
-                          lead={rank === 1 ? t(`training.top${sort}`) : undefined}
-                          onOpen={() => setOpenId(item.program.id)}
-                        />
-                      </li>
-                    )
-                  })}
-                </ol>
-                <Pagination page={page} pages={pages} onChange={goTo} label={t('training.pages')} />
+                <CardRow label={t('training.ranked')}>
+                  {ranked.map((item, index) => (
+                    <li key={item.program.id} className={ROW_ITEM}>
+                      <ProgramCard
+                        item={item}
+                        rank={index + 1}
+                        featured={index === 0}
+                        onOpen={() => setOpenId(item.program.id)}
+                      />
+                    </li>
+                  ))}
+                </CardRow>
               </section>
 
               {unrecognized.length > 0 && (
@@ -172,7 +159,7 @@ export default function TrainingPage() {
                   <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">
                     {t('training.unrecognizedBody')}
                   </p>
-                  <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
                     {unrecognized.map((item) => (
                       <li key={item.program.id}>
                         <ProgramCard item={item} />
@@ -213,7 +200,7 @@ type HeroProps = {
   onCareer: (value: string) => void
 }
 
-/** Dark hero: the question the page answers (which career?), the numbers as pills and a photo of students. */
+/** The question the page answers (which career?), the numbers and a photo of students. */
 function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
   const { t } = useTranslation()
   const costs = programs.flatMap((program) => (program.totalCost === null ? [] : [program.totalCost]))
@@ -241,23 +228,19 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
   ]
 
   return (
-    <section className="overflow-hidden rounded-card bg-coal text-white">
-      <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-        <div className="p-6 sm:p-10">
-          <h1 className="text-3xl leading-tight font-extrabold sm:text-5xl">{t('training.title')}</h1>
-          <p className="mt-4 max-w-md text-sm font-light text-white/80">{t('training.body')}</p>
-
-          <label className="mt-8 block max-w-lg">
-            <span className="block text-xs font-light text-white/70">{t('training.careerLabel')}</span>
-            <span className="relative mt-2 block">
-              <Icon
-                name="briefcase"
-                className="pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2 text-gold"
-              />
+    <ListHero
+      title={t('training.title')}
+      body={t('training.body')}
+      stats={stats}
+      control={
+        <label className="block">
+          <span className="block text-xs font-light text-muted">{t('training.careerLabel')}</span>
+          <span className="mt-2 block">
+            <HeroField icon="briefcase">
               <select
                 value={career ?? ''}
                 onChange={(event) => onCareer(event.target.value)}
-                className="h-14 w-full appearance-none rounded-full bg-white pr-12 pl-13 text-base text-night"
+                className={HERO_CONTROL}
               >
                 <option value="">{t('training.allCareers')}</option>
                 {careerOptions.map((option) => (
@@ -270,13 +253,12 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
                 name="chevronRight"
                 className="pointer-events-none absolute top-1/2 right-5 size-5 -translate-y-1/2 rotate-90 text-night"
               />
-            </span>
-          </label>
-
-          <StatPills stats={stats} className="mt-6" />
-        </div>
-
-        <figure className="relative h-56 p-2 sm:h-72 lg:h-auto">
+            </HeroField>
+          </span>
+        </label>
+      }
+      media={
+        <figure className="relative h-56 sm:h-72 lg:h-full">
           <img
             src={heroSmall}
             srcSet={`${heroSmall} 800w, ${heroLarge} 1600w`}
@@ -284,7 +266,7 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
             alt=""
             className="size-full rounded-2xl object-cover"
           />
-          <figcaption className="absolute right-4 bottom-4 rounded-full bg-coal/75 px-3 py-1 text-xs font-light text-white/80">
+          <figcaption className="absolute right-2 bottom-2 rounded-full bg-coal/75 px-3 py-1 text-xs font-light text-white/80">
             {t('training.photoCredit')}{' '}
             <a
               href={PHOTO.url}
@@ -297,8 +279,8 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
             ({PHOTO.license})
           </figcaption>
         </figure>
-      </div>
-    </section>
+      }
+    />
   )
 }
 

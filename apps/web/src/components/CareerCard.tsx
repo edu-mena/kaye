@@ -30,9 +30,9 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
   return (
     <Link
       to={`/carreiras/${career.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift"
+      className="group @container flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift"
     >
-      <span className="relative block h-40 shrink-0 bg-coal">
+      <span className="relative block h-28 shrink-0 bg-coal @3xs:h-40">
         {career.image && (
           <img
             src={career.image.small}
@@ -43,14 +43,16 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
         )}
         <span
           aria-hidden="true"
-          className="absolute bottom-3 left-3 grid size-10 place-items-center rounded-full bg-coal text-gold"
+          className="absolute bottom-2 left-2 grid size-8 place-items-center rounded-full bg-coal text-gold @3xs:bottom-3 @3xs:left-3 @3xs:size-10"
         >
-          <Icon name={GROUP_ICONS[career.group]} className="size-5" />
+          <Icon name={GROUP_ICONS[career.group]} className="size-4 @3xs:size-5" />
         </span>
       </span>
 
-      <span className="flex flex-1 flex-col p-5">
-        <span className="block text-base leading-snug font-semibold text-night">{career.name}</span>
+      <span className="flex flex-1 flex-col p-3 @3xs:p-5">
+        <span className="block text-sm leading-snug font-semibold text-night @3xs:text-base">
+          {career.name}
+        </span>
         <span className="mt-1 block text-xs font-light text-muted">
           {t(`groups.${career.group}`)}
           {!career.detailed && ` · ${t('careers.inCuration')}`}
@@ -65,8 +67,8 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
           </span>
         )}
 
-        <span className="mt-auto pt-5">
-          <span className="flex items-end justify-between gap-4 border-t border-line pt-4">
+        <span className="mt-auto pt-4 @3xs:pt-5">
+          <span className="flex flex-col items-start gap-2 border-t border-line pt-3 @3xs:flex-row @3xs:items-end @3xs:justify-between @3xs:gap-4 @3xs:pt-4">
             <span>
               <span className="block text-xs font-light text-muted">{t('careers.medianLabel')}</span>
               <span className="mt-1 block text-sm font-semibold text-night">
@@ -79,12 +81,12 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
               <DemandMeter demand={career.demand} />
               <Icon
                 name="chevronRight"
-                className="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5"
+                className="hidden size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5 @3xs:block"
               />
             </span>
           </span>
           {match && (
-            <span className="mt-4 flex items-center justify-between gap-4 rounded-2xl bg-ash-100 px-4 py-3">
+            <span className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-ash-100 px-3 py-2 @3xs:mt-4 @3xs:gap-4 @3xs:px-4 @3xs:py-3">
               <span className="flex items-center gap-2 text-xs font-normal text-night">
                 <Icon name="target" className="size-4 text-blue" />
                 {t(`fit.${match}`)}

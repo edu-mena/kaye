@@ -14,17 +14,19 @@ function initials(name: string): string {
 }
 
 /** The institution's logo in a circle; without one, its initials. Decorative: the name is always next to it. */
+const SIZES = { sm: 'size-8 text-xs ring-1 ring-line', md: 'size-12 text-base' }
+
 export function InstitutionLogo({
   institution,
-  className = '',
+  size = 'md',
 }: {
   institution: Institution
-  className?: string
+  size?: 'sm' | 'md'
 }) {
   return (
     <span
       aria-hidden="true"
-      className={`grid size-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white font-display text-base font-bold text-night ${className}`}
+      className={`grid shrink-0 place-items-center overflow-hidden rounded-full bg-white font-display font-bold text-night ${SIZES[size]}`}
     >
       {institution.logo ? (
         <img src={institution.logo} alt="" className="size-full object-contain p-1.5" />

@@ -1,25 +1,5 @@
 import { Icon, type IconName } from '../icons'
 
-type Stat = { icon: IconName; value: string | number; label: string }
-
-/** A list page's numbers, on a dark hero: rounded pills with a gold icon, the value strong, the label quiet. */
-export function StatPills({ stats, className = '' }: { stats: Stat[]; className?: string }) {
-  return (
-    <ul className={`flex flex-wrap gap-2 ${className}`}>
-      {stats.map((stat) => (
-        <li
-          key={stat.label}
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm"
-        >
-          <Icon name={stat.icon} className="size-4 text-gold" />
-          <span className="font-semibold">{stat.value}</span>
-          <span className="font-light text-white/70">{stat.label}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 type Tile<T extends string> = { value: T; icon: IconName; label: string; note: string }
 
 type FilterTilesProps<T extends string> = {
