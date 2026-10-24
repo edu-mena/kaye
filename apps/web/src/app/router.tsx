@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router'
 import { AppLoading } from '../components/AppLoading'
 import { RequireProfile } from '../components/RequireProfile'
 import HomePage from '../features/home/HomePage'
+import type { SoonSection } from '../features/soon/SoonPage'
 import { Layout, type RouteHandle } from './Layout'
 
 type PageModule = { default: ComponentType }
@@ -10,6 +11,12 @@ type PageModule = { default: ComponentType }
 /** Each screen downloads its code the first time it is opened. */
 const page = (load: () => Promise<PageModule>) => () =>
   load().then((module) => ({ Component: module.default }))
+
+/** Sections that wait for their data get a designed "coming soon". */
+const soon = (section: SoonSection) => () =>
+  import('../features/soon/SoonPage').then(({ default: SoonPage }) => ({
+    Component: () => <SoonPage section={section} />,
+  }))
 
 /** Screens that need a profile (later: an account) send the person to /entrar first. */
 const withProfile = (load: () => Promise<PageModule>) => () =>
@@ -37,8 +44,16 @@ export const router = createBrowserRouter([
         handle: { hideDemoBanner: true, wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/careers/CareerPage')),
       },
-      { path: 'formacao', lazy: page(() => import('../features/training/TrainingPage')) },
-      { path: 'formacao/comparar', lazy: page(() => import('../features/training/ComparePage')) },
+      { path: 'cursos', lazy: page(() => import('../features/training/TrainingPage')) },
+      { path: 'cursos/comparar', lazy: page(() => import('../features/training/ComparePage')) },
+      { path: 'pesquisa', lazy: soon('search') },
+      { path: 'academias', lazy: soon('academies') },
+      { path: 'empresas', lazy: soon('companies') },
+      { path: 'mercado', lazy: soon('market') },
+      { path: 'novidades', lazy: soon('news') },
+      { path: 'notificacoes', lazy: soon('notifications') },
+      { path: 'suporte', lazy: soon('support') },
+      { path: 'configuracoes', lazy: soon('settings') },
       { path: 'cv', lazy: page(() => import('../features/cv/CvPage')) },
       { path: 'cv/modelos/:id', lazy: page(() => import('../features/cv/CvExamplePage')) },
       { path: 'cv/editar', lazy: withProfile(() => import('../features/cv/CvEditorPage')) },

@@ -45,13 +45,13 @@ Quando a lógica de negócio crescer (por exemplo, a fórmula das recomendaçõe
 | Pasta | O que vai lá |
 |---|---|
 | `src/app` | Arranque: `App` (providers), `router` (rotas com `lazy` e `withProfile`), `Layout` |
-| `src/features/<área>` | Um ecrã e o que só ele usa. Áreas: `home`, `onboarding`, `assessment`, `careers`, `training`, `cv`, `profile` |
+| `src/features/<área>` | Um ecrã e o que só ele usa. Áreas: `home`, `onboarding`, `assessment`, `careers`, `training` (a secção Cursos), `cv`, `profile`, `soon` (o ecrã "Em breve" das secções sem dados) |
 | `src/components/ui` | Peças base sem regras de negócio: `Button`, `Card`, `Chip`, `Dialog`, `Field`… Ver [design.md](design.md#peças-base-srccomponentsui) |
 | `src/components` | Peças do produto usadas por mais de uma área: `CareerCard`, `Navigation`, `QueryState`, `RequireProfile`, `icons` |
 | `src/data` | De onde vêm os conteúdos: `types.ts` (o contrato com a API), `source.ts` (a única porta), `queries.ts` (hooks do TanStack Query), `demo/` (dados fictícios). Ver [ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md) |
 | `src/domain` | As regras do Kayé em funções puras: teste RIASEC, encaixe, recomendações, ranking de cursos, CV, conquistas, formatos |
 | `src/state` | O que a pessoa fez: `userStore.ts` (perfil, respostas, competências, CV) e `useRiasecProfile` |
-| `src/lib` | Ajudas para os ecrãs: API (`api.ts`), idiomas (`i18n.ts`), `useUrlFilters`, `useFormat`, `useRecommendations`, `useApiHealth`, `ui.ts` (`stagger`, `safeNext`) |
+| `src/lib` | Ajudas para os ecrãs: API (`api.ts`), idiomas (`i18n.ts`), `useUrlFilters`, `useFormat`, `useRecommendations`, `useApiHealth`, `usePersistentFlag` (preferências no aparelho), `ui.ts` (`stagger`, `safeNext`) |
 | `src/locales` | Textos em `pt.ts` (a fonte), `en.ts` e `fr.ts` |
 | `src/test` | Preparação e ajudas dos testes (`setup.ts`, `render.tsx`, `user.ts`) |
 | `e2e` | Testes end-to-end com o Playwright: `app.spec.ts` (a casca) e `journeys.spec.ts` (os percursos) |

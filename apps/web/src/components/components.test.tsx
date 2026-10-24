@@ -1,11 +1,11 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { changeLocale } from '../lib/i18n'
 import { renderWithApp } from '../test/render'
 import { seedUser } from '../test/user'
-import { BottomNav, DemoBanner, SideNav } from './Navigation'
+import { BottomNav, DemoBanner, Sidebar, TopBar } from './Navigation'
 import { RequireProfile } from './RequireProfile'
 import { BarList } from './ui/BarList'
 import { Dialog } from './ui/Dialog'
@@ -31,14 +31,36 @@ describe('navigation', () => {
   it('has the five destinations of a guidance app, with no job board', () => {
     renderWithApp(<BottomNav />)
     const labels = screen.getAllByRole('link').map((link) => link.textContent)
-    expect(labels).toEqual(['Início', 'Carreiras', 'Formação', 'CV', 'Perfil'])
+    expect(labels).toEqual(['Início', 'Pesquisa', 'Carreiras', 'Cursos', 'CV'])
   })
 
   it('marks the current destination and follows the language', () => {
     changeLocale('fr')
-    renderWithApp(<SideNav />, { route: '/formacao' })
-    expect(screen.getByRole('link', { name: 'Formation' })).toHaveAttribute('aria-current', 'page')
+    renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />, { route: '/cursos' })
+    expect(screen.getByRole('link', { name: 'Cours' })).toHaveAttribute('aria-current', 'page')
     expect(screen.getByRole('link', { name: 'Métiers' })).toHaveAttribute('href', '/carreiras')
+  })
+
+  it('folds the sidebar to icons, keeping every name for screen readers', async () => {
+    const onToggle = vi.fn<() => void>()
+    renderWithApp(<Sidebar collapsed onToggle={onToggle} />, { route: '/mercado' })
+    const market = screen.getByRole('link', { name: 'Mercado' })
+    expect(market).toHaveAttribute('title', 'Mercado')
+    expect(market).toHaveAttribute('aria-current', 'page')
+    await userEvent.click(screen.getByRole('button', { name: 'Abrir o menu' }))
+    expect(onToggle).toHaveBeenCalledTimes(1)
+  })
+
+  it('puts the other sections behind the menu on phones, and closes it on the way', async () => {
+    renderWithApp(<TopBar />)
+    await userEvent.click(screen.getByRole('button', { name: 'Menu' }))
+    const menu = screen.getByRole('navigation', { name: 'Mais opções' })
+    expect(menu).toHaveTextContent(
+      /Academias.*Empresas.*Mercado.*Novidades.*Notificações.*Perfil.*Suporte.*Configurações/,
+    )
+    await userEvent.click(within(menu).getByRole('link', { name: 'Academias' }))
+    expect(screen.getByTestId('location')).toHaveTextContent('/academias')
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('always says the data is a demonstration', () => {

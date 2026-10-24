@@ -7,7 +7,23 @@ export const fr: Messages = {
   nav: {
     home: 'Accueil',
     careers: 'Métiers',
-    training: 'Formation',
+    search: 'Recherche',
+    courses: 'Cours',
+    academies: 'Établissements',
+    companies: 'Entreprises',
+    market: 'Marché',
+    news: 'Actualités',
+    notifications: 'Notifications',
+    support: 'Assistance',
+    settings: 'Paramètres',
+    groupExplore: 'Explorer',
+    groupYou: 'Pour toi',
+    groupHelp: 'Aide',
+    menu: 'Menu',
+    more: 'Plus d’options',
+    collapse: 'Réduire le menu',
+    expand: 'Ouvrir le menu',
+    searchPlaceholder: 'Rechercher des métiers, des cours, des établissements…',
     cv: 'CV',
     profile: 'Profil',
     label: 'Navigation principale',
@@ -266,8 +282,25 @@ export const fr: Messages = {
     leveldomino: 'Je maîtrise',
     done: 'Terminé',
   },
+  soon: {
+    badge: 'Bientôt',
+    back: 'Retour à l’accueil',
+    search:
+      'Trouve des métiers, des cours, des établissements et des entreprises au même endroit, avec tes recherches récentes à portée de main.',
+    academies:
+      'Universités et centres de formation professionnelle, les cours qu’ils proposent, et les actualités et promotions qu’ils publient sur Kayé.',
+    companies:
+      'Les entreprises qui dominent chaque secteur en Angola, et les métiers qu’elles recrutent le plus.',
+    market:
+      'Les domaines en hausse, l’offre et la demande de chaque cours (ce qui est très demandé et que personne n’enseigne), et les annonces de recrutement liées à leur source.',
+    news: 'Actualités sur le travail, l’enseignement et les données du marché, et ce que publient les établissements : nouveaux cours et promotions.',
+    notifications:
+      'Ce qui te concerne : nouvelles données sur les métiers que tu as gardés, nouveaux cours dans ta province et rappels.',
+    support: 'Aide, questions fréquentes et contact avec l’équipe Kayé.',
+    settings: 'Langue, confidentialité et tes données, au même endroit.',
+  },
   training: {
-    title: 'Formation',
+    title: 'Cours',
     body: 'Les meilleurs établissements et formations pour chaque métier, avec les critères et les coûts bien visibles.',
     careerLabel: 'Pour quel métier ?',
     allCareers: 'Tous les métiers',
@@ -278,7 +311,7 @@ export const fr: Messages = {
     sortprice: 'Le moins cher',
     sortrating: 'Le mieux noté',
     score: 'Score Kayé',
-    ranked: 'Formations classées',
+    ranked: 'Cours classés',
     seeCalc: 'Voir le calcul',
     howTitle: 'Comment nous calculons',
     howBody:
@@ -316,7 +349,7 @@ export const fr: Messages = {
     duration: 'Durée',
     province: 'Province',
     empty: 'Aucune formation ne correspond à ces filtres.',
-    back: 'Formation',
+    back: 'Cours',
   },
   cv: {
     title: 'CV',

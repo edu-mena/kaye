@@ -21,7 +21,7 @@ describe('TrainingPage', () => {
   })
 
   it('ranks only recognised courses and lists the others apart', async () => {
-    renderWithApp(<TrainingPage />, { route: '/formacao?carreira=desenvolvedor-frontend' })
+    renderWithApp(<TrainingPage />, { route: '/cursos?carreira=desenvolvedor-frontend' })
     await screen.findByText('Desenvolvimento Web com React')
     expect(rankedNames()).not.toContain('Bootcamp de Frontend')
     const apart = screen.getByRole('region', { name: 'Reconhecimento por confirmar' })
@@ -45,11 +45,11 @@ describe('TrainingPage', () => {
     expect(getUser().compare).toHaveLength(3)
     expect(screen.getByText('3 cursos para comparar')).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: 'Comparar' })[0]).toBeDisabled()
-    expect(screen.getByRole('link', { name: 'Comparar' })).toHaveAttribute('href', '/formacao/comparar')
+    expect(screen.getByRole('link', { name: 'Comparar' })).toHaveAttribute('href', '/cursos/comparar')
   })
 
   it('says so when no course matches', async () => {
-    renderWithApp(<TrainingPage />, { route: '/formacao?carreira=designer-ui-ux&onde=Online' })
+    renderWithApp(<TrainingPage />, { route: '/cursos?carreira=designer-ui-ux&onde=Online' })
     expect(await screen.findByText('Não há cursos com estes filtros.')).toBeInTheDocument()
   })
 })

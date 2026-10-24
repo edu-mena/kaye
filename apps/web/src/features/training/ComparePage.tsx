@@ -16,7 +16,7 @@ export default function ComparePage() {
 
   return (
     <div>
-      <PageHeader title={t('training.compareTitle')} back={{ to: '/formacao', label: t('training.back') }} />
+      <PageHeader title={t('training.compareTitle')} back={{ to: '/cursos', label: t('training.back') }} />
       <QueryState query={query}>
         {(programs) => {
           const chosen = scorePrograms(programs).filter((item) => compare.includes(item.program.id))

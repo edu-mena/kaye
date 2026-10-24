@@ -119,6 +119,52 @@ const PATHS = {
   shield: <path d="M12 3 5 6v6c0 4.4 3 7.7 7 9 4-1.3 7-4.6 7-9V6l-7-3Z" />,
   signal: <path d="M12 20v-6M8.5 10.5a5 5 0 0 1 7 0M5.5 7.5a9 9 0 0 1 13 0M12 14h.01" />,
   megaphone: <path d="M4 10v4h3l7 4V6L7 10H4ZM18 9a4 4 0 0 1 0 6" />,
+  bell: (
+    <>
+      <path d="M6 9a6 6 0 1 1 12 0c0 4 1.5 6 2.5 7h-17C4.5 15 6 13 6 9Z" />
+      <path d="M10 20a2 2 0 0 0 4 0" />
+    </>
+  ),
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  landmark: (
+    <>
+      <path d="M3 9.5 12 4l9 5.5" />
+      <path d="M5.5 10.5v7M10 10.5v7M14 10.5v7M18.5 10.5v7" />
+      <path d="M3 20.5h18" />
+    </>
+  ),
+  building: (
+    <>
+      <path d="M5 21V4h10v17M15 9h4v12M3 21h18" />
+      <path d="M8.5 8h3M8.5 12h3M8.5 16h3" />
+    </>
+  ),
+  newspaper: (
+    <>
+      <path d="M4 5h13v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z" />
+      <path d="M17 9h3v10a2 2 0 0 1-2 2M7.5 9h6M7.5 13h6M7.5 17h3" />
+    </>
+  ),
+  help: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17.5h.01" />
+    </>
+  ),
+  sliders: (
+    <>
+      <path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1" />
+      <circle cx="15" cy="6" r="2" />
+      <circle cx="9" cy="12" r="2" />
+      <circle cx="17" cy="18" r="2" />
+    </>
+  ),
+  panel: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="3" />
+      <path d="M9 4v16" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof PATHS

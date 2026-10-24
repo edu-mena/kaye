@@ -90,7 +90,7 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 | `Chip` | Etiquetas curtas: procura, encaixe, razões | Contorno fino, sem fundo. Tons `neutral`, `navy` (cheio), `success` e `coral` (com um ponto da cor) |
 | `ProgressBar` | Progresso (teste, CV) | É um `<progress>` nativo |
 | `BarList` | Gráfico de barras horizontais | Ver [Gráficos](#gráficos) |
-| `Dialog` | Confirmações e listas | É um `<dialog>` nativo. No telemóvel abre de baixo para cima. Fecha com Esc |
+| `Dialog` | Confirmações, listas e o menu do telemóvel | É um `<dialog>` nativo e fecha com Esc. `variant="sheet"`: clara, abre de baixo no telemóvel. `variant="drawer"`: preta, abre da direita (o menu hamburger) |
 | `Tabs`, `TabPanel` | Partes de um ecrã, uma de cada vez | Padrão WAI-ARIA: setas, Home e End mudam de separador. A linha desliza para o lado no telemóvel e mantém o ativo à vista. O ativo é azul-marinho, com texto e ícone brancos. O painel é um cartão branco com padding, e os blocos lá dentro usam o fundo papel |
 | `Segmented` | Escolher uma opção (filtros, separadores) | `fieldset` com `legend` e botões com `aria-pressed`. `clearable` deixa desmarcar |
 | `TextField`, `TextAreaField`, `SelectField`, `CheckboxField` | Formulários | O erro e a dica ficam ligados ao campo (`aria-describedby`, `aria-invalid`) |
@@ -102,6 +102,13 @@ Peças de produto em `src/components`:
 - `QueryState` (a carregar, erro), `RequireProfile`;
 - `Navigation` (`BottomNav`, `SideNav`, `DemoBanner`);
 - `Icon`: um só componente, com os desenhos em `icons.tsx`.
+
+## Navegação
+
+- **Computador:** a barra lateral é preta e flutua a 12 px das margens, com cantos de 28 px. Tem os grupos "Explorar" e "Para ti", e Suporte e Configurações em baixo. O item ativo é uma pílula branca com texto preto. Minimiza-se só com ícones (o nome aparece ao passar o rato e continua para os leitores de ecrã), e a escolha fica guardada no aparelho.
+- **Barra de cima:** no computador, a pesquisa, as notificações e o perfil. No telemóvel, o logótipo, as notificações e o menu.
+- **Telemóvel:** a barra de baixo é branca, flutua e tem 5 destinos (Início, Pesquisa, Carreiras, Cursos, CV). O ativo fica num círculo preto com o ícone branco, e os inativos têm o ícone preto, sempre com o nome por baixo.
+- **Secções sem dados ainda:** um ecrã "Em breve" desenhado (`SoonPage`), que diz o que lá vai estar.
 
 ## Padrões
 

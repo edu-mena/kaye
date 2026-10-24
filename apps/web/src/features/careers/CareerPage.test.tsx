@@ -107,14 +107,14 @@ describe('CareerPage', () => {
     expect(within(path).getByText('Duração: 5 a 6 anos')).toBeInTheDocument()
   })
 
-  it('ranks where to study with the same scores as the Formação page', async () => {
+  it('ranks where to study with the same scores as the Cursos page', async () => {
     open('desenvolvedor-frontend')
     await openTab('Onde estudar')
     const study = (await screen.findByRole('heading', { name: 'Onde estudar' })).closest('section')!
     expect(await within(study).findByText('Desenvolvimento Web com React')).toBeInTheDocument()
     expect(within(study).getByRole('link', { name: /Ver todos os cursos/ })).toHaveAttribute(
       'href',
-      '/formacao?carreira=desenvolvedor-frontend',
+      '/cursos?carreira=desenvolvedor-frontend',
     )
   })
 

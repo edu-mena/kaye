@@ -418,15 +418,27 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 
 ## 7. App (frontend)
 
-### Navegação (barra inferior com 5 separadores)
+### Navegação
 
-| Separador | Conteúdo |
-|---|---|
-| Início | Teste vocacional, recomendações, progresso, próxima ação sugerida |
-| Carreiras | Todas as profissões e a página de cada uma: o que faz, características, o que os empregadores pedem, como lá chegar, o meu encaixe, CVs modelo |
-| Formação | Instituições e cursos, as melhores para cada curso, comparar, custos |
-| CV | Editor, modelos visuais e CVs modelo por área |
-| Perfil | Conta, resultado do teste, as minhas competências, guardados, idioma, privacidade |
+- **Computador:** uma barra lateral preta flutuante, que se minimiza só com ícones. Tem dois grupos e, em baixo, Suporte e Configurações.
+- **Telemóvel:** uma barra de baixo com os 5 destinos mais usados. Na barra de cima ficam o sino das notificações e o menu (hamburger), que tem o resto.
+
+| Grupo | Secção | Conteúdo | Telemóvel |
+|---|---|---|---|
+| Explorar | Início | Teste vocacional, recomendações, progresso, próxima ação | Barra de baixo |
+| | Pesquisa | Carreiras, cursos, academias e empresas num só sítio | Barra de baixo |
+| | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
+| | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
+| | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
+| | Empresas | As empresas líderes de cada setor | Menu |
+| | Mercado | Áreas em alta, procura vs oferta de cada curso (ex.: Odoo é muito pedido e nenhuma academia conhecida o ensina), anúncios de recrutamento com ligação à fonte | Menu |
+| | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
+| Para ti | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
+| | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província) | Sino |
+| | Perfil | Conta, resultado do teste, competências, guardados | Menu |
+| Em baixo | Suporte, Configurações | Ajuda; idioma, privacidade e dados | Menu |
+
+**Recrutamento no Mercado:** só título, fonte, data e ligação para o original, e só de fontes que o permitem ([fontes-de-vagas.md](fontes-de-vagas.md)). Quando a fonte não o permite, entra só como dado agregado. O Kayé continua a não ser um site de emprego.
 
 ### Página de uma carreira
 

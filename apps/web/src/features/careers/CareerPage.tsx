@@ -600,7 +600,7 @@ function Study({ career }: { career: Career }) {
                   </li>
                 ))}
               </ol>
-              <ButtonLink to={`/formacao?carreira=${career.slug}`} variant="ghost" className="mt-2 -ml-3">
+              <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" className="mt-2 -ml-3">
                 {t('career.studyAll')}
                 <Icon name="arrowRight" className="size-4" />
               </ButtonLink>

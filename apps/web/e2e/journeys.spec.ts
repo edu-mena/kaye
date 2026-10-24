@@ -59,7 +59,7 @@ test.describe('journeys', () => {
   })
 
   test('comparing courses side by side', async ({ page, consoleErrors }) => {
-    await page.goto('/formacao?carreira=desenvolvedor-frontend')
+    await page.goto('/cursos?carreira=desenvolvedor-frontend')
     const buttons = page.getByRole('button', { name: 'Comparar' })
     await buttons.nth(0).click()
     await buttons.nth(1).click()
