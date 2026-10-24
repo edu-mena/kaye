@@ -1,4 +1,5 @@
 import type { Institution, Program, Schedule } from '../types'
+import { PROGRAM_IMAGES } from './images'
 
 // DEMO DATA. Institutions are fictional on purpose ("Exemplo"): a ranking with
 // invented numbers must never carry a real institution's name.
@@ -203,16 +204,21 @@ const ROWS: Row[] = [
 ]
 
 export const PROGRAMS: Program[] = ROWS.map(
-  ([id, institution, name, level, months, schedule, cost, recognized, rating, careers]) => ({
-    id,
-    institution: INSTITUTIONS[institution],
-    name,
-    level,
-    durationMonths: months,
-    schedule,
-    totalCost: cost,
-    recognized,
-    rating: rating ? { average: rating[0], count: rating[1] } : null,
-    careers,
-  }),
+  ([id, institution, name, level, months, schedule, cost, recognized, rating, careers]) => {
+    const program: Program = {
+      id,
+      institution: INSTITUTIONS[institution],
+      name,
+      level,
+      durationMonths: months,
+      schedule,
+      totalCost: cost,
+      recognized,
+      rating: rating ? { average: rating[0], count: rating[1] } : null,
+      careers,
+    }
+    const image = PROGRAM_IMAGES[id]
+    if (image) program.image = image
+    return program
+  },
 )

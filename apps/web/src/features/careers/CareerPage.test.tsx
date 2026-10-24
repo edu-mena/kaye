@@ -127,7 +127,9 @@ describe('CareerPage', () => {
     open('product-manager')
     expect(await screen.findByRole('heading', { level: 1, name: 'Product Manager' })).toBeInTheDocument()
     expect(screen.getByText(/Estamos a preparar esta página/)).toBeInTheDocument()
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    // A real photo of the work, but no sections with made-up content.
+    expect(screen.getByRole('img', { name: /Equipa de jovens profissionais/ })).toBeInTheDocument()
+    expect(screen.queryByRole('tablist')).not.toBeInTheDocument()
   })
 
   it('says when a career does not exist', async () => {

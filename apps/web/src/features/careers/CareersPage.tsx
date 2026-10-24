@@ -4,8 +4,10 @@ import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
 import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
-import { Icon } from '../../components/icons'
+import { Icon, type IconName } from '../../components/icons'
+import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
+import { FilterSelect, FilterTiles, StatPills } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
@@ -15,6 +17,7 @@ import { filterCareers, type CareerSort } from '../../domain/careers'
 import { interestLevel } from '../../domain/fit'
 import { formatKz } from '../../domain/format'
 import { compatibility } from '../../domain/riasec'
+import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 
@@ -34,7 +37,6 @@ export default function CareersPage() {
   const sortParam = params.get('ordem')
   const sorts: CareerSort[] = profile ? ['forYou', 'demand', 'salary'] : ['demand', 'salary']
   const sort = sorts.find((option) => option === sortParam) ?? sorts[0] ?? 'demand'
-  const pageParam = Number(params.get('pagina'))
   const list = useRef<HTMLElement>(null)
   // A new search, area or order starts again on the first page.
   const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
@@ -51,9 +53,7 @@ export default function CareersPage() {
         const results = filterCareers(careers, { query: search, group, sort, profile })
         const guides = careers.filter((career) => career.detailed && career.image)
         const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
-        const pages = Math.max(1, Math.ceil(results.length / PAGE_SIZE))
-        const page = Number.isInteger(pageParam) && pageParam >= 1 ? Math.min(pageParam, pages) : 1
-        const shown = results.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+        const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
         const goTo = (next: number) => {
           setParam('pagina', next > 1 ? String(next) : null)
           list.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
@@ -80,25 +80,13 @@ export default function CareersPage() {
                   </output>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <label className="relative block">
-                    <span className="sr-only">{t('careers.groupsLabel')}</span>
-                    <select
-                      value={group ?? ''}
-                      onChange={(event) => setFilter('area', event.target.value || null)}
-                      className="h-10 appearance-none rounded-full border border-line bg-surface pr-10 pl-4 text-sm font-light text-night hover:border-ash-300"
-                    >
-                      <option value="">{t('careers.allAreas')}</option>
-                      {groups.map((item) => (
-                        <option key={item} value={item}>
-                          {t(`groups.${item}`)}
-                        </option>
-                      ))}
-                    </select>
-                    <Icon
-                      name="chevronRight"
-                      className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 rotate-90 text-muted"
-                    />
-                  </label>
+                  <FilterSelect
+                    label={t('careers.groupsLabel')}
+                    placeholder={t('careers.allAreas')}
+                    value={group}
+                    onChange={(value) => setFilter('area', value)}
+                    options={groups.map((item) => ({ value: item, label: t(`groups.${item}`) }))}
+                  />
                   <Segmented
                     label={t('careers.sortLabel')}
                     value={sort}
@@ -127,7 +115,7 @@ export default function CareersPage() {
               <Pagination page={page} pages={pages} onChange={goTo} label={t('careers.pages')} />
             </section>
 
-            <PhotoCredits guides={guides} />
+            <PhotoCredits photos={careers.map((career) => career.image)} />
           </div>
         )
       }}
@@ -154,7 +142,7 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
       value: careers.filter((career) => career.detailed).length,
       label: t('careers.statGuides'),
     },
-  ] as const
+  ] satisfies { icon: IconName; value: number; label: string }[]
 
   return (
     <section className="overflow-hidden rounded-card bg-coal text-white">
@@ -178,18 +166,7 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
             />
           </label>
 
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {stats.map((stat) => (
-              <li
-                key={stat.label}
-                className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm"
-              >
-                <Icon name={stat.icon} className="size-4 text-white" />
-                <span className="font-semibold">{stat.value}</span>
-                <span className="font-light text-white/70">{stat.label}</span>
-              </li>
-            ))}
-          </ul>
+          <StatPills stats={stats} className="mt-6" />
         </div>
 
         {guides.length >= 3 && (
@@ -221,47 +198,26 @@ type AreasProps = {
 /** The areas as tiles with their icon and how many careers each has; pressing one filters the list. */
 function Areas({ careers, selected, onSelect }: AreasProps) {
   const { t } = useTranslation()
-  const counts = CAREER_GROUPS.map((group) => ({
-    group,
-    count: careers.filter((career) => career.group === group).length,
-  })).filter((item) => item.count > 0)
-
   return (
     <section aria-labelledby="areas">
       <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
-      <ul className="-mx-3 no-scrollbar flex gap-3 overflow-x-auto px-3 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-5">
-        {counts.map(({ group, count }) => {
-          const active = selected === group
-          return (
-            <li key={group} className="shrink-0">
-              <button
-                type="button"
-                aria-pressed={active}
-                onClick={() => onSelect(active ? null : group)}
-                className={`flex h-full w-56 items-center gap-3 rounded-2xl border p-3 pr-4 text-left transition duration-300 sm:w-full ${
-                  active
-                    ? 'border-night bg-night text-white'
-                    : 'border-line bg-surface text-night hover:-translate-y-0.5 hover:shadow-card'
-                }`}
-              >
-                <span
-                  className={`grid size-10 shrink-0 place-items-center rounded-full ${active ? 'bg-white/10 text-gold' : 'bg-coal text-white'}`}
-                >
-                  <Icon name={GROUP_ICONS[group]} className="size-5" />
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-sm leading-snug font-semibold">{t(`groups.${group}`)}</span>
-                  <span
-                    className={`mt-1 block text-xs font-light ${active ? 'text-white/70' : 'text-muted'}`}
-                  >
-                    {t('careers.count', { count })}
-                  </span>
-                </span>
-              </button>
-            </li>
-          )
+      <FilterTiles
+        selected={selected}
+        onSelect={onSelect}
+        tiles={CAREER_GROUPS.flatMap((group) => {
+          const count = careers.filter((career) => career.group === group).length
+          return count === 0
+            ? []
+            : [
+                {
+                  value: group,
+                  icon: GROUP_ICONS[group],
+                  label: t(`groups.${group}`),
+                  note: t('careers.count', { count }),
+                },
+              ]
         })}
-      </ul>
+      />
     </section>
   )
 }
@@ -291,6 +247,10 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
                 aria-hidden="true"
                 className="absolute inset-0 bg-linear-to-t from-coal via-coal/60 to-transparent"
               />
+              <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-coal/80 px-3 py-1 text-xs font-light text-white">
+                <Icon name="path" className="size-3.5 text-gold" />
+                {t('careers.guideTag')}
+              </span>
               <span className="absolute inset-x-0 bottom-0 p-5">
                 <span className="block text-xs font-light text-white/75">{t(`groups.${career.group}`)}</span>
                 <span className="mt-1 block text-xl leading-tight font-extrabold">{career.name}</span>
@@ -307,31 +267,5 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
         ))}
       </ul>
     </section>
-  )
-}
-
-/** CC BY-SA asks for the authors: one quiet line, with links to the originals. */
-function PhotoCredits({ guides }: { guides: CareerSummary[] }) {
-  const { t } = useTranslation()
-  const credits = guides.flatMap((career) => (career.image ? [career.image.credit] : []))
-  if (credits.length === 0) return null
-  return (
-    <p className="text-xs font-light text-muted">
-      {t('careers.photosCredit')}{' '}
-      {credits.map((credit, index) => (
-        <span key={credit.url}>
-          {index > 0 && ' · '}
-          <a
-            href={credit.url}
-            target="_blank"
-            rel="noreferrer"
-            className="underline-offset-2 hover:underline"
-          >
-            {credit.author}
-          </a>
-        </span>
-      ))}{' '}
-      ({credits[0]?.license})
-    </p>
   )
 }

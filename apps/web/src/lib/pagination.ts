@@ -18,3 +18,11 @@ export function pageItems(page: number, pages: number): PageItem[] {
     return previous !== undefined && number - previous > 1 ? [{ page: number, gap: true }, item] : [item]
   })
 }
+
+/** One page of a list. A page number out of range (or not a number) falls back to the nearest page. */
+export function paginate<T>(items: T[], requested: number, size: number) {
+  const pages = Math.max(1, Math.ceil(items.length / size))
+  const page = Number.isInteger(requested) && requested >= 1 ? Math.min(requested, pages) : 1
+  const offset = (page - 1) * size
+  return { page, pages, offset, shown: items.slice(offset, offset + size) }
+}

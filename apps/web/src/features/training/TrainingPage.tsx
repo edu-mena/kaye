@@ -1,25 +1,37 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
-import { Icon } from '../../components/icons'
-import { InstitutionLogo } from '../../components/InstitutionLogo'
+import { Icon, type IconName } from '../../components/icons'
+import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
-import { ScoreRing } from '../../components/ScoreRing'
 import { ButtonLink } from '../../components/ui/Button'
 import { Dialog } from '../../components/ui/Dialog'
+import { FilterSelect, FilterTiles, StatPills } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
+import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareer, useCareers, usePrograms } from '../../data/queries'
 import type { Program } from '../../data/types'
 import { formatPercent } from '../../domain/format'
 import { CRITERIA, rankPrograms, scorePrograms, type ScoredProgram, type SortKey } from '../../domain/ranking'
+import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useUser } from '../../state/userStore'
-import { CompareButton, DetailsButton, ProgramCard, ProgramFacts } from './ProgramCard'
+import { ProgramCard } from './ProgramCard'
 import { ProgramSummary } from './ProgramSummary'
 
 const SORTS: SortKey[] = ['score', 'price', 'rating']
+/** Three rows of three on a wide screen. */
+const PAGE_SIZE = 9
+const LEVELS: { level: Program['level']; icon: IconName }[] = [
+  { level: 'licenciatura', icon: 'cap' },
+  { level: 'medio_tecnico', icon: 'building' },
+  { level: 'formacao_profissional', icon: 'briefcase' },
+  { level: 'certificacao', icon: 'award' },
+]
+const isLevel = (value: string | null): value is Program['level'] =>
+  LEVELS.some((item) => item.level === value)
 
 // CC BY 4.0 asks for the author, the source and the licence, next to the photo.
 const PHOTO = {
@@ -35,10 +47,15 @@ export default function TrainingPage() {
   const { compare } = useUser()
   const [params, setParam] = useUrlFilters()
   const [openId, setOpenId] = useState<string | null>(null)
+  const list = useRef<HTMLElement>(null)
   const career = params.get('carreira')
   const province = params.get('onde')
+  const levelParam = params.get('nivel')
+  const level = isLevel(levelParam) ? levelParam : null
   const sort = SORTS.find((value) => value === params.get('ordem')) ?? 'score'
   const careerName = careers.find((item) => item.slug === career)?.name
+  // A new career, place, level or order starts again on the first page.
+  const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
 
   return (
     <div className="space-y-12">
@@ -48,15 +65,21 @@ export default function TrainingPage() {
             .map((slug) => ({ value: slug, label: careers.find((item) => item.slug === slug)?.name ?? slug }))
             .toSorted((a, b) => a.label.localeCompare(b.label))
           const provinces = [...new Set(programs.map((program) => program.institution.province))]
-          const visible = scorePrograms(programs).filter(
+          const forCareer = scorePrograms(programs).filter(
             ({ program }) =>
               (!career || program.careers.includes(career)) &&
               (!province || program.institution.province === province),
           )
+          const visible = forCareer.filter(({ program }) => !level || program.level === level)
           const { ranked, unrecognized } = rankPrograms(visible, sort)
+          const { page, pages, offset, shown } = paginate(ranked, Number(params.get('pagina')), PAGE_SIZE)
           // The popup always gives the place by score, whatever order the list is in.
           const byScore = rankPrograms(visible, 'score').ranked
           const open = byScore.find((item) => item.program.id === openId)
+          const goTo = (next: number) => {
+            setParam('pagina', next > 1 ? String(next) : null)
+            list.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
+          }
 
           return (
             <>
@@ -64,11 +87,34 @@ export default function TrainingPage() {
                 programs={programs}
                 career={career}
                 careerOptions={careerOptions}
-                onCareer={(value) => setParam('carreira', value || null)}
+                onCareer={(value) => setFilter('carreira', value || null)}
               />
+
+              <section aria-labelledby="levels">
+                <SectionHeading id="levels" title={t('training.levelsTitle')} icon="cap" />
+                <FilterTiles
+                  columns="sm:grid-cols-3 lg:grid-cols-4"
+                  selected={level}
+                  onSelect={(value) => setFilter('nivel', value)}
+                  tiles={LEVELS.flatMap(({ level: value, icon }) => {
+                    const count = forCareer.filter((item) => item.program.level === value).length
+                    return count === 0
+                      ? []
+                      : [
+                          {
+                            value,
+                            icon,
+                            label: t(`training.${value}`),
+                            note: t('training.courses', { count }),
+                          },
+                        ]
+                  })}
+                />
+              </section>
+
               <Method />
 
-              <section aria-labelledby="ranking">
+              <section ref={list} aria-labelledby="ranking" className="scroll-mt-24">
                 <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                   <div>
                     <h2 id="ranking" className="text-xl font-extrabold text-night sm:text-2xl">
@@ -80,28 +126,44 @@ export default function TrainingPage() {
                       {t('training.count', { count: ranked.length })}
                     </output>
                   </div>
-                  <Segmented<SortKey>
-                    label={t('training.sortLabel')}
-                    value={sort}
-                    onChange={(value) => setParam('ordem', value)}
-                    options={SORTS.map((value) => ({ value, label: t(`training.sort${value}`) }))}
-                  />
+                  <div className="flex flex-wrap items-center gap-3">
+                    <FilterSelect
+                      label={t('training.provinceLabel')}
+                      placeholder={t('training.allProvinces')}
+                      value={province}
+                      onChange={(value) => setFilter('onde', value)}
+                      options={provinces.map((value) => ({ value, label: value }))}
+                    />
+                    <Segmented<SortKey>
+                      label={t('training.sortLabel')}
+                      value={sort}
+                      onChange={(value) => setFilter('ordem', value)}
+                      options={SORTS.map((value) => ({ value, label: t(`training.sort${value}`) }))}
+                    />
+                  </div>
                 </div>
-                <Segmented
-                  label={t('training.provinceLabel')}
-                  clearable
-                  value={province}
-                  onChange={(value) => setParam('onde', value)}
-                  options={provinces.map((value) => ({ value, label: value }))}
-                  className="mb-6"
-                />
 
                 {ranked.length === 0 && (
                   <p className="rounded-card bg-surface py-10 text-center text-sm font-light text-muted shadow-card">
                     {unrecognized.length === 0 ? t('training.empty') : t('training.emptyRanked')}
                   </p>
                 )}
-                <Ranking ranked={ranked} sort={sort} onOpen={setOpenId} />
+                <ol aria-label={t('training.ranked')} className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {shown.map((item, index) => {
+                    const rank = offset + index + 1
+                    return (
+                      <li key={item.program.id}>
+                        <ProgramCard
+                          item={item}
+                          rank={rank}
+                          lead={rank === 1 ? t(`training.top${sort}`) : undefined}
+                          onOpen={() => setOpenId(item.program.id)}
+                        />
+                      </li>
+                    )
+                  })}
+                </ol>
+                <Pagination page={page} pages={pages} onChange={goTo} label={t('training.pages')} />
               </section>
 
               {unrecognized.length > 0 && (
@@ -110,7 +172,7 @@ export default function TrainingPage() {
                   <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">
                     {t('training.unrecognizedBody')}
                   </p>
-                  <ul className="space-y-4">
+                  <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     {unrecognized.map((item) => (
                       <li key={item.program.id}>
                         <ProgramCard item={item} />
@@ -119,6 +181,8 @@ export default function TrainingPage() {
                   </ul>
                 </section>
               )}
+
+              <PhotoCredits photos={programs.map((program) => program.image)} />
 
               <Dialog open={Boolean(open)} onClose={() => setOpenId(null)} title={open?.program.name ?? ''}>
                 {open && <OpenProgram item={open} rank={byScore.indexOf(open) + 1} careerSlug={career} />}
@@ -149,23 +213,26 @@ type HeroProps = {
   onCareer: (value: string) => void
 }
 
-/** Dark hero: the question the page answers (which career?), four numbers and a photo of students. */
+/** Dark hero: the question the page answers (which career?), the numbers as pills and a photo of students. */
 function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
   const { t } = useTranslation()
   const costs = programs.flatMap((program) => (program.totalCost === null ? [] : [program.totalCost]))
-  const stats = [
-    { value: String(programs.length), label: t('training.statCourses') },
+  const stats: { icon: IconName; value: string | number; label: string }[] = [
+    { icon: 'cap', value: programs.length, label: t('training.statCourses') },
     {
-      value: String(new Set(programs.map((program) => program.institution.id)).size),
+      icon: 'landmark',
+      value: new Set(programs.map((program) => program.institution.id)).size,
       label: t('training.statInstitutions'),
     },
     {
-      value: String(programs.filter((program) => program.recognized).length),
+      icon: 'check',
+      value: programs.filter((program) => program.recognized).length,
       label: t('training.statRecognized'),
     },
     ...(costs.length > 0
       ? [
           {
+            icon: 'wallet' as const,
             value: t('training.statFromValue', { value: Math.round(Math.min(...costs) / 1000) }),
             label: t('training.statFrom'),
           },
@@ -206,14 +273,7 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
             </span>
           </label>
 
-          <dl className="mt-8 grid max-w-lg grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="bg-coal p-4">
-                <dd className="text-2xl font-extrabold">{stat.value}</dd>
-                <dt className="mt-1 text-xs font-light text-white/70">{stat.label}</dt>
-              </div>
-            ))}
-          </dl>
+          <StatPills stats={stats} className="mt-6" />
         </div>
 
         <figure className="relative h-56 p-2 sm:h-72 lg:h-auto">
@@ -279,90 +339,6 @@ function Method() {
         </ul>
       </div>
     </section>
-  )
-}
-
-type RankingProps = { ranked: ScoredProgram[]; sort: SortKey; onOpen: (id: string) => void }
-
-/**
- * One ordered list: the first three as a podium (the first large and dark, the next two beside it),
- * then the rest as rows. With fewer than three, everything is a row.
- */
-function Ranking({ ranked, sort, onOpen }: RankingProps) {
-  const { t } = useTranslation()
-  const podium = ranked.length >= 3
-  return (
-    <ol aria-label={t('training.ranked')} className="grid gap-4 lg:grid-cols-2">
-      {ranked.map((item, index) => {
-        const open = () => onOpen(item.program.id)
-        if (podium && index < 3) {
-          return (
-            <li key={item.program.id} className={index === 0 ? 'lg:row-span-2' : ''}>
-              <PodiumCard item={item} rank={index + 1} sort={sort} onOpen={open} />
-            </li>
-          )
-        }
-        return (
-          <li key={item.program.id} className="lg:col-span-2">
-            <ProgramCard item={item} rank={index + 1} onOpen={open} />
-          </li>
-        )
-      })}
-    </ol>
-  )
-}
-
-type PodiumCardProps = { item: ScoredProgram; rank: number; sort: SortKey; onOpen: () => void }
-
-function PodiumCard({ item, rank, sort, onOpen }: PodiumCardProps) {
-  const { t } = useTranslation()
-  const { program, score } = item
-  const first = rank === 1
-  const tone = first ? 'dark' : 'light'
-
-  return (
-    <article
-      className={`flex h-full flex-col rounded-card p-6 shadow-card sm:p-8 ${first ? 'bg-coal text-white' : 'bg-surface text-night'}`}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <span
-            aria-hidden="true"
-            className={`font-display leading-none font-extrabold tabular-nums ${first ? 'text-5xl text-gold' : 'text-4xl text-blue'}`}
-          >
-            {rank}
-          </span>
-          <InstitutionLogo institution={program.institution} className={first ? '' : 'ring-1 ring-line'} />
-        </div>
-        <ScoreRing score={score} size={first ? 'lg' : 'sm'} tone={tone} />
-      </div>
-
-      {first && <p className="mt-8 text-sm font-light text-white/70">{t(`training.top${sort}`)}</p>}
-      <h3
-        className={
-          first
-            ? 'mt-2 text-2xl leading-tight font-extrabold sm:text-3xl'
-            : 'mt-6 text-lg leading-snug font-extrabold text-night'
-        }
-      >
-        {program.name}
-      </h3>
-      <p className={`mt-2 text-sm font-light ${first ? 'text-white/70' : 'text-muted'}`}>
-        {t(`training.${program.level}`)} · {program.institution.name} · {program.institution.province}
-      </p>
-
-      <div className="mt-auto pt-8">
-        <ProgramFacts
-          program={program}
-          tone={tone}
-          className={`border-t pt-4 ${first ? 'border-white/10' : 'border-line'}`}
-        />
-        <div className="mt-6 flex flex-wrap gap-2">
-          <DetailsButton program={program} onOpen={onOpen} tone={tone} />
-          <CompareButton programId={program.id} tone={tone} />
-        </div>
-      </div>
-    </article>
   )
 }
 

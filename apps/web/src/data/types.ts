@@ -111,11 +111,11 @@ export type CareerSummary = {
   /** False while the career page is still being curated. */
   detailed: boolean
   /** Photo for the top of the career page; without one, the page shows the brand pattern. */
-  image?: CareerImage
+  image?: Photo
 }
 
-/** A career photo, with the credit its licence asks for. */
-export type CareerImage = {
+/** A photo (a career, a course), with the credit its licence asks for. */
+export type Photo = {
   /** 800 px wide, for phones. */
   small: string
   /** 1600 px wide. */
@@ -162,6 +162,8 @@ export type Program = {
   recognized: boolean
   rating: { average: number; count: number } | null
   careers: string[]
+  /** The course photo the institution publishes; the demo uses free photos. */
+  image?: Photo
 }
 
 /** `id` keeps each entry stable while the person edits, reorders or removes others. */

@@ -7,7 +7,7 @@ import { Chip } from '../../components/ui/Chip'
 import type { Program } from '../../data/types'
 import { formatKz, formatPercent } from '../../domain/format'
 import type { ScoredProgram } from '../../domain/ranking'
-import { useDuration, useRatingParts } from '../../lib/useFormat'
+import { useDuration, useRatingLabel } from '../../lib/useFormat'
 import { MAX_COMPARE, userActions, useUser } from '../../state/userStore'
 
 type Tone = 'light' | 'dark'
@@ -79,7 +79,7 @@ export function CompareButton({ programId, tone = 'light' }: { programId: string
 type DetailsButtonProps = { program: Program; onOpen: () => void; tone?: Tone }
 
 /** Opens the course popup. The visible words stay short; the name tells screen readers which course. */
-export function DetailsButton({ program, onOpen, tone = 'light' }: DetailsButtonProps) {
+function DetailsButton({ program, onOpen, tone = 'light' }: DetailsButtonProps) {
   const { t } = useTranslation()
   return (
     <Button
@@ -96,28 +96,29 @@ export function DetailsButton({ program, onOpen, tone = 'light' }: DetailsButton
 
 type ProgramFactsProps = { program: Program; tone?: Tone; className?: string }
 
-/** The three numbers people compare first: how long, how much, how students rate it. */
-export function ProgramFacts({ program, tone = 'light', className = '' }: ProgramFactsProps) {
+/** The three numbers people compare first, one line each: how long, how much, how students rate it. */
+function ProgramFacts({ program, tone = 'light', className = '' }: ProgramFactsProps) {
   const { t } = useTranslation()
   const duration = useDuration()
-  const rating = useRatingParts()(program.rating)
-  const quiet = tone === 'dark' ? 'text-white/70' : 'text-muted'
+  const ratingLabel = useRatingLabel()
+  const dark = tone === 'dark'
   const facts = [
     {
       label: t('training.duration'),
       value: duration({ min: program.durationMonths, max: program.durationMonths }),
     },
     { label: t('training.cost'), value: program.totalCost === null ? '—' : formatKz(program.totalCost) },
-    { label: t('training.rating'), value: rating.value, note: rating.note },
+    { label: t('training.rating'), value: ratingLabel(program.rating) },
   ]
   return (
-    <dl className={`grid grid-cols-3 gap-4 ${className}`}>
+    <dl className={`divide-y ${dark ? 'divide-white/10' : 'divide-line'} ${className}`}>
       {facts.map((fact) => (
-        <div key={fact.label} className="min-w-0">
-          <dt className={`text-xs font-light ${quiet}`}>{fact.label}</dt>
-          <dd className={`mt-1 text-sm font-semibold ${tone === 'dark' ? 'text-white' : 'text-night'}`}>
+        <div key={fact.label} className="flex items-baseline justify-between gap-4 py-2">
+          <dt className={`shrink-0 text-xs font-light ${dark ? 'text-white/70' : 'text-muted'}`}>
+            {fact.label}
+          </dt>
+          <dd className={`text-right text-sm font-semibold ${dark ? 'text-white' : 'text-night'}`}>
             {fact.value}
-            {fact.note && <span className={`mt-1 block text-xs font-light ${quiet}`}>{fact.note}</span>}
           </dd>
         </div>
       ))}
@@ -127,58 +128,75 @@ export function ProgramFacts({ program, tone = 'light', className = '' }: Progra
 
 type ProgramCardProps = {
   item: ScoredProgram
+  /** Place in the ranking; without it (courses awaiting recognition) no number is shown. */
   rank?: number
+  /** The first place: a dark card, with a line on why it leads. */
+  lead?: string
   /** Opens the course in a popup (ranked courses). */
   onOpen?: () => void
 }
 
 /**
- * A course in the list: a stack on phones and one row from lg (who and what, the numbers, the
- * actions), so a long list stays easy to scan on a wide screen.
+ * A course at a glance, like a career card: the course photo with its place (gold) and the
+ * institution's logo, then the name, the score, the level and the three numbers people compare.
+ * The photo is decorative (the name says it).
  */
-export function ProgramCard({ item, rank, onOpen }: ProgramCardProps) {
+export function ProgramCard({ item, rank, lead, onOpen }: ProgramCardProps) {
   const { t } = useTranslation()
   const { program, score } = item
+  const tone: Tone = lead ? 'dark' : 'light'
+  const quiet = lead ? 'text-white/70' : 'text-muted'
 
   return (
-    <article className="rounded-card bg-surface p-5 shadow-card sm:p-6">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-8">
-        <div className="flex min-w-0 flex-1 items-start gap-4">
-          {rank !== undefined && (
-            <span
-              className="w-7 shrink-0 pt-3 font-display text-2xl leading-none font-extrabold text-blue tabular-nums"
-              aria-hidden="true"
-            >
-              {rank}
-            </span>
-          )}
-          <InstitutionLogo institution={program.institution} className="ring-1 ring-line" />
-          <div className="min-w-0 flex-1">
-            <h3 className="text-base leading-snug font-semibold text-night">{program.name}</h3>
-            <p className="mt-1 text-xs font-light text-muted">
+    <article
+      className={`flex h-full flex-col overflow-hidden rounded-card shadow-card ${lead ? 'bg-coal text-white' : 'bg-surface text-night'}`}
+    >
+      <div className="relative h-40 shrink-0 bg-coal">
+        {program.image && (
+          <img src={program.image.small} alt="" loading="lazy" className="size-full object-cover" />
+        )}
+        {rank !== undefined && (
+          <span
+            aria-hidden="true"
+            className="absolute top-3 left-3 grid h-10 min-w-10 place-items-center rounded-full bg-coal px-3 font-display text-base font-extrabold text-gold tabular-nums"
+          >
+            {rank}
+          </span>
+        )}
+        <span className="absolute bottom-3 left-3">
+          <InstitutionLogo institution={program.institution} />
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-5">
+        {lead && <p className="mb-2 text-xs font-light text-white/70">{lead}</p>}
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <h3 className="text-base leading-snug font-semibold">{program.name}</h3>
+            <p className={`mt-1 text-xs font-light ${quiet}`}>
               {program.institution.name} · {program.institution.province}
             </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Chip>{t(`training.${program.level}`)}</Chip>
-              {program.schedule.map((slot) => (
-                <Chip key={slot}>{t(`training.${slot}`)}</Chip>
-              ))}
-              {program.recognized && (
-                <Chip tone="success">
-                  <Icon name="check" className="size-3" />
-                  {t('training.recognized')}
-                </Chip>
-              )}
-            </div>
           </div>
-          {program.recognized && <ScoreRing score={score} />}
+          {program.recognized && <ScoreRing score={score} tone={tone} />}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[program.level, ...program.schedule].map((key) => (
+            <Chip key={key} tone={lead ? 'onDark' : 'neutral'}>
+              {t(`training.${key}`)}
+            </Chip>
+          ))}
         </div>
 
-        <ProgramFacts program={program} className="lg:w-96 lg:shrink-0" />
-
-        <div className="flex flex-wrap gap-2 lg:w-40 lg:shrink-0 lg:flex-col lg:items-stretch">
-          {onOpen && <DetailsButton program={program} onOpen={onOpen} />}
-          <CompareButton programId={program.id} />
+        <div className="mt-auto pt-4">
+          <ProgramFacts
+            program={program}
+            tone={tone}
+            className={`border-t ${lead ? 'border-white/10' : 'border-line'}`}
+          />
+          <div className="mt-4 flex flex-wrap gap-2">
+            {onOpen && <DetailsButton program={program} onOpen={onOpen} tone={tone} />}
+            <CompareButton programId={program.id} tone={tone} />
+          </div>
         </div>
       </div>
     </article>

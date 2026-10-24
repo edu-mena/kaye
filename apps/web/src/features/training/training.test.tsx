@@ -35,10 +35,24 @@ describe('TrainingPage', () => {
     renderWithApp(<TrainingPage />)
     await userEvent.click(await screen.findByRole('button', { name: 'Mais barato' }))
     expect(rankedNames()[0]).toBe('Figma e Design de Interfaces')
-    await userEvent.click(screen.getByRole('button', { name: 'Online' }))
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Onde' }), 'Online')
     expect(screen.getByTestId('location')).toHaveTextContent('onde=Online')
     expect(screen.getByText('Bootcamp de Frontend')).toBeInTheDocument()
     expect(screen.queryByText('Figma e Design de Interfaces')).not.toBeInTheDocument()
+  })
+
+  it('filters by level and shows the ranking 9 at a time', async () => {
+    renderWithApp(<TrainingPage />)
+    expect(await screen.findByText('10 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(rankedNames()).toHaveLength(9)
+    const pages = screen.getByRole('navigation', { name: 'Páginas de cursos' })
+    await userEvent.click(within(pages).getByRole('button', { name: 'Página 2' }))
+    expect(rankedNames()).toHaveLength(1)
+
+    await userEvent.click(screen.getByRole('button', { name: /^Licenciatura/ }))
+    expect(screen.getByTestId('location')).toHaveTextContent('nivel=licenciatura')
+    expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
+    expect(screen.getByText('4 cursos classificados', { selector: 'output' })).toBeInTheDocument()
   })
 
   it('collects up to 3 courses to compare', async () => {

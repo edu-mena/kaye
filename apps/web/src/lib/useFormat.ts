@@ -46,17 +46,3 @@ export function useRatingLabel() {
       ? t('training.ratingValue', { average: number.format(rating.average), count: rating.count })
       : t('training.ratingFew')
 }
-
-/** The rating in two short parts for tight spaces: "4,6 de 5" over "12 avaliações", or a dash. */
-export function useRatingParts() {
-  const { t, i18n } = useTranslation()
-  const number = new Intl.NumberFormat(i18n.language, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-
-  return (rating: Program['rating']) =>
-    rating && rating.count >= MIN_REVIEWS
-      ? {
-          value: t('training.ratingShort', { average: number.format(rating.average) }),
-          note: t('training.reviews', { count: rating.count }),
-        }
-      : { value: '—', note: t('training.ratingFewShort') }
-}
