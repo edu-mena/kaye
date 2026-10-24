@@ -39,6 +39,9 @@ export const fr: Messages = {
     loadError: 'Chargement impossible. Vérifie ta connexion et réessaie.',
     demo: 'Démonstration : métiers, formations et chiffres sont des exemples, et ta progression reste sur cet appareil.',
     xp: '{{xp}} XP',
+    page: 'Page {{page}}',
+    previousPage: 'Page précédente',
+    nextPage: 'Page suivante',
   },
   duration: {
     months_one: '{{count}} mois',
@@ -191,6 +194,8 @@ export const fr: Messages = {
     medianLabel: 'Salaire médian',
     perMonth: '{{value}}/mois',
     photosCredit: 'Photos :',
+    allAreas: 'Tous les domaines',
+    pages: 'Pages de métiers',
   },
   groups: {
     desenvolvimento: 'Développement',

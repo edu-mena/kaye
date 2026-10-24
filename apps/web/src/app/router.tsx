@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
       {
         path: 'carreiras',
-        handle: { wide: true } satisfies RouteHandle,
+        handle: { hideDemoBanner: true, wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/careers/CareersPage')),
       },
       {
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'cursos',
-        handle: { wide: true } satisfies RouteHandle,
+        handle: { hideDemoBanner: true, wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/training/TrainingPage')),
       },
       { path: 'cursos/comparar', lazy: page(() => import('../features/training/ComparePage')) },

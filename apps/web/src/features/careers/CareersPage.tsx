@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
@@ -6,6 +7,7 @@ import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon } from '../../components/icons'
 import { QueryState } from '../../components/QueryState'
 import { SectionHeading } from '../../components/ui/PageHeader'
+import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareers } from '../../data/queries'
 import { CAREER_GROUPS, type CareerGroup, type CareerSummary } from '../../data/types'
@@ -18,6 +20,9 @@ import { useRiasecProfile } from '../../state/useRiasecProfile'
 
 const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.some((group) => group === value)
 
+/** Four rows of three on a wide screen. */
+const PAGE_SIZE = 12
+
 export default function CareersPage() {
   const { t } = useTranslation()
   const query = useCareers()
@@ -29,6 +34,10 @@ export default function CareersPage() {
   const sortParam = params.get('ordem')
   const sorts: CareerSort[] = profile ? ['forYou', 'demand', 'salary'] : ['demand', 'salary']
   const sort = sorts.find((option) => option === sortParam) ?? sorts[0] ?? 'demand'
+  const pageParam = Number(params.get('pagina'))
+  const list = useRef<HTMLElement>(null)
+  // A new search, area or order starts again on the first page.
+  const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
 
   const sortLabels: Record<CareerSort, string> = {
     forYou: t('careers.sortForYou'),
@@ -41,18 +50,26 @@ export default function CareersPage() {
       {(careers) => {
         const results = filterCareers(careers, { query: search, group, sort, profile })
         const guides = careers.filter((career) => career.detailed && career.image)
+        const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
+        const pages = Math.max(1, Math.ceil(results.length / PAGE_SIZE))
+        const page = Number.isInteger(pageParam) && pageParam >= 1 ? Math.min(pageParam, pages) : 1
+        const shown = results.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+        const goTo = (next: number) => {
+          setParam('pagina', next > 1 ? String(next) : null)
+          list.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
+        }
         return (
           <div className="space-y-12">
             <Hero
               careers={careers}
               guides={guides}
               search={search}
-              onSearch={(value) => setParam('q', value || null)}
+              onSearch={(value) => setFilter('q', value || null)}
             />
-            <Areas careers={careers} selected={group} onSelect={(value) => setParam('area', value)} />
+            <Areas careers={careers} selected={group} onSelect={(value) => setFilter('area', value)} />
             {!search && !group && guides.length > 0 && <Guides guides={guides} />}
 
-            <section aria-labelledby="all-careers">
+            <section ref={list} aria-labelledby="all-careers" className="scroll-mt-24">
               <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                 <div>
                   <h2 id="all-careers" className="text-xl font-extrabold text-night sm:text-2xl">
@@ -62,12 +79,33 @@ export default function CareersPage() {
                     {t('careers.count', { count: results.length })}
                   </output>
                 </div>
-                <Segmented
-                  label={t('careers.sortLabel')}
-                  value={sort}
-                  onChange={(value) => setParam('ordem', value)}
-                  options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
-                />
+                <div className="flex flex-wrap items-center gap-3">
+                  <label className="relative block">
+                    <span className="sr-only">{t('careers.groupsLabel')}</span>
+                    <select
+                      value={group ?? ''}
+                      onChange={(event) => setFilter('area', event.target.value || null)}
+                      className="h-10 appearance-none rounded-full border border-line bg-surface pr-10 pl-4 text-sm font-light text-night hover:border-ash-300"
+                    >
+                      <option value="">{t('careers.allAreas')}</option>
+                      {groups.map((item) => (
+                        <option key={item} value={item}>
+                          {t(`groups.${item}`)}
+                        </option>
+                      ))}
+                    </select>
+                    <Icon
+                      name="chevronRight"
+                      className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 rotate-90 text-muted"
+                    />
+                  </label>
+                  <Segmented
+                    label={t('careers.sortLabel')}
+                    value={sort}
+                    onChange={(value) => setFilter('ordem', value)}
+                    options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
+                  />
+                </div>
               </div>
               {results.length === 0 ? (
                 <p className="rounded-card bg-surface py-10 text-center text-sm font-light text-muted shadow-card">
@@ -75,16 +113,18 @@ export default function CareersPage() {
                 </p>
               ) : (
                 <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {results.map((career) => (
+                  {shown.map((career) => (
                     <li key={career.slug}>
                       <CareerCard
                         career={career}
+                        brief
                         match={profile ? interestLevel(compatibility(profile, career.riasec)) : undefined}
                       />
                     </li>
                   ))}
                 </ul>
               )}
+              <Pagination page={page} pages={pages} onChange={goTo} label={t('careers.pages')} />
             </section>
 
             <PhotoCredits guides={guides} />
@@ -107,10 +147,14 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
   const { t } = useTranslation()
   const areas = new Set(careers.map((career) => career.group)).size
   const stats = [
-    { value: careers.length, label: t('careers.statCareers') },
-    { value: areas, label: t('careers.statAreas') },
-    { value: careers.filter((career) => career.detailed).length, label: t('careers.statGuides') },
-  ]
+    { icon: 'briefcase', value: careers.length, label: t('careers.statCareers') },
+    { icon: 'compass', value: areas, label: t('careers.statAreas') },
+    {
+      icon: 'path',
+      value: careers.filter((career) => career.detailed).length,
+      label: t('careers.statGuides'),
+    },
+  ] as const
 
   return (
     <section className="overflow-hidden rounded-card bg-coal text-white">
@@ -134,14 +178,18 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
             />
           </label>
 
-          <dl className="mt-8 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-2xl bg-white/10">
+          <ul className="mt-6 flex flex-wrap gap-2">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-coal p-4">
-                <dd className="text-2xl font-extrabold">{stat.value}</dd>
-                <dt className="mt-1 text-xs font-light text-white/70">{stat.label}</dt>
-              </div>
+              <li
+                key={stat.label}
+                className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm"
+              >
+                <Icon name={stat.icon} className="size-4 text-white" />
+                <span className="font-semibold">{stat.value}</span>
+                <span className="font-light text-white/70">{stat.label}</span>
+              </li>
             ))}
-          </dl>
+          </ul>
         </div>
 
         {guides.length >= 3 && (
@@ -190,19 +238,19 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
                 type="button"
                 aria-pressed={active}
                 onClick={() => onSelect(active ? null : group)}
-                className={`flex h-full w-40 flex-col items-start gap-4 rounded-2xl border p-4 text-left transition duration-300 sm:w-full ${
+                className={`flex h-full w-56 items-center gap-3 rounded-2xl border p-3 pr-4 text-left transition duration-300 sm:w-full ${
                   active
                     ? 'border-night bg-night text-white'
                     : 'border-line bg-surface text-night hover:-translate-y-0.5 hover:shadow-card'
                 }`}
               >
                 <span
-                  className={`grid size-10 place-items-center rounded-full ${active ? 'bg-white/10 text-gold' : 'bg-coal text-white'}`}
+                  className={`grid size-10 shrink-0 place-items-center rounded-full ${active ? 'bg-white/10 text-gold' : 'bg-coal text-white'}`}
                 >
                   <Icon name={GROUP_ICONS[group]} className="size-5" />
                 </span>
-                <span>
-                  <span className="block text-sm font-semibold">{t(`groups.${group}`)}</span>
+                <span className="min-w-0">
+                  <span className="block text-sm leading-snug font-semibold">{t(`groups.${group}`)}</span>
                   <span
                     className={`mt-1 block text-xs font-light ${active ? 'text-white/70' : 'text-muted'}`}
                   >

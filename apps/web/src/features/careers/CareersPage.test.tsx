@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { renderWithApp } from '../../test/render'
@@ -30,6 +30,29 @@ describe('CareersPage', () => {
     expect(screen.getByText('2 profissões', { selector: 'output' })).toBeInTheDocument()
     await userEvent.click(design)
     expect(screen.getByText('27 profissões', { selector: 'output' })).toBeInTheDocument()
+  })
+
+  it('shows 12 careers a page and starts again on the first page when a filter changes', async () => {
+    renderWithApp(<CareersPage />)
+    const list = await screen.findByRole('region', { name: 'Todas as profissões' })
+    expect(within(list).getAllByRole('link')).toHaveLength(12)
+    const pages = screen.getByRole('navigation', { name: 'Páginas de profissões' })
+    expect(within(pages).getByRole('button', { name: 'Página anterior' })).toBeDisabled()
+
+    await userEvent.click(within(pages).getByRole('button', { name: 'Página 3' }))
+    expect(screen.getByTestId('location')).toHaveTextContent('pagina=3')
+    expect(within(list).getAllByRole('link')).toHaveLength(3)
+    expect(within(pages).getByRole('button', { name: 'Página seguinte' })).toBeDisabled()
+    await userEvent.click(within(pages).getByRole('button', { name: 'Página anterior' }))
+    expect(within(pages).getByRole('button', { name: 'Página 2' })).toHaveAttribute('aria-current', 'page')
+    await userEvent.click(within(pages).getByRole('button', { name: 'Página 1' }))
+    expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
+
+    await userEvent.click(within(pages).getByRole('button', { name: 'Página seguinte' }))
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'design')
+    expect(screen.getByTestId('location')).toHaveTextContent('area=design')
+    expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
+    expect(screen.queryByRole('navigation', { name: 'Páginas de profissões' })).not.toBeInTheDocument()
   })
 
   it('says so when nothing matches', async () => {

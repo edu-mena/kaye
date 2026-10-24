@@ -39,6 +39,9 @@ export const en: Messages = {
     loadError: 'Could not load. Check your connection and try again.',
     demo: 'Demo: careers, courses and numbers are examples, and your progress stays on this device only.',
     xp: '{{xp}} XP',
+    page: 'Page {{page}}',
+    previousPage: 'Previous page',
+    nextPage: 'Next page',
   },
   duration: {
     months_one: '{{count}} month',
@@ -184,6 +187,8 @@ export const en: Messages = {
     medianLabel: 'Median salary',
     perMonth: '{{value}}/month',
     photosCredit: 'Photos:',
+    allAreas: 'All areas',
+    pages: 'Career pages',
   },
   groups: {
     desenvolvimento: 'Development',

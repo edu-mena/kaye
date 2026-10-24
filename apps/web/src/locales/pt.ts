@@ -39,6 +39,9 @@ export const pt = {
     loadError: 'Não foi possível carregar. Verifica a ligação e tenta outra vez.',
     demo: 'Demonstração: carreiras, cursos e números são exemplos, e o teu progresso fica só neste aparelho.',
     xp: '{{xp}} XP',
+    page: 'Página {{page}}',
+    previousPage: 'Página anterior',
+    nextPage: 'Página seguinte',
   },
   duration: {
     months_one: '{{count}} mês',
@@ -188,6 +191,8 @@ export const pt = {
     medianLabel: 'Salário mediano',
     perMonth: '{{value}}/mês',
     photosCredit: 'Fotos:',
+    allAreas: 'Todas as áreas',
+    pages: 'Páginas de profissões',
   },
   groups: {
     desenvolvimento: 'Desenvolvimento',

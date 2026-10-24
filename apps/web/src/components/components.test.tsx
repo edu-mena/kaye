@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { changeLocale } from '../lib/i18n'
+import { pageItems } from '../lib/pagination'
 import { renderWithApp } from '../test/render'
 import { seedUser } from '../test/user'
 import { BottomNav, DemoBanner, Sidebar, TopBar } from './Navigation'
@@ -12,6 +13,12 @@ import { Dialog } from './ui/Dialog'
 import { CheckboxField, SelectField, TextAreaField, TextField } from './ui/Field'
 import { ProgressBar } from './ui/ProgressBar'
 import { Segmented } from './ui/Segmented'
+
+/** Page items as text: "1 … 4 5 6 … 10". */
+const pageNumbers = (page: number, pages: number) =>
+  pageItems(page, pages)
+    .map((item) => (item.gap ? '…' : item.page))
+    .join(' ')
 
 function DialogHarness() {
   const [open, setOpen] = useState(false)
@@ -103,6 +110,12 @@ describe('ui', () => {
     expect(onChange).toHaveBeenLastCalledWith(null)
     await userEvent.click(screen.getByRole('button', { name: 'B' }))
     expect(onChange).toHaveBeenLastCalledWith('b')
+  })
+
+  it('Pagination keeps long ranges short, with gaps', () => {
+    expect(pageNumbers(2, 5)).toBe('1 2 3 4 5')
+    expect(pageNumbers(5, 10)).toBe('1 … 4 5 6 … 10')
+    expect(pageNumbers(1, 10)).toBe('1 2 … 10')
   })
 
   it('ProgressBar is a native progress bar with a name', () => {
