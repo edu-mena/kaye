@@ -1,19 +1,17 @@
 import type { ButtonHTMLAttributes } from 'react'
 import { Link, type LinkProps } from 'react-router'
 
-type Variant = 'primary' | 'accent' | 'secondary' | 'ghost' | 'onNavy'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'onDark'
 type Size = 'sm' | 'md' | 'lg'
 
 type Style = { variant?: Variant; size?: Size; className?: string }
 
 const VARIANTS: Record<Variant, string> = {
   primary: 'bg-blue text-white hover:bg-blue-dark',
-  secondary: 'border border-line bg-surface text-navy hover:border-navy/40',
-  ghost: 'text-navy hover:bg-navy-100',
-  // Gold on near-black or light surfaces, never over navy (docs/design.md, Cores).
-  accent: 'bg-gold text-night hover:bg-[#f2b600]',
-  // On navy only white: never gold over navy.
-  onNavy: 'bg-white text-navy hover:bg-navy-100',
+  secondary: 'border border-line bg-surface text-night hover:border-ash-300 hover:bg-ash-100',
+  ghost: 'text-night hover:bg-ash-100',
+  // On dark surfaces (coal, night, photos): white, never gold or blue (docs/design.md, Cores).
+  onDark: 'bg-white text-night hover:bg-ash-100',
 }
 
 const SIZES: Record<Size, string> = {

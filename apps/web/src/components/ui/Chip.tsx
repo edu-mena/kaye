@@ -1,11 +1,10 @@
 import type { ReactNode } from 'react'
 
-type ChipTone = 'neutral' | 'navy' | 'night' | 'gold' | 'success' | 'coral' | 'white' | 'onDark'
+type ChipTone = 'neutral' | 'night' | 'gold' | 'success' | 'coral' | 'white' | 'onDark'
 
 // Outlined, never a tinted background (docs/design.md, Cores).
 const TONES: Record<ChipTone, string> = {
   neutral: 'border-line text-night',
-  navy: 'border-navy bg-navy text-white',
   night: 'border-night bg-night text-white',
   gold: 'border-gold bg-gold text-night',
   success: 'border-line text-success',

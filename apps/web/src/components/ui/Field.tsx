@@ -7,7 +7,7 @@ import {
 } from 'react'
 
 const CONTROL =
-  'mt-1.5 block w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-base text-navy placeholder:text-muted/70 focus:border-navy focus:outline-none aria-[invalid=true]:border-coral'
+  'mt-1.5 block w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-base text-night placeholder:text-muted/70 focus:border-blue focus:outline-none aria-[invalid=true]:border-coral'
 
 type FieldShell = { label: string; error?: string | null; hint?: string }
 
@@ -41,7 +41,7 @@ function Field({
   const messageId = `${id}-msg`
   return (
     <div className={className}>
-      <label htmlFor={id} className="text-sm font-semibold text-navy">
+      <label htmlFor={id} className="text-sm font-normal text-night">
         {label}
       </label>
       {renderControl({
@@ -131,13 +131,13 @@ export function CheckboxField({ label, error, ...props }: CheckboxFieldProps) {
   const id = useId()
   return (
     <div>
-      <label htmlFor={id} className="flex items-start gap-3 text-sm text-navy">
+      <label htmlFor={id} className="flex items-start gap-3 text-sm font-light text-night">
         <input
           id={id}
           type="checkbox"
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${id}-msg` : undefined}
-          className="mt-0.5 size-5 shrink-0 accent-navy"
+          className="mt-0.5 size-5 shrink-0 accent-blue"
           {...props}
         />
         <span>{label}</span>

@@ -1,16 +1,14 @@
 import type { HTMLAttributes } from 'react'
 
-type Tone = 'surface' | 'gray' | 'navy' | 'night' | 'coal' | 'notice'
+type Tone = 'surface' | 'gray' | 'coal' | 'notice'
 
 const TONES: Record<Tone, string> = {
   surface: 'bg-surface text-ink shadow-card',
   /** For blocks inside a white card. */
   gray: 'bg-ash-100 text-ink',
-  navy: 'bg-navy text-white',
-  night: 'bg-night text-white',
   coal: 'bg-coal text-white',
-  /** A notice that must be seen: navy outline, no tinted fill. */
-  notice: 'border-2 border-navy bg-surface text-navy',
+  /** A notice that must be seen: blue outline, no tinted fill. */
+  notice: 'border-2 border-blue bg-surface text-night',
 }
 
 type CardProps = HTMLAttributes<HTMLDivElement> & { tone?: Tone; as?: 'div' | 'section' | 'article' }

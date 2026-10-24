@@ -42,7 +42,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
 
   return (
     <div className="mx-auto max-w-xl">
-      <Card tone="navy" className="rise p-6 sm:p-8">
+      <Card tone="coal" className="rise p-6 sm:p-8">
         <h1 className="text-3xl font-bold">{t('assessment.title')}</h1>
         <p className="mt-3 text-white/80">{t('assessment.intro')}</p>
         <ul className="mt-5 space-y-2">
@@ -56,7 +56,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
         <div className="mt-6 flex flex-wrap gap-3">
           {completed ? (
             <>
-              <ButtonLink to="/teste/resultado" variant="onNavy" size="lg">
+              <ButtonLink to="/teste/resultado" variant="onDark" size="lg">
                 {t('home.seeResult')}
               </ButtonLink>
               <Button
@@ -72,7 +72,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
               </Button>
             </>
           ) : (
-            <Button variant="onNavy" size="lg" onClick={onStart}>
+            <Button variant="onDark" size="lg" onClick={onStart}>
               {answered > 0 ? t('assessment.continue') : t('assessment.start')}
             </Button>
           )}

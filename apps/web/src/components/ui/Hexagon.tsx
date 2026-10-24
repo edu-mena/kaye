@@ -2,15 +2,15 @@ import type { ReactNode } from 'react'
 
 type HexagonProps = {
   children: ReactNode
-  tone?: 'navy' | 'gold' | 'locked'
+  tone?: 'dark' | 'gold' | 'locked'
   size?: 'sm' | 'md' | 'lg'
   className?: string
 }
 
 const TONES = {
-  navy: { fill: 'fill-navy', stroke: 'stroke-white/50', text: 'text-white' },
-  gold: { fill: 'fill-gold', stroke: 'stroke-navy', text: 'text-navy' },
-  locked: { fill: 'fill-navy-100', stroke: 'stroke-track', text: 'text-muted' },
+  dark: { fill: 'fill-coal', stroke: 'stroke-white/50', text: 'text-white' },
+  gold: { fill: 'fill-gold', stroke: 'stroke-night', text: 'text-night' },
+  locked: { fill: 'fill-ash-100', stroke: 'stroke-track', text: 'text-muted' },
 }
 
 const SIZES = { sm: 'size-12 text-sm', md: 'size-20 text-xl', lg: 'size-28 text-3xl' }
@@ -20,7 +20,7 @@ const SIZES = { sm: 'size-12 text-sm', md: 'size-20 text-xl', lg: 'size-28 text-
  * the RIASEC code and the achievements share this shape. Decorative frame; the
  * content inside carries the meaning.
  */
-export function Hexagon({ children, tone = 'navy', size = 'md', className = '' }: HexagonProps) {
+export function Hexagon({ children, tone = 'dark', size = 'md', className = '' }: HexagonProps) {
   const style = TONES[tone]
 
   return (

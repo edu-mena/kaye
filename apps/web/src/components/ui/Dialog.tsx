@@ -17,8 +17,8 @@ const VARIANTS = {
     dialog:
       'mt-auto max-h-[88dvh] w-full rounded-t-card bg-surface text-ink sm:m-auto sm:max-w-lg sm:rounded-card',
     header: 'border-line',
-    title: 'text-navy',
-    close: 'text-navy hover:bg-ash-100',
+    title: 'text-night',
+    close: 'text-night hover:bg-ash-100',
     body: '',
   },
   // Large content, such as a CV and its explanation: almost the whole screen, the body scrolls.

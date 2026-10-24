@@ -32,7 +32,7 @@ export function Segmented<T extends string>({
             type="button"
             aria-pressed={active}
             onClick={() => onChange(active && clearable ? null : option.value)}
-            className={`shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors ${
+            className={`shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-light transition-colors ${
               active
                 ? 'border-night bg-night text-white'
                 : 'border-transparent bg-ash-100 text-copy hover:bg-ash-200'

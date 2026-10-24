@@ -44,7 +44,7 @@ export default function ResultPage() {
             <li key={key} className="rise" style={stagger(index + 1)}>
               <Card className="h-full">
                 <span className="flex items-center gap-3">
-                  <Hexagon size="sm" tone={index === 0 ? 'navy' : 'gold'}>
+                  <Hexagon size="sm" tone={index === 0 ? 'dark' : 'gold'}>
                     {key}
                   </Hexagon>
                   <span className="font-display text-xl font-semibold text-navy">{t(`riasec.${key}`)}</span>

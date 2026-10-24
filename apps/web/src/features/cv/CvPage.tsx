@@ -23,7 +23,7 @@ export default function CvPage() {
     <div>
       <PageHeader title={t('cv.title')} subtitle={t('cv.body')} />
 
-      <Card tone="navy" className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+      <Card tone="coal" className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
         <Icon name="document" className="size-10 shrink-0 text-white" />
         <div className="flex-1">
           <h2 className="text-xl font-semibold">{t('cv.mine')}</h2>
@@ -44,7 +44,7 @@ export default function CvPage() {
             <p className="mt-1 text-sm text-white/80">{t('cv.mineEmpty')}</p>
           )}
         </div>
-        <ButtonLink to="/cv/editar" variant="onNavy">
+        <ButtonLink to="/cv/editar" variant="onDark">
           {started ? t('cv.edit') : t('cv.start')}
         </ButtonLink>
       </Card>

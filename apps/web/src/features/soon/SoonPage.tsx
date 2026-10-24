@@ -32,7 +32,7 @@ export default function SoonPage({ section }: { section: SoonSection }) {
       </p>
       <h1 className="relative mt-2 text-4xl font-extrabold sm:text-5xl">{t(`nav.${section}`)}</h1>
       <p className="relative mt-4 max-w-xl text-lg text-white/80">{t(`soon.${section}`)}</p>
-      <ButtonLink to="/" variant="onNavy" className="relative mt-8">
+      <ButtonLink to="/" variant="onDark" className="relative mt-8">
         {t('soon.back')}
       </ButtonLink>
     </section>

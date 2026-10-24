@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
-import { Icon } from '../../components/icons'
+import { Icon, type IconName } from '../../components/icons'
 import { PathMark } from '../../components/PathMark'
 import { ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -17,6 +17,20 @@ import { useRecommendations } from '../../lib/useRecommendations'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { useUser } from '../../state/userStore'
 
+const LINK = 'text-sm font-normal text-blue underline-offset-4 hover:underline'
+
+/** A small card title with its icon in a circle of the main blue. */
+function CardTitle({ icon, children }: { icon: IconName; children: string }) {
+  return (
+    <h2 className="flex items-center gap-3 text-base font-semibold text-night">
+      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-blue text-white">
+        <Icon name={icon} className="size-4" />
+      </span>
+      {children}
+    </h2>
+  )
+}
+
 export default function HomePage() {
   const { t } = useTranslation()
   const user = useUser()
@@ -26,12 +40,12 @@ export default function HomePage() {
   return (
     <div className="space-y-8">
       <header className="rise">
-        <h1 className="text-3xl font-bold text-navy sm:text-4xl">
+        <h1 className="text-3xl leading-tight font-extrabold text-night sm:text-4xl">
           {t('home.greeting', { name: user.profile.name })}
         </h1>
-        <p className="mt-2 max-w-prose text-muted">{t('home.intro')}</p>
+        <p className="mt-2 max-w-prose text-sm font-light text-copy">{t('home.intro')}</p>
       </header>
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="space-y-8">
           <TestCard />
           <Recommended />
@@ -48,26 +62,30 @@ export default function HomePage() {
 function Welcome() {
   const { t } = useTranslation()
   return (
-    <div className="space-y-6">
-      <Card tone="navy" className="rise overflow-hidden p-6 sm:p-10">
-        <PathMark className="mb-6 w-56" />
-        <h1 className="max-w-xl text-3xl leading-tight font-bold sm:text-5xl">{t('home.greetingGuest')}</h1>
-        <p className="mt-3 max-w-prose text-white/80">{t('home.intro')}</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <ButtonLink to="/entrar" variant="onNavy" size="lg">
+    <div className="space-y-4">
+      <Card tone="coal" className="rise overflow-hidden p-6 sm:p-10">
+        <PathMark className="mb-8 w-56" />
+        <h1 className="max-w-xl text-3xl leading-tight font-extrabold sm:text-5xl">
+          {t('home.greetingGuest')}
+        </h1>
+        <p className="mt-4 max-w-prose text-sm font-light text-white/80">{t('home.intro')}</p>
+        <div className="mt-8 flex flex-wrap gap-2">
+          <ButtonLink to="/entrar" variant="onDark" size="lg">
             {t('home.startCta')}
           </ButtonLink>
-          <ButtonLink to="/carreiras" variant="ghost" size="lg" className="text-white hover:bg-white/10">
+          <ButtonLink
+            to="/carreiras"
+            variant="ghost"
+            size="lg"
+            className="text-white ring-1 ring-white/30 hover:bg-white/10"
+          >
             {t('home.explore')}
           </ButtonLink>
         </div>
       </Card>
-      <Card className="flex rise items-start gap-3" style={stagger(1)}>
-        <Icon name="target" className="mt-0.5 size-6 shrink-0 text-navy" />
-        <div>
-          <h2 className="font-semibold text-navy">{t('home.startTitle')}</h2>
-          <p className="text-sm text-muted">{t('home.startBody')}</p>
-        </div>
+      <Card className="rise p-6" style={stagger(1)}>
+        <CardTitle icon="target">{t('home.startTitle')}</CardTitle>
+        <p className="mt-2 pl-11 text-sm font-light text-copy">{t('home.startBody')}</p>
       </Card>
     </div>
   )
@@ -79,35 +97,36 @@ function TestCard() {
 
   if (completed && profile) {
     return (
-      <Card className="flex rise items-center gap-4">
+      <Card className="flex rise items-center gap-4 p-6">
         <Hexagon>{riasecCode(profile)}</Hexagon>
-        <div className="flex-1">
-          <p className="text-sm font-semibold text-muted">{t('home.profileCode')}</p>
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-light text-muted">{t('home.profileCode')}</p>
           <Link
             to="/teste/resultado"
-            className="font-display text-xl font-semibold text-navy underline-offset-4 hover:underline"
+            className="mt-1 block text-base font-semibold text-night underline-offset-4 hover:underline"
           >
             {t('home.seeResult')}
           </Link>
         </div>
+        <Icon name="chevronRight" className="size-5 shrink-0 text-muted" />
       </Card>
     )
   }
 
   return (
-    <Card tone="navy" className="rise p-6">
-      <h2 className="text-2xl font-semibold">{t('home.testTitle')}</h2>
-      <p className="mt-2 text-white/80">{t('home.testBody')}</p>
+    <Card tone="coal" className="rise p-6 sm:p-8">
+      <h2 className="text-2xl font-extrabold">{t('home.testTitle')}</h2>
+      <p className="mt-2 max-w-prose text-sm font-light text-white/80">{t('home.testBody')}</p>
       {answered > 0 && (
         <ProgressBar
           value={answered / Math.max(total, 1)}
           label={t('home.testTitle')}
-          tone="white"
+          tone="gold"
           track="bg-white/15"
-          className="mt-4"
+          className="mt-6"
         />
       )}
-      <ButtonLink to="/teste" variant="onNavy" className="mt-5">
+      <ButtonLink to="/teste" variant="onDark" className="mt-6">
         {answered > 0 ? t('home.testContinue', { answered, total }) : t('home.testCta')}
         <Icon name="arrowRight" className="size-4" />
       </ButtonLink>
@@ -125,16 +144,14 @@ function Recommended() {
       <SectionHeading
         id="recommended"
         title={t('home.recommended')}
+        icon="compass"
         action={
-          <Link
-            to="/teste/resultado"
-            className="text-sm font-semibold text-navy underline-offset-4 hover:underline"
-          >
+          <Link to="/teste/resultado" className={LINK}>
             {t('common.seeAll')}
           </Link>
         }
       />
-      <ul className="space-y-3">
+      <ul className="space-y-4">
         {recommendations.map((item, index) => (
           <li key={item.career.slug} className="rise" style={stagger(index + 1)}>
             <CareerCard career={item.career} match={item.match} reasons={item.reasons} />
@@ -152,13 +169,10 @@ function TargetCard() {
 
   if (!user.targetCareer || !career) {
     return (
-      <Card>
-        <h2 className="flex items-center gap-2 font-semibold text-navy">
-          <Icon name="target" className="size-5" />
-          {t('home.targetTitle')}
-        </h2>
-        <p className="mt-1 text-sm text-muted">{t('home.targetEmpty')}</p>
-        <ButtonLink to="/carreiras" variant="secondary" size="sm" className="mt-3">
+      <Card className="p-6">
+        <CardTitle icon="target">{t('home.targetTitle')}</CardTitle>
+        <p className="mt-2 text-sm font-light text-copy">{t('home.targetEmpty')}</p>
+        <ButtonLink to="/carreiras" variant="secondary" size="sm" className="mt-4">
           {t('home.explore')}
         </ButtonLink>
       </Card>
@@ -168,20 +182,24 @@ function TargetCard() {
   const quickest = quickestPathway(career, user.profile?.education ?? null)
   const next = quickest?.steps[0]
   return (
-    <Card tone="notice">
-      <p className="text-sm font-semibold">{t('home.targetTitle')}</p>
+    <Card tone="notice" className="p-6">
+      <p className="text-xs font-light text-muted">{t('home.targetTitle')}</p>
       <Link
-        to={`/carreiras/${career.slug}#path`}
-        className="font-display text-xl font-semibold underline-offset-4 hover:underline"
+        to={`/carreiras/${career.slug}?secao=path`}
+        className="mt-1 block text-lg font-semibold text-night underline-offset-4 hover:underline"
       >
         {career.name}
       </Link>
-      {quickest && <p className="mt-1 text-sm">{t('home.targetSteps', { count: quickest.steps.length })}</p>}
-      {next && (
-        <p className="mt-3 rounded-xl bg-surface p-3 text-sm">
-          <span className="block text-xs font-semibold text-muted">{t('home.nextStep')}</span>
-          {next.title}
+      {quickest && (
+        <p className="mt-1 text-sm font-light text-copy">
+          {t('home.targetSteps', { count: quickest.steps.length })}
         </p>
+      )}
+      {next && (
+        <div className="mt-4 rounded-2xl bg-ash-100 p-4">
+          <p className="text-xs font-light text-muted">{t('home.nextStep')}</p>
+          <p className="mt-1 text-sm font-normal text-night">{next.title}</p>
+        </div>
       )}
     </Card>
   )
@@ -193,13 +211,13 @@ function Progress() {
   const earned = list.filter((achievement) => achievement.earned).length
 
   return (
-    <Card>
-      <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-navy">{t('home.progressTitle')}</h2>
+    <Card className="p-6">
+      <div className="flex items-center justify-between gap-4">
+        <CardTitle icon="award">{t('home.progressTitle')}</CardTitle>
         <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
       </div>
-      <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="my-3" />
-      <Link to="/perfil" className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
+      <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="mt-4" />
+      <Link to="/perfil" className={`mt-4 inline-block ${LINK}`}>
         {t('profile.achievements')} · {earned}/{list.length}
       </Link>
     </Card>

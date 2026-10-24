@@ -121,7 +121,7 @@ export default function TrainingPage() {
             <span className="text-sm font-semibold">
               {t('training.compareTray', { count: compare.length })}
             </span>
-            <ButtonLink to="/cursos/comparar" variant="onNavy" size="sm">
+            <ButtonLink to="/cursos/comparar" variant="onDark" size="sm">
               {t('training.compareCta')}
             </ButtonLink>
           </div>

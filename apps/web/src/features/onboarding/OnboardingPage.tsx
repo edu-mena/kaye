@@ -33,12 +33,12 @@ export default function OnboardingPage() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <Card tone="navy" className="relative rise overflow-hidden p-6 sm:p-8">
+      <Card tone="coal" className="relative rise overflow-hidden p-6 sm:p-8">
         <PathMark className="mb-6 w-48" />
         <h1 className="text-3xl leading-tight font-bold sm:text-4xl">{t('onboarding.welcomeTitle')}</h1>
         <p className="mt-3 text-white/80">{t('onboarding.welcomeBody')}</p>
         <Button
-          variant="onNavy"
+          variant="onDark"
           size="lg"
           className="mt-6 w-full sm:w-auto"
           onClick={() => setStep('profile')}
