@@ -43,6 +43,11 @@ export const fr: Messages = {
     previousPage: 'Page précédente',
     nextPage: 'Page suivante',
     photos: 'Photos :',
+    carousel: 'carrousel',
+    slide: 'diapositive',
+    slideOf: '{{index}} sur {{count}} : {{label}}',
+    previousSlide: 'Diapositive précédente',
+    nextSlide: 'Diapositive suivante',
   },
   duration: {
     months_one: '{{count}} mois',
@@ -428,6 +433,10 @@ export const fr: Messages = {
     courses_one: '{{count}} cours',
     courses_other: '{{count}} cours',
     pages: 'Pages de cours',
+    scoreValue: '{{score}} sur 100',
+    ratingShort: '{{average}} sur 5',
+    reviews_one: '{{count}} avis',
+    reviews_other: '{{count}} avis',
   },
   cv: {
     title: 'CV',

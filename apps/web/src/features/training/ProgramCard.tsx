@@ -1,13 +1,14 @@
+import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Icon } from '../../components/icons'
+import { Icon, type IconName } from '../../components/icons'
 import { InstitutionLogo } from '../../components/InstitutionLogo'
 import { ScoreRing } from '../../components/ScoreRing'
 import { Button } from '../../components/ui/Button'
-import { Chip } from '../../components/ui/Chip'
+import { Slides } from '../../components/ui/Slides'
 import type { Program } from '../../data/types'
 import { formatKz, formatPercent } from '../../domain/format'
-import type { ScoredProgram } from '../../domain/ranking'
-import { useDuration, useRatingLabel } from '../../lib/useFormat'
+import { recognitionBody, type ScoredProgram } from '../../domain/ranking'
+import { useDuration, useRatingParts } from '../../lib/useFormat'
 import { MAX_COMPARE, userActions, useUser } from '../../state/userStore'
 
 type Tone = 'light' | 'dark'
@@ -94,36 +95,57 @@ function DetailsButton({ program, onOpen, tone = 'light' }: DetailsButtonProps) 
   )
 }
 
-type ProgramFactsProps = { program: Program; tone?: Tone; className?: string }
+type Fact = { id: string; label: string; value: string; note?: string; visual: ReactNode }
 
-/** The three numbers people compare first, one line each: how long, how much, how students rate it. */
-function ProgramFacts({ program, tone = 'light', className = '' }: ProgramFactsProps) {
+/** The course one fact at a time: the score, the cost, how long and how students rate it. */
+function useFacts(item: ScoredProgram, tone: Tone): Fact[] {
   const { t } = useTranslation()
   const duration = useDuration()
-  const ratingLabel = useRatingLabel()
-  const dark = tone === 'dark'
-  const facts = [
+  const rating = useRatingParts()(item.program.rating)
+  const { program, score } = item
+  const circle = `grid size-12 shrink-0 place-items-center rounded-full ${tone === 'dark' ? 'bg-white/10 text-gold' : 'bg-ash-100 text-night'}`
+  const icon = (name: IconName) => (
+    <span className={circle}>
+      <Icon name={name} className="size-5" />
+    </span>
+  )
+  const perMonth =
+    program.totalCost !== null && program.durationMonths > 0
+      ? program.totalCost / program.durationMonths
+      : null
+
+  return [
+    program.recognized
+      ? {
+          id: 'score',
+          label: t('training.score'),
+          value: t('training.scoreValue', { score }),
+          note: `${t('training.recognizedBy')} ${recognitionBody(program.level).code}`,
+          visual: <ScoreRing score={score} tone={tone} />,
+        }
+      : { id: 'score', label: t('training.score'), value: t('training.recognizedNo'), visual: icon('info') },
     {
+      id: 'cost',
+      label: t('training.cost'),
+      value: program.totalCost === null ? '—' : formatKz(program.totalCost),
+      note: perMonth === null ? undefined : t('training.perMonth', { value: formatKz(perMonth) }),
+      visual: icon('wallet'),
+    },
+    {
+      id: 'duration',
       label: t('training.duration'),
       value: duration({ min: program.durationMonths, max: program.durationMonths }),
+      note: [program.level, ...program.schedule].map((key) => t(`training.${key}`)).join(' · '),
+      visual: icon('clock'),
     },
-    { label: t('training.cost'), value: program.totalCost === null ? '—' : formatKz(program.totalCost) },
-    { label: t('training.rating'), value: ratingLabel(program.rating) },
+    {
+      id: 'rating',
+      label: t('training.rating'),
+      value: rating.value,
+      note: rating.note,
+      visual: icon('award'),
+    },
   ]
-  return (
-    <dl className={`divide-y ${dark ? 'divide-white/10' : 'divide-line'} ${className}`}>
-      {facts.map((fact) => (
-        <div key={fact.label} className="flex items-baseline justify-between gap-4 py-2">
-          <dt className={`shrink-0 text-xs font-light ${dark ? 'text-white/70' : 'text-muted'}`}>
-            {fact.label}
-          </dt>
-          <dd className={`text-right text-sm font-semibold ${dark ? 'text-white' : 'text-night'}`}>
-            {fact.value}
-          </dd>
-        </div>
-      ))}
-    </dl>
-  )
 }
 
 type ProgramCardProps = {
@@ -138,14 +160,14 @@ type ProgramCardProps = {
 
 /**
  * A course at a glance, like a career card: the course photo with its place (gold) and the
- * institution's logo, then the name, the score, the level and the three numbers people compare.
+ * institution's logo, the name, then one fact at a time in slides, and the two actions.
  * The photo is decorative (the name says it).
  */
 export function ProgramCard({ item, rank, lead, onOpen }: ProgramCardProps) {
-  const { t } = useTranslation()
-  const { program, score } = item
+  const { program } = item
   const tone: Tone = lead ? 'dark' : 'light'
   const quiet = lead ? 'text-white/70' : 'text-muted'
+  const facts = useFacts(item, tone)
 
   return (
     <article
@@ -170,30 +192,33 @@ export function ProgramCard({ item, rank, lead, onOpen }: ProgramCardProps) {
 
       <div className="flex flex-1 flex-col p-5">
         {lead && <p className="mb-2 text-xs font-light text-white/70">{lead}</p>}
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <h3 className="text-base leading-snug font-semibold">{program.name}</h3>
-            <p className={`mt-1 text-xs font-light ${quiet}`}>
-              {program.institution.name} · {program.institution.province}
-            </p>
-          </div>
-          {program.recognized && <ScoreRing score={score} tone={tone} />}
-        </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {[program.level, ...program.schedule].map((key) => (
-            <Chip key={key} tone={lead ? 'onDark' : 'neutral'}>
-              {t(`training.${key}`)}
-            </Chip>
-          ))}
-        </div>
+        <h3 className="text-base leading-snug font-semibold">{program.name}</h3>
+        <p className={`mt-1 text-xs font-light ${quiet}`}>
+          {program.institution.name} · {program.institution.province}
+        </p>
 
-        <div className="mt-auto pt-4">
-          <ProgramFacts
-            program={program}
-            tone={tone}
-            className={`border-t ${lead ? 'border-white/10' : 'border-line'}`}
-          />
-          <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-auto pt-5">
+          <div className={`border-t pt-4 ${lead ? 'border-white/10' : 'border-line'}`}>
+            <Slides
+              label={program.name}
+              tone={tone}
+              slides={facts.map((fact) => ({
+                id: fact.id,
+                label: fact.label,
+                content: (
+                  <div className="flex min-h-16 items-center gap-4">
+                    {fact.visual}
+                    <div className="min-w-0">
+                      <p className={`text-xs font-light ${quiet}`}>{fact.label}</p>
+                      <p className="mt-1 text-lg leading-snug font-extrabold">{fact.value}</p>
+                      {fact.note && <p className={`mt-1 text-xs font-light ${quiet}`}>{fact.note}</p>}
+                    </div>
+                  </div>
+                ),
+              }))}
+            />
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
             {onOpen && <DetailsButton program={program} onOpen={onOpen} tone={tone} />}
             <CompareButton programId={program.id} tone={tone} />
           </div>

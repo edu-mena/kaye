@@ -43,6 +43,11 @@ export const en: Messages = {
     previousPage: 'Previous page',
     nextPage: 'Next page',
     photos: 'Photos:',
+    carousel: 'carousel',
+    slide: 'slide',
+    slideOf: '{{index}} of {{count}}: {{label}}',
+    previousSlide: 'Previous slide',
+    nextSlide: 'Next slide',
   },
   duration: {
     months_one: '{{count}} month',
@@ -415,6 +420,10 @@ export const en: Messages = {
     courses_one: '{{count}} course',
     courses_other: '{{count}} courses',
     pages: 'Course pages',
+    scoreValue: '{{score}} out of 100',
+    ratingShort: '{{average}} of 5',
+    reviews_one: '{{count}} review',
+    reviews_other: '{{count}} reviews',
   },
   cv: {
     title: 'CV',

@@ -43,6 +43,11 @@ export const pt = {
     previousPage: 'Página anterior',
     nextPage: 'Página seguinte',
     photos: 'Fotos:',
+    carousel: 'carrossel',
+    slide: 'diapositivo',
+    slideOf: '{{index}} de {{count}}: {{label}}',
+    previousSlide: 'Diapositivo anterior',
+    nextSlide: 'Diapositivo seguinte',
   },
   duration: {
     months_one: '{{count}} mês',
@@ -420,6 +425,10 @@ export const pt = {
     courses_one: '{{count}} curso',
     courses_other: '{{count}} cursos',
     pages: 'Páginas de cursos',
+    scoreValue: '{{score}} de 100',
+    ratingShort: '{{average}} de 5',
+    reviews_one: '{{count}} avaliação',
+    reviews_other: '{{count}} avaliações',
   },
   cv: {
     title: 'CV',
