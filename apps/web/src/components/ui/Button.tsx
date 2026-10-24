@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react'
 import { Link, type LinkProps } from 'react-router'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'onDark'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'onDark' | 'onDarkOutline'
 type Size = 'sm' | 'md' | 'lg'
 
 type Style = { variant?: Variant; size?: Size; className?: string }
@@ -12,6 +12,8 @@ const VARIANTS: Record<Variant, string> = {
   ghost: 'text-night hover:bg-ash-100',
   // On dark surfaces (coal, night, photos): white, never gold or blue (docs/design.md, Cores).
   onDark: 'bg-white text-night hover:bg-ash-100',
+  // The second action next to an onDark button: still white, only the outline.
+  onDarkOutline: 'border border-white/30 text-white hover:bg-white/10',
 }
 
 const SIZES: Record<Size, string> = {

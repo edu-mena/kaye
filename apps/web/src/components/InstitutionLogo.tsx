@@ -14,11 +14,17 @@ function initials(name: string): string {
 }
 
 /** The institution's logo in a circle; without one, its initials. Decorative: the name is always next to it. */
-export function InstitutionLogo({ institution }: { institution: Institution }) {
+export function InstitutionLogo({
+  institution,
+  className = '',
+}: {
+  institution: Institution
+  className?: string
+}) {
   return (
     <span
       aria-hidden="true"
-      className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white font-display text-base font-bold text-night"
+      className={`grid size-12 shrink-0 place-items-center overflow-hidden rounded-full bg-white font-display text-base font-bold text-night ${className}`}
     >
       {institution.logo ? (
         <img src={institution.logo} alt="" className="size-full object-contain p-1.5" />

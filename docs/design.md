@@ -104,7 +104,7 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 
 | Peça | Para quê | Notas |
 |---|---|---|
-| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary` (o azul principal: a ação principal do ecrã), `secondary` (contorno), `ghost`, `onDark` (branco, para fundos escuros). Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
+| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary` (o azul principal: a ação principal do ecrã), `secondary` (contorno), `ghost`, `onDark` (branco, para fundos escuros) e `onDarkOutline` (a segunda ação ao lado de um `onDark`: contorno e texto brancos). Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
 | `Card` | Agrupar conteúdo | Tons `surface`, `gray` (blocos dentro de um cartão branco), `coal` (bloco escuro, com texto branco), `notice` (aviso com contorno azul, fundo branco). `as="section"` ou `"article"` quando tem título |
 | `Chip` | Etiquetas curtas: procura, encaixe, razões | Contorno fino, sem fundo. Tons `neutral`, `night` (cheio), `success` e `coral` (com um ponto da cor); `white` e `onDark` em fundos escuros |
 | `ProgressBar` | Progresso (teste, CV, conquistas) | É um `<progress>` nativo. Azul principal em fundo claro; `gold` ou `white` em fundo escuro |
@@ -117,7 +117,8 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 | `Hexagon` | Código RIASEC e conquistas | Tons `dark`, `gold`, `locked` |
 
 Peças de produto em `src/components`:
-- `CareerCard`, `ScoreBadge`, `PathMark`;
+- `CareerCard` (nome forte, área por baixo, duas linhas de resumo e um rodapé com o salário mediano e a procura), `DemandMeter` (a procura em 3 barras azuis, sempre com a palavra ao lado), `ScoreBadge`, `PathMark`;
+- `InstitutionLogo` (logótipo ou iniciais num círculo branco; em fundo branco leva `ring-1 ring-line`), `ScoreRing`;
 - `QueryState` (a carregar, erro), `RequireProfile`;
 - `Navigation` (`BottomNav`, `SideNav`, `DemoBanner`);
 - `Icon`: um só componente, com os desenhos em `icons.tsx`.
@@ -135,12 +136,16 @@ Peças de produto em `src/components`:
 |---|---|
 | Filtros, ordenação e separador aberto | No URL, com `useUrlFilters` (`src/lib`): o "voltar" e as ligações partilhadas mantêm-nos (ex.: `?secao=path`) |
 | Topo de uma página de detalhe (carreira) | Hero de altura fixa (288 px no telemóvel, 384 px no computador), com a foto e um gradiente azul-marinho (sem foto, mostra o caminho da marca). Ao lado do título ficam só ícones: a área, a procura e um "i", que abre numa janela a descrição com a área e a procura por extenso. As ações (destino e guardar) ficam no hero. Os 3 números principais (salário, procura, tempo até lá) ficam numa só linha dentro do hero, entre o título e as ações, com ícones amarelos e sem blocos à parte. Os gráficos com o detalhe ficam nos separadores (Mercado, Como lá chegar). Depois vêm os separadores e, no fim, "O meu encaixe", que se pode minimizar. A rota pede `handle: { hideDemoBanner: true, wide: true }`: sem a faixa "Demonstração" e com a largura toda no computador (margem de 10 px) |
+| Topo de uma lista (Carreiras, Cursos) | Hero `coal` com o título grande, a pergunta principal num controlo branco de 56 px (a pesquisa, a profissão) e uma linha de números (valor grande por cima, rótulo leve por baixo). À direita, fotos reais. A rota pede `handle: { wide: true }` |
+| Os melhores de uma classificação | Pódio dentro da mesma `<ol>`: o 1.º num cartão `coal` grande (2 linhas de altura no computador, número amarelo, anel grande), o 2.º e o 3.º em cartões brancos ao lado. O resto segue em linhas. Com menos de 3, tudo em linhas |
+| Ver os detalhes sem sair da página | Botão "Ver detalhes" (com o nome do curso no `aria-label`) que abre o `Dialog`. O resumo dá a posição pela pontuação, seja qual for a ordem da lista |
+| Contagem de resultados | `<output>` por baixo do título da lista: os leitores de ecrã ouvem-na quando os filtros mudam |
 | Fotos | WebP em 800 e 1600 px (`srcSet`), com licença livre e o crédito visível com ligação ao original |
 | A carregar ou com erro | `QueryState`, nunca um ecrã em branco |
 | Ecrã que precisa de perfil | `withProfile()` no `router.tsx`. Leva a `/entrar?next=…` e volta depois (`safeNext` só aceita caminhos da própria app) |
 | Apagar ou substituir algo da pessoa | Pede confirmação num `Dialog` e diz que não dá para desfazer |
 | Dados que ainda não existem | Dizê-lo ("Em curadoria", "O PDF chega com o servidor"), nunca inventar |
-| Dinheiro, percentagens, durações | `formatKz`, `formatPercent` (`src/domain/format.ts`), `useDuration` e `useRatingLabel` (`src/lib/useFormat.ts`) |
+| Dinheiro, percentagens, durações | `formatKz`, `formatPercent` (`src/domain/format.ts`), `useDuration`, `useRatingLabel` e `useRatingParts` (a avaliação em duas partes curtas, para cartões estreitos) (`src/lib/useFormat.ts`) |
 | Uma lista com uma ordem que importa | `<ol>` com `aria-label` |
 
 ## Gráficos
@@ -150,6 +155,7 @@ Peças de produto em `src/components`:
 - **O valor fica sempre escrito ao lado da barra.** Assim a informação nunca depende só da cor, e o contraste baixo do `track` não esconde nada.
 - **Faixa salarial:** os números vêm primeiro, cada um com o seu significado: Entrada (1 em cada 4 ganha menos), Mediana e Topo (1 em cada 4 ganha mais). A barra por baixo só os coloca numa escala, com o valor escrito em cada ponto. A escala não começa no zero, para a faixa se ler.
 - **Ao longo do tempo:** colunas por mês, com a última em destaque e o seu valor escrito. Todos os valores estão no texto para leitores de ecrã e aparecem ao passar o rato.
+- **Pesos de um cálculo** ("Como calculamos"): uma barra por critério, do tamanho real do peso (40% da faixa para 40% da pontuação), azul e com a percentagem escrita em azul. Um critério ainda sem dados fica cinzento, com a nota a dizer quando entra.
 - **Um só eixo.** Duas medidas diferentes vão para dois gráficos, nunca para um gráfico com dois eixos.
 - O texto usa as cores do texto, nunca a cor da série.
 

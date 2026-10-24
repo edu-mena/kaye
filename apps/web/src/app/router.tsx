@@ -38,13 +38,21 @@ export const router = createBrowserRouter([
       { path: 'entrar', lazy: page(() => import('../features/onboarding/OnboardingPage')) },
       { path: 'teste', lazy: withProfile(() => import('../features/assessment/AssessmentPage')) },
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
-      { path: 'carreiras', lazy: page(() => import('../features/careers/CareersPage')) },
+      {
+        path: 'carreiras',
+        handle: { wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/careers/CareersPage')),
+      },
       {
         path: 'carreiras/:slug',
         handle: { hideDemoBanner: true, wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/careers/CareerPage')),
       },
-      { path: 'cursos', lazy: page(() => import('../features/training/TrainingPage')) },
+      {
+        path: 'cursos',
+        handle: { wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/training/TrainingPage')),
+      },
       { path: 'cursos/comparar', lazy: page(() => import('../features/training/ComparePage')) },
       { path: 'pesquisa', lazy: soon('search') },
       { path: 'academias', lazy: soon('academies') },

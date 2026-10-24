@@ -18,18 +18,18 @@ describe('CareersPage', () => {
       await screen.findByRole('searchbox', { name: 'Procurar uma profissão' }),
       'ciberseguranca',
     )
-    expect(screen.getByText('1 profissão')).toBeInTheDocument()
+    expect(screen.getByText('1 profissão', { selector: 'output' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Analista de Cibersegurança/ })).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('?q=ciberseguranca')
   })
 
   it('filters by area and clears the filter on a second press', async () => {
     renderWithApp(<CareersPage />)
-    const design = await screen.findByRole('button', { name: 'Design' })
+    const design = await screen.findByRole('button', { name: /^Design/ })
     await userEvent.click(design)
-    expect(screen.getByText('2 profissões')).toBeInTheDocument()
+    expect(screen.getByText('2 profissões', { selector: 'output' })).toBeInTheDocument()
     await userEvent.click(design)
-    expect(screen.getByText('27 profissões')).toBeInTheDocument()
+    expect(screen.getByText('27 profissões', { selector: 'output' })).toBeInTheDocument()
   })
 
   it('says so when nothing matches', async () => {

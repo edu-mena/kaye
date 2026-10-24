@@ -16,7 +16,10 @@ describe('TrainingPage', () => {
   it('publishes the criteria and their weights next to the ranking', async () => {
     renderWithApp(<TrainingPage />)
     expect(await screen.findByRole('heading', { name: 'Como calculamos' })).toBeInTheDocument()
-    expect(screen.getByText('Avaliação de alunos 40%')).toBeInTheDocument()
+    const criteria = within(screen.getByRole('list', { name: 'Critérios da pontuação' })).getAllByRole(
+      'listitem',
+    )
+    expect(criteria[0]).toHaveTextContent(/Avaliação de alunos\s*40%/)
     expect(screen.getByText(/Nada pago entra na pontuação/)).toBeInTheDocument()
   })
 

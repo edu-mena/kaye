@@ -13,7 +13,12 @@ import { CompareButton, ScoreBreakdown } from './ProgramCard'
 
 const EYEBROW = 'mb-4 text-sm font-semibold text-night'
 
-type ProgramSummaryProps = { item: ScoredProgram; career: Career; rank: number }
+type ProgramSummaryProps = {
+  item: ScoredProgram
+  /** When the course is seen for one career: adds the path step it serves. */
+  career?: Career | null
+  rank: number
+}
 
 /**
  * A course in short, for the career's "Onde estudar" popup: a dark header with the institution,
@@ -26,7 +31,7 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
   const ratingLabel = useRatingLabel()
   const { program, score, criteria } = item
   const { institution } = program
-  const served = stepsServedBy(career, program.level)
+  const served = career ? stepsServedBy(career, program.level) : []
   const perMonth =
     program.totalCost !== null && program.durationMonths > 0
       ? program.totalCost / program.durationMonths
@@ -58,7 +63,9 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
             <p className="text-xs font-light text-white/70">
-              {t('career.studyRank', { rank, career: career.name })}
+              {career
+                ? t('career.studyRank', { rank, career: career.name })
+                : t('training.rankAll', { rank })}
             </p>
             <h3 id="program-institution" className="sr-only">
               {t('training.institution')}
@@ -104,35 +111,37 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
         ))}
       </dl>
 
-      <section aria-labelledby="program-path">
-        <h3 id="program-path" className={EYEBROW}>
-          {t('career.studyFitsTitle', { career: career.name })}
-        </h3>
-        {served.length === 0 ? (
-          <p className="text-sm font-light text-copy">{t('career.studyNoStep')}</p>
-        ) : (
-          <ol className="space-y-4">
-            {served.map(({ pathway, step }) => (
-              <li
-                key={`${pathway.id}-${step.title}`}
-                className="flex items-start gap-4 rounded-2xl border border-line p-4 text-sm font-light text-night"
-              >
-                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-night text-white">
-                  <Icon name="path" className="size-4" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  {t('career.studyFits', { step: step.title, pathway: pathway.name.toLowerCase() })}
-                  <span className="mt-2 block">
-                    <Chip tone={step.need === 'essencial' ? 'night' : 'neutral'}>
-                      {t(`career.need_${step.need}`)}
-                    </Chip>
+      {career && (
+        <section aria-labelledby="program-path">
+          <h3 id="program-path" className={EYEBROW}>
+            {t('career.studyFitsTitle', { career: career.name })}
+          </h3>
+          {served.length === 0 ? (
+            <p className="text-sm font-light text-copy">{t('career.studyNoStep')}</p>
+          ) : (
+            <ol className="space-y-4">
+              {served.map(({ pathway, step }) => (
+                <li
+                  key={`${pathway.id}-${step.title}`}
+                  className="flex items-start gap-4 rounded-2xl border border-line p-4 text-sm font-light text-night"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-night text-white">
+                    <Icon name="path" className="size-4" />
                   </span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        )}
-      </section>
+                  <span className="min-w-0 flex-1">
+                    {t('career.studyFits', { step: step.title, pathway: pathway.name.toLowerCase() })}
+                    <span className="mt-2 block">
+                      <Chip tone={step.need === 'essencial' ? 'night' : 'neutral'}>
+                        {t(`career.need_${step.need}`)}
+                      </Chip>
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
+      )}
 
       {program.recognized && (
         <section aria-labelledby="program-score">
@@ -145,10 +154,12 @@ export function ProgramSummary({ item, career, rank }: ProgramSummaryProps) {
 
       <div className="flex flex-wrap gap-2 border-t border-line pt-6">
         <CompareButton programId={program.id} />
-        <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" size="sm">
-          {t('career.studyAll')}
-          <Icon name="arrowRight" className="size-4" />
-        </ButtonLink>
+        {career && (
+          <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" size="sm">
+            {t('career.studyAll')}
+            <Icon name="arrowRight" className="size-4" />
+          </ButtonLink>
+        )}
       </div>
     </div>
   )

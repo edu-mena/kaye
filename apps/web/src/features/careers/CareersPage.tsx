@@ -1,13 +1,17 @@
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
+import { DemandMeter } from '../../components/DemandMeter'
+import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon } from '../../components/icons'
 import { QueryState } from '../../components/QueryState'
-import { PageHeader } from '../../components/ui/PageHeader'
+import { SectionHeading } from '../../components/ui/PageHeader'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareers } from '../../data/queries'
-import { CAREER_GROUPS, type CareerGroup } from '../../data/types'
+import { CAREER_GROUPS, type CareerGroup, type CareerSummary } from '../../data/types'
 import { filterCareers, type CareerSort } from '../../domain/careers'
 import { interestLevel } from '../../domain/fit'
+import { formatKz } from '../../domain/format'
 import { compatibility } from '../../domain/riasec'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
@@ -33,64 +37,253 @@ export default function CareersPage() {
   }
 
   return (
-    <div>
-      <PageHeader title={t('careers.title')} subtitle={t('careers.body')} />
+    <QueryState query={query}>
+      {(careers) => {
+        const results = filterCareers(careers, { query: search, group, sort, profile })
+        const guides = careers.filter((career) => career.detailed && career.image)
+        return (
+          <div className="space-y-12">
+            <Hero
+              careers={careers}
+              guides={guides}
+              search={search}
+              onSearch={(value) => setParam('q', value || null)}
+            />
+            <Areas careers={careers} selected={group} onSelect={(value) => setParam('area', value)} />
+            {!search && !group && guides.length > 0 && <Guides guides={guides} />}
 
-      <div className="mb-8 space-y-4">
-        <label className="relative block">
-          <span className="sr-only">{t('careers.search')}</span>
-          <Icon
-            name="search"
-            className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted"
-          />
-          <input
-            type="search"
-            value={search}
-            placeholder={t('careers.searchPlaceholder')}
-            onChange={(event) => setParam('q', event.target.value || null)}
-            className="h-12 w-full rounded-full border border-line bg-surface pr-4 pl-12 text-night placeholder:text-muted/70 focus:border-blue focus:outline-none"
-          />
-        </label>
-        <Segmented
-          label={t('careers.groupsLabel')}
-          clearable
-          value={group}
-          onChange={(value) => setParam('area', value)}
-          options={CAREER_GROUPS.map((value) => ({ value, label: t(`groups.${value}`) }))}
-        />
-        <Segmented
-          label={t('careers.sortLabel')}
-          value={sort}
-          onChange={(value) => setParam('ordem', value)}
-          options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
-        />
+            <section aria-labelledby="all-careers">
+              <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <h2 id="all-careers" className="text-xl font-extrabold text-night sm:text-2xl">
+                    {group ? t(`groups.${group}`) : t('careers.allTitle')}
+                  </h2>
+                  <output className="mt-1 block text-xs font-light text-muted">
+                    {t('careers.count', { count: results.length })}
+                  </output>
+                </div>
+                <Segmented
+                  label={t('careers.sortLabel')}
+                  value={sort}
+                  onChange={(value) => setParam('ordem', value)}
+                  options={sorts.map((value) => ({ value, label: sortLabels[value] }))}
+                />
+              </div>
+              {results.length === 0 ? (
+                <p className="rounded-card bg-surface py-10 text-center text-sm font-light text-muted shadow-card">
+                  {t('careers.empty')}
+                </p>
+              ) : (
+                <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {results.map((career) => (
+                    <li key={career.slug}>
+                      <CareerCard
+                        career={career}
+                        match={profile ? interestLevel(compatibility(profile, career.riasec)) : undefined}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+
+            <PhotoCredits guides={guides} />
+          </div>
+        )
+      }}
+    </QueryState>
+  )
+}
+
+type HeroProps = {
+  careers: CareerSummary[]
+  guides: CareerSummary[]
+  search: string
+  onSearch: (value: string) => void
+}
+
+/** Dark hero: what the section is, a large search, three numbers, and the career photos as a mosaic. */
+function Hero({ careers, guides, search, onSearch }: HeroProps) {
+  const { t } = useTranslation()
+  const areas = new Set(careers.map((career) => career.group)).size
+  const stats = [
+    { value: careers.length, label: t('careers.statCareers') },
+    { value: areas, label: t('careers.statAreas') },
+    { value: careers.filter((career) => career.detailed).length, label: t('careers.statGuides') },
+  ]
+
+  return (
+    <section className="overflow-hidden rounded-card bg-coal text-white">
+      <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="p-6 sm:p-10">
+          <h1 className="text-3xl leading-tight font-extrabold sm:text-5xl">{t('careers.title')}</h1>
+          <p className="mt-4 max-w-md text-sm font-light text-white/80">{t('careers.body')}</p>
+
+          <label className="relative mt-8 block max-w-lg">
+            <span className="sr-only">{t('careers.search')}</span>
+            <Icon
+              name="search"
+              className="pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2 text-gold"
+            />
+            <input
+              type="search"
+              value={search}
+              placeholder={t('careers.searchPlaceholder')}
+              onChange={(event) => onSearch(event.target.value)}
+              className="h-14 w-full rounded-full bg-white pr-5 pl-13 text-base text-night placeholder:text-muted"
+            />
+          </label>
+
+          <dl className="mt-8 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-2xl bg-white/10">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-coal p-4">
+                <dd className="text-2xl font-extrabold">{stat.value}</dd>
+                <dt className="mt-1 text-xs font-light text-white/70">{stat.label}</dt>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        {guides.length >= 3 && (
+          <div
+            aria-hidden="true"
+            className="grid h-56 grid-cols-3 gap-2 p-2 lg:h-auto lg:grid-cols-2 lg:grid-rows-2"
+          >
+            {guides.slice(0, 3).map((career, index) => (
+              <img
+                key={career.slug}
+                src={career.image?.small}
+                alt=""
+                className={`size-full rounded-2xl object-cover object-[center_30%] ${index === 0 ? 'lg:row-span-2' : ''}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
+    </section>
+  )
+}
 
-      <QueryState query={query}>
-        {(careers) => {
-          const results = filterCareers(careers, { query: search, group, sort, profile })
-          if (results.length === 0)
-            return <p className="py-10 text-center text-sm font-light text-muted">{t('careers.empty')}</p>
+type AreasProps = {
+  careers: CareerSummary[]
+  selected: CareerGroup | null
+  onSelect: (value: CareerGroup | null) => void
+}
 
+/** The areas as tiles with their icon and how many careers each has; pressing one filters the list. */
+function Areas({ careers, selected, onSelect }: AreasProps) {
+  const { t } = useTranslation()
+  const counts = CAREER_GROUPS.map((group) => ({
+    group,
+    count: careers.filter((career) => career.group === group).length,
+  })).filter((item) => item.count > 0)
+
+  return (
+    <section aria-labelledby="areas">
+      <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
+      <ul className="-mx-3 no-scrollbar flex gap-3 overflow-x-auto px-3 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-5">
+        {counts.map(({ group, count }) => {
+          const active = selected === group
           return (
-            <>
-              <p aria-live="polite" className="mb-4 text-xs font-light text-muted">
-                {t('careers.count', { count: results.length })}
-              </p>
-              <ul className="grid gap-4 lg:grid-cols-2">
-                {results.map((career) => (
-                  <li key={career.slug}>
-                    <CareerCard
-                      career={career}
-                      match={profile ? interestLevel(compatibility(profile, career.riasec)) : undefined}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </>
+            <li key={group} className="shrink-0">
+              <button
+                type="button"
+                aria-pressed={active}
+                onClick={() => onSelect(active ? null : group)}
+                className={`flex h-full w-40 flex-col items-start gap-4 rounded-2xl border p-4 text-left transition duration-300 sm:w-full ${
+                  active
+                    ? 'border-night bg-night text-white'
+                    : 'border-line bg-surface text-night hover:-translate-y-0.5 hover:shadow-card'
+                }`}
+              >
+                <span
+                  className={`grid size-10 place-items-center rounded-full ${active ? 'bg-white/10 text-gold' : 'bg-coal text-white'}`}
+                >
+                  <Icon name={GROUP_ICONS[group]} className="size-5" />
+                </span>
+                <span>
+                  <span className="block text-sm font-semibold">{t(`groups.${group}`)}</span>
+                  <span
+                    className={`mt-1 block text-xs font-light ${active ? 'text-white/70' : 'text-muted'}`}
+                  >
+                    {t('careers.count', { count })}
+                  </span>
+                </span>
+              </button>
+            </li>
           )
-        }}
-      </QueryState>
-    </div>
+        })}
+      </ul>
+    </section>
+  )
+}
+
+/** The careers with a full page, as large photo cards: where a person should start. */
+function Guides({ guides }: { guides: CareerSummary[] }) {
+  const { t } = useTranslation()
+  return (
+    <section aria-labelledby="guides">
+      <SectionHeading id="guides" title={t('careers.guidesTitle')} icon="path" />
+      <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">{t('careers.guidesBody')}</p>
+      <ul className="grid gap-4 md:grid-cols-3">
+        {guides.map((career) => (
+          <li key={career.slug}>
+            <Link
+              to={`/carreiras/${career.slug}`}
+              className="group relative block h-72 overflow-hidden rounded-card bg-coal text-white shadow-card"
+            >
+              <img
+                src={career.image?.small}
+                srcSet={career.image ? `${career.image.small} 800w, ${career.image.large} 1600w` : undefined}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                alt=""
+                className="absolute inset-0 size-full object-cover object-[center_30%] transition duration-500 group-hover:scale-105"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-t from-coal via-coal/60 to-transparent"
+              />
+              <span className="absolute inset-x-0 bottom-0 p-5">
+                <span className="block text-xs font-light text-white/75">{t(`groups.${career.group}`)}</span>
+                <span className="mt-1 block text-xl leading-tight font-extrabold">{career.name}</span>
+                <span className="mt-4 flex flex-wrap items-center justify-between gap-3">
+                  <span className="text-sm font-semibold">
+                    {career.salaryMedian !== null &&
+                      t('careers.perMonth', { value: formatKz(career.salaryMedian) })}
+                  </span>
+                  <DemandMeter demand={career.demand} tone="dark" />
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+/** CC BY-SA asks for the authors: one quiet line, with links to the originals. */
+function PhotoCredits({ guides }: { guides: CareerSummary[] }) {
+  const { t } = useTranslation()
+  const credits = guides.flatMap((career) => (career.image ? [career.image.credit] : []))
+  if (credits.length === 0) return null
+  return (
+    <p className="text-xs font-light text-muted">
+      {t('careers.photosCredit')}{' '}
+      {credits.map((credit, index) => (
+        <span key={credit.url}>
+          {index > 0 && ' · '}
+          <a
+            href={credit.url}
+            target="_blank"
+            rel="noreferrer"
+            className="underline-offset-2 hover:underline"
+          >
+            {credit.author}
+          </a>
+        </span>
+      ))}{' '}
+      ({credits[0]?.license})
+    </p>
   )
 }
