@@ -37,10 +37,10 @@ describe('HomePage', () => {
     renderWithApp(<HomePage />)
     expect(await screen.findByRole('link', { name: 'Desenvolvedor Frontend' })).toHaveAttribute(
       'href',
-      '/carreiras/desenvolvedor-frontend#path',
+      '/carreiras/desenvolvedor-frontend?secao=path',
     )
-    expect(screen.getByText('Faltam 3 passos')).toBeInTheDocument()
-    expect(screen.getByText('Curso profissional de desenvolvimento web')).toBeInTheDocument()
+    expect(screen.getByText('Faltam 2 passos')).toBeInTheDocument()
+    expect(screen.getByText('3 projetos publicados')).toBeInTheDocument()
   })
 
   it('suggests choosing a destination when there is none', () => {

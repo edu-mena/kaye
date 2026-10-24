@@ -42,7 +42,7 @@ function Content({ cv, section, muted }: { cv: CvData; section: CvSection; muted
 
 function useEmpty() {
   const { t } = useTranslation()
-  return <span className="text-[#9a9a9a] italic">{t('cv.empty')}</span>
+  return <span className="text-[#6b6b6b] italic">{t('cv.empty')}</span>
 }
 
 /** One column, centred header, ruled sections: the Harvard style. */
