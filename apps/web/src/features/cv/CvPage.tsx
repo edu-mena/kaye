@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router'
 import { Icon } from '../../components/icons'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
@@ -10,6 +9,7 @@ import { useCareers, useCvExamples } from '../../data/queries'
 import { cvCompleteness } from '../../domain/cv'
 import { formatPercent } from '../../domain/format'
 import { useUser } from '../../state/userStore'
+import { ModelCvGrid } from './ModelCvGrid'
 
 export default function CvPage() {
   const { t } = useTranslation()
@@ -23,13 +23,15 @@ export default function CvPage() {
     <div>
       <PageHeader title={t('cv.title')} subtitle={t('cv.body')} />
 
-      <Card tone="coal" className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <Icon name="document" className="size-10 shrink-0 text-white" />
+      <Card tone="coal" className="mb-10 flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:p-8">
+        <span className="grid size-12 shrink-0 place-items-center rounded-full bg-white/10 text-white">
+          <Icon name="document" className="size-6" />
+        </span>
         <div className="flex-1">
-          <h2 className="text-xl font-semibold">{t('cv.mine')}</h2>
+          <h2 className="text-2xl font-extrabold">{t('cv.mine')}</h2>
           {started ? (
             <>
-              <p className="mt-1 text-sm text-white/80">
+              <p className="mt-2 text-sm font-light text-white/80">
                 {t('cv.completeness', { value: formatPercent(completeness) })}
               </p>
               <ProgressBar
@@ -41,7 +43,7 @@ export default function CvPage() {
               />
             </>
           ) : (
-            <p className="mt-1 text-sm text-white/80">{t('cv.mineEmpty')}</p>
+            <p className="mt-2 text-sm font-light text-white/80">{t('cv.mineEmpty')}</p>
           )}
         </div>
         <ButtonLink to="/cv/editar" variant="onDark">
@@ -50,34 +52,14 @@ export default function CvPage() {
       </Card>
 
       <section aria-labelledby="examples">
-        <SectionHeading id="examples" title={t('cv.examples')} />
-        <p className="mb-4 text-sm text-muted">{t('cv.examplesBody')}</p>
+        <SectionHeading id="examples" title={t('cv.examples')} icon="document" />
+        <p className="mb-6 text-sm font-light text-copy">{t('cv.examplesBody')}</p>
         <QueryState query={examples}>
           {(list) => (
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((example) => (
-                <li key={example.id}>
-                  <Link
-                    to={`/cv/modelos/${example.id}`}
-                    className="flex h-full flex-col rounded-card bg-surface p-5 shadow-card transition-shadow hover:shadow-lift"
-                  >
-                    <span className="mb-3 space-y-1.5 rounded-xl bg-paper p-3" aria-hidden="true">
-                      <span className="block h-2 w-1/2 rounded bg-navy" />
-                      <span className="block h-1.5 w-1/3 rounded bg-navy-soft" />
-                      <span className="block h-1.5 w-full rounded bg-navy-100" />
-                      <span className="block h-1.5 w-5/6 rounded bg-navy-100" />
-                    </span>
-                    <span className="font-display text-lg font-semibold text-navy">
-                      {example.cv.headline}
-                    </span>
-                    <span className="text-sm text-muted">
-                      {careers.find((career) => career.slug === example.careerSlug)?.name} ·{' '}
-                      {t(`cv.${example.seniority}`)}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <ModelCvGrid
+              examples={list}
+              name={(example) => careers.find((career) => career.slug === example.careerSlug)?.name ?? ''}
+            />
           )}
         </QueryState>
       </section>

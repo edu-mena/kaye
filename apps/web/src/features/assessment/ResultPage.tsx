@@ -28,10 +28,10 @@ export default function ResultPage() {
       <header className="flex rise flex-col items-start gap-5 sm:flex-row sm:items-center">
         <Hexagon size="lg">{code}</Hexagon>
         <div>
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">
+          <h1 className="text-3xl leading-tight font-extrabold text-night sm:text-4xl">
             {t('assessment.resultTitle', { code })}
           </h1>
-          <p className="mt-2 text-muted">{t('assessment.resultBody')}</p>
+          <p className="mt-2 text-sm font-light text-copy">{t('assessment.resultBody')}</p>
         </div>
       </header>
 
@@ -39,17 +39,17 @@ export default function ResultPage() {
         <h2 id="top-dimensions" className="sr-only">
           {t('assessment.resultBody')}
         </h2>
-        <ol className="grid gap-3 sm:grid-cols-3">
+        <ol className="grid gap-4 sm:grid-cols-3">
           {top.map((key, index) => (
             <li key={key} className="rise" style={stagger(index + 1)}>
-              <Card className="h-full">
+              <Card className="h-full p-6">
                 <span className="flex items-center gap-3">
                   <Hexagon size="sm" tone={index === 0 ? 'dark' : 'gold'}>
                     {key}
                   </Hexagon>
-                  <span className="font-display text-xl font-semibold text-navy">{t(`riasec.${key}`)}</span>
+                  <span className="text-base font-semibold text-night">{t(`riasec.${key}`)}</span>
                 </span>
-                <p className="mt-1 text-sm text-muted">{t(`riasec.${key}Body`)}</p>
+                <p className="mt-2 text-xs font-light text-muted">{t(`riasec.${key}Body`)}</p>
               </Card>
             </li>
           ))}
@@ -57,7 +57,7 @@ export default function ResultPage() {
       </section>
 
       <section aria-labelledby="all-dimensions">
-        <SectionHeading id="all-dimensions" title={t('assessment.scoresLabel')} />
+        <SectionHeading id="all-dimensions" title={t('assessment.scoresLabel')} icon="chart" />
         <Card>
           <BarList
             label={t('assessment.scoresLabel')}
@@ -72,15 +72,15 @@ export default function ResultPage() {
       </section>
 
       <section aria-labelledby="recommendations">
-        <SectionHeading id="recommendations" title={t('assessment.recommendations')} />
-        <ul className="grid gap-3 lg:grid-cols-2">
+        <SectionHeading id="recommendations" title={t('assessment.recommendations')} icon="compass" />
+        <ul className="grid gap-4 lg:grid-cols-2">
           {recommendations?.map((item, index) => (
             <li key={item.career.slug} className="rise" style={stagger(index)}>
               <CareerCard career={item.career} match={item.match} reasons={item.reasons} />
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-muted">{t('assessment.otherArea')}</p>
+        <p className="mt-4 text-xs font-light text-muted">{t('assessment.otherArea')}</p>
       </section>
 
       <ButtonLink to="/teste" variant="secondary">

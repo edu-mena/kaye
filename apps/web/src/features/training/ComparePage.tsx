@@ -21,7 +21,7 @@ export default function ComparePage() {
         {(programs) => {
           const chosen = scorePrograms(programs).filter((item) => compare.includes(item.program.id))
           return chosen.length === 0 ? (
-            <p className="py-10 text-center text-muted">{t('training.compareEmpty')}</p>
+            <p className="py-10 text-center text-sm font-light text-muted">{t('training.compareEmpty')}</p>
           ) : (
             <CompareTable items={chosen} />
           )
@@ -67,11 +67,7 @@ function CompareTable({ items }: { items: ScoredProgram[] }) {
               <span className="sr-only">{t('training.compareTitle')}</span>
             </td>
             {items.map(({ program }) => (
-              <th
-                key={program.id}
-                scope="col"
-                className="p-4 align-top font-display text-base font-semibold text-navy"
-              >
+              <th key={program.id} scope="col" className="p-4 align-top text-base font-semibold text-night">
                 {program.name}
                 <Button
                   variant="ghost"
@@ -88,11 +84,11 @@ function CompareTable({ items }: { items: ScoredProgram[] }) {
         <tbody>
           {rows.map((row) => (
             <tr key={row.label}>
-              <th scope="row" className="border-t border-line p-4 font-semibold text-muted">
+              <th scope="row" className="border-t border-line p-4 font-light text-muted">
                 {row.label}
               </th>
               {items.map((item) => (
-                <td key={item.program.id} className="border-t border-line p-4 text-navy">
+                <td key={item.program.id} className="border-t border-line p-4 font-normal text-night">
                   {row.cell(item)}
                 </td>
               ))}

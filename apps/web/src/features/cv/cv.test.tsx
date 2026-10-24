@@ -22,10 +22,9 @@ describe('CvPage', () => {
     renderWithApp(<CvPage />)
     expect(screen.getByText('Ainda não começaste o teu CV.')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Começar do zero' })).toHaveAttribute('href', '/cv/editar')
-    expect(await screen.findByRole('link', { name: /Analista de Dados Júnior/ })).toHaveAttribute(
-      'href',
-      '/cv/modelos/dados-junior',
-    )
+    const [dataModel] = await screen.findAllByRole('button', { name: /^Analista de Dados.*Júnior · Europeu/ })
+    await userEvent.click(dataModel!)
+    expect(screen.getByRole('dialog', { name: /^Analista de Dados · / })).toBeInTheDocument()
   })
 
   it('shows how complete the CV is', () => {

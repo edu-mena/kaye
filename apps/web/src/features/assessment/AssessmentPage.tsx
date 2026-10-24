@@ -43,17 +43,17 @@ function Intro({ answered, completed, onStart }: IntroProps) {
   return (
     <div className="mx-auto max-w-xl">
       <Card tone="coal" className="rise p-6 sm:p-8">
-        <h1 className="text-3xl font-bold">{t('assessment.title')}</h1>
-        <p className="mt-3 text-white/80">{t('assessment.intro')}</p>
-        <ul className="mt-5 space-y-2">
+        <h1 className="text-3xl leading-tight font-extrabold">{t('assessment.title')}</h1>
+        <p className="mt-4 text-sm font-light text-white/80">{t('assessment.intro')}</p>
+        <ul className="mt-6 space-y-2">
           {points.map((point) => (
-            <li key={point} className="flex items-start gap-2 text-sm">
+            <li key={point} className="flex items-start gap-2 text-sm font-light">
               <Icon name="check" className="mt-0.5 size-4 shrink-0 text-white" />
               {point}
             </li>
           ))}
         </ul>
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-2">
           {completed ? (
             <>
               <ButtonLink to="/teste/resultado" variant="onDark" size="lg">
@@ -108,35 +108,35 @@ function Question({ questions, index, onMove }: QuestionProps) {
 
   return (
     <div className="mx-auto max-w-xl">
-      <div className="mb-6">
-        <p className="mb-2 text-sm font-semibold text-muted">
+      <div className="mb-8">
+        <p className="mb-2 text-xs font-light text-muted">
           {t('assessment.progress', { current: index + 1, total: questions.length })}
         </p>
         <ProgressBar value={(index + 1) / questions.length} label={t('assessment.title')} />
       </div>
 
       <fieldset key={question.id} className="rise">
-        <legend className="mb-6 font-display text-2xl leading-snug font-semibold text-navy sm:text-3xl">
-          <span className="block text-base font-medium text-muted">{t('assessment.prompt')}</span>
+        <legend className="mb-8 text-2xl leading-snug font-extrabold text-night sm:text-3xl">
+          <span className="mb-2 block text-sm font-light text-muted">{t('assessment.prompt')}</span>
           {question.text}?
         </legend>
-        <div className="grid gap-2.5">
+        <div className="grid gap-2">
           {SCALE.map((value) => (
             <button
               key={value}
               type="button"
               aria-pressed={current === value}
               onClick={() => choose(value)}
-              className={`flex items-center gap-3 rounded-2xl border-2 px-4 py-3.5 text-left font-semibold transition-colors ${
+              className={`flex items-center gap-4 rounded-2xl border px-4 py-4 text-left text-sm font-normal transition-colors ${
                 current === value
-                  ? 'border-navy bg-navy text-white'
-                  : 'border-line bg-surface text-navy hover:border-navy/40'
+                  ? 'border-blue bg-blue text-white'
+                  : 'border-line bg-surface text-night hover:border-ash-300 hover:bg-ash-100'
               }`}
             >
               <span
                 aria-hidden="true"
-                className={`grid size-7 shrink-0 place-items-center rounded-full text-sm ${
-                  current === value ? 'bg-navy text-white' : 'bg-navy-100'
+                className={`grid size-8 shrink-0 place-items-center rounded-full text-sm font-semibold ${
+                  current === value ? 'bg-white text-blue' : 'bg-ash-100 text-night'
                 }`}
               >
                 {value}
@@ -147,7 +147,7 @@ function Question({ questions, index, onMove }: QuestionProps) {
         </div>
       </fieldset>
 
-      <div className="mt-6 flex items-center justify-between gap-3">
+      <div className="mt-8 flex items-center justify-between gap-4">
         <Button variant="ghost" disabled={index === 0} onClick={() => onMove(index - 1)}>
           <Icon name="arrowLeft" className="size-4" />
           {t('assessment.previous')}

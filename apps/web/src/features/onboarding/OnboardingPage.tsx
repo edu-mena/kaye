@@ -22,8 +22,10 @@ export default function OnboardingPage() {
   if (step === 'profile') {
     return (
       <div className="mx-auto max-w-xl">
-        <h1 className="rise text-3xl font-bold text-navy">{t('onboarding.profileTitle')}</h1>
-        <p className="mt-2 mb-6 text-muted">{t('onboarding.profileBody')}</p>
+        <h1 className="rise text-3xl leading-tight font-extrabold text-night">
+          {t('onboarding.profileTitle')}
+        </h1>
+        <p className="mt-2 mb-8 text-sm font-light text-copy">{t('onboarding.profileBody')}</p>
         <ProfileForm onSaved={() => (next ? navigate(next) : setStep('start'))} />
       </div>
     )
@@ -34,22 +36,22 @@ export default function OnboardingPage() {
   return (
     <div className="mx-auto max-w-xl">
       <Card tone="coal" className="relative rise overflow-hidden p-6 sm:p-8">
-        <PathMark className="mb-6 w-48" />
-        <h1 className="text-3xl leading-tight font-bold sm:text-4xl">{t('onboarding.welcomeTitle')}</h1>
-        <p className="mt-3 text-white/80">{t('onboarding.welcomeBody')}</p>
+        <PathMark className="mb-8 w-48" />
+        <h1 className="text-3xl leading-tight font-extrabold sm:text-4xl">{t('onboarding.welcomeTitle')}</h1>
+        <p className="mt-4 text-sm font-light text-white/80">{t('onboarding.welcomeBody')}</p>
         <Button
           variant="onDark"
           size="lg"
-          className="mt-6 w-full sm:w-auto"
+          className="mt-8 w-full sm:w-auto"
           onClick={() => setStep('profile')}
         >
           {t('onboarding.google')}
         </Button>
-        <p className="mt-3 text-xs text-white/70">{t('onboarding.googleSoon')}</p>
+        <p className="mt-4 text-xs font-light text-white/70">{t('onboarding.googleSoon')}</p>
       </Card>
       <Link
         to="/carreiras"
-        className="mt-5 inline-flex items-center gap-1 font-semibold text-navy underline-offset-4 hover:underline"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-normal text-blue underline-offset-4 hover:underline"
       >
         {t('onboarding.explore')}
         <Icon name="arrowRight" className="size-4" />
@@ -69,20 +71,26 @@ function StartChoices() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <h1 className="mb-6 rise text-3xl font-bold text-navy">{t('onboarding.startTitle')}</h1>
-      <ul className="space-y-3">
+      <h1 className="mb-8 rise text-3xl leading-tight font-extrabold text-night">
+        {t('onboarding.startTitle')}
+      </h1>
+      <ul className="space-y-4">
         {CHOICES.map((choice, index) => (
           <li key={choice.to} className="rise" style={stagger(index + 1)}>
             <Link
               to={choice.to}
-              className="flex items-center gap-4 rounded-card bg-surface p-4 shadow-card transition-shadow hover:shadow-lift"
+              className="flex items-center gap-4 rounded-card bg-surface p-5 shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift"
             >
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl border border-line bg-surface text-navy">
-                <Icon name={choice.icon} className="size-6" />
+              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-coal text-white">
+                <Icon name={choice.icon} className="size-5" />
               </span>
               <span className="flex-1">
-                <span className="block font-semibold text-navy">{t(`onboarding.${choice.title}`)}</span>
-                <span className="block text-sm text-muted">{t(`onboarding.${choice.title}Body`)}</span>
+                <span className="block text-base font-semibold text-night">
+                  {t(`onboarding.${choice.title}`)}
+                </span>
+                <span className="mt-1 block text-xs font-light text-muted">
+                  {t(`onboarding.${choice.title}Body`)}
+                </span>
               </span>
               <Icon name="chevronRight" className="size-5 text-muted" />
             </Link>

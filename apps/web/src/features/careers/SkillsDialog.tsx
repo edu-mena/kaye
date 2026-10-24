@@ -34,11 +34,11 @@ export function SkillsDialog({ skills, open, onClose }: SkillsDialogProps) {
         </Button>
       }
     >
-      <p className="mb-4 text-sm text-muted">{t('fit.dialogHint')}</p>
-      <ul className="space-y-4">
+      <p className="mb-6 text-sm font-light text-copy">{t('fit.dialogHint')}</p>
+      <ul className="space-y-6">
         {ordered.map((skill) => (
           <li key={skill.id}>
-            <p className="mb-2 font-semibold text-navy">
+            <p className="mb-2 text-sm font-semibold text-night">
               {skill.name}
               {skill.importance === 'essencial' && <span className="ml-1 text-gold-ink">*</span>}
             </p>

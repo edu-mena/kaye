@@ -36,7 +36,7 @@ export default function CareersPage() {
     <div>
       <PageHeader title={t('careers.title')} subtitle={t('careers.body')} />
 
-      <div className="mb-5 space-y-3">
+      <div className="mb-8 space-y-4">
         <label className="relative block">
           <span className="sr-only">{t('careers.search')}</span>
           <Icon
@@ -48,7 +48,7 @@ export default function CareersPage() {
             value={search}
             placeholder={t('careers.searchPlaceholder')}
             onChange={(event) => setParam('q', event.target.value || null)}
-            className="h-12 w-full rounded-full border border-line bg-surface pr-4 pl-12 text-navy placeholder:text-muted/70 focus:border-navy focus:outline-none"
+            className="h-12 w-full rounded-full border border-line bg-surface pr-4 pl-12 text-night placeholder:text-muted/70 focus:border-blue focus:outline-none"
           />
         </label>
         <Segmented
@@ -70,14 +70,14 @@ export default function CareersPage() {
         {(careers) => {
           const results = filterCareers(careers, { query: search, group, sort, profile })
           if (results.length === 0)
-            return <p className="py-10 text-center text-muted">{t('careers.empty')}</p>
+            return <p className="py-10 text-center text-sm font-light text-muted">{t('careers.empty')}</p>
 
           return (
             <>
-              <p aria-live="polite" className="mb-3 text-sm font-semibold text-muted">
+              <p aria-live="polite" className="mb-4 text-xs font-light text-muted">
                 {t('careers.count', { count: results.length })}
               </p>
-              <ul className="grid gap-3 lg:grid-cols-2">
+              <ul className="grid gap-4 lg:grid-cols-2">
                 {results.map((career) => (
                   <li key={career.slug}>
                     <CareerCard

@@ -79,19 +79,22 @@ export function ProgramCard({ item, rank }: ProgramCardProps) {
   const { program, score, criteria } = item
 
   return (
-    <article className="rounded-card bg-surface p-4 shadow-card sm:p-5">
+    <article className="rounded-card bg-surface p-5 shadow-card sm:p-6">
       <div className="flex items-start gap-4">
         {rank !== undefined && (
-          <span className="font-display text-3xl leading-none font-bold text-navy/25" aria-hidden="true">
+          <span
+            className="grid size-9 shrink-0 place-items-center rounded-full bg-coal font-display text-sm font-bold text-white"
+            aria-hidden="true"
+          >
             {rank}
           </span>
         )}
         <div className="min-w-0 flex-1">
-          <h3 className="font-display text-lg leading-snug font-semibold text-navy">{program.name}</h3>
-          <p className="text-sm text-muted">
+          <h3 className="text-base leading-snug font-semibold text-night">{program.name}</h3>
+          <p className="mt-1 text-xs font-light text-muted">
             {program.institution.name} · {program.institution.province}
           </p>
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-2">
             <Chip>{t(`training.${program.level}`)}</Chip>
             {program.schedule.map((slot) => (
               <Chip key={slot}>{t(`training.${slot}`)}</Chip>
@@ -107,26 +110,26 @@ export function ProgramCard({ item, rank }: ProgramCardProps) {
         {program.recognized && <ScoreRing score={score} />}
       </div>
 
-      <dl className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3">
+      <dl className="mt-6 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
         <div>
-          <dt className="text-xs font-semibold text-muted">{t('training.duration')}</dt>
-          <dd className="font-semibold text-navy">
+          <dt className="text-xs font-light text-muted">{t('training.duration')}</dt>
+          <dd className="mt-1 font-semibold text-night">
             {duration({ min: program.durationMonths, max: program.durationMonths })}
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-semibold text-muted">{t('training.cost')}</dt>
-          <dd className="font-semibold text-navy">
+          <dt className="text-xs font-light text-muted">{t('training.cost')}</dt>
+          <dd className="mt-1 font-semibold text-night">
             {program.totalCost === null ? '—' : formatKz(program.totalCost)}
           </dd>
         </div>
         <div className="col-span-2 sm:col-span-1">
-          <dt className="text-xs font-semibold text-muted">{t('training.rating')}</dt>
-          <dd className="font-semibold text-navy">{ratingLabel(program.rating)}</dd>
+          <dt className="text-xs font-light text-muted">{t('training.rating')}</dt>
+          <dd className="mt-1 font-semibold text-night">{ratingLabel(program.rating)}</dd>
         </div>
       </dl>
 
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         {program.recognized ? (
           <details className="group text-sm">
             <summary className="cursor-pointer font-normal text-night">{t('training.seeCalc')}</summary>

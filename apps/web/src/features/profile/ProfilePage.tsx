@@ -33,18 +33,19 @@ export default function ProfilePage() {
         <SectionHeading
           id="achievements"
           title={t('profile.achievements')}
+          icon="award"
           action={
             <span className="text-sm font-semibold text-gold-ink">
               {t('common.xp', { xp: totalXp(list) })}
             </span>
           }
         />
-        <p className="-mt-1 mb-3 text-sm text-muted">{t('profile.achievementsBody')}</p>
-        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <p className="-mt-2 mb-6 text-sm font-light text-copy">{t('profile.achievementsBody')}</p>
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {list.map((achievement) => (
             <li
               key={achievement.id}
-              className="flex flex-col items-center rounded-card bg-surface p-4 text-center shadow-card"
+              className="flex flex-col items-center rounded-card bg-surface p-6 text-center shadow-card"
             >
               <Hexagon tone={achievement.earned ? 'gold' : 'locked'}>
                 {achievement.earned ? (
@@ -53,11 +54,11 @@ export default function ProfilePage() {
                   <Icon name="lock" className="size-6" />
                 )}
               </Hexagon>
-              <p className="mt-2 font-semibold text-navy">{t(`achievement.${achievement.id}`)}</p>
-              <p className="text-xs text-muted">
+              <p className="mt-4 text-sm font-semibold text-night">{t(`achievement.${achievement.id}`)}</p>
+              <p className="mt-1 text-xs font-light text-muted">
                 {achievement.earned ? t(`achievement.${achievement.id}Body`) : t('profile.locked')}
               </p>
-              <p className="mt-1 text-xs font-semibold text-gold-ink">
+              <p className="mt-2 text-xs font-semibold text-gold-ink">
                 {t('common.xp', { xp: achievement.xp })}
               </p>
             </li>
@@ -76,8 +77,8 @@ export default function ProfilePage() {
 function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-3 border-t border-line py-3 first:border-t-0">
-      <span className="text-sm font-semibold text-muted">{label}</span>
-      <span className="text-right text-sm font-medium text-navy">{children}</span>
+      <span className="text-sm font-light text-muted">{label}</span>
+      <span className="text-right text-sm font-semibold text-night">{children}</span>
     </div>
   )
 }
@@ -90,8 +91,8 @@ function PersonCard() {
 
   if (!user.profile) {
     return (
-      <Card className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-navy">{t('profile.guest')}</p>
+      <Card className="flex flex-wrap items-center justify-between gap-4 p-6">
+        <p className="text-sm font-light text-copy">{t('profile.guest')}</p>
         <ButtonLink to="/entrar">{t('profile.create')}</ButtonLink>
       </Card>
     )
@@ -99,14 +100,14 @@ function PersonCard() {
 
   const person = user.profile
   return (
-    <Card>
-      <div className="mb-3 flex items-center gap-4">
-        <span className="grid size-14 place-items-center rounded-full bg-navy font-display text-2xl font-bold text-white">
+    <Card className="p-6">
+      <div className="mb-4 flex items-center gap-4">
+        <span className="grid size-14 place-items-center rounded-full bg-coal font-display text-2xl font-bold text-white">
           {person.name.charAt(0).toUpperCase()}
         </span>
         <div>
-          <p className="font-display text-xl font-semibold text-navy">{person.name}</p>
-          <p className="text-sm text-muted">
+          <p className="text-lg font-semibold text-night">{person.name}</p>
+          <p className="mt-1 text-xs font-light text-muted">
             {t('profile.age', { age: ageIn(person.birthYear) })} · {person.province}
           </p>
         </div>
@@ -120,11 +121,14 @@ function PersonCard() {
       <Row label={t('onboarding.education')}>{t(`education.${person.education}`)}</Row>
       <Row label={t('profile.test')}>
         {completed && profile ? (
-          <Link to="/teste/resultado" className="font-semibold underline underline-offset-4">
+          <Link
+            to="/teste/resultado"
+            className="text-sm font-normal text-blue underline-offset-4 hover:underline"
+          >
             {riasecCode(profile)}
           </Link>
         ) : (
-          <Link to="/teste" className="underline underline-offset-4">
+          <Link to="/teste" className="text-sm font-normal text-blue underline-offset-4 hover:underline">
             {t('profile.testNone')}
           </Link>
         )}
@@ -144,11 +148,11 @@ function SavedCareers() {
 
   return (
     <section aria-labelledby="saved">
-      <SectionHeading id="saved" title={t('profile.saved')} />
+      <SectionHeading id="saved" title={t('profile.saved')} icon="bookmark" />
       {saved.length === 0 ? (
-        <p className="text-sm text-muted">{t('profile.savedNone')}</p>
+        <p className="text-sm font-light text-muted">{t('profile.savedNone')}</p>
       ) : (
-        <ul className="grid gap-3 lg:grid-cols-2">
+        <ul className="grid gap-4 lg:grid-cols-2">
           {saved.map((career) => (
             <li key={career.slug}>
               <CareerCard career={career} />
@@ -164,7 +168,12 @@ function Language() {
   const { t, i18n } = useTranslation()
   return (
     <fieldset>
-      <legend className="mb-3 text-xl font-semibold text-navy">{t('profile.language')}</legend>
+      <legend className="mb-6 flex items-center gap-3 text-xl font-extrabold text-night sm:text-2xl">
+        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-blue text-white">
+          <Icon name="globe" className="size-5" />
+        </span>
+        {t('profile.language')}
+      </legend>
       <div className="grid grid-cols-3 gap-2">
         {LOCALES.map((locale) => {
           const active = i18n.language === locale
@@ -175,8 +184,10 @@ function Language() {
               lang={locale}
               aria-pressed={active}
               onClick={() => changeLocale(locale)}
-              className={`rounded-xl border px-3 py-2.5 text-sm font-semibold ${
-                active ? 'border-navy bg-navy text-white' : 'border-line bg-surface text-navy'
+              className={`rounded-full border px-4 py-3 text-sm transition-colors ${
+                active
+                  ? 'border-night bg-night font-normal text-white'
+                  : 'border-line bg-surface font-light text-night hover:bg-ash-100'
               }`}
             >
               {LOCALE_NAMES[locale]}
@@ -203,8 +214,8 @@ function YourData() {
 
   return (
     <section aria-labelledby="data">
-      <SectionHeading id="data" title={t('profile.data')} />
-      <p className="mb-3 text-sm text-muted">{t('profile.dataBody')}</p>
+      <SectionHeading id="data" title={t('profile.data')} icon="shield" />
+      <p className="-mt-2 mb-6 text-sm font-light text-copy">{t('profile.dataBody')}</p>
       <div className="flex flex-wrap gap-2">
         <Button variant="secondary" onClick={downloadMyData}>
           <Icon name="download" className="size-4" />
@@ -236,7 +247,7 @@ function YourData() {
           </div>
         }
       >
-        <p className="text-navy">{t('profile.eraseBody')}</p>
+        <p className="text-sm font-light text-copy">{t('profile.eraseBody')}</p>
       </Dialog>
     </section>
   )
@@ -253,9 +264,9 @@ function About() {
 
   return (
     <section aria-labelledby="about">
-      <SectionHeading id="about" title={t('profile.about')} />
-      <p className="mb-2 text-sm text-muted">{t('app.tagline')}</p>
-      <output className="flex items-center gap-2 text-sm text-muted">
+      <SectionHeading id="about" title={t('profile.about')} icon="info" />
+      <p className="-mt-2 mb-4 text-sm font-light text-copy">{t('app.tagline')}</p>
+      <output className="flex items-center gap-2 text-sm font-light text-muted">
         <span className={`size-2 rounded-full ${dot}`} />
         {label}
       </output>

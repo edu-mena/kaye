@@ -106,8 +106,8 @@ export function ProfileForm({ onSaved }: { onSaved: () => void }) {
 
       {minor && (
         <Card tone="notice" className="space-y-3">
-          <p className="font-semibold">{t('onboarding.minorTitle')}</p>
-          <p className="text-sm">{t('onboarding.minorBody')}</p>
+          <p className="text-base font-semibold">{t('onboarding.minorTitle')}</p>
+          <p className="text-sm font-light text-copy">{t('onboarding.minorBody')}</p>
           <CheckboxField
             label={t('onboarding.guardian')}
             checked={values.guardian}
@@ -121,7 +121,7 @@ export function ProfileForm({ onSaved }: { onSaved: () => void }) {
         label={
           <>
             {t('onboarding.terms')}
-            <span className="block text-muted">{t('onboarding.termsNote')}</span>
+            <span className="mt-1 block text-xs font-light text-muted">{t('onboarding.termsNote')}</span>
           </>
         }
         checked={values.terms}

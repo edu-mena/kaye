@@ -20,9 +20,6 @@
   /* The main action of each screen: a deep blue, white text 15:1. Hover lightens it, so it shows on dark surfaces too. */
   --color-blue: #021d6d;
   --color-blue-dark: #032a96;
-  --color-navy-900: #111c2e;
-  --color-navy-soft: #2c3e5c;
-  --color-navy-100: #e8ecf3;
   --color-gold: #ffc000;
   --color-gold-ink: #8a6400;
 

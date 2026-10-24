@@ -36,8 +36,8 @@ export default function CvEditorPage() {
   return (
     <div>
       <PageHeader title={t('cv.editorTitle')} back={{ to: '/cv', label: t('cv.title') }} />
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <p className="inline-flex items-center gap-1 text-sm font-semibold text-success">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <p className="inline-flex items-center gap-2 text-sm font-normal text-success">
           <Icon name="check" className="size-4" />
           {t('cv.autosaved')}
         </p>
@@ -50,7 +50,7 @@ export default function CvEditorPage() {
       </div>
       <Segmented
         label={t('cv.preview')}
-        className="mb-5 lg:hidden"
+        className="mb-6 lg:hidden"
         value={view}
         onChange={(value) => value && setView(value)}
         options={[
@@ -65,7 +65,7 @@ export default function CvEditorPage() {
           onSubmit={(event) => event.preventDefault()}
           className={`space-y-6 ${view === 'preview' ? 'hidden lg:block' : ''}`}
         >
-          <Card className="space-y-4">
+          <Card className="space-y-4 p-6">
             <TextField
               label={t('cv.name')}
               value={cv.name}
@@ -117,7 +117,7 @@ export default function CvEditorPage() {
 
         <div className={view === 'edit' ? 'hidden lg:block' : ''}>
           <div className="lg:sticky lg:top-6">
-            <h2 className="mb-3 text-lg font-semibold text-navy">{t('cv.preview')}</h2>
+            <h2 className="mb-4 text-base font-semibold text-night">{t('cv.preview')}</h2>
             <ScaledSheet
               cv={preview}
               template={template}
@@ -142,10 +142,10 @@ function EditorSection({
 }) {
   const { t } = useTranslation()
   return (
-    <Card as="section" aria-label={t(`cv.${section}`)} className="space-y-3">
+    <Card as="section" aria-label={t(`cv.${section}`)} className="space-y-4 p-6">
       {tip && (
-        <p className="rounded-xl border border-line bg-paper p-3 text-sm text-navy">
-          <span className="font-bold text-gold-ink">{t('cv.tip')}: </span>
+        <p className="rounded-2xl bg-ash-100 p-4 text-sm font-light text-copy">
+          <span className="font-semibold text-night">{t('cv.tip')}: </span>
           {tip}
         </p>
       )}
@@ -163,15 +163,15 @@ function EntryList({ section, entries, onChange }: EntryListProps) {
 
   return (
     <fieldset className="space-y-4">
-      <legend className="text-base font-semibold text-navy">{t(`cv.${section}`)}</legend>
+      <legend className="text-base font-semibold text-night">{t(`cv.${section}`)}</legend>
       {entries.map((entry, index) => (
-        <div key={entry.id} className="space-y-3 rounded-2xl border border-line p-3">
+        <div key={entry.id} className="space-y-4 rounded-2xl border border-line p-4">
           <TextField
             label={t('cv.entryTitle')}
             value={entry.title}
             onChange={(event) => update(index, { title: event.target.value })}
           />
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             <TextField
               label={t('cv.entryPlace')}
               value={entry.place}

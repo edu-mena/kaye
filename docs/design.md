@@ -29,9 +29,8 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 
 | Token | Valor | Para quê | Contraste |
 |---|---|---|---|
-| `navy` | `#1B2A43` | Texto principal, botão principal, item ativo | 13,1 no papel |
+| `navy` | `#1B2A43` | A cor da marca (logótipo, favicon). Já não é usada na interface | 13,1 no papel |
 | `blue` / `blue-dark` | `#021D6D` / `#032A96` (ao passar o rato fica mais claro) | Só os botões de ação principais (`Button` primary): mais claro e forte do que o azul-marinho, destaca-se sem contorno em fundo claro e escuro | Branco em cima: 15,0; contra o papel: 13,7 |
-| `navy-100` | `#E8ECF3` | Fundos suaves, trilho das barras | Texto `navy` em cima: 12,1 |
 | `gold` | `#FFC000` | Pouco e pequeno, porque chama a atenção: ícones da barra lateral, lupa e perfil da barra de cima, o ícone do separador ativo, o anel da pontuação em fundo escuro, o logótipo, o "Estás aqui" e o foco | Amarelo sobre `night`: 10,9 |
 | `gold-ink` | `#8A6400` | Texto amarelo-escuro (o `gold` não serve para texto): rótulos "Dica" e "Porque funciona" | 5,4 no branco |
 | `paper` | `#F7F4EE` | Fundo da app | |
@@ -47,7 +46,7 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 | `coral` | `#B33A24` | Erros, apagar, "Combina pouco" | 5,9 no branco |
 
 Regras:
-- **Sobre azul-marinho, só branco.** Botões, ícones, números e barras em cima de azul-marinho são brancos (botão `onNavy`, barra `tone="white"`). O amarelo aparece sobre fundos claros. O caminho da marca (`PathMark`) é a exceção, porque é uma ilustração e não um controlo.
+- **Sobre fundos escuros, só branco.** Botões, ícones, números e barras sobre `coal`, `night` ou fotos são brancos (botão `onDark`, barra `tone="white"`). O amarelo pequeno é a única exceção (ícones da navegação, o anel da pontuação). O caminho da marca (`PathMark`) é uma ilustração, não um controlo.
 - **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo é um acento pequeno e raro (os ícones da navegação, o anel da pontuação em fundo escuro). Sem losangos nem outras formas decorativas. Em excesso compete com o azul pela atenção. O azul (`blue`, um azul profundo e mais saturado do que o azul-marinho) é a cor principal, guardada para os botões de ação principais de cada ecrã (por exemplo "Escolher como destino", "Marcar o que sei"). Nunca leva contorno. Ações secundárias sobre fundo escuro usam um círculo ou pílula `coal` com o ícone amarelo, como o perfil na barra de cima.
 - **Amarelo sobre quase-preto, sim; amarelo sobre azul-marinho, não.**
 - **Ícones em quadrado ou círculo:** fundo branco, contorno fino (`border-line`) e ícone azul-marinho. Nunca um quadrado colorido.
@@ -105,17 +104,17 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 
 | Peça | Para quê | Notas |
 |---|---|---|
-| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary` (azul-marinho), `secondary`, `ghost`, `onNavy` (branco, para fundos azul-marinho). Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
-| `Card` | Agrupar conteúdo | Tons `surface`, `paper` (blocos dentro de um cartão branco), `navy`, `notice` (aviso com contorno azul-marinho, fundo branco). `as="section"` ou `"article"` quando tem título |
-| `Chip` | Etiquetas curtas: procura, encaixe, razões | Contorno fino, sem fundo. Tons `neutral`, `navy` (cheio), `success` e `coral` (com um ponto da cor) |
-| `ProgressBar` | Progresso (teste, CV) | É um `<progress>` nativo |
+| `Button`, `ButtonLink` | Ações e ligações com aspeto de botão | Variantes `primary` (o azul principal: a ação principal do ecrã), `secondary` (contorno), `ghost`, `onDark` (branco, para fundos escuros). Tamanhos `sm` (36 px), `md` (44 px, o mínimo para o dedo), `lg` (52 px) |
+| `Card` | Agrupar conteúdo | Tons `surface`, `gray` (blocos dentro de um cartão branco), `coal` (bloco escuro, com texto branco), `notice` (aviso com contorno azul, fundo branco). `as="section"` ou `"article"` quando tem título |
+| `Chip` | Etiquetas curtas: procura, encaixe, razões | Contorno fino, sem fundo. Tons `neutral`, `night` (cheio), `success` e `coral` (com um ponto da cor); `white` e `onDark` em fundos escuros |
+| `ProgressBar` | Progresso (teste, CV, conquistas) | É um `<progress>` nativo. Azul principal em fundo claro; `gold` ou `white` em fundo escuro |
 | `BarList` | Gráfico de barras horizontais | Ver [Gráficos](#gráficos) |
 | `Dialog` | Confirmações, listas e o menu do telemóvel | É um `<dialog>` nativo e fecha com Esc. `variant="sheet"`: clara, abre de baixo no telemóvel. `variant="drawer"`: preta, abre da direita (o menu hamburger) |
 | `Tabs`, `TabPanel` | Partes de um ecrã, uma de cada vez | Padrão WAI-ARIA: setas, Home e End mudam de separador. A linha desliza para o lado no telemóvel e mantém o ativo à vista. Texto em `text-sm font-light`, como a barra lateral. O ativo é quase preto, em `font-normal`, com o ícone amarelo. O painel é um cartão branco com padding, e os blocos lá dentro usam o fundo papel |
 | `Segmented` | Escolher uma opção (filtros, separadores) | `fieldset` com `legend` e botões com `aria-pressed`. `clearable` deixa desmarcar |
 | `TextField`, `TextAreaField`, `SelectField`, `CheckboxField` | Formulários | O erro e a dica ficam ligados ao campo (`aria-describedby`, `aria-invalid`) |
-| `PageHeader`, `SectionHeading` | Título do ecrã (com "voltar") e das secções | |
-| `Hexagon` | Código RIASEC e conquistas | Tons `navy`, `gold`, `locked` |
+| `PageHeader`, `SectionHeading` | Título do ecrã (com "voltar") e das secções | O título de secção pode levar um ícone num círculo azul (`icon`), como na página de carreira | |
+| `Hexagon` | Código RIASEC e conquistas | Tons `dark`, `gold`, `locked` |
 
 Peças de produto em `src/components`:
 - `CareerCard`, `ScoreBadge`, `PathMark`;
@@ -147,7 +146,7 @@ Peças de produto em `src/components`:
 ## Gráficos
 
 - **Barras horizontais, não radar.** O radar (o hexágono RIASEC desenhado como gráfico) é bonito mas difícil de ler: comparar áreas é mais difícil do que comparar comprimentos.
-- **Uma só cor, com ênfase.** O que importa fica a `navy` (por exemplo, os 3 interesses mais fortes). O resto fica a `track`, para dar contexto.
+- **Uma só cor, com ênfase.** O que importa fica a quase preto (`night`, por exemplo os 3 interesses mais fortes). O resto fica a `track`, para dar contexto.
 - **O valor fica sempre escrito ao lado da barra.** Assim a informação nunca depende só da cor, e o contraste baixo do `track` não esconde nada.
 - **Faixa salarial:** os números vêm primeiro, cada um com o seu significado: Entrada (1 em cada 4 ganha menos), Mediana e Topo (1 em cada 4 ganha mais). A barra por baixo só os coloca numa escala, com o valor escrito em cada ponto. A escala não começa no zero, para a faixa se ler.
 - **Ao longo do tempo:** colunas por mês, com a última em destaque e o seu valor escrito. Todos os valores estão no texto para leitores de ecrã e aparecem ao passar o rato.
