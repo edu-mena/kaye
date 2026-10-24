@@ -14,13 +14,13 @@ import { SkillsDialog } from './SkillsDialog'
 
 function Part({ icon, title, children }: { icon: IconName; title: string; children: ReactNode }) {
   return (
-    <div className="flex gap-3 bg-night p-5">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white text-night">
+    <div className="flex gap-3 bg-coal p-5">
+      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/10 text-gold">
         <Icon name={icon} className="size-5" />
       </span>
       <div className="min-w-0 flex-1">
         <p className="text-xs font-bold tracking-[0.14em] text-white/75 uppercase">{title}</p>
-        <div className="mt-1.5 text-white">{children}</div>
+        <div className="mt-1.5 text-sm font-light text-white">{children}</div>
       </div>
     </div>
   )
@@ -40,10 +40,10 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
   const { profile } = useRiasecProfile()
   const [open, setOpen] = useState(false)
   const fit = careerFit(career, { profile, education: user.profile?.education ?? null, skills: user.skills })
-  const link = 'font-semibold text-white underline underline-offset-4'
+  const link = 'font-normal text-white underline underline-offset-4'
 
   return (
-    <Card as="section" tone="night" id="encaixe" aria-labelledby="fit-title" className="scroll-mt-24 sm:p-8">
+    <Card as="section" tone="coal" id="encaixe" aria-labelledby="fit-title" className="scroll-mt-44 sm:p-8">
       <h2 id="fit-title" className="text-2xl font-extrabold tracking-tight sm:text-3xl">
         <button
           type="button"
@@ -53,7 +53,7 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
           className="flex w-full items-center justify-between gap-3 rounded-xl text-left"
         >
           {t('fit.title')}
-          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white text-night">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/10 text-white">
             <Icon
               name="chevronRight"
               className={`size-5 transition ${expanded ? '-rotate-90' : 'rotate-90'}`}
@@ -66,7 +66,7 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
       <div
         id="fit-body"
         hidden={!expanded}
-        className="mt-6 grid gap-px overflow-hidden rounded-2xl bg-white/15 lg:grid-cols-3"
+        className="mt-6 grid gap-px overflow-hidden rounded-2xl bg-white/10 lg:grid-cols-3"
       >
         <Part icon="target" title={t('fit.interests')}>
           {fit.interests ? (
@@ -101,7 +101,7 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
         </Part>
 
         <Part icon="check" title={t('fit.skills')}>
-          <p className="font-semibold">
+          <p className="font-normal">
             {t('fit.skillsCount', { have: fit.skills.have, total: fit.skills.total })}
           </p>
           <ProgressBar
@@ -116,7 +116,7 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
               ? t('fit.skillsAll')
               : t('fit.skillsMissing', { list: fit.skills.missing.map((skill) => skill.name).join(', ') })}
           </p>
-          <Button variant="onNavy" size="sm" className="mt-3" onClick={() => setOpen(true)}>
+          <Button size="sm" className="mt-3" onClick={() => setOpen(true)}>
             {t('fit.markSkills')}
           </Button>
         </Part>

@@ -12,6 +12,9 @@
   --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
 
   --color-navy: #1b2a43;
+  /* The main action of each screen: a deep blue, white text 15:1. Hover lightens it, so it shows on dark surfaces too. */
+  --color-blue: #021d6d;
+  --color-blue-dark: #032a96;
   --color-navy-900: #111c2e;
   --color-navy-soft: #2c3e5c;
   --color-navy-100: #e8ecf3;
@@ -21,6 +24,8 @@
   --color-ink: #1b2a43;
   /* Near-black for active states, headings and strong blocks; warm grays around it. */
   --color-night: #16171b;
+  /* Closer to black, for the sidebar and the phone menu. */
+  --color-coal: #0a0a0b;
   --color-ash-100: #efede9;
   --color-ash-200: #e2dfd9;
   --color-ash-300: #cdc9c1;
@@ -35,7 +40,7 @@
   --color-success: #1a7a50;
   --color-coral: #b33a24;
 
-  --radius-card: 1.25rem;
+  --radius-card: 1.75rem;
   --shadow-card: 0 1px 2px rgb(27 42 67 / 0.05), 0 10px 30px -18px rgb(27 42 67 / 0.25);
   --shadow-lift: 0 2px 4px rgb(27 42 67 / 0.06), 0 18px 40px -20px rgb(27 42 67 / 0.35);
 

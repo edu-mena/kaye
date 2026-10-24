@@ -26,10 +26,12 @@ describe('pathway steps', () => {
     expect(isStepDone(university!.steps[0]!, null)).toBe(false)
   })
 
-  it('adds up the months still ahead', () => {
+  it('adds up the months still ahead, leaving out optional steps', () => {
+    // The professional course is optional on the technical path: it is there, but nobody requires it.
+    expect(technical!.steps.find((step) => step.kind === 'formacao')?.need).toBe('opcional')
     const left = remainingSteps(technical!, 'medio_tecnico')
-    expect(left.steps.map((step) => step.kind)).toEqual(['formacao', 'portfolio', 'experiencia'])
-    expect(left.months).toEqual({ min: 13, max: 24 })
+    expect(left.steps.map((step) => step.kind)).toEqual(['portfolio', 'experiencia'])
+    expect(left.months).toEqual({ min: 9, max: 18 })
   })
 
   it('picks the pathway that gets the person there soonest', () => {

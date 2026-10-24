@@ -7,7 +7,7 @@ type Size = 'sm' | 'md' | 'lg'
 type Style = { variant?: Variant; size?: Size; className?: string }
 
 const VARIANTS: Record<Variant, string> = {
-  primary: 'bg-navy text-white hover:bg-navy-soft',
+  primary: 'bg-blue text-white hover:bg-blue-dark',
   secondary: 'border border-line bg-surface text-navy hover:border-navy/40',
   ghost: 'text-navy hover:bg-navy-100',
   // Gold on near-black or light surfaces, never over navy (docs/design.md, Cores).

@@ -22,9 +22,10 @@ describe('CareerPage', () => {
       'href',
       'https://commons.wikimedia.org/wiki/File:Software_Developer_at_work_03.jpg',
     )
-    expect(screen.getByText('Salário').closest('div')).toHaveTextContent('350 mil Kz/mês')
-    expect(screen.getByText('Procura').closest('div')).toHaveTextContent('+12% em 3 meses')
-    expect(screen.getByText('Até lá').closest('div')).toHaveTextContent(/anos?$/)
+    const hero = screen.getByRole('banner')
+    expect(hero).toHaveTextContent('Salário mediano: 350 mil Kz/mês')
+    expect(hero).toHaveTextContent('Procura +12% em 3 meses')
+    expect(hero).toHaveTextContent(/anos? até lá/)
   })
 
   it('opens what the career is in a popup from the "i" next to the name', async () => {
@@ -103,8 +104,12 @@ describe('CareerPage', () => {
     const path = screen.getByRole('heading', { name: 'Como lá chegar' }).closest('section')!
     expect(within(path).getAllByText(/· Feito/)).toHaveLength(2)
     expect(within(path).getByText(/· Estás aqui/)).toBeInTheDocument()
-    expect(within(path).getByText('Curso profissional de desenvolvimento web')).toBeInTheDocument()
-    expect(within(path).getByText('Duração: 5 a 6 anos')).toBeInTheDocument()
+    const course = within(path).getByText('Curso profissional de desenvolvimento web').closest('li')!
+    expect(course).toHaveTextContent('Opcional')
+    expect(course).toHaveTextContent('Dá para aprender sozinho')
+    expect(course).toHaveTextContent('O certificado é opcional')
+    expect(within(path).getByText('3 projetos publicados').closest('li')).toHaveTextContent('Essencial')
+    expect(within(path).getByText('Duração: 5 a 5,5 anos')).toBeInTheDocument()
   })
 
   it('ranks where to study with the same scores as the Cursos page', async () => {
@@ -167,7 +172,7 @@ describe('FitPanel', () => {
     const fit = await screen.findByRole('region', { name: 'O meu encaixe' })
     // The profile needs the questions, which load like any API data.
     expect(await within(fit).findByText('Combina muito')).toBeInTheDocument()
-    expect(within(fit).getByText('Faltam 3 passos, pela via técnica')).toBeInTheDocument()
+    expect(within(fit).getByText('Faltam 2 passos, pela via técnica')).toBeInTheDocument()
     expect(within(fit).getByText('Já tens 0 de 6 essenciais')).toBeInTheDocument()
 
     await userEvent.click(within(fit).getByRole('button', { name: 'Marcar o que sei' }))

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, NavLink } from 'react-router'
 import logo from '../assets/kaye-logo.png'
 import { DATA_SOURCE } from '../data/source'
+import { useHideOnScroll } from '../lib/useHideOnScroll'
 import { Icon, type IconName } from './icons'
 import { Dialog } from './ui/Dialog'
 
@@ -21,7 +22,13 @@ type NavKey =
   | 'support'
   | 'settings'
 
-type NavItem = { to: string; key: NavKey; icon: IconName }
+type NavItem = {
+  to: string
+  key: NavKey
+  icon: IconName
+  /** White icon instead of gold: Suporte and Configurações stay in the background. */
+  quiet?: boolean
+}
 type NavGroup = { key: 'groupExplore' | 'groupYou' | 'groupHelp'; items: NavItem[] }
 
 const HOME: NavItem = { to: '/', key: 'home', icon: 'home' }
@@ -35,8 +42,8 @@ const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
 const CV: NavItem = { to: '/cv', key: 'cv', icon: 'document' }
 const NOTIFICATIONS: NavItem = { to: '/notificacoes', key: 'notifications', icon: 'bell' }
 const PROFILE: NavItem = { to: '/perfil', key: 'profile', icon: 'user' }
-const SUPPORT: NavItem = { to: '/suporte', key: 'support', icon: 'help' }
-const SETTINGS: NavItem = { to: '/configuracoes', key: 'settings', icon: 'sliders' }
+const SUPPORT: NavItem = { to: '/suporte', key: 'support', icon: 'help', quiet: true }
+const SETTINGS: NavItem = { to: '/configuracoes', key: 'settings', icon: 'sliders', quiet: true }
 
 // One map for every navigation: the sidebar shows it all, phones split it
 // between the bottom bar (the five used most) and the menu.
@@ -52,11 +59,11 @@ const MENU: NavGroup[] = [
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
 ]
 
-const GROUP_LABEL = 'mb-2 px-3 text-[11px] font-bold tracking-[0.14em] text-white/55 uppercase'
+const GROUP_LABEL = 'mb-2 px-3 text-[11px] font-bold tracking-[0.14em] text-white uppercase'
 
 type DarkLinkProps = { item: NavItem; iconOnly?: boolean; onNavigate?: () => void }
 
-/** A link on a dark surface: a white pill when active, so it reads at a glance. */
+/** A link on the near-black menus: white text, gold icon; a lighter pill when active. */
 function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
   const { t } = useTranslation()
   const label = t(`nav.${item.key}`)
@@ -67,12 +74,12 @@ function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
       title={iconOnly ? label : undefined}
       onClick={onNavigate}
       className={({ isActive }) =>
-        `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-semibold transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${
-          isActive ? 'bg-white text-night' : 'text-white/70 hover:bg-white/10 hover:text-white'
+        `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-light tracking-wide transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${
+          isActive ? 'bg-white/15 font-normal text-white' : 'text-white hover:bg-white/5'
         }`
       }
     >
-      <Icon name={item.icon} className="size-5 shrink-0" />
+      <Icon name={item.icon} className={`size-5 shrink-0 ${item.quiet ? 'text-white' : 'text-gold'}`} />
       <span className={iconOnly ? 'sr-only' : 'truncate'}>{label}</span>
     </NavLink>
   )
@@ -103,7 +110,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside
-      className={`fixed inset-y-3 left-3 z-30 hidden flex-col rounded-[1.75rem] bg-night py-5 text-white shadow-lift transition-[width] duration-300 lg:flex ${
+      className={`fixed inset-y-3 left-3 z-30 hidden flex-col rounded-card bg-coal py-5 text-white shadow-lift transition-[width] duration-300 lg:flex ${
         collapsed ? 'w-20 px-3' : 'w-64 px-4'
       }`}
     >
@@ -122,7 +129,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
           type="button"
           aria-expanded={!collapsed}
           onClick={onToggle}
-          className="grid size-9 place-items-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
+          className="grid size-9 place-items-center rounded-full text-gold hover:bg-white/10"
         >
           <Icon name="panel" className="size-5" />
           <span className="sr-only">{collapsed ? t('nav.expand') : t('nav.collapse')}</span>
@@ -162,24 +169,43 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   )
 }
 
-const ROUND_BUTTON =
-  'grid size-10 place-items-center rounded-full bg-surface text-night shadow-card hover:bg-ash-100'
+const ROUND_BUTTON = 'grid size-10 place-items-center rounded-full bg-ash-100 text-night hover:bg-ash-200'
 
-/** Phones: logo, notifications and the menu. Large screens: search, notifications and profile. */
+/**
+ * A floating bar, rounded like the sidebar. It sticks to the top, hides while scrolling
+ * down and comes back on the way up; `--topbar-space` tells sticky bars below where to sit.
+ * Phones: logo, notifications and the menu. Large screens: search, notifications and profile.
+ */
 export function TopBar() {
   const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const hidden = useHideOnScroll()
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const root = document.documentElement
+    const space = hidden ? 0 : (ref.current?.offsetHeight ?? 0) + 12
+    root.style.setProperty('--topbar-space', `${space}px`)
+    return () => {
+      root.style.removeProperty('--topbar-space')
+    }
+  }, [hidden])
 
   return (
-    <header className="flex items-center gap-3 px-4 pt-[max(env(safe-area-inset-top),1rem)] pb-2 lg:px-2.5 lg:pt-3">
+    <header
+      ref={ref}
+      className={`sticky top-[max(env(safe-area-inset-top),0.75rem)] z-30 mx-3 mt-[max(env(safe-area-inset-top),0.75rem)] flex items-center gap-3 rounded-card bg-surface px-4 py-3 shadow-card transition-transform duration-300 focus-within:translate-y-0 lg:mx-2.5 lg:px-5 ${
+        hidden ? '-translate-y-[calc(100%+1.5rem)]' : ''
+      }`}
+    >
       <Link to="/" className="rounded-md lg:hidden">
         <img src={logo} alt="Kayé" className="h-8 w-auto" />
       </Link>
       <Link
         to="/pesquisa"
-        className="hidden h-11 w-full max-w-md items-center gap-2 rounded-full border border-line bg-surface px-4 text-sm text-muted transition-colors hover:border-ash-300 lg:flex"
+        className="hidden h-11 w-full max-w-md items-center gap-2 rounded-full bg-ash-100 px-4 text-sm text-muted transition-colors hover:bg-ash-200 lg:flex"
       >
-        <Icon name="search" className="size-4" />
+        <Icon name="search" className="size-5 text-gold" />
         {t('nav.searchPlaceholder')}
       </Link>
       <div className="ml-auto flex items-center gap-2">
@@ -187,7 +213,10 @@ export function TopBar() {
           <Icon name="bell" className="size-5" />
           <span className="sr-only">{t('nav.notifications')}</span>
         </Link>
-        <Link to="/perfil" className={`${ROUND_BUTTON} hidden lg:grid`}>
+        <Link
+          to="/perfil"
+          className="hidden size-10 place-items-center rounded-full bg-coal text-gold hover:bg-night lg:grid"
+        >
           <Icon name="user" className="size-5" />
           <span className="sr-only">{t('nav.profile')}</span>
         </Link>
@@ -229,7 +258,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label={t('nav.label')}
-      className="fixed inset-x-3 bottom-[max(env(safe-area-inset-bottom),0.75rem)] z-20 rounded-[1.75rem] bg-surface px-2 py-1.5 shadow-lift lg:hidden"
+      className="fixed inset-x-3 bottom-[max(env(safe-area-inset-bottom),0.75rem)] z-20 rounded-card bg-surface px-2 py-1.5 shadow-lift lg:hidden"
     >
       <ul className="mx-auto grid max-w-lg grid-cols-5">
         {BOTTOM.map((item) => (

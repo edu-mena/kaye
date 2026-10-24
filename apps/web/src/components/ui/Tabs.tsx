@@ -76,8 +76,8 @@ export function Tabs<T extends string>({
               centerTab(listRef.current, event.currentTarget)
             }}
             onKeyDown={onKeyDown}
-            className={`inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full px-4 font-display text-sm font-semibold transition ${
-              active ? 'bg-night text-white shadow-lift' : 'bg-ash-100 text-copy hover:bg-ash-200'
+            className={`inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full px-4 text-sm font-light tracking-wide transition ${
+              active ? 'bg-night font-normal text-white shadow-lift' : 'bg-ash-100 text-copy hover:bg-ash-200'
             }`}
           >
             {tab.icon && <Icon name={tab.icon} className={`size-4 ${active ? 'text-gold' : 'text-muted'}`} />}

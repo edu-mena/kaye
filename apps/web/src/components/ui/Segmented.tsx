@@ -21,7 +21,7 @@ export function Segmented<T extends string>({
 }: SegmentedProps<T>) {
   return (
     <fieldset
-      className={`-mx-4 no-scrollbar flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
+      className={`-mx-3 no-scrollbar flex gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
     >
       <legend className="sr-only">{label}</legend>
       {options.map((option) => {
@@ -34,8 +34,8 @@ export function Segmented<T extends string>({
             onClick={() => onChange(active && clearable ? null : option.value)}
             className={`shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors ${
               active
-                ? 'border-navy bg-navy text-white'
-                : 'border-line bg-surface text-navy hover:border-navy/40'
+                ? 'border-night bg-night text-white'
+                : 'border-transparent bg-ash-100 text-copy hover:bg-ash-200'
             }`}
           >
             {option.label}

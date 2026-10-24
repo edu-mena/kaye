@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { GROUP_ICONS } from '../../components/groupIcons'
@@ -15,7 +15,7 @@ import { Segmented } from '../../components/ui/Segmented'
 import { TabPanel, Tabs } from '../../components/ui/Tabs'
 import { useCareer, useCareers, useCvExamples, usePrograms } from '../../data/queries'
 import { RIASEC_KEYS, type Career, type CareerSummary } from '../../data/types'
-import { isStepDone, quickestPathway, remainingSteps } from '../../domain/education'
+import { quickestPathway, remainingSteps } from '../../domain/education'
 import { formatKz, formatPercent } from '../../domain/format'
 import { rankPrograms, scorePrograms } from '../../domain/ranking'
 import { rankDimensions } from '../../domain/riasec'
@@ -24,7 +24,7 @@ import { useUrlFilters } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
 import { CareerPath } from './CareerPath'
 import { FitPanel } from './FitPanel'
-import { SalaryBar, SalaryRange } from './SalaryRange'
+import { SalaryRange } from './SalaryRange'
 
 const TABS = [
   { id: 'overview', icon: 'eye' },
@@ -69,14 +69,13 @@ function Section({
     <section aria-labelledby={`${id}-title`}>
       <h2
         id={`${id}-title`}
-        className="flex items-center gap-3 text-2xl font-extrabold tracking-tight text-night sm:text-3xl"
+        className="mb-6 flex items-center gap-3 text-2xl font-extrabold tracking-tight text-night sm:text-3xl"
       >
-        <span className="grid size-10 shrink-0 place-items-center rounded-2xl border border-line bg-surface text-night">
+        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-coal text-white">
           <Icon name={icon} className="size-5" />
         </span>
         {title}
       </h2>
-      <span aria-hidden="true" className="mt-2 mb-6 ml-[3.25rem] block h-1 w-10 rounded-full bg-gold" />
       {children}
     </section>
   )
@@ -100,9 +99,9 @@ function StatBlock({ items }: { items: { label: string; value: string }[] }) {
       className={`grid gap-px overflow-hidden rounded-card ${items.length > 2 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2'}`}
     >
       {items.map((item) => (
-        <div key={item.label} className="border-t-[3px] border-gold bg-night p-4 text-white sm:p-5">
-          <dt className="text-xs font-semibold text-white/75">{item.label}</dt>
-          <dd className="mt-1 font-display text-lg leading-tight font-bold sm:text-xl">{item.value}</dd>
+        <div key={item.label} className="bg-coal p-4 text-white sm:p-5">
+          <dt className="text-xs font-light text-white/75">{item.label}</dt>
+          <dd className="mt-1 text-sm leading-snug font-normal">{item.value}</dd>
         </div>
       ))}
     </dl>
@@ -113,7 +112,9 @@ function StatBlock({ items }: { items: { label: string; value: string }[] }) {
  * Photo (or the brand path) at a fixed height, with the name and the two actions.
  * Next to the name, the area and the demand as icons; the "i" opens them in words.
  */
-function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => void }) {
+type CareerHeroProps = { career: CareerSummary; facts?: ReactNode; onFit?: () => void }
+
+function CareerHero({ career, facts, onFit }: CareerHeroProps) {
   const { t } = useTranslation()
   const { savedCareers, targetCareer } = useUser()
   const [aboutOpen, setAboutOpen] = useState(false)
@@ -123,7 +124,7 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
   const badge = 'ml-2 inline-grid size-8 place-items-center rounded-full align-[0.3em] ring-1'
 
   return (
-    <header className="relative -mx-4 -mt-3 h-72 overflow-hidden bg-night text-white sm:h-80 lg:mx-0 lg:mt-0 lg:h-96 lg:rounded-card">
+    <header className="relative h-72 overflow-hidden rounded-card bg-night text-white sm:h-80 lg:h-96">
       {image ? (
         <img
           src={image.small}
@@ -147,7 +148,7 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
 
       <Link
         to="/carreiras"
-        className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-night/60 px-3 py-1.5 text-sm font-semibold backdrop-blur-sm hover:bg-night lg:left-10"
+        className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-coal/85 px-3 py-1.5 text-sm font-light tracking-wide backdrop-blur-sm hover:bg-coal lg:left-10"
       >
         <Icon name="arrowLeft" className="size-4" />
         {t('careers.title')}
@@ -168,11 +169,11 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
           <h1 className="inline text-[2rem] leading-[1.05] font-bold tracking-tight sm:text-5xl">
             {career.name}
           </h1>
-          <span title={t(`groups.${career.group}`)} className={`${badge} bg-white/15 ring-white/40`}>
+          <span title={t(`groups.${career.group}`)} className={`${badge} bg-coal text-white ring-white/15`}>
             <Icon name={GROUP_ICONS[career.group]} className="size-4" />
             <span className="sr-only">{t(`groups.${career.group}`)}</span>
           </span>
-          <span title={t(`demand.${career.demand}`)} className={`${badge} bg-white/15 ring-white/40`}>
+          <span title={t(`demand.${career.demand}`)} className={`${badge} bg-coal text-white ring-white/15`}>
             <Icon name="signal" className="size-4" />
             <span className="sr-only">{t(`demand.${career.demand}`)}</span>
           </span>
@@ -180,21 +181,20 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
             type="button"
             aria-haspopup="dialog"
             onClick={() => setAboutOpen(true)}
-            className={`${badge} bg-white/15 ring-white/40 hover:bg-white/25`}
+            className={`${badge} bg-coal text-white ring-white/15 hover:bg-night`}
           >
             <Icon name="info" className="size-5" />
             <span className="sr-only">{t('career.about')}</span>
           </button>
         </div>
+        {facts}
         <div className="mt-4 flex flex-wrap gap-2">
           <Button
-            variant={isTarget ? 'onNavy' : 'ghost'}
             size="sm"
             aria-pressed={isTarget}
             onClick={() => userActions.setTarget(isTarget ? null : career.slug)}
-            className={isTarget ? '' : 'text-white ring-1 ring-white/40 hover:bg-white/10'}
           >
-            <Icon name="target" className="size-4" />
+            <Icon name={isTarget ? 'check' : 'target'} className="size-4" />
             {isTarget ? t('career.isTarget') : t('career.setTarget')}
           </Button>
           <Button
@@ -208,7 +208,12 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
             {saved ? t('career.saved') : t('career.save')}
           </Button>
           {onFit && (
-            <Button variant="accent" size="sm" onClick={onFit}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onFit}
+              className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
+            >
               <Icon name="user" className="size-4" />
               {t('career.fitButton')}
             </Button>
@@ -227,94 +232,44 @@ function CareerHero({ career, onFit }: { career: CareerSummary; onFit?: () => vo
             {t(`demand.${career.demand}`)}
           </Chip>
         </div>
-        <p className="text-lg text-night">{career.summary}</p>
+        <p className="text-sm leading-relaxed font-light text-copy">{career.summary}</p>
       </Dialog>
     </header>
   )
 }
 
-const DEMAND_BARS: Record<Career['demand'], number> = { baixa: 1, media: 2, alta: 3 }
-
-type FactProps = { icon: IconName; label: string; graphic: ReactNode; children: ReactNode }
-
-/** One short row: label, a small drawing, and the value in words. */
-function Fact({ icon, label, graphic, children }: FactProps) {
-  return (
-    <div className="grid grid-cols-[6.5rem_minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 sm:grid-cols-[8rem_minmax(0,12rem)_auto] lg:flex lg:flex-col lg:items-stretch lg:rounded-card lg:bg-surface lg:p-5 lg:shadow-card">
-      <dt className="flex items-center gap-2 text-sm font-semibold text-muted">
-        <Icon name={icon} className="size-4 shrink-0 text-night" />
-        {label}
-      </dt>
-      <dd aria-hidden="true" className="flex h-5 items-center lg:order-2 lg:h-6">
-        {graphic}
-      </dd>
-      <dd className="text-right text-sm font-bold text-night lg:order-1 lg:text-left lg:font-display lg:text-2xl">
-        {children}
-      </dd>
-    </div>
-  )
-}
-
-/** Pay, demand and time to get there, one per row; the drawing is extra, the words say it all. */
-function KeyFacts({ career }: { career: Career }) {
+/** Pay, demand and time to get there, as one line in the hero: the first three answers, no extra block. */
+function HeroFacts({ career }: { career: Career }) {
   const { t } = useTranslation()
   const duration = useDuration()
   const { profile } = useUser()
-  const education = profile?.education ?? null
-  const quickest = quickestPathway(career, education)
-  const { salary, trendPct } = career.market
-  const bars = DEMAND_BARS[career.demand]
+  const quickest = quickestPathway(career, profile?.education ?? null)
+  const { trendPct } = career.market
+  const facts: { icon: IconName; text: string; label?: string }[] = []
+  if (career.salaryMedian !== null) {
+    facts.push({
+      icon: 'wallet',
+      label: t('career.factSalary'),
+      text: t('career.factSalaryValue', { value: Math.round(career.salaryMedian / 1000) }),
+    })
+  }
+  facts.push({
+    icon: 'signal',
+    text: t('career.factDemand', { value: `${trendPct > 0 ? '+' : ''}${trendPct}%` }),
+  })
+  if (quickest)
+    facts.push({ icon: 'clock', text: t('career.factTime', { value: duration(quickest.months) }) })
 
   return (
-    <dl className="divide-y divide-line rounded-card bg-surface shadow-card lg:grid lg:grid-cols-3 lg:gap-4 lg:divide-y-0 lg:bg-transparent lg:shadow-none">
-      {career.salaryMedian !== null && (
-        <Fact
-          icon="wallet"
-          label={t('career.factSalary')}
-          graphic={salary && <SalaryBar salary={salary} small />}
-        >
-          {t('career.factSalaryValue', { value: Math.round(career.salaryMedian / 1000) })}
-        </Fact>
-      )}
-      <Fact
-        icon="signal"
-        label={t('career.factMarket')}
-        graphic={['h-1.5', 'h-3', 'h-5'].map((height, index) => (
-          <span
-            key={height}
-            className={`mr-1 w-1.5 self-end rounded-sm ${height} ${index < bars ? 'bg-night' : 'bg-ash-100'}`}
-          />
-        ))}
-      >
-        <span className={trendPct >= 0 ? 'text-success' : 'text-coral'}>
-          {t('career.factTrend', { value: `${trendPct > 0 ? '+' : ''}${trendPct}%` })}
-        </span>
-      </Fact>
-      {quickest && (
-        <Fact
-          icon="clock"
-          label={t('career.factTime')}
-          // The quickest path as dots: done in green, ahead in night, the career as the gold flag.
-          graphic={
-            <>
-              {quickest.pathway.steps.map((step, index) => {
-                const done = isStepDone(step, education)
-                return (
-                  <Fragment key={step.title}>
-                    {index > 0 && <span className={`h-0.5 flex-1 ${done ? 'bg-success' : 'bg-ash-100'}`} />}
-                    <span className={`size-2.5 shrink-0 rounded-full ${done ? 'bg-success' : 'bg-night'}`} />
-                  </Fragment>
-                )
-              })}
-              <span className="h-0.5 w-1.5 bg-ash-100" />
-              <span className="size-3 shrink-0 rotate-45 rounded-[2px] bg-gold" />
-            </>
-          }
-        >
-          {duration(quickest.months)}
-        </Fact>
-      )}
-    </dl>
+    <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-sm font-light tracking-wide text-white">
+      {facts.map((fact) => (
+        <li key={fact.icon} className="flex items-center gap-1.5">
+          <Icon name={fact.icon} className="size-4 shrink-0 text-white" />
+          {fact.label && <span className="sr-only">{fact.label}: </span>}
+          {fact.text}
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -339,11 +294,8 @@ function CareerView({ career }: { career: Career }) {
 
   return (
     <article className="min-w-0">
-      <CareerHero career={career} onFit={showFit} />
-      <div className="mt-4">
-        <KeyFacts career={career} />
-      </div>
-      <div className="sticky top-0 z-10 -mx-4 mt-4 bg-ash-100/95 px-4 py-3 backdrop-blur-sm lg:mx-0 lg:px-0">
+      <CareerHero career={career} facts={<HeroFacts career={career} />} onFit={showFit} />
+      <div className="sticky top-[var(--topbar-space,0px)] z-10 mt-4 rounded-card bg-surface p-2 shadow-card transition-[top] duration-300">
         <Tabs
           label={t('career.sectionsLabel')}
           tabs={tabs}
@@ -387,7 +339,7 @@ function Overview({ career }: { career: Career }) {
   const { t } = useTranslation()
   return (
     <Section id="overview" title={t('career.overview')} icon="eye">
-      <p className="max-w-3xl text-xl leading-relaxed font-medium text-night">{career.description}</p>
+      <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">{career.description}</p>
 
       <Subheading className="mt-10">{t('career.dayToDay')}</Subheading>
       <ol className="grid gap-x-10 sm:grid-cols-2">
@@ -399,7 +351,7 @@ function Overview({ career }: { career: Career }) {
             >
               {String(index + 1).padStart(2, '0')}
             </span>
-            <span className="pt-1 text-copy">{item}</span>
+            <span className="pt-1 text-sm font-light text-copy">{item}</span>
           </li>
         ))}
       </ol>
@@ -420,9 +372,9 @@ function Traits({ career }: { career: Career }) {
         {career.workStyles.map((style) => (
           <li
             key={style}
-            className="flex items-center gap-3 border-b border-line py-3 font-semibold text-night"
+            className="flex items-center gap-3 border-b border-line py-3 text-sm font-light text-night"
           >
-            <span aria-hidden="true" className="size-2.5 shrink-0 rotate-45 bg-gold" />
+            <span aria-hidden="true" className="size-2.5 shrink-0 rotate-45 bg-night" />
             {style}
           </li>
         ))}
@@ -484,9 +436,9 @@ function Asks({ career }: { career: Career }) {
           />
           <Subheading className="mt-8">{t('career.asksCerts')}</Subheading>
           {asks.certifications.length === 0 ? (
-            <p className="text-sm text-copy">{t('career.asksNoCerts')}</p>
+            <p className="text-sm font-light text-copy">{t('career.asksNoCerts')}</p>
           ) : (
-            <ul className="text-sm text-copy">
+            <ul className="text-sm font-light text-copy">
               {asks.certifications.map((cert) => (
                 <li key={cert.name}>
                   {cert.name}: {formatPercent(cert.share)}
@@ -524,8 +476,8 @@ function Path({ career }: { career: Career }) {
         options={career.pathways.map((item) => ({ value: item.id, label: item.name }))}
       />
       <Card tone="gray" className="mt-4">
-        <p className="text-copy">{pathway.summary}</p>
-        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm font-semibold text-night">
+        <p className="text-sm font-light text-copy">{pathway.summary}</p>
+        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm font-normal text-night">
           <span className="inline-flex items-center gap-1.5">
             <Icon name="clock" className="size-4" />
             {t('career.pathDuration', { value: duration(total) })}
@@ -540,6 +492,7 @@ function Path({ career }: { career: Career }) {
             </span>
           )}
         </div>
+        <p className="mt-4 text-xs font-light text-muted">{t('career.needLegend')}</p>
         <div className="mt-5">
           <CareerPath pathway={pathway} education={profile?.education ?? null} />
         </div>
@@ -548,19 +501,19 @@ function Path({ career }: { career: Career }) {
       <Subheading className="mt-10">{t('career.stagesTitle')}</Subheading>
       <ol className="grid gap-3 sm:grid-cols-2">
         {career.stages.map((stage, index) => (
-          <li key={stage.level} className="rounded-2xl border-t-4 border-gold bg-ash-100 p-4">
-            <p className="flex items-center gap-2 font-bold text-night">
+          <li key={stage.level} className="rounded-2xl bg-ash-100 p-4">
+            <p className="flex items-center gap-2 text-sm font-normal text-night">
               <span className="grid size-7 place-items-center rounded-full bg-night text-xs text-white">
                 {index + 1}
               </span>
               {stage.title}
             </p>
-            <p className="mt-1 text-xs font-semibold text-muted">
+            <p className="mt-1 text-xs font-light text-muted">
               {stage.years.max === null
                 ? t('career.stageYearsOpen', { min: stage.years.min })
                 : t('career.stageYears', { min: stage.years.min, max: stage.years.max })}
             </p>
-            <ul className="mt-2 space-y-1 text-sm text-copy">
+            <ul className="mt-2 space-y-1 text-sm font-light text-copy">
               {stage.responsibilities.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -592,7 +545,7 @@ function Study({ career }: { career: Career }) {
                   <li key={program.id} className="flex items-center gap-3 rounded-2xl bg-ash-100 p-4">
                     <ScoreBadge score={score} />
                     <span className="min-w-0">
-                      <span className="block font-semibold text-night">{program.name}</span>
+                      <span className="block text-sm font-normal text-night">{program.name}</span>
                       <span className="block text-sm text-muted">
                         {program.institution.name} · {t(`training.${program.level}`)}
                       </span>
@@ -621,7 +574,7 @@ function MarketSection({ career }: { career: Career }) {
     <Section id="market" title={t('career.market')} icon="chart">
       <Card tone="gray" className="space-y-5">
         {market.salary && <SalaryRange salary={market.salary} />}
-        <p className="flex items-center gap-1.5 text-sm font-semibold text-success">
+        <p className="flex items-center gap-1.5 text-sm font-normal text-success">
           <Icon name="signal" className="size-4" />
           {t('career.trend', { value: trend })}
         </p>
@@ -656,13 +609,13 @@ function ModelCvs({ career }: { career: Career }) {
                 <li key={example.id}>
                   <Link
                     to={`/cv/modelos/${example.id}`}
-                    className="flex items-center gap-3 rounded-2xl bg-ash-100 p-4 hover:bg-ash-100"
+                    className="flex items-center gap-3 rounded-2xl bg-ash-100 p-4 hover:bg-ash-200"
                   >
-                    <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-surface text-night">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-coal text-white">
                       <Icon name="document" className="size-6" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block font-semibold text-night">{example.cv.headline}</span>
+                      <span className="block text-sm font-normal text-night">{example.cv.headline}</span>
                       <span className="block text-sm text-muted">{t(`cv.${example.seniority}`)}</span>
                     </span>
                     <Icon name="chevronRight" className="size-5 text-muted" />

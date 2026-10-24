@@ -21,7 +21,7 @@ const VARIANTS = {
     close: 'text-navy hover:bg-ash-100',
   },
   drawer: {
-    dialog: 'ml-auto h-dvh max-h-none w-[min(20rem,88vw)] rounded-l-[1.75rem] bg-night text-white',
+    dialog: 'ml-auto h-dvh max-h-none w-[min(20rem,88vw)] rounded-l-card bg-coal text-white',
     header: 'border-white/10',
     title: 'text-white',
     close: 'text-white hover:bg-white/10',

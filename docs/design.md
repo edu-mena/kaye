@@ -30,12 +30,14 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 | Token | Valor | Para quê | Contraste |
 |---|---|---|---|
 | `navy` | `#1B2A43` | Texto principal, botão principal, item ativo | 13,1 no papel |
+| `blue` / `blue-dark` | `#021D6D` / `#032A96` (ao passar o rato fica mais claro) | Só os botões de ação principais (`Button` primary): mais claro e forte do que o azul-marinho, destaca-se sem contorno em fundo claro e escuro | Branco em cima: 15,0; contra o papel: 13,7 |
 | `navy-100` | `#E8ECF3` | Fundos suaves, trilho das barras | Texto `navy` em cima: 12,1 |
-| `gold` | `#FFC000` | Detalhes e formas: losangos, a barra sob os títulos, a risca dos blocos, o ponto da mediana, a bandeira do caminho, o botão "Encaixe". Também o logótipo, o "Estás aqui" e o foco | Texto `night` em cima: 10,9; amarelo sobre `night`: 10,9 |
+| `gold` | `#FFC000` | Pouco e pequeno, porque chama a atenção: ícones da barra lateral, lupa e perfil da barra de cima, o ícone do separador ativo, os losangos dos subtítulos, o logótipo, o "Estás aqui" e o foco | Amarelo sobre `night`: 10,9 |
 | `gold-ink` | `#8A6400` | Texto amarelo-escuro (o `gold` não serve para texto): rótulos "Dica" e "Porque funciona" | 5,4 no branco |
 | `paper` | `#F7F4EE` | Fundo da app | |
 | `surface` | `#FFFFFF` | Cartões e campos | |
 | `night` | `#16171B` | Quase-preto: separador ativo, títulos, blocos fortes, hero, "O meu encaixe" | 17,9 no branco |
+| `coal` | `#0A0A0B` | Mais perto do preto: barra lateral e menu do telemóvel | Amarelo em cima: 12,1 |
 | `ash-100` … `ash-500` | `#EFEDE9` `#E2DFD9` `#CDC9C1` `#8A857C` | Cinzentos quentes: separadores inativos, blocos dentro de cartões, trilhos, números de ordem | `ash-500` só decorativo (3,7) |
 | `copy` | `#45423C` | Texto corrido: parágrafos e listas | 10,0 no branco, 9,1 no papel |
 | `muted` | `#66625B` | Texto secundário (cinzento quente) | 6,1 no branco, 5,5 no papel |
@@ -46,7 +48,7 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 
 Regras:
 - **Sobre azul-marinho, só branco.** Botões, ícones, números e barras em cima de azul-marinho são brancos (botão `onNavy`, barra `tone="white"`). O amarelo aparece sobre fundos claros. O caminho da marca (`PathMark`) é a exceção, porque é uma ilustração e não um controlo.
-- **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo dá vida em detalhes e formas (o losango, que é a bandeira do caminho do logótipo). O azul-marinho fica para a marca e para os botões principais.
+- **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo é um acento pequeno e raro (os losangos dos subtítulos, os ícones da navegação). Em excesso compete com o azul pela atenção. O azul (`blue`, um azul profundo e mais saturado do que o azul-marinho) é a cor principal, guardada para os botões de ação principais de cada ecrã (por exemplo "Escolher como destino", "Marcar o que sei"). Nunca leva contorno. Ações secundárias sobre fundo escuro usam um círculo ou pílula `coal` com o ícone amarelo, como o perfil na barra de cima.
 - **Amarelo sobre quase-preto, sim; amarelo sobre azul-marinho, não.**
 - **Ícones em quadrado ou círculo:** fundo branco, contorno fino (`border-line`) e ícone azul-marinho. Nunca um quadrado colorido.
 - **Sem fundos de cor translúcidos.** Etiquetas, avisos e dicas usam contorno (`border-line`, ou `border-navy` num aviso importante) e texto. Fundos claros de amarelo, verde ou vermelho parecem genéricos e foram retirados, incluindo os tokens.
@@ -65,16 +67,16 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 
 1. **Título da secção:** `text-2xl`/`3xl`, `font-extrabold`, azul-marinho.
 2. **Subtítulo:** pequeno, em maiúsculas, `text-muted`, com uma linha fina até ao fim (`Subheading`).
-3. **Conteúdo:** texto corrido em `text-copy`. Os valores e os nomes que importam ficam a `font-semibold`/`bold` azul-marinho.
+3. **Conteúdo:** o mesmo tamanho e espessura da barra lateral: `text-sm` (14 px) e `font-light` (300), em `text-copy`. Os nomes dos itens (um curso, uma etapa, um CV) ficam em `font-normal` (400). Só os títulos de secção e os subtítulos em maiúsculas vão a negrito.
 
-- A primeira frase de uma secção pode ser maior (`text-xl`, `font-medium`), como abertura.
 - Os poucos números de que uma secção trata vão para blocos azul-marinho com o valor grande (`StatBlock`). É o bloco de cor forte que dá ritmo à leitura.
 - Listas longas com linhas finas entre itens, sem um cartão para cada item. Números de ordem grandes (`01`, `02`) em `text-track`.
 - O que a pessoa deve fazer ou ver primeiro tem o maior contraste: botão branco cheio sobre azul-marinho, ou um bloco azul-marinho sobre fundo claro. "O meu encaixe" é um bloco azul-marinho, e o hero tem um botão "Encaixe" que leva até ele.
 
 ## Forma, profundidade e movimento
 
-- **Cantos:** `rounded-card` (1,25 rem) nos cartões e `rounded-xl` nos campos e botões.
+- **Cantos:** `rounded-card` (1,75 rem, 28 px) em todos os cartões e nas barras, proporcional à barra lateral. `rounded-2xl`/`xl` nos blocos interiores, nos campos e nos botões.
+- **Margens:** no telemóvel, o conteúdo e as barras flutuantes ficam a 12 px das bordas. No computador, as páginas largas ficam a 10 px.
 - **Sombras:** `shadow-card` em repouso e `shadow-lift` quando se passa por cima ou se carrega.
 - **Entrada dos ecrãs:** a classe `rise` (sobe 10 px e aparece) é desfasada 60 ms entre elementos com `--i`. Usa a ajuda `stagger(i)` de `src/lib/ui.ts`.
 - **"Estás aqui":** só a etapa atual do roteiro pulsa (`animate-pulse-ring`).
@@ -91,7 +93,7 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 | `ProgressBar` | Progresso (teste, CV) | É um `<progress>` nativo |
 | `BarList` | Gráfico de barras horizontais | Ver [Gráficos](#gráficos) |
 | `Dialog` | Confirmações, listas e o menu do telemóvel | É um `<dialog>` nativo e fecha com Esc. `variant="sheet"`: clara, abre de baixo no telemóvel. `variant="drawer"`: preta, abre da direita (o menu hamburger) |
-| `Tabs`, `TabPanel` | Partes de um ecrã, uma de cada vez | Padrão WAI-ARIA: setas, Home e End mudam de separador. A linha desliza para o lado no telemóvel e mantém o ativo à vista. O ativo é azul-marinho, com texto e ícone brancos. O painel é um cartão branco com padding, e os blocos lá dentro usam o fundo papel |
+| `Tabs`, `TabPanel` | Partes de um ecrã, uma de cada vez | Padrão WAI-ARIA: setas, Home e End mudam de separador. A linha desliza para o lado no telemóvel e mantém o ativo à vista. Texto em `text-sm font-light`, como a barra lateral. O ativo é quase preto, em `font-normal`, com o ícone amarelo. O painel é um cartão branco com padding, e os blocos lá dentro usam o fundo papel |
 | `Segmented` | Escolher uma opção (filtros, separadores) | `fieldset` com `legend` e botões com `aria-pressed`. `clearable` deixa desmarcar |
 | `TextField`, `TextAreaField`, `SelectField`, `CheckboxField` | Formulários | O erro e a dica ficam ligados ao campo (`aria-describedby`, `aria-invalid`) |
 | `PageHeader`, `SectionHeading` | Título do ecrã (com "voltar") e das secções | |
@@ -105,8 +107,8 @@ Peças de produto em `src/components`:
 
 ## Navegação
 
-- **Computador:** a barra lateral é preta e flutua a 12 px das margens, com cantos de 28 px. Tem os grupos "Explorar" e "Para ti", e Suporte e Configurações em baixo. O item ativo é uma pílula branca com texto preto. Minimiza-se só com ícones (o nome aparece ao passar o rato e continua para os leitores de ecrã), e a escolha fica guardada no aparelho.
-- **Barra de cima:** no computador, a pesquisa, as notificações e o perfil. No telemóvel, o logótipo, as notificações e o menu.
+- **Computador:** a barra lateral é preta e flutua a 12 px das margens, com cantos de 28 px. Tem os grupos "Explorar" e "Para ti", e Suporte e Configurações em baixo. O fundo é quase preto absoluto (`coal`), o texto é branco (espessura leve) e os ícones são amarelos. O item ativo tem uma pílula um pouco mais clara. Minimiza-se só com ícones (o nome aparece ao passar o rato e continua para os leitores de ecrã), e a escolha fica guardada no aparelho.
+- **Barra de cima:** é um cartão branco flutuante, com a mesma margem (12 px) e os mesmos cantos (28 px) da barra lateral. Fica presa ao topo, esconde-se ao descer e volta ao subir. Diz às barras presas por baixo (os separadores) onde se encostarem, através da variável `--topbar-space`. No computador tem a pesquisa (lupa amarela), as notificações e o perfil (círculo `coal` com o ícone amarelo). No telemóvel tem o logótipo, as notificações e o menu.
 - **Telemóvel:** a barra de baixo é branca, flutua e tem 5 destinos (Início, Pesquisa, Carreiras, Cursos, CV). O ativo fica num círculo preto com o ícone branco, e os inativos têm o ícone preto, sempre com o nome por baixo.
 - **Secções sem dados ainda:** um ecrã "Em breve" desenhado (`SoonPage`), que diz o que lá vai estar.
 
@@ -115,7 +117,7 @@ Peças de produto em `src/components`:
 | Situação | Como se faz |
 |---|---|
 | Filtros, ordenação e separador aberto | No URL, com `useUrlFilters` (`src/lib`): o "voltar" e as ligações partilhadas mantêm-nos (ex.: `?secao=path`) |
-| Topo de uma página de detalhe (carreira) | Hero de altura fixa (288 px no telemóvel, 384 px no computador), com a foto e um gradiente azul-marinho (sem foto, mostra o caminho da marca). Ao lado do título ficam só ícones: a área, a procura e um "i", que abre numa janela a descrição com a área e a procura por extenso. As ações (destino e guardar) ficam no hero. Por baixo dele, os 3 números (salário, procura, tempo até lá), cada um com um mini-gráfico: uma lista curta no telemóvel e 3 cartões no computador. Depois vêm os separadores e, no fim, "O meu encaixe", que se pode minimizar. A rota pede `handle: { hideDemoBanner: true, wide: true }`: sem a faixa "Demonstração" e com a largura toda no computador (margem de 10 px) |
+| Topo de uma página de detalhe (carreira) | Hero de altura fixa (288 px no telemóvel, 384 px no computador), com a foto e um gradiente azul-marinho (sem foto, mostra o caminho da marca). Ao lado do título ficam só ícones: a área, a procura e um "i", que abre numa janela a descrição com a área e a procura por extenso. As ações (destino e guardar) ficam no hero. Os 3 números principais (salário, procura, tempo até lá) ficam numa só linha dentro do hero, entre o título e as ações, com ícones amarelos e sem blocos à parte. Os gráficos com o detalhe ficam nos separadores (Mercado, Como lá chegar). Depois vêm os separadores e, no fim, "O meu encaixe", que se pode minimizar. A rota pede `handle: { hideDemoBanner: true, wide: true }`: sem a faixa "Demonstração" e com a largura toda no computador (margem de 10 px) |
 | Fotos | WebP em 800 e 1600 px (`srcSet`), com licença livre e o crédito visível com ligação ao original |
 | A carregar ou com erro | `QueryState`, nunca um ecrã em branco |
 | Ecrã que precisa de perfil | `withProfile()` no `router.tsx`. Leva a `/entrar?next=…` e volta depois (`safeNext` só aceita caminhos da própria app) |

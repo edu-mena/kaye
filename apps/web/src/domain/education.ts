@@ -23,8 +23,9 @@ export function isStepDone(step: PathwayStep, education: EducationLevel | null):
 
 export type Remaining = { steps: PathwayStep[]; months: MonthRange }
 
+/** What is left on a path: steps not done yet, except optional ones, which nobody requires. */
 export function remainingSteps(pathway: Pathway, education: EducationLevel | null): Remaining {
-  const steps = pathway.steps.filter((step) => !isStepDone(step, education))
+  const steps = pathway.steps.filter((step) => step.need !== 'opcional' && !isStepDone(step, education))
   const months = steps.reduce<MonthRange>(
     (total, step) => ({
       min: total.min + (step.months?.min ?? 0),

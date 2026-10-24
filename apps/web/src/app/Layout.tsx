@@ -34,7 +34,7 @@ export function Layout() {
         <TopBar />
         <main
           id="conteudo"
-          className={`mx-auto w-full flex-1 px-4 pt-3 pb-28 lg:pb-12 ${wide ? 'lg:px-2.5 lg:pt-2.5' : 'max-w-5xl lg:px-10 lg:pt-6'}`}
+          className={`mx-auto w-full flex-1 px-3 pt-3 pb-28 lg:pb-12 ${wide ? 'lg:px-2.5 lg:pt-2.5' : 'max-w-5xl lg:px-10 lg:pt-6'}`}
         >
           {!hideBanner && <DemoBanner />}
           <Outlet />

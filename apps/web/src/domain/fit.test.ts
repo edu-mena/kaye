@@ -28,7 +28,7 @@ describe('careerFit', () => {
     })
     expect(fit.interests).toMatchObject({ level: 'alto', strength: 'I' })
     expect(fit.education).toMatchObject({ pathwayName: 'Via técnica' })
-    expect(fit.education?.steps).toHaveLength(3)
+    expect(fit.education?.steps).toHaveLength(2)
     // "A aprender" does not count yet, and TypeScript is optional.
     expect(fit.skills.have).toBe(2)
     expect(fit.skills.missing.map((skill) => skill.id)).toEqual([

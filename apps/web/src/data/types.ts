@@ -37,13 +37,24 @@ export type MonthRange = { min: number; max: number | null }
 
 export type PathwayStepKind = 'academico' | 'formacao' | 'certificacao' | 'portfolio' | 'experiencia'
 
+/**
+ * How much a step counts in this path, from what employers actually ask:
+ * essential (no way in without it), recommended (opens more doors), optional (helps, nobody asks).
+ */
+type StepNeed = 'essencial' | 'recomendado' | 'opcional'
+
 export type PathwayStep = {
   kind: PathwayStepKind
   title: string
   description: string
   months: MonthRange | null
+  need: StepNeed
   /** Academic steps only: the level this step gives. */
   level?: EducationLevel
+  /** Training: it can be learnt alone (online courses, videos, documentation). */
+  selfTaught?: boolean
+  /** Training and certifications: whether employers ask for the paper, or only for the skill. */
+  certificate?: 'exigido' | 'opcional'
 }
 
 export type Pathway = {

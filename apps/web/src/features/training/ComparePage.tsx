@@ -59,7 +59,7 @@ function CompareTable({ items }: { items: ScoredProgram[] }) {
   ]
 
   return (
-    <div className="-mx-4 overflow-x-auto px-4">
+    <div className="-mx-3 overflow-x-auto px-3">
       <table className="w-full min-w-[36rem] border-separate border-spacing-0 rounded-card bg-surface text-left text-sm shadow-card">
         <thead>
           <tr>

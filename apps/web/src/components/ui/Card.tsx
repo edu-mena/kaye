@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
-type Tone = 'surface' | 'gray' | 'navy' | 'night' | 'notice'
+type Tone = 'surface' | 'gray' | 'navy' | 'night' | 'coal' | 'notice'
 
 const TONES: Record<Tone, string> = {
   surface: 'bg-surface text-ink shadow-card',
@@ -8,6 +8,7 @@ const TONES: Record<Tone, string> = {
   gray: 'bg-ash-100 text-ink',
   navy: 'bg-navy text-white',
   night: 'bg-night text-white',
+  coal: 'bg-coal text-white',
   /** A notice that must be seen: navy outline, no tinted fill. */
   notice: 'border-2 border-navy bg-surface text-navy',
 }

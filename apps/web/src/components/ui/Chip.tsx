@@ -4,14 +4,14 @@ type ChipTone = 'neutral' | 'navy' | 'night' | 'gold' | 'success' | 'coral' | 'w
 
 // Outlined, never a tinted background (docs/design.md, Cores).
 const TONES: Record<ChipTone, string> = {
-  neutral: 'border-line text-navy',
+  neutral: 'border-line text-night',
   navy: 'border-navy bg-navy text-white',
   night: 'border-night bg-night text-white',
   gold: 'border-gold bg-gold text-night',
   success: 'border-line text-success',
   coral: 'border-line text-coral',
   // On dark surfaces: solid white or gold for the strong state, a white outline otherwise.
-  white: 'border-white bg-white text-navy',
+  white: 'border-white bg-white text-night',
   onDark: 'border-white/40 text-white',
 }
 
