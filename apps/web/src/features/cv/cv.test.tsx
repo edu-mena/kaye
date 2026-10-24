@@ -1,6 +1,6 @@
-import { screen, within } from '@testing-library/react'
+import { screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { EMPTY_CV, getUser } from '../../state/userStore'
 import { renderWithApp } from '../../test/render'
 import { seedUser } from '../../test/user'
@@ -37,13 +37,17 @@ describe('CvPage', () => {
 })
 
 describe('CvExamplePage', () => {
-  it('explains why each part works', async () => {
+  it('explains why the model works, section by section, with the rules of its career', async () => {
     openExample('frontend-primeiro-emprego')
     expect(
       await screen.findByRole('heading', { level: 1, name: 'Desenvolvedora Frontend em início de carreira' }),
     ).toBeInTheDocument()
-    const summary = screen.getByRole('region', { name: 'Resumo' })
-    expect(within(summary).getByText('Porque funciona')).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', { name: 'Porque funciona' })).getByText('Resumo'),
+    ).toBeInTheDocument()
+    const guide = await screen.findByRole('region', { name: 'O que este CV precisa' })
+    expect(guide).toHaveTextContent('Links do GitHub')
+    expect(guide).toHaveTextContent('Foto e elementos que distraem')
   })
 
   it('starts the person CV from the model structure', async () => {
@@ -138,12 +142,19 @@ describe('CvEditorPage', () => {
     expect(cvCompleteness(cv)).toBe(1)
   })
 
-  it('shows the tips of the model it started from, and the PDF as coming soon', async () => {
-    seedUser({ cvBasedOn: 'frontend-primeiro-emprego' })
+  it('shows the tips of the model it started from, and makes the PDF on the device', async () => {
+    seedUser({ cvBasedOn: 'frontend-primeiro-emprego', cv: { ...EMPTY_CV, name: 'Joana Manuel' } })
+    const createObjectURL = vi.fn<(blob: Blob) => string>(() => 'blob:kaye')
+    vi.stubGlobal(
+      'URL',
+      Object.assign(URL, { createObjectURL, revokeObjectURL: vi.fn<(url: string) => void>() }),
+    )
     renderWithApp(<CvEditorPage />)
     expect(await screen.findAllByText(/Dica do modelo/)).not.toHaveLength(0)
-    expect(screen.getByRole('button', { name: 'Descarregar PDF' })).toBeDisabled()
-    expect(screen.getByText('O PDF chega com o servidor.')).toBeInTheDocument()
+
+    await userEvent.click(screen.getByRole('button', { name: 'Descarregar PDF' }))
+    await waitFor(() => expect(createObjectURL).toHaveBeenCalledTimes(1))
+    expect(createObjectURL.mock.calls[0]?.[0].type).toBe('application/pdf')
   })
 
   it('switches between editing and preview on phones', async () => {

@@ -19,8 +19,8 @@ function Part({ icon, title, children }: { icon: IconName; title: string; childr
         <Icon name={icon} className="size-5" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-xs font-bold tracking-[0.14em] text-white/75 uppercase">{title}</p>
-        <div className="mt-1.5 text-sm font-light text-white">{children}</div>
+        <p className="text-xs font-light text-white/70">{title}</p>
+        <div className="mt-2 text-sm font-normal text-white">{children}</div>
       </div>
     </div>
   )
@@ -44,7 +44,7 @@ export function FitPanel({ career, expanded, onToggle }: FitPanelProps) {
 
   return (
     <Card as="section" tone="coal" id="encaixe" aria-labelledby="fit-title" className="scroll-mt-44 sm:p-8">
-      <h2 id="fit-title" className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+      <h2 id="fit-title" className="text-2xl font-extrabold sm:text-3xl">
         <button
           type="button"
           aria-expanded={expanded}

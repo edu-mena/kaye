@@ -27,13 +27,10 @@ export default function SoonPage({ section }: { section: SoonSection }) {
       <span className="relative grid size-14 place-items-center rounded-2xl bg-white text-night">
         <Icon name={ICONS[section]} className="size-7" />
       </span>
-      <p className="relative mt-8 flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-gold uppercase">
-        <span aria-hidden="true" className="size-2 rotate-45 bg-gold" />
+      <p className="relative mt-8 flex items-center gap-2 text-sm font-semibold text-gold">
         {t('soon.badge')}
       </p>
-      <h1 className="relative mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-        {t(`nav.${section}`)}
-      </h1>
+      <h1 className="relative mt-2 text-4xl font-extrabold sm:text-5xl">{t(`nav.${section}`)}</h1>
       <p className="relative mt-4 max-w-xl text-lg text-white/80">{t(`soon.${section}`)}</p>
       <ButtonLink to="/" variant="onNavy" className="relative mt-8">
         {t('soon.back')}

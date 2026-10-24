@@ -138,6 +138,74 @@ describe('CareerPage', () => {
   })
 })
 
+describe('Where to study', () => {
+  it('opens a course in a popup: the institution, the offer and the step it serves', async () => {
+    open('desenvolvedor-frontend')
+    await openTab('Onde estudar')
+    await userEvent.click(await screen.findByRole('button', { name: /Desenvolvimento Web com React/ }))
+    const popup = screen.getByRole('dialog', { name: 'Desenvolvimento Web com React' })
+    expect(within(popup).getByRole('region', { name: 'Instituição' })).toHaveTextContent(
+      'Academia Digital Exemplo',
+    )
+    expect(
+      within(popup).getByRole('region', { name: 'Como te leva até Desenvolvedor Frontend' }),
+    ).toHaveTextContent(
+      /Curso profissional de desenvolvimento web» da via técnica.*Aprender HTML, CSS, JavaScript e React» da via autodidata/,
+    )
+    expect(within(popup).getByText('Custo total', { selector: 'dt' }).closest('div')).toHaveTextContent(
+      '≈ 56.000 Kz por mês',
+    )
+    expect(within(popup).getByRole('region', { name: /^Como chega aos \d+ pontos$/ })).toHaveTextContent(
+      /Avaliação de alunos · peso \d+%\d+ de \d+ pts/,
+    )
+    await userEvent.click(within(popup).getByRole('button', { name: 'Comparar' }))
+    expect(getUser().compare).toEqual(['web-react'])
+    expect(screen.getByTestId('location')).toHaveTextContent('/carreiras/desenvolvedor-frontend')
+  })
+})
+
+describe('Market', () => {
+  it('says what the salary numbers mean, by stage and over time', async () => {
+    open('desenvolvedor-frontend')
+    await openTab('Mercado')
+    const panel = screen.getByRole('tabpanel')
+    expect(within(panel).getByText('Entrada').closest('div')).toHaveTextContent(
+      '250.000 Kz1 em cada 4 ganha menos',
+    )
+    expect(within(panel).getByText('Mediana').closest('div')).toHaveTextContent('350.000 Kz')
+    expect(within(panel).getByText('Topo').closest('div')).toHaveTextContent('1 em cada 4 ganha mais')
+    expect(
+      within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
+    ).toHaveTextContent(/Estagiário.*120.000 Kz/)
+    expect(within(panel).getByRole('list', { name: 'Vagas de exemplo por mês' })).toHaveTextContent(
+      '47 vagas em out',
+    )
+  })
+})
+
+describe('Model CVs', () => {
+  it('shows an ideal CV for each path, opened in a popup without leaving the career', async () => {
+    open('desenvolvedor-frontend')
+    await openTab('CVs modelo')
+    expect(screen.getByRole('button', { name: /^Via técnica/ })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^Via universitária/ })).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: /^Via autodidata/ }))
+
+    const popup = screen.getByRole('dialog', { name: 'Via autodidata · Kelson Domingos' })
+    expect(await within(popup).findByRole('region', { name: 'O que este CV precisa' })).toHaveTextContent(
+      'Links do GitHub',
+    )
+    expect(screen.getByTestId('location')).toHaveTextContent('/carreiras/desenvolvedor-frontend')
+
+    await userEvent.click(within(popup).getByRole('button', { name: 'Comparar' }))
+    expect(within(popup).getAllByRole('figure')).toHaveLength(2)
+
+    await userEvent.click(within(popup).getByRole('button', { name: 'Começar a partir deste modelo' }))
+    expect(getUser().cvBasedOn).toBe('frontend-autodidata')
+    expect(screen.getByTestId('location')).toHaveTextContent('/cv/editar')
+  })
+})
+
 describe('FitPanel', () => {
   it('comes after the tabs and can be minimized', async () => {
     open('desenvolvedor-frontend')

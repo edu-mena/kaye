@@ -333,7 +333,9 @@ O que falta passa a ser os próximos passos sugeridos e, na Fase 2, "O meu plano
 
 ### 5.5 CV
 
-- **Cada modelo existe uma só vez, no servidor** (Blade). O mesmo modelo gera a pré-visualização (HTML) e o PDF (dompdf), por isso o que se vê é o que se descarrega.
+- **Por agora, o PDF gera-se no aparelho** (jsPDF, [ADR 0006](decisoes/0006-pdf-do-cv-gerado-no-aparelho.md)). Os 3 modelos visuais (Clássico, Moderno, Europeu) existem em HTML, para a pré-visualização, e em PDF, com as mesmas medidas. Quando o download for pago, o PDF do CV pessoal passa para o servidor, como descrito abaixo.
+- **As regras do CV mudam por profissão** (`cvGuide`): o que incluir, o que evitar e o modelo visual recomendado. Por exemplo, um programador não põe foto e põe os links do GitHub e dos projetos; um DevOps destaca as certificações.
+- **Um CV ideal por caminho.** No separador "CVs modelo" da carreira há uma miniatura por caminho do roteiro. Tocar abre um popup, sem sair da carreira, com o CV à esquerda e, à direita, porque funciona, as regras e as ações: descarregar, comparar (com outro modelo ou com o meu CV) e começar a partir do modelo.
 - **O editor é feito em React**, por secções. Guarda o JSON automaticamente, com um pequeno atraso para não enviar a cada tecla.
 - **Pré-visualização:** `GET /api/v1/cv/preview?template=x` devolve HTML com a marca d'água "Pré-visualização", mostrado dentro da app.
 - **Download:** `POST /api/v1/cv/export` devolve o PDF.
@@ -431,7 +433,7 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
 | | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
 | | Empresas | As empresas líderes de cada setor | Menu |
-| | Mercado | Áreas em alta, procura vs oferta de cada curso (ex.: Odoo é muito pedido e nenhuma academia conhecida o ensina), anúncios de recrutamento com ligação à fonte | Menu |
+| | Mercado | Áreas em alta, procura vs oferta de cada curso (ex.: Odoo é muito pedido e nenhuma academia conhecida o ensina), as empresas de sonho em Angola, os cursos que abrem portas para trabalhar no estrangeiro, e anúncios de recrutamento com ligação à fonte | Menu |
 | | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
 | Para ti | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
 | | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província) | Sino |

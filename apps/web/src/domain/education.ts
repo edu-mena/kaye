@@ -1,4 +1,4 @@
-import type { Career, EducationLevel, MonthRange, Pathway, PathwayStep } from '../data/types'
+import type { Career, EducationLevel, MonthRange, Pathway, PathwayStep, Program } from '../data/types'
 
 const RANK: Record<EducationLevel, number> = {
   primario: 1,
@@ -40,6 +40,24 @@ export function remainingSteps(pathway: Pathway, education: EducationLevel | nul
 export function quickestPathway(career: Career, education: EducationLevel | null) {
   const options = career.pathways.map((pathway) => ({ pathway, ...remainingSteps(pathway, education) }))
   return options.toSorted((a, b) => a.months.min - b.months.min)[0] ?? null
+}
+
+// Which kind of step a course of each level fulfils.
+const SERVES: Record<Program['level'], (step: PathwayStep) => boolean> = {
+  licenciatura: (step) => step.kind === 'academico' && step.level === 'licenciatura',
+  medio_tecnico: (step) => step.kind === 'academico' && step.level === 'medio_tecnico',
+  formacao_profissional: (step) => step.kind === 'formacao',
+  certificacao: (step) => step.kind === 'certificacao',
+}
+
+/** The steps of a career's paths that a course of this level fulfils: "Serve o passo X da via Y". */
+export function stepsServedBy(
+  career: Career,
+  level: Program['level'],
+): { pathway: Pathway; step: PathwayStep }[] {
+  return career.pathways.flatMap((pathway) =>
+    pathway.steps.filter(SERVES[level]).map((step) => ({ pathway, step })),
+  )
 }
 
 export function ageIn(birthYear: number, year = new Date().getFullYear()): number {

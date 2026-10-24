@@ -17,6 +17,7 @@ import { changeLocale, LOCALE_NAMES, LOCALES } from '../../lib/i18n'
 import { useApiHealth } from '../../lib/useApiHealth'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { getUser, userActions, useUser } from '../../state/userStore'
+import { saveFile } from '../../lib/saveFile'
 
 export default function ProfilePage() {
   const { t } = useTranslation()
@@ -189,13 +190,10 @@ function Language() {
 
 /** A JSON copy of everything the app keeps about the person. */
 function downloadMyData() {
-  const blob = new Blob([JSON.stringify(getUser(), null, 2)], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.href = url
-  link.download = 'kaye-os-meus-dados.json'
-  link.click()
-  URL.revokeObjectURL(url)
+  saveFile(
+    new Blob([JSON.stringify(getUser(), null, 2)], { type: 'application/json' }),
+    'kaye-os-meus-dados.json',
+  )
 }
 
 /** The rights from Lei n.º 22/11: get a copy of your data and delete it. */

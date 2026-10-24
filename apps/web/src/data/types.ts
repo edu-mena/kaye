@@ -93,6 +93,10 @@ export type Market = {
   demand: Demand
   trendPct: number
   salary: { p25: number; p50: number; p75: number; basis: string } | null
+  /** Median monthly salary at each career stage (example data). */
+  salaryByStage: { level: StageLevel; median: number }[]
+  /** Example job ads per month ("2026-05"), oldest first: the trend behind trendPct. */
+  postingsByMonth: { month: string; count: number }[]
   hiringSectors: string[]
 }
 
@@ -130,6 +134,7 @@ export type Career = CareerSummary & {
   pathways: Pathway[]
   stages: CareerStage[]
   market: Market
+  cvGuide: CvGuide
 }
 
 export type Institution = {
@@ -138,6 +143,8 @@ export type Institution = {
   type: 'universidade' | 'instituto_medio' | 'centro_formacao' | 'online'
   ownership: 'publica' | 'privada'
   province: string
+  /** Logo image; without one, the app shows the initials. */
+  logo?: string
 }
 
 export type Schedule = 'diurno' | 'pos_laboral' | 'online'
@@ -164,24 +171,43 @@ export type CvData = {
   name: string
   headline: string
   contact: string
+  /** GitHub, portfolio, personal site: what a recruiter opens first. */
+  links: string[]
   summary: string
   experience: CvEntry[]
   education: CvEntry[]
   projects: CvEntry[]
+  certifications: CvEntry[]
   skills: string[]
   languages: string[]
 }
 
-export type CvSection = 'summary' | 'experience' | 'education' | 'projects' | 'skills' | 'languages'
+export type CvSection =
+  'summary' | 'experience' | 'education' | 'projects' | 'certifications' | 'skills' | 'languages' | 'links'
 
+/**
+ * Known CV layouts. classico: one column, Harvard style, read without errors by hiring
+ * software. moderno: two columns. europeu: labels on the left, Europass style.
+ */
+export type CvTemplate = 'classico' | 'moderno' | 'europeu'
+
+/** The ideal CV for one path into a career (fictional person, docs/arquitetura.md, 5.5). */
 export type CvExample = {
   id: string
   careerSlug: string
+  /** The path it shows, one of the career's pathways. */
+  pathwayId: string
   seniority: 'primeiro_emprego' | 'junior' | 'experiente'
+  template: CvTemplate
+  /** Why the CV works as a whole, in two or three sentences. */
+  why: string
   cv: CvData
-  /** Why each part works, shown beside the section. */
+  /** Why each part works. */
   notes: Partial<Record<CvSection, string>>
 }
+
+/** What a CV for this career must show and avoid: the rules change a lot between areas. */
+type CvGuide = { template: CvTemplate; include: string[]; avoid: string[] }
 
 export type AssessmentQuestion = { id: string; dimension: RiasecKey; text: string }
 

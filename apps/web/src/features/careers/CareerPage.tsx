@@ -5,7 +5,7 @@ import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
 import { PathMark } from '../../components/PathMark'
 import { QueryState } from '../../components/QueryState'
-import { ScoreBadge } from '../../components/ScoreBadge'
+import { ScoreRing } from '../../components/ScoreRing'
 import { BarList } from '../../components/ui/BarList'
 import { Button, ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -22,8 +22,12 @@ import { rankDimensions } from '../../domain/riasec'
 import { useDuration } from '../../lib/useFormat'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
+import { CvModelView } from '../cv/CvModelView'
+import { ProgramSummary } from '../training/ProgramSummary'
+import { ScaledSheet } from '../cv/CvSheet'
 import { CareerPath } from './CareerPath'
 import { FitPanel } from './FitPanel'
+import { PostingsChart } from './PostingsChart'
 import { SalaryRange } from './SalaryRange'
 
 const TABS = [
@@ -69,9 +73,9 @@ function Section({
     <section aria-labelledby={`${id}-title`}>
       <h2
         id={`${id}-title`}
-        className="mb-6 flex items-center gap-3 text-2xl font-extrabold tracking-tight text-night sm:text-3xl"
+        className="mb-6 flex items-center gap-3 text-2xl font-extrabold text-night sm:text-3xl"
       >
-        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-coal text-white">
+        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-blue text-white">
           <Icon name={icon} className="size-5" />
         </span>
         {title}
@@ -81,11 +85,11 @@ function Section({
   )
 }
 
-/** The second level under a section title: a small uppercase label and a thin rule. */
+/** The second level under a section title: a small label and a thin rule. */
 function Subheading({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <h3
-      className={`mb-4 flex items-center gap-3 text-xs font-bold tracking-[0.14em] text-muted uppercase before:size-2 before:shrink-0 before:rotate-45 before:bg-gold after:h-px after:flex-1 after:bg-line ${className}`}
+      className={`mb-4 flex items-center gap-3 text-sm font-semibold text-night after:h-px after:flex-1 after:bg-line ${className}`}
     >
       {children}
     </h3>
@@ -148,7 +152,7 @@ function CareerHero({ career, facts, onFit }: CareerHeroProps) {
 
       <Link
         to="/carreiras"
-        className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-coal/85 px-3 py-1.5 text-sm font-light tracking-wide backdrop-blur-sm hover:bg-coal lg:left-10"
+        className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-coal/85 px-3 py-1.5 text-sm font-light backdrop-blur-sm hover:bg-coal lg:left-10"
       >
         <Icon name="arrowLeft" className="size-4" />
         {t('careers.title')}
@@ -166,9 +170,7 @@ function CareerHero({ career, facts, onFit }: CareerHeroProps) {
 
       <div className="absolute inset-x-0 bottom-0 px-4 pb-6 lg:px-10 lg:pb-8">
         <div className="max-w-3xl">
-          <h1 className="inline text-[2rem] leading-[1.05] font-bold tracking-tight sm:text-5xl">
-            {career.name}
-          </h1>
+          <h1 className="inline text-[2rem] leading-[1.05] font-bold sm:text-5xl">{career.name}</h1>
           <span title={t(`groups.${career.group}`)} className={`${badge} bg-coal text-white ring-white/15`}>
             <Icon name={GROUP_ICONS[career.group]} className="size-4" />
             <span className="sr-only">{t(`groups.${career.group}`)}</span>
@@ -261,7 +263,7 @@ function HeroFacts({ career }: { career: Career }) {
     facts.push({ icon: 'clock', text: t('career.factTime', { value: duration(quickest.months) }) })
 
   return (
-    <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-sm font-light tracking-wide text-white">
+    <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-sm font-light text-white">
       {facts.map((fact) => (
         <li key={fact.icon} className="flex items-center gap-1.5">
           <Icon name={fact.icon} className="size-4 shrink-0 text-white" />
@@ -347,7 +349,7 @@ function Overview({ career }: { career: Career }) {
           <li key={item} className="flex gap-4 border-b border-line py-4">
             <span
               aria-hidden="true"
-              className="font-display text-3xl leading-none font-extrabold text-ash-300 tabular-nums"
+              className="font-display text-3xl leading-none font-extrabold text-blue tabular-nums"
             >
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -374,7 +376,7 @@ function Traits({ career }: { career: Career }) {
             key={style}
             className="flex items-center gap-3 border-b border-line py-3 text-sm font-light text-night"
           >
-            <span aria-hidden="true" className="size-2.5 shrink-0 rotate-45 bg-night" />
+            <Icon name="check" className="size-4 shrink-0 text-blue" />
             {style}
           </li>
         ))}
@@ -415,6 +417,7 @@ function Asks({ career }: { career: Career }) {
           <Subheading>{t('career.asksSkills')}</Subheading>
           <BarList
             label={t('career.asksSkills')}
+            accentLabels
             items={asks.skills.map((item, index) => ({
               label: skillName(item.skillId),
               value: item.share,
@@ -527,7 +530,9 @@ function Path({ career }: { career: Career }) {
 
 function Study({ career }: { career: Career }) {
   const { t } = useTranslation()
+  const duration = useDuration()
   const query = usePrograms()
+  const [openId, setOpenId] = useState<string | null>(null)
 
   return (
     <Section id="study" title={t('career.study')} icon="cap">
@@ -537,26 +542,68 @@ function Study({ career }: { career: Career }) {
             item.program.careers.includes(career.slug),
           )
           const top = rankPrograms(forCareer, 'score').ranked.slice(0, 3)
+          const open = top.find((item) => item.program.id === openId)
           return (
             <>
-              <h3 className="sr-only">{t('career.studyTitle')}</h3>
+              <Subheading>{t('career.studyTitle')}</Subheading>
               <ol className="space-y-3">
-                {top.map(({ program, score }) => (
-                  <li key={program.id} className="flex items-center gap-3 rounded-2xl bg-ash-100 p-4">
-                    <ScoreBadge score={score} />
-                    <span className="min-w-0">
-                      <span className="block text-sm font-normal text-night">{program.name}</span>
-                      <span className="block text-sm text-muted">
-                        {program.institution.name} · {t(`training.${program.level}`)}
-                      </span>
-                    </span>
-                  </li>
-                ))}
+                {top.map((item, index) => {
+                  const { program } = item
+                  return (
+                    <li key={program.id}>
+                      <button
+                        type="button"
+                        onClick={() => setOpenId(program.id)}
+                        className={`group flex w-full items-center gap-4 rounded-2xl border bg-surface p-4 text-left transition duration-300 hover:-translate-y-0.5 hover:shadow-card ${index === 0 ? 'border-night' : 'border-line hover:border-ash-300'}`}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className={`grid size-9 shrink-0 place-items-center rounded-full bg-coal font-display text-sm font-bold ${index === 0 ? 'text-gold' : 'text-white'}`}
+                        >
+                          {index + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="flex flex-wrap items-center gap-2 text-base font-semibold text-night">
+                            {program.name}
+                            {index === 0 && <Chip tone="night">{t('career.studyBest')}</Chip>}
+                          </span>
+                          <span className="mt-1 block text-xs font-light text-muted">
+                            {program.institution.name} · {program.institution.province}
+                          </span>
+                          <span className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-muted">
+                            <span className="inline-flex items-center gap-1">
+                              <Icon name="cap" className="size-3.5" />
+                              {t(`training.${program.level}`)}
+                            </span>
+                            <span className="inline-flex items-center gap-1">
+                              <Icon name="clock" className="size-3.5" />
+                              {duration({ min: program.durationMonths, max: program.durationMonths })}
+                            </span>
+                            {program.totalCost !== null && (
+                              <span className="inline-flex items-center gap-1">
+                                <Icon name="wallet" className="size-3.5" />
+                                {formatKz(program.totalCost)}
+                              </span>
+                            )}
+                          </span>
+                        </span>
+                        <ScoreRing score={item.score} />
+                        <Icon
+                          name="chevronRight"
+                          className="size-5 shrink-0 text-muted transition group-hover:translate-x-0.5"
+                        />
+                      </button>
+                    </li>
+                  )
+                })}
               </ol>
-              <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" className="mt-2 -ml-3">
+              <ButtonLink to={`/cursos?carreira=${career.slug}`} variant="ghost" className="mt-3 -ml-3">
                 {t('career.studyAll')}
                 <Icon name="arrowRight" className="size-4" />
               </ButtonLink>
+              <Dialog open={Boolean(open)} onClose={() => setOpenId(null)} title={open?.program.name ?? ''}>
+                {open && <ProgramSummary item={open} career={career} rank={top.indexOf(open) + 1} />}
+              </Dialog>
             </>
           )
         }}
@@ -569,26 +616,51 @@ function MarketSection({ career }: { career: Career }) {
   const { t } = useTranslation()
   const { market } = career
   const trend = `${market.trendPct > 0 ? '+' : ''}${market.trendPct}%`
+  const topStage = Math.max(...market.salaryByStage.map((item) => item.median), 1)
+  const stageTitle = (level: string) => career.stages.find((stage) => stage.level === level)?.title ?? level
 
   return (
     <Section id="market" title={t('career.market')} icon="chart">
-      <Card tone="gray" className="space-y-5">
-        {market.salary && <SalaryRange salary={market.salary} />}
-        <p className="flex items-center gap-1.5 text-sm font-normal text-success">
-          <Icon name="signal" className="size-4" />
-          {t('career.trend', { value: trend })}
-        </p>
+      {market.salary && (
+        <>
+          <Subheading>{t('career.salaryTitle')}</Subheading>
+          <SalaryRange salary={market.salary} />
+        </>
+      )}
+
+      <div className="mt-10 grid gap-10 lg:grid-cols-2">
+        {market.salaryByStage.length > 0 && (
+          <div>
+            <Subheading>{t('career.stageSalaryTitle')}</Subheading>
+            <BarList
+              label={t('career.stageSalaryList')}
+              items={market.salaryByStage.map((item) => ({
+                label: stageTitle(item.level),
+                value: item.median / topStage,
+                valueLabel: formatKz(item.median),
+                emphasized: true,
+              }))}
+            />
+          </div>
+        )}
         <div>
-          <Subheading>{t('career.sectors')}</Subheading>
-          <ul className="flex flex-wrap gap-2">
-            {market.hiringSectors.map((sector) => (
-              <li key={sector}>
-                <Chip tone="night">{sector}</Chip>
-              </li>
-            ))}
-          </ul>
+          <Subheading>{t('career.demandTitle')}</Subheading>
+          <p className="mb-5 flex items-center gap-1.5 text-sm font-normal text-success">
+            <Icon name="signal" className="size-4" />
+            {t('career.trend', { value: trend })}
+          </p>
+          <PostingsChart months={market.postingsByMonth} />
         </div>
-      </Card>
+      </div>
+
+      <Subheading className="mt-10">{t('career.sectors')}</Subheading>
+      <ul className="flex flex-wrap gap-2">
+        {market.hiringSectors.map((sector) => (
+          <li key={sector}>
+            <Chip tone="night">{sector}</Chip>
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }
@@ -596,35 +668,63 @@ function MarketSection({ career }: { career: Career }) {
 function ModelCvs({ career }: { career: Career }) {
   const { t } = useTranslation()
   const query = useCvExamples(career.slug)
+  const [openId, setOpenId] = useState<string | null>(null)
+  const pathwayName = (id: string) => career.pathways.find((pathway) => pathway.id === id)?.name ?? ''
 
   return (
     <Section id="cvs" title={t('career.cvs')} icon="document">
       <QueryState query={query}>
-        {(examples) =>
-          examples.length === 0 ? (
-            <p className="text-muted">{t('career.cvsEmpty')}</p>
-          ) : (
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {examples.map((example) => (
-                <li key={example.id}>
-                  <Link
-                    to={`/cv/modelos/${example.id}`}
-                    className="flex items-center gap-3 rounded-2xl bg-ash-100 p-4 hover:bg-ash-200"
+        {(examples) => {
+          if (examples.length === 0)
+            return <p className="text-sm font-light text-muted">{t('career.cvsEmpty')}</p>
+          const open = examples.find((example) => example.id === openId)
+          return (
+            <>
+              <p className="mb-5 text-sm font-light text-copy">{t('career.cvsIntro')}</p>
+              {/* Thumbnails of the real sheet, each named by its blue bar. */}
+              <ul className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                {examples.map((example) => (
+                  <li
+                    key={example.id}
+                    className="group relative overflow-hidden rounded-xl border border-line bg-surface shadow-card transition duration-300 focus-within:-translate-y-1 focus-within:shadow-lift hover:-translate-y-1 hover:shadow-lift"
                   >
-                    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-coal text-white">
-                      <Icon name="document" className="size-6" />
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-normal text-night">{example.cv.headline}</span>
-                      <span className="block text-sm text-muted">{t(`cv.${example.seniority}`)}</span>
-                    </span>
-                    <Icon name="chevronRight" className="size-5 text-muted" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    {/* The blue bar names the model; its button covers the whole card. */}
+                    <button
+                      type="button"
+                      onClick={() => setOpenId(example.id)}
+                      className="block w-full bg-blue px-2.5 py-2 text-left text-white after:absolute after:inset-0"
+                    >
+                      <span className="block truncate text-xs font-normal">
+                        {pathwayName(example.pathwayId)}
+                      </span>
+                      <span className="block truncate text-[10px] font-light text-white/80">
+                        {t(`cv.${example.seniority}`)} · {t(`cv.template_${example.template}`)}
+                      </span>
+                    </button>
+                    <div aria-hidden="true" className="relative overflow-hidden">
+                      <div className="origin-top transition-transform duration-500 group-focus-within:scale-[1.04] group-hover:scale-[1.04]">
+                        <ScaledSheet cv={example.cv} template={example.template} />
+                      </div>
+                      <span className="absolute inset-0 grid place-items-center bg-night/0 opacity-0 transition duration-300 group-focus-within:opacity-100 group-hover:bg-night/15 group-hover:opacity-100">
+                        <span className="grid size-8 place-items-center rounded-full bg-white text-night shadow-lift">
+                          <Icon name="eye" className="size-4" />
+                        </span>
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <Dialog
+                open={Boolean(open)}
+                onClose={() => setOpenId(null)}
+                title={open ? `${pathwayName(open.pathwayId)} · ${open.cv.name}` : ''}
+                variant="wide"
+              >
+                {open && <CvModelView example={open} />}
+              </Dialog>
+            </>
           )
-        }
+        }}
       </QueryState>
     </Section>
   )

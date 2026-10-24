@@ -10,16 +10,22 @@ import { useCvExamples } from '../../data/queries'
 import type { CvData, CvEntry, CvSection } from '../../data/types'
 import { newEntry, parseList } from '../../domain/cv'
 import { userActions, useUser } from '../../state/userStore'
-import { CvDocument } from './CvDocument'
+import { downloadCvPdf } from './cvPdf'
+import { ScaledSheet } from './CvSheet'
+import { useCvLabels } from './useCvLabels'
 
-type EntrySection = 'experience' | 'education' | 'projects'
-const ENTRY_SECTIONS: EntrySection[] = ['experience', 'education', 'projects']
+type EntrySection = 'experience' | 'education' | 'projects' | 'certifications'
+const ENTRY_SECTIONS: EntrySection[] = ['experience', 'education', 'projects', 'certifications']
 
 export default function CvEditorPage() {
   const { t } = useTranslation()
   const { cv, cvBasedOn } = useUser()
   const { data: examples = [] } = useCvExamples()
-  const notes = examples.find((example) => example.id === cvBasedOn)?.notes ?? {}
+  const model = examples.find((example) => example.id === cvBasedOn)
+  const notes = model?.notes ?? {}
+  // The layout of the model it started from; the classic one otherwise.
+  const template = model?.template ?? 'classico'
+  const labels = useCvLabels()
   const [view, setView] = useState<'edit' | 'preview'>('edit')
   // Typing comes first; on slow phones the preview catches up a moment later.
   const preview = useDeferredValue(cv)
@@ -36,11 +42,10 @@ export default function CvEditorPage() {
           {t('cv.autosaved')}
         </p>
         <span className="flex flex-col items-end gap-0.5">
-          <Button variant="secondary" size="sm" disabled>
+          <Button size="sm" onClick={() => void downloadCvPdf(cv, template, labels)}>
             <Icon name="download" className="size-4" />
             {t('cv.download')}
           </Button>
-          <span className="text-xs text-muted">{t('cv.downloadSoon')}</span>
         </span>
       </div>
       <Segmented
@@ -99,7 +104,7 @@ export default function CvEditorPage() {
             </EditorSection>
           ))}
 
-          {(['skills', 'languages'] as const).map((section) => (
+          {(['skills', 'languages', 'links'] as const).map((section) => (
             <EditorSection key={section} section={section} tip={notes[section]}>
               <ListField
                 label={t(`cv.${section}`)}
@@ -113,7 +118,12 @@ export default function CvEditorPage() {
         <div className={view === 'edit' ? 'hidden lg:block' : ''}>
           <div className="lg:sticky lg:top-6">
             <h2 className="mb-3 text-lg font-semibold text-navy">{t('cv.preview')}</h2>
-            <CvDocument cv={preview} />
+            <ScaledSheet
+              cv={preview}
+              template={template}
+              fit="content"
+              className="rounded-card shadow-card"
+            />
           </div>
         </div>
       </div>

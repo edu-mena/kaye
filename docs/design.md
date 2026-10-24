@@ -32,7 +32,7 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 | `navy` | `#1B2A43` | Texto principal, botão principal, item ativo | 13,1 no papel |
 | `blue` / `blue-dark` | `#021D6D` / `#032A96` (ao passar o rato fica mais claro) | Só os botões de ação principais (`Button` primary): mais claro e forte do que o azul-marinho, destaca-se sem contorno em fundo claro e escuro | Branco em cima: 15,0; contra o papel: 13,7 |
 | `navy-100` | `#E8ECF3` | Fundos suaves, trilho das barras | Texto `navy` em cima: 12,1 |
-| `gold` | `#FFC000` | Pouco e pequeno, porque chama a atenção: ícones da barra lateral, lupa e perfil da barra de cima, o ícone do separador ativo, os losangos dos subtítulos, o logótipo, o "Estás aqui" e o foco | Amarelo sobre `night`: 10,9 |
+| `gold` | `#FFC000` | Pouco e pequeno, porque chama a atenção: ícones da barra lateral, lupa e perfil da barra de cima, o ícone do separador ativo, o anel da pontuação em fundo escuro, o logótipo, o "Estás aqui" e o foco | Amarelo sobre `night`: 10,9 |
 | `gold-ink` | `#8A6400` | Texto amarelo-escuro (o `gold` não serve para texto): rótulos "Dica" e "Porque funciona" | 5,4 no branco |
 | `paper` | `#F7F4EE` | Fundo da app | |
 | `surface` | `#FFFFFF` | Cartões e campos | |
@@ -48,7 +48,7 @@ O texto passa no nível AA da WCAG (pelo menos 4,5:1) em todas as combinações 
 
 Regras:
 - **Sobre azul-marinho, só branco.** Botões, ícones, números e barras em cima de azul-marinho são brancos (botão `onNavy`, barra `tone="white"`). O amarelo aparece sobre fundos claros. O caminho da marca (`PathMark`) é a exceção, porque é uma ilustração e não um controlo.
-- **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo é um acento pequeno e raro (os losangos dos subtítulos, os ícones da navegação). Em excesso compete com o azul pela atenção. O azul (`blue`, um azul profundo e mais saturado do que o azul-marinho) é a cor principal, guardada para os botões de ação principais de cada ecrã (por exemplo "Escolher como destino", "Marcar o que sei"). Nunca leva contorno. Ações secundárias sobre fundo escuro usam um círculo ou pílula `coal` com o ícone amarelo, como o perfil na barra de cima.
+- **Não depender do azul.** O quase-preto (`night`) marca o que está ativo e os blocos fortes. Os cinzentos quentes (`ash`) fazem as superfícies e o que está inativo. O amarelo é um acento pequeno e raro (os ícones da navegação, o anel da pontuação em fundo escuro). Sem losangos nem outras formas decorativas. Em excesso compete com o azul pela atenção. O azul (`blue`, um azul profundo e mais saturado do que o azul-marinho) é a cor principal, guardada para os botões de ação principais de cada ecrã (por exemplo "Escolher como destino", "Marcar o que sei"). Nunca leva contorno. Ações secundárias sobre fundo escuro usam um círculo ou pílula `coal` com o ícone amarelo, como o perfil na barra de cima.
 - **Amarelo sobre quase-preto, sim; amarelo sobre azul-marinho, não.**
 - **Ícones em quadrado ou círculo:** fundo branco, contorno fino (`border-line`) e ícone azul-marinho. Nunca um quadrado colorido.
 - **Sem fundos de cor translúcidos.** Etiquetas, avisos e dicas usam contorno (`border-line`, ou `border-navy` num aviso importante) e texto. Fundos claros de amarelo, verde ou vermelho parecem genéricos e foram retirados, incluindo os tokens.
@@ -66,12 +66,30 @@ Regras:
 Cada secção tem 3 níveis, sempre pela mesma ordem:
 
 1. **Título da secção:** `text-2xl`/`3xl`, `font-extrabold`, azul-marinho.
-2. **Subtítulo:** pequeno, em maiúsculas, `text-muted`, com uma linha fina até ao fim (`Subheading`).
-3. **Conteúdo:** o mesmo tamanho e espessura da barra lateral: `text-sm` (14 px) e `font-light` (300), em `text-copy`. Os nomes dos itens (um curso, uma etapa, um CV) ficam em `font-normal` (400). Só os títulos de secção e os subtítulos em maiúsculas vão a negrito.
+2. **Subtítulo:** `text-sm font-semibold`, em letra normal, com uma linha fina até ao fim (`Subheading`).
+3. **Conteúdo:** o mesmo tamanho e espessura da barra lateral: `text-sm` (14 px) e `font-light` (300), em `text-copy`. Os nomes dos itens (um curso, uma etapa, um CV) ficam em `font-normal` (400). Só os títulos de secção e os subtítulos vão a negrito ou seminegrito.
+
+**Sem efeitos de tipografia:** nada de maiúsculas forçadas (`uppercase`) nem de espaçamento entre letras (`tracking`) na interface. A hierarquia vem do tamanho e da espessura. A exceção são os modelos de CV, cujos títulos em maiúsculas fazem parte do formato.
 
 - Os poucos números de que uma secção trata vão para blocos azul-marinho com o valor grande (`StatBlock`). É o bloco de cor forte que dá ritmo à leitura.
 - Listas longas com linhas finas entre itens, sem um cartão para cada item. Números de ordem grandes (`01`, `02`) em `text-track`.
 - O que a pessoa deve fazer ou ver primeiro tem o maior contraste: botão branco cheio sobre azul-marinho, ou um bloco azul-marinho sobre fundo claro. "O meu encaixe" é um bloco azul-marinho, e o hero tem um botão "Encaixe" que leva até ele.
+
+## Espaçamento e cartões
+
+**Espaçamento**
+- **Grelha de 4 pontos:** margens e paddings em múltiplos de 4 (4, 8, 16, 24, 32 px). Tudo se divide ao meio sem frações.
+- **Respiro:** não encher o cartão. O espaço vazio é o que deixa a hierarquia clara.
+- **Agrupar o que está relacionado:** espaços pequenos dentro de um grupo, maiores entre secções. O espaço entre linhas de textos diferentes depende da relação entre eles:
+  - um rótulo e o seu valor, ou um nome e a sua descrição: 4 px;
+  - um valor e a sua nota: 8 px;
+  - elementos de um grupo (cartões de uma lista, linhas de um gráfico): 16 px;
+  - entre grupos de uma secção: 32 px; entre secções: 40 px.
+- **Altura de linha:** pelo menos 1,5 vezes o tamanho da letra no texto corrido (WCAG 1.4.12). Está nos tokens: `text-xs` 1,5, `text-sm` e `text-base` 1,6. Os títulos grandes ficam mais justos.
+
+**Cartões**
+- **Contraste de importância:** o item principal é maior e mais forte (por exemplo, o valor ou o nome do curso em `text-base font-semibold`). O que é secundário (rótulos, notas, instituição) é menor e mais discreto (`text-xs font-light text-muted`). Um rótulo nunca é mais forte do que o seu conteúdo.
+- **Sombras com moderação:** opacidade baixa e desfoque grande, em tom neutro (`shadow-card` 8%, `shadow-lift` 14%). Se a sombra é a primeira coisa que se nota, está forte demais.
 
 ## Forma, profundidade e movimento
 
@@ -131,6 +149,8 @@ Peças de produto em `src/components`:
 - **Barras horizontais, não radar.** O radar (o hexágono RIASEC desenhado como gráfico) é bonito mas difícil de ler: comparar áreas é mais difícil do que comparar comprimentos.
 - **Uma só cor, com ênfase.** O que importa fica a `navy` (por exemplo, os 3 interesses mais fortes). O resto fica a `track`, para dar contexto.
 - **O valor fica sempre escrito ao lado da barra.** Assim a informação nunca depende só da cor, e o contraste baixo do `track` não esconde nada.
+- **Faixa salarial:** os números vêm primeiro, cada um com o seu significado: Entrada (1 em cada 4 ganha menos), Mediana e Topo (1 em cada 4 ganha mais). A barra por baixo só os coloca numa escala, com o valor escrito em cada ponto. A escala não começa no zero, para a faixa se ler.
+- **Ao longo do tempo:** colunas por mês, com a última em destaque e o seu valor escrito. Todos os valores estão no texto para leitores de ecrã e aparecem ao passar o rato.
 - **Um só eixo.** Duas medidas diferentes vão para dois gráficos, nunca para um gráfico com dois eixos.
 - O texto usa as cores do texto, nunca a cor da série.
 

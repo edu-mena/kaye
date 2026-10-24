@@ -59,7 +59,7 @@ const MENU: NavGroup[] = [
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
 ]
 
-const GROUP_LABEL = 'mb-2 px-3 text-[11px] font-bold tracking-[0.14em] text-white uppercase'
+const GROUP_LABEL = 'mb-2 px-3 text-xs font-semibold text-white'
 
 type DarkLinkProps = { item: NavItem; iconOnly?: boolean; onNavigate?: () => void }
 
@@ -74,7 +74,7 @@ function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
       title={iconOnly ? label : undefined}
       onClick={onNavigate}
       className={({ isActive }) =>
-        `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-light tracking-wide transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${
+        `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-light transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${
           isActive ? 'bg-white/15 font-normal text-white' : 'text-white hover:bg-white/5'
         }`
       }

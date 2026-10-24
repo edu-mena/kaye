@@ -1,8 +1,18 @@
 import { describe, expect, it } from 'vitest'
 import { CAREERS } from '../data/demo/careers'
-import { ageIn, isMinor, isStepDone, quickestPathway, remainingSteps, satisfies } from './education'
+import {
+  ageIn,
+  isMinor,
+  isStepDone,
+  quickestPathway,
+  remainingSteps,
+  satisfies,
+  stepsServedBy,
+} from './education'
 
 const frontend = CAREERS[0]!
+const served = (level: Parameters<typeof stepsServedBy>[1]) =>
+  stepsServedBy(frontend, level).map(({ pathway, step }) => `${pathway.id}: ${step.title}`)
 const [university, technical] = frontend.pathways
 
 describe('satisfies', () => {
@@ -32,6 +42,15 @@ describe('pathway steps', () => {
     const left = remainingSteps(technical!, 'medio_tecnico')
     expect(left.steps.map((step) => step.kind)).toEqual(['portfolio', 'experiencia'])
     expect(left.months).toEqual({ min: 9, max: 18 })
+  })
+
+  it('says which step of which path a course serves', () => {
+    expect(served('licenciatura')).toEqual(['universitaria: Licenciatura em Engenharia Informática'])
+    expect(served('formacao_profissional')).toEqual([
+      'tecnica: Curso profissional de desenvolvimento web',
+      'autodidata: Aprender HTML, CSS, JavaScript e React',
+    ])
+    expect(served('certificacao')).toEqual([])
   })
 
   it('picks the pathway that gets the person there soonest', () => {

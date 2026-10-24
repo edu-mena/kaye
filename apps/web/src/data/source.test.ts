@@ -24,7 +24,10 @@ describe('demo data source', () => {
       true,
     )
     expect((await listPrograms()).length).toBeGreaterThan((await listPrograms('designer-ui-ux')).length)
-    expect((await listCvExamples('analista-de-dados')).map((cv) => cv.id)).toEqual(['dados-junior'])
+    expect((await listCvExamples('analista-de-dados')).map((cv) => cv.id)).toEqual([
+      'dados-junior',
+      'dados-reconversao',
+    ])
   })
 
   it('has 42 questions, 7 per dimension, never two of the same in a row', async () => {

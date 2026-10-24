@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Icon } from '../../components/icons'
-import { ScoreBadge } from '../../components/ScoreBadge'
+import { ScoreRing } from '../../components/ScoreRing'
 import { Button } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
 import { formatKz, formatPercent } from '../../domain/format'
@@ -10,14 +10,73 @@ import { MAX_COMPARE, userActions, useUser } from '../../state/userStore'
 
 type ProgramCardProps = { item: ScoredProgram; rank?: number }
 
+/**
+ * How the Kayé score adds up (docs/arquitetura.md, 5.7). Each criterion's bar is as long as its
+ * weight (40% of the width for 40% of the score), filled with the points the course earned.
+ */
+export function ScoreBreakdown({ criteria }: { criteria: ScoredProgram['criteria'] }) {
+  const { t } = useTranslation()
+  return (
+    <ul className="space-y-4">
+      {criteria.map((criterion) => {
+        const max = Math.round(criterion.weight * 100)
+        const got = criterion.value === null ? null : Math.round(criterion.value * criterion.weight * 100)
+        return (
+          <li key={criterion.key}>
+            <div className="mb-2 flex items-baseline justify-between gap-4 text-xs">
+              <span className="font-normal text-night">
+                {t(`training.${criterion.key}`)}
+                {got !== null && (
+                  <span className="font-light text-muted">
+                    {' '}
+                    · {t('training.weight', { value: formatPercent(criterion.weight) })}
+                  </span>
+                )}
+              </span>
+              <span className="shrink-0 font-normal text-night tabular-nums">
+                {got === null ? t('training.noData') : t('training.points', { got, max })}
+              </span>
+            </div>
+            <span aria-hidden="true" className="block h-2 rounded-full bg-ash-100">
+              <span className="block h-full rounded-full bg-ash-300" style={{ width: `${max}%` }}>
+                <span
+                  className="block h-full rounded-full bg-night"
+                  style={{ width: got === null || max === 0 ? 0 : `${(got / max) * 100}%` }}
+                />
+              </span>
+            </span>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+/** Adds or removes a course from the comparison (up to MAX_COMPARE). */
+export function CompareButton({ programId }: { programId: string }) {
+  const { t } = useTranslation()
+  const { compare } = useUser()
+  const comparing = compare.includes(programId)
+  const full = compare.length >= MAX_COMPARE && !comparing
+  return (
+    <Button
+      variant={comparing ? 'primary' : 'secondary'}
+      size="sm"
+      aria-pressed={comparing}
+      disabled={full}
+      onClick={() => userActions.toggleCompare(programId)}
+    >
+      <Icon name={comparing ? 'check' : 'plus'} className="size-4" />
+      {comparing ? t('training.comparing') : t('training.compare')}
+    </Button>
+  )
+}
+
 export function ProgramCard({ item, rank }: ProgramCardProps) {
   const { t } = useTranslation()
   const duration = useDuration()
   const ratingLabel = useRatingLabel()
-  const { compare } = useUser()
   const { program, score, criteria } = item
-  const comparing = compare.includes(program.id)
-  const full = compare.length >= MAX_COMPARE && !comparing
 
   return (
     <article className="rounded-card bg-surface p-4 shadow-card sm:p-5">
@@ -45,7 +104,7 @@ export function ProgramCard({ item, rank }: ProgramCardProps) {
             )}
           </div>
         </div>
-        {program.recognized && <ScoreBadge score={score} />}
+        {program.recognized && <ScoreRing score={score} />}
       </div>
 
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3">
@@ -70,31 +129,15 @@ export function ProgramCard({ item, rank }: ProgramCardProps) {
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
         {program.recognized ? (
           <details className="group text-sm">
-            <summary className="cursor-pointer font-semibold text-navy">{t('training.seeCalc')}</summary>
-            <ul className="mt-2 space-y-1 text-muted">
-              {criteria.map((criterion) => (
-                <li key={criterion.key}>
-                  {t(`training.${criterion.key}`)}:{' '}
-                  {criterion.value === null
-                    ? t('training.noData')
-                    : `${Math.round(criterion.value * 100)} × ${formatPercent(criterion.weight)}`}
-                </li>
-              ))}
-            </ul>
+            <summary className="cursor-pointer font-normal text-night">{t('training.seeCalc')}</summary>
+            <div className="mt-2">
+              <ScoreBreakdown criteria={criteria} />
+            </div>
           </details>
         ) : (
           <span />
         )}
-        <Button
-          variant={comparing ? 'primary' : 'secondary'}
-          size="sm"
-          aria-pressed={comparing}
-          disabled={full}
-          onClick={() => userActions.toggleCompare(program.id)}
-        >
-          <Icon name={comparing ? 'check' : 'plus'} className="size-4" />
-          {comparing ? t('training.comparing') : t('training.compare')}
-        </Button>
+        <CompareButton programId={program.id} />
       </div>
     </article>
   )

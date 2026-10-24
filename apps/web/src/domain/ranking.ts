@@ -12,6 +12,18 @@ type CriterionKey = (typeof CRITERIA)[number]['key']
 /** A rating only counts with at least this many reviews. */
 export const MIN_REVIEWS = 5
 
+/** Who recognises a course in Angola depends on its level: higher education, schools, or vocational training. */
+const RECOGNITION = {
+  licenciatura: { code: 'MESCTI', name: 'Ministério do Ensino Superior, Ciência, Tecnologia e Inovação' },
+  medio_tecnico: { code: 'MED', name: 'Ministério da Educação' },
+  formacao_profissional: { code: 'INEFOP', name: 'Instituto Nacional de Emprego e Formação Profissional' },
+  certificacao: { code: 'INEFOP', name: 'Instituto Nacional de Emprego e Formação Profissional' },
+} as const satisfies Record<Program['level'], { code: string; name: string }>
+
+export function recognitionBody(level: Program['level']) {
+  return RECOGNITION[level]
+}
+
 export type ScoredProgram = {
   program: Program
   /** 0 to 100. */

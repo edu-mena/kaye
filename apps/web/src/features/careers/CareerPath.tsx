@@ -103,7 +103,7 @@ export function CareerPath({ pathway, education }: CareerPathProps) {
               </span>
             </div>
             <div>
-              <p className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wide text-muted uppercase">
+              <p className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted">
                 {t(`career.step${step.kind}`)}
                 <span
                   className={here === 'done' ? 'text-success' : here === 'current' ? 'text-gold-ink' : ''}

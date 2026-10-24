@@ -7,18 +7,24 @@ type BarItem = {
   emphasized?: boolean
 }
 
-type BarListProps = { items: BarItem[]; label: string }
+type BarListProps = {
+  items: BarItem[]
+  label: string
+  /** The labels of the emphasised items in the main blue (the bars keep their colour). */
+  accentLabels?: boolean
+}
 
 /**
  * Horizontal bars for magnitudes (docs/design.md, "Gráficos"): one hue, emphasis
  * in near-black and context in warm grey, value written beside every bar.
  */
-export function BarList({ items, label }: BarListProps) {
+export function BarList({ items, label, accentLabels = false }: BarListProps) {
+  const strong = accentLabels ? 'font-normal text-blue' : 'font-normal text-night'
   return (
     <ul aria-label={label} className="space-y-3">
       {items.map((item) => (
         <li key={item.label} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1">
-          <span className={`text-sm ${item.emphasized ? 'font-normal text-night' : 'font-light text-muted'}`}>
+          <span className={`text-sm ${item.emphasized ? strong : 'font-light text-muted'}`}>
             {item.label}
           </span>
           <span className="text-sm font-normal text-night tabular-nums">{item.valueLabel}</span>

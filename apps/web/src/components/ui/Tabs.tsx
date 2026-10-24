@@ -76,7 +76,7 @@ export function Tabs<T extends string>({
               centerTab(listRef.current, event.currentTarget)
             }}
             onKeyDown={onKeyDown}
-            className={`inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full px-4 text-sm font-light tracking-wide transition ${
+            className={`inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full px-4 text-sm font-light transition ${
               active ? 'bg-night font-normal text-white shadow-lift' : 'bg-ash-100 text-copy hover:bg-ash-200'
             }`}
           >
@@ -104,8 +104,13 @@ export function TabPanel({ idPrefix, id, children, className = '' }: TabPanelPro
       id={`${idPrefix}-panel-${id}`}
       aria-labelledby={`${idPrefix}-tab-${id}`}
       tabIndex={0}
-      className={`animate-rise rounded-card bg-surface p-5 shadow-card focus-visible:outline-offset-4 sm:p-8 ${className}`}
+      className={`relative animate-rise rounded-card bg-surface p-5 shadow-card focus-visible:outline-offset-4 sm:p-8 ${className}`}
     >
+      {/* Marks the open panel: a short blue line centred on its top edge. */}
+      <span
+        aria-hidden="true"
+        className="absolute top-2.5 left-1/2 h-[3px] w-4/5 -translate-x-1/2 rounded-full bg-blue"
+      />
       {children}
     </div>
   )

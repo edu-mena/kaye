@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { PROGRAMS } from '../data/demo/programs'
 import type { Program } from '../data/types'
-import { MIN_REVIEWS, rankPrograms, scorePrograms } from './ranking'
+import { MIN_REVIEWS, rankPrograms, recognitionBody, scorePrograms } from './ranking'
 
 const base = PROGRAMS[0]!
 const course = (change: Partial<Program>): Program => ({ ...base, ...change })
@@ -66,5 +66,14 @@ describe('rankPrograms', () => {
       'price',
     ).ranked.find((item) => item.program.id === 'web-react')!.score
     expect(filtered).toBe(everywhere)
+  })
+})
+
+describe('recognitionBody', () => {
+  it('names the one body that recognises each level', () => {
+    expect(recognitionBody('licenciatura').code).toBe('MESCTI')
+    expect(recognitionBody('medio_tecnico').code).toBe('MED')
+    expect(recognitionBody('formacao_profissional').code).toBe('INEFOP')
+    expect(recognitionBody('certificacao').code).toBe('INEFOP')
   })
 })

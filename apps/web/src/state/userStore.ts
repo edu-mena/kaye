@@ -31,10 +31,12 @@ export const EMPTY_CV: CvData = {
   name: '',
   headline: '',
   contact: '',
+  links: [],
   summary: '',
   experience: [],
   education: [],
   projects: [],
+  certifications: [],
   skills: [],
   languages: [],
 }
@@ -62,7 +64,8 @@ function load(): UserData {
   try {
     const raw = localStorage.getItem(KEY)
     const saved = raw ? (JSON.parse(raw) as Partial<UserData>) : null
-    return saved?.version === 1 ? { ...INITIAL, ...saved } : INITIAL
+    // CVs saved before a field existed get it empty, so old data keeps working.
+    return saved?.version === 1 ? { ...INITIAL, ...saved, cv: { ...EMPTY_CV, ...saved.cv } } : INITIAL
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
     return INITIAL
@@ -144,6 +147,7 @@ export const userActions = {
         experience: example.cv.experience.map(newEntry),
         education: example.cv.education.map(newEntry),
         projects: example.cv.projects.map(newEntry),
+        certifications: example.cv.certifications.map(newEntry),
       },
     })),
 

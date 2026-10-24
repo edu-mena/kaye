@@ -11,6 +11,11 @@
   --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
 
+  /* Line height: at least 1.5x the size for running text (WCAG 1.4.12). Spacing follows an 8 px grid. */
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.6;
+  --text-base--line-height: 1.6;
+
   --color-navy: #1b2a43;
   /* The main action of each screen: a deep blue, white text 15:1. Hover lightens it, so it shows on dark surfaces too. */
   --color-blue: #021d6d;
@@ -41,8 +46,8 @@
   --color-coral: #b33a24;
 
   --radius-card: 1.75rem;
-  --shadow-card: 0 1px 2px rgb(27 42 67 / 0.05), 0 10px 30px -18px rgb(27 42 67 / 0.25);
-  --shadow-lift: 0 2px 4px rgb(27 42 67 / 0.06), 0 18px 40px -20px rgb(27 42 67 / 0.35);
+  --shadow-card: 0 1px 2px rgb(22 23 27 / 0.03), 0 12px 40px -16px rgb(22 23 27 / 0.08);
+  --shadow-lift: 0 2px 6px rgb(22 23 27 / 0.04), 0 20px 56px -20px rgb(22 23 27 / 0.14);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -93,7 +98,6 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 
