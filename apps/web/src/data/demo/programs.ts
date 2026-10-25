@@ -1,4 +1,4 @@
-import type { Institution, Program, Schedule } from '../types'
+import type { Course, Institution, Program, Schedule } from '../types'
 import { PROGRAM_IMAGES } from './images'
 
 // DEMO DATA. Institutions are fictional on purpose ("Exemplo"): a ranking with
@@ -55,6 +55,18 @@ const INSTITUTIONS = {
   },
 } satisfies Record<string, Institution>
 
+// The courses in general. Each row below is one institution's offer of one of them.
+const COURSES = {
+  'engenharia-informatica': 'Engenharia Informática',
+  'ciencias-computacao': 'Ciências da Computação',
+  'tecnico-informatica': 'Técnico de Informática',
+  'desenvolvimento-web': 'Desenvolvimento Web',
+  'analise-dados': 'Análise de Dados',
+  estatistica: 'Estatística',
+  'design-ui-ux': 'Design UI/UX',
+  design: 'Design',
+} satisfies Record<string, string>
+
 type Row = [
   id: string,
   institution: keyof typeof INSTITUTIONS,
@@ -66,9 +78,36 @@ type Row = [
   recognized: boolean,
   rating: [number, number] | null,
   careers: string[],
+  course: keyof typeof COURSES,
 ]
 
 const ROWS: Row[] = [
+  [
+    'eng-informatica-publica',
+    'upublica',
+    'Licenciatura em Engenharia Informática',
+    'licenciatura',
+    60,
+    ['diurno', 'pos_laboral'],
+    1800000,
+    true,
+    [3.7, 28],
+    ['desenvolvedor-frontend', 'analista-de-dados'],
+    'engenharia-informatica',
+  ],
+  [
+    'analise-dados-centro',
+    'centro',
+    'Análise de Dados para Iniciantes',
+    'formacao_profissional',
+    3,
+    ['diurno'],
+    160000,
+    true,
+    [4.2, 9],
+    ['analista-de-dados'],
+    'analise-dados',
+  ],
   [
     'eng-informatica',
     'uprivada',
@@ -80,6 +119,7 @@ const ROWS: Row[] = [
     true,
     [4.1, 23],
     ['desenvolvedor-frontend', 'analista-de-dados'],
+    'engenharia-informatica',
   ],
   [
     'ciencias-computacao',
@@ -92,6 +132,7 @@ const ROWS: Row[] = [
     true,
     [3.8, 41],
     ['desenvolvedor-frontend', 'analista-de-dados'],
+    'ciencias-computacao',
   ],
   [
     'tecnico-informatica',
@@ -104,6 +145,7 @@ const ROWS: Row[] = [
     true,
     [3.9, 17],
     ['desenvolvedor-frontend'],
+    'tecnico-informatica',
   ],
   [
     'web-react',
@@ -116,6 +158,7 @@ const ROWS: Row[] = [
     true,
     [4.6, 12],
     ['desenvolvedor-frontend'],
+    'desenvolvimento-web',
   ],
   [
     'web-centro',
@@ -128,6 +171,7 @@ const ROWS: Row[] = [
     true,
     [4.0, 8],
     ['desenvolvedor-frontend'],
+    'desenvolvimento-web',
   ],
   [
     'bootcamp-frontend',
@@ -140,6 +184,7 @@ const ROWS: Row[] = [
     false,
     [4.4, 3],
     ['desenvolvedor-frontend'],
+    'desenvolvimento-web',
   ],
   [
     'analise-dados',
@@ -152,6 +197,7 @@ const ROWS: Row[] = [
     true,
     [4.5, 15],
     ['analista-de-dados'],
+    'analise-dados',
   ],
   [
     'estatistica',
@@ -164,6 +210,7 @@ const ROWS: Row[] = [
     true,
     [3.7, 9],
     ['analista-de-dados'],
+    'estatistica',
   ],
   [
     'ui-ux',
@@ -176,6 +223,7 @@ const ROWS: Row[] = [
     true,
     [4.7, 11],
     ['designer-ui-ux'],
+    'design-ui-ux',
   ],
   [
     'lic-design',
@@ -188,6 +236,7 @@ const ROWS: Row[] = [
     true,
     [4.0, 6],
     ['designer-ui-ux'],
+    'design',
   ],
   [
     'figma-benguela',
@@ -200,14 +249,16 @@ const ROWS: Row[] = [
     true,
     [4.8, 2],
     ['designer-ui-ux'],
+    'design-ui-ux',
   ],
 ]
 
 export const PROGRAMS: Program[] = ROWS.map(
-  ([id, institution, name, level, months, schedule, cost, recognized, rating, careers]) => {
+  ([id, institution, name, level, months, schedule, cost, recognized, rating, careers, course]) => {
     const program: Program = {
       id,
       institution: INSTITUTIONS[institution],
+      course: { id: course, name: COURSES[course] } satisfies Course,
       name,
       level,
       durationMonths: months,

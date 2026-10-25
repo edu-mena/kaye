@@ -12,16 +12,12 @@ const open = (slug: string) =>
 const openTab = async (name: string) => userEvent.click(await screen.findByRole('tab', { name }))
 
 describe('CareerPage', () => {
-  it('opens with a credited photo and the three key numbers', async () => {
+  it('opens with a photo and the three key numbers', async () => {
     open('desenvolvedor-frontend')
     expect(
       await screen.findByRole('heading', { level: 1, name: 'Desenvolvedor Frontend' }),
     ).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /Programador a sorrir/ })).toHaveAttribute('srcset')
-    expect(screen.getByRole('link', { name: 'Foto: Daudi Mukiibi · CC BY-SA 4.0' })).toHaveAttribute(
-      'href',
-      'https://commons.wikimedia.org/wiki/File:Software_Developer_at_work_03.jpg',
-    )
     const hero = screen.getByRole('banner')
     expect(hero).toHaveTextContent('Salário mediano: 350 mil Kz/mês')
     expect(hero).toHaveTextContent('Procura +12% em 3 meses')

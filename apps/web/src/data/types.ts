@@ -114,7 +114,10 @@ export type CareerSummary = {
   image?: Photo
 }
 
-/** A photo (a career, a course), with the credit its licence asks for. */
+/**
+ * A photo (a career, a course). The credit is what its licence asks for once the photo is published;
+ * while the photos stay local the pages do not show it.
+ */
 export type Photo = {
   /** 800 px wide, for phones. */
   small: string
@@ -149,9 +152,15 @@ export type Institution = {
 
 export type Schedule = 'diurno' | 'pos_laboral' | 'online'
 
+/** A course in general ("Desenvolvimento Web"); each institution offers it as a Program. */
+export type Course = { id: string; name: string }
+
+/** One institution's offer of a course: its own name, length, price, schedule and score. */
 export type Program = {
   id: string
   institution: Institution
+  /** The course this is an offer of: several institutions can offer the same one. */
+  course: Course
   name: string
   level: 'formacao_profissional' | 'medio_tecnico' | 'licenciatura' | 'certificacao'
   durationMonths: number

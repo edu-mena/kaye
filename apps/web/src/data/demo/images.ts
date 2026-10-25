@@ -2,7 +2,8 @@ import type { Photo } from '../types'
 
 // Photos from Wikimedia Commons (most from Wiki Loves Africa 2017, "people at work"), under free
 // licences: CC BY-SA, CC BY or public domain. Cropped to 16:10 and saved at 800 and 1600 px as
-// assets/<careers|courses>/<slug>-<width>.webp. Each page credits the author with a link to the original.
+// assets/<careers|courses>/<slug>-<width>.webp. For now they stay local, so no page shows the credits;
+// they are kept here because publishing the photos means showing them again (CC BY / CC BY-SA).
 const FILES = import.meta.glob<string>(['../../assets/careers/*.webp', '../../assets/courses/*.webp'], {
   eager: true,
   import: 'default',
@@ -355,4 +356,24 @@ export const PROGRAM_IMAGES: Partial<Record<string, Photo>> = {
     license: 'CC BY-SA 4.0',
     url: 'https://commons.wikimedia.org/wiki/File:Font_selection_for_logo_design.jpg',
   }),
+  'eng-informatica-publica': photo(
+    'courses',
+    'eng-informatica-publica',
+    'Laboratório de informática universitário, com filas de computadores',
+    {
+      author: 'UndueMarmot',
+      license: 'CC0',
+      url: 'https://commons.wikimedia.org/wiki/File:De_La_Salle_University_%E2%80%93_Dasmari%C3%B1as_(DLSU%E2%80%93D)_Information_and_Communications_Technology_Center_(ICTC)_laboratory_room_203_(ICT203)_%E2%80%94_normal_view.jpg',
+    },
+  ),
+  'analise-dados-centro': photo(
+    'courses',
+    'analise-dados-centro',
+    'Equipa a trabalhar em portáteis numa sala de formação',
+    {
+      author: 'Ismizotz',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:ZoomTanzania%27s_Workplace.jpg',
+    },
+  ),
 }

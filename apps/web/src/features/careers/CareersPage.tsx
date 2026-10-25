@@ -6,7 +6,6 @@ import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
 import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
-import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
 import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
@@ -157,8 +156,6 @@ export default function CareersPage() {
               )}
               <Pagination page={page} pages={pages} onChange={goTo} label={t('careers.pages')} />
             </section>
-
-            <PhotoCredits photos={careers.map((career) => career.image)} />
           </div>
         )
       }}

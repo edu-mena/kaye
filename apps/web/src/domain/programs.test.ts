@@ -28,6 +28,7 @@ describe('matchesProgram', () => {
 
   it('filters by length, cost, schedule and ownership together', () => {
     expect(ids({ duration: findBand(DURATION_BANDS, 'longa') })).toEqual([
+      'eng-informatica-publica',
       'eng-informatica',
       'ciencias-computacao',
       'tecnico-informatica',
@@ -36,6 +37,7 @@ describe('matchesProgram', () => {
     ])
     expect(ids({ cost: findBand(COST_BANDS, 'ate200'), schedule: 'online' })).toEqual(['bootcamp-frontend'])
     expect(ids({ ownership: 'publica', career: 'analista-de-dados' })).toEqual([
+      'eng-informatica-publica',
       'ciencias-computacao',
       'estatistica',
     ])

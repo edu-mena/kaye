@@ -156,16 +156,6 @@ function CareerHero({ career, facts, onFit }: CareerHeroProps) {
         <Icon name="arrowLeft" className="size-4" />
         {t('careers.title')}
       </Link>
-      {image && (
-        <a
-          href={image.credit.url}
-          target="_blank"
-          rel="noreferrer"
-          className="absolute top-5 right-4 max-w-[45%] truncate text-xs text-white/80 underline-offset-2 hover:underline lg:right-10"
-        >
-          {t('career.photoCredit', { author: image.credit.author, license: image.credit.license })}
-        </a>
-      )}
 
       <div className="absolute inset-x-0 bottom-0 px-4 pb-6 lg:px-10 lg:pb-8">
         <div className="max-w-3xl">

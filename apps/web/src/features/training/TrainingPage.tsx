@@ -3,7 +3,6 @@ import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
 import { Icon, type IconName } from '../../components/icons'
 import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
-import { PhotoCredits } from '../../components/PhotoCredits'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
 import { CardRow, ROW_ITEM } from '../../components/ui/CardRow'
@@ -34,12 +33,8 @@ const OWNERSHIPS: Institution['ownership'][] = ['publica', 'privada']
 /** The list's filters in the URL; "Limpar filtros" removes them all. */
 const FILTER_KEYS = ['onde', 'duracao', 'preco', 'horario', 'gestao', 'nivel']
 
-// CC BY 4.0 asks for the author, the source and the licence, next to the photo.
-const PHOTO = {
-  author: 'Zapsmedia25',
-  license: 'CC BY 4.0',
-  url: 'https://commons.wikimedia.org/wiki/File:Wikiforhumanrights_Workshop_for_Students_at_the_Centre_for_Climate_Change_and_Sustainability_Studies_Department_university_of_Ghana_14.jpg',
-}
+// Hero photo: Zapsmedia25, CC BY 4.0, Wikimedia Commons ("Wikiforhumanrights Workshop for Students
+// ... university of Ghana 14"). No credit on screen while the photos stay local (see data/demo/images.ts).
 
 export default function TrainingPage() {
   const { t } = useTranslation()
@@ -105,8 +100,6 @@ export default function TrainingPage() {
                   })}
                 />
               </section>
-
-              <Method />
 
               <section aria-labelledby="ranking">
                 <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
@@ -216,7 +209,7 @@ export default function TrainingPage() {
                 </section>
               )}
 
-              <PhotoCredits photos={programs.map((program) => program.image)} />
+              <Method />
             </>
           )
         }}
@@ -301,7 +294,7 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
         </label>
       }
       media={
-        <figure className="relative h-56 sm:h-72 lg:h-full">
+        <div className="h-56 sm:h-72 lg:h-full">
           <img
             src={heroSmall}
             srcSet={`${heroSmall} 800w, ${heroLarge} 1600w`}
@@ -309,19 +302,7 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
             alt=""
             className="size-full rounded-2xl object-cover"
           />
-          <figcaption className="absolute right-2 bottom-2 rounded-full bg-coal/75 px-3 py-1 text-xs font-light text-white/80">
-            {t('training.photoCredit')}{' '}
-            <a
-              href={PHOTO.url}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:underline"
-            >
-              {PHOTO.author}
-            </a>{' '}
-            ({PHOTO.license})
-          </figcaption>
-        </figure>
+        </div>
       }
     />
   )

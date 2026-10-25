@@ -43,17 +43,17 @@ describe('TrainingPage', () => {
 
   it('shows the ranked courses in one row and filters by level', async () => {
     renderWithApp(<TrainingPage />)
-    expect(await screen.findByText('10 cursos classificados', { selector: 'output' })).toBeInTheDocument()
-    expect(rankedNames()).toHaveLength(10)
+    expect(await screen.findByText('12 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(rankedNames()).toHaveLength(12)
 
-    await userEvent.click(screen.getByRole('button', { name: /^Licenciatura\s*4 cursos$/ }))
+    await userEvent.click(screen.getByRole('button', { name: /^Licenciatura\s*5 cursos$/ }))
     expect(screen.getByTestId('location')).toHaveTextContent('nivel=licenciatura')
-    expect(rankedNames()).toHaveLength(4)
+    expect(rankedNames()).toHaveLength(5)
   })
 
-  it('opens each course on its own page, from the eye beside "Comparar"', async () => {
+  it('opens each course on its own page from the whole card', async () => {
     renderWithApp(<TrainingPage />, { route: '/cursos?carreira=designer-ui-ux' })
-    expect(await screen.findByRole('link', { name: 'Ver Figma e Design de Interfaces' })).toHaveAttribute(
+    expect(await screen.findByRole('link', { name: 'Figma e Design de Interfaces' })).toHaveAttribute(
       'href',
       '/cursos/figma-benguela?carreira=designer-ui-ux',
     )
@@ -62,13 +62,13 @@ describe('TrainingPage', () => {
   it('filters by length, price, schedule and ownership, and clears them all', async () => {
     renderWithApp(<TrainingPage />)
     await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'Duração' }), 'longa')
-    expect(screen.getByText('5 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText('6 cursos classificados', { selector: 'output' })).toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Instituição' }), 'publica')
     expect(screen.getByTestId('location')).toHaveTextContent('duracao=longa&gestao=publica')
-    expect(screen.getByText('3 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText('4 cursos classificados', { selector: 'output' })).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
-    expect(screen.getByText('10 cursos classificados', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText('12 cursos classificados', { selector: 'output' })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Limpar filtros' })).not.toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Custo total' }), 'ate200')
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Horários' }), 'online')

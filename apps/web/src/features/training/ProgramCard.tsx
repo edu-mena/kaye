@@ -95,11 +95,10 @@ type ProgramCardProps = {
 
 /**
  * A course, small enough for two side by side on a phone: the photo with the place and the score,
- * the name, the institution, how long (and the cost from sm), then "Comparar" and an eye that opens
- * the course's page. The photo is decorative (the name says it).
+ * the name, the institution, how long (and the cost from sm), then "Comparar" and an eye. The whole
+ * card (and the eye) opens the course's page. The photo is decorative (the name says it).
  */
 export function ProgramCard({ item, rank, featured = false, to }: ProgramCardProps) {
-  const { t } = useTranslation()
   const duration = useDuration()
   const { program, score } = item
   const tone: Tone = featured ? 'dark' : 'light'
@@ -107,7 +106,7 @@ export function ProgramCard({ item, rank, featured = false, to }: ProgramCardPro
 
   return (
     <article
-      className={`flex h-full flex-col overflow-hidden rounded-card shadow-card ${featured ? 'bg-coal text-white' : 'bg-surface text-night'}`}
+      className={`relative flex h-full flex-col overflow-hidden rounded-card shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift ${featured ? 'bg-coal text-white' : 'bg-surface text-night'}`}
     >
       <div className="relative h-28 shrink-0 bg-coal sm:h-36">
         {program.image && (
@@ -129,7 +128,12 @@ export function ProgramCard({ item, rank, featured = false, to }: ProgramCardPro
       </div>
 
       <div className="flex flex-1 flex-col p-2.5 sm:p-4">
-        <h3 className="line-clamp-2 text-sm leading-snug font-semibold sm:text-base">{program.name}</h3>
+        <h3 className="line-clamp-2 text-sm leading-snug font-semibold sm:text-base">
+          {/* The name is the card's link: it stretches over the whole card. */}
+          <Link to={to} className="after:absolute after:inset-0">
+            {program.name}
+          </Link>
+        </h3>
         <p className={`mt-2 flex items-center gap-2 text-xs font-light ${quiet}`}>
           <InstitutionLogo institution={program.institution} size="sm" />
           <span className="line-clamp-2 min-w-0">{program.institution.name}</span>
@@ -142,11 +146,13 @@ export function ProgramCard({ item, rank, featured = false, to }: ProgramCardPro
             {duration({ min: program.durationMonths, max: program.durationMonths })}
           </span>
         </p>
-        <div className="mt-3 flex items-center gap-1.5 sm:gap-2">
+        <div className="relative z-10 mt-3 flex items-center gap-1.5 sm:gap-2">
           <CompareButton programId={program.id} tone={tone} compact />
+          {/* The same place as the name: a visible cue, so it is left out of the tab order. */}
           <Link
             to={to}
-            aria-label={t('training.view', { name: program.name })}
+            aria-hidden="true"
+            tabIndex={-1}
             className={`grid size-9 shrink-0 place-items-center rounded-full border transition-colors ${
               featured
                 ? 'border-white/30 text-white hover:bg-white/10'
