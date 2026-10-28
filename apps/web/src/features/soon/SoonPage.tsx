@@ -3,18 +3,11 @@ import { Icon, type IconName } from '../../components/icons'
 import { PathMark } from '../../components/PathMark'
 import { ButtonLink } from '../../components/ui/Button'
 
-export type SoonSection =
-  'search' | 'academies' | 'companies' | 'market' | 'news' | 'notifications' | 'support' | 'settings'
+export type SoonSection = 'notifications' | 'support'
 
 const ICONS: Record<SoonSection, IconName> = {
-  search: 'search',
-  academies: 'landmark',
-  companies: 'building',
-  market: 'chart',
-  news: 'newspaper',
   notifications: 'bell',
   support: 'help',
-  settings: 'sliders',
 }
 
 /** A designed "coming soon" for sections that wait for their demo data. */

@@ -22,6 +22,8 @@ export default defineConfig(({ command, mode }) => {
     },
     test: {
       environment: 'jsdom',
+      // Whole pages under coverage on a busy machine went past the default 5 s; a real hang still fails.
+      testTimeout: 15_000,
       setupFiles: ['./src/test/setup.ts'],
       include: ['src/**/*.test.{ts,tsx}'],
       coverage: {

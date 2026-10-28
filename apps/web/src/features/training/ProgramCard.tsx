@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Icon } from '../../components/icons'
 import { InstitutionLogo } from '../../components/InstitutionLogo'
+import { PhotoImg } from '../../components/PhotoImg'
 import { ScoreRing } from '../../components/ScoreRing'
 import { Button } from '../../components/ui/Button'
 import { formatKz, formatPercent } from '../../domain/format'
@@ -110,7 +111,11 @@ export function ProgramCard({ item, rank, featured = false, to }: ProgramCardPro
     >
       <div className="relative h-28 shrink-0 bg-coal sm:h-36">
         {program.image && (
-          <img src={program.image.small} alt="" loading="lazy" className="size-full object-cover" />
+          <PhotoImg
+            photo={program.image}
+            sizes="(min-width: 1280px) 22vw, (min-width: 768px) 30vw, 50vw"
+            className="size-full object-cover"
+          />
         )}
         {rank !== undefined && (
           <span

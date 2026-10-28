@@ -1,13 +1,13 @@
 import type { Institution } from '../data/types'
 
-// Small words do not make initials: "Centro de Formação" → "CF".
+// Small words do not make initials: "Centro de Formação" → "CF". Nor do dashes: "MINEA - RECLIMA" → "MR".
 const SKIP = new Set(['de', 'da', 'do', 'das', 'dos', 'e'])
 
 /** "Academia Digital Exemplo" → "AD" */
 function initials(name: string): string {
   return name
     .split(/\s+/)
-    .filter((word) => word && !SKIP.has(word.toLowerCase()))
+    .filter((word) => /^\p{L}/u.test(word) && !SKIP.has(word.toLowerCase()))
     .slice(0, 2)
     .map((word) => word[0]?.toUpperCase() ?? '')
     .join('')
@@ -20,13 +20,14 @@ export function InstitutionLogo({
   institution,
   size = 'md',
 }: {
-  institution: Institution
+  /** `logoOnDark`: a white logo, shown on black. */
+  institution: Pick<Institution, 'name' | 'logo'> & { logoOnDark?: boolean }
   size?: 'sm' | 'md'
 }) {
   return (
     <span
       aria-hidden="true"
-      className={`grid shrink-0 place-items-center overflow-hidden rounded-full bg-white font-display font-bold text-night ${SIZES[size]}`}
+      className={`grid shrink-0 place-items-center overflow-hidden rounded-full font-display font-bold text-night ${institution.logoOnDark ? 'bg-coal' : 'bg-white'} ${SIZES[size]}`}
     >
       {institution.logo ? (
         <img src={institution.logo} alt="" className="size-full object-contain p-1.5" />

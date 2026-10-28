@@ -190,6 +190,7 @@ erDiagram
 | `pathways` | id, occupation_id, name*, summary* | Ex.: "Via universitária", "Via técnica rápida". |
 | `pathway_steps` | pathway_id, position, kind (académico, formação, certificação, portfólio, experiência), need (essencial, recomendado, opcional), self_taught, certificate (exigido, opcional), level, description*, typical_months | Um passo aponta para um nível, não para um curso concreto. A app mostra os cursos desse nível que levam à profissão. Os passos cobrem o **percurso académico**, a **formação** e a experiência. **Formação não é certificado:** aprender pode ser autodidata (cursos online, vídeos), e o certificado é muitas vezes opcional. Em várias carreiras (ex.: Frontend) o que decide é o **portfólio**. Os passos opcionais não contam para a duração nem para "faltam N passos". |
 | `program_scores` | program_id, is_recognized, rating_avg, rating_n, total_cost_aoa, duration_months, score, criteria (JSON), computed_at | Calculada todas as semanas. É a base das "melhores instituições para este curso" (5.7). |
+| `education_stats` | id, country_code, year, level (licenciatura, medio_tecnico, formacao_profissional), field (área de estudo), course_name, province, enrolled, graduates, source (INE, MESCTI), source_url | Planeada: dados oficiais de educação para o Mercado (diplomados por curso e área). Só números agregados, com a fonte e o ano. |
 
 **Custo total do caminho.** Para cada passo de formação, soma-se inscrição + propina × duração + outros custos, para o curso mais barato e para o curso mediano disponíveis na província do utilizador. Mostra-se sempre como faixa ("entre X e Y Kz"), nunca como um número único.
 
@@ -407,6 +408,8 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | GET | `/programs` | Cursos (`?occupation=&level=&province=`) | — |
 | GET | `/programs/ranking` | As melhores instituições para os cursos de uma profissão (`?occupation=&province=&sort=`) | — |
 | GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |
+| GET | `/companies`, `/companies/{slug}` | Empresas, com as profissões que contratam e os programas para jovens (só com fonte) | — |
+| GET | `/news` | Novidades: do Kayé, das instituições e das empresas, as mais recentes primeiro | — |
 | GET, PUT | `/cv` | Dados do CV | sim |
 | GET | `/cv/preview` | Pré-visualização em HTML | sim |
 | POST | `/cv/export` | PDF | sim |
@@ -433,7 +436,7 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
 | | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
 | | Empresas | As empresas líderes de cada setor | Menu |
-| | Mercado | Áreas em alta, procura vs oferta de cada curso (ex.: Odoo é muito pedido e nenhuma academia conhecida o ensina), as empresas de sonho em Angola, os cursos que abrem portas para trabalhar no estrangeiro, e anúncios de recrutamento com ligação à fonte | Menu |
+| | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |
 | | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
 | Para ti | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
 | | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província) | Sino |
@@ -512,7 +515,8 @@ Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O a
 - **Pendente antes do lançamento público.** Validar com um advogado:
   1. se é preciso notificar a APD (Agência de Protecção de Dados);
   2. as regras para guardar dados em servidores fora de Angola (a Hostinger não tem servidores em Angola);
-  3. os termos de cada site de vagas de onde recolhemos dados.
+  3. os termos de cada site de vagas de onde recolhemos dados;
+  4. os Termos de uso e a Política de privacidade da app (`/termos` e `/privacidade`, hoje marcados como versão provisória), incluindo quem é o responsável pelo tratamento e o e-mail de contacto.
 
 ## 9. Infraestrutura e deploy
 

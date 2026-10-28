@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink, useMatch } from 'react-router'
 import logo from '../assets/kaye-logo.png'
-import { DATA_SOURCE } from '../data/source'
 import { useHideOnScroll } from '../lib/useHideOnScroll'
+import { useUser } from '../state/userStore'
 import { Icon, type IconName } from './icons'
 import { Dialog } from './ui/Dialog'
 
@@ -178,7 +178,10 @@ const ROUND_BUTTON = 'grid size-10 place-items-center rounded-full bg-ash-100 te
  */
 export function TopBar() {
   const { t } = useTranslation()
+  const { photo } = useUser()
   const [menuOpen, setMenuOpen] = useState(false)
+  // On Pesquisa the page has its own field: a second one up here would only repeat it.
+  const onSearch = useMatch('/pesquisa')
   const hidden = useHideOnScroll()
   const ref = useRef<HTMLElement>(null)
 
@@ -201,15 +204,17 @@ export function TopBar() {
       <Link to="/" className="rounded-md lg:hidden">
         <img src={logo} alt="Kayé" className="h-8 w-auto" />
       </Link>
-      <Link
-        to="/pesquisa"
-        className="hidden h-11 w-full max-w-md items-center gap-3 rounded-full bg-ash-100 pr-4 pl-1.5 text-sm text-muted transition-colors hover:bg-ash-200 lg:flex"
-      >
-        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-white">
-          <Icon name="search" className="size-4" />
-        </span>
-        {t('nav.searchPlaceholder')}
-      </Link>
+      {!onSearch && (
+        <Link
+          to="/pesquisa"
+          className="hidden h-11 w-full max-w-md items-center gap-3 rounded-full bg-ash-100 pr-4 pl-1.5 text-sm text-muted transition-colors hover:bg-ash-200 lg:flex"
+        >
+          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-white">
+            <Icon name="search" className="size-4" />
+          </span>
+          {t('nav.searchPlaceholder')}
+        </Link>
+      )}
       <div className="ml-auto flex items-center gap-2">
         <Link to="/notificacoes" className={ROUND_BUTTON}>
           <Icon name="bell" className="size-5" />
@@ -217,9 +222,13 @@ export function TopBar() {
         </Link>
         <Link
           to="/perfil"
-          className="hidden size-10 place-items-center rounded-full bg-coal text-gold hover:bg-night lg:grid"
+          className="hidden size-10 place-items-center overflow-hidden rounded-full bg-coal text-gold hover:bg-night lg:grid"
         >
-          <Icon name="user" className="size-5" />
+          {photo ? (
+            <img src={photo} alt="" className="size-full object-cover" />
+          ) : (
+            <Icon name="user" className="size-5" />
+          )}
           <span className="sr-only">{t('nav.profile')}</span>
         </Link>
         <button
@@ -287,18 +296,5 @@ export function BottomNav() {
         ))}
       </ul>
     </nav>
-  )
-}
-
-/** Honest about demo content: numbers here must never pass for real ones. */
-export function DemoBanner() {
-  const { t } = useTranslation()
-  if (DATA_SOURCE !== 'demo') return null
-
-  return (
-    <p className="mb-5 flex items-start gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs text-copy">
-      <Icon name="info" className="mt-px size-4 shrink-0" />
-      {t('common.demo')}
-    </p>
   )
 }

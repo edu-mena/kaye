@@ -4,9 +4,9 @@ import { Icon, type IconName } from './icons'
 type Stat = { icon: IconName; value: string | number; label: string }
 
 /** The page's numbers as light grey pills: a gold icon in a dark circle, the value strong, the label quiet. */
-function StatPills({ stats }: { stats: Stat[] }) {
+export function StatPills({ stats, className = 'mt-6' }: { stats: Stat[]; className?: string }) {
   return (
-    <ul className="mt-6 flex flex-wrap gap-2">
+    <ul className={`flex flex-wrap gap-2 ${className}`}>
       {stats.map((stat) => (
         <li
           key={stat.label}

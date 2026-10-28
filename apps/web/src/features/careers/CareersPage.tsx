@@ -6,6 +6,8 @@ import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
 import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
+import { ListSkeleton } from '../../components/PageStates'
+import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
 import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
@@ -19,7 +21,7 @@ import { interestLevel } from '../../domain/fit'
 import { formatKz } from '../../domain/format'
 import { compatibility } from '../../domain/riasec'
 import { paginate } from '../../lib/pagination'
-import { useUrlFilters } from '../../lib/useUrlFilters'
+import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 
 const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.some((group) => group === value)
@@ -36,7 +38,7 @@ export default function CareersPage() {
   const query = useCareers()
   const { profile } = useRiasecProfile()
   const [params, setParam] = useUrlFilters()
-  const search = params.get('q') ?? ''
+  const [search, setSearch] = useUrlText('q')
   const groupParam = params.get('area')
   const group = isGroup(groupParam) ? groupParam : null
   const sortParam = params.get('ordem')
@@ -56,7 +58,7 @@ export default function CareersPage() {
   }
 
   return (
-    <QueryState query={query}>
+    <QueryState query={query} loading={<ListSkeleton />}>
       {(careers) => {
         const results = filterCareers(careers, { query: search, group, sort, profile, demand, salary, guide })
         const guides = careers.filter((career) => career.detailed && career.image)
@@ -72,7 +74,7 @@ export default function CareersPage() {
               careers={careers}
               guides={guides}
               search={search}
-              onSearch={(value) => setFilter('q', value || null)}
+              onSearch={(value) => setSearch(value, ['pagina'])}
             />
             <Areas careers={careers} selected={group} onSelect={(value) => setFilter('area', value)} />
             {!search && !group && guides.length > 0 && <Guides guides={guides} />}
@@ -209,14 +211,21 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
             aria-hidden="true"
             className="grid h-44 grid-cols-3 gap-2 sm:h-56 lg:h-full lg:grid-cols-2 lg:grid-rows-2"
           >
-            {guides.slice(0, 3).map((career, index) => (
-              <img
-                key={career.slug}
-                src={career.image?.small}
-                alt=""
-                className={`size-full rounded-2xl object-cover object-[center_30%] ${index === 0 ? 'lg:row-span-2' : ''}`}
-              />
-            ))}
+            {guides
+              .slice(0, 3)
+              .flatMap((career, index) =>
+                career.image
+                  ? [
+                      <PhotoImg
+                        key={career.slug}
+                        photo={career.image}
+                        sizes="(min-width: 1024px) 25vw, 33vw"
+                        priority
+                        className={`size-full rounded-2xl object-cover object-[center_30%] ${index === 0 ? 'lg:row-span-2' : ''}`}
+                      />,
+                    ]
+                  : [],
+              )}
           </div>
         )
       }
@@ -271,13 +280,13 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
               to={`/carreiras/${career.slug}`}
               className="group relative block h-72 overflow-hidden rounded-card bg-coal text-white shadow-card"
             >
-              <img
-                src={career.image?.small}
-                srcSet={career.image ? `${career.image.small} 800w, ${career.image.large} 1600w` : undefined}
-                sizes="(min-width: 768px) 33vw, 100vw"
-                alt=""
-                className="absolute inset-0 size-full object-cover object-[center_30%] transition duration-500 group-hover:scale-105"
-              />
+              {career.image && (
+                <PhotoImg
+                  photo={career.image}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="absolute inset-0 size-full object-cover object-[center_30%] transition duration-500 group-hover:scale-105"
+                />
+              )}
               <span
                 aria-hidden="true"
                 className="absolute inset-0 bg-linear-to-t from-coal via-coal/60 to-transparent"

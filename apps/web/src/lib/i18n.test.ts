@@ -22,20 +22,20 @@ describe('i18n', () => {
     }
   })
 
-  it('changes the language, the page lang and remembers the choice', () => {
-    changeLocale('en')
+  it('changes the language, the page lang and remembers the choice', async () => {
+    await changeLocale('en')
 
     expect(i18n.language).toBe('en')
     expect(document.documentElement.lang).toBe('en')
     expect(localStorage.getItem('kaye.locale')).toBe('en')
   })
 
-  it('still changes the language when storage is blocked', () => {
+  it('still changes the language when storage is blocked', async () => {
     vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new DOMException('blocked', 'SecurityError')
     })
 
-    expect(() => changeLocale('fr')).not.toThrow()
+    await expect(changeLocale('fr')).resolves.toBeUndefined()
     expect(i18n.language).toBe('fr')
   })
 
@@ -48,6 +48,7 @@ describe('i18n', () => {
 async function loadFresh() {
   vi.resetModules()
   const module = await import('./i18n')
+  await module.i18nReady
   return module.i18n.language
 }
 

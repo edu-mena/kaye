@@ -190,9 +190,9 @@ function EntryList({ section, entries, onChange }: EntryListProps) {
             onChange={(event) => update(index, { description: event.target.value })}
           />
           <Button
-            variant="ghost"
+            variant="danger"
             size="sm"
-            className="-ml-3 text-coral"
+            className="-ml-3"
             onClick={() => onChange(entries.filter((_, position) => position !== index))}
           >
             <Icon name="trash" className="size-4" />

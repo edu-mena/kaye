@@ -7,12 +7,14 @@ type PageHeaderProps = {
   subtitle?: string
   back?: { to: string; label: string }
   action?: ReactNode
+  /** Dashboards and settings: a smaller title and less room below, so the content starts high. */
+  compact?: boolean
 }
 
 /** Top of a screen: a quiet way back, the title, and one line on what the screen is for. */
-export function PageHeader({ title, subtitle, back, action }: PageHeaderProps) {
+export function PageHeader({ title, subtitle, back, action, compact = false }: PageHeaderProps) {
   return (
-    <header className="mb-8 rise">
+    <header className={`rise ${compact ? 'mb-4' : 'mb-8'}`}>
       {back && (
         <Link
           to={back.to}
@@ -24,8 +26,16 @@ export function PageHeader({ title, subtitle, back, action }: PageHeaderProps) {
       )}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-3xl leading-tight font-extrabold text-night sm:text-4xl">{title}</h1>
-          {subtitle && <p className="mt-2 max-w-prose text-sm font-light text-copy">{subtitle}</p>}
+          <h1
+            className={`leading-tight font-extrabold text-night ${compact ? 'text-2xl' : 'text-3xl sm:text-4xl'}`}
+          >
+            {title}
+          </h1>
+          {subtitle && (
+            <p className={`max-w-prose text-sm font-light text-copy ${compact ? 'mt-1' : 'mt-2'}`}>
+              {subtitle}
+            </p>
+          )}
         </div>
         {action}
       </div>
@@ -46,7 +56,7 @@ type SectionHeadingProps = {
 export function SectionHeading({ id, title, icon, action, tone = 'light' }: SectionHeadingProps) {
   const dark = tone === 'dark'
   return (
-    <div className="mb-6 flex items-center justify-between gap-4">
+    <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
       <h2
         id={id}
         className={`flex items-center gap-3 text-xl font-extrabold sm:text-2xl ${dark ? 'text-white' : 'text-night'}`}

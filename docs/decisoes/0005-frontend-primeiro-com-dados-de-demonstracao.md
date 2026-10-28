@@ -1,6 +1,6 @@
 # 0005. Frontend primeiro, com dados de demonstração
 
-23 de outubro de 2026 · Estado: Aceite
+23 de outubro de 2026 · Estado: Aceite. A faixa "Demonstração" e a constante `DATA_SOURCE` saíram com a [0007](0007-sem-faixa-de-demonstracao.md).
 
 ## Contexto
 

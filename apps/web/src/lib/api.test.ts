@@ -13,7 +13,7 @@ describe('api', () => {
 
   it('asks for JSON in the current language', async () => {
     const fetchMock = mockFetchJson({})
-    changeLocale('fr')
+    await changeLocale('fr')
 
     await api('/health')
 

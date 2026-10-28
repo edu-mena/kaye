@@ -6,6 +6,7 @@ import { formatKz } from '../domain/format'
 import { DemandMeter } from './DemandMeter'
 import { GROUP_ICONS } from './groupIcons'
 import { Icon } from './icons'
+import { PhotoImg } from './PhotoImg'
 import { Chip } from './ui/Chip'
 
 const NO_REASONS: string[] = []
@@ -34,10 +35,9 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
     >
       <span className="relative block h-28 shrink-0 bg-coal @3xs:h-40">
         {career.image && (
-          <img
-            src={career.image.small}
-            alt=""
-            loading="lazy"
+          <PhotoImg
+            photo={career.image}
+            sizes="(min-width: 1536px) 20vw, (min-width: 1280px) 25vw, 50vw"
             className="size-full object-cover object-[center_30%]"
           />
         )}

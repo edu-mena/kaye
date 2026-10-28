@@ -3,6 +3,7 @@ import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
 import { Icon, type IconName } from '../../components/icons'
 import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
+import { ListSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
 import { CardRow, ROW_ITEM } from '../../components/ui/CardRow'
@@ -56,7 +57,7 @@ export default function TrainingPage() {
 
   return (
     <div className="space-y-12">
-      <QueryState query={programsQuery}>
+      <QueryState query={programsQuery} loading={<ListSkeleton tiles={3} />}>
         {(programs) => {
           const careerOptions = [...new Set(programs.flatMap((program) => program.careers))]
             .map((slug) => ({ value: slug, label: careers.find((item) => item.slug === slug)?.name ?? slug }))
@@ -300,6 +301,8 @@ function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
             srcSet={`${heroSmall} 800w, ${heroLarge} 1600w`}
             sizes="(min-width: 1024px) 45vw, 100vw"
             alt=""
+            fetchPriority="high"
+            decoding="async"
             className="size-full rounded-2xl object-cover"
           />
         </div>

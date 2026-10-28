@@ -6,10 +6,10 @@ Isto reduz muito o risco legal: não reproduzimos o conteúdo dos sites, só con
 
 ## Regras de recolha
 
-- Respeitar o `robots.txt` e os termos de uso. **Se os termos proíbem, não se recolhe até haver autorização escrita.**
+- Respeitar o `robots.txt`. Os termos de uso já não impedem a recolha para estatística ([ADR 0008](decisoes/0008-recolha-de-vagas-de-todos-os-sites.md)): guardam-se só factos e mostram-se só números agregados, com a fonte.
 - Preferir *feeds* RSS ou APIs (foram feitos para serem lidos por máquinas) a ler páginas HTML.
 - Um pedido a cada 3 a 5 segundos, com um User-Agent identificado e um contacto (`KayeBot/1.0 (+https://<domínio>/bot)`).
-- Guardar o original tal como veio (`job_postings_raw`), para reprocessar mais tarde. Esse original nunca é mostrado a ninguém.
+- Guardar só os factos de cada vaga (`scrapers/data/postings.jsonl`); o texto do anúncio é lido e descartado. Quando houver API, o original fica em `job_postings_raw`, que nunca é mostrado a ninguém.
 - Apagar os dados pessoais que apareçam nas vagas (telefones e emails de pessoas) antes de os guardar.
 - Rever cada fonte de 6 em 6 meses: os termos mudam.
 
@@ -25,6 +25,10 @@ Verificadas a 23 de outubro de 2026.
 | [bolsadeoportunidades.com](https://www.bolsadeoportunidades.com) | Portal do FAJE | Não tem | Não encontrado | Só tem [política de privacidade](https://www.bolsadeoportunidades.com/politica-privacidade) | **Pedir autorização**: é uma entidade ligada ao emprego jovem, interessada no mesmo objetivo |
 | [angola.un.org/pt/jobs](https://angola.un.org/pt/jobs) | Vagas da ONU em Angola | Permite `/pt/jobs` | Não encontrado | Termos gerais da ONU | **Prioridade baixa**: poucas vagas tech, quase todas seniores |
 | Canais e páginas de WhatsApp | Grupos de vagas | Não aplicável | Não aplicável | Os termos do WhatsApp proíbem automatização | **Só colagem manual** no painel ([arquitetura, 5.2](arquitetura.md#52-recolha-e-tratamento-de-vagas)) |
+
+## Fontes recolhidas (28/10/2026)
+
+AngoVagas, Ango Emprego e AngoRecruta (API do WordPress, todo o histórico), Jobartis (listagem, datas estimadas; e a página de cada vaga dos últimos 60 dias, com as habilitações mínimas e o prazo) e Ver Angola Empregos (RSS). Para os concursos públicos, os despachos do Diário da República publicados no AngoLEX (o número oficial de lugares de cada órgão). Detalhe em [scrapers/README.md](../scrapers/README.md).
 
 ## Pedido de autorização (modelo)
 

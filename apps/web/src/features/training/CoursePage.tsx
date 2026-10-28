@@ -1,16 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { Link, useParams, useSearchParams } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
-import { GROUP_ICONS } from '../../components/groupIcons'
+import { CareerRow, LIST_ROW } from '../../components/CareerRow'
 import { Icon } from '../../components/icons'
 import { InstitutionLogo } from '../../components/InstitutionLogo'
+import { DetailSkeleton, NotFoundState } from '../../components/PageStates'
+import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
 import { ScoreRing } from '../../components/ScoreRing'
-import { ButtonLink } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { useCareer, useCareers, usePrograms } from '../../data/queries'
-import type { CareerSummary, Program } from '../../data/types'
+import type { Program } from '../../data/types'
 import { formatKz } from '../../domain/format'
 import { rankPrograms, scorePrograms, type ScoredProgram } from '../../domain/ranking'
 import { useDuration } from '../../lib/useFormat'
@@ -34,20 +35,18 @@ export default function CoursePage() {
   const query = careerSlug ? `?carreira=${careerSlug}` : ''
 
   return (
-    <QueryState query={programsQuery}>
+    <QueryState query={programsQuery} loading={<DetailSkeleton tabs={false} />}>
       {(programs) => {
         // Scored against the whole catalogue, so the score and place match the Cursos page.
         const scored = scorePrograms(programs)
         const item = scored.find((candidate) => candidate.program.id === id)
         if (!item) {
           return (
-            <div className="rounded-card bg-surface p-10 text-center shadow-card">
-              <p className="text-sm font-light text-copy">{t('training.notFound')}</p>
-              <ButtonLink to="/cursos" variant="secondary" size="sm" className="mt-6">
-                <Icon name="arrowLeft" className="size-4" />
-                {t('training.back')}
-              </ButtonLink>
-            </div>
+            <NotFoundState
+              title={t('training.notFoundTitle')}
+              body={t('training.notFound')}
+              action={{ to: '/cursos', label: t('training.back') }}
+            />
           )
         }
         const { program } = item
@@ -142,11 +141,11 @@ function Hero({ item, institutions, back }: HeroProps) {
   return (
     <section className="relative isolate overflow-hidden rounded-card bg-coal text-white">
       {program.image && (
-        <img
-          src={program.image.small}
-          srcSet={`${program.image.small} 800w, ${program.image.large} 1600w`}
+        <PhotoImg
+          photo={program.image}
           sizes="100vw"
           alt={program.image.alt}
+          priority
           className="absolute inset-0 -z-10 size-full object-cover"
         />
       )}
@@ -175,26 +174,6 @@ function Hero({ item, institutions, back }: HeroProps) {
         </div>
       </div>
     </section>
-  )
-}
-
-const ROW =
-  'flex items-center gap-3 rounded-2xl bg-surface p-3 shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift'
-
-/** A career after the first one: its area icon, the name and the area, in one line. */
-function CareerRow({ career }: { career: CareerSummary }) {
-  const { t } = useTranslation()
-  return (
-    <Link to={`/carreiras/${career.slug}`} className={ROW}>
-      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-coal text-gold">
-        <Icon name={GROUP_ICONS[career.group]} className="size-5" />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-sm leading-snug font-semibold text-night">{career.name}</span>
-        <span className="mt-1 block text-xs font-light text-muted">{t(`groups.${career.group}`)}</span>
-      </span>
-      <Icon name="chevronRight" className="size-5 shrink-0 text-muted" />
-    </Link>
   )
 }
 
@@ -231,7 +210,13 @@ function OfferFeature({ offer, to }: OfferProps) {
       className="block overflow-hidden rounded-2xl bg-surface shadow-card ring-2 ring-night"
     >
       <span className="relative block h-32 bg-coal">
-        {program.image && <img src={program.image.small} alt="" className="size-full object-cover" />}
+        {program.image && (
+          <PhotoImg
+            photo={program.image}
+            sizes="(min-width: 1024px) 22rem, 100vw"
+            className="size-full object-cover"
+          />
+        )}
         <span className="absolute bottom-2 left-2">
           <InstitutionLogo institution={program.institution} />
         </span>
@@ -261,7 +246,7 @@ function OfferRow({ offer, to }: OfferProps) {
   const { t } = useTranslation()
   const { program, score } = offer
   return (
-    <Link to={to} preventScrollReset className={ROW}>
+    <Link to={to} preventScrollReset className={LIST_ROW}>
       <InstitutionLogo institution={program.institution} size="sm" />
       <span className="min-w-0 flex-1">
         <span className="block text-sm leading-snug font-semibold text-night">

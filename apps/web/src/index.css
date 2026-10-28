@@ -3,6 +3,19 @@
 @import 'tailwindcss';
 
 /*
+ * Plain figures for pages full of numbers (font-figures): Inter only for the digits and "%",
+ * so the letters around them stay in Bricolage. Downloaded only where it is used.
+ */
+@font-face {
+  font-family: 'Kaye Figures';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0030-0039, U+0025;
+}
+
+/*
  * Kayé design tokens. Brand: azul-marinho + amarelo. Structure inspired by NOVU,
  * identity from the logo: the winding path. See docs/design.md.
  * Contrast (AA) is checked for every text colour on --color-paper and white.
@@ -10,6 +23,7 @@
 @theme {
   --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-figures: 'Kaye Figures', 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
 
   /* Line height: at least 1.5x the size for running text (WCAG 1.4.12). Spacing follows an 8 px grid. */
   --text-xs--line-height: 1.5;
@@ -22,6 +36,8 @@
   --color-blue-dark: #032a96;
   --color-gold: #ffc000;
   --color-gold-ink: #8a6400;
+  /* Behind dark text: selected text, searched words. */
+  --color-gold-soft: #ffe7a3;
 
   --color-ink: #1b2a43;
   /* Near-black for active states, headings and strong blocks; warm grays around it. */

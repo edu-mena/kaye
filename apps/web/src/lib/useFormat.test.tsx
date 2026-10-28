@@ -21,8 +21,8 @@ describe('useDuration', () => {
     expect(duration({ min: 13, max: 13 })).toBe('13 meses')
   })
 
-  it('follows the language, decimal separator included', () => {
-    changeLocale('en')
+  it('follows the language, decimal separator included', async () => {
+    await changeLocale('en')
     const { result } = renderHook(() => useDuration())
     expect(result.current({ min: 54, max: 72 })).toBe('4.5 to 6 years')
   })

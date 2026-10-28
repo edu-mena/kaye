@@ -13,6 +13,13 @@ export type Profile = {
   guardianInformed: boolean
 }
 
+/** One step in the person's history ("Percurso"); `ref` names the career, course or CV model. */
+export type HistoryEvent = {
+  type: 'profile' | 'profileEdit' | 'test' | 'visit' | 'saved' | 'target' | 'cv' | 'compare'
+  at: string
+  ref?: string
+}
+
 export type UserData = {
   version: 1
   profile: Profile | null
@@ -25,6 +32,13 @@ export type UserData = {
   cv: CvData
   cvBasedOn: string | null
   compare: string[]
+  /** Newest first, at most MAX_HISTORY. */
+  history: HistoryEvent[]
+  /** What the person searched for and opened (Pesquisa), newest first, at most MAX_SEARCHES. */
+  searches: string[]
+  /** Profile photo and cover, as small JPEG data URLs (they never leave the device). */
+  photo: string | null
+  cover: string | null
 }
 
 export const EMPTY_CV: CvData = {
@@ -53,9 +67,15 @@ const INITIAL: UserData = {
   cv: EMPTY_CV,
   cvBasedOn: null,
   compare: [],
+  history: [],
+  searches: [],
+  photo: null,
+  cover: null,
 }
 
 export const MAX_COMPARE = 3
+export const MAX_HISTORY = 100
+export const MAX_SEARCHES = 6
 const KEY = 'kaye.user.v1'
 const listeners = new Set<() => void>()
 let state: UserData = load()
@@ -106,13 +126,21 @@ export function reloadUser() {
 const toggle = (list: string[], item: string) =>
   list.includes(item) ? list.filter((entry) => entry !== item) : [...list, item]
 
+/** The user with one more step in their history (removals and repeats are not steps). */
+function logged(user: UserData, type: HistoryEvent['type'], ref?: string): UserData {
+  const event: HistoryEvent = { type, at: new Date().toISOString(), ...(ref ? { ref } : {}) }
+  return { ...user, history: [event, ...user.history].slice(0, MAX_HISTORY) }
+}
+
 export const userActions = {
-  saveProfile: (profile: Profile) => update((user) => ({ ...user, profile })),
+  saveProfile: (profile: Profile) =>
+    update((user) => logged({ ...user, profile }, user.profile ? 'profileEdit' : 'profile')),
 
   answer: (questionId: string, value: Likert) =>
     update((user) => ({ ...user, answers: { ...user.answers, [questionId]: value } })),
 
-  completeAssessment: () => update((user) => ({ ...user, assessmentCompletedAt: new Date().toISOString() })),
+  completeAssessment: () =>
+    update((user) => logged({ ...user, assessmentCompletedAt: new Date().toISOString() }, 'test')),
 
   restartAssessment: () => update((user) => ({ ...user, answers: {}, assessmentCompletedAt: null })),
 
@@ -125,37 +153,68 @@ export const userActions = {
     }),
 
   toggleSaved: (slug: string) =>
-    update((user) => ({ ...user, savedCareers: toggle(user.savedCareers, slug) })),
+    update((user) => {
+      const next = { ...user, savedCareers: toggle(user.savedCareers, slug) }
+      return user.savedCareers.includes(slug) ? next : logged(next, 'saved', slug)
+    }),
 
   visitCareer: (slug: string) =>
     update((user) =>
-      user.visitedCareers.includes(slug) ? user : { ...user, visitedCareers: [...user.visitedCareers, slug] },
+      user.visitedCareers.includes(slug)
+        ? user
+        : logged({ ...user, visitedCareers: [...user.visitedCareers, slug] }, 'visit', slug),
     ),
 
-  setTarget: (slug: string | null) => update((user) => ({ ...user, targetCareer: slug })),
+  setTarget: (slug: string | null) =>
+    update((user) =>
+      slug ? logged({ ...user, targetCareer: slug }, 'target', slug) : { ...user, targetCareer: null },
+    ),
 
   updateCv: (cv: CvData) => update((user) => ({ ...user, cv })),
 
   /** Copies the structure of a model CV, never its data (docs/arquitetura.md, 5.5). */
   startCvFrom: (example: CvExample) =>
-    update((user) => ({
-      ...user,
-      cvBasedOn: example.id,
-      cv: {
-        ...EMPTY_CV,
-        name: user.profile?.name ?? '',
-        experience: example.cv.experience.map(newEntry),
-        education: example.cv.education.map(newEntry),
-        projects: example.cv.projects.map(newEntry),
-        certifications: example.cv.certifications.map(newEntry),
-      },
-    })),
+    update((user) =>
+      logged(
+        {
+          ...user,
+          cvBasedOn: example.id,
+          cv: {
+            ...EMPTY_CV,
+            name: user.profile?.name ?? '',
+            experience: example.cv.experience.map(newEntry),
+            education: example.cv.education.map(newEntry),
+            projects: example.cv.projects.map(newEntry),
+            certifications: example.cv.certifications.map(newEntry),
+          },
+        },
+        'cv',
+        example.id,
+      ),
+    ),
 
   toggleCompare: (programId: string) =>
     update((user) => {
       if (user.compare.includes(programId)) return { ...user, compare: toggle(user.compare, programId) }
-      return user.compare.length >= MAX_COMPARE ? user : { ...user, compare: [...user.compare, programId] }
+      return user.compare.length >= MAX_COMPARE
+        ? user
+        : logged({ ...user, compare: [...user.compare, programId] }, 'compare', programId)
     }),
+
+  /** Keeps a search the person used; the same words again move to the top, whatever their case. */
+  addSearch: (query: string) =>
+    update((user) => {
+      const search = query.trim().replace(/\s+/g, ' ')
+      if (!search) return user
+      const others = user.searches.filter((entry) => entry.toLowerCase() !== search.toLowerCase())
+      return { ...user, searches: [search, ...others].slice(0, MAX_SEARCHES) }
+    }),
+
+  clearSearches: () => update((user) => ({ ...user, searches: [] })),
+
+  setPhoto: (photo: string | null) => update((user) => ({ ...user, photo })),
+
+  setCover: (cover: string | null) => update((user) => ({ ...user, cover })),
 
   /** "Apagar os meus dados": everything the app keeps about the person. */
   eraseAll: () => {

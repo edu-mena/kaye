@@ -1,11 +1,10 @@
 import { expect, expectAccessible, test } from './fixtures'
 
 test.describe('app shell', () => {
-  test('a first visit welcomes, explains the demo and is accessible', async ({ page, consoleErrors }) => {
+  test('a first visit welcomes and is accessible', async ({ page, consoleErrors }) => {
     await page.goto('/')
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Olá! Este é o Kayé')
-    await expect(page.getByText(/Demonstração: carreiras, cursos e números são exemplos/)).toBeVisible()
     await expect(page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link')).toHaveCount(
       5,
     )

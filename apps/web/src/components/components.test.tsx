@@ -6,7 +6,7 @@ import { changeLocale } from '../lib/i18n'
 import { pageItems } from '../lib/pagination'
 import { renderWithApp } from '../test/render'
 import { seedUser } from '../test/user'
-import { BottomNav, DemoBanner, Sidebar, TopBar } from './Navigation'
+import { BottomNav, Sidebar, TopBar } from './Navigation'
 import { RequireProfile } from './RequireProfile'
 import { BarList } from './ui/BarList'
 import { Dialog } from './ui/Dialog'
@@ -42,8 +42,8 @@ describe('navigation', () => {
     expect(labels).toEqual(['Início', 'Pesquisa', 'Carreiras', 'Cursos', 'CV'])
   })
 
-  it('marks the current destination and follows the language', () => {
-    changeLocale('fr')
+  it('marks the current destination and follows the language', async () => {
+    await changeLocale('fr')
     renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />, { route: '/cursos' })
     expect(screen.getByRole('link', { name: 'Cours' })).toHaveAttribute('aria-current', 'page')
     expect(screen.getByRole('link', { name: 'Métiers' })).toHaveAttribute('href', '/carreiras')
@@ -71,9 +71,13 @@ describe('navigation', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('always says the data is a demonstration', () => {
-    renderWithApp(<DemoBanner />)
-    expect(screen.getByText(/Demonstração/)).toBeInTheDocument()
+  it('leads to Pesquisa from the bar, except on Pesquisa itself', () => {
+    const { unmount } = renderWithApp(<TopBar />, { route: '/carreiras' })
+    expect(screen.getByRole('link', { name: /Pesquisar carreiras/ })).toHaveAttribute('href', '/pesquisa')
+    unmount()
+
+    renderWithApp(<TopBar />, { route: '/pesquisa?q=dados' })
+    expect(screen.queryByRole('link', { name: /Pesquisar carreiras/ })).not.toBeInTheDocument()
   })
 })
 

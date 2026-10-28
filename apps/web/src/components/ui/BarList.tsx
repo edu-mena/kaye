@@ -12,16 +12,18 @@ type BarListProps = {
   label: string
   /** The labels of the emphasised items in the main blue (the bars keep their colour). */
   accentLabels?: boolean
+  /** Two side by side from sm, read row by row: long lists in a wide block. */
+  columns?: 1 | 2
 }
 
 /**
  * Horizontal bars for magnitudes (docs/design.md, "Gráficos"): one hue, emphasis
  * in near-black and context in warm grey, value written beside every bar.
  */
-export function BarList({ items, label, accentLabels = false }: BarListProps) {
+export function BarList({ items, label, accentLabels = false, columns = 1 }: BarListProps) {
   const strong = accentLabels ? 'font-normal text-blue' : 'font-normal text-night'
   return (
-    <ul aria-label={label} className="space-y-3">
+    <ul aria-label={label} className={columns === 2 ? 'grid gap-x-6 gap-y-3 sm:grid-cols-2' : 'space-y-3'}>
       {items.map((item) => (
         <li key={item.label} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1">
           <span className={`text-sm ${item.emphasized ? strong : 'font-light text-muted'}`}>

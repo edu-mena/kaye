@@ -1,29 +1,27 @@
 import type { UseQueryResult } from '@tanstack/react-query'
 import type { ReactNode } from 'react'
-import { useTranslation } from 'react-i18next'
+import { ErrorState, Loading, RowsSkeleton } from './PageStates'
 
 type QueryStateProps<T> = {
   query: UseQueryResult<T>
   children: (data: T) => ReactNode
+  /** A skeleton in the shape of what is loading; a few rows when not given. */
+  loading?: ReactNode
+  /** Part of a page (a section), not the whole page: a small error with "Tentar outra vez". */
+  compact?: boolean
 }
 
-/** Loading and error states, the same on every screen. */
-export function QueryState<T>({ query, children }: QueryStateProps<T>) {
-  const { t } = useTranslation()
-
+/** Loading and error states, designed the same way on every screen. */
+export function QueryState<T>({ query, children, loading, compact = false }: QueryStateProps<T>) {
   if (query.isPending) {
     return (
-      <p aria-busy="true" className="py-10 text-center text-sm text-muted">
-        {t('loading')}
-      </p>
+      loading ?? (
+        <Loading>
+          <RowsSkeleton />
+        </Loading>
+      )
     )
   }
-  if (query.isError) {
-    return (
-      <p role="alert" className="rounded-xl border border-coral bg-surface px-4 py-3 text-sm text-coral">
-        {t('common.loadError')}
-      </p>
-    )
-  }
+  if (query.isError) return <ErrorState compact={compact} onRetry={() => void query.refetch()} />
   return <>{children(query.data)}</>
 }

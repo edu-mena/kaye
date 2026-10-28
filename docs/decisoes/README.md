@@ -11,8 +11,10 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0002](0002-csp-do-painel-admin.md) | CSP mais permissiva só no painel de administração | Aceite |
 | [0003](0003-sessao-web-em-cookie.md) | Sessão da app web em cookie `HttpOnly`, não em `localStorage` | Aceite |
 | [0004](0004-containers-fora-de-producao.md) | Containers para desenvolvimento e CI, não na produção atual | Aceite |
-| [0005](0005-frontend-primeiro-com-dados-de-demonstracao.md) | Frontend primeiro, com dados de demonstração atrás de uma só porta | Aceite |
+| [0005](0005-frontend-primeiro-com-dados-de-demonstracao.md) | Frontend primeiro, com dados de demonstração atrás de uma só porta | Aceite (a faixa "Demonstração" saiu com a 0007) |
 | [0006](0006-pdf-do-cv-gerado-no-aparelho.md) | O PDF do CV gera-se no aparelho, por agora (jsPDF) | Aceite |
+| [0007](0007-sem-faixa-de-demonstracao.md) | Sem a faixa "Demonstração" no topo dos ecrãs | Aceite |
+| [0008](0008-recolha-de-vagas-de-todos-os-sites.md) | Recolha de vagas de todos os sites de emprego, só para estatística | Aceite |
 
 Modelo para um novo ADR:
 

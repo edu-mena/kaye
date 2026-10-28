@@ -44,7 +44,7 @@ export function CardRow({ label, children }: CardRowProps) {
     element?.scrollBy?.({ left: direction * element.clientWidth, behavior: 'smooth' })
   }
   const arrow =
-    'grid size-10 place-items-center rounded-full border border-line bg-surface text-night transition-colors hover:bg-ash-100 disabled:opacity-40 disabled:hover:bg-surface'
+    'grid size-10 place-items-center rounded-full bg-coal text-gold transition-colors hover:bg-night disabled:opacity-30 disabled:hover:bg-coal'
 
   return (
     <div>

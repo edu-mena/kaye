@@ -31,6 +31,10 @@ export function seedUser(change: Partial<UserData> = {}) {
     cv: EMPTY_CV,
     cvBasedOn: null,
     compare: [],
+    history: [],
+    searches: [],
+    photo: null,
+    cover: null,
     ...change,
   }
   localStorage.setItem('kaye.user.v1', JSON.stringify(user))

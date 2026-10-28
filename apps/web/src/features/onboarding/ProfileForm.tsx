@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router'
 import { CheckboxField, SelectField, TextField } from '../../components/ui/Field'
 import { Button } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -9,6 +10,7 @@ import { isMinor } from '../../domain/education'
 import { userActions, useUser } from '../../state/userStore'
 
 const MIN_AGE = 14
+const LEGAL_LINK = 'font-normal text-night underline underline-offset-2 hover:text-blue'
 // Read once when the app loads: render must not depend on the clock.
 const CURRENT_YEAR = new Date().getFullYear()
 const OLDEST = 60
@@ -23,7 +25,13 @@ type Values = {
 }
 type Errors = Partial<Record<keyof Values, string>>
 
-export function ProfileForm({ onSaved }: { onSaved: () => void }) {
+type ProfileFormProps = {
+  onSaved: () => void
+  /** Editing an existing profile (Perfil > Dados pessoais): no terms to accept again, and a way out. */
+  onCancel?: () => void
+}
+
+export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
   const { t } = useTranslation()
   const { profile } = useUser()
   const year = CURRENT_YEAR
@@ -117,21 +125,39 @@ export function ProfileForm({ onSaved }: { onSaved: () => void }) {
         </Card>
       )}
 
-      <CheckboxField
-        label={
-          <>
-            {t('onboarding.terms')}
-            <span className="mt-1 block text-xs font-light text-muted">{t('onboarding.termsNote')}</span>
-          </>
-        }
-        checked={values.terms}
-        error={errors.terms}
-        onChange={(event) => set('terms', event.target.checked)}
-      />
+      {!onCancel && (
+        <div>
+          <CheckboxField
+            label={t('onboarding.terms')}
+            checked={values.terms}
+            error={errors.terms}
+            onChange={(event) => set('terms', event.target.checked)}
+          />
+          {/* Outside the label, so the links do not become part of the checkbox's name. A new
+              tab keeps what was already filled in here. */}
+          <p className="mt-1 pl-8 text-xs font-light text-muted">
+            {t('onboarding.termsRead')}{' '}
+            <Link to="/termos" target="_blank" className={LEGAL_LINK}>
+              {t('legal.terms')}
+            </Link>
+            {' · '}
+            <Link to="/privacidade" target="_blank" className={LEGAL_LINK}>
+              {t('legal.privacy')}
+            </Link>
+          </p>
+        </div>
+      )}
 
-      <Button type="submit" size="lg" className="w-full sm:w-auto">
-        {t('common.continue')}
-      </Button>
+      <div className="flex flex-wrap gap-2">
+        <Button type="submit" size="lg" className="w-full sm:w-auto">
+          {onCancel ? t('common.save') : t('common.continue')}
+        </Button>
+        {onCancel && (
+          <Button variant="ghost" size="lg" onClick={onCancel}>
+            {t('common.cancel')}
+          </Button>
+        )}
+      </div>
     </form>
   )
 }

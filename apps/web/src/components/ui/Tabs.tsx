@@ -95,22 +95,32 @@ function centerTab(list: HTMLElement | null, tab: HTMLElement | null) {
   list.scrollTo({ left: tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2, behavior: 'smooth' })
 }
 
-type TabPanelProps = { idPrefix: string; id: string; children: ReactNode; className?: string }
+type TabPanelProps = {
+  idPrefix: string
+  id: string
+  children: ReactNode
+  className?: string
+  /** `bare`: no card around it, for panels that hold their own cards (Mercado). */
+  variant?: 'card' | 'bare'
+}
 
-export function TabPanel({ idPrefix, id, children, className = '' }: TabPanelProps) {
+export function TabPanel({ idPrefix, id, children, className = '', variant = 'card' }: TabPanelProps) {
+  const card = variant === 'card'
   return (
     <div
       role="tabpanel"
       id={`${idPrefix}-panel-${id}`}
       aria-labelledby={`${idPrefix}-tab-${id}`}
       tabIndex={0}
-      className={`relative animate-rise rounded-card bg-surface p-5 shadow-card focus-visible:outline-offset-4 sm:p-8 ${className}`}
+      className={`relative animate-rise focus-visible:outline-offset-4 ${card ? 'rounded-card bg-surface p-5 shadow-card sm:p-8' : 'rounded-2xl'} ${className}`}
     >
       {/* Marks the open panel: a short blue line centred on its top edge. */}
-      <span
-        aria-hidden="true"
-        className="absolute top-2.5 left-1/2 h-[3px] w-4/5 -translate-x-1/2 rounded-full bg-blue"
-      />
+      {card && (
+        <span
+          aria-hidden="true"
+          className="absolute top-2.5 left-1/2 h-[3px] w-4/5 -translate-x-1/2 rounded-full bg-blue"
+        />
+      )}
       {children}
     </div>
   )

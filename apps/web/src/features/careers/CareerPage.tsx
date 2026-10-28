@@ -3,6 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
+import {
+  CardsSkeleton,
+  DetailSkeleton,
+  Loading,
+  NotFoundState,
+  RowsSkeleton,
+} from '../../components/PageStates'
+import { PhotoImg } from '../../components/PhotoImg'
 import { PathMark } from '../../components/PathMark'
 import { QueryState } from '../../components/QueryState'
 import { ScoreRing } from '../../components/ScoreRing'
@@ -47,7 +55,7 @@ export default function CareerPage() {
   const list = useCareers()
 
   return (
-    <QueryState query={detail}>
+    <QueryState query={detail} loading={<DetailSkeleton />}>
       {(career) => {
         if (career) return <CareerView career={career} />
         const summary = list.data?.find((item) => item.slug === slug)
@@ -129,12 +137,11 @@ function CareerHero({ career, facts, onFit }: CareerHeroProps) {
   return (
     <header className="relative h-72 overflow-hidden rounded-card bg-night text-white sm:h-80 lg:h-96">
       {image ? (
-        <img
-          src={image.small}
-          srcSet={`${image.small} 800w, ${image.large} 1600w`}
+        <PhotoImg
+          photo={image}
           sizes="100vw"
           alt={image.alt}
-          fetchPriority="high"
+          priority
           className="absolute inset-0 size-full object-cover object-[center_30%]"
         />
       ) : (
@@ -525,7 +532,15 @@ function Study({ career }: { career: Career }) {
 
   return (
     <Section id="study" title={t('career.study')} icon="cap">
-      <QueryState query={query}>
+      <QueryState
+        query={query}
+        compact
+        loading={
+          <Loading>
+            <RowsSkeleton />
+          </Loading>
+        }
+      >
         {(programs) => {
           const forCareer = scorePrograms(programs).filter((item) =>
             item.program.careers.includes(career.slug),
@@ -661,7 +676,15 @@ function ModelCvs({ career }: { career: Career }) {
 
   return (
     <Section id="cvs" title={t('career.cvs')} icon="document">
-      <QueryState query={query}>
+      <QueryState
+        query={query}
+        compact
+        loading={
+          <Loading>
+            <CardsSkeleton count={3} className="xl:grid-cols-3" />
+          </Loading>
+        }
+      >
         {(examples) =>
           examples.length === 0 ? (
             <p className="text-sm font-light text-muted">{t('career.cvsEmpty')}</p>
@@ -693,11 +716,10 @@ function InCuration({ career }: { career: CareerSummary }) {
 function NotFound() {
   const { t } = useTranslation()
   return (
-    <div className="py-10 text-center">
-      <p className="text-night">{t('careers.notFound')}</p>
-      <ButtonLink to="/carreiras" variant="secondary" className="mt-4">
-        {t('careers.title')}
-      </ButtonLink>
-    </div>
+    <NotFoundState
+      title={t('careers.notFoundTitle')}
+      body={t('careers.notFound')}
+      action={{ to: '/carreiras', label: t('careers.title') }}
+    />
   )
 }

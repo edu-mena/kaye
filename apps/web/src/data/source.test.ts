@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './demo/assessment'
-import { getAssessment, getCareer, listCareers, listCvExamples, listPrograms } from './source'
+import { getAssessment, getCareer, listAcademies, listCareers, listCvExamples, listPrograms } from './source'
 import { RIASEC_KEYS } from './types'
 
 describe('demo data source', () => {
@@ -12,6 +12,17 @@ describe('demo data source', () => {
       'analista-de-dados',
       'designer-ui-ux',
     ])
+  })
+
+  it('lists real academies: each with a source, none sharing a name with the fictional ranking', async () => {
+    const academies = await listAcademies()
+    expect(new Set(academies.map((academy) => academy.id)).size).toBe(academies.length)
+    for (const academy of academies) {
+      expect(academy.sources.length).toBeGreaterThan(0)
+      for (const source of academy.sources) expect(source.url).toMatch(/^https:\/\//)
+    }
+    const fictional = new Set((await listPrograms()).map((program) => program.institution.name))
+    expect(academies.filter((academy) => fictional.has(academy.name))).toEqual([])
   })
 
   it('answers 404 (null) for an unknown career', async () => {

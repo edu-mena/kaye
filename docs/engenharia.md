@@ -109,9 +109,15 @@ Antes de criar alguma coisa, procura se já existe:
 | Mudar ou ler o idioma | `changeLocale`, `LOCALES` e `LOCALE_NAMES` em `apps/web/src/lib/i18n.ts` |
 | Botões, cartões, etiquetas, campos, janelas, barras | `apps/web/src/components/ui/` (ver [design.md](design.md#peças-base-srccomponentsui)) |
 | Um ícone | `<Icon name>` em `apps/web/src/components/icons.tsx` (acrescenta lá o desenho) |
-| Ler dados (carreiras, cursos, teste, CVs modelo) | Os hooks de `apps/web/src/data/queries.ts` |
+| Ler dados (carreiras, cursos, teste, CVs modelo, novidades) | Os hooks de `apps/web/src/data/queries.ts`; `useCatalog` junta carreiras, cursos, academias e empresas |
 | Ler ou mudar o que a pessoa fez | `useUser()` e `userActions` em `apps/web/src/state/userStore.ts` |
-| Filtros no URL | `useUrlFilters` em `apps/web/src/lib/useUrlFilters.ts` |
+| Idioma, descarregar e apagar os dados, estado do servidor, ligações aos textos legais | `LanguagePicker`, `ExportButton`, `EraseButton`, `ServiceStatus`, `LegalLinks` em `apps/web/src/features/settings/SettingsParts.tsx` |
+| Procurar texto sem acentos nem maiúsculas, ordenar por relevância e marcar as palavras | `searchWords`, `rank`, `matchRanges` em `apps/web/src/domain/search.ts` (e `normalize` em `domain/careers.ts`) |
+| Um bloco compacto de um painel | `Panel` em `apps/web/src/components/ui/Panel.tsx`; o cabeçalho com `PageHeader compact` |
+| Contas do mercado (rankings, equilíbrio entre vagas e diplomados por área) | `apps/web/src/domain/market.ts` |
+| Recolher vagas ou números da educação | `scrapers/` (ver o [README](../scrapers/README.md)): `jobs/http.py` para pedir com educação, `jobs/facts.py` e `jobs/classify.py` para os factos, `areas.py` para as áreas comuns |
+| Uma ficha etiqueta/valor, ou "Em breve" | `Rows`, `Soon` em `apps/web/src/components/ui/Rows.tsx` |
+| Filtros no URL | `useUrlFilters` em `apps/web/src/lib/useUrlFilters.ts`; para um campo de texto (pesquisa), `useUrlText`, que não perde letras escritas depressa |
 | Mostrar Kz, percentagens, durações, avaliações | `formatKz`, `formatPercent` (`domain/format.ts`), `useDuration`, `useRatingLabel` (`lib/useFormat.ts`) |
 | A carregar ou erro | `QueryState` |
 | Um ecrã que precisa de perfil | `withProfile()` em `router.tsx` |
@@ -121,6 +127,15 @@ Antes de criar alguma coisa, procura se já existe:
 | Um utilizador de teste | `User::factory()`, com os estados `admin()` e `minor()` |
 
 **Regra dos três:** a primeira vez escreve-se, a segunda copia-se com cuidado e a terceira extrai-se para uma peça partilhada. Antes disso, duplicar sai mais barato do que acertar na abstração errada. O jscpd vigia o total e o Knip apanha o que ficou por usar.
+
+## Desempenho
+
+O Kayé tem de ser rápido num telemóvel modesto com dados caros. Regras:
+
+- **Código por página.** Cada rota carrega o seu código só quando é aberta (`lazy` no `router.tsx`); bibliotecas pesadas só quando são usadas (o jsPDF, só ao descarregar um CV).
+- **Línguas a pedido.** O português vem com a app; o inglês e o francês descarregam-se só para quem os escolhe (`lib/i18n.ts`). A app espera pela língua da pessoa antes de se mostrar, para não piscar em português.
+- **Fotos no tamanho certo.** Cada foto existe em 400, 800 e 1600 px (WebP); `PhotoImg` dá-as com `srcSet` e `sizes`, adiadas fora do ecrã. As fotos que a pessoa carrega são cortadas e reduzidas no aparelho antes de serem guardadas.
+- **Medir antes de juntar dependências.** `npm run build` mostra o tamanho de cada pedaço; o pedaço principal não deve crescer sem razão.
 
 ## Comandos
 

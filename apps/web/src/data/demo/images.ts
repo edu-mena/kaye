@@ -1,8 +1,8 @@
 import type { Photo } from '../types'
 
 // Photos from Wikimedia Commons (most from Wiki Loves Africa 2017, "people at work"), under free
-// licences: CC BY-SA, CC BY or public domain. Cropped to 16:10 and saved at 800 and 1600 px as
-// assets/<careers|courses>/<slug>-<width>.webp. For now they stay local, so no page shows the credits;
+// licences: CC BY-SA, CC BY or public domain. Cropped to 16:10 and saved at 400 (cards), 800 and
+// 1600 px as assets/<careers|courses>/<slug>-<width>.webp. For now they stay local, so no page shows the credits;
 // they are kept here because publishing the photos means showing them again (CC BY / CC BY-SA).
 const FILES = import.meta.glob<string>(['../../assets/careers/*.webp', '../../assets/courses/*.webp'], {
   eager: true,
@@ -10,10 +10,11 @@ const FILES = import.meta.glob<string>(['../../assets/careers/*.webp', '../../as
 })
 
 function photo(folder: 'careers' | 'courses', slug: string, alt: string, credit: Photo['credit']): Photo {
+  const thumb = FILES[`../../assets/${folder}/${slug}-400.webp`]
   const small = FILES[`../../assets/${folder}/${slug}-800.webp`]
   const large = FILES[`../../assets/${folder}/${slug}-1600.webp`]
-  if (!small || !large) throw new Error(`Missing photo: ${folder}/${slug}`)
-  return { small, large, alt, credit }
+  if (!thumb || !small || !large) throw new Error(`Missing photo: ${folder}/${slug}`)
+  return { thumb, small, large, alt, credit }
 }
 
 export const CAREER_IMAGES: Partial<Record<string, Photo>> = {

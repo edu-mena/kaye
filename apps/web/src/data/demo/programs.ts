@@ -56,7 +56,7 @@ const INSTITUTIONS = {
 } satisfies Record<string, Institution>
 
 // The courses in general. Each row below is one institution's offer of one of them.
-const COURSES = {
+export const COURSES = {
   'engenharia-informatica': 'Engenharia Informática',
   'ciencias-computacao': 'Ciências da Computação',
   'tecnico-informatica': 'Técnico de Informática',

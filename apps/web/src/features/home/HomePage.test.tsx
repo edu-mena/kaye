@@ -51,7 +51,7 @@ describe('HomePage', () => {
 })
 
 describe('Layout', () => {
-  it('has a skip link, the logo, both navigations and the demo notice', async () => {
+  it('has a skip link, the logo and both navigations, and no demo notice over the screen', async () => {
     // ScrollRestoration needs a data router, like the real app's.
     const router = createMemoryRouter([
       { path: '/', Component: Layout, children: [{ index: true, element: <p>ecrã</p> }] },
@@ -65,6 +65,6 @@ describe('Layout', () => {
     expect(screen.getByRole('link', { name: 'Saltar para o conteúdo' })).toHaveAttribute('href', '#conteudo')
     expect(screen.getAllByRole('img', { name: 'Kayé' }).length).toBeGreaterThan(0)
     expect(screen.getAllByRole('navigation', { name: 'Navegação principal' })).toHaveLength(2)
-    expect(screen.getByRole('main')).toHaveTextContent(/Demonstração/)
+    expect(screen.getByRole('main')).not.toHaveTextContent(/Demonstração/)
   })
 })

@@ -6,3 +6,7 @@ Thumbs.db
 !/.vscode/extensions.json
 /node_modules
 /build
+
+# Python (scrapers)
+__pycache__/
+scrapers/data/*.tmp

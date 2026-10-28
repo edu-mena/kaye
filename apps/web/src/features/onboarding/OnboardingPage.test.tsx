@@ -79,6 +79,23 @@ describe('OnboardingPage', () => {
     expect(screen.getByRole('heading', { name: 'Por onde começamos?' })).toBeInTheDocument()
   })
 
+  it('lets people read the terms and the policy without losing what they filled in', async () => {
+    renderWithApp(<OnboardingPage />, { route: '/entrar' })
+    await userEvent.click(screen.getByRole('button', { name: 'Continuar com o Google' }))
+
+    expect(
+      screen.getByRole('checkbox', { name: 'Aceito os termos de uso e a política de privacidade' }),
+    ).not.toBeChecked()
+    for (const [name, href] of [
+      ['Termos de uso', '/termos'],
+      ['Política de privacidade', '/privacidade'],
+    ]) {
+      const link = screen.getByRole('link', { name })
+      expect(link).toHaveAttribute('href', href)
+      expect(link).toHaveAttribute('target', '_blank')
+    }
+  })
+
   it('goes straight to the choices when there is already a profile', () => {
     seedUser()
     renderWithApp(<OnboardingPage />)

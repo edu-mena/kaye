@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { QueryState } from '../../components/QueryState'
+import { CardsSkeleton, Loading } from '../../components/PageStates'
 import { Button } from '../../components/ui/Button'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { usePrograms } from '../../data/queries'
@@ -17,7 +18,14 @@ export default function ComparePage() {
   return (
     <div>
       <PageHeader title={t('training.compareTitle')} back={{ to: '/cursos', label: t('training.back') }} />
-      <QueryState query={query}>
+      <QueryState
+        query={query}
+        loading={
+          <Loading>
+            <CardsSkeleton count={2} />
+          </Loading>
+        }
+      >
         {(programs) => {
           const chosen = scorePrograms(programs).filter((item) => compare.includes(item.program.id))
           return chosen.length === 0 ? (

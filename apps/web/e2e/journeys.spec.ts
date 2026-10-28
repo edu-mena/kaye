@@ -97,7 +97,9 @@ test.describe('journeys', () => {
     await createProfile(page)
     await page.goto('/perfil')
     await expect(page.getByText('Joana')).toBeVisible()
+    await expectAccessible(page)
 
+    await page.getByRole('tab', { name: 'Privacidade' }).click()
     await page.getByRole('button', { name: 'Apagar os meus dados' }).click()
     await page
       .getByRole('dialog', { name: 'Apagar tudo?' })
@@ -106,6 +108,100 @@ test.describe('journeys', () => {
     await expect(page.getByText('Ainda não tens perfil.')).toBeVisible()
     await page.reload()
     await expect(page.getByText('Ainda não tens perfil.')).toBeVisible()
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('before accepting, the terms and the policy open beside the form', async ({ page, consoleErrors }) => {
+    await page.goto('/entrar')
+    await page.getByRole('button', { name: 'Continuar com o Google' }).click()
+    await page.getByLabel('Como te chamas?').fill('Joana')
+
+    const [policy] = await Promise.all([
+      page.context().waitForEvent('page'),
+      page.getByRole('link', { name: 'Política de privacidade' }).click(),
+    ])
+    await expect(policy.getByRole('heading', { level: 1 })).toHaveText('Política de privacidade')
+    await expect(page.getByLabel('Como te chamas?')).toHaveValue('Joana')
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('settings lead to the privacy policy and the terms', async ({ page, consoleErrors }) => {
+    await page.goto('/configuracoes')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Configurações')
+    await expectAccessible(page)
+
+    await page.getByRole('link', { name: 'Política de privacidade' }).click()
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Política de privacidade')
+    await page
+      .getByRole('navigation', { name: 'Nesta página' })
+      .getByRole('link', { name: /Os teus direitos/ })
+      .click()
+    await expect(page).toHaveURL(/\/privacidade#direitos$/)
+    await expect(page.getByRole('heading', { name: '7. Os teus direitos' })).toBeInViewport()
+    await expectAccessible(page)
+
+    await page.getByRole('link', { name: 'Termos de uso' }).click()
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Termos de uso')
+    await expectAccessible(page)
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('searching from the bottom bar, opening a result and coming back', async ({ page, consoleErrors }) => {
+    await page.goto('/')
+    await page
+      .getByRole('navigation', { name: 'Navegação principal' })
+      .getByRole('link', { name: 'Pesquisa' })
+      .click()
+    const field = page.getByRole('searchbox', { name: 'Pesquisar no Kayé' })
+    await expect(field).toBeFocused()
+    await expectAccessible(page)
+
+    await page.keyboard.type('dados')
+    await expect(page.getByText('10 resultados para «dados»')).toBeVisible()
+    await expectAccessible(page)
+    await page.getByRole('link', { name: /Analista de Dados/ }).click()
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Analista de Dados')
+
+    await page.goBack()
+    await expect(field).toHaveValue('dados')
+    await field.fill('')
+    await expect(
+      page.getByRole('region', { name: 'Pesquisas recentes' }).getByRole('button', { name: 'dados' }),
+    ).toBeVisible()
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('the market and the news, from the menu, lead to their pages', async ({ page, consoleErrors }) => {
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Menu' }).click()
+    await page.getByRole('navigation', { name: 'Mais opções' }).getByRole('link', { name: 'Mercado' }).click()
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Mercado')
+    await expect(page.getByRole('tab', { name: 'Resumo', selected: true })).toBeVisible()
+    await expectAccessible(page)
+
+    // Nothing wider than the phone: below lg, the areas are cards instead of the table.
+    await page.getByRole('tab', { name: 'Por área' }).click()
+    await expect(page.getByRole('heading', { level: 2, name: 'Por área' })).toBeAttached()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+      await page.evaluate(() => document.documentElement.clientWidth),
+    )
+    await expectAccessible(page)
+
+    await page.getByRole('tab', { name: 'Vagas' }).click()
+    await expect(page.getByRole('region', { name: 'Vagas por área' })).toBeVisible()
+    await page
+      .getByRole('region', { name: /^Mais procuradas em tecnologia/ })
+      .getByRole('link', { name: /^(?!Ver todas)/ })
+      .first()
+      .click()
+    await expect(page).toHaveURL(/\/carreiras\//)
+
+    await page.goto('/novidades')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Novidades')
+    await expectAccessible(page)
+    await page.getByRole('button', { name: /^Empresas/ }).click()
+    await expect(page).toHaveURL(/tipo=empresas/)
+    await expect(page.getByRole('link', { name: /^Fonte:/ }).first()).toBeVisible()
     expect(consoleErrors).toEqual([])
   })
 })

@@ -85,6 +85,18 @@ const PATHS = {
     </>
   ),
   pencil: <path d="M4 20h4L19 9l-4-4L4 16v4ZM13 7l4 4" />,
+  refresh: (
+    <>
+      <path d="M20 12a8 8 0 1 1-2.34-5.66" />
+      <path d="M20 4v5h-5" />
+    </>
+  ),
+  camera: (
+    <>
+      <path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" />
+      <circle cx="12" cy="13.5" r="3.5" />
+    </>
+  ),
   info: (
     <>
       <circle cx="12" cy="12" r="9" />
