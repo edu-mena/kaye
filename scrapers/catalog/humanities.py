@@ -14,6 +14,7 @@ Writes catalog/humanities.json and, for the app, apps/web/src/data/catalog/human
 import html
 import json
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 from jobs.facts import fold
@@ -45,12 +46,30 @@ MIN_POSTINGS = 2
 
 ANGOLEX = 'https://angolex.com/paginas/diversos/'
 # The State's 2026 base salaries (Decreto Presidencial n.º 16/26): the general regime of the public service, the
-# technicians of the Public Prosecutor and, apart (four careers in one table), the justice officers.
+# technicians of the Public Prosecutor and, apart, the justice officers (four careers in one table), the ranks of the
+# diplomats, the police and the SIC, and the magistrates.
 SALARY_TABLES = {
     'regime_geral': f'{ANGOLEX}tabela-salarial-do-regime-geral-da-funcao-publica-2026a.html',
     'tecnicos_justica_pgr': f'{ANGOLEX}tabela-salarial-dos-tecnicos-de-justica-da-pgr-2026a.html',
 }
 JUSTICE_OFFICERS = f'{ANGOLEX}tabela-salarial-do-regime-especial-dos-oficiais-de-justica-2026a.html'
+# One column of ranks, each with its index and base salary: the diplomats, the National Police and the SIC.
+RANK_TABLES = {
+    'diplomatas': f'{ANGOLEX}tabela-salarial-do-regime-especial-da-carreira-de-diplomata-2026a.html',
+    'policia_nacional': f'{ANGOLEX}tabela-salarial-do-regime-especial-da-policia-nacional-2026a.html',
+    'sic': f'{ANGOLEX}tabela-salarial-sic-angola-2026a-salarios.html',
+}
+# The magistrates' posts, each with its base salary, representation allowance and total (no index).
+MAGISTRATES = {
+    'magistrados_judiciais': f'{ANGOLEX}tabela-salarial-dos-magistrados-judiciais-2026a.html',
+    'magistrados_mp': f'{ANGOLEX}tabela-salarial-dos-magistrados-do-ministerio-publico-2026a.html',
+}
+# A rank: its name (it can start with a digit, "1º Secretário"), the index and the base salary.
+_RANK_ROW = re.compile(r'\| ([^|]*[^\W\d_][^|]*?) \| (\d[\d ]*) \| (\d[\d ]*,\d{1,2}) (?=\|)')
+# A magistrate's post: its name, the base salary, the representation allowance and the total.
+_MAGISTRATE_ROW = re.compile(
+    r'\| ([^|]*[^\W\d_][^|]*?) \| (\d[\d ]*,\d{2}) \| (\d[\d ]*,\d{2}) \| (\d[\d ]*,\d{2}) (?=\|)'
+)
 # A row of that table: the category in the registries, the notaries, the courts and civil identification, the index
 # and the base salary ("253 336,9" has one decimal).
 _JUSTICE_ROW = re.compile(
@@ -127,23 +146,51 @@ def in_area(course: dict) -> bool:
     )
 
 
+def _kwanzas(pay: str) -> int:
+    return round(float(pay.replace(' ', '').replace(',', '.')))
+
+
 def justice_rows(text: str) -> list[dict]:
     """The justice officers' table: each row's category in the four careers, lowest salary first."""
     rows = [
         {'registos': registries, 'notariado': notaries, 'tribunal': courts, 'identificacao': identification,
-         'index': int(index), 'salary': round(float(pay.replace(' ', '').replace(',', '.')))}
+         'index': int(index), 'salary': _kwanzas(pay)}
         for registries, notaries, courts, identification, index, pay in _JUSTICE_ROW.findall(text)
     ]
     return sorted(rows, key=lambda row: row['salary'])
 
 
-def justice_officers() -> list[dict]:
-    body, _ = get(JUSTICE_OFFICERS, 'text/html')
-    page = re.sub(r'<(script|style)\b.*?</\1>', ' ', body.decode('utf-8', 'ignore'), flags=re.S)
-    rows = justice_rows(re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' | ', page))))
-    if not rows:
-        raise SystemExit(f'No salary table in {JUSTICE_OFFICERS}')
-    return rows
+def rank_rows(text: str) -> list[dict]:
+    """A table of ranks: each rank with its index and base salary, lowest salary first."""
+    text = re.sub(r'(\|\s*)+', '| ', text)
+    rows = [
+        {'category': name, 'index': int(index.replace(' ', '')), 'salary': _kwanzas(pay)}
+        for name, index, pay in _RANK_ROW.findall(text)
+    ]
+    return sorted(rows, key=lambda row: row['salary'])
+
+
+def magistrate_rows(text: str) -> list[dict]:
+    """A magistrates' table: each post with its base salary (the representation allowance comes on top)."""
+    text = re.sub(r'(\|\s*)+', '| ', text)
+    rows = [
+        {'category': name, 'salary': _kwanzas(base), 'representation': _kwanzas(allowance)}
+        for name, base, allowance, _ in _MAGISTRATE_ROW.findall(text)
+    ]
+    return sorted(rows, key=lambda row: row['salary'])
+
+
+def read_tables(tables: dict[str, str], read: Callable[[str], list[dict]]) -> dict[str, list[dict]]:
+    """Each table's rows, read from its page's text."""
+    found = {}
+    for career, url in tables.items():
+        body, _ = get(url, 'text/html')
+        page = re.sub(r'<(script|style)\b.*?</\1>', ' ', body.decode('utf-8', 'ignore'), flags=re.S)
+        rows = read(re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' | ', page))))
+        if not rows:
+            raise SystemExit(f'No salary table in {url}')
+        found[career] = rows
+    return found
 
 
 def main() -> None:
@@ -155,8 +202,10 @@ def main() -> None:
         'teaching': {'year': yearbook['year'], 'institutions': institutions, 'courses': courses},
         'training': TRAINING,
         'salaries': {'year': 2026, 'decree': 'Decreto Presidencial n.º 16/26, de 22 de Janeiro',
-                     'urls': SALARY_TABLES | {'oficiais_justica': JUSTICE_OFFICERS},
-                     'careers': salaries(SALARY_TABLES) | {'oficiais_justica': justice_officers()}},
+                     'urls': SALARY_TABLES | {'oficiais_justica': JUSTICE_OFFICERS} | RANK_TABLES | MAGISTRATES,
+                     'careers': salaries(SALARY_TABLES)
+                                | read_tables({'oficiais_justica': JUSTICE_OFFICERS}, justice_rows)
+                                | read_tables(RANK_TABLES, rank_rows) | read_tables(MAGISTRATES, magistrate_rows)},
         'employers': {'named': NAMED_EMPLOYERS, 'jobAds': ads},
     }
     OUTPUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + '\n', encoding='utf-8', newline='\n')

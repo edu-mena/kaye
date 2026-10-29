@@ -10,10 +10,42 @@
   "year": "2023/24",
   "institutions": [
    {
+    "name": "Escola Superior Pedagógica do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 168,
+      "graduates": 21
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior Politécnica de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Comércio Internacional",
+      "area": "sciences",
+      "students": 23,
+      "graduates": 0
+     }
+    ]
+   },
+   {
     "name": "Escola Superior Técnica de Ciências do Desporto",
     "nature": "privada",
     "province": "Luanda",
     "courses": [
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 169,
+      "graduates": 0
+     },
      {
       "name": "Biotecnologia",
       "area": "sciences",
@@ -110,6 +142,32 @@
       "area": "communication",
       "students": 185,
       "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+      "area": "education",
+      "students": 132,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Maravilha",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 272,
+      "graduates": 13
      }
     ]
    },
@@ -226,6 +284,12 @@
       "area": "communication",
       "students": 273,
       "graduates": 39
+     },
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 244,
+      "graduates": 41
      }
     ]
    },
@@ -256,6 +320,19 @@
     ]
    },
    {
+    "name": "Instituto Superior Politécnico do Soyo",
+    "nature": "publica",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Sistemas de Informação",
+      "area": "sciences",
+      "students": 153,
+      "graduates": 0
+     }
+    ]
+   },
+   {
     "name": "Instituto Superior Técnico de Angola",
     "nature": "privada",
     "province": "Luanda",
@@ -282,6 +359,19 @@
     ]
    },
    {
+    "name": "Instituto Superior de Ciências de Educação da Huíla",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 95,
+      "graduates": 25
+     }
+    ]
+   },
+   {
     "name": "Instituto Superior de Ciências de Educação de Cabinda",
     "nature": "publica",
     "province": "Cabinda",
@@ -290,6 +380,19 @@
       "name": "Biologia",
       "area": "sciences",
       "students": 245,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ombaka",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Ensino da Educação Física e desportos",
+      "area": "education",
+      "students": 179,
       "graduates": 0
      }
     ]
@@ -310,6 +413,12 @@
       "area": "sciences",
       "students": 470,
       "graduates": 20
+     },
+     {
+      "name": "Educação Física e Desporto",
+      "area": "education",
+      "students": 383,
+      "graduates": 82
      },
      {
       "name": "Língua e Literaturas em Lingua Inglesa",
@@ -422,6 +531,12 @@
       "area": "sciences",
       "students": 138,
       "graduates": 25
+     },
+     {
+      "name": "Hidráulica",
+      "area": "sciences",
+      "students": 109,
+      "graduates": 0
      }
     ]
    },
@@ -435,6 +550,12 @@
       "area": "sciences",
       "students": 0,
       "graduates": 24
+     },
+     {
+      "name": "Ciências do Desporto e Educação Física",
+      "area": "education",
+      "students": 0,
+      "graduates": 45
      },
      {
       "name": "Língua Portuguesa e Comunicação",
@@ -524,6 +645,25 @@
       "area": "sciences",
       "students": 171,
       "graduates": 0
+     },
+     {
+      "name": "Navegação",
+      "area": "sciences",
+      "students": 104,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências Deporto e Motricidade Humana",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 17
      }
     ]
    }
@@ -534,6 +674,12 @@
     "students": 2130,
     "graduates": 289,
     "institutions": 12
+   },
+   {
+    "name": "Educação Física e Desporto",
+    "students": 1331,
+    "graduates": 182,
+    "institutions": 6
    },
    {
     "name": "Biologia",
@@ -596,6 +742,12 @@
     "institutions": 1
    },
    {
+    "name": "Ensino da Educação Física e desportos",
+    "students": 179,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
     "name": "Oceanografia",
     "students": 171,
     "graduates": 0,
@@ -608,9 +760,21 @@
     "institutions": 2
    },
    {
+    "name": "Sistemas de Informação",
+    "students": 153,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
     "name": "Desenho",
     "students": 138,
     "graduates": 25,
+    "institutions": 1
+   },
+   {
+    "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+    "students": 132,
+    "graduates": 6,
     "institutions": 1
    },
    {
@@ -638,9 +802,21 @@
     "institutions": 1
    },
    {
+    "name": "Hidráulica",
+    "students": 109,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
     "name": "Teatro",
     "students": 104,
     "graduates": 3,
+    "institutions": 1
+   },
+   {
+    "name": "Navegação",
+    "students": 104,
+    "graduates": 0,
     "institutions": 1
    },
    {
@@ -670,6 +846,12 @@
    {
     "name": "Metereologia",
     "students": 43,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Comércio Internacional",
+    "students": 23,
     "graduates": 0,
     "institutions": 1
    },
@@ -708,6 +890,18 @@
     "students": 0,
     "graduates": 9,
     "institutions": 1
+   },
+   {
+    "name": "Ciências do Desporto e Educação Física",
+    "students": 0,
+    "graduates": 45,
+    "institutions": 1
+   },
+   {
+    "name": "Ciências Deporto e Motricidade Humana",
+    "students": 0,
+    "graduates": 17,
+    "institutions": 1
    }
   ]
  },
@@ -728,7 +922,8 @@
   "decree": "Decreto Presidencial n.º 16/26, de 22 de Janeiro",
   "urls": {
    "cientifica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-cientifica-2026a.html",
-   "estatistica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-estatistica-2026a.html"
+   "estatistica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-estatistica-2026a.html",
+   "professores": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-do-professor-do-ensino-primario-e-secundario-2026a.html"
   },
   "careers": {
    "cientifica": [
@@ -866,6 +1061,88 @@
     },
     {
      "category": "Assessor Principal de Estatística",
+     "index": 960,
+     "salary": 579056
+    }
+   ],
+   "professores": [
+    {
+     "category": "Professor Auxiliar do 3º Grau",
+     "index": 200,
+     "salary": 120637
+    },
+    {
+     "category": "Professor Auxiliar do 2º Grau",
+     "index": 220,
+     "salary": 132700
+    },
+    {
+     "category": "Professor Auxiliar do 1º Grau",
+     "index": 240,
+     "salary": 144764
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 13º Grau",
+     "index": 280,
+     "salary": 168891
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 12º Grau",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 11º Grau",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 10º Grau",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 9º Grau",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 8º Grau",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 7º Grau",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 6º Grau",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 5º Grau",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 4º Grau",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 3.º Grau",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 2º Grau",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Professor do Ensino Primário e Secundário do 1º Grau",
      "index": 960,
      "salary": 579056
     }

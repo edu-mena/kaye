@@ -255,6 +255,7 @@ export const fr: Messages = {
     artes: 'Arts, cinéma et musique',
     ciencias_vida: 'Biologie, mer et environnement',
     ciencias_exactas: 'Mathématiques, physique et chimie',
+    desporto: 'Sport et éducation physique',
   },
   demand: {
     alta: 'Forte demande',

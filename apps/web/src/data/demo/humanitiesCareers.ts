@@ -6,7 +6,7 @@ import { riasec, summary } from './careerSummary'
 // training of lawyers, magistrates and diplomats and the employers (courts, the Public Prosecutor, the State). Interest
 // profiles approximate O*NET's. Demand reads the job ads and the public competitions. Salaries: the median of the
 // State's 2026 base salaries of the career (Decreto Presidencial 16/26), only where a table names the career; the
-// magistrates, diplomats and police have their own statutes, with no 2026 table yet.
+// magistrates' representation allowance is left out.
 
 /** Justice officers in the courts (Oficial de Diligência de 3.ª Classe to Secretário Judicial), in Kz a month. */
 const COURT_OFFICER = 307_623
@@ -14,6 +14,12 @@ const COURT_OFFICER = 307_623
 const REGISTRAR = 524_769
 /** The general regime's senior staff (Técnico Superior de 2.ª Classe to Assessor Principal). */
 const SENIOR_CIVIL_SERVANT = 482_546
+/** Juiz de Direito and Procurador da República, from under 5 to over 10 years of service (the same in both tables). */
+const MAGISTRATE = 646_800
+/** The diplomatic career (Adido to Embaixador). */
+const DIPLOMAT = 506_674
+/** The officers of the National Police and of the SIC (Subinspector to Superintendente Chefe; the same in both). */
+const POLICE_OFFICER = 428_698
 
 export const HUMANITIES_CAREERS: CareerSummary[] = [
   summary(
@@ -50,7 +56,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Julga os processos e decide segundo a lei, nos tribunais de comarca e nos superiores. Entra-se por concurso e pela formação do INEJ.',
     riasec(0.05, 0.75, 0.2, 0.5, 0.55, 0.7),
     'media',
-    null,
+    MAGISTRATE,
   ),
   summary(
     'procurador',
@@ -59,7 +65,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Dirige a investigação dos crimes, acusa em tribunal e defende a legalidade. Trabalha no Ministério Público, em todo o país.',
     riasec(0.05, 0.75, 0.15, 0.5, 0.65, 0.65),
     'media',
-    null,
+    MAGISTRATE,
   ),
   summary(
     'oficial-de-justica',
@@ -113,7 +119,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Representa Angola noutros países e em organizações internacionais e negoceia acordos. Trabalha no Ministério das Relações Exteriores e nas embaixadas e consulados.',
     riasec(0.05, 0.6, 0.3, 0.7, 0.75, 0.5),
     'baixa',
-    null,
+    DIPLOMAT,
   ),
   summary(
     'tecnico-de-cooperacao-internacional',
@@ -140,7 +146,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Investiga os crimes, recolhe as provas e identifica os suspeitos para o Ministério Público. Trabalha no Serviço de Investigação Criminal.',
     riasec(0.45, 0.75, 0.1, 0.45, 0.5, 0.55),
     'media',
-    null,
+    POLICE_OFFICER,
   ),
   summary(
     'oficial-de-policia',
@@ -149,7 +155,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Comanda equipas de agentes na prevenção do crime e na ordem pública. Forma-se no Instituto Superior de Ciências Policiais e Criminais.',
     riasec(0.6, 0.35, 0.05, 0.55, 0.7, 0.6),
     'media',
-    null,
+    POLICE_OFFICER,
   ),
   summary(
     'perito-criminalista',

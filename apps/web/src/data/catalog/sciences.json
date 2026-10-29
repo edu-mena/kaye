@@ -8,10 +8,39 @@
  },
  "institutions": [
   {
+   "name": "Escola Superior Pedagógica do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 168,
+     "graduates": 21
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Politécnica de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Comércio Internacional",
+     "students": 23,
+     "graduates": 0
+    }
+   ]
+  },
+  {
    "name": "Escola Superior Técnica de Ciências do Desporto",
    "nature": "privada",
    "province": "Luanda",
    "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 169,
+     "graduates": 0
+    },
     {
      "name": "Biotecnologia",
      "students": 65,
@@ -100,6 +129,30 @@
      "name": "Comunicação Social e Imagem",
      "students": 185,
      "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+     "students": 132,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Maravilha",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 272,
+     "graduates": 13
     }
    ]
   },
@@ -206,6 +259,11 @@
      "name": "Ciências da Comunicação",
      "students": 273,
      "graduates": 39
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 244,
+     "graduates": 41
     }
    ]
   },
@@ -234,6 +292,18 @@
    ]
   },
   {
+   "name": "Instituto Superior Politécnico do Soyo",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Sistemas de Informação",
+     "students": 153,
+     "graduates": 0
+    }
+   ]
+  },
+  {
    "name": "Instituto Superior Técnico de Angola",
    "nature": "privada",
    "province": "Luanda",
@@ -258,6 +328,18 @@
    ]
   },
   {
+   "name": "Instituto Superior de Ciências de Educação da Huíla",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 95,
+     "graduates": 25
+    }
+   ]
+  },
+  {
    "name": "Instituto Superior de Ciências de Educação de Cabinda",
    "nature": "publica",
    "province": "Cabinda",
@@ -265,6 +347,18 @@
     {
      "name": "Biologia",
      "students": 245,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ombaka",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino da Educação Física e desportos",
+     "students": 179,
      "graduates": 0
     }
    ]
@@ -283,6 +377,11 @@
      "name": "Matemática",
      "students": 470,
      "graduates": 20
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 383,
+     "graduates": 82
     },
     {
      "name": "Língua e Literaturas em Lingua Inglesa",
@@ -381,6 +480,11 @@
      "name": "Desenho",
      "students": 138,
      "graduates": 25
+    },
+    {
+     "name": "Hidráulica",
+     "students": 109,
+     "graduates": 0
     }
    ]
   },
@@ -393,6 +497,11 @@
      "name": "Biologia",
      "students": 0,
      "graduates": 24
+    },
+    {
+     "name": "Ciências do Desporto e Educação Física",
+     "students": 0,
+     "graduates": 45
     },
     {
      "name": "Língua Portuguesa e Comunicação",
@@ -473,6 +582,23 @@
      "name": "Oceanografia",
      "students": 171,
      "graduates": 0
+    },
+    {
+     "name": "Navegação",
+     "students": 104,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidades Jean Piaget",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Deporto e Motricidade Humana",
+     "students": 0,
+     "graduates": 17
     }
    ]
   }

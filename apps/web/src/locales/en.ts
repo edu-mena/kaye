@@ -249,6 +249,7 @@ export const en: Messages = {
     artes: 'Arts, film and music',
     ciencias_vida: 'Biology, the sea and the environment',
     ciencias_exactas: 'Mathematics, physics and chemistry',
+    desporto: 'Sport and physical education',
   },
   demand: {
     alta: 'High demand',

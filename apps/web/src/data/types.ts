@@ -48,6 +48,8 @@ export const CAREER_GROUPS = [
   'artes',
   'ciencias_vida',
   'ciencias_exactas',
+  // Sport and physical education (the yearbook's education courses)
+  'desporto',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
 
@@ -90,6 +92,7 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   artes: 'communication',
   ciencias_vida: 'sciences',
   ciencias_exactas: 'sciences',
+  desporto: 'education',
 }
 
 export type Demand = 'alta' | 'media' | 'baixa'

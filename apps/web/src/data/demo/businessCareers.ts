@@ -287,6 +287,15 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     null,
   ),
   summary(
+    'tecnico-de-comercio-internacional',
+    'Técnico de Comércio Internacional',
+    'comercial',
+    'Trata das importações e exportações de uma empresa: encomendas, transporte, alfândega e pagamentos ao estrangeiro. Trabalha em importadoras, transitários e na indústria.',
+    riasec(0.15, 0.45, 0.1, 0.4, 0.65, 0.85),
+    'media',
+    null,
+  ),
+  summary(
     'economista',
     'Economista',
     'economia',

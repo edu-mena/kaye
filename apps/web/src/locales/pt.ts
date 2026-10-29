@@ -251,6 +251,7 @@ export const pt = {
     artes: 'Artes, cinema e música',
     ciencias_vida: 'Biologia, mar e ambiente',
     ciencias_exactas: 'Matemática, física e química',
+    desporto: 'Desporto e educação física',
   },
   demand: {
     alta: 'Procura alta',

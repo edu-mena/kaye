@@ -1862,7 +1862,12 @@
   "urls": {
    "regime_geral": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-geral-da-funcao-publica-2026a.html",
    "tecnicos_justica_pgr": "https://angolex.com/paginas/diversos/tabela-salarial-dos-tecnicos-de-justica-da-pgr-2026a.html",
-   "oficiais_justica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-dos-oficiais-de-justica-2026a.html"
+   "oficiais_justica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-dos-oficiais-de-justica-2026a.html",
+   "diplomatas": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-de-diplomata-2026a.html",
+   "policia_nacional": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-policia-nacional-2026a.html",
+   "sic": "https://angolex.com/paginas/diversos/tabela-salarial-sic-angola-2026a-salarios.html",
+   "magistrados_judiciais": "https://angolex.com/paginas/diversos/tabela-salarial-dos-magistrados-judiciais-2026a.html",
+   "magistrados_mp": "https://angolex.com/paginas/diversos/tabela-salarial-dos-magistrados-do-ministerio-publico-2026a.html"
   },
   "careers": {
    "regime_geral": [
@@ -2239,6 +2244,341 @@
      "identificacao": "Assessor de Identificação Principal",
      "index": 960,
      "salary": 579056
+    }
+   ],
+   "diplomatas": [
+    {
+     "category": "Adido",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "3º Secretário",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "2º Secretário",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "1º Secretário",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Conselheiro",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Ministro Conselheiro",
+     "index": 960,
+     "salary": 579056
+    },
+    {
+     "category": "Embaixador",
+     "index": 1020,
+     "salary": 615247
+    }
+   ],
+   "policia_nacional": [
+    {
+     "category": "Alistado",
+     "index": 268,
+     "salary": 58202
+    },
+    {
+     "category": "Agente de 3ª Classe",
+     "index": 719,
+     "salary": 156147
+    },
+    {
+     "category": "Agente de 2ª Classe",
+     "index": 783,
+     "salary": 170046
+    },
+    {
+     "category": "Agente de 1ª Classe",
+     "index": 846,
+     "salary": 183728
+    },
+    {
+     "category": "3º Subchefe",
+     "index": 1174,
+     "salary": 254960
+    },
+    {
+     "category": "2º Subchefe",
+     "index": 1264,
+     "salary": 274506
+    },
+    {
+     "category": "1º Subchefe",
+     "index": 1445,
+     "salary": 313814
+    },
+    {
+     "category": "Subinspector",
+     "index": 1625,
+     "salary": 352905
+    },
+    {
+     "category": "Inspector",
+     "index": 1812,
+     "salary": 393516
+    },
+    {
+     "category": "Inspector Chefe",
+     "index": 1896,
+     "salary": 411759
+    },
+    {
+     "category": "Intendente",
+     "index": 2052,
+     "salary": 445637
+    },
+    {
+     "category": "Superintendente",
+     "index": 2288,
+     "salary": 496890
+    },
+    {
+     "category": "Superintendente Chefe",
+     "index": 2579,
+     "salary": 560087
+    },
+    {
+     "category": "Sub-Comissário",
+     "index": 109,
+     "salary": 591963
+    },
+    {
+     "category": "Comissário",
+     "index": 115,
+     "salary": 624549
+    },
+    {
+     "category": "Comissário Chefe",
+     "index": 128,
+     "salary": 695150
+    },
+    {
+     "category": "Comissário Chefe/2ºCGPN",
+     "index": 141,
+     "salary": 765751
+    },
+    {
+     "category": "Comissário Geral",
+     "index": 154,
+     "salary": 836352
+    }
+   ],
+   "sic": [
+    {
+     "category": "Alistado",
+     "index": 268,
+     "salary": 58202
+    },
+    {
+     "category": "Agente de 3ª Classe de Invest. Criminal",
+     "index": 719,
+     "salary": 156147
+    },
+    {
+     "category": "Agente de 2ª Classe de Invest. Criminal",
+     "index": 783,
+     "salary": 170046
+    },
+    {
+     "category": "Agente de 1ª Classe de Invest. Criminal",
+     "index": 846,
+     "salary": 183728
+    },
+    {
+     "category": "3º Subchefe de Investigação Criminal",
+     "index": 1174,
+     "salary": 254960
+    },
+    {
+     "category": "2º Subchefe de Investigação Criminal",
+     "index": 1264,
+     "salary": 274506
+    },
+    {
+     "category": "1º Subchefe de Investigação Criminal",
+     "index": 1445,
+     "salary": 313814
+    },
+    {
+     "category": "Subinspector de Investigação Criminal",
+     "index": 1625,
+     "salary": 352905
+    },
+    {
+     "category": "Inspector de Investigação Criminal",
+     "index": 1812,
+     "salary": 393516
+    },
+    {
+     "category": "Inspector Chefe de Investigação Criminal",
+     "index": 1896,
+     "salary": 411759
+    },
+    {
+     "category": "Intendente de Investigação Criminal",
+     "index": 2052,
+     "salary": 445637
+    },
+    {
+     "category": "Superintendente Investigação Criminal",
+     "index": 2288,
+     "salary": 496890
+    },
+    {
+     "category": "Superintendente Chefe de Invest. Criminal",
+     "index": 2579,
+     "salary": 560087
+    },
+    {
+     "category": "Sub-Comissário Investigação Criminal",
+     "index": 109,
+     "salary": 591963
+    },
+    {
+     "category": "Comissário Invest. Criminal",
+     "index": 115,
+     "salary": 624549
+    },
+    {
+     "category": "Comissário Chefe de Invest. Criminal",
+     "index": 128,
+     "salary": 695150
+    },
+    {
+     "category": "Comissário Chefe de Invest. Criminal/COEC",
+     "index": 141,
+     "salary": 765751
+    }
+   ],
+   "magistrados_judiciais": [
+    {
+     "category": "Juiz Municipal com mais de 5 anos de serviço",
+     "salary": 456502,
+     "representation": 91300
+    },
+    {
+     "category": "Juiz Municipal com mais de 10 anos de serviço",
+     "salary": 508200,
+     "representation": 101640
+    },
+    {
+     "category": "Juiz de Direito com menos de 5 anos de serviço",
+     "salary": 554400,
+     "representation": 138600
+    },
+    {
+     "category": "Juiz de Direito com mais de 5 anos de serviço",
+     "salary": 646800,
+     "representation": 161700
+    },
+    {
+     "category": "Juiz de Direito com mais de 10 anos de serviço",
+     "salary": 693000,
+     "representation": 173250
+    },
+    {
+     "category": "Juiz Desembargador",
+     "salary": 720507,
+     "representation": 216150
+    },
+    {
+     "category": "Vice-Presidente do Tribunal da Relação",
+     "salary": 729304,
+     "representation": 218791
+    },
+    {
+     "category": "Juiz Presidente do Tribunal da Relação",
+     "salary": 739200,
+     "representation": 258720
+    },
+    {
+     "category": "Vice-Presidente do Tribunal Supremo",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Juiz Conselheiro",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Vogal do Conselheiro Superior da Magistratura Judicial",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Juiz Presidente do Tribunal Supremo",
+     "salary": 831600,
+     "representation": 374220
+    }
+   ],
+   "magistrados_mp": [
+    {
+     "category": "Procurador Adjunto da República",
+     "salary": 508200,
+     "representation": 101640
+    },
+    {
+     "category": "Procurador da República com menos de 5 anos de serviço",
+     "salary": 554400,
+     "representation": 138600
+    },
+    {
+     "category": "Procurador da República com mais de 5 anos de serviço",
+     "salary": 646800,
+     "representation": 161700
+    },
+    {
+     "category": "Procurador da Republica com mais de 10 anos de serviço",
+     "salary": 693000,
+     "representation": 173250
+    },
+    {
+     "category": "Sub-Procurador Geral da República",
+     "salary": 720507,
+     "representation": 216150
+    },
+    {
+     "category": "Sub-Procurador Geral da República - Coordenador Adjunto",
+     "salary": 729300,
+     "representation": 218790
+    },
+    {
+     "category": "Sub-Procurador Geral da República - Coordenador",
+     "salary": 739200,
+     "representation": 258720
+    },
+    {
+     "category": "Vice-Procurador Geral da República",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Procurador Geral Adjunto da República",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Vogal do Conselheiro Superior da Magistratura do Ministério Público",
+     "salary": 785400,
+     "representation": 314160
+    },
+    {
+     "category": "Procurador Geral da República",
+     "salary": 831600,
+     "representation": 374220
     }
    ]
   }
