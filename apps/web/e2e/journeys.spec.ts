@@ -22,10 +22,11 @@ test.describe('journeys', () => {
 
     await expect(page).toHaveURL(/\/teste$/)
     await page.getByRole('button', { name: 'Começar' }).click()
-    // Questions alternate R, I, A, S, E, C: a strong Investigative side.
+    // Questions alternate R, I, A, S, E, C: strong Investigative and Artistic sides, where Frontend fits
+    // (the health careers, high on Investigative, also need a strong Social side).
     for (let index = 0; index < 42; index++) {
       await expect(page.getByText(`Pergunta ${index + 1} de 42`)).toBeVisible()
-      await page.getByRole('button', { name: index % 6 === 1 ? /Muito/ : /Pouco/ }).click()
+      await page.getByRole('button', { name: index % 6 === 1 || index % 6 === 2 ? /Muito/ : /Pouco/ }).click()
     }
     await page.getByRole('button', { name: /Ver o resultado/ }).click()
 
@@ -33,9 +34,7 @@ test.describe('journeys', () => {
     await expectAccessible(page)
 
     // Only a few demo careers have a full page; Desenvolvedor Frontend is one of the five.
-    await page
-      .getByRole('link', { name: /^Desenvolvedor Frontend.*Combina com o teu lado Investigativo/ })
-      .click()
+    await page.getByRole('link', { name: /^Desenvolvedor Frontend/ }).click()
     const fit = page.getByRole('region', { name: 'O meu encaixe' })
     await expect(fit.getByText(/^Combina (muito|em parte|pouco)$/)).toBeVisible()
     await expectAccessible(page)

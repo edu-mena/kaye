@@ -1,0 +1,7364 @@
+{
+ "year": "2023/24",
+ "source": {
+  "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+  "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+ },
+ "institutions": [
+  {
+   "name": "Escola Pedagógica do Bengo",
+   "nature": "publica",
+   "province": "Bengo",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 537,
+     "graduates": 58
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 406,
+     "graduates": 61
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 286,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 250,
+     "graduates": 27
+    },
+    {
+     "name": "Ensino da Informática",
+     "area": "education",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 144,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 132,
+     "graduates": 53
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Pedagógica do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 642,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 451,
+     "graduates": 65
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 329,
+     "graduates": 61
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 226,
+     "graduates": 32
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 211,
+     "graduates": 36
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 175,
+     "graduates": 19
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 168,
+     "graduates": 21
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "area": "education",
+     "students": 95,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 92,
+     "graduates": 0
+    },
+    {
+     "name": "Educação Primária",
+     "area": "education",
+     "students": 0,
+     "graduates": 108
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 99
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Pedagógica do Cuanza Norte",
+   "nature": "publica",
+   "province": "Cuanza Norte",
+   "courses": [
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "area": "education",
+     "students": 565,
+     "graduates": 134
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 513,
+     "graduates": 147
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 407,
+     "graduates": 157
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 279,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 276,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 222,
+     "graduates": 100
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 191,
+     "graduates": 44
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "area": "education",
+     "students": 186,
+     "graduates": 44
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 138,
+     "graduates": 28
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "area": "education",
+     "students": 105,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "area": "education",
+     "students": 94,
+     "graduates": 18
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Politécnica de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 346,
+     "graduates": 0
+    },
+    {
+     "name": "Administração de Empresas",
+     "area": "business",
+     "students": 38,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 36,
+     "graduates": 0
+    },
+    {
+     "name": "Comércio Internacional",
+     "area": "sciences",
+     "students": 23,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Técnica de Ciências do Desporto",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 335,
+     "graduates": 0
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 169,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição",
+     "area": "health",
+     "students": 92,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 66,
+     "graduates": 0
+    },
+    {
+     "name": "Biotecnologia",
+     "area": "sciences",
+     "students": 65,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Desportiva",
+     "area": "business",
+     "students": 18,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior de Ciências Policiais e Criminais, Geral Osvaldo de Jesus Serra Van-Dunem",
+   "nature": "publica",
+   "province": null,
+   "courses": [
+    {
+     "name": "Gestão e Administração Pública",
+     "area": "public",
+     "students": 89,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 86,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Policiais e Criminais",
+     "area": "public",
+     "students": 82,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior de Ciências, Artes e humanidade",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 381,
+     "graduates": 63
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 176,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 144,
+     "graduates": 34
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 121,
+     "graduates": 28
+    },
+    {
+     "name": "História",
+     "area": "sciences",
+     "students": 114,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 111,
+     "graduates": 120
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 63,
+     "graduates": 20
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior de Saúde Castelo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 201,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 186,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 93,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 70,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 32,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Católico do Lubango",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 236,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 105,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Comunicação",
+     "area": "communication",
+     "students": 69,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 47,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1261,
+     "graduates": 114
+    },
+    {
+     "name": "Ciências Económicas e Gestão",
+     "area": "business",
+     "students": 1159,
+     "graduates": 0
+    },
+    {
+     "name": "Cardiopneumologia",
+     "area": "health",
+     "students": 1060,
+     "graduates": 46
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 953,
+     "graduates": 87
+    },
+    {
+     "name": "Odontologia",
+     "area": "health",
+     "students": 721,
+     "graduates": 43
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 316,
+     "graduates": 14
+    },
+    {
+     "name": "Radiologia",
+     "area": "health",
+     "students": 295,
+     "graduates": 29
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 261,
+     "graduates": 9
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 244,
+     "graduates": 59
+    },
+    {
+     "name": "Engenharia Industrial e Sistemas Eléctricos",
+     "area": "engineering",
+     "students": 134,
+     "graduates": 16
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 124,
+     "graduates": 3
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 110,
+     "graduates": 20
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 103,
+     "graduates": 10
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 0,
+     "graduates": 61
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 0,
+     "graduates": 15
+    },
+    {
+     "name": "Engenharia de Recursos Naturais e Ambiente",
+     "area": "agriculture",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Gestão Bancária e Seguros",
+     "area": "business",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 0,
+     "graduates": 43
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 0,
+     "graduates": 65
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Atlântida",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 455,
+     "graduates": 93
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 422,
+     "graduates": 51
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 385,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 383,
+     "graduates": 35
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 303,
+     "graduates": 47
+    },
+    {
+     "name": "Gestão de Contabilidade",
+     "area": "business",
+     "students": 253,
+     "graduates": 51
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 150,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 142,
+     "graduates": 34
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 119,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 95,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 73,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 36,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 31,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 94
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 828,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 412,
+     "graduates": 42
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 343,
+     "graduates": 27
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 176,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 176,
+     "graduates": 15
+    },
+    {
+     "name": "Língua Portuguesa e Comunicação",
+     "area": "communication",
+     "students": 168,
+     "graduates": 2
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 164,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 119,
+     "graduates": 14
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 98,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 74,
+     "graduates": 18
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 65,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações e Eletrónica",
+     "area": "technology",
+     "students": 24,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 714,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 513,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 501,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 474,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia e Gestão Industrial",
+     "area": "engineering",
+     "students": 204,
+     "graduates": 0
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 102,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 88,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia do Ambiente",
+     "area": "agriculture",
+     "students": 86,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "area": "public",
+     "students": 80,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 49,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico do Huambo",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1077,
+     "graduates": 0
+    },
+    {
+     "name": "Didáctica de Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 745,
+     "graduates": 108
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 231,
+     "graduates": 25
+    },
+    {
+     "name": "Filosofia",
+     "area": "sciences",
+     "students": 77,
+     "graduates": 0
+    },
+    {
+     "name": "Língua Inglesa",
+     "area": "communication",
+     "students": 56,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão do Empreendedorismo",
+     "area": "business",
+     "students": 46,
+     "graduates": 2
+    },
+    {
+     "name": "Serviços Social",
+     "area": "sciences",
+     "students": 44,
+     "graduates": 0
+    },
+    {
+     "name": "Economia Agrária",
+     "area": "agriculture",
+     "students": 37,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 909,
+     "graduates": 54
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 352,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 273,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 239,
+     "graduates": 5
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 232,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 230,
+     "graduates": 15
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 114,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 0,
+     "graduates": 25
+    },
+    {
+     "name": "Gestão Empresarial",
+     "area": "business",
+     "students": 0,
+     "graduates": 21
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Evangélico do Lubango",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1378,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 1036,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 639,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição Humana",
+     "area": "health",
+     "students": 595,
+     "graduates": 0
+    },
+    {
+     "name": "Educação Pré-Escolar",
+     "area": "education",
+     "students": 544,
+     "graduates": 0
+    },
+    {
+     "name": "Farmácia",
+     "area": "health",
+     "students": 503,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 203,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 100,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 58,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 28,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Gregório Semedo",
+   "nature": "privada",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 1419,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1236,
+     "graduates": 0
+    },
+    {
+     "name": "Organização e Gestão de Empresas",
+     "area": "business",
+     "students": 470,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 340,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura, Urbanismo e Construção",
+     "area": "engineering",
+     "students": 324,
+     "graduates": 0
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 310,
+     "graduates": 0
+    },
+    {
+     "name": "Ciência Política e Administração do Território",
+     "area": "public",
+     "students": 274,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Comercial e Marketing",
+     "area": "business",
+     "students": 157,
+     "graduates": 0
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 66,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Independente",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1313,
+     "graduates": 102
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 1076,
+     "graduates": 71
+    },
+    {
+     "name": "Ciências da Educação",
+     "area": "education",
+     "students": 956,
+     "graduates": 0
+    },
+    {
+     "name": "Informática e Gestão de Empresas",
+     "area": "technology",
+     "students": 633,
+     "graduates": 54
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 620,
+     "graduates": 0
+    },
+    {
+     "name": "Finanças e Contabilidade",
+     "area": "business",
+     "students": 588,
+     "graduates": 60
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 410,
+     "graduates": 56
+    },
+    {
+     "name": "Ciências da Comunicação",
+     "area": "communication",
+     "students": 201,
+     "graduates": 25
+    },
+    {
+     "name": "Gestão e Marketing",
+     "area": "business",
+     "students": 201,
+     "graduates": 24
+    },
+    {
+     "name": "Formação de Professores",
+     "area": "education",
+     "students": 0,
+     "graduates": 445
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1872,
+     "graduates": 1
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 1197,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências de Gestão e Administração",
+     "area": "business",
+     "students": 1156,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 843,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 695,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 495,
+     "graduates": 1
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 339,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Industrial e Sistemas Eléctricos",
+     "area": "engineering",
+     "students": 195,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 96,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 56,
+     "graduates": 0
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 14,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Internacional de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1165,
+     "graduates": 3
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 755,
+     "graduates": 6
+    },
+    {
+     "name": "Gestão de Recursos Humanos e Marketing",
+     "area": "business",
+     "students": 464,
+     "graduates": 3
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 391,
+     "graduates": 0
+    },
+    {
+     "name": "Electrotecnia e Telecomunicações",
+     "area": "technology",
+     "students": 285,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 282,
+     "graduates": 2
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "area": "business",
+     "students": 235,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 211,
+     "graduates": 1
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 207,
+     "graduates": 4
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 196,
+     "graduates": 1
+    },
+    {
+     "name": "Comunicação Social e Imagem",
+     "area": "communication",
+     "students": 185,
+     "graduates": 1
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 171,
+     "graduates": 4
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 139,
+     "graduates": 1
+    },
+    {
+     "name": "Gestão Bancária e Seguros",
+     "area": "business",
+     "students": 117,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 113,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 96,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 83,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "area": "public",
+     "students": 68,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Enfermagem e Obstetrícia",
+     "area": "health",
+     "students": 1680,
+     "graduates": 62
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 770,
+     "graduates": 27
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 367,
+     "graduates": 36
+    },
+    {
+     "name": "Engenharia Electromecânica",
+     "area": "engineering",
+     "students": 314,
+     "graduates": 8
+    },
+    {
+     "name": "Radiologia e Imagiologia",
+     "area": "health",
+     "students": 256,
+     "graduates": 11
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 252,
+     "graduates": 53
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 216,
+     "graduates": 52
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 215,
+     "graduates": 32
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 190,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia de Refinação de Petróleos",
+     "area": "oil_mining",
+     "students": 188,
+     "graduates": 6
+    },
+    {
+     "name": "Ensino do Português e Línguas Nacionais",
+     "area": "education",
+     "students": 161,
+     "graduates": 29
+    },
+    {
+     "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+     "area": "education",
+     "students": 132,
+     "graduates": 6
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 104,
+     "graduates": 7
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 94,
+     "graduates": 3
+    },
+    {
+     "name": "Engenharia de Informática de Gestão",
+     "area": "technology",
+     "students": 62,
+     "graduates": 4
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 52,
+     "graduates": 23
+    },
+    {
+     "name": "Engenharia Informática de Gestão",
+     "area": "technology",
+     "students": 36,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kalandula de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1443,
+     "graduates": 50
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 934,
+     "graduates": 36
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "area": "business",
+     "students": 930,
+     "graduates": 33
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 814,
+     "graduates": 43
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 780,
+     "graduates": 48
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 673,
+     "graduates": 12
+    },
+    {
+     "name": "Psicologia Criminal",
+     "area": "sciences",
+     "students": 486,
+     "graduates": 14
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 465,
+     "graduates": 1
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 427,
+     "graduates": 14
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 394,
+     "graduates": 10
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 387,
+     "graduates": 8
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 338,
+     "graduates": 35
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "area": "public",
+     "students": 243,
+     "graduates": 2
+    },
+    {
+     "name": "Psicologia Escolar",
+     "area": "sciences",
+     "students": 238,
+     "graduates": 29
+    },
+    {
+     "name": "Psicologia do Trabalho",
+     "area": "sciences",
+     "students": 214,
+     "graduates": 10
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 146,
+     "graduates": 4
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 140,
+     "graduates": 3
+    },
+    {
+     "name": "Engenharia de Petróleos",
+     "area": "oil_mining",
+     "students": 107,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 57,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 32,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 28,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kangonjo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 773,
+     "graduates": 56
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 680,
+     "graduates": 63
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 622,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 590,
+     "graduates": 30
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 520,
+     "graduates": 76
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 398,
+     "graduates": 43
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 277,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 192,
+     "graduates": 25
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 142,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 116,
+     "graduates": 5
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 79,
+     "graduates": 46
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "area": "public",
+     "students": 72,
+     "graduates": 15
+    },
+    {
+     "name": "Ciências da Educação",
+     "area": "education",
+     "students": 0,
+     "graduates": 5
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 71
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 8
+    },
+    {
+     "name": "Farmácia",
+     "area": "health",
+     "students": 0,
+     "graduates": 12
+    },
+    {
+     "name": "Instrução Primária",
+     "area": "education",
+     "students": 0,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Katangojo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia Química",
+     "area": "engineering",
+     "students": 259,
+     "graduates": 68
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleos",
+     "area": "oil_mining",
+     "students": 184,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 122,
+     "graduates": 15
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 61,
+     "graduates": 16
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 35,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 39
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Lusíada da Lunda Sul",
+   "nature": "privada",
+   "province": "Lunda Sul",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 322,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 243,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 202,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Lusíada de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 400,
+     "graduates": 48
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 239,
+     "graduates": 20
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 209,
+     "graduates": 7
+    },
+    {
+     "name": "Informática",
+     "area": "technology",
+     "students": 167,
+     "graduates": 12
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 155,
+     "graduates": 9
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 67,
+     "graduates": 5
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 64,
+     "graduates": 7
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 50,
+     "graduates": 10
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Lusíada de Cabinda",
+   "nature": "privada",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 114,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 45,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade de Gestão",
+     "area": "business",
+     "students": 37,
+     "graduates": 0
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 32,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 20,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 17,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Lusíada do Huambo",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 355,
+     "graduates": 51
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 133,
+     "graduates": 25
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 124,
+     "graduates": 13
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 94,
+     "graduates": 29
+    },
+    {
+     "name": "Contabilidade Superior de Gestão",
+     "area": "business",
+     "students": 86,
+     "graduates": 0
+    },
+    {
+     "name": "Informática",
+     "area": "technology",
+     "students": 81,
+     "graduates": 6
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Maravilha",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 595,
+     "graduates": 39
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 520,
+     "graduates": 12
+    },
+    {
+     "name": "Ciências Económicas Empresariais",
+     "area": "business",
+     "students": 396,
+     "graduates": 21
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 345,
+     "graduates": 12
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 306,
+     "graduates": 48
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 272,
+     "graduates": 13
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 213,
+     "graduates": 8
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 147,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "area": "education",
+     "students": 144,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 136,
+     "graduates": 10
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 122,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 83,
+     "graduates": 6
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 76,
+     "graduates": 5
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 27
+    },
+    {
+     "name": "Psicologia Jurídica",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Metropolitano",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Administração de Empresas",
+     "area": "business",
+     "students": 575,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 436,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "area": "technology",
+     "students": 422,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 413,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Geologia e Minas",
+     "area": "oil_mining",
+     "students": 381,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 356,
+     "graduates": 0
+    },
+    {
+     "name": "Jornalismo",
+     "area": "communication",
+     "students": 312,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 292,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 289,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 146,
+     "graduates": 0
+    },
+    {
+     "name": "Cinema e Televisão",
+     "area": "communication",
+     "students": 119,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 48,
+     "graduates": 0
+    },
+    {
+     "name": "Planeamento Regional e Urbano",
+     "area": "engineering",
+     "students": 43,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Pública",
+     "area": "public",
+     "students": 28,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Ndunduma",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Ensino Pré-Escolar",
+     "area": "education",
+     "students": 1250,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 476,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 258,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 226,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 123,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 81,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Biológicas",
+     "area": "sciences",
+     "students": 59,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Eléctrica",
+     "area": "engineering",
+     "students": 45,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 16,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Nelson Mandela",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Gestão de Administração de Empresas",
+     "area": "business",
+     "students": 272,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 201,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 166,
+     "graduates": 23
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 150,
+     "graduates": 17
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 70,
+     "graduates": 11
+    },
+    {
+     "name": "Instrução Primária",
+     "area": "education",
+     "students": 60,
+     "graduates": 13
+    },
+    {
+     "name": "Ensino da Informática",
+     "area": "education",
+     "students": 41,
+     "graduates": 5
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 27,
+     "graduates": 3
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 13,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 5,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 34
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Psicologia Criminal",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privada do Zaire",
+   "nature": "privada",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 958,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 223,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 184,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 83,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "area": "business",
+     "students": 78,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 58,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 52,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 41,
+     "graduates": 0
+    },
+    {
+     "name": "Engenhario Electronica e Potência",
+     "area": "technology",
+     "students": 31,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado Sinodal",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 937,
+     "graduates": 115
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 436,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 90,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Hospitalar",
+     "area": "health",
+     "students": 36,
+     "graduates": 0
+    },
+    {
+     "name": "Administração e Gestão de Empresas",
+     "area": "business",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado Walinga",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 605,
+     "graduates": 157
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 573,
+     "graduates": 28
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 442,
+     "graduates": 56
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 308,
+     "graduates": 51
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 256,
+     "graduates": 72
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 138,
+     "graduates": 0
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 64,
+     "graduates": 13
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 35,
+     "graduates": 12
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado da Catepa",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1095,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 988,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 871,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 422,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos e Marketing",
+     "area": "business",
+     "students": 407,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 370,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 225,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "area": "business",
+     "students": 201,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 90,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 80,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 44,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "area": "engineering",
+     "students": 41,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado de Menongue",
+   "nature": "privada",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 1349,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 514,
+     "graduates": 0
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 257,
+     "graduates": 27
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 190,
+     "graduates": 12
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 99,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 0,
+     "graduates": 17
+    },
+    {
+     "name": "Psicologia da Educação",
+     "area": "education",
+     "students": 0,
+     "graduates": 90
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Kilamba",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 210,
+     "graduates": 11
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 204,
+     "graduates": 8
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 171,
+     "graduates": 6
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 146,
+     "graduates": 4
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 114,
+     "graduates": 6
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 111,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 92,
+     "graduates": 9
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 78,
+     "graduates": 3
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 56,
+     "graduates": 6
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 51,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 35,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 11,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Luena",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 391,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 370,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 251,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 179,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 158,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 82,
+     "graduates": 0
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 47,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 4,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Uíge",
+   "nature": "privada",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1270,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Educação",
+     "area": "education",
+     "students": 1259,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 972,
+     "graduates": 0
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 943,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 585,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 416,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Sistemas Electricos e telecomunicações",
+     "area": "technology",
+     "students": 258,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 233,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 209,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 193,
+     "graduates": 0
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 172,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 157,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "area": "engineering",
+     "students": 110,
+     "graduates": 0
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 86,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 67,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 50,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 11,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Sol Nascente",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1481,
+     "graduates": 196
+    },
+    {
+     "name": "Psicologia e Didáctica",
+     "area": "education",
+     "students": 822,
+     "graduates": 247
+    },
+    {
+     "name": "Cardiopneumologia",
+     "area": "health",
+     "students": 628,
+     "graduates": 70
+    },
+    {
+     "name": "História e Didáctica",
+     "area": "education",
+     "students": 501,
+     "graduates": 82
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 399,
+     "graduates": 46
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 346,
+     "graduates": 58
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 150,
+     "graduates": 15
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 131,
+     "graduates": 43
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 100,
+     "graduates": 13
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "area": "public",
+     "students": 88,
+     "graduates": 0
+    },
+    {
+     "name": "Ciência Política e Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 15
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tocoísta",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 983,
+     "graduates": 42
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 692,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 536,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 433,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 402,
+     "graduates": 8
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 251,
+     "graduates": 1
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 231,
+     "graduates": 10
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 63,
+     "graduates": 13
+    },
+    {
+     "name": "Estatística",
+     "area": "sciences",
+     "students": 22,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tundavala",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 721,
+     "graduates": 16
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 335,
+     "graduates": 2
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 198,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 166,
+     "graduates": 4
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 80,
+     "graduates": 2
+    },
+    {
+     "name": "Gestão e Contabilidade",
+     "area": "business",
+     "students": 65,
+     "graduates": 11
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 64,
+     "graduates": 7
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 62,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia do Ambiente",
+     "area": "agriculture",
+     "students": 55,
+     "graduates": 1
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 26,
+     "graduates": 2
+    },
+    {
+     "name": "Design",
+     "area": "sciences",
+     "students": 17,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Geológica",
+     "area": "oil_mining",
+     "students": 9,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico da Caála",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 2082,
+     "graduates": 106
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1191,
+     "graduates": 161
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 1111,
+     "graduates": 412
+    },
+    {
+     "name": "Engenharia Eléctrica",
+     "area": "engineering",
+     "students": 786,
+     "graduates": 31
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 713,
+     "graduates": 72
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 587,
+     "graduates": 35
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 584,
+     "graduates": 21
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 471,
+     "graduates": 226
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 317,
+     "graduates": 13
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 309,
+     "graduates": 28
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 190,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 159,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 154,
+     "graduates": 5
+    },
+    {
+     "name": "Administração Pública e Gestão de Cidades",
+     "area": "public",
+     "students": 141,
+     "graduates": 9
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 16
+    },
+    {
+     "name": "Ciências Económicas Empresariais",
+     "area": "business",
+     "students": 0,
+     "graduates": 14
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Cabinda",
+   "nature": "privada",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1395,
+     "graduates": 19
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 579,
+     "graduates": 21
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 423,
+     "graduates": 33
+    },
+    {
+     "name": "Gestão e Contabilidade",
+     "area": "business",
+     "students": 301,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 114,
+     "graduates": 1
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 10
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1573,
+     "graduates": 235
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 1243,
+     "graduates": 121
+    },
+    {
+     "name": "Ciências da Educação",
+     "area": "education",
+     "students": 717,
+     "graduates": 296
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 447,
+     "graduates": 123
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 368,
+     "graduates": 75
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 298,
+     "graduates": 39
+    },
+    {
+     "name": "Ciências da Comunicação",
+     "area": "communication",
+     "students": 273,
+     "graduates": 39
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 244,
+     "graduates": 41
+    },
+    {
+     "name": "Farmácia",
+     "area": "health",
+     "students": 195,
+     "graduates": 18
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 164,
+     "graduates": 15
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 158,
+     "graduates": 23
+    },
+    {
+     "name": "Contabilidade, Fiscalidade e Auditoria",
+     "area": "business",
+     "students": 128,
+     "graduates": 39
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Ndalatando",
+   "nature": "publica",
+   "province": "Cuanza Norte",
+   "courses": [
+    {
+     "name": "Administração Pública",
+     "area": "public",
+     "students": 625,
+     "graduates": 135
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 518,
+     "graduates": 121
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 315,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 272,
+     "graduates": 128
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 257,
+     "graduates": 68
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 239,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 117,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Porto Amboim",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 668,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 547,
+     "graduates": 56
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 494,
+     "graduates": 26
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 217,
+     "graduates": 78
+    },
+    {
+     "name": "Psicologia da Educação",
+     "area": "education",
+     "students": 141,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão e Administração Pública",
+     "area": "public",
+     "students": 128,
+     "graduates": 13
+    },
+    {
+     "name": "Gestão e Contabilidade",
+     "area": "business",
+     "students": 102,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica",
+     "area": "technology",
+     "students": 65,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 50,
+     "graduates": 10
+    },
+    {
+     "name": "Gestão Empresarial e Contabilidade",
+     "area": "business",
+     "students": 44,
+     "graduates": 49
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "area": "engineering",
+     "students": 18,
+     "graduates": 1
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 12,
+     "graduates": 1
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Psicologa da Educação",
+     "area": "education",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Tecnologias e Ciências",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 554,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 483,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Química",
+     "area": "engineering",
+     "students": 449,
+     "graduates": 3
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 446,
+     "graduates": 43
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 381,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Petróleos",
+     "area": "oil_mining",
+     "students": 379,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 374,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 342,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Produção Industrial",
+     "area": "engineering",
+     "students": 289,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 282,
+     "graduates": 0
+    },
+    {
+     "name": "Geofísica",
+     "area": "oil_mining",
+     "students": 102,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 12
+    },
+    {
+     "name": "Gestão Empresarial",
+     "area": "business",
+     "students": 0,
+     "graduates": 30
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bengo",
+   "nature": "publica",
+   "province": "Bengo",
+   "courses": [
+    {
+     "name": "Engenharia em Tecnologia Agro-Alimentar",
+     "area": "engineering",
+     "students": 93,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 89,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bita",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 620,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 426,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 352,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 298,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica",
+     "area": "technology",
+     "students": 180,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 122,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 653,
+     "graduates": 116
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 492,
+     "graduates": 138
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 461,
+     "graduates": 234
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 452,
+     "graduates": 144
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 235,
+     "graduates": 54
+    },
+    {
+     "name": "Engenharia em Recursos Hídricos",
+     "area": "engineering",
+     "students": 183,
+     "graduates": 82
+    },
+    {
+     "name": "Engenharia de Informática de Gestão",
+     "area": "technology",
+     "students": 85,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cazenga",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 950,
+     "graduates": 64
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 520,
+     "graduates": 15
+    },
+    {
+     "name": "Gestão Empresarial e Contabilidade",
+     "area": "business",
+     "students": 455,
+     "graduates": 10
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 435,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão e Administração Pública",
+     "area": "public",
+     "students": 246,
+     "graduates": 1
+    },
+    {
+     "name": "Gestão Hospitalar",
+     "area": "health",
+     "students": 175,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 160,
+     "graduates": 3
+    },
+    {
+     "name": "Engenharia de Electrotecnia e Telecomunicação",
+     "area": "technology",
+     "students": 138,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 133,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Económicas e Gestão",
+     "area": "business",
+     "students": 103,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 85,
+     "graduates": 18
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 75,
+     "graduates": 0
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 74,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "area": "technology",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Engenharia Electrotécnica e Telecomunicações",
+     "area": "technology",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuanza Sul",
+   "nature": "publica",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 457,
+     "graduates": 41
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 456,
+     "graduates": 69
+    },
+    {
+     "name": "Gestão de Empresas Agrárias",
+     "area": "agriculture",
+     "students": 138,
+     "graduates": 11
+    },
+    {
+     "name": "Agronomia",
+     "area": "agriculture",
+     "students": 128,
+     "graduates": 15
+    },
+    {
+     "name": "Zootecnia",
+     "area": "agriculture",
+     "students": 99,
+     "graduates": 8
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuito",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Instrução Primária",
+     "area": "education",
+     "students": 1661,
+     "graduates": 46
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1028,
+     "graduates": 20
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 792,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 391,
+     "graduates": 9
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 309,
+     "graduates": 52
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 157,
+     "graduates": 25
+    },
+    {
+     "name": "Administração e Gestão Escolar",
+     "area": "business",
+     "students": 98,
+     "graduates": 82
+    },
+    {
+     "name": "Psicologia das Organizações e do Trabalho",
+     "area": "sciences",
+     "students": 96,
+     "graduates": 21
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 41,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 23,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 13,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 8,
+     "graduates": 9
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 36
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Libolo",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 515,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 134,
+     "graduates": 1
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 115,
+     "graduates": 0
+    },
+    {
+     "name": "Agronomia",
+     "area": "agriculture",
+     "students": 61,
+     "graduates": 0
+    },
+    {
+     "name": "Zootecnia",
+     "area": "agriculture",
+     "students": 13,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Moxico",
+   "nature": "publica",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 622,
+     "graduates": 132
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 517,
+     "graduates": 112
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 412,
+     "graduates": 121
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 193,
+     "graduates": 41
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 183,
+     "graduates": 14
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 143,
+     "graduates": 43
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 130,
+     "graduates": 16
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 122,
+     "graduates": 49
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Soyo",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 1059,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 385,
+     "graduates": 71
+    },
+    {
+     "name": "Engenharia de Organização e Manutenção Industrial",
+     "area": "engineering",
+     "students": 247,
+     "graduates": 26
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 237,
+     "graduates": 40
+    },
+    {
+     "name": "Sistemas de Informação",
+     "area": "sciences",
+     "students": 153,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 100,
+     "graduates": 47
+    },
+    {
+     "name": "Redes e Administração de Sistemas",
+     "area": "technology",
+     "students": 89,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 265
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Zango",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 1243,
+     "graduates": 26
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 171,
+     "graduates": 41
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 115,
+     "graduates": 8
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 91,
+     "graduates": 9
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 63,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 49,
+     "graduates": 6
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 22,
+     "graduates": 2
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Privado Kiaxi",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Logística e Gestão Comercial",
+     "area": "logistics",
+     "students": 337,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 155,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão das Autarquias",
+     "area": "business",
+     "students": 130,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Privado Nzenzu Estrela",
+   "nature": "privada",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 403,
+     "graduates": 0
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 151,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 128,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Empresarial",
+     "area": "business",
+     "students": 102,
+     "graduates": 0
+    },
+    {
+     "name": "Economia, Contabilidade e Auditoria",
+     "area": "business",
+     "students": 97,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Privado Rei Luhuna",
+   "nature": "privada",
+   "province": "Cunene",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 664,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 390,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 226,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 192,
+     "graduates": 0
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 28,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Técnico Militar",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 0,
+     "graduates": 78
+    },
+    {
+     "name": "Engenharia de Construções e Fortificações",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 46
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 78
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 86
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 66
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 0,
+     "graduates": 86
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Técnico de Administração e Finanças",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 916,
+     "graduates": 57
+    },
+    {
+     "name": "Gestão Bancária e de Seguros",
+     "area": "business",
+     "students": 438,
+     "graduates": 25
+    },
+    {
+     "name": "Informática de Gestão Financeira",
+     "area": "technology",
+     "students": 306,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Técnico de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 800,
+     "graduates": 45
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 689,
+     "graduates": 69
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 547,
+     "graduates": 30
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 348,
+     "graduates": 6
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 324,
+     "graduates": 5
+    },
+    {
+     "name": "Engenharia Electromecânica",
+     "area": "engineering",
+     "students": 259,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 212,
+     "graduates": 9
+    },
+    {
+     "name": "Engenharia Energética",
+     "area": "engineering",
+     "students": 121,
+     "graduates": 2
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Universitário Nimi Ya Lukeni",
+   "nature": "privada",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Gestão Comercial e Marketing",
+     "area": "business",
+     "students": 580,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Financeira e Contabilidade",
+     "area": "business",
+     "students": 571,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 233,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 92,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Hoteleira e Turismo",
+     "area": "hospitality",
+     "students": 92,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Universitário Waku-Cungo",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 300,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 100,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 100,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agrária",
+     "area": "agriculture",
+     "students": 91,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Económicas Empresariais",
+     "area": "business",
+     "students": 77,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 676,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 347,
+     "graduates": 0
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 245,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 229,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 217,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 187,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 155,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 132,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 129,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 91,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "area": "technology",
+     "students": 80,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição",
+     "area": "health",
+     "students": 47,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 21,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências Policiais e Criminais, General Osvaldo Serra Vandúnem",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Criminais",
+     "area": "public",
+     "students": 0,
+     "graduates": 146
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências Sociais e Relações Internacionais",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 303,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 212,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 207,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Banca e Seguros",
+     "area": "business",
+     "students": 194,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 174,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 116,
+     "graduates": 0
+    },
+    {
+     "name": "Administração Pública",
+     "area": "public",
+     "students": 92,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 47,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 38,
+     "graduates": 0
+    },
+    {
+     "name": "Ciência Política",
+     "area": "public",
+     "students": 14,
+     "graduates": 0
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 4,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências da Educação de Benguela",
+   "nature": "publica",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 337,
+     "graduates": 97
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 328,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 277,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 265,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 234,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 207,
+     "graduates": 82
+    },
+    {
+     "name": "Educação Especial",
+     "area": "education",
+     "students": 158,
+     "graduates": 120
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "area": "education",
+     "students": 150,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 77,
+     "graduates": 139
+    },
+    {
+     "name": "Educação Primária",
+     "area": "education",
+     "students": 29,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 23,
+     "graduates": 121
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 31
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 37
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 79
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação da Huíla",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 671,
+     "graduates": 111
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 465,
+     "graduates": 69
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 432,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 425,
+     "graduates": 56
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 410,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 339,
+     "graduates": 2
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 327,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 305,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "area": "education",
+     "students": 294,
+     "graduates": 13
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "area": "education",
+     "students": 253,
+     "graduates": 26
+    },
+    {
+     "name": "Informática Educativa",
+     "area": "education",
+     "students": 228,
+     "graduates": 28
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 224,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 223,
+     "graduates": 33
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 193,
+     "graduates": 75
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 95,
+     "graduates": 25
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 68,
+     "graduates": 103
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação da Uíge",
+   "nature": "publica",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 578,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 523,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 519,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "area": "education",
+     "students": 473,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 445,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 427,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 398,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 320,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 227,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 208,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "area": "education",
+     "students": 188,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "area": "education",
+     "students": 149,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Especial",
+     "area": "education",
+     "students": 125,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 23,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 18,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação de Cabinda",
+   "nature": "publica",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 655,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 420,
+     "graduates": 55
+    },
+    {
+     "name": "História",
+     "area": "sciences",
+     "students": 337,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 277,
+     "graduates": 35
+    },
+    {
+     "name": "Biologia",
+     "area": "sciences",
+     "students": 245,
+     "graduates": 0
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 146,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 139,
+     "graduates": 13
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 121,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 47
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 0,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 96
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação de Luanda",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 344,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 248,
+     "graduates": 142
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 197,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 178,
+     "graduates": 10
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 121,
+     "graduates": 44
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 87,
+     "graduates": 31
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "area": "education",
+     "students": 67,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua e Literaturas Africanas",
+     "area": "education",
+     "students": 63,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "area": "education",
+     "students": 59,
+     "graduates": 32
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "area": "education",
+     "students": 58,
+     "graduates": 36
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 30
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 38
+    },
+    {
+     "name": "Ensino das Línguas e Literaturas Africanas",
+     "area": "education",
+     "students": 0,
+     "graduates": 15
+    },
+    {
+     "name": "Ensino do Francês",
+     "area": "education",
+     "students": 0,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino do Inglês",
+     "area": "education",
+     "students": 0,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino do Português",
+     "area": "education",
+     "students": 0,
+     "graduates": 32
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação do Huambo",
+   "nature": "publica",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 429,
+     "graduates": 90
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 424,
+     "graduates": 90
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 395,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 294,
+     "graduates": 68
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 285,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 198,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 187,
+     "graduates": 39
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 169,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 28
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 71
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "area": "education",
+     "students": 0,
+     "graduates": 2
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação do Sumbe",
+   "nature": "publica",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 464,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 396,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 370,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 360,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 218,
+     "graduates": 0
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 190,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "area": "education",
+     "students": 116,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 84,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 50,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências e Administração Humana",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 136,
+     "graduates": 25
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 118,
+     "graduates": 29
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 111,
+     "graduates": 7
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 102,
+     "graduates": 18
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 2,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ombaka",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 1495,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 283,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Educação Física e desportos",
+     "area": "education",
+     "students": 179,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 155,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 146,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 99,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 85,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Criminais",
+     "area": "public",
+     "students": 1490,
+     "graduates": 93
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 1369,
+     "graduates": 74
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 910,
+     "graduates": 18
+    },
+    {
+     "name": "Engenharia de Redes e Telecomunicações",
+     "area": "technology",
+     "students": 670,
+     "graduates": 8
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 640,
+     "graduates": 73
+    },
+    {
+     "name": "Engenharia Informática e Sistemas de Informação",
+     "area": "technology",
+     "students": 469,
+     "graduates": 13
+    },
+    {
+     "name": "Logística e Gestão Comercial",
+     "area": "logistics",
+     "students": 439,
+     "graduates": 22
+    },
+    {
+     "name": "Hotelaria e Turismo",
+     "area": "hospitality",
+     "students": 373,
+     "graduates": 21
+    }
+   ]
+  },
+  {
+   "name": "Intituto Superior Politécnico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 1468,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 696,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Educação",
+     "area": "education",
+     "students": 661,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 456,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 401,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 372,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 289,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 225,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 217,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Electrónica",
+     "area": "technology",
+     "students": 217,
+     "graduates": 0
+    },
+    {
+     "name": "Administração Pública, Autárquica e Gestão do Território",
+     "area": "public",
+     "students": 114,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade, Fiscalidade e Auditoria",
+     "area": "business",
+     "students": 107,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Agropecuária",
+     "area": "agriculture",
+     "students": 75,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão do Ambiente",
+     "area": "agriculture",
+     "students": 35,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 2008,
+     "graduates": 54
+    },
+    {
+     "name": "Secretariado Executivo e Comunicação Empresarial",
+     "area": "business",
+     "students": 942,
+     "graduates": 161
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 697,
+     "graduates": 30
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 670,
+     "graduates": 42
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 670,
+     "graduates": 44
+    },
+    {
+     "name": "Língua e Literaturas em Lingua Portuguesa",
+     "area": "communication",
+     "students": 604,
+     "graduates": 92
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 584,
+     "graduates": 31
+    },
+    {
+     "name": "Gestão e Administração Pública",
+     "area": "public",
+     "students": 533,
+     "graduates": 230
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 529,
+     "graduates": 44
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 499,
+     "graduates": 34
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 491,
+     "graduates": 52
+    },
+    {
+     "name": "Gestão Financeira",
+     "area": "business",
+     "students": 470,
+     "graduates": 47
+    },
+    {
+     "name": "Matemática",
+     "area": "sciences",
+     "students": 470,
+     "graduates": 20
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 426,
+     "graduates": 59
+    },
+    {
+     "name": "Geologia",
+     "area": "oil_mining",
+     "students": 384,
+     "graduates": 17
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "area": "education",
+     "students": 383,
+     "graduates": 82
+    },
+    {
+     "name": "Língua e Literaturas em Lingua Inglesa",
+     "area": "communication",
+     "students": 382,
+     "graduates": 74
+    },
+    {
+     "name": "Gestão de Turismo",
+     "area": "hospitality",
+     "students": 363,
+     "graduates": 9
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 350,
+     "graduates": 104
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 322,
+     "graduates": 27
+    },
+    {
+     "name": "Biologia",
+     "area": "sciences",
+     "students": 282,
+     "graduates": 17
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 276,
+     "graduates": 94
+    },
+    {
+     "name": "Física",
+     "area": "sciences",
+     "students": 272,
+     "graduates": 17
+    },
+    {
+     "name": "Ciência Política",
+     "area": "public",
+     "students": 270,
+     "graduates": 142
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 252,
+     "graduates": 15
+    },
+    {
+     "name": "Língua e Literaturas Africanas",
+     "area": "communication",
+     "students": 238,
+     "graduates": 0
+    },
+    {
+     "name": "Geofísica",
+     "area": "oil_mining",
+     "students": 224,
+     "graduates": 12
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "area": "technology",
+     "students": 210,
+     "graduates": 7
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 204,
+     "graduates": 32
+    },
+    {
+     "name": "Filosofia",
+     "area": "sciences",
+     "students": 199,
+     "graduates": 42
+    },
+    {
+     "name": "Língua e Literaturas em Lingua Francesa",
+     "area": "communication",
+     "students": 197,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 194,
+     "graduates": 15
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "area": "engineering",
+     "students": 191,
+     "graduates": 15
+    },
+    {
+     "name": "Ciência da Informação",
+     "area": "sciences",
+     "students": 180,
+     "graduates": 0
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 178,
+     "graduates": 19
+    },
+    {
+     "name": "Psicologia Escolar",
+     "area": "sciences",
+     "students": 170,
+     "graduates": 22
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 169,
+     "graduates": 24
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 156,
+     "graduates": 72
+    },
+    {
+     "name": "História",
+     "area": "sciences",
+     "students": 141,
+     "graduates": 84
+    },
+    {
+     "name": "Química",
+     "area": "sciences",
+     "students": 132,
+     "graduates": 11
+    },
+    {
+     "name": "Engenharia Geográfica",
+     "area": "engineering",
+     "students": 130,
+     "graduates": 19
+    },
+    {
+     "name": "Engenharia de Minas",
+     "area": "oil_mining",
+     "students": 123,
+     "graduates": 25
+    },
+    {
+     "name": "Engenharia de Petróleos",
+     "area": "oil_mining",
+     "students": 112,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Química",
+     "area": "engineering",
+     "students": 111,
+     "graduates": 9
+    },
+    {
+     "name": "Antropologia",
+     "area": "sciences",
+     "students": 90,
+     "graduates": 82
+    },
+    {
+     "name": "Geodemografia",
+     "area": "sciences",
+     "students": 79,
+     "graduates": 22
+    },
+    {
+     "name": "Metereologia",
+     "area": "sciences",
+     "students": 43,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 30
+    },
+    {
+     "name": "Línguas e Literaturas Africanas",
+     "area": "communication",
+     "students": 0,
+     "graduates": 56
+    }
+   ]
+  },
+  {
+   "name": "Universidade Católica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Administração",
+     "area": "business",
+     "students": 0,
+     "graduates": 34
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 149
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 91
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 0,
+     "graduates": 20
+    },
+    {
+     "name": "Educação Moral e Cívica",
+     "area": "education",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 22
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 0,
+     "graduates": 34
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 0,
+     "graduates": 29
+    },
+    {
+     "name": "Filosofia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 11
+    },
+    {
+     "name": "Línguas e Administração",
+     "area": "communication",
+     "students": 0,
+     "graduates": 13
+    },
+    {
+     "name": "Nutrição",
+     "area": "health",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 52
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 28
+    },
+    {
+     "name": "Serviço Social",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 17
+    }
+   ]
+  },
+  {
+   "name": "Universidade Cuito Cuanavale",
+   "nature": "publica",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Informática para Gestão",
+     "area": "technology",
+     "students": 371,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 326,
+     "graduates": 110
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 160,
+     "graduates": 149
+    },
+    {
+     "name": "Gestão de Turismo",
+     "area": "hospitality",
+     "students": 157,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 115,
+     "graduates": 78
+    },
+    {
+     "name": "Engenharia Informática para Gestão",
+     "area": "technology",
+     "students": 0,
+     "graduates": 49
+    },
+    {
+     "name": "Gestão Hoteleira",
+     "area": "hospitality",
+     "students": 0,
+     "graduates": 31
+    }
+   ]
+  },
+  {
+   "name": "Universidade Gregório Semedo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciência Política e Administração do Território",
+     "area": "public",
+     "students": 0,
+     "graduates": 11
+    },
+    {
+     "name": "Comunicação Empresarial e Línguas",
+     "area": "communication",
+     "students": 0,
+     "graduates": 9
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 48
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 18
+    },
+    {
+     "name": "Gestão Comercial e Marketing",
+     "area": "business",
+     "students": 0,
+     "graduates": 34
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 0,
+     "graduates": 46
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Organização e Gestão de Empresas",
+     "area": "business",
+     "students": 0,
+     "graduates": 91
+    }
+   ]
+  },
+  {
+   "name": "Universidade Independente de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 29
+    },
+    {
+     "name": "Ciências da Comunicação",
+     "area": "communication",
+     "students": 0,
+     "graduates": 196
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 0,
+     "graduates": 70
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 313
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 0,
+     "graduates": 56
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Engenharia dos Recursos Naturais e Ambiente",
+     "area": "agriculture",
+     "students": 0,
+     "graduates": 22
+    },
+    {
+     "name": "Engenharia e Gestão Industrial",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Engenharia Electrotécnica e Telecomunicações",
+     "area": "technology",
+     "students": 0,
+     "graduates": 68
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 42
+    },
+    {
+     "name": "Finanças E Contabilidade",
+     "area": "business",
+     "students": 0,
+     "graduates": 56
+    },
+    {
+     "name": "Formação De Professores",
+     "area": "education",
+     "students": 0,
+     "graduates": 38
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 0,
+     "graduates": 124
+    },
+    {
+     "name": "Gestão E Marketing",
+     "area": "business",
+     "students": 0,
+     "graduates": 79
+    },
+    {
+     "name": "Informática de Gestão de Empresas",
+     "area": "technology",
+     "students": 0,
+     "graduates": 12
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 101
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 43
+    }
+   ]
+  },
+  {
+   "name": "Universidade José Eduardo dos Santos",
+   "nature": "publica",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1637,
+     "graduates": 106
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 1600,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 839,
+     "graduates": 117
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 643,
+     "graduates": 13
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "area": "technology",
+     "students": 604,
+     "graduates": 28
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 561,
+     "graduates": 10
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 448,
+     "graduates": 58
+    },
+    {
+     "name": "Medicina Veterinária",
+     "area": "agriculture",
+     "students": 385,
+     "graduates": 14
+    },
+    {
+     "name": "Engenharia Florestal",
+     "area": "agriculture",
+     "students": 357,
+     "graduates": 9
+    },
+    {
+     "name": "Laboratório Clínico",
+     "area": "health",
+     "students": 296,
+     "graduates": 39
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "area": "engineering",
+     "students": 238,
+     "graduates": 0
+    },
+    {
+     "name": "Aquicultura",
+     "area": "agriculture",
+     "students": 176,
+     "graduates": 1
+    },
+    {
+     "name": "Arquitectura",
+     "area": "engineering",
+     "students": 172,
+     "graduates": 27
+    },
+    {
+     "name": "Electromedicina",
+     "area": "health",
+     "students": 160,
+     "graduates": 22
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 160,
+     "graduates": 18
+    },
+    {
+     "name": "Engenharia Hidráulica",
+     "area": "engineering",
+     "students": 157,
+     "graduates": 16
+    },
+    {
+     "name": "Ensino das Tecnologias Alimentares",
+     "area": "education",
+     "students": 21,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Gestão Agrícola",
+     "area": "education",
+     "students": 20,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Produção Agropecuária",
+     "area": "education",
+     "students": 18,
+     "graduates": 0
+    },
+    {
+     "name": "Construção Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Universidade Katyavala Buila",
+   "nature": "publica",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 454,
+     "graduates": 48
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 394,
+     "graduates": 26
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 377,
+     "graduates": 43
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 327,
+     "graduates": 13
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 295,
+     "graduates": 28
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 210,
+     "graduates": 16
+    },
+    {
+     "name": "Engenharia de Gestão logística e dos Transporte",
+     "area": "engineering",
+     "students": 142,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 127,
+     "graduates": 16
+    }
+   ]
+  },
+  {
+   "name": "Universidade Kimpa Vita",
+   "nature": "publica",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1474,
+     "graduates": 86
+    },
+    {
+     "name": "Contabilidade de Gestão",
+     "area": "business",
+     "students": 659,
+     "graduates": 0
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 634,
+     "graduates": 76
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 605,
+     "graduates": 50
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 485,
+     "graduates": 55
+    },
+    {
+     "name": "Agronomia",
+     "area": "agriculture",
+     "students": 276,
+     "graduates": 56
+    },
+    {
+     "name": "Engenharia Hidráulica e Saneamento das Águas",
+     "area": "engineering",
+     "students": 197,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 70
+    },
+    {
+     "name": "Engenharia Hidráulica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 8
+    }
+   ]
+  },
+  {
+   "name": "Universidade Lueji A´Nkonde",
+   "nature": "publica",
+   "province": "Lunda Norte",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 1549,
+     "graduates": 371
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1202,
+     "graduates": 140
+    },
+    {
+     "name": "Administração e Gestão",
+     "area": "business",
+     "students": 937,
+     "graduates": 134
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 690,
+     "graduates": 82
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "area": "education",
+     "students": 678,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 611,
+     "graduates": 25
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 501,
+     "graduates": 205
+    },
+    {
+     "name": "Ensino da História",
+     "area": "education",
+     "students": 463,
+     "graduates": 115
+    },
+    {
+     "name": "Engenharia em Geologia",
+     "area": "oil_mining",
+     "students": 353,
+     "graduates": 25
+    },
+    {
+     "name": "Engenharia de Minas",
+     "area": "oil_mining",
+     "students": 333,
+     "graduates": 32
+    },
+    {
+     "name": "Engenharia Electromecânica",
+     "area": "engineering",
+     "students": 302,
+     "graduates": 23
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 268,
+     "graduates": 58
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 249,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Metalurgia e Materiais",
+     "area": "oil_mining",
+     "students": 209,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 195,
+     "graduates": 40
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "area": "engineering",
+     "students": 194,
+     "graduates": 48
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 152,
+     "graduates": 38
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 136,
+     "graduates": 2
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 113,
+     "graduates": 47
+    },
+    {
+     "name": "Educação Primária",
+     "area": "education",
+     "students": 79,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "area": "education",
+     "students": 13,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "area": "education",
+     "students": 11,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "area": "education",
+     "students": 6,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Especial",
+     "area": "education",
+     "students": 5,
+     "graduates": 41
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 24
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 43
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "area": "education",
+     "students": 0,
+     "graduates": 113
+    },
+    {
+     "name": "Ensino Pré-escolar",
+     "area": "education",
+     "students": 0,
+     "graduates": 46
+    },
+    {
+     "name": "Gestão e Inspecção Escolar",
+     "area": "business",
+     "students": 0,
+     "graduates": 143
+    },
+    {
+     "name": "Engenharia Metalúrgica e Materiais",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Universidade Mandume Ya Ndemufayo",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 1208,
+     "graduates": 33
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1128,
+     "graduates": 135
+    },
+    {
+     "name": "Informática",
+     "area": "technology",
+     "students": 778,
+     "graduates": 25
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 603,
+     "graduates": 71
+    },
+    {
+     "name": "Agronomia",
+     "area": "agriculture",
+     "students": 564,
+     "graduates": 53
+    },
+    {
+     "name": "Biologia",
+     "area": "sciences",
+     "students": 325,
+     "graduates": 60
+    },
+    {
+     "name": "Construção Civil",
+     "area": "engineering",
+     "students": 247,
+     "graduates": 21
+    },
+    {
+     "name": "Engenharia em Geologia",
+     "area": "oil_mining",
+     "students": 199,
+     "graduates": 35
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 193,
+     "graduates": 45
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 182,
+     "graduates": 35
+    },
+    {
+     "name": "Contabilidade e Fiscalidade",
+     "area": "business",
+     "students": 180,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Computação",
+     "area": "technology",
+     "students": 171,
+     "graduates": 26
+    },
+    {
+     "name": "Zootecnia",
+     "area": "agriculture",
+     "students": 151,
+     "graduates": 26
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 148,
+     "graduates": 17
+    },
+    {
+     "name": "Engenharia de Minas",
+     "area": "oil_mining",
+     "students": 144,
+     "graduates": 37
+    },
+    {
+     "name": "Desenho",
+     "area": "sciences",
+     "students": 138,
+     "graduates": 25
+    },
+    {
+     "name": "Hidráulica",
+     "area": "sciences",
+     "students": 109,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Geologia",
+     "area": "oil_mining",
+     "students": 31,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 0,
+     "graduates": 25
+    },
+    {
+     "name": "Análises Clínicas e Laboratório",
+     "area": "health",
+     "students": 0,
+     "graduates": 26
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "area": "agriculture",
+     "students": 0,
+     "graduates": 29
+    },
+    {
+     "name": "Engenharia Hidráulica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Informática para Gestão",
+     "area": "technology",
+     "students": 0,
+     "graduates": 31
+    }
+   ]
+  },
+  {
+   "name": "Universidade Metodista de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ambiente e Gestão do Território",
+     "area": "agriculture",
+     "students": 0,
+     "graduates": 97
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "area": "health",
+     "students": 0,
+     "graduates": 203
+    },
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 98
+    },
+    {
+     "name": "Biologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 24
+    },
+    {
+     "name": "Cardiopneumologia",
+     "area": "health",
+     "students": 0,
+     "graduates": 48
+    },
+    {
+     "name": "Ciências do Desporto e Educação Física",
+     "area": "education",
+     "students": 0,
+     "graduates": 45
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 179
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 0,
+     "graduates": 124
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 0,
+     "graduates": 107
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 50
+    },
+    {
+     "name": "Engenharia do Ambiente",
+     "area": "agriculture",
+     "students": 0,
+     "graduates": 16
+    },
+    {
+     "name": "Engenharia Industrial e Sistemas Eléctricos",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 72
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 141
+    },
+    {
+     "name": "Engenharia Mecatrónica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 54
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 0,
+     "graduates": 57
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "area": "business",
+     "students": 0,
+     "graduates": 200
+    },
+    {
+     "name": "Língua Portuguesa e Comunicação",
+     "area": "communication",
+     "students": 0,
+     "graduates": 76
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 36
+    },
+    {
+     "name": "Turismo, Gestão Hoteleira e Animação",
+     "area": "hospitality",
+     "students": 0,
+     "graduates": 51
+    }
+   ]
+  },
+  {
+   "name": "Universidade Onze de Novembro",
+   "nature": "publica",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 1032,
+     "graduates": 127
+    },
+    {
+     "name": "Gestão de Empresas",
+     "area": "business",
+     "students": 737,
+     "graduates": 40
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "area": "business",
+     "students": 616,
+     "graduates": 29
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 594,
+     "graduates": 34
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 485,
+     "graduates": 74
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 363,
+     "graduates": 71
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 343,
+     "graduates": 66
+    },
+    {
+     "name": "Economia",
+     "area": "business",
+     "students": 265,
+     "graduates": 26
+    },
+    {
+     "name": "Engenharia Florestal",
+     "area": "agriculture",
+     "students": 168,
+     "graduates": 22
+    }
+   ]
+  },
+  {
+   "name": "Universidade Privada de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 15
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Comunicação Social",
+     "area": "communication",
+     "students": 0,
+     "graduates": 22
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 0,
+     "graduates": 45
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 10
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 0,
+     "graduates": 25
+    },
+    {
+     "name": "Gestão e Contabilidade",
+     "area": "business",
+     "students": 0,
+     "graduates": 54
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 0,
+     "graduates": 48
+    },
+    {
+     "name": "Odontologia",
+     "area": "health",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 10
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 9
+    },
+    {
+     "name": "Turismo e Gestão Hoteleira",
+     "area": "hospitality",
+     "students": 0,
+     "graduates": 13
+    }
+   ]
+  },
+  {
+   "name": "Universidade Rainha Njinga a Mbande",
+   "nature": "publica",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 399,
+     "graduates": 84
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 389,
+     "graduates": 50
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 322,
+     "graduates": 65
+    },
+    {
+     "name": "Psicologia Clínica",
+     "area": "health",
+     "students": 290,
+     "graduates": 23
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 271,
+     "graduates": 46
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 223,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia em Tecnologia Agro-Alimentar",
+     "area": "engineering",
+     "students": 207,
+     "graduates": 23
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 195,
+     "graduates": 31
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "area": "health",
+     "students": 173,
+     "graduates": 20
+    },
+    {
+     "name": "Hotelaria e Turismo",
+     "area": "hospitality",
+     "students": 112,
+     "graduates": 46
+    },
+    {
+     "name": "Administração e Gestão",
+     "area": "business",
+     "students": 104,
+     "graduates": 0
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 95,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 76,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "area": "health",
+     "students": 33,
+     "graduates": 0
+    },
+    {
+     "name": "Ciência dos Alimentos",
+     "area": "sciences",
+     "students": 23,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "area": "education",
+     "students": 0,
+     "graduates": 83
+    }
+   ]
+  },
+  {
+   "name": "Universidade Técnica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Arquitectura e Urbanismo",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 25
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 0,
+     "graduates": 44
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 70
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Engenharia de Minas",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia de Telecomunicações e Electrónica",
+     "area": "technology",
+     "students": 0,
+     "graduates": 8
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 44
+    },
+    {
+     "name": "Geologia",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 13
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 279
+    },
+    {
+     "name": "Língua Inglesa",
+     "area": "communication",
+     "students": 0,
+     "graduates": 5
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 81
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 51
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Belas",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 11
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 0,
+     "graduates": 2
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 5
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 12
+    },
+    {
+     "name": "Farmácia",
+     "area": "health",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Gestão de Autarquias",
+     "area": "business",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Gestão de Recursos Humanos",
+     "area": "business",
+     "students": 0,
+     "graduates": 10
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Luanda",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 638,
+     "graduates": 11
+    },
+    {
+     "name": "Gestão Aeronáutica",
+     "area": "business",
+     "students": 619,
+     "graduates": 16
+    },
+    {
+     "name": "Gestão Logistica e Transporte",
+     "area": "logistics",
+     "students": 559,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "area": "technology",
+     "students": 501,
+     "graduates": 17
+    },
+    {
+     "name": "Engenharia Mecatrónica",
+     "area": "engineering",
+     "students": 433,
+     "graduates": 0
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 325,
+     "graduates": 32
+    },
+    {
+     "name": "Gestão",
+     "area": "business",
+     "students": 296,
+     "graduates": 8
+    },
+    {
+     "name": "Serviços Social",
+     "area": "sciences",
+     "students": 285,
+     "graduates": 0
+    },
+    {
+     "name": "Contabilidade",
+     "area": "business",
+     "students": 242,
+     "graduates": 17
+    },
+    {
+     "name": "Educação de Infância",
+     "area": "education",
+     "students": 237,
+     "graduates": 47
+    },
+    {
+     "name": "Informática de Gestão",
+     "area": "technology",
+     "students": 210,
+     "graduates": 8
+    },
+    {
+     "name": "Engenharia dos Transportes",
+     "area": "engineering",
+     "students": 133,
+     "graduates": 0
+    },
+    {
+     "name": "Artes Visuais",
+     "area": "communication",
+     "students": 131,
+     "graduates": 1
+    },
+    {
+     "name": "Design e Moda",
+     "area": "sciences",
+     "students": 119,
+     "graduates": 0
+    },
+    {
+     "name": "Teatro",
+     "area": "communication",
+     "students": 104,
+     "graduates": 3
+    },
+    {
+     "name": "Música",
+     "area": "communication",
+     "students": 102,
+     "graduates": 4
+    },
+    {
+     "name": "Informática",
+     "area": "technology",
+     "students": 84,
+     "graduates": 0
+    },
+    {
+     "name": "Serviço Social",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 32
+    },
+    {
+     "name": "Gestão Logística e Transportes",
+     "area": "logistics",
+     "students": 0,
+     "graduates": 27
+    }
+   ]
+  },
+  {
+   "name": "Universidade do Namibe",
+   "nature": "publica",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Contabilidade e Gestão",
+     "area": "business",
+     "students": 771,
+     "graduates": 51
+    },
+    {
+     "name": "Ensino Primário",
+     "area": "education",
+     "students": 496,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "area": "education",
+     "students": 487,
+     "graduates": 49
+    },
+    {
+     "name": "Engenharia de Ambiente",
+     "area": "agriculture",
+     "students": 399,
+     "graduates": 46
+    },
+    {
+     "name": "Biologia Marinha",
+     "area": "agriculture",
+     "students": 392,
+     "graduates": 68
+    },
+    {
+     "name": "Engenharia Eléctrica",
+     "area": "engineering",
+     "students": 387,
+     "graduates": 30
+    },
+    {
+     "name": "Ensino da Biologia",
+     "area": "education",
+     "students": 353,
+     "graduates": 45
+    },
+    {
+     "name": "Administração e Gestão",
+     "area": "business",
+     "students": 329,
+     "graduates": 24
+    },
+    {
+     "name": "Ensino da Química",
+     "area": "education",
+     "students": 221,
+     "graduates": 20
+    },
+    {
+     "name": "Engenharia de Electrotecnia e Electrónica Industrial",
+     "area": "technology",
+     "students": 206,
+     "graduates": 3
+    },
+    {
+     "name": "Ensino da Matemática",
+     "area": "education",
+     "students": 202,
+     "graduates": 10
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "area": "engineering",
+     "students": 198,
+     "graduates": 28
+    },
+    {
+     "name": "Recursos Marinhos",
+     "area": "agriculture",
+     "students": 179,
+     "graduates": 20
+    },
+    {
+     "name": "Oceanografia",
+     "area": "sciences",
+     "students": 171,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Metalurgia e Materiais",
+     "area": "oil_mining",
+     "students": 140,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "area": "education",
+     "students": 131,
+     "graduates": 21
+    },
+    {
+     "name": "Aquicultura",
+     "area": "agriculture",
+     "students": 130,
+     "graduates": 20
+    },
+    {
+     "name": "Engenharia de Mecânica Naval",
+     "area": "engineering",
+     "students": 105,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Técnicas de Processamento de Pescado",
+     "area": "engineering",
+     "students": 105,
+     "graduates": 8
+    },
+    {
+     "name": "Navegação",
+     "area": "sciences",
+     "students": 104,
+     "graduates": 0
+    },
+    {
+     "name": "Magistério Primário",
+     "area": "education",
+     "students": 0,
+     "graduates": 30
+    },
+    {
+     "name": "Engenharia Metalúrgica e Materiais",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 28
+    }
+   ]
+  },
+  {
+   "name": "Universidade Óscar Ribas",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Contabilidade e Finanças",
+     "area": "business",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 20
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 6
+    },
+    {
+     "name": "Engenharia de Gestão Industrial",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Engenharia Electromecânica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 2
+    },
+    {
+     "name": "Engenharia Informática e Comunicações",
+     "area": "technology",
+     "students": 0,
+     "graduates": 78
+    },
+    {
+     "name": "Gestão Administração e Marketing",
+     "area": "business",
+     "students": 0,
+     "graduates": 114
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 58
+    },
+    {
+     "name": "Relações Internacionais",
+     "area": "public",
+     "students": 0,
+     "graduates": 16
+    }
+   ]
+  },
+  {
+   "name": "Universidades Jean Piaget",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Deporto e Motricidade Humana",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 17
+    },
+    {
+     "name": "Direito",
+     "area": "legal",
+     "students": 0,
+     "graduates": 233
+    },
+    {
+     "name": "Economia e Gestão",
+     "area": "business",
+     "students": 0,
+     "graduates": 335
+    },
+    {
+     "name": "Electromecânica",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 43
+    },
+    {
+     "name": "Enfermagem",
+     "area": "health",
+     "students": 0,
+     "graduates": 233
+    },
+    {
+     "name": "Engenharia Civil",
+     "area": "engineering",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Engenharia de Informática de Gestão",
+     "area": "technology",
+     "students": 0,
+     "graduates": 36
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleo",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 39
+    },
+    {
+     "name": "Engenharia Informática",
+     "area": "technology",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Ensino da Língua Portuguesa e Línguas Nacionais",
+     "area": "education",
+     "students": 0,
+     "graduates": 19
+    },
+    {
+     "name": "Farmácia",
+     "area": "health",
+     "students": 0,
+     "graduates": 52
+    },
+    {
+     "name": "Fisioterapia",
+     "area": "health",
+     "students": 0,
+     "graduates": 123
+    },
+    {
+     "name": "Medicina",
+     "area": "health",
+     "students": 0,
+     "graduates": 90
+    },
+    {
+     "name": "Medicina Dentária",
+     "area": "health",
+     "students": 0,
+     "graduates": 47
+    },
+    {
+     "name": "Psicologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 289
+    },
+    {
+     "name": "Refinação de Petróleos",
+     "area": "oil_mining",
+     "students": 0,
+     "graduates": 1
+    },
+    {
+     "name": "Sociologia",
+     "area": "sciences",
+     "students": 0,
+     "graduates": 31
+    }
+   ]
+  }
+ ]
+}

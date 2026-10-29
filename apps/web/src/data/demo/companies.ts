@@ -58,6 +58,18 @@ const SECTOR_CAREERS: Record<CompanySector, string[]> = {
   energia: ['analista-de-dados', 'administrador-de-sistemas', 'analista-de-ciberseguranca'],
   industria: ['tecnico-de-hardware', 'analista-de-sistemas'],
   transportes: ['analista-de-sistemas', 'administrador-de-redes', 'tecnico-de-suporte'],
+  saude: [
+    'medico-clinica-geral',
+    'enfermeiro',
+    'tecnico-analises-clinicas',
+    'tecnico-radiologia',
+    'farmaceutico',
+  ],
+  seguros: ['tecnico-de-seguros', 'actuario', 'analista-de-risco', 'mediador-de-seguros'],
+  consultoria: ['auditor', 'consultor-de-gestao', 'contabilista', 'tecnico-de-impostos'],
+  estado: ['economista', 'analista-de-estudos-economicos', 'tecnico-de-impostos', 'tecnico-de-compliance'],
+  justica: ['juiz', 'procurador', 'oficial-de-justica', 'jurista'],
+  comercio: ['tecnico-comercial', 'gestor-de-loja', 'assistente-administrativo', 'tecnico-de-compras'],
 }
 
 type CompanyData = Omit<

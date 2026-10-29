@@ -1,0 +1,3318 @@
+{
+ "area": "health",
+ "sources": {
+  "health": {
+   "label": "MINSA, Anuário Estatístico Sanitário 2023",
+   "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+  },
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": "Sites de emprego angolanos (scrapers/jobs)"
+ },
+ "workforce": {
+  "year": 2023,
+  "provinces": [
+   {
+    "province": "Bengo",
+    "medicos": 187,
+    "enfermeiros": 1429,
+    "tecnicos_diagnostico_terapeutica": 360,
+    "administrativos": 212,
+    "apoio_hospitalar": 369,
+    "trabalhadores_sociais": 0,
+    "total": 2557
+   },
+   {
+    "province": "Benguela",
+    "medicos": 566,
+    "enfermeiros": 4450,
+    "tecnicos_diagnostico_terapeutica": 728,
+    "administrativos": 968,
+    "apoio_hospitalar": 844,
+    "trabalhadores_sociais": 6,
+    "total": 7562
+   },
+   {
+    "province": "Bié",
+    "medicos": 349,
+    "enfermeiros": 3132,
+    "tecnicos_diagnostico_terapeutica": 324,
+    "administrativos": 451,
+    "apoio_hospitalar": 1420,
+    "trabalhadores_sociais": 0,
+    "total": 5676
+   },
+   {
+    "province": "Cabinda",
+    "medicos": 316,
+    "enfermeiros": 1887,
+    "tecnicos_diagnostico_terapeutica": 339,
+    "administrativos": 421,
+    "apoio_hospitalar": 809,
+    "trabalhadores_sociais": 8,
+    "total": 3780
+   },
+   {
+    "province": "Cuanza Norte",
+    "medicos": 205,
+    "enfermeiros": 1489,
+    "tecnicos_diagnostico_terapeutica": 307,
+    "administrativos": 537,
+    "apoio_hospitalar": 759,
+    "trabalhadores_sociais": 2,
+    "total": 3299
+   },
+   {
+    "province": "Cuanza Sul",
+    "medicos": 194,
+    "enfermeiros": 2197,
+    "tecnicos_diagnostico_terapeutica": 272,
+    "administrativos": 854,
+    "apoio_hospitalar": 1483,
+    "trabalhadores_sociais": 1,
+    "total": 5001
+   },
+   {
+    "province": "Cunene",
+    "medicos": 195,
+    "enfermeiros": 1545,
+    "tecnicos_diagnostico_terapeutica": 358,
+    "administrativos": 716,
+    "apoio_hospitalar": 350,
+    "trabalhadores_sociais": 0,
+    "total": 3164
+   },
+   {
+    "province": "Huambo",
+    "medicos": 476,
+    "enfermeiros": 4631,
+    "tecnicos_diagnostico_terapeutica": 609,
+    "administrativos": 1198,
+    "apoio_hospitalar": 1209,
+    "trabalhadores_sociais": 10,
+    "total": 8133
+   },
+   {
+    "province": "Huíla",
+    "medicos": 423,
+    "enfermeiros": 2504,
+    "tecnicos_diagnostico_terapeutica": 546,
+    "administrativos": 894,
+    "apoio_hospitalar": 787,
+    "trabalhadores_sociais": 10,
+    "total": 5164
+   },
+   {
+    "province": "Luanda",
+    "medicos": 948,
+    "enfermeiros": 7221,
+    "tecnicos_diagnostico_terapeutica": 1998,
+    "administrativos": 1892,
+    "apoio_hospitalar": 4677,
+    "trabalhadores_sociais": 19,
+    "total": 16755
+   },
+   {
+    "province": "Lunda Norte",
+    "medicos": 198,
+    "enfermeiros": 1562,
+    "tecnicos_diagnostico_terapeutica": 213,
+    "administrativos": 543,
+    "apoio_hospitalar": 809,
+    "trabalhadores_sociais": 0,
+    "total": 3325
+   },
+   {
+    "province": "Lunda Sul",
+    "medicos": 162,
+    "enfermeiros": 1307,
+    "tecnicos_diagnostico_terapeutica": 198,
+    "administrativos": 422,
+    "apoio_hospitalar": 370,
+    "trabalhadores_sociais": 0,
+    "total": 2459
+   },
+   {
+    "province": "Malanje",
+    "medicos": 305,
+    "enfermeiros": 2290,
+    "tecnicos_diagnostico_terapeutica": 431,
+    "administrativos": 283,
+    "apoio_hospitalar": 996,
+    "trabalhadores_sociais": 0,
+    "total": 4305
+   },
+   {
+    "province": "Moxico",
+    "medicos": 162,
+    "enfermeiros": 1857,
+    "tecnicos_diagnostico_terapeutica": 282,
+    "administrativos": 394,
+    "apoio_hospitalar": 553,
+    "trabalhadores_sociais": 0,
+    "total": 3248
+   },
+   {
+    "province": "Namibe",
+    "medicos": 181,
+    "enfermeiros": 1552,
+    "tecnicos_diagnostico_terapeutica": 535,
+    "administrativos": 478,
+    "apoio_hospitalar": 334,
+    "trabalhadores_sociais": 0,
+    "total": 3080
+   },
+   {
+    "province": "Uíge",
+    "medicos": 304,
+    "enfermeiros": 1663,
+    "tecnicos_diagnostico_terapeutica": 309,
+    "administrativos": 644,
+    "apoio_hospitalar": 708,
+    "trabalhadores_sociais": 0,
+    "total": 3628
+   },
+   {
+    "province": "Zaire",
+    "medicos": 217,
+    "enfermeiros": 1267,
+    "tecnicos_diagnostico_terapeutica": 245,
+    "administrativos": 292,
+    "apoio_hospitalar": 415,
+    "trabalhadores_sociais": 0,
+    "total": 2436
+   },
+   {
+    "province": "Órgão Central",
+    "medicos": 1847,
+    "enfermeiros": 6045,
+    "tecnicos_diagnostico_terapeutica": 1942,
+    "administrativos": 1814,
+    "apoio_hospitalar": 3335,
+    "trabalhadores_sociais": 21,
+    "total": 15004
+   },
+   {
+    "province": "Total",
+    "medicos": 7395,
+    "enfermeiros": 49283,
+    "tecnicos_diagnostico_terapeutica": 10273,
+    "administrativos": 13575,
+    "apoio_hospitalar": 20677,
+    "trabalhadores_sociais": 77,
+    "total": 101280
+   }
+  ],
+  "foreignDoctors": 1359
+ },
+ "specialities": {
+  "medical": [
+   {
+    "name": "Medicina Geral e Familiar",
+    "residents": 558
+   },
+   {
+    "name": "Pediatria",
+    "residents": 446
+   },
+   {
+    "name": "Ginecologia e Obstetricia",
+    "residents": 373
+   },
+   {
+    "name": "Medicina Interna",
+    "residents": 230
+   },
+   {
+    "name": "Cirugia General",
+    "residents": 212
+   },
+   {
+    "name": "Medicina Intensiva",
+    "residents": 162
+   },
+   {
+    "name": "Ortopedia e Traumatologia",
+    "residents": 132
+   },
+   {
+    "name": "Imaginologia",
+    "residents": 125
+   },
+   {
+    "name": "Maxilo Facial",
+    "residents": 109
+   },
+   {
+    "name": "Anestesiologia e Reanimação",
+    "residents": 106
+   },
+   {
+    "name": "Cardiologia",
+    "residents": 92
+   },
+   {
+    "name": "Urologia",
+    "residents": 70
+   },
+   {
+    "name": "Nefrologia",
+    "residents": 65
+   },
+   {
+    "name": "Oftalmologia",
+    "residents": 65
+   },
+   {
+    "name": "Otorrinolaringologia",
+    "residents": 59
+   },
+   {
+    "name": "Dermatologia",
+    "residents": 42
+   },
+   {
+    "name": "Neurologia",
+    "residents": 38
+   },
+   {
+    "name": "Neurocirugia",
+    "residents": 36
+   },
+   {
+    "name": "Neonatologia",
+    "residents": 33
+   },
+   {
+    "name": "Gastroenterologia",
+    "residents": 27
+   },
+   {
+    "name": "Anatomia Patológica",
+    "residents": 24
+   },
+   {
+    "name": "Infecciologia",
+    "residents": 24
+   },
+   {
+    "name": "Neumologia",
+    "residents": 23
+   },
+   {
+    "name": "Oncologia Clinica",
+    "residents": 23
+   },
+   {
+    "name": "Cirugia Plástioca e Caumatologia",
+    "residents": 21
+   },
+   {
+    "name": "Endocrinologia",
+    "residents": 18
+   },
+   {
+    "name": "Cirugia Cardio Toráxica",
+    "residents": 16
+   },
+   {
+    "name": "Cirugia Pediátrica",
+    "residents": 15
+   },
+   {
+    "name": "Psiquiatria e Saúde Mental",
+    "residents": 14
+   },
+   {
+    "name": "Medicina do Trabalho",
+    "residents": 7
+   },
+   {
+    "name": "Patologia Clinica",
+    "residents": 7
+   },
+   {
+    "name": "Hematologia",
+    "residents": 6
+   },
+   {
+    "name": "Cirugia Vascular",
+    "residents": 4
+   },
+   {
+    "name": "Cirugia Oncológica",
+    "residents": 4
+   },
+   {
+    "name": "Medicina Fisicae Rehabilitação",
+    "residents": 4
+   },
+   {
+    "name": "Cardiologia Pediátrica",
+    "residents": 3
+   },
+   {
+    "name": "Epidemiologia",
+    "residents": 3
+   },
+   {
+    "name": "Oncologia Pediátrica",
+    "residents": 3
+   },
+   {
+    "name": "Imaginologia Oncológica",
+    "residents": 1
+   },
+   {
+    "name": "Inmunoalergologia",
+    "residents": 1
+   },
+   {
+    "name": "Reumatologia",
+    "residents": 1
+   },
+   {
+    "name": "Angiologia",
+    "residents": 0
+   },
+   {
+    "name": "Electrofisiologia",
+    "residents": 0
+   }
+  ],
+  "technical": [
+   {
+    "name": "Anestesia e Reanimação",
+    "trainees": 205
+   },
+   {
+    "name": "Cuidados Intensivos",
+    "trainees": 186
+   },
+   {
+    "name": "Instrumentação Cirúrgica",
+    "trainees": 194
+   },
+   {
+    "name": "Nefrologia",
+    "trainees": 67
+   },
+   {
+    "name": "Oftalmologia",
+    "trainees": 98
+   },
+   {
+    "name": "Parteira",
+    "trainees": 360
+   },
+   {
+    "name": "Puericultura e Pediatria",
+    "trainees": 311
+   }
+  ]
+ },
+ "salaries": {
+  "year": 2026,
+  "decree": "Decreto Presidencial n.º 16/26, de 22 de Janeiro",
+  "urls": {
+   "medica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-medica-2026a.html",
+   "enfermagem": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-de-enfermagem-2026a.html"
+  },
+  "careers": {
+   "medica": [
+    {
+     "category": "Médico Interno de Especialidade / Médico Geral",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Médico Assistente",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Médico Assistente Graduado - C",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Médico Assistente Graduado - B",
+     "index": 960,
+     "salary": 579056
+    },
+    {
+     "category": "Médico Assistente Graduado - A",
+     "index": 990,
+     "salary": 597151
+    },
+    {
+     "category": "Médico Chefe de Serviço",
+     "index": 1020,
+     "salary": 615247
+    }
+   ],
+   "enfermagem": [
+    {
+     "category": "Auxiliar de Enfermagem de 3.ª Classe",
+     "index": 200,
+     "salary": 120637
+    },
+    {
+     "category": "Auxiliar de Enfermagem de 2.ª Classe",
+     "index": 220,
+     "salary": 132700
+    },
+    {
+     "category": "Técnico Médio de Enfermagem de 3.ª Classe",
+     "index": 240,
+     "salary": 144764
+    },
+    {
+     "category": "Auxiliar de Enfermagem de 1.ª Classe",
+     "index": 240,
+     "salary": 144764
+    },
+    {
+     "category": "Técnico Médio de Enfermagem de 2.ª Classe",
+     "index": 260,
+     "salary": 156828
+    },
+    {
+     "category": "Técnico Médio de Enfermagem de 1.ª Classe",
+     "index": 280,
+     "salary": 168891
+    },
+    {
+     "category": "Técnico Médio Enf. Especializado de 3.ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Técnico Médio Enf. Especializado de 2.ª Classe",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Técnico Médio Enf. Especializado de 1.ª Classe",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "category": "Bacharel em Enfermagem de 3.ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Bacharel em Enfermagem de 2ª Classe",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Bacharel em Enfermagem de 1.ª Classe",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "category": "Enfermeiro de 3.ª Classe",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "Enfermeiro de 2.ª Classe",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Enfermeiro de 1.ª Classe",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Enfermeiro Especializado de 3.ª Classe",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Enfermeiro Especializado de 2.ª Classe",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Enfermeiro Especializado de 1.ª Classe",
+     "index": 960,
+     "salary": 579056
+    }
+   ]
+  }
+ },
+ "technicalTraining": {
+  "courses": [
+   "Análises Clínicas",
+   "Anatomia Patológica",
+   "Cardiopneumologia",
+   "Dietética",
+   "Enfermagem",
+   "Estomatologia",
+   "Farmácia",
+   "Fisioterapia",
+   "Ortótica",
+   "Ortoprotesia",
+   "Radiologia",
+   "Saúde Ambiental"
+  ],
+  "coursesSource": {
+   "label": "Decreto Executivo Conjunto MED/MINSA n.º 97/11, de 21 de Julho (via RETS/Fiocruz)",
+   "url": "https://www.rets.epsjv.fiocruz.br/membros/escola-de-formacao-de-tecnicos-de-saude-de-luanda-0"
+  },
+  "publicSchools": [
+   {
+    "name": "Escola Técnica de Saúde de Luanda",
+    "province": "Luanda"
+   },
+   {
+    "name": "Escola de Formação de Técnicos de Saúde do Bié",
+    "province": "Bié"
+   },
+   {
+    "name": "Instituto Técnico de Saúde do Kilamba",
+    "province": "Luanda"
+   },
+   {
+    "name": "Instituto Técnico de Saúde de Malanje",
+    "province": "Malanje"
+   },
+   {
+    "name": "Instituto Técnico de Saúde do Namibe",
+    "province": "Namibe"
+   }
+  ],
+  "schoolsSource": {
+   "label": "RETS/Fiocruz e MINSA, Anuário Estatístico Sanitário 2023 (Tabela 155)",
+   "url": "https://www.rets.epsjv.fiocruz.br/en/node/507"
+  },
+  "privateInstitutes": {
+   "total": 264,
+   "legalInLuanda": 102,
+   "barred2023": 33,
+   "year": 2023,
+   "source": {
+    "label": "RNA, 14/08/2023 (lista do Ministério da Educação)",
+    "url": "https://rna.ao/rna.ao/2023/08/14/confira-a-listas-dos-institutos-tecnicos-de-saude-nao-autorizados-a-matricular-alunos/"
+   }
+  },
+  "suspension": {
+   "decree": "Decreto Executivo n.º 01/25, de 23 de Junho",
+   "courses": [
+    "Enfermagem",
+    "Análises Clínicas"
+   ],
+   "from": "2025/2026",
+   "years": 5,
+   "provinces": [
+    "Bengo",
+    "Benguela",
+    "Cuanza Sul",
+    "Huambo",
+    "Huíla",
+    "Icolo e Bengo",
+    "Luanda",
+    "Malanje",
+    "Namibe",
+    "Uíge"
+   ],
+   "allowedIfEquipped": [
+    "Bié",
+    "Cabinda",
+    "Cuando",
+    "Cubango",
+    "Cuanza Norte",
+    "Cunene",
+    "Lunda Norte",
+    "Lunda Sul",
+    "Moxico Leste",
+    "Zaire"
+   ],
+   "alternatives": [
+    "Anatomia Patológica",
+    "Cardiopneumologia",
+    "Estomatologia",
+    "Farmácia",
+    "Fisioterapia",
+    "Nutrição e Dietética",
+    "Ortoprotesia",
+    "Ortóptica",
+    "Radiologia",
+    "Saúde Ambiental"
+   ],
+   "source": {
+    "label": "O País, 27/06/2025",
+    "url": "https://www.opais.ao/sociedade/governo-suspende-cursos-tecnicos-de-enfermagem-e-analises-clinicas-em-todos-institutos-de-saude-durante-5-anos/"
+   }
+  }
+ },
+ "units": {
+  "national": [
+   "CETEP",
+   "Centro Ortopédico de Viana",
+   "Centro de Medicina Fisica e de Reabilitação de Luanda",
+   "Complexo Hospitalar de Doenças Cardio-Pulmonares Cardeal Dom Alexandre de Nascimento",
+   "HMI CamamaManuel Pedro Azancot de Menezes",
+   "Hospital Américo Boa Vida",
+   "Hospital Dr. Walter Strangway",
+   "Hospital Josina Machel",
+   "Hospital Maternidade Lucrécia Paim",
+   "Hospital Neves Bendinha",
+   "Hospital Pediátrico David Bernardino",
+   "Hospital Psiquiátrico de Luanda",
+   "Hospital Sanatório de Luanda",
+   "Hospital do Prenda",
+   "Instituto Angolano de Controlo de Câncer",
+   "Instituto Nacional de Investigações em Saúde",
+   "Instituto Nacional de Luta contra a SIDA",
+   "Instituto Oftalmológico Nacional de Angola",
+   "Instituto de Combate e Controlo das Tripanossomiases"
+  ],
+  "named": [
+   {
+    "name": "Clínica Multiperfil",
+    "kind": "publica_especial",
+    "source": {
+     "label": "MINSA, Anuário Estatístico Sanitário 2023 (Tabela 159)",
+     "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+    }
+   },
+   {
+    "name": "Clínica Sagrada Esperança",
+    "kind": "privada",
+    "source": {
+     "label": "MINSA, Anuário Estatístico Sanitário 2023 (Tabela 159)",
+     "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+    }
+   },
+   {
+    "name": "Clínica Girassol",
+    "kind": "privada",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.facebook.com/clinicagirassol.saude/"
+    }
+   },
+   {
+    "name": "Aliva Saúde",
+    "kind": "privada",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://alivasaude.com/quem-somos/"
+    }
+   },
+   {
+    "name": "Central de Compras e Aprovisionamento de Medicamentos e Meios Médicos (CECOMA)",
+    "kind": "publica",
+    "source": {
+     "label": "Decreto Presidencial n.º 269/14 (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-da-central-de-compras-e-aprovisionamento-de-medicamentos-e-meios-medicos-269a-14a.html"
+    }
+   },
+   {
+    "name": "Instituto Nacional de Emergência Médica (INEMA)",
+    "kind": "publica",
+    "source": {
+     "label": "Decreto Presidencial n.º 273/14 (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-emergencias-medicas-inema-273a-14a.html"
+    }
+   }
+  ],
+  "public": [
+   {
+    "province": "Bengo",
+    "hospital_nacional": 0,
+    "hospital_provincial": 2,
+    "servico_especializado": 0,
+    "hospital_municipal": 7,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 0,
+    "centro_saude": 18,
+    "posto_saude": 71,
+    "outros": 0,
+    "total": 99
+   },
+   {
+    "province": "Benguela",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 3,
+    "hospital_municipal": 14,
+    "centro_materno_infantil": 6,
+    "centro_saude_referencia": 0,
+    "centro_saude": 70,
+    "posto_saude": 159,
+    "outros": 0,
+    "total": 253
+   },
+   {
+    "province": "Bié",
+    "hospital_nacional": 1,
+    "hospital_provincial": 1,
+    "servico_especializado": 1,
+    "hospital_municipal": 14,
+    "centro_materno_infantil": 8,
+    "centro_saude_referencia": 0,
+    "centro_saude": 36,
+    "posto_saude": 127,
+    "outros": 3,
+    "total": 191
+   },
+   {
+    "province": "Cabinda",
+    "hospital_nacional": 0,
+    "hospital_provincial": 2,
+    "servico_especializado": 0,
+    "hospital_municipal": 8,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 0,
+    "centro_saude": 20,
+    "posto_saude": 78,
+    "outros": 1,
+    "total": 110
+   },
+   {
+    "province": "Cubango",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 4,
+    "hospital_municipal": 4,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 2,
+    "centro_saude": 9,
+    "posto_saude": 83,
+    "outros": 0,
+    "total": 104
+   },
+   {
+    "province": "Cuanza Norte",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 9,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 2,
+    "centro_saude": 10,
+    "posto_saude": 104,
+    "outros": 2,
+    "total": 131
+   },
+   {
+    "province": "Cuanza Sul",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 1,
+    "hospital_municipal": 13,
+    "centro_materno_infantil": 6,
+    "centro_saude_referencia": 0,
+    "centro_saude": 34,
+    "posto_saude": 251,
+    "outros": 0,
+    "total": 306
+   },
+   {
+    "province": "Cunene",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 0,
+    "hospital_municipal": 6,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 0,
+    "centro_saude": 40,
+    "posto_saude": 123,
+    "outros": 0,
+    "total": 171
+   },
+   {
+    "province": "Huambo",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 14,
+    "centro_materno_infantil": 15,
+    "centro_saude_referencia": 0,
+    "centro_saude": 50,
+    "posto_saude": 182,
+    "outros": 0,
+    "total": 264
+   },
+   {
+    "province": "Huíla",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 4,
+    "hospital_municipal": 13,
+    "centro_materno_infantil": 5,
+    "centro_saude_referencia": 4,
+    "centro_saude": 70,
+    "posto_saude": 214,
+    "outros": 1,
+    "total": 312
+   },
+   {
+    "province": "Luanda",
+    "hospital_nacional": 12,
+    "hospital_provincial": 4,
+    "servico_especializado": 4,
+    "hospital_municipal": 11,
+    "centro_materno_infantil": 14,
+    "centro_saude_referencia": 0,
+    "centro_saude": 99,
+    "posto_saude": 93,
+    "outros": 2,
+    "total": 239
+   },
+   {
+    "province": "Lunda Norte",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 9,
+    "centro_materno_infantil": 2,
+    "centro_saude_referencia": 3,
+    "centro_saude": 12,
+    "posto_saude": 79,
+    "outros": 1,
+    "total": 109
+   },
+   {
+    "province": "Lunda Sul",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 4,
+    "hospital_municipal": 4,
+    "centro_materno_infantil": 1,
+    "centro_saude_referencia": 0,
+    "centro_saude": 26,
+    "posto_saude": 84,
+    "outros": 1,
+    "total": 121
+   },
+   {
+    "province": "Malanje",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 14,
+    "centro_materno_infantil": 4,
+    "centro_saude_referencia": 0,
+    "centro_saude": 24,
+    "posto_saude": 134,
+    "outros": 0,
+    "total": 179
+   },
+   {
+    "province": "Moxico",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 8,
+    "centro_materno_infantil": 7,
+    "centro_saude_referencia": 1,
+    "centro_saude": 26,
+    "posto_saude": 94,
+    "outros": 5,
+    "total": 144
+   },
+   {
+    "province": "Namibe",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 2,
+    "hospital_municipal": 5,
+    "centro_materno_infantil": 0,
+    "centro_saude_referencia": 0,
+    "centro_saude": 18,
+    "posto_saude": 88,
+    "outros": 0,
+    "total": 114
+   },
+   {
+    "province": "Uíge",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 1,
+    "hospital_municipal": 13,
+    "centro_materno_infantil": 20,
+    "centro_saude_referencia": 5,
+    "centro_saude": 54,
+    "posto_saude": 278,
+    "outros": 1,
+    "total": 373
+   },
+   {
+    "province": "Zaire",
+    "hospital_nacional": 0,
+    "hospital_provincial": 1,
+    "servico_especializado": 0,
+    "hospital_municipal": 6,
+    "centro_materno_infantil": 5,
+    "centro_saude_referencia": 0,
+    "centro_saude": 35,
+    "posto_saude": 69,
+    "outros": 0,
+    "total": 116
+   },
+   {
+    "province": "Total",
+    "hospital_nacional": 13,
+    "hospital_provincial": 23,
+    "servico_especializado": 34,
+    "hospital_municipal": 172,
+    "centro_materno_infantil": 98,
+    "centro_saude_referencia": 17,
+    "centro_saude": 651,
+    "posto_saude": 2311,
+    "outros": 17,
+    "total": 3336
+   }
+  ],
+  "private": [
+   {
+    "province": "Bengo",
+    "clinicas": 1,
+    "centros_medicos": 7,
+    "consultorios_medicos": 1,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 5,
+    "postos_enfermagem": 7,
+    "total": 21
+   },
+   {
+    "province": "Benguela",
+    "clinicas": 8,
+    "centros_medicos": 79,
+    "consultorios_medicos": 11,
+    "gabinetes_especialidade": 10,
+    "laboratorios": 33,
+    "postos_enfermagem": 57,
+    "total": 198
+   },
+   {
+    "province": "Bié",
+    "clinicas": 1,
+    "centros_medicos": 4,
+    "consultorios_medicos": 2,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 0,
+    "postos_enfermagem": 31,
+    "total": 38
+   },
+   {
+    "province": "Cabinda",
+    "clinicas": 8,
+    "centros_medicos": 127,
+    "consultorios_medicos": 1,
+    "gabinetes_especialidade": 7,
+    "laboratorios": 15,
+    "postos_enfermagem": 28,
+    "total": 186
+   },
+   {
+    "province": "Cuanza Norte",
+    "clinicas": 0,
+    "centros_medicos": 17,
+    "consultorios_medicos": 3,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 0,
+    "postos_enfermagem": 23,
+    "total": 43
+   },
+   {
+    "province": "Cuanza Sul",
+    "clinicas": 3,
+    "centros_medicos": 48,
+    "consultorios_medicos": 22,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 3,
+    "postos_enfermagem": 54,
+    "total": 130
+   },
+   {
+    "province": "Cunene",
+    "clinicas": 0,
+    "centros_medicos": 6,
+    "consultorios_medicos": 7,
+    "gabinetes_especialidade": 1,
+    "laboratorios": 1,
+    "postos_enfermagem": 12,
+    "total": 27
+   },
+   {
+    "province": "Huambo",
+    "clinicas": 17,
+    "centros_medicos": 28,
+    "consultorios_medicos": 10,
+    "gabinetes_especialidade": 3,
+    "laboratorios": 2,
+    "postos_enfermagem": 118,
+    "total": 178
+   },
+   {
+    "province": "Huíla",
+    "clinicas": 15,
+    "centros_medicos": 76,
+    "consultorios_medicos": 7,
+    "gabinetes_especialidade": 16,
+    "laboratorios": 15,
+    "postos_enfermagem": 102,
+    "total": 231
+   },
+   {
+    "province": "Luanda",
+    "clinicas": 94,
+    "centros_medicos": 998,
+    "consultorios_medicos": 371,
+    "gabinetes_especialidade": 200,
+    "laboratorios": 108,
+    "postos_enfermagem": 420,
+    "total": 2191
+   },
+   {
+    "province": "Lunda Norte",
+    "clinicas": 4,
+    "centros_medicos": 14,
+    "consultorios_medicos": 0,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 0,
+    "postos_enfermagem": 97,
+    "total": 115
+   },
+   {
+    "province": "Lunda Sul",
+    "clinicas": 2,
+    "centros_medicos": 14,
+    "consultorios_medicos": 7,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 0,
+    "postos_enfermagem": 18,
+    "total": 41
+   },
+   {
+    "province": "Malanje",
+    "clinicas": 0,
+    "centros_medicos": 8,
+    "consultorios_medicos": 0,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 3,
+    "postos_enfermagem": 14,
+    "total": 25
+   },
+   {
+    "province": "Moxico",
+    "clinicas": 1,
+    "centros_medicos": 9,
+    "consultorios_medicos": 1,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 1,
+    "postos_enfermagem": 79,
+    "total": 91
+   },
+   {
+    "province": "Namibe",
+    "clinicas": 1,
+    "centros_medicos": 6,
+    "consultorios_medicos": 18,
+    "gabinetes_especialidade": 4,
+    "laboratorios": 2,
+    "postos_enfermagem": 8,
+    "total": 39
+   },
+   {
+    "province": "Uíge",
+    "clinicas": 3,
+    "centros_medicos": 23,
+    "consultorios_medicos": 9,
+    "gabinetes_especialidade": 2,
+    "laboratorios": 0,
+    "postos_enfermagem": 40,
+    "total": 77
+   },
+   {
+    "province": "Zaire",
+    "clinicas": 1,
+    "centros_medicos": 29,
+    "consultorios_medicos": 5,
+    "gabinetes_especialidade": 0,
+    "laboratorios": 0,
+    "postos_enfermagem": 42,
+    "total": 77
+   },
+   {
+    "province": "Total",
+    "clinicas": 159,
+    "centros_medicos": 1510,
+    "consultorios_medicos": 478,
+    "gabinetes_especialidade": 243,
+    "laboratorios": 188,
+    "postos_enfermagem": 1190,
+    "total": 3768
+   }
+  ]
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Escola Superior Técnica de Ciências do Desporto",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 335,
+      "graduates": 0
+     },
+     {
+      "name": "Nutrição",
+      "area": "health",
+      "students": 92,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior de Saúde Castelo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 201,
+      "graduates": 0
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 186,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 93,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 70,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 32,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1261,
+      "graduates": 114
+     },
+     {
+      "name": "Cardiopneumologia",
+      "area": "health",
+      "students": 1060,
+      "graduates": 46
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 953,
+      "graduates": 87
+     },
+     {
+      "name": "Odontologia",
+      "area": "health",
+      "students": 721,
+      "graduates": 43
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 316,
+      "graduates": 14
+     },
+     {
+      "name": "Radiologia",
+      "area": "health",
+      "students": 295,
+      "graduates": 29
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Atlântida",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 455,
+      "graduates": 93
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 422,
+      "graduates": 51
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 119,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 73,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 828,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 176,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 909,
+      "graduates": 54
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 352,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 0,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Evangélico do Lubango",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1378,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 1036,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 639,
+      "graduates": 0
+     },
+     {
+      "name": "Nutrição Humana",
+      "area": "health",
+      "students": 595,
+      "graduates": 0
+     },
+     {
+      "name": "Farmácia",
+      "area": "health",
+      "students": 503,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1872,
+      "graduates": 1
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 1197,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1165,
+      "graduates": 3
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 755,
+      "graduates": 6
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 391,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 282,
+      "graduates": 2
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 207,
+      "graduates": 4
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Enfermagem e Obstetrícia",
+      "area": "health",
+      "students": 1680,
+      "graduates": 62
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 770,
+      "graduates": 27
+     },
+     {
+      "name": "Radiologia e Imagiologia",
+      "area": "health",
+      "students": 256,
+      "graduates": 11
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 190,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kalandula de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1443,
+      "graduates": 50
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 814,
+      "graduates": 43
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 673,
+      "graduates": 12
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 465,
+      "graduates": 1
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 394,
+      "graduates": 10
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 387,
+      "graduates": 8
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kangonjo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 773,
+      "graduates": 56
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 398,
+      "graduates": 43
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 277,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 142,
+      "graduates": 0
+     },
+     {
+      "name": "Farmácia",
+      "area": "health",
+      "students": 0,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 258,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Nelson Mandela",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 166,
+      "graduates": 23
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 70,
+      "graduates": 11
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Sinodal",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 436,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 90,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Hospitalar",
+      "area": "health",
+      "students": 36,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Walinga",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 573,
+      "graduates": 28
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1095,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 422,
+      "graduates": 0
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 370,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado de Menongue",
+    "nature": "privada",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 0,
+      "graduates": 17
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 146,
+      "graduates": 4
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 111,
+      "graduates": 0
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 56,
+      "graduates": 6
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 51,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 35,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Luena",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 370,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1270,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 585,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 233,
+      "graduates": 0
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 209,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 157,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Sol Nascente",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1481,
+      "graduates": 196
+     },
+     {
+      "name": "Cardiopneumologia",
+      "area": "health",
+      "students": 628,
+      "graduates": 70
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 721,
+      "graduates": 16
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 335,
+      "graduates": 2
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 62,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico da Caála",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1191,
+      "graduates": 161
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 587,
+      "graduates": 35
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 584,
+      "graduates": 21
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1395,
+      "graduates": 19
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1573,
+      "graduates": 235
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 1243,
+      "graduates": 121
+     },
+     {
+      "name": "Farmácia",
+      "area": "health",
+      "students": 195,
+      "graduates": 18
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Ndalatando",
+    "nature": "publica",
+    "province": "Cuanza Norte",
+    "courses": [
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 315,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 272,
+      "graduates": 128
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Porto Amboim",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 494,
+      "graduates": 26
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bita",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 620,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 352,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 653,
+      "graduates": 116
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cazenga",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 950,
+      "graduates": 64
+     },
+     {
+      "name": "Gestão Hospitalar",
+      "area": "health",
+      "students": 175,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuanza Sul",
+    "nature": "publica",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 456,
+      "graduates": 69
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuito",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1028,
+      "graduates": 20
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 792,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 391,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Libolo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 115,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Moxico",
+    "nature": "publica",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 622,
+      "graduates": 132
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 193,
+      "graduates": 41
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico Militar",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 0,
+      "graduates": 78
+     },
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 0,
+      "graduates": 86
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Waku-Cungo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 100,
+      "graduates": 0
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 100,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 676,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 347,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 132,
+      "graduates": 0
+     },
+     {
+      "name": "Nutrição",
+      "area": "health",
+      "students": 47,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências Sociais e Relações Internacionais",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 185,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 47,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Intituto Superior Politécnico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 1468,
+      "graduates": 0
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 696,
+      "graduates": 0
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 456,
+      "graduates": 0
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 401,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 697,
+      "graduates": 30
+     },
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 670,
+      "graduates": 42
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 491,
+      "graduates": 52
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 426,
+      "graduates": 59
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 204,
+      "graduates": 32
+     }
+    ]
+   },
+   {
+    "name": "Universidade Católica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Nutrição",
+      "area": "health",
+      "students": 0,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Universidade Cuito Cuanavale",
+    "nature": "publica",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 326,
+      "graduates": 110
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 839,
+      "graduates": 117
+     },
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 448,
+      "graduates": 58
+     },
+     {
+      "name": "Laboratório Clínico",
+      "area": "health",
+      "students": 296,
+      "graduates": 39
+     },
+     {
+      "name": "Electromedicina",
+      "area": "health",
+      "students": 160,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 377,
+      "graduates": 43
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 485,
+      "graduates": 55
+     }
+    ]
+   },
+   {
+    "name": "Universidade Lueji A´Nkonde",
+    "nature": "publica",
+    "province": "Lunda Norte",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 611,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 603,
+      "graduates": 71
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 185,
+      "graduates": 0
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 182,
+      "graduates": 35
+     },
+     {
+      "name": "Análises Clínicas e Laboratório",
+      "area": "health",
+      "students": 0,
+      "graduates": 26
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Análises Clínicas e Saúde Pública",
+      "area": "health",
+      "students": 0,
+      "graduates": 203
+     },
+     {
+      "name": "Cardiopneumologia",
+      "area": "health",
+      "students": 0,
+      "graduates": 48
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 0,
+      "graduates": 107
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 0,
+      "graduates": 57
+     }
+    ]
+   },
+   {
+    "name": "Universidade Onze de Novembro",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 594,
+      "graduates": 34
+     },
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 485,
+      "graduates": 74
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 363,
+      "graduates": 71
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 343,
+      "graduates": 66
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 0,
+      "graduates": 3
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 0,
+      "graduates": 45
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 0,
+      "graduates": 25
+     },
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 0,
+      "graduates": 48
+     },
+     {
+      "name": "Odontologia",
+      "area": "health",
+      "students": 0,
+      "graduates": 19
+     }
+    ]
+   },
+   {
+    "name": "Universidade Rainha Njinga a Mbande",
+    "nature": "publica",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 389,
+      "graduates": 50
+     },
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 322,
+      "graduates": 65
+     },
+     {
+      "name": "Psicologia Clínica",
+      "area": "health",
+      "students": 290,
+      "graduates": 23
+     },
+     {
+      "name": "Ciências Farmacêuticas",
+      "area": "health",
+      "students": 173,
+      "graduates": 20
+     },
+     {
+      "name": "Análises Clínicas",
+      "area": "health",
+      "students": 33,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Belas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 0,
+      "graduates": 2
+     },
+     {
+      "name": "Farmácia",
+      "area": "health",
+      "students": 0,
+      "graduates": 7
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 0,
+      "graduates": 3
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Enfermagem",
+      "area": "health",
+      "students": 0,
+      "graduates": 233
+     },
+     {
+      "name": "Farmácia",
+      "area": "health",
+      "students": 0,
+      "graduates": 52
+     },
+     {
+      "name": "Fisioterapia",
+      "area": "health",
+      "students": 0,
+      "graduates": 123
+     },
+     {
+      "name": "Medicina",
+      "area": "health",
+      "students": 0,
+      "graduates": 90
+     },
+     {
+      "name": "Medicina Dentária",
+      "area": "health",
+      "students": 0,
+      "graduates": 47
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Enfermagem",
+    "students": 31598,
+    "graduates": 2477,
+    "institutions": 47
+   },
+   {
+    "name": "Análises Clínicas",
+    "students": 7454,
+    "graduates": 293,
+    "institutions": 20
+   },
+   {
+    "name": "Análises Clínicas e Saúde Pública",
+    "students": 5789,
+    "graduates": 614,
+    "institutions": 10
+   },
+   {
+    "name": "Psicologia Clínica",
+    "students": 3440,
+    "graduates": 149,
+    "institutions": 10
+   },
+   {
+    "name": "Fisioterapia",
+    "students": 3036,
+    "graduates": 227,
+    "institutions": 17
+   },
+   {
+    "name": "Medicina",
+    "students": 2999,
+    "graduates": 550,
+    "institutions": 9
+   },
+   {
+    "name": "Ciências Farmacêuticas",
+    "students": 2743,
+    "graduates": 102,
+    "institutions": 13
+   },
+   {
+    "name": "Medicina Dentária",
+    "students": 2642,
+    "graduates": 91,
+    "institutions": 10
+   },
+   {
+    "name": "Cardiopneumologia",
+    "students": 1688,
+    "graduates": 164,
+    "institutions": 3
+   },
+   {
+    "name": "Enfermagem e Obstetrícia",
+    "students": 1680,
+    "graduates": 62,
+    "institutions": 1
+   },
+   {
+    "name": "Odontologia",
+    "students": 721,
+    "graduates": 62,
+    "institutions": 2
+   },
+   {
+    "name": "Farmácia",
+    "students": 698,
+    "graduates": 89,
+    "institutions": 5
+   },
+   {
+    "name": "Nutrição Humana",
+    "students": 595,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Laboratório Clínico",
+    "students": 296,
+    "graduates": 39,
+    "institutions": 1
+   },
+   {
+    "name": "Radiologia",
+    "students": 295,
+    "graduates": 29,
+    "institutions": 1
+   },
+   {
+    "name": "Radiologia e Imagiologia",
+    "students": 256,
+    "graduates": 11,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Hospitalar",
+    "students": 211,
+    "graduates": 0,
+    "institutions": 2
+   },
+   {
+    "name": "Electromedicina",
+    "students": 160,
+    "graduates": 22,
+    "institutions": 1
+   },
+   {
+    "name": "Nutrição",
+    "students": 139,
+    "graduates": 7,
+    "institutions": 3
+   },
+   {
+    "name": "Análises Clínicas e Laboratório",
+    "students": 0,
+    "graduates": 26,
+    "institutions": 1
+   }
+  ]
+ },
+ "jobAds": {
+  "employers": [
+   {
+    "name": "LAS ELETROMEDICINA",
+    "postings": 5
+   },
+   {
+    "name": "Luanda Medical Center",
+    "postings": 4
+   },
+   {
+    "name": "Carter Center",
+    "postings": 3
+   },
+   {
+    "name": "Chemonics International",
+    "postings": 3
+   },
+   {
+    "name": "Clínica Caridade Nova Vida",
+    "postings": 3
+   },
+   {
+    "name": "UNICEF Angola",
+    "postings": 2
+   },
+   {
+    "name": "Guangzhou KOFA Biotechnology Co.,Ltd.",
+    "postings": 1
+   },
+   {
+    "name": "UNICEF Org Angola",
+    "postings": 1
+   },
+   {
+    "name": "HISPATEC LDA - GLOBALTEC",
+    "postings": 1
+   },
+   {
+    "name": "A Embaixada do Japão",
+    "postings": 1
+   },
+   {
+    "name": "THE CÁRTER CENTER",
+    "postings": 1
+   },
+   {
+    "name": "Merlahen Comercio e Industria",
+    "postings": 1
+   },
+   {
+    "name": "Mais Talentos-Prestação de Serviços",
+    "postings": 1
+   },
+   {
+    "name": "Clinica Privada de Mafra - Lisboa",
+    "postings": 1
+   },
+   {
+    "name": "Organizações Kiazop",
+    "postings": 1
+   },
+   {
+    "name": "H&S China Huashi Group",
+    "postings": 1
+   },
+   {
+    "name": "Clínica Caridade",
+    "postings": 1
+   },
+   {
+    "name": "A Universidade Internacional do Cuanza",
+    "postings": 1
+   },
+   {
+    "name": "Clínica Isabel Fançony",
+    "postings": 1
+   },
+   {
+    "name": "A Clinica Caridade – Nova Vida",
+    "postings": 1
+   },
+   {
+    "name": "A Clínica Doncas e Filhos",
+    "postings": 1
+   },
+   {
+    "name": "Organização Não Governamental “Médicos com África CUAMM”",
+    "postings": 1
+   },
+   {
+    "name": "MINSA",
+    "postings": 1
+   },
+   {
+    "name": "A Clínica Multiperfil",
+    "postings": 1
+   },
+   {
+    "name": "A Clinica Multiperfil",
+    "postings": 1
+   },
+   {
+    "name": "Embaixada dos EUA",
+    "postings": 1
+   },
+   {
+    "name": "Centro Logístico de Medicamentos",
+    "postings": 1
+   },
+   {
+    "name": "CONSAÚDE",
+    "postings": 1
+   }
+  ],
+  "titles": [
+   {
+    "title": "Enfermeiro",
+    "postings": 10
+   },
+   {
+    "title": "Técnico de laboratório",
+    "postings": 5
+   },
+   {
+    "title": "Técnico de farmácia",
+    "postings": 4
+   },
+   {
+    "title": "Benguela - gestor de vendas equipamento hospitalar",
+    "postings": 3
+   },
+   {
+    "title": "Luanda medical center está a recrutar assistente de marketing",
+    "postings": 3
+   },
+   {
+    "title": "Enfermeira",
+    "postings": 3
+   },
+   {
+    "title": "Técnico de electromedicina",
+    "postings": 3
+   },
+   {
+    "title": "Wash officer (climate resilience, drr, anticipatory action & emergency preparedness), noa, fixed term, luanda, angola",
+    "postings": 2
+   },
+   {
+    "title": "Técnico comercial b2b (sector farmacêutico)",
+    "postings": 2
+   },
+   {
+    "title": "Médico",
+    "postings": 2
+   },
+   {
+    "title": "Farmacêutica",
+    "postings": 2
+   },
+   {
+    "title": "Farmácia popular recrutamento 2023",
+    "postings": 2
+   },
+   {
+    "title": "Consultor farmacêutico",
+    "postings": 2
+   },
+   {
+    "title": "Médico veterinário",
+    "postings": 2
+   },
+   {
+    "title": "Farmacêutico e técnico de farmácia",
+    "postings": 2
+   },
+   {
+    "title": "Representante de vendas (ivd / equipamentos médicos)",
+    "postings": 1
+   },
+   {
+    "title": "Analista clínico",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeira/recepcionista",
+    "postings": 1
+   },
+   {
+    "title": "Wash specialist (no-3), fixed term, luanda, angola",
+    "postings": 1
+   },
+   {
+    "title": "Responsável de segurança, saúde e qualidade",
+    "postings": 1
+   },
+   {
+    "title": "A embaixada do japão em angola recruta assistente médico",
+    "postings": 1
+   },
+   {
+    "title": "Erradicação da dracunculose em angola",
+    "postings": 1
+   },
+   {
+    "title": "Vaga: biomédica ou consultora com experiência",
+    "postings": 1
+   },
+   {
+    "title": "Industrial paint chemist",
+    "postings": 1
+   },
+   {
+    "title": "Técnico/engenheiro de manutenção de equipamentos médicos",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de controlo vectorial",
+    "postings": 1
+   },
+   {
+    "title": "Técnico medio de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Engenheiro de higiene saúde e segurança no trabalho",
+    "postings": 1
+   },
+   {
+    "title": "Tecnicos de laboratorio",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de campo ed",
+    "postings": 1
+   },
+   {
+    "title": "Coordenador técnico de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Médico especializado na área da cirurgia plástica, estética e reconstrutiva",
+    "postings": 1
+   },
+   {
+    "title": "Medico especialista em pediatria",
+    "postings": 1
+   },
+   {
+    "title": "Chefe de campo/encarregado/topógrafo/técnico de laboratório/mecânico de equipamentos pesados/eletricista de equipamentos/coordenador institucional/assistente administrativo/cozinheiro/tradutor chinês-português/recepcionista / assistente administrativa",
+    "postings": 1
+   },
+   {
+    "title": "Gestor de qualidade, saúde, segurança e meio ambiente (qhse)",
+    "postings": 1
+   },
+   {
+    "title": "Médico imagiologista",
+    "postings": 1
+   },
+   {
+    "title": "Médico clínico geral (masculino)",
+    "postings": 1
+   },
+   {
+    "title": "Analista clinico",
+    "postings": 1
+   },
+   {
+    "title": "Recrutamento na área da saúde: unidade sanitária admite médicos de clínica geral com integração imediata",
+    "postings": 1
+   },
+   {
+    "title": "Assistente administrativa de medicina de trabalho",
+    "postings": 1
+   },
+   {
+    "title": "Auxiliar de lavandaria hospitalar",
+    "postings": 1
+   },
+   {
+    "title": "Médico(a) veterinário(a)",
+    "postings": 1
+   },
+   {
+    "title": "Médica",
+    "postings": 1
+   },
+   {
+    "title": "Dentista pediatra / odontopediatra",
+    "postings": 1
+   },
+   {
+    "title": "Dentista generalista",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeira em clinica privada",
+    "postings": 1
+   },
+   {
+    "title": "Tecnico de eletromedicina/eletronica/mecatrónica",
+    "postings": 1
+   },
+   {
+    "title": "Gestor de cliente para equipamento hospitalar - luanda",
+    "postings": 1
+   },
+   {
+    "title": "Prestação de serviço de assessoria técnica sénior de hiv/sida",
+    "postings": 1
+   },
+   {
+    "title": "Técnico do programa ed",
+    "postings": 1
+   },
+   {
+    "title": "Médico especialista nacional ou estrangeiro",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de medições – sénior (m/f)",
+    "postings": 1
+   },
+   {
+    "title": "Consultor",
+    "postings": 1
+   },
+   {
+    "title": "Prestação de serviço de assessoria sénior de gestão de aquisições internacionais de mercadorias",
+    "postings": 1
+   },
+   {
+    "title": "Prestação de serviço de analise em previsão e planeamento de abastecimento",
+    "postings": 1
+   },
+   {
+    "title": "A sadc oferece (10) vagas de emprego, que incluem subsídios de subsistência, hospedagem, transporte, assistência médica e medicamentos",
+    "postings": 1
+   },
+   {
+    "title": "Formador de higiene, saúde e segurança no trabalho",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de laboratório – produção de sabão e detergentes",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de laboratório - para indústria alimentar",
+    "postings": 1
+   },
+   {
+    "title": "Técnico superior de higiene, segurança e saúde no trabalho (m/f)",
+    "postings": 1
+   },
+   {
+    "title": "Radiologia",
+    "postings": 1
+   },
+   {
+    "title": "Director: centro médico e farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de qualidade, saúde, segurança e ambiente",
+    "postings": 1
+   },
+   {
+    "title": "Oficial de higiene, saúde e segurança",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de hst",
+    "postings": 1
+   },
+   {
+    "title": "Gestor de segurança, saúde, ambiente e segurança (sher)",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de segurança, higiene e saúde no trabalho (m)",
+    "postings": 1
+   },
+   {
+    "title": "Coordenador de laboratório",
+    "postings": 1
+   },
+   {
+    "title": "Analista",
+    "postings": 1
+   },
+   {
+    "title": "Clínica caridade em luanda contrata médicos de várias especialidades",
+    "postings": 1
+   },
+   {
+    "title": "Operadores de venda de planos de saúde",
+    "postings": 1
+   },
+   {
+    "title": "Recruta-se técnico de higiene, saúde e segurança no trabalho em luanda",
+    "postings": 1
+   },
+   {
+    "title": "Recruta-se médico clínico geralu medicina interna)",
+    "postings": 1
+   },
+   {
+    "title": "Empresa líder no sector farmacêutico recruta fiel de armazém",
+    "postings": 1
+   },
+   {
+    "title": "A universidade internacional do cuanza está a recrutar enfermeirass) para auxílio aos alunos de curso de enfermagem",
+    "postings": 1
+   },
+   {
+    "title": "A mca pretende admitir técnico de laboratório de construção civil e obras",
+    "postings": 1
+   },
+   {
+    "title": "A farmácia da avenida pretende recrutar 3 (três) técnicos de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "A organização mundial da saúde está recrutar treze motoristas",
+    "postings": 1
+   },
+   {
+    "title": "Director clínico",
+    "postings": 1
+   },
+   {
+    "title": "Vagas de emprego para profissionais de saúde",
+    "postings": 1
+   },
+   {
+    "title": "Oportunidades na saúde: vagas para médico, enfermeiro e analista disponíveis!",
+    "postings": 1
+   },
+   {
+    "title": "Gestor para centro médico",
+    "postings": 1
+   },
+   {
+    "title": "Médico dentista",
+    "postings": 1
+   },
+   {
+    "title": "Serviço de saúde em viana vai recruta técnicos para vacinação de rotina nos próximos dias",
+    "postings": 1
+   },
+   {
+    "title": "Ministra da saúde defende o reforço na fiscalização das obras dos hospitais uma vez que o estado já pagou a totalidade dos contratos",
+    "postings": 1
+   },
+   {
+    "title": "Matemática e física entre os cursos com menos candidaturas na uan enquanto o de medicina é o campeão de pretendentes",
+    "postings": 1
+   },
+   {
+    "title": "Assistente para o sector médico – embaixada do japão em angola",
+    "postings": 1
+   },
+   {
+    "title": "Malanje contrata novos técnicos de raio x e laboratório de modo a descentralizar os serviços do hospital geral da província",
+    "postings": 1
+   },
+   {
+    "title": "Ministra da saúde em angola admite irregularidades dos subsídios da covid-19",
+    "postings": 1
+   },
+   {
+    "title": "A clínica isabel fançony pretende admitir profissionais em 4 áreas",
+    "postings": 1
+   },
+   {
+    "title": "Oportunidade de emprego na clínica isabel fançony – 4 vagas abertas",
+    "postings": 1
+   },
+   {
+    "title": "Minsa pretende recrutar anualmente oito mil profissionais",
+    "postings": 1
+   },
+   {
+    "title": "Recrutamento – médicos e enfermeiros na clínica caridade nova vida",
+    "postings": 1
+   },
+   {
+    "title": "Clínica caridade nova vida anuncia vagas de emprego em 33 áreas",
+    "postings": 1
+   },
+   {
+    "title": "Oportunidade de emprego na clínica caridade nova vida",
+    "postings": 1
+   },
+   {
+    "title": "A clinica caridade – nova vida, está a recrutar profissionais em varias áreas",
+    "postings": 1
+   },
+   {
+    "title": "Delegado de vendas de campo para depósito de medicamentos",
+    "postings": 1
+   },
+   {
+    "title": "A clínica doncas e filhos está a recrutar: médicos em várias especialidades",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de compras para área médica",
+    "postings": 1
+   },
+   {
+    "title": "Vagas abertas na medtech – engenharia hospitalar e electrotecnia",
+    "postings": 1
+   },
+   {
+    "title": "Vagas para médicos especialistas – luanda medical center",
+    "postings": 1
+   },
+   {
+    "title": "Empresa ligada ao ramo da saúde abre processo de recrutamentos nas áreas de recepção e facturação",
+    "postings": 1
+   },
+   {
+    "title": "Vagas no sector da saúde – international sos angola, lda.",
+    "postings": 1
+   },
+   {
+    "title": "10 vagas disponíveis na organização não governamental “médicos com áfrica cuamm”",
+    "postings": 1
+   },
+   {
+    "title": "Procura de alimentos no lixo ameaça saúde pública",
+    "postings": 1
+   },
+   {
+    "title": "Segunda chamada dos exames de admissão do minsa",
+    "postings": 1
+   },
+   {
+    "title": "Saúde mais recrutamento angola 2022",
+    "postings": 1
+   },
+   {
+    "title": "Luanda medical center pretende recrutar um controlador financeiro",
+    "postings": 1
+   },
+   {
+    "title": "A totalenergies está a recrutar enfermeiro",
+    "postings": 1
+   },
+   {
+    "title": "Recrutamento farmácia popular angola 2022",
+    "postings": 1
+   },
+   {
+    "title": "Luanda medical center recrutamento 2022",
+    "postings": 1
+   },
+   {
+    "title": "Farmacêutico(técnicode farmácia)",
+    "postings": 1
+   },
+   {
+    "title": "Luanda medical center está a recrutar farmacêutico",
+    "postings": 1
+   },
+   {
+    "title": "Oportunidades de emprego no ramo da saúde (várias vagas disponíveis)",
+    "postings": 1
+   },
+   {
+    "title": "A organização médicos sem fronteiras da suíça em angola pretende recrutar assistentes de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Recruta-se farmacêuticos – técnico médio e superior",
+    "postings": 1
+   },
+   {
+    "title": "Médicos",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeiros",
+    "postings": 1
+   },
+   {
+    "title": "A clínica multiperfil está a recrutar assistente de contabilidade",
+    "postings": 1
+   },
+   {
+    "title": "Recruta-se (2) comerciais farmacêuticos",
+    "postings": 1
+   },
+   {
+    "title": "Recruta-se enfermeiro de pronto socorro",
+    "postings": 1
+   },
+   {
+    "title": "Vagas de emprego disponíveis em 3 áreas na empresa centro medico arimarkus",
+    "postings": 1
+   },
+   {
+    "title": "A clinica multiperfil está a recrutar auditor de contas médicas",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de análises clinicas e saúde pública",
+    "postings": 1
+   },
+   {
+    "title": "Técnica de saúde",
+    "postings": 1
+   },
+   {
+    "title": "Farmacêutico",
+    "postings": 1
+   },
+   {
+    "title": "Técnica de análises laboratoriais",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de laboratório e qualidade",
+    "postings": 1
+   },
+   {
+    "title": "A clinica sagrada esperança está recrutar médicos recém-licenciados",
+    "postings": 1
+   },
+   {
+    "title": "Responsável de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Coordenador de segurança, saúde e ambiente",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeira na embaixada dos eua em angola",
+    "postings": 1
+   },
+   {
+    "title": "Oficial de saúde, higiene e ambiente",
+    "postings": 1
+   },
+   {
+    "title": "Técnico de qualidade saúde, segurança e ambiente",
+    "postings": 1
+   },
+   {
+    "title": "Técnicode farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Técnicass) de farmácia",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeirass)",
+    "postings": 1
+   },
+   {
+    "title": "Engenheiro de electromedicina",
+    "postings": 1
+   },
+   {
+    "title": "Gestor de projecto de construção hospitalar",
+    "postings": 1
+   },
+   {
+    "title": "Fisioterapeuta",
+    "postings": 1
+   },
+   {
+    "title": "Coordenador de segurança e saúde no trabalho",
+    "postings": 1
+   },
+   {
+    "title": "Médicoss",
+    "postings": 1
+   },
+   {
+    "title": "Enfermeiross",
+    "postings": 1
+   },
+   {
+    "title": "110 vagas de emprego na centro logístico de medicamentos 2021",
+    "postings": 1
+   },
+   {
+    "title": "Centenas de empregos: obras do novo hospital de cabinda",
+    "postings": 1
+   },
+   {
+    "title": "Recrutamento medicare angola: enviar candidaturaa",
+    "postings": 1
+   },
+   {
+    "title": "Recrutamento na consaúde: envie sua candidatura",
+    "postings": 1
+   }
+  ]
+ }
+}

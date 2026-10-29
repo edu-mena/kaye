@@ -1,12 +1,22 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './demo/assessment'
-import { getAssessment, getCareer, listAcademies, listCareers, listCvExamples, listPrograms } from './source'
-import { RIASEC_KEYS } from './types'
+import {
+  getAssessment,
+  getCareer,
+  listAcademies,
+  listCareers,
+  listCompanies,
+  listCvExamples,
+  listPrograms,
+} from './source'
+import { GROUP_AREAS, RIASEC_KEYS } from './types'
 
 describe('demo data source', () => {
-  it('lists the 27 MVP careers and marks the curated ones', async () => {
+  it('lists the careers area by area (27 of technology, 39 of health) and marks the curated ones', async () => {
     const careers = await listCareers()
-    expect(careers).toHaveLength(27)
+    const areas = careers.map((career) => GROUP_AREAS[career.group])
+    expect(areas.filter((area) => area === 'technology')).toHaveLength(27)
+    expect(areas.filter((area) => area === 'health')).toHaveLength(39)
     expect(careers.filter((career) => career.detailed).map((career) => career.slug)).toEqual([
       'desenvolvedor-frontend',
       'analista-de-dados',
@@ -23,6 +33,16 @@ describe('demo data source', () => {
     }
     const fictional = new Set((await listPrograms()).map((program) => program.institution.name))
     expect(academies.filter((academy) => fictional.has(academy.name))).toEqual([])
+  })
+
+  it('links courses and employers only to careers that exist', async () => {
+    const known = new Set((await listCareers()).map((career) => career.slug))
+    const linked = [
+      ...(await listAcademies()).flatMap((academy) => academy.offers.flatMap((offer) => offer.careers)),
+      ...(await listCompanies()).flatMap((company) => company.careers),
+    ]
+    expect(linked.length).toBeGreaterThan(0)
+    expect(linked.filter((slug) => !known.has(slug))).toEqual([])
   })
 
   it('answers 404 (null) for an unknown career', async () => {

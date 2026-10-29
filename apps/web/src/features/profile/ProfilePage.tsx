@@ -10,6 +10,7 @@ import { TabPanel, Tabs } from '../../components/ui/Tabs'
 import { achievements, totalXp } from '../../domain/achievements'
 import { cvCompleteness } from '../../domain/cv'
 import { ageIn, isMinor } from '../../domain/education'
+import { pathSteps } from '../../domain/path'
 import { checkImage } from '../../lib/encodeImage'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
@@ -258,18 +259,7 @@ function ImagePicker({ name, label, onPick, className, children }: ImagePickerPr
 function PathCard() {
   const { t } = useTranslation()
   const user = useUser()
-  const steps = [
-    { id: 'perfil', done: user.profile !== null, to: '/entrar' },
-    { id: 'teste', done: user.assessmentCompletedAt !== null, to: '/teste' },
-    { id: 'destino', done: user.targetCareer !== null, to: '/carreiras' },
-    {
-      id: 'competencias',
-      done: Object.keys(user.skills).length > 0,
-      to: user.targetCareer ? `/carreiras/${user.targetCareer}` : '/carreiras',
-    },
-    { id: 'cv', done: cvCompleteness(user.cv) === 1, to: '/cv' },
-    { id: 'cursos', done: user.compare.length > 0, to: '/cursos' },
-  ] as const
+  const steps = pathSteps(user)
   const done = steps.filter((step) => step.done).length
   const next = steps.find((step) => !step.done)
 

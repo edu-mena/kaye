@@ -39,6 +39,8 @@ export type UserData = {
   /** Profile photo and cover, as small JPEG data URLs (they never leave the device). */
   photo: string | null
   cover: string | null
+  /** When the notifications were last opened (ISO), so the bell knows what is new. */
+  notificationsSeenAt: string | null
 }
 
 export const EMPTY_CV: CvData = {
@@ -71,6 +73,7 @@ const INITIAL: UserData = {
   searches: [],
   photo: null,
   cover: null,
+  notificationsSeenAt: null,
 }
 
 export const MAX_COMPARE = 3
@@ -133,6 +136,9 @@ function logged(user: UserData, type: HistoryEvent['type'], ref?: string): UserD
 }
 
 export const userActions = {
+  /** The notifications were opened: what is dated until today stops being new. */
+  seeNotifications: () => update((user) => ({ ...user, notificationsSeenAt: new Date().toISOString() })),
+
   saveProfile: (profile: Profile) =>
     update((user) => logged({ ...user, profile }, user.profile ? 'profileEdit' : 'profile')),
 

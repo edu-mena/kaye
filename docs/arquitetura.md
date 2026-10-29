@@ -533,6 +533,7 @@ kaye/
   docs/          arquitetura, roadmap, decisões
   .github/workflows/
     ci.yml       testes e verificação de tipos em cada push
+    market-data.yml  recolha semanal dos dados do Mercado (sábado, 22:00)
     deploy.yml   build e envio para a Hostinger
     scrape.yml   recolha semanal de vagas
 ```

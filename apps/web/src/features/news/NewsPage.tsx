@@ -1,22 +1,20 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { ExternalLink } from '../../components/DetailParts'
-import { Icon, type IconName } from '../../components/icons'
+import { Icon } from '../../components/icons'
 import { Loading, RowsSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
-import { Chip } from '../../components/ui/Chip'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Panel } from '../../components/ui/Panel'
-import { Soon } from '../../components/ui/Rows'
 import { Segmented } from '../../components/ui/Segmented'
 import { useNews } from '../../data/queries'
 import type { NewsItem, NewsKind } from '../../data/types'
+import { isAboutMe, myCareers } from '../../domain/path'
 import { stagger } from '../../lib/ui'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useUser } from '../../state/userStore'
+import { NewsCard } from './NewsCard'
 
 const KINDS: NewsKind[] = ['kaye', 'cursos', 'empresas']
-const KIND_ICONS: Record<NewsKind, IconName> = { kaye: 'megaphone', cursos: 'cap', empresas: 'building' }
 
 type Filter = 'tudo' | 'para-ti' | NewsKind
 
@@ -47,9 +45,8 @@ function Feed({ news }: { news: NewsItem[] }) {
   const [params, setParam] = useUrlFilters()
   const { savedCareers, targetCareer } = useUser()
 
-  // About the person: one of the careers they saved, or their destination.
-  const mine = new Set(targetCareer ? [...savedCareers, targetCareer] : savedCareers)
-  const isForYou = (item: NewsItem) => item.careers?.some((slug) => mine.has(slug)) ?? false
+  const mine = myCareers({ savedCareers, targetCareer })
+  const isForYou = (item: NewsItem) => isAboutMe(item, mine)
   const forYou = news.filter(isForYou)
 
   const matches = (filter: Filter) => (item: NewsItem) =>
@@ -106,8 +103,15 @@ function Feed({ news }: { news: NewsItem[] }) {
             </Link>
           )}
         </Panel>
-        <Panel id="news-notify" icon="bell" title={t('nav.notifications')} action={<Soon />}>
+        <Panel id="news-notify" icon="bell" title={t('nav.notifications')}>
           <p className="text-xs font-light text-copy">{t('news.notifyBody')}</p>
+          <Link
+            to="/notificacoes"
+            className="mt-2 inline-flex items-center gap-1 text-xs font-normal text-night hover:text-blue"
+          >
+            {t('news.notifyLink')}
+            <Icon name="chevronRight" className="size-3.5" />
+          </Link>
         </Panel>
         <Panel id="news-market" icon="chart" title={t('nav.market')}>
           <p className="text-xs font-light text-copy">{t('news.marketBody')}</p>
@@ -121,42 +125,5 @@ function Feed({ news }: { news: NewsItem[] }) {
         </Panel>
       </aside>
     </div>
-  )
-}
-
-/** One piece of news: what kind and when, the title (a link to its page), a line, and its source. */
-function NewsCard({ item, forYou, date }: { item: NewsItem; forYou: boolean; date: string }) {
-  const { t } = useTranslation()
-  const titleId = `news-${item.id}`
-  return (
-    <article aria-labelledby={titleId} className="rounded-2xl bg-surface p-4 shadow-card">
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-light text-muted">
-        <span className="grid size-6 shrink-0 place-items-center rounded-full bg-coal text-gold">
-          <Icon name={KIND_ICONS[item.kind]} className="size-3.5" />
-        </span>
-        <span className="font-normal text-night">{t(`news.kind_${item.kind}`)}</span>
-        <span aria-hidden="true">·</span>
-        <time dateTime={item.date}>{date}</time>
-        {forYou && <Chip tone="night">{t('news.forYou')}</Chip>}
-        {item.example && <Chip>{t('news.example')}</Chip>}
-      </div>
-      <h2 id={titleId} className="mt-2 text-sm font-semibold text-night">
-        {item.to ? (
-          <Link to={item.to} className="hover:text-blue">
-            {item.title}
-          </Link>
-        ) : (
-          item.title
-        )}
-      </h2>
-      <p className="mt-1 text-sm font-light text-copy">{item.summary}</p>
-      {item.source && (
-        <p className="mt-2 text-xs font-light text-muted">
-          <ExternalLink href={item.source.url}>
-            {t('common.source', { label: item.source.label })}
-          </ExternalLink>
-        </p>
-      )}
-    </article>
   )
 }

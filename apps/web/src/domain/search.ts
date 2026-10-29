@@ -1,4 +1,4 @@
-import { normalize } from './careers'
+import { hasWord, normalize } from './careers'
 
 // Pesquisa: one query over careers, courses, academies and companies.
 
@@ -9,12 +9,9 @@ export function searchWords(query: string): string[] {
   return normalize(query).split(/\s+/).filter(Boolean)
 }
 
-const wordsOf = (text: string) => text.split(/[^\p{L}\p{N}]+/u)
-
 /**
- * How well an item matches the words, 0 when it does not: every word must appear somewhere.
- * A word at the start of a word of the name is worth most, anywhere in the name less, and in
- * the rest least; a name that starts with the whole query goes first.
+ * How well an item matches the words, 0 when it does not: every word must start a word somewhere.
+ * In the name it is worth more than in the rest; a name that starts with the whole query goes first.
  */
 export function matchScore(words: string[], { name, others }: Searchable): number {
   if (words.length === 0) return 0
@@ -22,9 +19,8 @@ export function matchScore(words: string[], { name, others }: Searchable): numbe
   const rest = normalize(others.join(' '))
   let score = title.startsWith(words.join(' ')) ? 10 : 0
   for (const word of words) {
-    if (wordsOf(title).some((part) => part.startsWith(word))) score += 4
-    else if (title.includes(word)) score += 2
-    else if (rest.includes(word)) score += 1
+    if (hasWord(title, word)) score += 4
+    else if (hasWord(rest, word)) score += 1
     else return 0
   }
   return score

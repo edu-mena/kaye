@@ -12,6 +12,9 @@ export type AreaShares = {
   publicShare: number
   graduates: number
   graduatesShare: number
+  /** Students now, and their share of all students. */
+  enrolled: number
+  enrolledShare: number
 }
 
 /**
@@ -25,7 +28,9 @@ export function areaShares(jobs: JobMarket, education: EducationStats): AreaShar
   return MARKET_AREAS.map((area) => {
     const postings = known.find((entry) => entry.area === area)?.postings ?? 0
     const publicOpenings = jobs.public.areas.find((entry) => entry.area === area)?.openings ?? 0
-    const graduates = education.areas.find((entry) => entry.area === area)?.graduates ?? 0
+    const studies = education.areas.find((entry) => entry.area === area)
+    const graduates = studies?.graduates ?? 0
+    const enrolled = studies?.enrolled ?? 0
     return {
       area,
       postings,
@@ -34,9 +39,13 @@ export function areaShares(jobs: JobMarket, education: EducationStats): AreaShar
       publicShare: publicOpenings / opened,
       graduates,
       graduatesShare: graduates / (education.total || 1),
+      enrolled,
+      enrolledShare: enrolled / (education.access.enrolled || 1),
     }
   })
-    .filter((entry) => entry.postings > 0 || entry.publicOpenings > 0 || entry.graduates > 0)
+    .filter(
+      (entry) => entry.postings > 0 || entry.publicOpenings > 0 || entry.graduates > 0 || entry.enrolled > 0,
+    )
     .toSorted((a, b) => b.postings - a.postings)
 }
 

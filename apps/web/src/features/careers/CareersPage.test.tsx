@@ -1,14 +1,18 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
+import { CAREER_SUMMARIES } from '../../data/demo/careers'
 import { renderWithApp } from '../../test/render'
 import { seedTested } from '../../test/user'
 import CareersPage from './CareersPage'
 
+const ALL = `${CAREER_SUMMARIES.length} profissões`
+const PAGES = Math.ceil(CAREER_SUMMARIES.length / 12)
+
 describe('CareersPage', () => {
   it('lists every career, high demand first', async () => {
     renderWithApp(<CareersPage />)
-    expect(await screen.findByText('27 profissões')).toBeInTheDocument()
+    expect(await screen.findByText(ALL)).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Para ti' })).not.toBeInTheDocument()
   })
 
@@ -29,7 +33,7 @@ describe('CareersPage', () => {
     await userEvent.click(design)
     expect(screen.getByText('2 profissões', { selector: 'output' })).toBeInTheDocument()
     await userEvent.click(design)
-    expect(screen.getByText('27 profissões', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText(ALL, { selector: 'output' })).toBeInTheDocument()
   })
 
   it('shows 12 careers a page and starts again on the first page when a filter changes', async () => {
@@ -39,12 +43,15 @@ describe('CareersPage', () => {
     const pages = screen.getByRole('navigation', { name: 'Páginas de profissões' })
     expect(within(pages).getByRole('button', { name: 'Página anterior' })).toBeDisabled()
 
-    await userEvent.click(within(pages).getByRole('button', { name: 'Página 3' }))
-    expect(screen.getByTestId('location')).toHaveTextContent('pagina=3')
-    expect(within(list).getAllByRole('link')).toHaveLength(3)
+    await userEvent.click(within(pages).getByRole('button', { name: `Página ${PAGES}` }))
+    expect(screen.getByTestId('location')).toHaveTextContent(`pagina=${PAGES}`)
+    expect(within(list).getAllByRole('link')).toHaveLength(CAREER_SUMMARIES.length - (PAGES - 1) * 12)
     expect(within(pages).getByRole('button', { name: 'Página seguinte' })).toBeDisabled()
     await userEvent.click(within(pages).getByRole('button', { name: 'Página anterior' }))
-    expect(within(pages).getByRole('button', { name: 'Página 2' })).toHaveAttribute('aria-current', 'page')
+    expect(within(pages).getByRole('button', { name: `Página ${PAGES - 1}` })).toHaveAttribute(
+      'aria-current',
+      'page',
+    )
     await userEvent.click(within(pages).getByRole('button', { name: 'Página 1' }))
     expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
 
@@ -62,16 +69,16 @@ describe('CareersPage', () => {
     expect(screen.getByTestId('location')).toHaveTextContent('salario=mais500&procura=alta')
     const count = Number(screen.getByText(/profiss/, { selector: 'output' }).textContent?.split(' ')[0])
     expect(count).toBeGreaterThan(0)
-    expect(count).toBeLessThan(27)
+    expect(count).toBeLessThan(CAREER_SUMMARIES.length)
 
     await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
-    expect(screen.getByText('27 profissões', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText(ALL, { selector: 'output' })).toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Página' }), 'guia')
     expect(screen.getByText('3 profissões', { selector: 'output' })).toBeInTheDocument()
   })
 
   it('says so when nothing matches', async () => {
-    renderWithApp(<CareersPage />, { route: '/carreiras?q=medicina' })
+    renderWithApp(<CareersPage />, { route: '/carreiras?q=astronauta' })
     expect(await screen.findByText('Nenhuma profissão encontrada. Tenta outra palavra.')).toBeInTheDocument()
   })
 

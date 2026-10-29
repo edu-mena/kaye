@@ -3,6 +3,10 @@ import { QUESTIONS } from './demo/assessment'
 import { CAREER_SUMMARIES, CAREERS } from './demo/careers'
 import { COMPANIES } from './demo/companies'
 import { CV_EXAMPLES } from './demo/cvExamples'
+import { withAreas } from './demo/areaCatalog'
+import { BUSINESS } from './demo/businessCatalog'
+import { HEALTH } from './demo/healthCatalog'
+import { HUMANITIES } from './demo/humanitiesCatalog'
 import { NEWS } from './demo/news'
 import { PROGRAMS } from './demo/programs'
 import type {
@@ -13,6 +17,7 @@ import type {
   CareerSummary,
   CvExample,
   EducationStats,
+  EmploymentStats,
   JobMarket,
   NewsItem,
   Program,
@@ -40,23 +45,27 @@ export async function listPrograms(careerSlug?: string): Promise<Program[]> {
 }
 
 /** GET /institutions — real ones, with public facts only. */
+/** The curated institutions and companies, and those of each area of the catalogue (health, business, humanities). */
+const ALL_ACADEMIES = withAreas(ACADEMIES, [HEALTH.academies, BUSINESS.academies, HUMANITIES.academies])
+const ALL_COMPANIES = [...COMPANIES, ...HEALTH.companies, ...BUSINESS.companies, ...HUMANITIES.companies]
+
 export async function listAcademies(): Promise<Academy[]> {
-  return ACADEMIES
+  return ALL_ACADEMIES
 }
 
 /** GET /institutions/{id} (null = 404) */
 export async function getAcademy(id: string): Promise<Academy | null> {
-  return ACADEMIES.find((academy) => academy.id === id) ?? null
+  return ALL_ACADEMIES.find((academy) => academy.id === id) ?? null
 }
 
 /** GET /companies — real ones, with public facts only. */
 export async function listCompanies(): Promise<Company[]> {
-  return COMPANIES
+  return ALL_COMPANIES
 }
 
 /** GET /companies/{id} (null = 404) */
 export async function getCompany(id: string): Promise<Company | null> {
-  return COMPANIES.find((company) => company.id === id) ?? null
+  return ALL_COMPANIES.find((company) => company.id === id) ?? null
 }
 
 /** GET /market/jobs — counted from Angolan job sites. A separate file, loaded only when Mercado opens. */
@@ -67,6 +76,11 @@ export async function getJobMarket(): Promise<JobMarket> {
 /** GET /market/education — graduates per course and area, from the official yearbooks. */
 export async function getEducation(): Promise<EducationStats> {
   return (await import('./market/education.json')).default as EducationStats
+}
+
+/** GET /market/employment — unemployment by age, from INE's employment survey. */
+export async function getEmployment(): Promise<EmploymentStats> {
+  return (await import('./market/employment.json')).default as EmploymentStats
 }
 
 /** GET /news — newest first. */

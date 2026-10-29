@@ -3,14 +3,20 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { renderWithApp } from '../../test/render'
 import CompaniesPage from './CompaniesPage'
+import { listCompanies } from '../../data/source'
 
 const count = (text: string) => screen.getByText(text, { selector: 'output' })
+
+const COMPANIES = await listCompanies()
+const TOTAL = COMPANIES.length
+const BANKS = COMPANIES.filter((company) => company.sector === 'banca').length
+const ALL = `${TOTAL} empresas`
 
 describe('CompaniesPage', () => {
   it('shows each company with its logo, its sector and its youth programmes', async () => {
     renderWithApp(<CompaniesPage />)
     expect(await screen.findByRole('heading', { level: 1, name: 'Empresas' })).toBeInTheDocument()
-    expect(count('22 empresas')).toBeInTheDocument()
+    expect(count(ALL)).toBeInTheDocument()
 
     const bai = screen.getByRole('article', { name: 'Banco BAI' })
     expect(within(bai).getByText('Banca')).toBeInTheDocument()
@@ -38,7 +44,7 @@ describe('CompaniesPage', () => {
     renderWithApp(<CompaniesPage />)
     const sector = await screen.findByRole('combobox', { name: 'Setor' })
     await userEvent.selectOptions(sector, 'banca')
-    expect(count('6 empresas')).toBeInTheDocument()
+    expect(count(`${BANKS} empresas`)).toBeInTheDocument()
 
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Programas para jovens' }), 'sim')
     expect(count('1 empresa')).toBeInTheDocument()
@@ -51,7 +57,7 @@ describe('CompaniesPage', () => {
     expect(count('2 empresas')).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
-    expect(count('22 empresas')).toBeInTheDocument()
+    expect(count(ALL)).toBeInTheDocument()
   })
 
   it('filters by area and says when nothing matches', async () => {
@@ -69,7 +75,7 @@ describe('CompaniesPage', () => {
     renderWithApp(<CompaniesPage />, {
       route: '/?setor=pesca&area=magia&programas=talvez&profissao=x&onde=Marte',
     })
-    expect(await screen.findByText('22 empresas', { selector: 'output' })).toBeInTheDocument()
+    expect(await screen.findByText(ALL, { selector: 'output' })).toBeInTheDocument()
   })
 
   it('shows 12 companies a page and goes back to the first when a filter changes', async () => {
@@ -78,7 +84,9 @@ describe('CompaniesPage', () => {
     expect(within(list).getAllByRole('article')).toHaveLength(12)
 
     await userEvent.click(screen.getByRole('button', { name: 'Página 2' }))
-    expect(within(screen.getByRole('list', { name: 'Empresas' })).getAllByRole('article')).toHaveLength(10)
+    expect(within(screen.getByRole('list', { name: 'Empresas' })).getAllByRole('article')).toHaveLength(
+      Math.min(12, TOTAL - 12),
+    )
     expect(screen.getByTestId('location')).toHaveTextContent('pagina=2')
 
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Setor' }), 'banca')

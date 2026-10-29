@@ -1,0 +1,2386 @@
+{
+ "area": "humanities",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Escola Superior Técnica de Ciências do Desporto",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 66,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior de Ciências Policiais e Criminais, Geral Osvaldo de Jesus Serra Van-Dunem",
+    "nature": "publica",
+    "province": null,
+    "courses": [
+     {
+      "name": "Gestão e Administração Pública",
+      "area": "public",
+      "students": 89,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 86,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Policiais e Criminais",
+      "area": "public",
+      "students": 82,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior de Ciências, Artes e humanidade",
+    "nature": "publica",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "História",
+      "area": "sciences",
+      "students": 114,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Católico do Lubango",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 236,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 244,
+      "graduates": 59
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 103,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Atlântida",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 385,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 142,
+      "graduates": 34
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 36,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 412,
+      "graduates": 42
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 343,
+      "graduates": 27
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 714,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 474,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Políticas e Relações Internacionais",
+      "area": "public",
+      "students": 80,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1077,
+      "graduates": 0
+     },
+     {
+      "name": "Filosofia",
+      "area": "sciences",
+      "students": 77,
+      "graduates": 0
+     },
+     {
+      "name": "Serviços Social",
+      "area": "sciences",
+      "students": 44,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 239,
+      "graduates": 5
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 230,
+      "graduates": 15
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Gregório Semedo",
+    "nature": "privada",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1236,
+      "graduates": 0
+     },
+     {
+      "name": "Ciência Política e Administração do Território",
+      "area": "public",
+      "students": 274,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Independente",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1313,
+      "graduates": 102
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 1076,
+      "graduates": 71
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 843,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 495,
+      "graduates": 1
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 96,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 196,
+      "graduates": 1
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 171,
+      "graduates": 4
+     },
+     {
+      "name": "Ciências Políticas e Relações Internacionais",
+      "area": "public",
+      "students": 68,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 367,
+      "graduates": 36
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 215,
+      "graduates": 32
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 52,
+      "graduates": 23
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kalandula de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 780,
+      "graduates": 48
+     },
+     {
+      "name": "Psicologia Criminal",
+      "area": "sciences",
+      "students": 486,
+      "graduates": 14
+     },
+     {
+      "name": "Ciências Políticas e Relações Internacionais",
+      "area": "public",
+      "students": 243,
+      "graduates": 2
+     },
+     {
+      "name": "Psicologia Escolar",
+      "area": "sciences",
+      "students": 238,
+      "graduates": 29
+     },
+     {
+      "name": "Psicologia do Trabalho",
+      "area": "sciences",
+      "students": 214,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kangonjo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 520,
+      "graduates": 76
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 79,
+      "graduates": 46
+     },
+     {
+      "name": "Ciências Políticas e Relações Internacionais",
+      "area": "public",
+      "students": 72,
+      "graduates": 15
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada da Lunda Sul",
+    "nature": "privada",
+    "province": "Lunda Sul",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 243,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 202,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 239,
+      "graduates": 20
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 67,
+      "graduates": 5
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 50,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 45,
+      "graduates": 0
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 17,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 355,
+      "graduates": 51
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 94,
+      "graduates": 29
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Maravilha",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 520,
+      "graduates": 12
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 122,
+      "graduates": 0
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 76,
+      "graduates": 5
+     },
+     {
+      "name": "Psicologia Jurídica",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 4
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Metropolitano",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 436,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Pública",
+      "area": "public",
+      "students": 28,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 476,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Nelson Mandela",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 201,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 150,
+      "graduates": 17
+     },
+     {
+      "name": "Psicologia Criminal",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privada do Zaire",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 958,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 223,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Sinodal",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 937,
+      "graduates": 115
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Walinga",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 442,
+      "graduates": 56
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 256,
+      "graduates": 72
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 64,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 988,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 225,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado de Menongue",
+    "nature": "privada",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 1349,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 514,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 171,
+      "graduates": 6
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 114,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Luena",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 251,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 158,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 47,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 972,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 416,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 172,
+      "graduates": 0
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 11,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Sol Nascente",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 399,
+      "graduates": 46
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 131,
+      "graduates": 43
+     },
+     {
+      "name": "Ciências Políticas e Relações Internacionais",
+      "area": "public",
+      "students": 88,
+      "graduates": 0
+     },
+     {
+      "name": "Ciência Política e Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 15
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tocoísta",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 692,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 536,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 63,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 198,
+      "graduates": 10
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 64,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico da Caála",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 1111,
+      "graduates": 412
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 713,
+      "graduates": 72
+     },
+     {
+      "name": "Administração Pública e Gestão de Cidades",
+      "area": "public",
+      "students": 141,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 423,
+      "graduates": 33
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 447,
+      "graduates": 123
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 368,
+      "graduates": 75
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Ndalatando",
+    "nature": "publica",
+    "province": "Cuanza Norte",
+    "courses": [
+     {
+      "name": "Administração Pública",
+      "area": "public",
+      "students": 625,
+      "graduates": 135
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 239,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Porto Amboim",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 668,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 547,
+      "graduates": 56
+     },
+     {
+      "name": "Gestão e Administração Pública",
+      "area": "public",
+      "students": 128,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bita",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 298,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 122,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 461,
+      "graduates": 234
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cazenga",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 520,
+      "graduates": 15
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 435,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão e Administração Pública",
+      "area": "public",
+      "students": 246,
+      "graduates": 1
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 133,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuito",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 309,
+      "graduates": 52
+     },
+     {
+      "name": "Psicologia das Organizações e do Trabalho",
+      "area": "sciences",
+      "students": 96,
+      "graduates": 21
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 36
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Zango",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 1243,
+      "graduates": 26
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 115,
+      "graduates": 8
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 22,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Nzenzu Estrela",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 128,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Rei Luhuna",
+    "nature": "privada",
+    "province": "Cunene",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 664,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 390,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 28,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 689,
+      "graduates": 69
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 547,
+      "graduates": 30
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Waku-Cungo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 300,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 229,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 187,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências Policiais e Criminais, General Osvaldo Serra Vandúnem",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências Criminais",
+      "area": "public",
+      "students": 0,
+      "graduates": 146
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências Sociais e Relações Internacionais",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 303,
+      "graduates": 0
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 212,
+      "graduates": 0
+     },
+     {
+      "name": "Administração Pública",
+      "area": "public",
+      "students": 92,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 38,
+      "graduates": 0
+     },
+     {
+      "name": "Ciência Política",
+      "area": "public",
+      "students": 14,
+      "graduates": 0
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 4,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências de Educação de Cabinda",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "História",
+      "area": "sciences",
+      "students": 337,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 121,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências e Administração Humana",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 118,
+      "graduates": 29
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 102,
+      "graduates": 18
+     }
+    ]
+   },
+   {
+    "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências Criminais",
+      "area": "public",
+      "students": 1490,
+      "graduates": 93
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 640,
+      "graduates": 73
+     }
+    ]
+   },
+   {
+    "name": "Intituto Superior Politécnico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Administração Pública, Autárquica e Gestão do Território",
+      "area": "public",
+      "students": 114,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 2008,
+      "graduates": 54
+     },
+     {
+      "name": "Gestão e Administração Pública",
+      "area": "public",
+      "students": 533,
+      "graduates": 230
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 350,
+      "graduates": 104
+     },
+     {
+      "name": "Ciência Política",
+      "area": "public",
+      "students": 270,
+      "graduates": 142
+     },
+     {
+      "name": "Filosofia",
+      "area": "sciences",
+      "students": 199,
+      "graduates": 42
+     },
+     {
+      "name": "Ciência da Informação",
+      "area": "sciences",
+      "students": 180,
+      "graduates": 0
+     },
+     {
+      "name": "Psicologia Escolar",
+      "area": "sciences",
+      "students": 170,
+      "graduates": 22
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 156,
+      "graduates": 72
+     },
+     {
+      "name": "História",
+      "area": "sciences",
+      "students": 141,
+      "graduates": 84
+     },
+     {
+      "name": "Antropologia",
+      "area": "sciences",
+      "students": 90,
+      "graduates": 82
+     },
+     {
+      "name": "Geodemografia",
+      "area": "sciences",
+      "students": 79,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade Católica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 149
+     },
+     {
+      "name": "Filosofia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 11
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 28
+     },
+     {
+      "name": "Serviço Social",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 17
+     }
+    ]
+   },
+   {
+    "name": "Universidade Gregório Semedo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciência Política e Administração do Território",
+      "area": "public",
+      "students": 0,
+      "graduates": 11
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 48
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 313
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 101
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 43
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1637,
+      "graduates": 106
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 454,
+      "graduates": 48
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1474,
+      "graduates": 86
+     }
+    ]
+   },
+   {
+    "name": "Universidade Lueji A´Nkonde",
+    "nature": "publica",
+    "province": "Lunda Norte",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1202,
+      "graduates": 140
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1128,
+      "graduates": 135
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 179
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 36
+     }
+    ]
+   },
+   {
+    "name": "Universidade Onze de Novembro",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 1032,
+      "graduates": 127
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 10
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Universidade Rainha Njinga a Mbande",
+    "nature": "publica",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 399,
+      "graduates": 84
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 271,
+      "graduates": 46
+     },
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 95,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Técnica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 70
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 81
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 51
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Belas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 6
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 6
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 325,
+      "graduates": 32
+     },
+     {
+      "name": "Serviços Social",
+      "area": "sciences",
+      "students": 285,
+      "graduates": 0
+     },
+     {
+      "name": "Serviço Social",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 32
+     }
+    ]
+   },
+   {
+    "name": "Universidade Óscar Ribas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 20
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 58
+     },
+     {
+      "name": "Relações Internacionais",
+      "area": "public",
+      "students": 0,
+      "graduates": 16
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Direito",
+      "area": "legal",
+      "students": 0,
+      "graduates": 233
+     },
+     {
+      "name": "Psicologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 289
+     },
+     {
+      "name": "Sociologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 31
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Direito",
+    "students": 27143,
+    "graduates": 2628,
+    "institutions": 62
+   },
+   {
+    "name": "Psicologia",
+    "students": 17472,
+    "graduates": 2069,
+    "institutions": 49
+   },
+   {
+    "name": "Sociologia",
+    "students": 3001,
+    "graduates": 428,
+    "institutions": 14
+   },
+   {
+    "name": "Relações Internacionais",
+    "students": 1659,
+    "graduates": 226,
+    "institutions": 18
+   },
+   {
+    "name": "Ciências Criminais",
+    "students": 1490,
+    "graduates": 239,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão e Administração Pública",
+    "students": 996,
+    "graduates": 244,
+    "institutions": 4
+   },
+   {
+    "name": "Administração Pública",
+    "students": 717,
+    "graduates": 135,
+    "institutions": 2
+   },
+   {
+    "name": "História",
+    "students": 592,
+    "graduates": 84,
+    "institutions": 3
+   },
+   {
+    "name": "Ciências Políticas e Relações Internacionais",
+    "students": 551,
+    "graduates": 17,
+    "institutions": 5
+   },
+   {
+    "name": "Psicologia Criminal",
+    "students": 486,
+    "graduates": 20,
+    "institutions": 2
+   },
+   {
+    "name": "Psicologia Escolar",
+    "students": 408,
+    "graduates": 51,
+    "institutions": 2
+   },
+   {
+    "name": "Serviços Social",
+    "students": 329,
+    "graduates": 0,
+    "institutions": 2
+   },
+   {
+    "name": "Ciência Política",
+    "students": 284,
+    "graduates": 142,
+    "institutions": 2
+   },
+   {
+    "name": "Filosofia",
+    "students": 276,
+    "graduates": 53,
+    "institutions": 3
+   },
+   {
+    "name": "Ciência Política e Administração do Território",
+    "students": 274,
+    "graduates": 11,
+    "institutions": 2
+   },
+   {
+    "name": "Psicologia do Trabalho",
+    "students": 214,
+    "graduates": 10,
+    "institutions": 1
+   },
+   {
+    "name": "Ciência da Informação",
+    "students": 180,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Administração Pública e Gestão de Cidades",
+    "students": 141,
+    "graduates": 9,
+    "institutions": 1
+   },
+   {
+    "name": "Administração Pública, Autárquica e Gestão do Território",
+    "students": 114,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Psicologia das Organizações e do Trabalho",
+    "students": 96,
+    "graduates": 21,
+    "institutions": 1
+   },
+   {
+    "name": "Antropologia",
+    "students": 90,
+    "graduates": 82,
+    "institutions": 1
+   },
+   {
+    "name": "Ciências Policiais e Criminais",
+    "students": 82,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Geodemografia",
+    "students": 79,
+    "graduates": 22,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Pública",
+    "students": 28,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Psicologia Jurídica",
+    "students": 0,
+    "graduates": 4,
+    "institutions": 1
+   },
+   {
+    "name": "Ciência Política e Relações Internacionais",
+    "students": 0,
+    "graduates": 15,
+    "institutions": 1
+   },
+   {
+    "name": "Serviço Social",
+    "students": 0,
+    "graduates": 49,
+    "institutions": 2
+   }
+  ]
+ },
+ "training": [
+  {
+   "name": "Centro de Estudos e Formação da Ordem dos Advogados de Angola",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "O caminho para ser advogado, depois da licenciatura em Direito: 18 meses de estágio com um patrono, a formação inicial no Centro e a Prova Final de Acesso à Advocacia, em Abril, em todo o país.",
+   "source": {
+    "label": "Regulamento n.º 1/26, de Acesso à Advocacia (AngoLEX)",
+    "url": "https://www.angolex.com/paginas/regulamentos/regulamento-de-acesso-a-advocacia-1a-26a.html"
+   }
+  },
+  {
+   "name": "Instituto Nacional de Estudos Judiciários (INEJ)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "Forma os novos juízes e procuradores: quem entra na magistratura faz aqui a formação inicial, com estágio nos tribunais.",
+   "source": {
+    "label": "Regulamento Interno do INEJ, Deliberação n.º 9/16 (AngoLEX)",
+    "url": "https://angolex.com/paginas/deliberacoes/regulamento-interno-do-instituto-nacional-de-estudos-judiciarios-inej-9a-16a.html"
+   }
+  },
+  {
+   "name": "Academia Diplomática Venâncio de Moura",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "A academia do Ministério das Relações Exteriores, no Kilamba: forma diplomatas e especialistas em relações internacionais, com capacidade para 1800 por ano.",
+   "source": {
+    "label": "Ver Angola, 11/2020: inaugurada a academia que vai formar 1800 diplomatas por ano",
+    "url": "https://www.verangola.net/va/pt/112020/Educacao/22741/Inaugurada-academia-no-Kilamba-que-vai-formar-1800-diplomatas-por-ano.htm"
+   }
+  },
+  {
+   "name": "Escola Nacional de Administração e Políticas Públicas (ENAPP)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "Forma quem trabalha na administração pública, com cursos curtos e pós-graduações, e conduz os concursos da Entidade Recrutadora Única. Tem um centro regional no Lubango.",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://enapp.gov.ao"
+   }
+  }
+ ],
+ "salaries": {
+  "year": 2026,
+  "decree": "Decreto Presidencial n.º 16/26, de 22 de Janeiro",
+  "urls": {
+   "regime_geral": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-geral-da-funcao-publica-2026a.html",
+   "tecnicos_justica_pgr": "https://angolex.com/paginas/diversos/tabela-salarial-dos-tecnicos-de-justica-da-pgr-2026a.html",
+   "oficiais_justica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-dos-oficiais-de-justica-2026a.html"
+  },
+  "careers": {
+   "regime_geral": [
+    {
+     "category": "Auxiliar de Limpeza de 2ª Classe",
+     "index": 400,
+     "salary": 97897
+    },
+    {
+     "category": "Auxiliar Administrativo de 2ª Classe",
+     "index": 420,
+     "salary": 102792
+    },
+    {
+     "category": "Auxiliar de Limpeza de 1ª Classe",
+     "index": 420,
+     "salary": 102792
+    },
+    {
+     "category": "Operário Não Qualificado de 2ª Classe",
+     "index": 420,
+     "salary": 102792
+    },
+    {
+     "category": "Telefonista de 2ª Classe",
+     "index": 440,
+     "salary": 107687
+    },
+    {
+     "category": "Auxiliar Administrativo de 1ª Classe",
+     "index": 440,
+     "salary": 107687
+    },
+    {
+     "category": "Auxiliar de Limpeza Principal",
+     "index": 440,
+     "salary": 107687
+    },
+    {
+     "category": "Operário Não Qualificado de 1ª Classe",
+     "index": 440,
+     "salary": 107687
+    },
+    {
+     "category": "Telefonista de 1ª Classe",
+     "index": 460,
+     "salary": 112582
+    },
+    {
+     "category": "Auxiliar Administrativo Principal",
+     "index": 460,
+     "salary": 112582
+    },
+    {
+     "category": "Encarregado",
+     "index": 460,
+     "salary": 112582
+    },
+    {
+     "category": "Escriturário-Dactilógrafo",
+     "index": 480,
+     "salary": 117477
+    },
+    {
+     "category": "Motorista de Ligeiros de 2ª Classe",
+     "index": 480,
+     "salary": 117477
+    },
+    {
+     "category": "Telefonista Principal",
+     "index": 480,
+     "salary": 117477
+    },
+    {
+     "category": "Operário Qualificado de 2ª Classe",
+     "index": 480,
+     "salary": 117477
+    },
+    {
+     "category": "Aspirante",
+     "index": 500,
+     "salary": 122372
+    },
+    {
+     "category": "Motorista de Pesados de 2ª Classe",
+     "index": 500,
+     "salary": 122372
+    },
+    {
+     "category": "Motorista de Ligeiros de 1ª Classe",
+     "index": 500,
+     "salary": 122372
+    },
+    {
+     "category": "Operário Qualificado de 1ª Classe",
+     "index": 500,
+     "salary": 122372
+    },
+    {
+     "category": "Terceiro Oficial",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Tesoureiro de 2ª Classe",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Motorista de Pesados de 1ª Classe",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Motorista de Ligeiros Principal",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Encarregado",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Segundo Oficial",
+     "index": 540,
+     "salary": 132161
+    },
+    {
+     "category": "Tesoureiro de 1ª Classe",
+     "index": 540,
+     "salary": 132161
+    },
+    {
+     "category": "Motorista de Pesados Principal",
+     "index": 540,
+     "salary": 132161
+    },
+    {
+     "category": "Primeiro Oficial",
+     "index": 575,
+     "salary": 140727
+    },
+    {
+     "category": "Tesoureiro Principal",
+     "index": 575,
+     "salary": 140727
+    },
+    {
+     "category": "Oficial Administrativo Principal",
+     "index": 580,
+     "salary": 141951
+    },
+    {
+     "category": "Técnico Médio de 3ª Classe",
+     "index": 240,
+     "salary": 144764
+    },
+    {
+     "category": "Técnico Médio de 2ª Classe",
+     "index": 260,
+     "salary": 156828
+    },
+    {
+     "category": "Técnico Médio de 1ª Classe",
+     "index": 280,
+     "salary": 168891
+    },
+    {
+     "category": "Técnico Médio Principal de 3ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Técnico Médio Principal de 2ª Classe",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Técnico Médio Principal de 1ª Classe",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "category": "Técnico de 3ª Classe",
+     "index": 360,
+     "salary": 217146
+    },
+    {
+     "category": "Técnico de 2ª Classe",
+     "index": 370,
+     "salary": 223178
+    },
+    {
+     "category": "Técnico de 1ª Classe",
+     "index": 400,
+     "salary": 241273
+    },
+    {
+     "category": "Técnico Especialista de 2ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Técnico Especialista de 1ª Classe",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Técnico Especialista Principal",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "category": "Técnico Superior de 2ª Classe",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "Técnico Superior de 1ª Classe",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Técnico Superior Principal",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Assessor",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Primeiro Assessor",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Assessor Principal",
+     "index": 960,
+     "salary": 579056
+    }
+   ],
+   "tecnicos_justica_pgr": [
+    {
+     "category": "Auxiliar Técnico de 3.ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Auxiliar Técnico de 2.ª Classe",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Auxiliar Técnico de 1.ª Classe",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "category": "Ajudante Técnico de 3.ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Ajudante Técnico de 2.ª Classe",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Ajudante Técnico de 1.ª Classe",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "category": "Técnico Principal de 3.ª Classe",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Técnico Principal de 2.ª Classe",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Técnico Principal de 1.ª Classe",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Técnico Principal Chefe",
+     "index": 960,
+     "salary": 579056
+    }
+   ],
+   "oficiais_justica": [
+    {
+     "registos": "Oficial Aux. de Conserv. 2ª Classe",
+     "notariado": "Oficial Aux. do Notariado de 2ª Classe",
+     "tribunal": "Oficial de Diligência de 3ª Classe",
+     "identificacao": "Dactiloscopista de 2ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "registos": "Oficial Aux. de Conserv. 1ª Classe",
+     "notariado": "Oficial Aux. do Notariado de 1ª Classe",
+     "tribunal": "Oficial de Diligência de 2ª Classe",
+     "identificacao": "Dactiloscopista de 1ª Classe",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "registos": "Oficial Aux. Princ de Conservador",
+     "notariado": "Oficial Aux. Princ. do Notariado",
+     "tribunal": "Oficial de Diligência de 1ª Classe",
+     "identificacao": "Dactiloscopista Principal",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "registos": "2º Ajudante de Conservador",
+     "notariado": "2º Ajudante do Notariado",
+     "tribunal": "Ajudante de Escrivão de 3º Classe",
+     "identificacao": "Emissor de 2ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "registos": "1º Ajudante de Conservador",
+     "notariado": "1º Ajudante do Notariado",
+     "tribunal": "Ajudante de Escrivão de 2ª Classe",
+     "identificacao": "Emissor de 1ª Classe",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "registos": "Ajudante Principal",
+     "notariado": "Ajudante Principal",
+     "tribunal": "Ajudante de Escrivão de 1.ª Classe",
+     "identificacao": "Emissor Principal",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "registos": "Conservador Adjunto",
+     "notariado": "Notário Adjunto",
+     "tribunal": "Escrivão de Direito de 3ª Classe",
+     "identificacao": "Técnico Sup. Identificação Principal",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "registos": "Conservador de 3ª Classe",
+     "notariado": "Notário de 3ª Classe",
+     "tribunal": "Escrivão de Direito de 2ª Classe",
+     "identificacao": "Assessor de Identificação de 2ª Classe",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "registos": "Conservador de 2ª Classe",
+     "notariado": "Notário de 2ª Classe",
+     "tribunal": "Escrivão de Direito de 1ª Classe",
+     "identificacao": "Assessor de Identificação de 1ª Classe",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "registos": "Conservador de 1ª Classe",
+     "notariado": "Notário de 1ª Classe",
+     "tribunal": "Secretário Judicial",
+     "identificacao": "Assessor de Identificação Principal",
+     "index": 960,
+     "salary": 579056
+    }
+   ]
+  }
+ },
+ "employers": {
+  "named": [
+   {
+    "name": "Tribunal Supremo",
+    "sector": "justica",
+    "kind": "tribunal_supremo",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://tribunalsupremo.ao"
+    }
+   },
+   {
+    "name": "Tribunal Constitucional",
+    "sector": "justica",
+    "kind": "tribunal_constitucional",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.tribunalconstitucional.ao"
+    }
+   },
+   {
+    "name": "Conselho Superior da Magistratura Judicial (CSMJ)",
+    "sector": "justica",
+    "kind": "magistratura",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.csmj.ao"
+    }
+   },
+   {
+    "name": "Procuradoria-Geral da República (PGR)",
+    "sector": "justica",
+    "kind": "ministerio_publico",
+    "source": {
+     "label": "Lei n.º 22/12, Lei Orgânica da PGR e do Ministério Público (AngoLEX)",
+     "url": "https://angolex.com/paginas/leis/lei-do-organica-da-procuradoria-geral-da-republica-e-do-ministerio-publico.html"
+    }
+   },
+   {
+    "name": "Ministério da Justiça e dos Direitos Humanos",
+    "sector": "justica",
+    "kind": "ministerio_justica",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://minjusdh.gov.ao"
+    }
+   },
+   {
+    "name": "Guiché Único da Empresa (GUE)",
+    "sector": "justica",
+    "kind": "guiche",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://gue.gov.ao/portal/"
+    }
+   },
+   {
+    "name": "Serviço de Investigação Criminal (SIC)",
+    "sector": "justica",
+    "kind": "investigacao",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://sic.gov.ao"
+    }
+   },
+   {
+    "name": "Provedor de Justiça",
+    "sector": "justica",
+    "kind": "provedor",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://provedordejustica.ao"
+    }
+   },
+   {
+    "name": "Ministério das Relações Exteriores (MIREX)",
+    "sector": "estado",
+    "kind": "diplomacia",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://mirex.gov.ao/PortalMIREX/"
+    }
+   },
+   {
+    "name": "Assembleia Nacional",
+    "sector": "estado",
+    "kind": "parlamento",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.parlamento.ao"
+    }
+   },
+   {
+    "name": "Comissão Nacional Eleitoral (CNE)",
+    "sector": "estado",
+    "kind": "eleitoral",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.cne.ao"
+    }
+   },
+   {
+    "name": "Ministério da Administração do Território (MAT)",
+    "sector": "estado",
+    "kind": "territorio",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.mat.gov.ao"
+    }
+   },
+   {
+    "name": "Ministério da Acção Social, Família e Promoção da Mulher (MASFAMU)",
+    "sector": "estado",
+    "kind": "accao_social",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://masfamu.gov.ao"
+    }
+   },
+   {
+    "name": "Instituto Nacional de Estatística (INE)",
+    "sector": "estado",
+    "kind": "estatistica",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.ine.gov.ao"
+    }
+   }
+  ],
+  "jobAds": [
+   {
+    "name": "MINEA - RECLIMA",
+    "postings": 2
+   },
+   {
+    "name": "Wange International Angola Lda",
+    "postings": 2
+   }
+  ]
+ }
+}

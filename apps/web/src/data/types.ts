@@ -16,8 +16,70 @@ export const CAREER_GROUPS = [
   'gestao',
   'educacao',
   'digital',
+  // Health
+  'medicina',
+  'enfermagem',
+  'diagnostico',
+  'farmacia',
+  'reabilitacao',
+  'saude_oral',
+  'saude_publica',
+  'saude_mental',
+  // Management, finance and trade
+  'contabilidade',
+  'financas',
+  'banca_seguros',
+  'gestao_empresas',
+  'recursos_humanos',
+  'comercial',
+  'economia',
+  // Law, public administration and the social and human sciences
+  'advocacia',
+  'justica',
+  'administracao_publica',
+  'relacoes_internacionais',
+  'investigacao_criminal',
+  'psicologia',
+  'ciencias_sociais',
+  'humanidades',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
+
+/** The area of each group: the catalogue grows one area at a time (technology first, then health). */
+export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
+  desenvolvimento: 'technology',
+  dados: 'technology',
+  infraestrutura: 'technology',
+  seguranca: 'technology',
+  telecomunicacoes: 'technology',
+  design: 'technology',
+  gestao: 'technology',
+  educacao: 'technology',
+  digital: 'technology',
+  medicina: 'health',
+  enfermagem: 'health',
+  diagnostico: 'health',
+  farmacia: 'health',
+  reabilitacao: 'health',
+  saude_oral: 'health',
+  saude_publica: 'health',
+  saude_mental: 'health',
+  contabilidade: 'business',
+  financas: 'business',
+  banca_seguros: 'business',
+  gestao_empresas: 'business',
+  recursos_humanos: 'business',
+  comercial: 'business',
+  economia: 'business',
+  advocacia: 'legal',
+  justica: 'legal',
+  administracao_publica: 'public',
+  relacoes_internacionais: 'public',
+  investigacao_criminal: 'public',
+  psicologia: 'sciences',
+  ciencias_sociais: 'sciences',
+  humanidades: 'sciences',
+}
 
 export type Demand = 'alta' | 'media' | 'baixa'
 
@@ -145,7 +207,7 @@ export type Career = CareerSummary & {
 export type Institution = {
   id: string
   name: string
-  type: 'universidade' | 'instituto_medio' | 'centro_formacao' | 'online'
+  type: 'universidade' | 'instituto_superior' | 'instituto_medio' | 'centro_formacao' | 'online'
   ownership: 'publica' | 'privada'
   province: string
   /** Logo image; without one, the app shows the initials. */
@@ -171,6 +233,10 @@ export type AcademyOffer = {
   /** Editorial: the careers the course prepares for, and their areas. */
   careers: string[]
   areas: CareerGroup[]
+  /** Students and graduates of the course at this institution, and their academic year (official yearbook). */
+  students?: number
+  graduates?: number
+  year?: string
 }
 
 /**
@@ -270,6 +336,12 @@ export const COMPANY_SECTORS = [
   'energia',
   'industria',
   'transportes',
+  'saude',
+  'seguros',
+  'consultoria',
+  'estado',
+  'justica',
+  'comercio',
 ] as const
 export type CompanySector = (typeof COMPANY_SECTORS)[number]
 
@@ -389,12 +461,31 @@ export type JobMarket = {
   sources: { id: string; name: string; url: string; postings: number; since: string }[]
 }
 
+/** Unemployment by age and the young who neither work nor study (scrapers/employment/iea.py); rates 0 to 1. */
+export type EmploymentStats = {
+  year: number
+  source: SourceLink
+  unemployment: number
+  /** `to` null: "65 or more". */
+  ages: { from: number; to: number | null; rate: number }[]
+  /** The young (15 to 24): in towns, in the country, and those who neither work, study nor train. */
+  youth: { unemployment: number; urban: number; rural: number; neitherWorkNorStudy: number }
+}
+
 /** Graduates per course and area, from the official yearbooks (scrapers/education/anuario.py). */
 export type EducationStats = {
   /** The academic year of the numbers: "2023/24". */
   year: string
   total: number
+  /** Candidates, first-year students and all students of the same academic year (Quadro 1.2). */
+  access: { candidates: number; firstTime: number; enrolled: number }
   source: SourceLink
-  areas: { area: MarketArea; graduates: number; courses: { name: string; graduates: number }[] }[]
+  /** Graduates of the year and students now ("enrolled"): the graduates of the coming years. */
+  areas: {
+    area: MarketArea
+    graduates: number
+    enrolled: number
+    courses: { name: string; graduates: number; enrolled: number }[]
+  }[]
   series: { year: string; graduates: number; source: SourceLink }[]
 }

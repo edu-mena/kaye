@@ -21,6 +21,7 @@ const TYPES: Academy['type'][] = ['universidade', 'instituto_medio', 'centro_for
  */
 const FILTERS_BY_TYPE: Record<Academy['type'], ('area' | 'faculdade')[]> = {
   universidade: ['faculdade'],
+  instituto_superior: [],
   instituto_medio: ['area'],
   centro_formacao: ['area'],
   online: ['area'],

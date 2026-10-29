@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, NavLink, useMatch } from 'react-router'
 import logo from '../assets/kaye-logo.png'
 import { useHideOnScroll } from '../lib/useHideOnScroll'
+import { useUnseenNotifications } from '../state/notifications'
 import { useUser } from '../state/userStore'
 import { Icon, type IconName } from './icons'
 import { Dialog } from './ui/Dialog'
@@ -179,6 +180,7 @@ const ROUND_BUTTON = 'grid size-10 place-items-center rounded-full bg-ash-100 te
 export function TopBar() {
   const { t } = useTranslation()
   const { photo } = useUser()
+  const unseen = useUnseenNotifications()
   const [menuOpen, setMenuOpen] = useState(false)
   // On Pesquisa the page has its own field: a second one up here would only repeat it.
   const onSearch = useMatch('/pesquisa')
@@ -216,9 +218,17 @@ export function TopBar() {
         </Link>
       )}
       <div className="ml-auto flex items-center gap-2">
-        <Link to="/notificacoes" className={ROUND_BUTTON}>
+        <Link to="/notificacoes" className={`relative ${ROUND_BUTTON}`}>
           <Icon name="bell" className="size-5" />
-          <span className="sr-only">{t('nav.notifications')}</span>
+          <span className="sr-only">
+            {unseen > 0 ? t('nav.notificationsNew', { count: unseen }) : t('nav.notifications')}
+          </span>
+          {unseen > 0 && (
+            <span
+              aria-hidden="true"
+              className="absolute top-2 right-2 size-2.5 rounded-full bg-gold ring-2 ring-surface"
+            />
+          )}
         </Link>
         <Link
           to="/perfil"

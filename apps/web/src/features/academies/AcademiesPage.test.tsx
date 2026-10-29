@@ -3,14 +3,18 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { renderWithApp } from '../../test/render'
 import AcademiesPage from './AcademiesPage'
+import { listAcademies } from '../../data/source'
 
 const count = (text: string) => screen.getByText(text, { selector: 'output' })
+
+const TOTAL = (await listAcademies()).length
+const ALL = `${TOTAL} instituições`
 
 describe('AcademiesPage', () => {
   it('shows each institution with its photo, its logo and what it is, without courses or sources', async () => {
     renderWithApp(<AcademiesPage />)
     expect(await screen.findByRole('heading', { level: 1, name: 'Academias' })).toBeInTheDocument()
-    expect(count('12 instituições')).toBeInTheDocument()
+    expect(count(ALL)).toBeInTheDocument()
 
     const uan = screen.getByRole('article', { name: 'Universidade Agostinho Neto' })
     expect(uan.querySelector('img[src*="uan-banner"]')).not.toBeNull()
@@ -85,13 +89,13 @@ describe('AcademiesPage', () => {
     expect(screen.getByText('Nenhuma instituição com estes filtros.')).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
-    expect(count('12 instituições')).toBeInTheDocument()
+    expect(count(ALL)).toBeInTheDocument()
   })
 
   it('ignores filters it does not know in the address', async () => {
     renderWithApp(<AcademiesPage />, {
       route: '/?tipo=castelo&gestao=talvez&area=magia&nivel=doutoramento&faculdade=Letras&curso=x&onde=Marte',
     })
-    expect(await screen.findByText('12 instituições', { selector: 'output' })).toBeInTheDocument()
+    expect(await screen.findByText(ALL, { selector: 'output' })).toBeInTheDocument()
   })
 })

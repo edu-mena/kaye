@@ -133,7 +133,7 @@ function Offers({ academy, careers }: { academy: Academy; careers: CareerSummary
 }
 
 function OfferCard({ offer, careers }: { offer: AcademyOffer; careers: CareerSummary[] }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const pending = ['price', 'duration', 'schedule'] as const
   return (
     <article aria-label={offer.name} className="rounded-card bg-surface p-6 shadow-card">
@@ -142,6 +142,15 @@ function OfferCard({ offer, careers }: { offer: AcademyOffer; careers: CareerSum
         {offer.faculty && ` · ${offer.faculty}`}
       </p>
       <h3 className="mt-1 text-lg font-bold text-night">{offer.name}</h3>
+      {offer.students !== undefined && (
+        <p className="mt-1 text-sm font-light text-copy">
+          {t('academy.people', {
+            students: (offer.students ?? 0).toLocaleString(i18n.language),
+            graduates: (offer.graduates ?? 0).toLocaleString(i18n.language),
+            year: offer.year,
+          })}
+        </p>
+      )}
       <dl className="mt-4 grid grid-cols-3 gap-3">
         {pending.map((key) => (
           <div key={key}>

@@ -1,37 +1,13 @@
-import type { Career, CareerGroup, CareerSummary, Demand, PathwayStep, RiasecProfile } from '../types'
-import { CAREER_IMAGES } from './images'
+import type { Career, CareerSummary, PathwayStep } from '../types'
+import { riasec, summary } from './careerSummary'
+import { BUSINESS_CAREERS } from './businessCareers'
+import { HEALTH_CAREERS } from './healthCareers'
+import { HUMANITIES_CAREERS } from './humanitiesCareers'
 
 // DEMO DATA. Profiles approximate O*NET interest profiles; demand and salaries are
 // illustrative, not measured. Real values come from curation (roadmap, Fase 0.4).
 
-function riasec(R: number, I: number, A: number, S: number, E: number, C: number): RiasecProfile {
-  return { R, I, A, S, E, C }
-}
-
-function summary(
-  slug: string,
-  name: string,
-  group: CareerGroup,
-  text: string,
-  profile: RiasecProfile,
-  demand: Demand,
-  salaryMedian: number,
-): CareerSummary {
-  const image = CAREER_IMAGES[slug]
-  return {
-    slug,
-    name,
-    group,
-    summary: text,
-    riasec: profile,
-    demand,
-    salaryMedian,
-    detailed: false,
-    ...(image ? { image } : {}),
-  }
-}
-
-export const CAREER_SUMMARIES: CareerSummary[] = [
+const TECH_CAREERS: CareerSummary[] = [
   summary(
     'desenvolvedor-frontend',
     'Desenvolvedor Frontend',
@@ -275,6 +251,14 @@ export const CAREER_SUMMARIES: CareerSummary[] = [
     'alta',
     250000,
   ),
+]
+
+/** Every career of the catalogue, area by area. */
+export const CAREER_SUMMARIES: CareerSummary[] = [
+  ...TECH_CAREERS,
+  ...HEALTH_CAREERS,
+  ...BUSINESS_CAREERS,
+  ...HUMANITIES_CAREERS,
 ]
 
 function base(slug: string): CareerSummary {

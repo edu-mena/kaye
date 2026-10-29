@@ -3,7 +3,6 @@ import { createBrowserRouter, Navigate } from 'react-router'
 import { AppLoading } from '../components/AppLoading'
 import { RequireProfile } from '../components/RequireProfile'
 import HomePage from '../features/home/HomePage'
-import type { SoonSection } from '../features/soon/SoonPage'
 import { Layout, type RouteHandle } from './Layout'
 
 type PageModule = { default: ComponentType }
@@ -11,12 +10,6 @@ type PageModule = { default: ComponentType }
 /** Each screen downloads its code the first time it is opened. */
 const page = (load: () => Promise<PageModule>) => () =>
   load().then((module) => ({ Component: module.default }))
-
-/** Sections that wait for their data get a designed "coming soon". */
-const soon = (section: SoonSection) => () =>
-  import('../features/soon/SoonPage').then(({ default: SoonPage }) => ({
-    Component: () => <SoonPage section={section} />,
-  }))
 
 /** Screens that need a profile (later: an account) send the person to /entrar first. */
 const withProfile = (load: () => Promise<PageModule>) => () =>
@@ -86,8 +79,8 @@ export const router = createBrowserRouter([
         lazy: page(() => import('../features/market/MarketPage')),
       },
       { path: 'novidades', lazy: page(() => import('../features/news/NewsPage')) },
-      { path: 'notificacoes', lazy: soon('notifications') },
-      { path: 'suporte', lazy: soon('support') },
+      { path: 'notificacoes', lazy: page(() => import('../features/notifications/NotificationsPage')) },
+      { path: 'suporte', lazy: page(() => import('../features/support/SupportPage')) },
       { path: 'configuracoes', lazy: page(() => import('../features/settings/SettingsPage')) },
       { path: 'termos', lazy: page(() => import('../features/legal/TermsPage')) },
       { path: 'privacidade', lazy: page(() => import('../features/legal/PrivacyPage')) },

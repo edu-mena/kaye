@@ -29,6 +29,11 @@ type Filter = {
   guide?: 'guia' | 'curadoria' | null
 }
 
+/** A word of the (normalised) text starts with the searched word: "dados" finds "Dados", not "cuidados". */
+export function hasWord(text: string, word: string): boolean {
+  return text.split(/[^\p{L}\p{N}]+/u).some((part) => part.startsWith(word))
+}
+
 export function filterCareers(
   careers: CareerSummary[],
   { query, group, sort, profile, demand, salary, guide }: Filter,
@@ -40,7 +45,7 @@ export function filterCareers(
     if (!inBand(career.salaryMedian, salary)) return false
     if (guide && career.detailed !== (guide === 'guia')) return false
     const haystack = normalize(`${career.name} ${career.summary} ${career.group}`)
-    return words.every((word) => haystack.includes(word))
+    return words.every((word) => hasWord(haystack, word))
   })
 
   const sorters: Record<CareerSort, (a: CareerSummary, b: CareerSummary) => number> = {

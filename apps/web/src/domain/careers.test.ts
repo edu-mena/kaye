@@ -17,7 +17,7 @@ describe('careers search', () => {
     expect(filterCareers(CAREER_SUMMARIES, { ...all, query: 'dados engenheiro' }).map((c) => c.slug)).toEqual(
       ['engenheiro-de-dados'],
     )
-    expect(filterCareers(CAREER_SUMMARIES, { ...all, query: 'medicina' })).toEqual([])
+    expect(filterCareers(CAREER_SUMMARIES, { ...all, query: 'astronauta' })).toEqual([])
   })
 
   it('filters by area', () => {

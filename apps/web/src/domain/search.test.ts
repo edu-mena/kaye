@@ -18,16 +18,17 @@ describe('matchScore', () => {
     expect(matchScore([], item('Analista de Dados'))).toBe(0)
   })
 
-  it('values the name over the rest, the start of a word over the middle, and the whole start most', () => {
+  it('values the whole start most, then the name over the rest, and only the start of a word', () => {
     const startOfName = matchScore(['dados'], item('Dados e IA'))
     const wordInName = matchScore(['dados'], item('Analista de Dados'))
-    const middleOfName = matchScore(['ados'], item('Analista de Dados'))
     const onlyInRest = matchScore(['dados'], item('Analista de BI', 'trabalha com dados'))
 
     expect(startOfName).toBeGreaterThan(wordInName)
-    expect(wordInName).toBeGreaterThan(middleOfName)
-    expect(middleOfName).toBeGreaterThan(onlyInRest)
+    expect(wordInName).toBeGreaterThan(onlyInRest)
     expect(onlyInRest).toBeGreaterThan(0)
+    // "dados" is not in "Cuidados Intensivos", nor "ados" in "Dados".
+    expect(matchScore(['dados'], item('Enfermeiro de Cuidados Intensivos'))).toBe(0)
+    expect(matchScore(['ados'], item('Analista de Dados'))).toBe(0)
   })
 })
 

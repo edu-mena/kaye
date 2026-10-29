@@ -35,6 +35,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     searches: [],
     photo: null,
     cover: null,
+    notificationsSeenAt: null,
     ...change,
   }
   localStorage.setItem('kaye.user.v1', JSON.stringify(user))

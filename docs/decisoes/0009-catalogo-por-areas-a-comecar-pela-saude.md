@@ -1,0 +1,28 @@
+# 0009. O catálogo cresce por áreas, a começar pela Saúde
+
+29 de outubro de 2026 · Estado: Aceite (alarga o MVP "Kayé Tech", que era só de tecnologia)
+
+## Contexto
+
+- O Kayé é de orientação académica e profissional para todas as áreas, não só para a tecnologia. O Mercado já mostra todas as áreas; as carreiras, os cursos, as instituições e as empresas eram só de tecnologia.
+- O Eduardo decidiu (28/10/2026) avançar uma área de cada vez, com tudo o que lhe pertence: as instituições que a ensinam, os cursos, as empresas que empregam e as profissões. Recolhe-se muito; depois escolhe-se o que mostrar.
+
+## Decisão
+
+- O catálogo organiza-se por áreas (as do Mercado: `MARKET_AREAS`). Cada grupo de carreiras pertence a uma área (`GROUP_AREAS`); a página Carreiras mostra os grupos por área.
+- A segunda área é a Saúde, a com mais estudantes do ensino superior:
+  - 39 profissões em 8 grupos (Medicina, Enfermagem, Diagnóstico e laboratório, Farmácia, Reabilitação e nutrição, Saúde oral, Saúde pública, Saúde mental), como resumos "em curadoria" até terem página completa;
+  - as 54 instituições do ensino superior com cursos de saúde e os seus estudantes e diplomados (anuário do Ensino Superior 2023-2024), nas Academias;
+  - os empregadores com nome (hospitais e institutos nacionais, organismos públicos e clínicas com fonte), nas Empresas.
+- Os dados vêm de fontes públicas, cada um com a sua: os anuários do Ensino Superior e da Saúde, os decretos e despachos do Diário da República e as páginas oficiais. Ficam de fora os nomes de pessoas e os directórios cujo `robots.txt` proíbe robôs.
+- Os salários das carreiras médica e de enfermagem são os vencimentos-base do Estado de 2026 (Decreto Presidencial n.º 16/26). As outras carreiras de saúde ficam sem salário até haver fonte.
+- A pesquisa compara com o início de cada palavra ("dados" encontra "Dados", não "cuidados"), para que áreas novas não tragam resultados falsos.
+- A terceira área é Gestão, finanças e comércio (29/10/2026): 33 profissões em 7 grupos (Contabilidade e auditoria, Finanças, Banca e seguros, Gestão de empresas, Recursos humanos, Comercial e marketing, Economia), as instituições com cursos da área, as escolas de formação bancária e os empregadores (bancos, seguradoras, auditoras, organismos públicos e os que mais anunciam). Sem salários: não há tabela pública para estas carreiras.
+- A quarta área é Direito, ciências sociais e humanas (29/10/2026): junta as áreas do Mercado Direito e Administração pública e, das Ciências e humanidades, só as sociais e humanas. 28 profissões em 8 grupos (Advocacia e consultoria jurídica, Tribunais e registos, Administração pública, Relações internacionais e política, Investigação criminal e polícia, Psicologia, Ciências sociais, História e património), as 75 instituições com cursos da área, a formação para a advocacia (Ordem dos Advogados), a magistratura (INEJ), a diplomacia e a função pública (ENAPP), e os empregadores (tribunais, PGR, organismos da justiça e do Estado). Salários só onde uma tabela de 2026 nomeia a carreira (oficiais de justiça, conservadores e notários, técnicos superiores do regime geral); os magistrados, os diplomatas e a polícia ficam sem salário até haver tabela.
+- O catálogo comum junta a mesma instituição quando o anuário lhe dá dois nomes ("Katyavala Buila" e "Bwila"; só quando partilham os cursos) e põe à mão a província do que o Quadro 5.8 não dá: o anuário ainda usa o antigo Cuando Cubango, e a Lueji A'Nkonde aparece nas duas Lundas.
+
+## Consequências
+
+- O teste vocacional recomenda também profissões de saúde: um perfil Investigativo e Social leva primeiro à Medicina.
+- Cada área nova segue o mesmo caminho: `scrapers/catalog/<área>.py` recolhe, `apps/web/src/data/catalog/<área>.json` leva à app o que se mostra, e `data/demo/<área>…` liga os cursos às profissões.
+- Falta uma fonte oficial com a lista das escolas técnicas de saúde (ensino médio); por agora ficam no catálogo as conhecidas e o decreto que suspendeu Enfermagem e Análises Clínicas em 10 províncias.

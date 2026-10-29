@@ -5,6 +5,7 @@ import {
   getCareer,
   getCompany,
   getEducation,
+  getEmployment,
   getJobMarket,
   listAcademies,
   listCareers,
@@ -61,6 +62,10 @@ export function useJobMarket() {
 
 export function useEducation() {
   return useQuery({ queryKey: ['market', 'education'], queryFn: getEducation })
+}
+
+export function useEmployment() {
+  return useQuery({ queryKey: ['market', 'employment'], queryFn: getEmployment })
 }
 
 export function useNews() {

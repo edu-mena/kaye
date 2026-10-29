@@ -13,12 +13,13 @@ import { PageHeader } from '../../components/ui/PageHeader'
 import { Panel } from '../../components/ui/Panel'
 import { Soon } from '../../components/ui/Rows'
 import { TabPanel, Tabs } from '../../components/ui/Tabs'
-import { useCatalog, useEducation, useJobMarket } from '../../data/queries'
+import { useCatalog, useEducation, useEmployment, useJobMarket } from '../../data/queries'
 import {
   EDUCATION_LEVELS,
   type CareerSummary,
   type Company,
   type EducationStats,
+  type EmploymentStats,
   type JobMarket,
   type MarketArea,
 } from '../../data/types'
@@ -71,7 +72,13 @@ const day = (iso: string, language: string) =>
     new Date(`${iso}T12:00:00`),
   )
 
-type Data = { careers: CareerSummary[]; companies: Company[]; jobs: JobMarket; education: EducationStats }
+type Data = {
+  careers: CareerSummary[]
+  companies: Company[]
+  jobs: JobMarket
+  education: EducationStats
+  employment: EmploymentStats
+}
 
 /**
  * Mercado: each area from end to end, in tabs (?secao=). The job ads of Angolan job sites in the last 12
@@ -83,24 +90,27 @@ export default function MarketPage() {
   const catalog = useCatalog()
   const jobs = useJobMarket()
   const education = useEducation()
+  const employment = useEmployment()
 
   const retry = () => {
     catalog.retry()
     if (jobs.isError) void jobs.refetch()
     if (education.isError) void education.refetch()
+    if (employment.isError) void employment.refetch()
   }
 
   return (
     <>
       <PageHeader compact title={t('nav.market')} />
-      {catalog.isError || jobs.isError || education.isError ? (
+      {catalog.isError || jobs.isError || education.isError || employment.isError ? (
         <ErrorState onRetry={retry} />
-      ) : catalog.data && jobs.data && education.data ? (
+      ) : catalog.data && jobs.data && education.data && employment.data ? (
         <Market
           careers={catalog.data.careers}
           companies={catalog.data.companies}
           jobs={jobs.data}
           education={education.data}
+          employment={employment.data}
         />
       ) : (
         <Loading>
@@ -271,7 +281,7 @@ function Corners() {
 
 // ---------- Vagas ----------
 
-function Jobs({ careers, companies, jobs }: Data) {
+function Jobs({ careers, companies, jobs, employment }: Data) {
   const { t, i18n } = useTranslation()
   const number = (value: number) => value.toLocaleString(i18n.language)
   const areas = jobs.areas.filter((entry) => entry.area !== 'other')
@@ -370,7 +380,53 @@ function Jobs({ careers, companies, jobs }: Data) {
       >
         <Asks jobs={jobs} />
       </Panel>
+      <Panel
+        id="unemployment"
+        level={2}
+        icon="user"
+        title={t('market.unemploymentTitle', { year: employment.year })}
+        className="md:col-span-6 lg:col-span-12"
+      >
+        <Unemployment employment={employment} />
+      </Panel>
     </Grid>
+  )
+}
+
+/** Unemployment by age (INE): how hard the first job is, and the young who neither work nor study. */
+function Unemployment({ employment }: { employment: EmploymentStats }) {
+  const { t } = useTranslation()
+  const { youth } = employment
+  const top = Math.max(...employment.ages.map((age) => age.rate))
+  const facts = [
+    t('market.unemploymentYouthPlaces', { urban: share(youth.urban), rural: share(youth.rural) }),
+    t('market.unemploymentNeither', { share: share(youth.neitherWorkNorStudy) }),
+    t('market.unemploymentAll', { share: share(employment.unemployment) }),
+  ]
+  return (
+    <div className="grid gap-6 md:grid-cols-2">
+      <BarList
+        label={t('market.unemploymentLabel')}
+        items={employment.ages.map((age, index) => ({
+          label: age.to
+            ? t('market.ageRange', { from: age.from, to: age.to })
+            : t('market.ageFrom', { from: age.from }),
+          value: age.rate / top,
+          valueLabel: share(age.rate),
+          emphasized: index === 0,
+        }))}
+      />
+      <div className="space-y-3 text-sm font-light text-copy">
+        {facts.map((fact) => (
+          <p key={fact}>{fact}</p>
+        ))}
+        <p className="text-xs text-muted">
+          <ExternalLink href={employment.source.url}>
+            {t('common.source', { label: employment.source.label })}
+          </ExternalLink>
+        </p>
+      </div>
+    </div>
   )
 }
 
@@ -691,12 +747,18 @@ function Public({ jobs }: { jobs: JobMarket }) {
 function Study({ companies, education }: Data) {
   const { t, i18n } = useTranslation()
   const number = (value: number) => value.toLocaleString(i18n.language)
-  const courses = education.areas
-    .flatMap((entry) => entry.courses)
-    .toSorted((a, b) => b.graduates - a.graduates)
-    .slice(0, COURSES)
   const youth = companies.flatMap((company) => company.programs.map((program) => ({ company, program })))
   const sources = [...new Map(education.series.map((entry) => [entry.source.url, entry.source])).values()]
+  const { access } = education
+  const figures = [
+    { id: 'candidates', value: access.candidates, text: t('market.accessCandidates') },
+    {
+      id: 'firstTime',
+      value: access.firstTime,
+      text: t('market.accessFirstTime', { share: share(access.firstTime / access.candidates) }),
+    },
+    { id: 'enrolled', value: access.enrolled, text: t('market.accessEnrolled') },
+  ]
 
   return (
     <Grid>
@@ -710,16 +772,41 @@ function Study({ companies, education }: Data) {
         <p className="-mt-1 mb-3 text-xs font-light text-muted">
           {t('market.graduatesNote', { year: education.year })}
         </p>
-        <BarList
-          columns={2}
+        <CourseBars
+          education={education}
+          field="graduates"
           label={t('market.graduatesLabel', { year: education.year })}
-          items={courses.map((course, index) => ({
-            label: course.name,
-            value: course.graduates / (courses[0]?.graduates || 1),
-            valueLabel: number(course.graduates),
-            emphasized: index === 0,
-          }))}
         />
+      </Panel>
+      <Panel
+        id="access"
+        level={2}
+        icon="compass"
+        title={t('market.accessTitle', { year: education.year })}
+        className="md:col-span-3 lg:col-span-5"
+      >
+        <ul className="space-y-3">
+          {figures.map((item) => (
+            <li key={item.id}>
+              <span className="block text-2xl leading-none font-semibold text-night tabular-nums">
+                {number(item.value)}
+              </span>
+              <span className="mt-1 block text-sm font-light text-copy">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </Panel>
+      <Panel
+        id="studying"
+        level={2}
+        icon="user"
+        title={t('market.studyingTitle')}
+        className="md:col-span-3 lg:col-span-7"
+      >
+        <p className="-mt-1 mb-3 text-xs font-light text-muted">
+          {t('market.studyingNote', { year: education.year })}
+        </p>
+        <CourseBars education={education} field="enrolled" label={t('market.studyingTitle')} />
       </Panel>
       <Panel
         id="series"
@@ -789,6 +876,35 @@ function Study({ companies, education }: Data) {
   )
 }
 
+/** The biggest courses by graduates or by students now, in two columns. */
+function CourseBars({
+  education,
+  field,
+  label,
+}: {
+  education: EducationStats
+  field: 'graduates' | 'enrolled'
+  label: string
+}) {
+  const { i18n } = useTranslation()
+  const courses = education.areas
+    .flatMap((entry) => entry.courses)
+    .toSorted((a, b) => b[field] - a[field])
+    .slice(0, COURSES)
+  return (
+    <BarList
+      columns={2}
+      label={label}
+      items={courses.map((course, index) => ({
+        label: course.name,
+        value: course[field] / (courses[0]?.[field] || 1),
+        valueLabel: course[field].toLocaleString(i18n.language),
+        emphasized: index === 0,
+      }))}
+    />
+  )
+}
+
 // ---------- Por área ----------
 
 /**
@@ -803,8 +919,10 @@ function Areas({ jobs, education }: { jobs: JobMarket; education: EducationStats
     t('market.colPostings'),
     t('market.colPublic'),
     t('market.colGraduates', { year: education.year }),
+    t('market.colEnrolled', { year: education.year }),
   ]
-  // Each area's job ads (mostly private), posts in public competitions and graduates, with their shares.
+  // Each area's job ads (mostly private), posts in public competitions, graduates and students now, with their
+  // shares.
   const measures = (entry: AreaShares) => [
     {
       id: 'postings',
@@ -823,6 +941,12 @@ function Areas({ jobs, education }: { jobs: JobMarket; education: EducationStats
       count: entry.graduates,
       share: entry.graduatesShare,
       text: t('market.graduatesCount', { count: entry.graduates, year: education.year }),
+    },
+    {
+      id: 'enrolled',
+      count: entry.enrolled,
+      share: entry.enrolledShare,
+      text: t('market.enrolledCount', { count: entry.enrolled, value: number(entry.enrolled) }),
     },
   ]
 

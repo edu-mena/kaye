@@ -21,8 +21,14 @@ const jobs = {
 const education = {
   year: '2023/24',
   total: 1000,
+  access: { candidates: 9000, firstTime: 3000, enrolled: 8000 },
   areas: [
-    { area: 'technology', graduates: 100, courses: [{ name: 'Informática', graduates: 100 }] },
+    {
+      area: 'technology',
+      graduates: 100,
+      enrolled: 2000,
+      courses: [{ name: 'Informática', graduates: 100 }],
+    },
     { area: 'education', graduates: 600, courses: [{ name: 'Pedagogia', graduates: 600 }] },
     { area: 'health', graduates: 300, courses: [{ name: 'Enfermagem', graduates: 300 }] },
     { area: 'legal', graduates: 0, courses: [] },
@@ -35,6 +41,7 @@ describe('areaShares', () => {
   it('puts each area’s share of the posts (without the unknown ones) next to its share of graduates', () => {
     expect(rows.map((row) => row.area)).toEqual(['health', 'technology', 'education'])
     expect(rows[0]).toMatchObject({ postings: 60, postingsShare: 0.6, graduates: 300, graduatesShare: 0.3 })
+    expect(rows[1]).toMatchObject({ area: 'technology', enrolled: 2000, enrolledShare: 0.25 })
     expect(rows[2]).toMatchObject({
       postingsShare: 0.1,
       publicOpenings: 900,

@@ -49,6 +49,7 @@ describe('MarketPage', () => {
     expect(within(recruiters).queryByText(jobs.agencies.names[0] as string)).not.toBeInTheDocument()
     expect(within(recruiters).getByText(/agências de recrutamento/)).toBeInTheDocument()
     expect(within(await region('O que pedem as vagas')).getByText('Sem experiência')).toBeInTheDocument()
+    expect(within(await region(/^Desemprego por idade/)).getAllByRole('listitem')).toHaveLength(6)
     const demanded = await region(/^Mais procuradas em tecnologia/)
     const [first] = within(demanded).getAllByRole('link', { name: /^(?!Ver todas)/ })
     expect(first?.getAttribute('href')).toMatch(/^\/carreiras\//)
@@ -76,6 +77,9 @@ describe('MarketPage', () => {
     open('formacao')
 
     expect(within(await region('Diplomados por curso')).getAllByRole('listitem')).toHaveLength(8)
+    expect(within(await region('A estudar agora, por curso')).getAllByRole('listitem')).toHaveLength(8)
+    const access = await region(/^Entrar no ensino superior/)
+    expect(within(access).getByText(education.access.candidates.toLocaleString('pt'))).toBeInTheDocument()
     const series = await region('Diplomados por ano')
     expect(within(series).getAllByRole('link', { name: /^Fonte:/ }).length).toBeGreaterThan(0)
   })

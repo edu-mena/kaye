@@ -15,6 +15,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0006](0006-pdf-do-cv-gerado-no-aparelho.md) | O PDF do CV gera-se no aparelho, por agora (jsPDF) | Aceite |
 | [0007](0007-sem-faixa-de-demonstracao.md) | Sem a faixa "Demonstração" no topo dos ecrãs | Aceite |
 | [0008](0008-recolha-de-vagas-de-todos-os-sites.md) | Recolha de vagas de todos os sites de emprego, só para estatística | Aceite |
+| [0009](0009-catalogo-por-areas-a-comecar-pela-saude.md) | O catálogo cresce por áreas, a começar pela Saúde | Aceite |
 
 Modelo para um novo ADR:
 

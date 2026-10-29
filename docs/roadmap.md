@@ -65,6 +65,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Avaliar as outras fontes e os canais de WhatsApp; pedir autorização onde os termos o exigem
 - [x] Primeira recolha (27/10/2026): AngoVagas, Ango Emprego, AngoRecruta, Jobartis e Ver Angola Empregos, só factos, em `scrapers/` ([ADR 0008](decisoes/0008-recolha-de-vagas-de-todos-os-sites.md))
 - [ ] Recolha semanal automática (GitHub Actions) e envio para a API
+  - [x] Recolha semanal no GitHub Actions (`market-data.yml`): os factos num artefacto de 90 dias, as contagens num pull request
+  - [ ] Envio para a API, quando a Hostinger estiver ligada
 - [ ] `/ingest/jobs`, normalização e remoção de duplicados
 - [ ] "Colar vaga" no admin (para o WhatsApp)
 
@@ -92,6 +94,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Dados de educação para o Mercado (`education_stats`): inscritos e diplomados por curso, área e província, do INE e do Anuário Estatístico do Ensino Superior (MESCTI), com o ano e a fonte
   - [x] Diplomados de 2018 por curso (INE, Anuário 2019) e os totais de 2014 e 2023/24 (Expansão), em `apps/web/src/data/market/education.json`
   - [x] Os anuários de 2022-2023 e 2023-2024 (MESCTI, publicados pelo INE em agosto de 2026): o Mercado usa os diplomados por curso de 2023/24 e os totais dos dois anos
+  - [x] Estudantes por curso, candidatos e novos estudantes de 2023/24 (Quadros 5.7 e 1.2 do mesmo anuário)
 
 ### O que só tu podes fazer
 - [x] 2FA no GitHub, Google, Hostinger e Cloudflare

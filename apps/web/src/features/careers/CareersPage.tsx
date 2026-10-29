@@ -14,7 +14,14 @@ import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareers } from '../../data/queries'
-import { CAREER_GROUPS, type CareerGroup, type CareerSummary, type Demand } from '../../data/types'
+import {
+  CAREER_GROUPS,
+  GROUP_AREAS,
+  MARKET_AREAS,
+  type CareerGroup,
+  type CareerSummary,
+  type Demand,
+} from '../../data/types'
 import { SALARY_BANDS, findBand } from '../../domain/bands'
 import { filterCareers, type CareerSort } from '../../domain/careers'
 import { interestLevel } from '../../domain/fit'
@@ -245,23 +252,30 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
   return (
     <section aria-labelledby="areas">
       <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
-      <FilterTiles
-        selected={selected}
-        onSelect={onSelect}
-        tiles={CAREER_GROUPS.flatMap((group) => {
-          const count = careers.filter((career) => career.group === group).length
-          return count === 0
-            ? []
-            : [
-                {
-                  value: group,
-                  icon: GROUP_ICONS[group],
-                  label: t(`groups.${group}`),
-                  note: t('careers.count', { count }),
-                },
-              ]
+      {/* One block per area of the catalogue (technology, health…), each with its groups. */}
+      <div className="space-y-5">
+        {MARKET_AREAS.map((area) => {
+          const tiles = CAREER_GROUPS.flatMap((group) => {
+            const count = careers.filter((career) => career.group === group).length
+            return GROUP_AREAS[group] !== area || count === 0
+              ? []
+              : [
+                  {
+                    value: group,
+                    icon: GROUP_ICONS[group],
+                    label: t(`groups.${group}`),
+                    note: t('careers.count', { count }),
+                  },
+                ]
+          })
+          return tiles.length === 0 ? null : (
+            <div key={area}>
+              <h3 className="mb-2 text-xs font-semibold text-night">{t(`market.area_${area}`)}</h3>
+              <FilterTiles selected={selected} onSelect={onSelect} tiles={tiles} />
+            </div>
+          )
         })}
-      />
+      </div>
     </section>
   )
 }
