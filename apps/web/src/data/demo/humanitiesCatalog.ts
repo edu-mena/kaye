@@ -2,6 +2,7 @@ import catalog from '../catalog/humanities.json'
 import { buildArea, type AreaData } from './areaCatalog'
 import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
+import { SCIENCES_CAREERS } from './sciencesCareers'
 
 // Law, public administration and the social and human sciences, from scrapers/catalog/humanities.json
 // (python -m catalog.humanities): every higher education institution with the area's courses (MESCTI yearbook
@@ -32,8 +33,8 @@ const SUMMARIES: Record<string, string> = {
 }
 
 export const HUMANITIES = buildArea(catalog as AreaData, {
-  // Psicologia also leads to health's clinical psychologist.
-  careers: [...HUMANITIES_CAREERS, ...HEALTH_CAREERS],
+  // Psicologia also leads to health's clinical psychologist; the INE also hires statisticians.
+  careers: [...HUMANITIES_CAREERS, ...HEALTH_CAREERS, ...SCIENCES_CAREERS],
   courses: 'direito, ciências sociais e humanas',
   courseCareers: [
     [/psicologia (criminal|juridica)/, ['psicologo-forense']],
@@ -73,7 +74,7 @@ export const HUMANITIES = buildArea(catalog as AreaData, {
       ['tecnico-superior-de-administracao-publica', 'tecnico-de-contratacao-publica', 'jurista'],
     ],
     [/accao social/, ['assistente-social', 'sociologo', 'tecnico-superior-de-administracao-publica']],
-    [/estatistica/, ['demografo', 'sociologo']],
+    [/estatistica/, ['estatistico', 'demografo', 'sociologo']],
     [/minea/, ['jurista', 'tecnico-de-salvaguardas-sociais', 'tecnico-de-contratacao-publica']],
   ],
   fallback: ['jurista', 'advogado'],

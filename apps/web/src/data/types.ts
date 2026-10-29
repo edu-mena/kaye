@@ -42,6 +42,12 @@ export const CAREER_GROUPS = [
   'psicologia',
   'ciencias_sociais',
   'humanidades',
+  // Languages, communication and the arts, and the natural and exact sciences
+  'comunicacao_social',
+  'linguas',
+  'artes',
+  'ciencias_vida',
+  'ciencias_exactas',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
 
@@ -79,6 +85,11 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   psicologia: 'sciences',
   ciencias_sociais: 'sciences',
   humanidades: 'sciences',
+  comunicacao_social: 'communication',
+  linguas: 'communication',
+  artes: 'communication',
+  ciencias_vida: 'sciences',
+  ciencias_exactas: 'sciences',
 }
 
 export type Demand = 'alta' | 'media' | 'baixa'
@@ -341,6 +352,7 @@ export const COMPANY_SECTORS = [
   'consultoria',
   'estado',
   'justica',
+  'comunicacao',
   'comercio',
 ] as const
 export type CompanySector = (typeof COMPANY_SECTORS)[number]

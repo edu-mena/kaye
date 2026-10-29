@@ -244,6 +244,11 @@ export const en: Messages = {
     psicologia: 'Psychology',
     ciencias_sociais: 'Social sciences',
     humanidades: 'History and heritage',
+    comunicacao_social: 'Journalism and communication',
+    linguas: 'Languages and translation',
+    artes: 'Arts, film and music',
+    ciencias_vida: 'Biology, the sea and the environment',
+    ciencias_exactas: 'Mathematics, physics and chemistry',
   },
   demand: {
     alta: 'High demand',
@@ -536,6 +541,7 @@ export const en: Messages = {
     sector_consultoria: 'Consulting and audit',
     sector_estado: 'State and regulators',
     sector_justica: 'Justice and courts',
+    sector_comunicacao: 'Media',
     sector_comercio: 'Trade and services',
   },
   company: {

@@ -246,6 +246,11 @@ export const pt = {
     psicologia: 'Psicologia',
     ciencias_sociais: 'Ciências sociais',
     humanidades: 'História e património',
+    comunicacao_social: 'Jornalismo e comunicação',
+    linguas: 'Línguas e tradução',
+    artes: 'Artes, cinema e música',
+    ciencias_vida: 'Biologia, mar e ambiente',
+    ciencias_exactas: 'Matemática, física e química',
   },
   demand: {
     alta: 'Procura alta',
@@ -538,6 +543,7 @@ export const pt = {
     sector_consultoria: 'Consultoria e auditoria',
     sector_estado: 'Estado e reguladores',
     sector_justica: 'Justiça e tribunais',
+    sector_comunicacao: 'Comunicação social',
     sector_comercio: 'Comércio e serviços',
   },
   company: {

@@ -3,6 +3,7 @@ import { riasec, summary } from './careerSummary'
 import { BUSINESS_CAREERS } from './businessCareers'
 import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
+import { SCIENCES_CAREERS } from './sciencesCareers'
 
 // DEMO DATA. Profiles approximate O*NET interest profiles; demand and salaries are
 // illustrative, not measured. Real values come from curation (roadmap, Fase 0.4).
@@ -259,6 +260,7 @@ export const CAREER_SUMMARIES: CareerSummary[] = [
   ...HEALTH_CAREERS,
   ...BUSINESS_CAREERS,
   ...HUMANITIES_CAREERS,
+  ...SCIENCES_CAREERS,
 ]
 
 function base(slug: string): CareerSummary {

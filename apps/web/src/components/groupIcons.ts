@@ -35,4 +35,9 @@ export const GROUP_ICONS: Record<CareerGroup, IconName> = {
   psicologia: 'brain',
   ciencias_sociais: 'users',
   humanidades: 'book',
+  comunicacao_social: 'newspaper',
+  linguas: 'message',
+  artes: 'palette',
+  ciencias_vida: 'leaf',
+  ciencias_exactas: 'atom',
 }

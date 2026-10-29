@@ -1,0 +1,978 @@
+{
+ "area": "sciences",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Escola Superior Técnica de Ciências do Desporto",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Biotecnologia",
+      "area": "sciences",
+      "students": 65,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Católico do Lubango",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Ciências da Comunicação",
+      "area": "communication",
+      "students": 69,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Língua Portuguesa e Comunicação",
+      "area": "communication",
+      "students": 168,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 102,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Língua Inglesa",
+      "area": "communication",
+      "students": 56,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Gregório Semedo",
+    "nature": "privada",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 310,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Independente",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Ciências da Comunicação",
+      "area": "communication",
+      "students": 201,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Social e Imagem",
+      "area": "communication",
+      "students": 185,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Metropolitano",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Jornalismo",
+      "area": "communication",
+      "students": 312,
+      "graduates": 0
+     },
+     {
+      "name": "Cinema e Televisão",
+      "area": "communication",
+      "students": 119,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Ciências Biológicas",
+      "area": "sciences",
+      "students": 59,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado de Menongue",
+    "nature": "privada",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 190,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 78,
+      "graduates": 3
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 86,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tocoísta",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Estatística",
+      "area": "sciences",
+      "students": 22,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 26,
+      "graduates": 2
+     },
+     {
+      "name": "Design",
+      "area": "sciences",
+      "students": 17,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Ciências da Comunicação",
+      "area": "communication",
+      "students": 273,
+      "graduates": 39
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 452,
+      "graduates": 144
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuito",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 41,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 324,
+      "graduates": 5
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 245,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências de Educação de Cabinda",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Biologia",
+      "area": "sciences",
+      "students": 245,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Língua e Literaturas em Lingua Portuguesa",
+      "area": "communication",
+      "students": 604,
+      "graduates": 92
+     },
+     {
+      "name": "Matemática",
+      "area": "sciences",
+      "students": 470,
+      "graduates": 20
+     },
+     {
+      "name": "Língua e Literaturas em Lingua Inglesa",
+      "area": "communication",
+      "students": 382,
+      "graduates": 74
+     },
+     {
+      "name": "Biologia",
+      "area": "sciences",
+      "students": 282,
+      "graduates": 17
+     },
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 276,
+      "graduates": 94
+     },
+     {
+      "name": "Física",
+      "area": "sciences",
+      "students": 272,
+      "graduates": 17
+     },
+     {
+      "name": "Língua e Literaturas Africanas",
+      "area": "communication",
+      "students": 238,
+      "graduates": 0
+     },
+     {
+      "name": "Língua e Literaturas em Lingua Francesa",
+      "area": "communication",
+      "students": 197,
+      "graduates": 10
+     },
+     {
+      "name": "Química",
+      "area": "sciences",
+      "students": 132,
+      "graduates": 11
+     },
+     {
+      "name": "Metereologia",
+      "area": "sciences",
+      "students": 43,
+      "graduates": 0
+     },
+     {
+      "name": "Línguas e Literaturas Africanas",
+      "area": "communication",
+      "students": 0,
+      "graduates": 56
+     }
+    ]
+   },
+   {
+    "name": "Universidade Católica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Línguas e Administração",
+      "area": "communication",
+      "students": 0,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Universidade Gregório Semedo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Empresarial e Línguas",
+      "area": "communication",
+      "students": 0,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências da Comunicação",
+      "area": "communication",
+      "students": 0,
+      "graduates": 196
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Biologia",
+      "area": "sciences",
+      "students": 325,
+      "graduates": 60
+     },
+     {
+      "name": "Desenho",
+      "area": "sciences",
+      "students": 138,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Biologia",
+      "area": "sciences",
+      "students": 0,
+      "graduates": 24
+     },
+     {
+      "name": "Língua Portuguesa e Comunicação",
+      "area": "communication",
+      "students": 0,
+      "graduates": 76
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Comunicação Social",
+      "area": "communication",
+      "students": 0,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade Rainha Njinga a Mbande",
+    "nature": "publica",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Ciência dos Alimentos",
+      "area": "sciences",
+      "students": 23,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Técnica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Língua Inglesa",
+      "area": "communication",
+      "students": 0,
+      "graduates": 5
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Artes Visuais",
+      "area": "communication",
+      "students": 131,
+      "graduates": 1
+     },
+     {
+      "name": "Design e Moda",
+      "area": "sciences",
+      "students": 119,
+      "graduates": 0
+     },
+     {
+      "name": "Teatro",
+      "area": "communication",
+      "students": 104,
+      "graduates": 3
+     },
+     {
+      "name": "Música",
+      "area": "communication",
+      "students": 102,
+      "graduates": 4
+     }
+    ]
+   },
+   {
+    "name": "Universidade do Namibe",
+    "nature": "publica",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Oceanografia",
+      "area": "sciences",
+      "students": 171,
+      "graduates": 0
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Comunicação Social",
+    "students": 2130,
+    "graduates": 289,
+    "institutions": 12
+   },
+   {
+    "name": "Biologia",
+    "students": 852,
+    "graduates": 101,
+    "institutions": 4
+   },
+   {
+    "name": "Língua e Literaturas em Lingua Portuguesa",
+    "students": 604,
+    "graduates": 92,
+    "institutions": 1
+   },
+   {
+    "name": "Ciências da Comunicação",
+    "students": 543,
+    "graduates": 260,
+    "institutions": 4
+   },
+   {
+    "name": "Matemática",
+    "students": 470,
+    "graduates": 20,
+    "institutions": 1
+   },
+   {
+    "name": "Língua e Literaturas em Lingua Inglesa",
+    "students": 382,
+    "graduates": 74,
+    "institutions": 1
+   },
+   {
+    "name": "Jornalismo",
+    "students": 312,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Física",
+    "students": 272,
+    "graduates": 17,
+    "institutions": 1
+   },
+   {
+    "name": "Língua e Literaturas Africanas",
+    "students": 238,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Língua e Literaturas em Lingua Francesa",
+    "students": 197,
+    "graduates": 10,
+    "institutions": 1
+   },
+   {
+    "name": "Comunicação Social e Imagem",
+    "students": 185,
+    "graduates": 1,
+    "institutions": 1
+   },
+   {
+    "name": "Oceanografia",
+    "students": 171,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Língua Portuguesa e Comunicação",
+    "students": 168,
+    "graduates": 78,
+    "institutions": 2
+   },
+   {
+    "name": "Desenho",
+    "students": 138,
+    "graduates": 25,
+    "institutions": 1
+   },
+   {
+    "name": "Química",
+    "students": 132,
+    "graduates": 11,
+    "institutions": 1
+   },
+   {
+    "name": "Artes Visuais",
+    "students": 131,
+    "graduates": 1,
+    "institutions": 1
+   },
+   {
+    "name": "Cinema e Televisão",
+    "students": 119,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Design e Moda",
+    "students": 119,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Teatro",
+    "students": 104,
+    "graduates": 3,
+    "institutions": 1
+   },
+   {
+    "name": "Música",
+    "students": 102,
+    "graduates": 4,
+    "institutions": 1
+   },
+   {
+    "name": "Biotecnologia",
+    "students": 65,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Ciências Biológicas",
+    "students": 59,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Língua Inglesa",
+    "students": 56,
+    "graduates": 5,
+    "institutions": 2
+   },
+   {
+    "name": "Metereologia",
+    "students": 43,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Ciência dos Alimentos",
+    "students": 23,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Estatística",
+    "students": 22,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Design",
+    "students": 17,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Línguas e Literaturas Africanas",
+    "students": 0,
+    "graduates": 56,
+    "institutions": 1
+   },
+   {
+    "name": "Línguas e Administração",
+    "students": 0,
+    "graduates": 13,
+    "institutions": 1
+   },
+   {
+    "name": "Comunicação Empresarial e Línguas",
+    "students": 0,
+    "graduates": 9,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [
+  {
+   "name": "Centro de Formação de Jornalistas (CEFOJOR)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "O centro de formação de jornalistas do Estado, desde 2002: mais de 50 cursos curtos de jornalismo, multimédia, cinema, relações públicas e publicidade, em Luanda e no Huambo.",
+   "source": {
+    "label": "CEFOJOR, Sobre nós",
+    "url": "https://cefojor.ao/sobre-nos/"
+   }
+  }
+ ],
+ "salaries": {
+  "year": 2026,
+  "decree": "Decreto Presidencial n.º 16/26, de 22 de Janeiro",
+  "urls": {
+   "cientifica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-cientifica-2026a.html",
+   "estatistica": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-carreira-estatistica-2026a.html"
+  },
+  "careers": {
+   "cientifica": [
+    {
+     "category": "Estagiário de Investigação",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Assistente de Investigação",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Investigador Auxiliar",
+     "index": 960,
+     "salary": 579056
+    },
+    {
+     "category": "Investigador Principal",
+     "index": 1020,
+     "salary": 615247
+    },
+    {
+     "category": "Investigador Coordenador",
+     "index": 1120,
+     "salary": 675565
+    }
+   ],
+   "estatistica": [
+    {
+     "category": "Auxiliar Técnico de Estatística de 3ª Classe",
+     "index": 520,
+     "salary": 127266
+    },
+    {
+     "category": "Auxiliar Técnico de Estatística de 2ª Classe",
+     "index": 540,
+     "salary": 132161
+    },
+    {
+     "category": "Auxiliar Técnico de Estatística de 1ª Classe",
+     "index": 575,
+     "salary": 140727
+    },
+    {
+     "category": "Auxiliar Técnico Principal de Estatística",
+     "index": 580,
+     "salary": 141951
+    },
+    {
+     "category": "Técnico Médio de Estatística de 3ª Classe",
+     "index": 240,
+     "salary": 144764
+    },
+    {
+     "category": "Técnico Médio de Estatística de 2ª Classe",
+     "index": 260,
+     "salary": 156828
+    },
+    {
+     "category": "Técnico Médio de Estatística de 1ª Classe",
+     "index": 280,
+     "salary": 168891
+    },
+    {
+     "category": "Técnico Médio Principal de Estatística de 3ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Técnico Médio Principal de Estatística de 2ª Classe",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Técnico Médio Principal de Estatística de 1ª Classe",
+     "index": 350,
+     "salary": 211114
+    },
+    {
+     "category": "Técnico de Estatística de 3ª Classe",
+     "index": 360,
+     "salary": 217146
+    },
+    {
+     "category": "Técnico de Estatística de 2ª Classe",
+     "index": 370,
+     "salary": 223178
+    },
+    {
+     "category": "Técnico de Estatística de 1ª Classe",
+     "index": 400,
+     "salary": 241273
+    },
+    {
+     "category": "Especialista de Estatística de 2ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Especialista de Estatística de 1ª Classe",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Especialista de Estatística Principal",
+     "index": 540,
+     "salary": 325719
+    },
+    {
+     "category": "Técnico Superior de Estatística de 2ª Classe",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "Técnico Superior de Estatística de 1ª Classe",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Técnico Superior Principal de Estatística",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Assessor de Estatística",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Primeiro Assessor de Estatística",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Assessor Principal de Estatística",
+     "index": 960,
+     "salary": 579056
+    }
+   ]
+  }
+ },
+ "employers": {
+  "named": [
+   {
+    "name": "Televisão Pública de Angola (TPA)",
+    "sector": "comunicacao",
+    "kind": "televisao",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://tpa.ao"
+    }
+   },
+   {
+    "name": "Rádio Nacional de Angola (RNA)",
+    "sector": "comunicacao",
+    "kind": "radio",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.rna.ao"
+    }
+   },
+   {
+    "name": "Agência Angola Press (ANGOP)",
+    "sector": "comunicacao",
+    "kind": "agencia",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.angop.ao"
+    }
+   },
+   {
+    "name": "Jornal de Angola (Edições Novembro)",
+    "sector": "comunicacao",
+    "kind": "jornal",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.jornaldeangola.ao"
+    }
+   },
+   {
+    "name": "Entidade Reguladora da Comunicação Social de Angola (ERCA)",
+    "sector": "estado",
+    "kind": "regulador",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://erca.ao"
+    }
+   },
+   {
+    "name": "Ministério das Telecomunicações, Tecnologias de Informação e Comunicação Social (MINTTICS)",
+    "sector": "estado",
+    "kind": "comunicacao_social",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://minttics.gov.ao"
+    }
+   },
+   {
+    "name": "Ministério da Cultura",
+    "sector": "estado",
+    "kind": "cultura",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://mincult.gov.ao"
+    }
+   },
+   {
+    "name": "Ministério do Ensino Superior, Ciência, Tecnologia e Inovação (MESCTI)",
+    "sector": "estado",
+    "kind": "ciencia",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://mescti.gov.ao"
+    }
+   },
+   {
+    "name": "Centro Nacional de Investigação Científica (CNIC)",
+    "sector": "estado",
+    "kind": "investigacao_cientifica",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://cnic.gov.ao"
+    }
+   },
+   {
+    "name": "Gabinete de Gestão do Programa Espacial Nacional (GGPEN)",
+    "sector": "estado",
+    "kind": "espacial",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.ggpen.gov.ao"
+    }
+   },
+   {
+    "name": "Instituto Nacional da Biodiversidade e Áreas de Conservação (INBAC)",
+    "sector": "estado",
+    "kind": "biodiversidade",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.inbac.gov.ao"
+    }
+   }
+  ]
+ }
+}
