@@ -251,6 +251,10 @@ export const pt = {
     artes: 'Artes, cinema e música',
     ciencias_vida: 'Biologia, mar e ambiente',
     ciencias_exactas: 'Matemática, física e química',
+    ensino_primario: 'Infância e ensino primário',
+    ensino_secundario: 'Ensino secundário e técnico',
+    pedagogia: 'Pedagogia e gestão escolar',
+    ensino_superior: 'Ensino superior e formação profissional',
     desporto: 'Desporto e educação física',
   },
   demand: {
@@ -545,6 +549,7 @@ export const pt = {
     sector_estado: 'Estado e reguladores',
     sector_justica: 'Justiça e tribunais',
     sector_comunicacao: 'Comunicação social',
+    sector_educacao: 'Educação e ensino',
     sector_comercio: 'Comércio e serviços',
   },
   company: {

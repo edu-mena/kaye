@@ -33,13 +33,8 @@ export const SCIENCES = buildArea(catalog as AreaData, {
   // Design, Sistemas de Informação, Comércio Internacional and Línguas e Administração also lead to technology's
   // and business's careers.
   careers: CAREER_SUMMARIES,
-  courses: 'línguas, comunicação, artes, ciências e desporto',
+  courses: 'línguas, comunicação, artes e ciências',
   courseCareers: [
-    // Before /fisica/: "Educação Física e Desporto".
-    [
-      /desporto|deporto/,
-      ['professor-de-educacao-fisica', 'treinador-desportivo', 'preparador-fisico', 'gestor-desportivo'],
-    ],
     [/hidraulica/, ['tecnico-de-recursos-hidricos']],
     [/navegacao/, ['oficial-da-marinha-mercante']],
     [
@@ -86,7 +81,7 @@ export const SCIENCES = buildArea(catalog as AreaData, {
       ['assessor-de-comunicacao', 'tecnico-de-relacoes-publicas', 'jornalista'],
     ],
     [/cultura/, ['gestor-cultural', 'artista-plastico', 'musico', 'linguista']],
-    [/ensino superior/, ['investigador-cientifico', 'estatistico']],
+    [/ensino superior/, ['docente-do-ensino-superior', 'investigador-cientifico', 'estatistico']],
     [/investigacao cientifica/, ['investigador-cientifico', 'quimico', 'biotecnologo', 'biologo']],
     [/espacial/, ['fisico', 'matematico', 'investigador-cientifico']],
     [/biodiversidade/, ['tecnico-de-conservacao-da-natureza', 'biologo']],

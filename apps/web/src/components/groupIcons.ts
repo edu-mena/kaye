@@ -40,5 +40,9 @@ export const GROUP_ICONS: Record<CareerGroup, IconName> = {
   artes: 'palette',
   ciencias_vida: 'leaf',
   ciencias_exactas: 'atom',
+  ensino_primario: 'pencil',
+  ensino_secundario: 'chalkboard',
+  pedagogia: 'path',
+  ensino_superior: 'cap',
   desporto: 'award',
 }

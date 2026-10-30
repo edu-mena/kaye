@@ -229,6 +229,12 @@ const PATHS = {
       <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
     </>
   ),
+  chalkboard: (
+    <>
+      <rect x="3" y="4" width="18" height="12" rx="1" />
+      <path d="M8 20l2-4M16 20l-2-4M7 9h6M7 12h4" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof PATHS

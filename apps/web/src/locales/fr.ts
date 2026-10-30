@@ -255,6 +255,10 @@ export const fr: Messages = {
     artes: 'Arts, cinéma et musique',
     ciencias_vida: 'Biologie, mer et environnement',
     ciencias_exactas: 'Mathématiques, physique et chimie',
+    ensino_primario: 'Petite enfance et école primaire',
+    ensino_secundario: 'Enseignement secondaire et technique',
+    pedagogia: 'Pédagogie et gestion scolaire',
+    ensino_superior: 'Enseignement supérieur et formation professionnelle',
     desporto: 'Sport et éducation physique',
   },
   demand: {
@@ -552,6 +556,7 @@ export const fr: Messages = {
     sector_estado: 'État et régulateurs',
     sector_justica: 'Justice et tribunaux',
     sector_comunicacao: 'Médias',
+    sector_educacao: 'Éducation et enseignement',
     sector_comercio: 'Commerce et services',
   },
   company: {

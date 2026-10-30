@@ -1,0 +1,1670 @@
+{
+ "year": "2023/24",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "institutions": [
+  {
+   "name": "Escola Pedagógica do Bengo",
+   "nature": "publica",
+   "province": "Bengo",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 537,
+     "graduates": 58
+    },
+    {
+     "name": "Ensino da História",
+     "students": 406,
+     "graduates": 61
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 286,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 250,
+     "graduates": 27
+    },
+    {
+     "name": "Ensino da Informática",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 144,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 132,
+     "graduates": 53
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Pedagógica do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 642,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 451,
+     "graduates": 65
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 329,
+     "graduates": 61
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 226,
+     "graduates": 32
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 211,
+     "graduates": 36
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 175,
+     "graduates": 19
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 168,
+     "graduates": 21
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "students": 95,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 92,
+     "graduates": 0
+    },
+    {
+     "name": "Educação Primária",
+     "students": 0,
+     "graduates": 108
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 0,
+     "graduates": 99
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Pedagógica do Cuanza Norte",
+   "nature": "publica",
+   "province": "Cuanza Norte",
+   "courses": [
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "students": 565,
+     "graduates": 134
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 513,
+     "graduates": 147
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 407,
+     "graduates": 157
+    },
+    {
+     "name": "Ensino da História",
+     "students": 279,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 276,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 222,
+     "graduates": 100
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 191,
+     "graduates": 44
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "students": 186,
+     "graduates": 44
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 138,
+     "graduates": 28
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "students": 105,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "students": 94,
+     "graduates": 18
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Politécnica de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 346,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Técnica de Ciências do Desporto",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 169,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior de Ciências, Artes e humanidade",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Educação de Infância",
+     "students": 176,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 144,
+     "graduates": 34
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 121,
+     "graduates": 28
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 111,
+     "graduates": 120
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 63,
+     "graduates": 20
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Atlântida",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 95,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "students": 0,
+     "graduates": 94
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 501,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico do Huambo",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Didáctica de Ensino da Língua Portuguesa",
+     "students": 745,
+     "graduates": 108
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Evangélico do Lubango",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Educação Pré-Escolar",
+     "students": 544,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 203,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 58,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Independente",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Ciências da Educação",
+     "students": 956,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 620,
+     "graduates": 0
+    },
+    {
+     "name": "Formação de Professores",
+     "students": 0,
+     "graduates": 445
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 695,
+     "graduates": 0
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 14,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Internacional de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Pedagogia",
+     "students": 211,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 216,
+     "graduates": 52
+    },
+    {
+     "name": "Ensino do Português e Línguas Nacionais",
+     "students": 161,
+     "graduates": 29
+    },
+    {
+     "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+     "students": 132,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kangonjo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Pedagogia",
+     "students": 622,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências da Educação",
+     "students": 0,
+     "graduates": 5
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 0,
+     "graduates": 71
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 0,
+     "graduates": 8
+    },
+    {
+     "name": "Instrução Primária",
+     "students": 0,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Maravilha",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino da Biologia",
+     "students": 345,
+     "graduates": 12
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 306,
+     "graduates": 48
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 272,
+     "graduates": 13
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 147,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "students": 144,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino da História",
+     "students": 136,
+     "graduates": 10
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 83,
+     "graduates": 6
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 0,
+     "graduates": 27
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Metropolitano",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Pedagogia",
+     "students": 48,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Ndunduma",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Ensino Pré-Escolar",
+     "students": 1250,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Nelson Mandela",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Instrução Primária",
+     "students": 60,
+     "graduates": 13
+    },
+    {
+     "name": "Ensino da Informática",
+     "students": 41,
+     "graduates": 5
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 13,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado Walinga",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 605,
+     "graduates": 157
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado da Catepa",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 871,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado de Menongue",
+   "nature": "privada",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Psicologia da Educação",
+     "students": 0,
+     "graduates": 90
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Luena",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 391,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Uíge",
+   "nature": "privada",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Ciências da Educação",
+     "students": 1259,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Sol Nascente",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Psicologia e Didáctica",
+     "students": 822,
+     "graduates": 247
+    },
+    {
+     "name": "História e Didáctica",
+     "students": 501,
+     "graduates": 82
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico da Caála",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 2082,
+     "graduates": 106
+    },
+    {
+     "name": "Ensino da História",
+     "students": 471,
+     "graduates": 226
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ciências da Educação",
+     "students": 717,
+     "graduates": 296
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 244,
+     "graduates": 41
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Porto Amboim",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 217,
+     "graduates": 78
+    },
+    {
+     "name": "Psicologia da Educação",
+     "students": 141,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Psicologa da Educação",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cazenga",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Pedagogia",
+     "students": 85,
+     "graduates": 18
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuito",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Instrução Primária",
+     "students": 1661,
+     "graduates": 46
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Libolo",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 515,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Moxico",
+   "nature": "publica",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Ensino da Geografia",
+     "students": 412,
+     "graduates": 121
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 143,
+     "graduates": 43
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 130,
+     "graduates": 16
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 122,
+     "graduates": 49
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Soyo",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 1059,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 100,
+     "graduates": 47
+    },
+    {
+     "name": "Pedagogia",
+     "students": 0,
+     "graduates": 265
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Pedagogia",
+     "students": 155,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências da Educação de Benguela",
+   "nature": "publica",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino da História",
+     "students": 337,
+     "graduates": 97
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 328,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 277,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 265,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 234,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 207,
+     "graduates": 82
+    },
+    {
+     "name": "Educação Especial",
+     "students": 158,
+     "graduates": 120
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "students": 150,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 77,
+     "graduates": 139
+    },
+    {
+     "name": "Educação Primária",
+     "students": 29,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 23,
+     "graduates": 121
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "students": 0,
+     "graduates": 31
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "students": 0,
+     "graduates": 37
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "students": 0,
+     "graduates": 79
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação da Huíla",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Ensino da História",
+     "students": 671,
+     "graduates": 111
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 465,
+     "graduates": 69
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 432,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 425,
+     "graduates": 56
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 410,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 339,
+     "graduates": 2
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 327,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 305,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "students": 294,
+     "graduates": 13
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "students": 253,
+     "graduates": 26
+    },
+    {
+     "name": "Informática Educativa",
+     "students": 228,
+     "graduates": 28
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 224,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 223,
+     "graduates": 33
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 193,
+     "graduates": 75
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "students": 95,
+     "graduates": 25
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 68,
+     "graduates": 103
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação da Uíge",
+   "nature": "publica",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 578,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 523,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "students": 519,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Pré-Escolar",
+     "students": 473,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 445,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 427,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 398,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 320,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 227,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 208,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "students": 188,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "students": 149,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Especial",
+     "students": 125,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 23,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 18,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação de Cabinda",
+   "nature": "publica",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 655,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 420,
+     "graduates": 55
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 277,
+     "graduates": 35
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 146,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 139,
+     "graduates": 13
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 0,
+     "graduates": 47
+    },
+    {
+     "name": "Ensino da História",
+     "students": 0,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 0,
+     "graduates": 96
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação de Luanda",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 344,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 248,
+     "graduates": 142
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 197,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "students": 178,
+     "graduates": 10
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 121,
+     "graduates": 44
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 87,
+     "graduates": 31
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "students": 67,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua e Literaturas Africanas",
+     "students": 63,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "students": 59,
+     "graduates": 32
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "students": 58,
+     "graduates": 36
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 0,
+     "graduates": 30
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 0,
+     "graduates": 38
+    },
+    {
+     "name": "Ensino das Línguas e Literaturas Africanas",
+     "students": 0,
+     "graduates": 15
+    },
+    {
+     "name": "Ensino do Francês",
+     "students": 0,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino do Inglês",
+     "students": 0,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino do Português",
+     "students": 0,
+     "graduates": 32
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação do Huambo",
+   "nature": "publica",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ensino da Geografia",
+     "students": 429,
+     "graduates": 90
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 424,
+     "graduates": 90
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 395,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "students": 294,
+     "graduates": 68
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 285,
+     "graduates": 50
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 198,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 187,
+     "graduates": 39
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 169,
+     "graduates": 57
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "students": 0,
+     "graduates": 28
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "students": 0,
+     "graduates": 71
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "students": 0,
+     "graduates": 2
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação do Sumbe",
+   "nature": "publica",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 464,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da História",
+     "students": 396,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 370,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 360,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 218,
+     "graduates": 0
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 190,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "students": 116,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 84,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 50,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ombaka",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 1495,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 283,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Educação Física e desportos",
+     "students": 179,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 155,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 99,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Intituto Superior Politécnico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Ciências da Educação",
+     "students": 661,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Educação Física e Desporto",
+     "students": 383,
+     "graduates": 82
+    }
+   ]
+  },
+  {
+   "name": "Universidade Católica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Educação de Infância",
+     "students": 0,
+     "graduates": 20
+    },
+    {
+     "name": "Educação Moral e Cívica",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Ensino Primário",
+     "students": 0,
+     "graduates": 29
+    },
+    {
+     "name": "Pedagogia",
+     "students": 0,
+     "graduates": 52
+    }
+   ]
+  },
+  {
+   "name": "Universidade Cuito Cuanavale",
+   "nature": "publica",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Ensino da Biologia",
+     "students": 160,
+     "graduates": 149
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 115,
+     "graduates": 78
+    }
+   ]
+  },
+  {
+   "name": "Universidade Independente de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Formação De Professores",
+     "students": 0,
+     "graduates": 38
+    }
+   ]
+  },
+  {
+   "name": "Universidade José Eduardo dos Santos",
+   "nature": "publica",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ensino das Tecnologias Alimentares",
+     "students": 21,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Gestão Agrícola",
+     "students": 20,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Produção Agropecuária",
+     "students": 18,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Lueji A´Nkonde",
+   "nature": "publica",
+   "province": "Lunda Norte",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 1549,
+     "graduates": 371
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "students": 678,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 501,
+     "graduates": 205
+    },
+    {
+     "name": "Ensino da História",
+     "students": 463,
+     "graduates": 115
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 268,
+     "graduates": 58
+    },
+    {
+     "name": "Educação de Infância",
+     "students": 249,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 195,
+     "graduates": 40
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 152,
+     "graduates": 38
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 113,
+     "graduates": 47
+    },
+    {
+     "name": "Educação Primária",
+     "students": 79,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "students": 13,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "students": 11,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "students": 6,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino Especial",
+     "students": 5,
+     "graduates": 41
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "students": 0,
+     "graduates": 24
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "students": 0,
+     "graduates": 43
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "students": 0,
+     "graduates": 113
+    },
+    {
+     "name": "Ensino Pré-escolar",
+     "students": 0,
+     "graduates": 46
+    }
+   ]
+  },
+  {
+   "name": "Universidade Metodista de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências do Desporto e Educação Física",
+     "students": 0,
+     "graduates": 45
+    }
+   ]
+  },
+  {
+   "name": "Universidade Rainha Njinga a Mbande",
+   "nature": "publica",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 223,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 195,
+     "graduates": 31
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 76,
+     "graduates": 0
+    },
+    {
+     "name": "Pedagogia",
+     "students": 0,
+     "graduates": 83
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Luanda",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Educação de Infância",
+     "students": 237,
+     "graduates": 47
+    }
+   ]
+  },
+  {
+   "name": "Universidade do Namibe",
+   "nature": "publica",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "students": 496,
+     "graduates": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "students": 487,
+     "graduates": 49
+    },
+    {
+     "name": "Ensino da Biologia",
+     "students": 353,
+     "graduates": 45
+    },
+    {
+     "name": "Ensino da Química",
+     "students": 221,
+     "graduates": 20
+    },
+    {
+     "name": "Ensino da Matemática",
+     "students": 202,
+     "graduates": 10
+    },
+    {
+     "name": "Ensino da Física",
+     "students": 131,
+     "graduates": 21
+    },
+    {
+     "name": "Magistério Primário",
+     "students": 0,
+     "graduates": 30
+    }
+   ]
+  },
+  {
+   "name": "Universidades Jean Piaget",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Deporto e Motricidade Humana",
+     "students": 0,
+     "graduates": 17
+    },
+    {
+     "name": "Ensino da Língua Portuguesa e Línguas Nacionais",
+     "students": 0,
+     "graduates": 19
+    }
+   ]
+  }
+ ],
+ "training": [
+  {
+   "name": "Instituto Nacional de Formação de Quadros da Educação (INFQE)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "O instituto do Ministério da Educação que forma e actualiza os professores e os outros quadros da educação já em serviço, com cursos e acções de formação contínua.",
+   "source": {
+    "label": "Decreto Presidencial n.º 134/21, Estatuto Orgânico do INFQE (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-formacao-de-quadros-da-educacao-134a-21a.html"
+   }
+  }
+ ],
+ "employers": [
+  {
+   "name": "Ministério da Educação (MED)",
+   "sector": "educacao",
+   "kind": "ministerio_educacao",
+   "source": {
+    "label": "Decreto Presidencial n.º 222/20, Estatuto Orgânico do Ministério da Educação (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-educacao.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Avaliação e Desenvolvimento da Educação",
+   "sector": "educacao",
+   "kind": "avaliacao",
+   "source": {
+    "label": "Decreto Presidencial n.º 91/21, Estatuto Orgânico (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-avaliacao-e-desenvolvimento-da-educacao-91a-21a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Educação Especial",
+   "sector": "educacao",
+   "kind": "educacao_especial",
+   "source": {
+    "label": "Decreto Presidencial n.º 63/21, Estatuto Orgânico (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-educacao-especial-63a-21a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Emprego e Formação Profissional (INEFOP)",
+   "sector": "educacao",
+   "kind": "emprego_formacao",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://inefop.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Luanda International School (LIS)",
+   "sector": "educacao",
+   "kind": "escola_internacional",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://lisluanda.com"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "St. Andrews English School",
+   "sector": "educacao",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 13,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Academia Baxtter",
+   "sector": "educacao",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 3,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Escola Camilo Castelo Branco",
+   "sector": "educacao",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 2,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  }
+ ]
+}

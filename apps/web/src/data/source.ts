@@ -8,6 +8,7 @@ import { BUSINESS } from './demo/businessCatalog'
 import { HEALTH } from './demo/healthCatalog'
 import { HUMANITIES } from './demo/humanitiesCatalog'
 import { SCIENCES } from './demo/sciencesCatalog'
+import { EDUCATION } from './demo/educationCatalog'
 import { NEWS } from './demo/news'
 import { PROGRAMS } from './demo/programs'
 import type {
@@ -46,12 +47,13 @@ export async function listPrograms(careerSlug?: string): Promise<Program[]> {
 }
 
 /** GET /institutions — real ones, with public facts only. */
-/** The curated institutions and companies, and those of each area of the catalogue (health, business, humanities, sciences). */
+/** The curated institutions and companies, and those of each area of the catalogue (health, business, humanities, sciences, education). */
 const ALL_ACADEMIES = withAreas(ACADEMIES, [
   HEALTH.academies,
   BUSINESS.academies,
   HUMANITIES.academies,
   SCIENCES.academies,
+  EDUCATION.academies,
 ])
 const ALL_COMPANIES = [
   ...COMPANIES,
@@ -59,6 +61,7 @@ const ALL_COMPANIES = [
   ...BUSINESS.companies,
   ...HUMANITIES.companies,
   ...SCIENCES.companies,
+  ...EDUCATION.companies,
 ]
 
 export async function listAcademies(): Promise<Academy[]> {

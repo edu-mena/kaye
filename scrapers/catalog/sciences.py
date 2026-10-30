@@ -3,9 +3,9 @@ from: who teaches them (institutions and their courses, the training of journali
 the State's culture, media and science bodies) and the facts behind them (the State's salary tables), each with its
 source.
 
-The area takes the Mercado's communication area whole, from the sciences and humanities everything the humanities
+The area takes the Mercado's communication area whole and, from the sciences and humanities, everything the humanities
 area leaves (biology, chemistry, physics, mathematics, statistics, oceanography, meteorology, design, hydraulics,
-navigation, information systems, international trade) and the sport courses, which the yearbook files under education.
+navigation, information systems, international trade) but sport, which goes to education.
 Its job ads are marketing and design ones, from firms the business area already lists: no employers come from them.
 
     python -m catalog.sciences    # after python -m catalog.institutions
@@ -14,30 +14,23 @@ Writes catalog/sciences.json and, for the app, apps/web/src/data/catalog/science
 """
 
 import json
-import re
 from pathlib import Path
 
 from jobs.facts import fold
 
+from .education import SPORT
 from .health import salaries, teaching
 from .humanities import in_area as in_humanities
-from .humanities import rank_rows, read_tables
 
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / 'sciences.json'
 APP_OUTPUT = HERE.parents[1] / 'apps' / 'web' / 'src' / 'data' / 'catalog' / 'sciences.json'
-# Sport, under education in the yearbook ("Ciências Deporto e Motricidade Humana" is its spelling).
-_SPORT = re.compile(r'desporto|deporto')
 
 ANGOLEX = 'https://angolex.com/paginas/diversos/'
-# The State's 2026 base salaries (Decreto Presidencial n.º 16/26): the scientific career and the statisticians and,
-# for the physical education teachers, the primary and secondary school teachers (a table of ranks).
+# The State's 2026 base salaries (Decreto Presidencial n.º 16/26): the scientific career and the statisticians.
 SALARY_TABLES = {
     'cientifica': f'{ANGOLEX}tabela-salarial-do-regime-especial-da-carreira-cientifica-2026a.html',
     'estatistica': f'{ANGOLEX}tabela-salarial-do-regime-especial-da-carreira-estatistica-2026a.html',
-}
-TEACHERS = {
-    'professores': f'{ANGOLEX}tabela-salarial-do-regime-especial-do-professor-do-ensino-primario-e-secundario-2026a.html',
 }
 
 
@@ -79,10 +72,8 @@ TRAINING = [
 
 
 def in_area(course: dict) -> bool:
-    return (
-        course['area'] == 'communication'
-        or (course['area'] == 'sciences' and not in_humanities(course))
-        or bool(_SPORT.search(fold(course['name'])))
+    return course['area'] == 'communication' or (
+        course['area'] == 'sciences' and not in_humanities(course) and not SPORT.search(fold(course['name']))
     )
 
 
@@ -93,9 +84,8 @@ def main() -> None:
         'sources': {'education': {key: yearbook[key] for key in ('label', 'url')}},
         'teaching': {'year': yearbook['year'], 'institutions': institutions, 'courses': courses},
         'training': TRAINING,
-        'salaries': {'year': 2026, 'decree': 'Decreto Presidencial n.º 16/26, de 22 de Janeiro',
-                     'urls': SALARY_TABLES | TEACHERS,
-                     'careers': salaries(SALARY_TABLES) | read_tables(TEACHERS, rank_rows)},
+        'salaries': {'year': 2026, 'decree': 'Decreto Presidencial n.º 16/26, de 22 de Janeiro', 'urls': SALARY_TABLES,
+                     'careers': salaries(SALARY_TABLES)},
         'employers': {'named': NAMED_EMPLOYERS},
     }
     OUTPUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + '\n', encoding='utf-8', newline='\n')

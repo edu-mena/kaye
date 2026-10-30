@@ -70,6 +70,7 @@ const SECTOR_CAREERS: Record<CompanySector, string[]> = {
   estado: ['economista', 'analista-de-estudos-economicos', 'tecnico-de-impostos', 'tecnico-de-compliance'],
   justica: ['juiz', 'procurador', 'oficial-de-justica', 'jurista'],
   comunicacao: ['jornalista', 'editor-de-video', 'tecnico-de-relacoes-publicas'],
+  educacao: ['professor-do-ensino-primario', 'professor-de-matematica', 'educador-de-infancia'],
   comercio: ['tecnico-comercial', 'gestor-de-loja', 'assistente-administrativo', 'tecnico-de-compras'],
 }
 

@@ -48,7 +48,11 @@ export const CAREER_GROUPS = [
   'artes',
   'ciencias_vida',
   'ciencias_exactas',
-  // Sport and physical education (the yearbook's education courses)
+  // Education
+  'ensino_primario',
+  'ensino_secundario',
+  'pedagogia',
+  'ensino_superior',
   'desporto',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
@@ -92,6 +96,10 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   artes: 'communication',
   ciencias_vida: 'sciences',
   ciencias_exactas: 'sciences',
+  ensino_primario: 'education',
+  ensino_secundario: 'education',
+  pedagogia: 'education',
+  ensino_superior: 'education',
   desporto: 'education',
 }
 
@@ -356,6 +364,7 @@ export const COMPANY_SECTORS = [
   'estado',
   'justica',
   'comunicacao',
+  'educacao',
   'comercio',
 ] as const
 export type CompanySector = (typeof COMPANY_SECTORS)[number]

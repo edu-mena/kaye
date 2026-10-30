@@ -11,8 +11,6 @@ import { riasec, summary } from './careerSummary'
 const RESEARCHER = 579_056
 /** The statisticians' senior staff (Técnico Superior de Estatística de 2.ª Classe to Assessor Principal). */
 const STATISTICIAN = 482_546
-/** Primary and secondary school teachers with a degree (Professor do 6.º Grau to 1.º Grau). */
-const TEACHER = 482_546
 
 export const SCIENCES_CAREERS: CareerSummary[] = [
   summary(
@@ -266,41 +264,5 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     riasec(0.35, 0.95, 0.35, 0.2, 0.2, 0.55),
     'baixa',
     RESEARCHER,
-  ),
-  summary(
-    'professor-de-educacao-fisica',
-    'Professor de Educação Física',
-    'desporto',
-    'Dá as aulas de educação física e organiza o desporto escolar. Trabalha em escolas públicas e privadas, onde se entra por concurso ou contrato.',
-    riasec(0.6, 0.25, 0.2, 0.9, 0.5, 0.35),
-    'media',
-    TEACHER,
-  ),
-  summary(
-    'treinador-desportivo',
-    'Treinador Desportivo',
-    'desporto',
-    'Prepara atletas e equipas, planeia os treinos e dirige-os nos jogos e nas provas. Trabalha em clubes, federações e escolas de formação.',
-    riasec(0.6, 0.35, 0.15, 0.75, 0.7, 0.3),
-    'baixa',
-    null,
-  ),
-  summary(
-    'preparador-fisico',
-    'Preparador Físico',
-    'desporto',
-    'Planeia o treino físico de atletas e de quem quer ganhar forma, e ajuda a recuperar de lesões. Trabalha em clubes, ginásios e por conta própria.',
-    riasec(0.7, 0.5, 0.1, 0.7, 0.45, 0.35),
-    'baixa',
-    null,
-  ),
-  summary(
-    'gestor-desportivo',
-    'Gestor Desportivo',
-    'desporto',
-    'Gere clubes, ginásios, pavilhões e eventos desportivos: as equipas, as contas e os patrocínios. Trabalha em clubes, federações, empresas e no Estado.',
-    riasec(0.25, 0.3, 0.15, 0.55, 0.85, 0.6),
-    'baixa',
-    null,
   ),
 ]
