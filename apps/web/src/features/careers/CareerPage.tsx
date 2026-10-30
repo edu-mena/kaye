@@ -251,10 +251,12 @@ function HeroFacts({ career }: { career: Career }) {
       text: t('career.factSalaryValue', { value: Math.round(career.salaryMedian / 1000) }),
     })
   }
-  facts.push({
-    icon: 'signal',
-    text: t('career.factDemand', { value: `${trendPct > 0 ? '+' : ''}${trendPct}%` }),
-  })
+  if (trendPct !== null) {
+    facts.push({
+      icon: 'signal',
+      text: t('career.factDemand', { value: `${trendPct > 0 ? '+' : ''}${trendPct}%` }),
+    })
+  }
   if (quickest)
     facts.push({ icon: 'clock', text: t('career.factTime', { value: duration(quickest.months) }) })
 
@@ -619,7 +621,6 @@ function Study({ career }: { career: Career }) {
 function MarketSection({ career }: { career: Career }) {
   const { t } = useTranslation()
   const { market } = career
-  const trend = `${market.trendPct > 0 ? '+' : ''}${market.trendPct}%`
   const topStage = Math.max(...market.salaryByStage.map((item) => item.median), 1)
   const stageTitle = (level: string) => career.stages.find((stage) => stage.level === level)?.title ?? level
 
@@ -649,11 +650,32 @@ function MarketSection({ career }: { career: Career }) {
         )}
         <div>
           <Subheading>{t('career.demandTitle')}</Subheading>
-          <p className="mb-5 flex items-center gap-1.5 text-sm font-normal text-success">
-            <Icon name="signal" className="size-4" />
-            {t('career.trend', { value: trend })}
-          </p>
-          <PostingsChart months={market.postingsByMonth} />
+          {market.trendPct === null ? (
+            // A career the job sites do not show (the State hires by public competition): what is known instead.
+            market.demandNote && (
+              <p className="text-sm font-light text-copy">
+                {market.demandNote.text}{' '}
+                <a
+                  href={market.demandNote.source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-normal text-night underline underline-offset-2"
+                >
+                  {market.demandNote.source.label}
+                </a>
+              </p>
+            )
+          ) : (
+            <>
+              <p className="mb-5 flex items-center gap-1.5 text-sm font-normal text-success">
+                <Icon name="signal" className="size-4" />
+                {t('career.trend', {
+                  value: `${market.trendPct > 0 ? '+' : ''}${market.trendPct}%`,
+                })}
+              </p>
+              <PostingsChart months={market.postingsByMonth} />
+            </>
+          )}
         </div>
       </div>
 

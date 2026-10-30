@@ -9,6 +9,7 @@ import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
 import { ListSkeleton } from '../../components/PageStates'
 import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
+import { CardRow } from '../../components/ui/CardRow'
 import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
@@ -311,16 +312,19 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
   )
 }
 
-/** The careers with a full page, as large photo cards: where a person should start. */
+/**
+ * The careers with a full page, as large photo cards in a row that slides (one and a bit on a phone, three on a
+ * screen): where a person should start, however many guides there are.
+ */
 function Guides({ guides }: { guides: CareerSummary[] }) {
   const { t } = useTranslation()
   return (
     <section aria-labelledby="guides">
       <SectionHeading id="guides" title={t('careers.guidesTitle')} icon="path" />
       <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">{t('careers.guidesBody')}</p>
-      <ul className="grid gap-4 md:grid-cols-3">
+      <CardRow label={t('careers.guidesTitle')}>
         {guides.map((career) => (
-          <li key={career.slug}>
+          <li key={career.slug} className="w-[80%] shrink-0 snap-start md:w-[calc(33.333%-0.5rem)]">
             <Link
               to={`/carreiras/${career.slug}`}
               className="group relative block h-72 overflow-hidden rounded-card bg-coal text-white shadow-card"
@@ -328,7 +332,7 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
               {career.image && (
                 <PhotoImg
                   photo={career.image}
-                  sizes="(min-width: 768px) 33vw, 100vw"
+                  sizes="(min-width: 768px) 33vw, 80vw"
                   className="absolute inset-0 size-full object-cover object-[center_30%] transition duration-500 group-hover:scale-105"
                 />
               )}
@@ -354,7 +358,7 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
             </Link>
           </li>
         ))}
-      </ul>
+      </CardRow>
     </section>
   )
 }

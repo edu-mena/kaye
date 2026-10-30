@@ -278,6 +278,167 @@ export const CAREER_IMAGES: Partial<Record<string, Photo>> = {
       url: 'https://commons.wikimedia.org/wiki/File:Assistante_de_direction.jpg',
     },
   ),
+  // The medical careers (ADR 0010).
+  'medico-clinica-geral': photo(
+    'careers',
+    'medico-clinica-geral',
+    'Médica de bata branca a sorrir numa consulta, num centro de saúde na Etiópia',
+    {
+      author: 'Bedanmwathi',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Sanitising_hands_in_Ethiopia.png',
+    },
+  ),
+  'medico-pediatra': photo(
+    'careers',
+    'medico-pediatra',
+    'Enfermeiras e um enfermeiro à volta de um bebé num serviço de neonatologia',
+    {
+      author: 'Happi Raphael',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:A_group_of_nurses_attending_to_a_baby.jpg',
+    },
+  ),
+  'medico-ginecologista-obstetra': photo(
+    'careers',
+    'medico-ginecologista-obstetra',
+    'Profissional de saúde a fazer uma ecografia a uma grávida',
+    {
+      author: 'Alagboso Chibuike',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Health_worker_pregnant_woman_in_IDP.jpg',
+    },
+  ),
+  'medico-internista': photo(
+    'careers',
+    'medico-internista',
+    'Médica com estetoscópio e processos clínicos numa enfermaria, no Gana',
+    {
+      author: 'U.S. Army photo by Cpl. Clara Soria',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:U_S_Army_and_Air_Force_and_Ghanan_Armed_Forces_medical_staff_participate_in_MEDREX_AL24_(8408876).jpg',
+    },
+  ),
+  'cirurgiao-geral': photo(
+    'careers',
+    'cirurgiao-geral',
+    'Cirurgiões a vestir as batas para entrar no bloco operatório, no Burundi',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US_Army,_Burundian_surgeons_work_together_in_operating_room_(8558525).jpg',
+    },
+  ),
+  'medico-intensivista': photo(
+    'careers',
+    'medico-intensivista',
+    'Médicos e enfermeiros levam um doente numa maca, num exercício de emergência em Angola',
+    {
+      author: 'U.S. Army photo by Capt. Jordan Beagle',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US,_Angola_conduct_trauma_activation_simulation_(9918680).jpg',
+    },
+  ),
+  'medico-ortopedista': photo(
+    'careers',
+    'medico-ortopedista',
+    'Cirurgiões ortopedistas a operar sob as luzes do bloco, no Burundi',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US_Army,_Burundian_orthopedic_surgeons_work_together_in_the_operating_room_(8558543).jpg',
+    },
+  ),
+  'medico-radiologista': photo(
+    'careers',
+    'medico-radiologista',
+    'Médico a fazer uma ecografia a uma criança deitada na marquesa',
+    {
+      author: 'Aneesa Hendricks',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Ultrasound_on_Adrenal_gland.jpg',
+    },
+  ),
+  'medico-anestesista': photo(
+    'careers',
+    'medico-anestesista',
+    'Equipa de cirurgia, com o monitor e a máquina de anestesia ao fundo',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: "https://commons.wikimedia.org/wiki/File:US,_Ghana_surgeons_work_together_to_save_child's_life_during_African_Lion_2025_(9069633).jpg",
+    },
+  ),
+  'medico-cardiologista': photo(
+    'careers',
+    'medico-cardiologista',
+    'Ecografia a uma criança, com o ecógrafo ao lado da marquesa',
+    {
+      author: 'Aneesa Hendricks',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Ultrasound_on_Adrenal_glands.jpg',
+    },
+  ),
+  'medico-oftalmologista': photo(
+    'careers',
+    'medico-oftalmologista',
+    'Oftalmologista a examinar os olhos de um doente com a lâmpada de fenda, no Quénia',
+    {
+      author: 'Mwangiw',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Dr_Hillary_Rono_examining_a_patient_a_patient_at_the_Kitale_eye_clinic.png',
+    },
+  ),
+  'medico-psiquiatra': photo(
+    'careers',
+    'medico-psiquiatra',
+    'Profissional de saúde a conversar com um rapaz numa aldeia',
+    {
+      author: 'Safari Doctors',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Connecting_with_the_youth_(Credit_Neil_Thomas).jpg',
+    },
+  ),
+  'medico-neurologista': photo(
+    'careers',
+    'medico-neurologista',
+    'Médica a escrever processos clínicos à secretária, num hospital dos Camarões',
+    {
+      author: 'Happi Raphael',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Ophthalmologist_Hospital_Cameroon_06.jpg',
+    },
+  ),
+  'medico-urologista': photo(
+    'careers',
+    'medico-urologista',
+    'Cirurgiões a operar no bloco operatório, no Gana',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: "https://commons.wikimedia.org/wiki/File:US,_Ghana_surgeons_work_together_to_save_child's_life_during_African_Lion_2025_(9069635).jpg",
+    },
+  ),
+  'medico-otorrinolaringologista': photo(
+    'careers',
+    'medico-otorrinolaringologista',
+    'Duas profissionais de saúde de touca e máscara, num hospital de Douala',
+    {
+      author: 'Destiny Deffo',
+      license: 'CC BY-SA 4.0',
+      url: "https://commons.wikimedia.org/wiki/File:Infirmières_A_l'hôpital_Laquintinie_de_Douala_21.jpg",
+    },
+  ),
+  'medico-dermatologista': photo(
+    'careers',
+    'medico-dermatologista',
+    'Equipa de saúde recebe uma doente numa sala de exames de um hospital de Douala',
+    {
+      author: 'Max MBAKOP',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Hopital_Laquintini-4993_10.jpg',
+    },
+  ),
 }
 
 // Course photos, as an institution would publish them. Same licence rules as above.

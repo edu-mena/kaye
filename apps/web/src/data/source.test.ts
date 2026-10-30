@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './demo/assessment'
+import { MEDICINE_GUIDES } from './demo/medicineGuides'
 import {
   getAssessment,
   getCareer,
@@ -21,6 +22,7 @@ describe('demo data source', () => {
       'desenvolvedor-frontend',
       'analista-de-dados',
       'designer-ui-ux',
+      ...MEDICINE_GUIDES.map((career) => career.slug),
     ])
   })
 

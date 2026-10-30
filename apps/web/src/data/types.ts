@@ -202,9 +202,12 @@ type EmployerAsks = {
 
 export type Market = {
   demand: Demand
-  trendPct: number
+  /** Null for a career the job sites do not show (the State hires it by public competition): see demandNote. */
+  trendPct: number | null
+  /** What is known of the demand instead of the job ads, with its source. */
+  demandNote?: { text: string; source: SourceLink }
   salary: { p25: number; p50: number; p75: number; basis: string } | null
-  /** Median monthly salary at each career stage (example data). */
+  /** Median monthly salary at each career stage (example data, or the State's table for its careers). */
   salaryByStage: { level: StageLevel; median: number }[]
   /** Example job ads per month ("2026-05"), oldest first: the trend behind trendPct. */
   postingsByMonth: { month: string; count: number }[]

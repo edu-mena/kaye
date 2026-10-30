@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
-import { CAREER_SUMMARIES } from '../../data/demo/careers'
+import { CAREER_SUMMARIES, CAREERS } from '../../data/demo/careers'
 import { renderWithApp } from '../../test/render'
 import { seedTested } from '../../test/user'
 import CareersPage from './CareersPage'
@@ -104,7 +104,7 @@ describe('CareersPage', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
     expect(screen.getByText(ALL, { selector: 'output' })).toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Página' }), 'guia')
-    expect(screen.getByText('3 profissões', { selector: 'output' })).toBeInTheDocument()
+    expect(screen.getByText(`${CAREERS.length} profissões`, { selector: 'output' })).toBeInTheDocument()
   })
 
   it('says so when nothing matches', async () => {

@@ -16,6 +16,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0007](0007-sem-faixa-de-demonstracao.md) | Sem a faixa "Demonstração" no topo dos ecrãs | Aceite |
 | [0008](0008-recolha-de-vagas-de-todos-os-sites.md) | Recolha de vagas de todos os sites de emprego, só para estatística | Aceite |
 | [0009](0009-catalogo-por-areas-a-comecar-pela-saude.md) | O catálogo cresce por áreas, a começar pela Saúde | Aceite |
+| [0010](0010-guias-completos-com-fontes-oficiais.md) | Guias completos das profissões com fontes oficiais, um grupo de cada vez | Aceite |
 
 Modelo para um novo ADR:
 

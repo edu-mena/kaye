@@ -179,6 +179,24 @@ describe('Market', () => {
       '47 vagas em out',
     )
   })
+
+  it('shows, for a career the State hires by competition, the competitions with their source instead of ads', async () => {
+    open('medico-pediatra')
+    const hero = await screen.findByRole('banner')
+    expect(hero).toHaveTextContent('Salário de entrada: 507 mil Kz/mês')
+    expect(hero).not.toHaveTextContent(/em 3 meses/)
+    await openTab('Mercado')
+    const panel = screen.getByRole('tabpanel')
+    expect(panel).toHaveTextContent('2 963 vagas de Médico-Geral/Interno de Especialidade')
+    expect(within(panel).getByRole('link', { name: /despachos/ })).toHaveAttribute(
+      'href',
+      expect.stringContaining('angolex.com'),
+    )
+    expect(within(panel).queryByRole('list', { name: 'Vagas de exemplo por mês' })).not.toBeInTheDocument()
+    expect(
+      within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
+    ).toHaveTextContent(/Chefe de Serviço.*615.247 Kz/)
+  })
 })
 
 describe('Model CVs', () => {
