@@ -102,7 +102,7 @@ O detalhe está em [infraestrutura.md](docs/infraestrutura.md).
 |---|---|
 | `npm run build` | Compila a app web para `apps/api/public/spa`; o Laravel serve-a em http://127.0.0.1:8000 |
 | `npm run build:native` | Compila para o Android e copia para `apps/web/android` |
-| `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração, para testes no Vercel (`apps/web/vercel.json`: o projecto do Vercel usa `apps/web` como pasta raiz) |
+| `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração, para testes no Vercel (`apps/web/vercel.json`: o projecto `kaye` do Vercel usa `apps/web` como pasta raiz; o `.vercelignore` da raiz só envia `apps/web`). Publicado em https://kaye-indol.vercel.app; `vercel deploy --prod` na raiz volta a publicar |
 | `npm run android` | Abre o projeto Android no Android Studio |
 
 ## Segurança
