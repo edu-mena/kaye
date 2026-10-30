@@ -439,6 +439,57 @@ export const CAREER_IMAGES: Partial<Record<string, Photo>> = {
       url: 'https://commons.wikimedia.org/wiki/File:Hopital_Laquintini-4993_10.jpg',
     },
   ),
+  // The nursing careers (ADR 0010).
+  enfermeiro: photo(
+    'careers',
+    'enfermeiro',
+    'Enfermeira mede a tensão arterial a uma doente deitada na enfermaria',
+    {
+      author: 'Countvictor',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Nurse.jpg',
+    },
+  ),
+  'tecnico-medio-enfermagem': photo(
+    'careers',
+    'tecnico-medio-enfermagem',
+    'Enfermeira regista a história clínica de uma aluna, numa acção de saúde do governo em Harare, no Zimbabué',
+    {
+      author: 'Cecil Dzwowa',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Nurse_attendding_to_a_sick_school_girl.jpg',
+    },
+  ),
+  parteira: photo(
+    'careers',
+    'parteira',
+    'Uma parteira examina um recém-nascido na maternidade de um hospital em Acra, no Gana',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US,_Ghana_midwives_team_up_in_maternity_ward_at_African_Lion_2025_(9047751).jpg',
+    },
+  ),
+  'enfermeiro-cuidados-intensivos': photo(
+    'careers',
+    'enfermeiro-cuidados-intensivos',
+    'Enfermeira de cuidados intensivos junto à cama de um doente, num hospital em Acra, no Gana',
+    {
+      author: 'U.S. Army photo by Staff Sgt. Catessa Palone',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US,_Ghana_work_together_in_ICU_care_during_AL26_MEDREX_(9669667).jpg',
+    },
+  ),
+  'instrumentista-cirurgico': photo(
+    'careers',
+    'instrumentista-cirurgico',
+    'Equipa de bloco operatório junto à mesa de operações, no Hospital Militar Principal, em Luanda',
+    {
+      author: 'U.S. Army photo by 1st Lt. Tucker Chase',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US,_Angola_conduct_joint_medical_subject_matter_expert_exchange_on_trauma_surgery_techniques_(9350401).jpg',
+    },
+  ),
 }
 
 // Course photos, as an institution would publish them. Same licence rules as above.

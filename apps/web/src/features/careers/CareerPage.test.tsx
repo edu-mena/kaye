@@ -197,6 +197,22 @@ describe('Market', () => {
       within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
     ).toHaveTextContent(/Chefe de Serviço.*615.247 Kz/)
   })
+
+  it('warns that the nursing technical course is suspended and shows the nursing career', async () => {
+    open('tecnico-medio-enfermagem')
+    expect(await screen.findByRole('banner')).toHaveTextContent('Salário de entrada: 145 mil Kz/mês')
+    expect(screen.getByText(/o curso médio de Enfermagem não abre em Luanda/)).toBeInTheDocument()
+    await openTab('Mercado')
+    const panel = screen.getByRole('tabpanel')
+    expect(panel).toHaveTextContent('95 vagas de Técnico Médio de Enfermagem')
+    expect(within(panel).getByRole('link', { name: /Despacho Conjunto n.º 42\/26/ })).toHaveAttribute(
+      'href',
+      expect.stringContaining('angolex.com'),
+    )
+    expect(
+      within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
+    ).toHaveTextContent(/Técnico Médio de Enfermagem de 1.ª Classe.*168.891 Kz/)
+  })
 })
 
 describe('Model CVs', () => {

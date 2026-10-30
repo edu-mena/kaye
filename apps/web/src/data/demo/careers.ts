@@ -4,6 +4,7 @@ import { BUSINESS_CAREERS } from './businessCareers'
 import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
 import { MEDICINE_GUIDES } from './medicineGuides'
+import { NURSING_GUIDES } from './nursingGuides'
 import { SCIENCES_CAREERS } from './sciencesCareers'
 import { EDUCATION_CAREERS } from './educationCareers'
 import { ENGINEERING_CAREERS } from './engineeringCareers'
@@ -851,4 +852,5 @@ export const CAREERS: Career[] = [
     },
   },
   ...MEDICINE_GUIDES,
+  ...NURSING_GUIDES,
 ]

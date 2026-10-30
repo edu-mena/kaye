@@ -21,7 +21,17 @@
 - Os guias aparecem na página Carreiras numa fila que desliza (`CardRow`), para caberem quantos houver.
 - Cada guia tem uma fotografia do Wikimedia Commons com licença livre, guardada com o autor, a licença e a página (`data/demo/images.ts`).
 
+- A Enfermagem (30/10/2026), segundo grupo, com as suas fontes:
+  - as categorias, o ingresso por concurso, as promoções de 4 em 4 anos e as 36 horas semanais: Regime Jurídico da Carreira de Enfermagem (Decreto Presidencial n.º 187/18);
+  - a especialização dos licenciados (exame de acesso, vínculo ao Serviço Nacional de Saúde, carteira da Ordem, até 45 anos, equiparação): Regulamento sobre a Formação Especializada em Enfermagem (Decreto Presidencial n.º 212/23); dura dois anos (MINSA, Março de 2025) e o Ministério anunciou 4 800 vagas em Setembro de 2026 (Ver Angola);
+  - os licenciados inscrevem-se na Ordem dos Enfermeiros e os técnicos no Conselho Geral de Enfermagem: Estatuto da Ordem dos Enfermeiros (Decreto Presidencial n.º 179/10);
+  - os técnicos nas especializações pós-médias (360 parteiras, 194 instrumentistas, 186 de cuidados intensivos) e os enfermeiros em cada especialização: Anuário do MINSA de 2023, tabelas 153 e 156;
+  - as vagas de 2026: 944 de Enfermeiro e 95 de Técnico Médio nos hospitais centrais (Despacho Conjunto n.º 42/26);
+  - o curso médio suspenso por 5 anos em 10 províncias (Decreto Executivo n.º 01/25), que o guia do técnico avisa.
+- O salário de entrada do Instrumentista Cirúrgico passa a ser o do Técnico Médio de Enfermagem Especializado de 3.ª Classe (180 955 Kz), porque se forma sobretudo na especialização pós-média.
+- Os 7 395 médicos e 49 283 profissionais de enfermagem de 2023 são a linha "Total" da tabela 70 do anuário; somá-la às províncias dava o dobro, erro que o guia de Medicina tinha e foi corrigido.
+
 ## Consequências
 
 - O mesmo molde serve para os outros grupos: um ficheiro por grupo, as partes comuns uma vez, fontes oficiais.
-- Os guias de Medicina ainda não têm CVs modelo.
+- Os guias de Medicina e de Enfermagem ainda não têm CVs modelo.

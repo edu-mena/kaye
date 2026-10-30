@@ -15,6 +15,8 @@ const SPECIALIST = entry(506_674)
 const NURSE = entry(361_910)
 /** The nursing career at the technical level, on entry (Técnico Médio de Enfermagem de 3.ª Classe). */
 const TECHNICAL_NURSE = entry(144_764)
+/** A technician with a post-secondary speciality, on entry (Técnico Médio de Enfermagem Especializado de 3.ª Classe). */
+const SPECIALISED_TECHNICAL_NURSE = entry(180_955)
 
 const doctor = (slug: string, name: string, text: string, R: number, A: number, S: number) =>
   summary(slug, name, 'medicina', text, riasec(R, 0.85, A, S, 0.3, 0.35), 'alta', SPECIALIST)
@@ -201,7 +203,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Prepara e passa os instrumentos ao cirurgião durante a operação.',
     riasec(0.65, 0.5, 0.15, 0.55, 0.2, 0.65),
     'media',
-    NURSE,
+    SPECIALISED_TECHNICAL_NURSE,
   ),
   summary(
     'tecnico-analises-clinicas',
@@ -357,3 +359,10 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     null,
   ),
 ]
+
+/** A health career's summary, for its full guide. */
+export function detailedHealthCareer(slug: string): CareerSummary {
+  const found = HEALTH_CAREERS.find((career) => career.slug === slug)
+  if (!found) throw new Error(`Unknown health career ${slug}`)
+  return { ...found, detailed: true }
+}

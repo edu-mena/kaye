@@ -1,5 +1,5 @@
-import type { Career, CareerSummary, PathwayStep, Skill } from '../types'
-import { HEALTH_CAREERS } from './healthCareers'
+import type { Career, PathwayStep, Skill } from '../types'
+import { detailedHealthCareer as summaryOf } from './healthCareers'
 
 // The full guides of the medical careers (the Medicina group), from public sources:
 // - the specialities and how long each internship takes, how one enters it and the foreign degrees: Regulamento sobre
@@ -21,12 +21,6 @@ const SALARY = {
 }
 
 const MINSA = 'em 2023 havia'
-
-function summaryOf(slug: string): CareerSummary {
-  const found = HEALTH_CAREERS.find((career) => career.slug === slug)
-  if (!found) throw new Error(`Unknown medical career ${slug}`)
-  return { ...found, detailed: true }
-}
 
 const SECONDARY: PathwayStep = {
   kind: 'academico',
@@ -147,7 +141,7 @@ const MARKET: Career['market'] = {
   demand: 'alta',
   trendPct: null,
   demandNote: {
-    text: 'Os médicos entram no Estado por concurso público, não por anúncio. Em Maio de 2026, o Ministério da Saúde abriu 2 963 vagas de Médico-Geral/Interno de Especialidade, em todas as províncias (Despachos Conjuntos n.º 43/26 a 63/26); em 2023 trabalhavam 14 630 médicos no Serviço Nacional de Saúde.',
+    text: 'Os médicos entram no Estado por concurso público, não por anúncio. Em Maio de 2026, o Ministério da Saúde abriu 2 963 vagas de Médico-Geral/Interno de Especialidade, em todas as províncias (Despachos Conjuntos n.º 43/26 a 63/26); em 2023 trabalhavam 7 395 médicos no Serviço Nacional de Saúde.',
     source: {
       label: 'Um dos despachos: 439 vagas no Zaire (AngoLEX)',
       url: 'https://angolex.com/paginas/despachos/atribuicao-de-439a-vagas-para-medicos-no-concurso-publico-de-ingresso-externo-na-provincia-do-zaire-44a-26a.html',
