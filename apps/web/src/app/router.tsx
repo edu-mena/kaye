@@ -48,6 +48,11 @@ export const router = createBrowserRouter([
       },
       { path: 'cursos/comparar', lazy: page(() => import('../features/training/ComparePage')) },
       {
+        path: 'cursos/curso/:id',
+        handle: { wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/training/CatalogCoursePage')),
+      },
+      {
         path: 'cursos/:id',
         handle: { wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/training/CoursePage')),

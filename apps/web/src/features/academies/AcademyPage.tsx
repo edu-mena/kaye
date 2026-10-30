@@ -1,4 +1,5 @@
 import type { TFunction } from 'i18next'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router'
 import {
@@ -14,16 +15,21 @@ import {
 import { Icon } from '../../components/icons'
 import { DetailSkeleton, NotFoundState } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
+import { ButtonLink } from '../../components/ui/Button'
+import { Chip } from '../../components/ui/Chip'
+import { Dialog } from '../../components/ui/Dialog'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { useAcademy, useCareers } from '../../data/queries'
 import type { Academy, AcademyOffer, CareerSummary } from '../../data/types'
+import { coursePath } from '../training/coursePath'
+import { CurriculumView } from '../training/CurriculumView'
 import { academyMeta } from './labels'
 
 /**
- * An institution's page: what it is, the courses a public source confirms (with the decree that
- * recognises each one), the careers they lead to, its contacts and its sources. Prices, length,
- * schedules, curricula and reviews have no source yet: the page shows where they will go and says
- * so, never a number of its own.
+ * An institution's page: what it is, the courses a public source confirms as cards (each opens the offer, with the
+ * plan of studies its decree approved and a way to the course's page), its contacts and its sources. Prices,
+ * length, schedules and reviews have no source yet: the page shows where they will go and says so, never a number
+ * of its own.
  */
 export default function AcademyPage() {
   const { t } = useTranslation()
@@ -48,9 +54,6 @@ export default function AcademyPage() {
                   <FactList facts={facts(academy, t)} />
                 </DetailBlock>
                 <Offers academy={academy} careers={careers} />
-                <SoonBlock id="curriculum" icon="document" title={t('academy.curriculumTitle')}>
-                  {t('academy.curriculumBody')}
-                </SoonBlock>
               </div>
               <div className="space-y-10">
                 <ContactsBlock website={academy.website} />
@@ -107,9 +110,10 @@ function facts(academy: Academy, t: TFunction) {
   ]
 }
 
-/** The courses a source confirms: level, faculty, recognition and the careers they lead to. */
+/** The courses a source confirms, as cards in two columns; a card opens the offer in a dialog. */
 function Offers({ academy, careers }: { academy: Academy; careers: CareerSummary[] }) {
   const { t } = useTranslation()
+  const [open, setOpen] = useState<AcademyOffer | null>(null)
   return (
     <section aria-labelledby="offers">
       <SectionHeading id="offers" title={t('academy.offersTitle')} icon="cap" />
@@ -118,39 +122,103 @@ function Offers({ academy, careers }: { academy: Academy; careers: CareerSummary
           ? t('academy.offersEmpty')
           : t('academy.offersBody', { count: academy.offers.length })}
       </p>
-      <ul className="space-y-4">
+      <ul className="grid gap-4 sm:grid-cols-2">
         {academy.offers.map((offer) => (
           <li key={`${offer.course.id}-${offer.level}`}>
-            <OfferCard
-              offer={offer}
-              careers={careers.filter((career) => offer.careers.includes(career.slug))}
-            />
+            <OfferCard offer={offer} onOpen={() => setOpen(offer)} />
           </li>
         ))}
       </ul>
+      {open && (
+        <OfferDialog
+          academy={academy}
+          offer={open}
+          careers={careers.filter((career) => open.careers.includes(career.slug))}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </section>
   )
 }
 
-function OfferCard({ offer, careers }: { offer: AcademyOffer; careers: CareerSummary[] }) {
+/** "1 234 estudantes e 56 diplomados em 2023/24", from the yearbook. */
+function People({ offer }: { offer: AcademyOffer }) {
   const { t, i18n } = useTranslation()
-  const pending = ['price', 'duration', 'schedule'] as const
+  if (offer.students === undefined) return null
   return (
-    <article aria-label={offer.name} className="rounded-card bg-surface p-6 shadow-card">
+    <p className="mt-1 text-sm font-light text-copy">
+      {t('academy.people', {
+        students: offer.students.toLocaleString(i18n.language),
+        graduates: (offer.graduates ?? 0).toLocaleString(i18n.language),
+        year: offer.year,
+      })}
+    </p>
+  )
+}
+
+/** One course: level, faculty, name, students, and whether its plan of studies and decree are published. */
+function OfferCard({ offer, onOpen }: { offer: AcademyOffer; onOpen: () => void }) {
+  const { t } = useTranslation()
+  return (
+    <article
+      aria-label={offer.name}
+      className="relative flex h-full flex-col rounded-card bg-surface p-5 shadow-card transition hover:shadow-lift"
+    >
       <p className="text-xs font-light text-muted">
         {t(`training.${offer.level}`)}
         {offer.faculty && ` · ${offer.faculty}`}
       </p>
-      <h3 className="mt-1 text-lg font-bold text-night">{offer.name}</h3>
-      {offer.students !== undefined && (
-        <p className="mt-1 text-sm font-light text-copy">
-          {t('academy.people', {
-            students: (offer.students ?? 0).toLocaleString(i18n.language),
-            graduates: (offer.graduates ?? 0).toLocaleString(i18n.language),
-            year: offer.year,
-          })}
-        </p>
+      <h3 className="mt-1 font-display text-lg font-bold break-words text-night">
+        <button
+          type="button"
+          onClick={onOpen}
+          aria-label={t('academy.offerOpen', { course: offer.name })}
+          className="text-left after:absolute after:inset-0"
+        >
+          {offer.name}
+        </button>
+      </h3>
+      <People offer={offer} />
+      {(offer.curriculum ?? offer.recognition) && (
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
+          {offer.curriculum && <Chip>{t('academy.hasCurriculum')}</Chip>}
+          {offer.recognition && <Chip>{t('academy.recognition')}</Chip>}
+        </div>
       )}
+    </article>
+  )
+}
+
+type OfferDialogProps = {
+  academy: Academy
+  offer: AcademyOffer
+  careers: CareerSummary[]
+  onClose: () => void
+}
+
+/**
+ * An institution's offer of a course: what is confirmed, what is not yet, the plan of studies its decree approved
+ * and the careers it leads to, with a way to the course's own page.
+ */
+function OfferDialog({ academy, offer, careers, onClose }: OfferDialogProps) {
+  const { t } = useTranslation()
+  const pending = ['price', 'duration', 'schedule'] as const
+  return (
+    <Dialog
+      open
+      onClose={onClose}
+      title={offer.name}
+      footer={
+        <ButtonLink to={coursePath(offer.course.id, academy.id)} className="w-full justify-center">
+          {t('academy.seeCourse')}
+        </ButtonLink>
+      }
+    >
+      <p className="text-xs font-light text-muted">
+        {t(`training.${offer.level}`)}
+        {offer.faculty && ` · ${offer.faculty}`} · {academy.name}
+      </p>
+      <People offer={offer} />
       <dl className="mt-4 grid grid-cols-3 gap-3">
         {pending.map((key) => (
           <div key={key}>
@@ -166,12 +234,18 @@ function OfferCard({ offer, careers }: { offer: AcademyOffer; careers: CareerSum
           <ExternalLink href={offer.recognition.url}>{offer.recognition.label}</ExternalLink>
         </p>
       )}
+      <h3 className="mt-6 mb-3 text-sm font-bold text-night">{t('academy.curriculumTitle')}</h3>
+      {offer.curriculum ? (
+        <CurriculumView curriculum={offer.curriculum} />
+      ) : (
+        <p className="text-sm font-light text-copy">{t('academy.curriculumNone')}</p>
+      )}
       {careers.length > 0 && (
         <>
-          <p className="mt-5 text-xs font-semibold text-night">{t('academy.leadsTo')}</p>
+          <p className="mt-6 text-xs font-semibold text-night">{t('academy.leadsTo')}</p>
           <CareerPills careers={careers} />
         </>
       )}
-    </article>
+    </Dialog>
   )
 }

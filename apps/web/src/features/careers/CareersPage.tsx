@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+import { AreaPicker } from '../../components/AreaPicker'
 import { CareerCard } from '../../components/CareerCard'
 import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
@@ -280,33 +281,12 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
   return (
     <section aria-labelledby="areas">
       <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
-      {/* On phones a select: thirteen long names do not fit a row. */}
-      <label className="relative mb-4 block sm:hidden">
-        <span className="sr-only">{t('careers.areasTitle')}</span>
-        <select
-          value={shown ?? ''}
-          onChange={(event) => setShown(areas.find((area) => area === event.target.value))}
-          className="h-11 w-full appearance-none rounded-full border border-line bg-surface pr-10 pl-4 text-sm text-night *:bg-surface"
-        >
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        <Icon
-          name="chevronRight"
-          className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rotate-90 text-muted"
-        />
-      </label>
-      <div className="mb-4 hidden sm:block">
-        <Segmented
-          label={t('careers.areasTitle')}
-          options={options}
-          value={shown ?? null}
-          onChange={(area) => area && setShown(area)}
-        />
-      </div>
+      <AreaPicker
+        label={t('careers.areasTitle')}
+        options={options}
+        value={shown ?? null}
+        onChange={setShown}
+      />
       <FilterTiles selected={selected} onSelect={onSelect} tiles={tiles} />
     </section>
   )

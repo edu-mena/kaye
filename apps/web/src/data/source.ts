@@ -16,8 +16,10 @@ import { LOGISTICS } from './demo/logisticsCatalog'
 import { HOSPITALITY } from './demo/hospitalityCatalog'
 import { NEWS } from './demo/news'
 import { PROGRAMS } from './demo/programs'
+import { catalogCourses } from '../domain/courses'
 import type {
   Academy,
+  CatalogCourse,
   Company,
   AssessmentQuestion,
   Career,
@@ -86,6 +88,18 @@ export async function listAcademies(): Promise<Academy[]> {
 /** GET /institutions/{id} (null = 404) */
 export async function getAcademy(id: string): Promise<Academy | null> {
   return ALL_ACADEMIES.find((academy) => academy.id === id) ?? null
+}
+
+const COURSES = catalogCourses(ALL_ACADEMIES)
+
+/** GET /courses — every real course, with its offer at each institution. */
+export async function listCourses(): Promise<CatalogCourse[]> {
+  return COURSES
+}
+
+/** GET /courses/{id} (null = 404) */
+export async function getCourse(id: string): Promise<CatalogCourse | null> {
+  return COURSES.find((course) => course.id === id) ?? null
 }
 
 /** GET /companies — real ones, with public facts only. */

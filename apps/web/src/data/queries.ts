@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import {
   getAcademy,
+  getCourse,
   getAssessment,
   getCareer,
   getCompany,
@@ -8,6 +9,7 @@ import {
   getEmployment,
   getJobMarket,
   listAcademies,
+  listCourses,
   listCareers,
   listCompanies,
   listCvExamples,
@@ -35,6 +37,14 @@ export function useAcademies() {
 
 export function useAcademy(id: string) {
   return useQuery({ queryKey: ['academies', id], queryFn: () => getAcademy(id) })
+}
+
+export function useCourses() {
+  return useQuery({ queryKey: ['courses'], queryFn: listCourses })
+}
+
+export function useCourse(id: string) {
+  return useQuery({ queryKey: ['courses', id], queryFn: () => getCourse(id) })
 }
 
 export function useCompanies() {

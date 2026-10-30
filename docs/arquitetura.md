@@ -405,6 +405,7 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | GET | `/occupations/{slug}/fit` | O meu encaixe com a profissão | sim |
 | GET, PUT | `/me/skills` | As competências que sei | sim |
 | GET | `/institutions`, `/institutions/{slug}` | Instituições | — |
+| GET | `/courses`, `/courses/{slug}` | Os cursos reais, cada um com a oferta de cada instituição e o plano de estudos quando há decreto (ADR 0011) | — |
 | GET | `/programs` | Cursos (`?occupation=&level=&province=`) | — |
 | GET | `/programs/ranking` | As melhores instituições para os cursos de uma profissão (`?occupation=&province=&sort=`) | — |
 | GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |

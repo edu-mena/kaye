@@ -13,6 +13,22 @@ const rankedNames = () =>
     .map((heading) => heading.textContent)
 
 describe('TrainingPage', () => {
+  it('lists the real courses one area at a time, with a search, each opening its page', async () => {
+    renderWithApp(<TrainingPage />)
+    const areas = await screen.findByRole('group', { name: 'Explora os cursos por área' })
+    await userEvent.click(within(areas).getByRole('button', { name: 'Saúde' }))
+    expect(screen.getByTestId('location')).toHaveTextContent('area=health')
+    const catalogue = screen.getByRole('list', { name: 'Catálogo de cursos' })
+    expect(within(catalogue).getByRole('link', { name: 'Enfermagem' })).toHaveAttribute(
+      'href',
+      '/cursos/curso/enfermagem',
+    )
+    expect(within(catalogue).queryByRole('link', { name: 'Engenharia Informática' })).not.toBeInTheDocument()
+
+    await userEvent.type(screen.getByRole('searchbox', { name: 'Procurar um curso' }), 'odontologia')
+    expect(screen.getByText('1 curso', { selector: 'output' })).toBeInTheDocument()
+  })
+
   it('publishes the criteria and their weights next to the ranking', async () => {
     renderWithApp(<TrainingPage />)
     expect(await screen.findByRole('heading', { name: 'Como calculamos' })).toBeInTheDocument()

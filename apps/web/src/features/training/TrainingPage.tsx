@@ -10,14 +10,15 @@ import { CardRow, ROW_ITEM } from '../../components/ui/CardRow'
 import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Segmented } from '../../components/ui/Segmented'
-import { useCareers, usePrograms } from '../../data/queries'
-import type { Institution, Program, Schedule } from '../../data/types'
+import { useCareers, useCourses, usePrograms } from '../../data/queries'
+import type { CatalogCourse, Institution, Program, Schedule } from '../../data/types'
 import { COST_BANDS, DURATION_BANDS, findBand } from '../../domain/bands'
 import { formatPercent } from '../../domain/format'
 import { matchesProgram } from '../../domain/programs'
 import { CRITERIA, rankPrograms, scorePrograms, type SortKey } from '../../domain/ranking'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { useUser } from '../../state/userStore'
+import { CourseCatalogue } from './CourseCatalogue'
 import { ProgramCard } from './ProgramCard'
 
 const SORTS: SortKey[] = ['score', 'price', 'rating']
@@ -41,6 +42,7 @@ export default function TrainingPage() {
   const { t } = useTranslation()
   const programsQuery = usePrograms()
   const { data: careers = [] } = useCareers()
+  const { data: courses = [] } = useCourses()
   const { compare } = useUser()
   const [params, setParam] = useUrlFilters()
   const career = params.get('carreira')
@@ -59,7 +61,7 @@ export default function TrainingPage() {
     <div className="space-y-12">
       <QueryState query={programsQuery} loading={<ListSkeleton tiles={3} />}>
         {(programs) => {
-          const careerOptions = [...new Set(programs.flatMap((program) => program.careers))]
+          const careerOptions = [...new Set([...programs, ...courses].flatMap((course) => course.careers))]
             .map((slug) => ({ value: slug, label: careers.find((item) => item.slug === slug)?.name ?? slug }))
             .toSorted((a, b) => a.label.localeCompare(b.label))
           const provinces = [...new Set(programs.map((program) => program.institution.province))]
@@ -74,11 +76,13 @@ export default function TrainingPage() {
           return (
             <>
               <Hero
-                programs={programs}
+                courses={courses}
                 career={career}
                 careerOptions={careerOptions}
                 onCareer={(value) => setFilter('carreira', value || null)}
               />
+
+              <CourseCatalogue courses={courses} career={career} />
 
               <section aria-labelledby="levels">
                 <SectionHeading id="levels" title={t('training.levelsTitle')} icon="cap" />
@@ -231,37 +235,27 @@ export default function TrainingPage() {
 }
 
 type HeroProps = {
-  programs: Program[]
+  courses: CatalogCourse[]
   career: string | null
   careerOptions: { value: string; label: string }[]
   onCareer: (value: string) => void
 }
 
-/** The question the page answers (which career?), the numbers and a photo of students. */
-function Hero({ programs, career, careerOptions, onCareer }: HeroProps) {
-  const { t } = useTranslation()
-  const costs = programs.flatMap((program) => (program.totalCost === null ? [] : [program.totalCost]))
+/** The question the page answers (which career?), the catalogue's numbers and a photo of students. */
+function Hero({ courses, career, careerOptions, onCareer }: HeroProps) {
+  const { t, i18n } = useTranslation()
   const stats: { icon: IconName; value: string | number; label: string }[] = [
-    { icon: 'cap', value: programs.length, label: t('training.statCourses') },
+    { icon: 'cap', value: courses.length, label: t('training.statCourses') },
     {
       icon: 'landmark',
-      value: new Set(programs.map((program) => program.institution.id)).size,
+      value: new Set(courses.flatMap((course) => course.offers.map(({ academy }) => academy.id))).size,
       label: t('training.statInstitutions'),
     },
     {
-      icon: 'check',
-      value: programs.filter((program) => program.recognized).length,
-      label: t('training.statRecognized'),
+      icon: 'users',
+      value: courses.reduce((sum, course) => sum + course.students, 0).toLocaleString(i18n.language),
+      label: t('course.statStudents'),
     },
-    ...(costs.length > 0
-      ? [
-          {
-            icon: 'wallet' as const,
-            value: t('training.statFromValue', { value: Math.round(Math.min(...costs) / 1000) }),
-            label: t('training.statFrom'),
-          },
-        ]
-      : []),
   ]
 
   return (

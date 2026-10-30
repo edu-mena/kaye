@@ -277,11 +277,21 @@ export type Course = { id: string; name: string }
 /** Where a public fact was published, so anyone can check it. */
 export type SourceLink = { label: string; url: string }
 
+/**
+ * A course's plan of studies at one institution, as the decree that approved it lists it: the subjects of each
+ * year or semester, in order.
+ */
+export type Curriculum = {
+  periods: { label: string; subjects: string[] }[]
+  source: SourceLink
+}
+
 /** A course an academy is confirmed to offer (by a decree or the news); no length or price yet. */
 export type AcademyOffer = {
   course: Course
   name: string
-  level: Program['level'] | 'mestrado'
+  /** 'especialidade': a speciality or specialisation after a degree or a technical course. */
+  level: Program['level'] | 'mestrado' | 'especialidade'
   faculty?: string
   /** The decree that created or approved the course. */
   recognition?: SourceLink
@@ -292,6 +302,19 @@ export type AcademyOffer = {
   students?: number
   graduates?: number
   year?: string
+  /** The approved plan of studies, when its decree is published. */
+  curriculum?: Curriculum
+}
+
+/** A course across the institutions that offer it (GET /courses): the catalogue the Cursos page shows. */
+export type CatalogCourse = Course & {
+  levels: AcademyOffer['level'][]
+  areas: MarketArea[]
+  careers: string[]
+  offers: { academy: Pick<Academy, 'id' | 'name' | 'type' | 'ownership' | 'province'>; offer: AcademyOffer }[]
+  /** Students and graduates at every institution, in the yearbook's year. */
+  students: number
+  graduates: number
 }
 
 /**
