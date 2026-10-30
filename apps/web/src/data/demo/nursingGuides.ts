@@ -1,5 +1,14 @@
 import type { Career, Pathway, PathwayStep, Skill } from '../types'
-import { detailedHealthCareer as summaryOf } from './healthCareers'
+import {
+  CV_AVOID,
+  degree,
+  healthGuide,
+  NINTH,
+  SECONDARY,
+  stageSalaries,
+  stateMarket,
+  technicalCourse,
+} from './healthGuideParts'
 
 // The full guides of the nursing careers (the Enfermagem group), from public sources:
 // - the categories, how one enters and is promoted, the working time: Regime Jurídico da Carreira de Enfermagem
@@ -21,29 +30,7 @@ const SALARY = {
   specialist: [506_674, 542_865, 579_056],
 }
 
-const DESPACHO = {
-  label: 'Despacho Conjunto n.º 42/26: as vagas do Ministério da Saúde (AngoLEX)',
-  url: 'https://angolex.com/paginas/despachos/atribui-3037a-vagas-concurso-publico-ingresso-externo-ministerio-saude-servicos-superintendidos-42a-26a.html',
-}
-
-const NINTH: PathwayStep = {
-  kind: 'academico',
-  level: 'i_ciclo',
-  title: '9.ª classe concluída',
-  need: 'essencial',
-  description: 'Dá acesso ao ensino secundário técnico-profissional, onde está o curso médio de Enfermagem.',
-  months: null,
-}
-
-const TECHNICAL_COURSE: PathwayStep = {
-  kind: 'academico',
-  level: 'medio_tecnico',
-  title: 'Curso médio técnico de Enfermagem',
-  need: 'essencial',
-  description:
-    'Quatro anos, da 10.ª à 13.ª classe, num instituto técnico de saúde, com estágios nos hospitais. Atenção: desde 2025/2026, e durante 5 anos, não abre em Luanda e noutras nove províncias; nas restantes, só nas escolas com condições (Decreto Executivo n.º 01/25).',
-  months: { min: 48, max: 48 },
-}
+const TECHNICAL_COURSE = technicalCourse('Enfermagem', true)
 
 const COUNCIL: PathwayStep = {
   kind: 'certificacao',
@@ -63,24 +50,7 @@ const TECHNICAL_COMPETITION: PathwayStep = {
   months: null,
 }
 
-const SECONDARY: PathwayStep = {
-  kind: 'academico',
-  level: 'ii_ciclo',
-  title: 'Ensino médio concluído',
-  need: 'essencial',
-  description:
-    '12.ª classe, de preferência em Ciências Físicas e Biológicas, ou o curso médio de Enfermagem.',
-  months: null,
-}
-
-const DEGREE: PathwayStep = {
-  kind: 'academico',
-  level: 'licenciatura',
-  title: 'Licenciatura em Enfermagem',
-  need: 'essencial',
-  description: 'Quatro a cinco anos numa escola superior pública ou privada, com estágios nos hospitais.',
-  months: { min: 48, max: 60 },
-}
+const DEGREE = degree('Enfermagem')
 
 const ORDER: PathwayStep = {
   kind: 'certificacao',
@@ -194,11 +164,6 @@ function nurseStages(specialist: string): Career['stages'] {
   ]
 }
 
-function stageSalaries(...salaries: number[]): Career['market']['salaryByStage'] {
-  const levels = ['junior', 'pleno', 'senior', 'lideranca'] as const
-  return salaries.map((median, index) => ({ level: levels[index], median }))
-}
-
 const HIRING: string[] = [
   'Hospitais, centros e postos de saúde públicos',
   'Clínicas e hospitais privados',
@@ -215,15 +180,7 @@ function market(
   salaryByStage: Career['market']['salaryByStage'],
   note = NURSES_NOTE,
 ) {
-  return {
-    demand,
-    trendPct: null,
-    demandNote: { text: note, source: DESPACHO },
-    salary: null,
-    salaryByStage,
-    postingsByMonth: [],
-    hiringSectors: HIRING,
-  } satisfies Career['market']
+  return stateMarket(demand, salaryByStage, note, HIRING)
 }
 
 const CV_GUIDE: Career['cvGuide'] = {
@@ -234,11 +191,7 @@ const CV_GUIDE: Career['cvGuide'] = {
     'Cursos com certificado, como o suporte básico de vida',
     'A especialização, com a escola e o ano',
   ],
-  avoid: [
-    'Fotografias e dados pessoais que a candidatura não pede',
-    'Competências sem dizer onde as praticaste',
-    'Erros nas datas e nos nomes dos hospitais',
-  ],
+  avoid: CV_AVOID,
 }
 
 const COMMON_SKILLS: Skill[] = [
@@ -255,23 +208,9 @@ const COMMON_SKILLS: Skill[] = [
 ]
 const EXTRA_SKILLS: Skill[] = [{ id: 'ingles-cientifico', name: 'Inglês científico', importance: 'opcional' }]
 
-type Guide = Pick<Career, 'description' | 'dayToDay' | 'workContext' | 'workStyles'> & {
-  slug: string
-  /** The career's own skills; the guide adds the ones every nurse needs. */
-  skills: Skill[]
-  pathways: Pathway[]
-  stages: Career['stages']
-  market: Career['market']
-}
-
-function guide({ slug, skills, ...rest }: Guide): Career {
-  return {
-    ...summaryOf(slug),
-    ...rest,
-    skills: [...COMMON_SKILLS, ...skills, ...EXTRA_SKILLS],
-    employerAsks: null,
-    cvGuide: CV_GUIDE,
-  }
+/** A nursing guide; it adds the skills every nurse needs and the CV advice. */
+function guide({ skills, ...rest }: Omit<Parameters<typeof healthGuide>[0], 'cvGuide'>): Career {
+  return healthGuide({ ...rest, skills: [...COMMON_SKILLS, ...skills, ...EXTRA_SKILLS], cvGuide: CV_GUIDE })
 }
 
 export const NURSING_GUIDES: Career[] = [

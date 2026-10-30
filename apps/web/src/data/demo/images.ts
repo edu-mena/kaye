@@ -490,6 +490,57 @@ export const CAREER_IMAGES: Partial<Record<string, Photo>> = {
       url: 'https://commons.wikimedia.org/wiki/File:US,_Angola_conduct_joint_medical_subject_matter_expert_exchange_on_trauma_surgery_techniques_(9350401).jpg',
     },
   ),
+  // The diagnosis careers (ADR 0010).
+  'tecnico-analises-clinicas': photo(
+    'careers',
+    'tecnico-analises-clinicas',
+    'Cientista de laboratório, com o bebé às costas, observa uma lâmina numa formação em microscopia da malária, na Nigéria',
+    {
+      author: 'Ozavogu Abdulsalam Khalid uploaded by eHealth Africa EHA Clinics',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Malaria_microscopy_training_in_Nigeria.jpg',
+    },
+  ),
+  'tecnico-radiologia': photo(
+    'careers',
+    'tecnico-radiologia',
+    'Equipa prepara um doente com a perna imobilizada para uma radiografia, nas urgências de um hospital de Douala',
+    {
+      author: 'Happi Raphael',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Radiographie_Jambes_aux_Urgences_Hôpital_Laquintinie_Douala_10.jpg',
+    },
+  ),
+  'tecnico-anatomia-patologica': photo(
+    'careers',
+    'tecnico-anatomia-patologica',
+    'Técnica de laboratório trabalha com amostras numa câmara de segurança, num instituto de investigação médica no Quénia',
+    {
+      author: 'US Army Africa from Vicenza, Italy',
+      license: 'CC BY 2.0',
+      url: 'https://commons.wikimedia.org/wiki/File:U.S._Army_research_unit_marks_four_decades_in_Kenya,_Africa_-_USAMRU-K_(4074611339).jpg',
+    },
+  ),
+  cardiopneumologista: photo(
+    'careers',
+    'cardiopneumologista',
+    'Profissionais de saúde angolanos aprendem a usar um electrocardiógrafo, numa formação em Luanda',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US_Army_Reserve_medical_team_trains_Angolan_counterparts_on_electrocardiogram_use_(8543650).jpg',
+    },
+  ),
+  'tecnico-electromedicina': photo(
+    'careers',
+    'tecnico-electromedicina',
+    'Técnicos aprendem a reparar um monitor de sinais vitais, numa formação em Bujumbura, no Burundi',
+    {
+      author: 'U.S. Army photo by 1st Lt. Katherine Sibilla',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:US_Army_biomedical_equipment_technician_trains_Burundian_counterparts_during_medical_exercise_(8550288).jpg',
+    },
+  ),
 }
 
 // Course photos, as an institution would publish them. Same licence rules as above.

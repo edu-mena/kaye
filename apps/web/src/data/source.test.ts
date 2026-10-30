@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './demo/assessment'
 import { MEDICINE_GUIDES } from './demo/medicineGuides'
 import { NURSING_GUIDES } from './demo/nursingGuides'
+import { DIAGNOSIS_GUIDES } from './demo/diagnosisGuides'
 import {
   getAssessment,
   getCareer,
@@ -25,6 +26,7 @@ describe('demo data source', () => {
       'designer-ui-ux',
       ...MEDICINE_GUIDES.map((career) => career.slug),
       ...NURSING_GUIDES.map((career) => career.slug),
+      ...DIAGNOSIS_GUIDES.map((career) => career.slug),
     ])
   })
 

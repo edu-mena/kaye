@@ -213,6 +213,19 @@ describe('Market', () => {
       within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
     ).toHaveTextContent(/Técnico Médio de Enfermagem de 1.ª Classe.*168.891 Kz/)
   })
+
+  it('shows the diagnosis and therapy career, which the State opened only to graduates in 2026', async () => {
+    open('tecnico-analises-clinicas')
+    expect(await screen.findByRole('banner')).toHaveTextContent('Salário de entrada: 362 mil Kz/mês')
+    await openTab('Mercado')
+    const panel = screen.getByRole('tabpanel')
+    expect(panel).toHaveTextContent(
+      '588 vagas de Técnico Superior de Diagnóstico e Terapêutica e nenhuma de Técnico Médio',
+    )
+    expect(
+      within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
+    ).toHaveTextContent(/Técnico Especialista, com uma especialidade.*506.674 Kz/)
+  })
 })
 
 describe('Model CVs', () => {

@@ -30,8 +30,10 @@
   - o curso médio suspenso por 5 anos em 10 províncias (Decreto Executivo n.º 01/25), que o guia do técnico avisa.
 - O salário de entrada do Instrumentista Cirúrgico passa a ser o do Técnico Médio de Enfermagem Especializado de 3.ª Classe (180 955 Kz), porque se forma sobretudo na especialização pós-média.
 - Os 7 395 médicos e 49 283 profissionais de enfermagem de 2023 são a linha "Total" da tabela 70 do anuário; somá-la às províncias dava o dobro, erro que o guia de Medicina tinha e foi corrigido.
+- O Diagnóstico (30/10/2026), terceiro grupo: as cinco profissões são da carreira dos Profissionais de Diagnóstico e Terapêutica (Decreto Presidencial n.º 188/18), que tem a sua tabela de 2026. Em 2026 o Estado abriu 588 vagas de Técnico Superior de Diagnóstico e Terapêutica e nenhuma de Técnico Médio (Despacho Conjunto n.º 42/26); por isso o salário de entrada é o do licenciado (361 910 Kz), menos em Anatomia Patológica, que só tem curso médio (156 828 Kz). Os alunos de cada licenciatura vêm do anuário do ensino superior de 2023/24.
+- O que os guias da saúde partilham (os passos da escola, o concurso de 2026, o mercado de quem o Estado contrata por concurso, o que evitar no CV) está em `data/demo/healthGuideParts.ts`.
 
 ## Consequências
 
 - O mesmo molde serve para os outros grupos: um ficheiro por grupo, as partes comuns uma vez, fontes oficiais.
-- Os guias de Medicina e de Enfermagem ainda não têm CVs modelo.
+- Os guias de Medicina, Enfermagem e Diagnóstico ainda não têm CVs modelo.
