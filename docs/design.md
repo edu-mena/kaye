@@ -123,7 +123,7 @@ Cada secção tem 3 níveis, sempre pela mesma ordem:
 | `Rows`, `Soon` | Uma ficha (etiqueta à esquerda, valor à direita) e a etiqueta "Em breve" | `Rows` é uma `<dl>` com uma linha por dado, dentro de um contorno. `Soon` diz que a app ainda não faz aquilo, sem fingir |
 
 Peças de produto em `src/components`:
-- `CareerCard` (nome forte, área por baixo, duas linhas de resumo e um rodapé com o salário mediano e a procura), `DemandMeter` (a procura em 3 barras azuis, sempre com a palavra ao lado), `ScoreBadge`, `PathMark`;
+- `CareerCard` (nome forte, área por baixo, duas linhas de resumo e um rodapé com o salário (mediano ou, nas carreiras do Estado, de entrada: `salaryKind`) e a procura), `DemandMeter` (a procura em 3 barras azuis, sempre com a palavra ao lado), `ScoreBadge`, `PathMark`;
 - `InstitutionLogo` (logótipo ou iniciais num círculo branco; em fundo branco leva `ring-1 ring-line`), `ScoreRing`;
 - `QueryState` (a carregar, erro), `RequireProfile`;
 - `Navigation` (`BottomNav`, `SideNav`, `TopBar`);

@@ -1,23 +1,23 @@
 import type { CareerSummary } from '../types'
-import { riasec, summary } from './careerSummary'
+import { entry, riasec, summary } from './careerSummary'
 
 // Education, the sixth area of the catalogue (scrapers/catalog/education.json): the professions behind the teacher
 // training and sport degrees (MESCTI yearbook 2023-2024), the training of teachers in service and the employers (the
 // Ministry of Education and its institutes, schools). Interest profiles approximate O*NET's. Demand reads the job ads
-// and the public competitions. Salaries: the median of the State's 2026 base salaries of the career (Decreto
-// Presidencial 16/26) for those with a degree, only where a table names the career.
+// and the public competitions. Salaries: the State's 2026 base salary on entry to the career with a degree (Decreto
+// Presidencial 16/26), only where a table names the career.
 
-/** Primary and secondary school teachers with a degree (Professor do 6.º Grau to 1.º Grau), in Kz a month. */
-const TEACHER = 482_546
-/** Nursery teachers with a degree (Técnico Superior: Educador de Infância de Nível I do 3.º to 1.º Grau). */
-const NURSERY_TEACHER = 458_419
-/** Lecturers (Assistente Estagiário to Professor Catedrático); Decreto Presidencial 17/26 adds a supplementary pay. */
-const LECTURER = 579_056
-/** Especialista de Administração da Educação (6.º to 1.º Grau), the pedagogical staff with a degree. */
-const EDUCATION_SPECIALIST = 482_546
-/** Formador and Especialista de Emprego e Formação, side by side in one table (Técnico Superior de 2.ª Classe to
- * Assessor Principal). */
-const EMPLOYMENT_AND_TRAINING = 482_546
+/** Primary and secondary school teachers with a degree, on entry (Professor do 6.º Grau), in Kz a month. */
+const TEACHER = entry(361_910)
+/** Nursery teachers with a degree, on entry (Técnico Superior: Educador de Infância de Nível I do 3.º Grau). */
+const NURSERY_TEACHER = entry(410_165)
+/** Lecturers on entry (Assistente Estagiário); Decreto Presidencial 17/26 adds a supplementary pay. */
+const LECTURER = entry(458_419)
+/** Especialista de Administração da Educação on entry (6.º Grau), the pedagogical staff with a degree. */
+const EDUCATION_SPECIALIST = entry(361_910)
+/** Formador and Especialista de Emprego e Formação on entry, side by side in one table (Técnico Superior de 2.ª
+ * Classe). */
+const EMPLOYMENT_AND_TRAINING = entry(361_910)
 
 export const EDUCATION_CAREERS: CareerSummary[] = [
   summary(

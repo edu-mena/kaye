@@ -1,20 +1,20 @@
 import type { CareerSummary } from '../types'
-import { riasec, summary } from './careerSummary'
+import { entry, riasec, summary } from './careerSummary'
 
 // Health, the second area of the catalogue (scrapers/catalog/health.json): the professions of the national health
 // service (MINSA, Anuário Estatístico Sanitário 2023: who works there and the specialities in training), the
 // technical courses of Decreto Executivo Conjunto 97/11 and the job ads. Interest profiles approximate O*NET's.
-// Salaries: the median of the State's 2026 base salaries of the career (Decreto Presidencial 16/26), only for the
+// Salaries: the State's 2026 base salary on entry to the career (Decreto Presidencial 16/26), only for the
 // medical and nursing careers, the ones with a table; the others have none yet.
 
-/** Median base salary of the medical career (Médico Geral to Chefe de Serviço), in Kz a month. */
-const MEDICAL = 560_960
-/** The same for a specialist (Médico Assistente onwards). */
-const SPECIALIST = 579_056
-/** The nursing career with a degree (Enfermeiro de 3.ª Classe to Especializado de 1.ª). */
-const NURSE = 482_546
-/** The nursing career at the technical level (Técnico Médio de 3.ª Classe to Especializado de 1.ª). */
-const TECHNICAL_NURSE = 174_923
+/** The medical career on entry (Médico Interno de Especialidade / Médico Geral), in Kz a month. */
+const MEDICAL = entry(410_165)
+/** A specialist on entry (Médico Assistente). */
+const SPECIALIST = entry(506_674)
+/** The nursing career with a degree, on entry (Enfermeiro de 3.ª Classe). */
+const NURSE = entry(361_910)
+/** The nursing career at the technical level, on entry (Técnico Médio de Enfermagem de 3.ª Classe). */
+const TECHNICAL_NURSE = entry(144_764)
 
 const doctor = (slug: string, name: string, text: string, R: number, A: number, S: number) =>
   summary(slug, name, 'medicina', text, riasec(R, 0.85, A, S, 0.3, 0.35), 'alta', SPECIALIST)

@@ -1,25 +1,27 @@
 import type { CareerSummary } from '../types'
-import { riasec, summary } from './careerSummary'
+import { entry, riasec, summary } from './careerSummary'
 
 // Law, public administration and the social and human sciences, the fourth area of the catalogue
 // (scrapers/catalog/humanities.json): the professions behind the area's degrees (MESCTI yearbook 2023-2024), the
 // training of lawyers, magistrates and diplomats and the employers (courts, the Public Prosecutor, the State). Interest
-// profiles approximate O*NET's. Demand reads the job ads and the public competitions. Salaries: the median of the
-// State's 2026 base salaries of the career (Decreto Presidencial 16/26), only where a table names the career; the
-// magistrates' representation allowance is left out.
+// profiles approximate O*NET's. Demand reads the job ads and the public competitions. Salaries: the State's 2026 base
+// salary on entry to the career (Decreto Presidencial 16/26), only where a table names the career; the magistrates'
+// representation allowance is left out.
 
-/** Justice officers in the courts (Oficial de Diligência de 3.ª Classe to Secretário Judicial), in Kz a month. */
-const COURT_OFFICER = 307_623
-/** Registrars and notaries (Adjunto to 1.ª Classe), in the same table. */
-const REGISTRAR = 524_769
-/** The general regime's senior staff (Técnico Superior de 2.ª Classe to Assessor Principal). */
-const SENIOR_CIVIL_SERVANT = 482_546
-/** Juiz de Direito and Procurador da República, from under 5 to over 10 years of service (the same in both tables). */
-const MAGISTRATE = 646_800
-/** The diplomatic career (Adido to Embaixador). */
-const DIPLOMAT = 506_674
-/** The officers of the National Police and of the SIC (Subinspector to Superintendente Chefe; the same in both). */
-const POLICE_OFFICER = 428_698
+/** Justice officers in the courts on entry (Oficial de Diligência de 3.ª Classe), in Kz a month. */
+const COURT_OFFICER = entry(180_955)
+/** Registrars and notaries on entry (Conservador Adjunto, Notário Adjunto), in the same table. */
+const REGISTRAR = entry(458_419)
+/** The general regime's senior staff on entry (Técnico Superior de 2.ª Classe). */
+const SENIOR_CIVIL_SERVANT = entry(361_910)
+/** Juiz de Direito with under 5 years of service. */
+const JUDGE = entry(554_400)
+/** The Public Prosecutor's magistracy on entry (Procurador Adjunto da República). */
+const PROSECUTOR = entry(508_200)
+/** The diplomatic career on entry (Adido). */
+const DIPLOMAT = entry(361_910)
+/** The officers of the National Police and of the SIC on entry (Subinspector; the same in both). */
+const POLICE_OFFICER = entry(352_905)
 
 export const HUMANITIES_CAREERS: CareerSummary[] = [
   summary(
@@ -56,7 +58,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Julga os processos e decide segundo a lei, nos tribunais de comarca e nos superiores. Entra-se por concurso e pela formação do INEJ.',
     riasec(0.05, 0.75, 0.2, 0.5, 0.55, 0.7),
     'media',
-    MAGISTRATE,
+    JUDGE,
   ),
   summary(
     'procurador',
@@ -65,7 +67,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'Dirige a investigação dos crimes, acusa em tribunal e defende a legalidade. Trabalha no Ministério Público, em todo o país.',
     riasec(0.05, 0.75, 0.15, 0.5, 0.65, 0.65),
     'media',
-    MAGISTRATE,
+    PROSECUTOR,
   ),
   summary(
     'oficial-de-justica',

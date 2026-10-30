@@ -70,7 +70,9 @@ export function CareerCard({ career, match, reasons = NO_REASONS, brief = false 
         <span className="mt-auto pt-4 @3xs:pt-5">
           <span className="flex flex-col items-start gap-2 border-t border-line pt-3 @3xs:flex-row @3xs:items-end @3xs:justify-between @3xs:gap-4 @3xs:pt-4">
             <span className="hidden @3xs:block">
-              <span className="block text-xs font-light text-muted">{t('careers.medianLabel')}</span>
+              <span className="block text-xs font-light text-muted">
+                {t(career.salaryKind === 'entrada' ? 'careers.entryLabel' : 'careers.medianLabel')}
+              </span>
               <span className="mt-1 block text-sm font-semibold text-night">
                 {career.salaryMedian === null
                   ? '—'

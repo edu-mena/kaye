@@ -247,7 +247,7 @@ function HeroFacts({ career }: { career: Career }) {
   if (career.salaryMedian !== null) {
     facts.push({
       icon: 'wallet',
-      label: t('career.factSalary'),
+      label: t(career.salaryKind === 'entrada' ? 'career.factSalaryEntry' : 'career.factSalary'),
       text: t('career.factSalaryValue', { value: Math.round(career.salaryMedian / 1000) }),
     })
   }

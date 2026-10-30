@@ -191,7 +191,10 @@ export type CareerSummary = {
   summary: string
   riasec: RiasecProfile
   demand: Demand
+  /** In Kz a month: the median or, with `salaryKind` 'entrada', the State's base salary on entry. */
   salaryMedian: number | null
+  /** 'entrada': a State career, whose salary is the category a person with the course's training enters. */
+  salaryKind?: 'entrada'
   /** False while the career page is still being curated. */
   detailed: boolean
   /** Photo for the top of the career page; without one, the page shows the brand pattern. */

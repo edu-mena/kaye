@@ -1,17 +1,17 @@
 import type { CareerSummary } from '../types'
-import { riasec, summary } from './careerSummary'
+import { entry, riasec, summary } from './careerSummary'
 
 // Languages, communication and the arts, and the natural and exact sciences, the fifth area of the catalogue
 // (scrapers/catalog/sciences.json): the professions behind the area's degrees (MESCTI yearbook 2023-2024), the
 // training of journalists and the employers (the public media, the State's culture, media and science bodies).
-// Interest profiles approximate O*NET's. Demand reads the job ads. Salaries: the median of the State's 2026 base
-// salaries of the career (Decreto Presidencial 16/26), only where a table names the career.
+// Interest profiles approximate O*NET's. Demand reads the job ads. Salaries: the State's 2026 base salary on entry
+// to the career (Decreto Presidencial 16/26), only where a table names the career.
 
-/** The scientific career (Estagiário de Investigação to Investigador Coordenador), in Kz a month; Decreto Presidencial
- * 17/26 adds a supplementary pay. */
-const RESEARCHER = 579_056
-/** The statisticians' senior staff (Técnico Superior de Estatística de 2.ª Classe to Assessor Principal). */
-const STATISTICIAN = 482_546
+/** The scientific career on entry (Estagiário de Investigação), in Kz a month; Decreto Presidencial 17/26 adds a
+ * supplementary pay. */
+const RESEARCHER = entry(458_419)
+/** The statisticians' senior staff on entry (Técnico Superior de Estatística de 2.ª Classe). */
+const STATISTICIAN = entry(361_910)
 
 export const SCIENCES_CAREERS: CareerSummary[] = [
   summary(
