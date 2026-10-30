@@ -1,0 +1,1165 @@
+{
+ "area": "engineering",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Industrial e Sistemas Eléctricos",
+      "area": "engineering",
+      "students": 134,
+      "graduates": 16
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 124,
+      "graduates": 3
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 110,
+      "graduates": 20
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Atlântida",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 31,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 65,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia e Gestão Industrial",
+      "area": "engineering",
+      "students": 204,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 88,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 49,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Gregório Semedo",
+    "nature": "privada",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Arquitectura, Urbanismo e Construção",
+      "area": "engineering",
+      "students": 324,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Industrial e Sistemas Eléctricos",
+      "area": "engineering",
+      "students": 195,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 56,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 113,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 96,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 83,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Electromecânica",
+      "area": "engineering",
+      "students": 314,
+      "graduates": 8
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 104,
+      "graduates": 7
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 94,
+      "graduates": 3
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kalandula de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 57,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 32,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 28,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Katangojo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Química",
+      "area": "engineering",
+      "students": 259,
+      "graduates": 68
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 122,
+      "graduates": 15
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 35,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Metropolitano",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 289,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 146,
+      "graduates": 0
+     },
+     {
+      "name": "Planeamento Regional e Urbano",
+      "area": "engineering",
+      "students": 43,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia Eléctrica",
+      "area": "engineering",
+      "students": 45,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 16,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 80,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia de Construção Civil",
+      "area": "engineering",
+      "students": 41,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 11,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Luena",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 4,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Engenharia de Construção Civil",
+      "area": "engineering",
+      "students": 110,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 67,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 50,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tocoísta",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 402,
+      "graduates": 8
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 251,
+      "graduates": 1
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 231,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 166,
+      "graduates": 4
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico da Caála",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia Eléctrica",
+      "area": "engineering",
+      "students": 786,
+      "graduates": 31
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 190,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 154,
+      "graduates": 5
+     },
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 16
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 114,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 164,
+      "graduates": 15
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Ndalatando",
+    "nature": "publica",
+    "province": "Cuanza Norte",
+    "courses": [
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 117,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Porto Amboim",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Engenharia de Construção Civil",
+      "area": "engineering",
+      "students": 18,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Tecnologias e Ciências",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Química",
+      "area": "engineering",
+      "students": 449,
+      "graduates": 3
+     },
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 381,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 374,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia de Produção Industrial",
+      "area": "engineering",
+      "students": 289,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 282,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia em Recursos Hídricos",
+      "area": "engineering",
+      "students": 183,
+      "graduates": 82
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Soyo",
+    "nature": "publica",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Engenharia de Organização e Manutenção Industrial",
+      "area": "engineering",
+      "students": 247,
+      "graduates": 26
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 237,
+      "graduates": 40
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Zango",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 49,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico Militar",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Construções e Fortificações",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 46
+     },
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 78
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 66
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electromecânica",
+      "area": "engineering",
+      "students": 259,
+      "graduates": 7
+     },
+     {
+      "name": "Engenharia Energética",
+      "area": "engineering",
+      "students": 121,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ombaka",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 85,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 194,
+      "graduates": 15
+     },
+     {
+      "name": "Engenharia Electrotécnica",
+      "area": "engineering",
+      "students": 191,
+      "graduates": 15
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 178,
+      "graduates": 19
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 169,
+      "graduates": 24
+     },
+     {
+      "name": "Engenharia Geográfica",
+      "area": "engineering",
+      "students": 130,
+      "graduates": 19
+     },
+     {
+      "name": "Engenharia Química",
+      "area": "engineering",
+      "students": 111,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 29
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 19
+     },
+     {
+      "name": "Engenharia e Gestão Industrial",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia de Construção Civil",
+      "area": "engineering",
+      "students": 238,
+      "graduates": 0
+     },
+     {
+      "name": "Arquitectura",
+      "area": "engineering",
+      "students": 172,
+      "graduates": 27
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 160,
+      "graduates": 18
+     },
+     {
+      "name": "Engenharia Hidráulica",
+      "area": "engineering",
+      "students": 157,
+      "graduates": 16
+     },
+     {
+      "name": "Construção Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 327,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Engenharia Hidráulica e Saneamento das Águas",
+      "area": "engineering",
+      "students": 197,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Hidráulica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 8
+     }
+    ]
+   },
+   {
+    "name": "Universidade Lueji A´Nkonde",
+    "nature": "publica",
+    "province": "Lunda Norte",
+    "courses": [
+     {
+      "name": "Engenharia Electromecânica",
+      "area": "engineering",
+      "students": 302,
+      "graduates": 23
+     },
+     {
+      "name": "Engenharia de Construção Civil",
+      "area": "engineering",
+      "students": 194,
+      "graduates": 48
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Construção Civil",
+      "area": "engineering",
+      "students": 247,
+      "graduates": 21
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 148,
+      "graduates": 17
+     },
+     {
+      "name": "Engenharia Hidráulica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 19
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 98
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 50
+     },
+     {
+      "name": "Engenharia Industrial e Sistemas Eléctricos",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 72
+     },
+     {
+      "name": "Engenharia Mecatrónica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 54
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 15
+     }
+    ]
+   },
+   {
+    "name": "Universidade Técnica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Arquitectura e Urbanismo",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 25
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Mecatrónica",
+      "area": "engineering",
+      "students": 433,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade do Namibe",
+    "nature": "publica",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Engenharia Eléctrica",
+      "area": "engineering",
+      "students": 387,
+      "graduates": 30
+     },
+     {
+      "name": "Engenharia Mecânica",
+      "area": "engineering",
+      "students": 198,
+      "graduates": 28
+     },
+     {
+      "name": "Engenharia de Mecânica Naval",
+      "area": "engineering",
+      "students": 105,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Óscar Ribas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 6
+     },
+     {
+      "name": "Engenharia de Gestão Industrial",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 1
+     },
+     {
+      "name": "Engenharia Electromecânica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Electromecânica",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 43
+     },
+     {
+      "name": "Engenharia Civil",
+      "area": "engineering",
+      "students": 0,
+      "graduates": 19
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Engenharia Civil",
+    "students": 1986,
+    "graduates": 164,
+    "institutions": 22
+   },
+   {
+    "name": "Engenharia Mecânica",
+    "students": 1963,
+    "graduates": 212,
+    "institutions": 12
+   },
+   {
+    "name": "Engenharia Electrotécnica",
+    "students": 1220,
+    "graduates": 107,
+    "institutions": 7
+   },
+   {
+    "name": "Engenharia Eléctrica",
+    "students": 1218,
+    "graduates": 61,
+    "institutions": 3
+   },
+   {
+    "name": "Arquitectura",
+    "students": 1071,
+    "graduates": 49,
+    "institutions": 8
+   },
+   {
+    "name": "Engenharia Electromecânica",
+    "students": 875,
+    "graduates": 40,
+    "institutions": 4
+   },
+   {
+    "name": "Engenharia Química",
+    "students": 819,
+    "graduates": 80,
+    "institutions": 3
+   },
+   {
+    "name": "Arquitectura e Urbanismo",
+    "students": 633,
+    "graduates": 214,
+    "institutions": 11
+   },
+   {
+    "name": "Engenharia de Construção Civil",
+    "students": 601,
+    "graduates": 49,
+    "institutions": 5
+   },
+   {
+    "name": "Engenharia Mecatrónica",
+    "students": 433,
+    "graduates": 54,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia Industrial e Sistemas Eléctricos",
+    "students": 329,
+    "graduates": 88,
+    "institutions": 3
+   },
+   {
+    "name": "Arquitectura, Urbanismo e Construção",
+    "students": 324,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Produção Industrial",
+    "students": 289,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Organização e Manutenção Industrial",
+    "students": 247,
+    "graduates": 26,
+    "institutions": 1
+   },
+   {
+    "name": "Construção Civil",
+    "students": 247,
+    "graduates": 27,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia e Gestão Industrial",
+    "students": 204,
+    "graduates": 7,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia Hidráulica e Saneamento das Águas",
+    "students": 197,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia em Recursos Hídricos",
+    "students": 183,
+    "graduates": 82,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Hidráulica",
+    "students": 157,
+    "graduates": 43,
+    "institutions": 3
+   },
+   {
+    "name": "Engenharia Geográfica",
+    "students": 130,
+    "graduates": 19,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Energética",
+    "students": 121,
+    "graduates": 2,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Mecânica Naval",
+    "students": 105,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Planeamento Regional e Urbano",
+    "students": 43,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Arquitectura e Urbanismo",
+    "students": 11,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Construções e Fortificações",
+    "students": 0,
+    "graduates": 46,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Gestão Industrial",
+    "students": 0,
+    "graduates": 1,
+    "institutions": 1
+   },
+   {
+    "name": "Electromecânica",
+    "students": 0,
+    "graduates": 43,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [],
+ "salaries": null,
+ "employers": {
+  "named": [
+   {
+    "name": "Ministério das Obras Públicas, Urbanismo e Habitação (MINOPUH)",
+    "sector": "estado",
+    "kind": "obras_publicas",
+    "source": {
+     "label": "Estatuto Orgânico do Ministério das Obras Públicas, Urbanismo e Habitação (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-das-obras-publicas-urbanismo-e-habitacao.html"
+    }
+   },
+   {
+    "name": "Ministério da Energia e Águas (MINEA)",
+    "sector": "estado",
+    "kind": "energia_aguas",
+    "source": {
+     "label": "Decreto Presidencial n.º 223/20, Estatuto Orgânico do Ministério da Energia e Águas (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-energia-e-aguas-223a-20a.html"
+    }
+   },
+   {
+    "name": "Laboratório de Engenharia de Angola (LEA)",
+    "sector": "estado",
+    "kind": "laboratorio",
+    "source": {
+     "label": "Decreto Presidencial n.º 306/14, Estatuto Orgânico do Laboratório de Engenharia de Angola (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-laboratorio-de-engenharia-de-angola-306a-14a.html"
+    }
+   },
+   {
+    "name": "Empresa Nacional de Distribuição de Electricidade (ENDE)",
+    "sector": "energia",
+    "kind": "distribuicao",
+    "source": {
+     "label": "Decreto Presidencial n.º 305/14, Estatuto Orgânico da ENDE (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-da-empresa-nacional-de-distribuicao-de-electricidade-305a-14a.html"
+    }
+   },
+   {
+    "name": "Empresa Pública de Produção de Electricidade (PRODEL)",
+    "sector": "energia",
+    "kind": "producao",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.prodel.co.ao"
+    }
+   },
+   {
+    "name": "Mota-Engil Angola",
+    "sector": "industria",
+    "kind": "construtora",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.mota-engil.com"
+    }
+   },
+   {
+    "name": "Grupo Omatapalo",
+    "sector": "industria",
+    "kind": "construtora",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.omatapalo.com"
+    }
+   }
+  ],
+  "jobAds": [
+   {
+    "name": "Grupo Casais",
+    "postings": 14
+   }
+  ]
+ }
+}

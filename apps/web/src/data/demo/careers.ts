@@ -5,6 +5,11 @@ import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
 import { SCIENCES_CAREERS } from './sciencesCareers'
 import { EDUCATION_CAREERS } from './educationCareers'
+import { ENGINEERING_CAREERS } from './engineeringCareers'
+import { OIL_MINING_CAREERS } from './oilMiningCareers'
+import { AGRICULTURE_CAREERS } from './agricultureCareers'
+import { LOGISTICS_CAREERS } from './logisticsCareers'
+import { HOSPITALITY_CAREERS } from './hospitalityCareers'
 
 // DEMO DATA. Profiles approximate O*NET interest profiles; demand and salaries are
 // illustrative, not measured. Real values come from curation (roadmap, Fase 0.4).
@@ -263,6 +268,11 @@ export const CAREER_SUMMARIES: CareerSummary[] = [
   ...HUMANITIES_CAREERS,
   ...SCIENCES_CAREERS,
   ...EDUCATION_CAREERS,
+  ...ENGINEERING_CAREERS,
+  ...OIL_MINING_CAREERS,
+  ...AGRICULTURE_CAREERS,
+  ...LOGISTICS_CAREERS,
+  ...HOSPITALITY_CAREERS,
 ]
 
 function base(slug: string): CareerSummary {

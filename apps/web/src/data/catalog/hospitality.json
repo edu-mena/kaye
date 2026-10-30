@@ -1,0 +1,138 @@
+{
+ "year": "2023/24",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "institutions": [
+  {
+   "name": "Instituto Superior Universitário Nimi Ya Lukeni",
+   "nature": "privada",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Gestão Hoteleira e Turismo",
+     "students": 92,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Hotelaria e Turismo",
+     "students": 373,
+     "graduates": 21
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Gestão de Turismo",
+     "students": 363,
+     "graduates": 9
+    }
+   ]
+  },
+  {
+   "name": "Universidade Cuito Cuanavale",
+   "nature": "publica",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Gestão de Turismo",
+     "students": 157,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Hoteleira",
+     "students": 0,
+     "graduates": 31
+    }
+   ]
+  },
+  {
+   "name": "Universidade Metodista de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Turismo, Gestão Hoteleira e Animação",
+     "students": 0,
+     "graduates": 51
+    }
+   ]
+  },
+  {
+   "name": "Universidade Privada de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Turismo e Gestão Hoteleira",
+     "students": 0,
+     "graduates": 13
+    }
+   ]
+  },
+  {
+   "name": "Universidade Rainha Njinga a Mbande",
+   "nature": "publica",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Hotelaria e Turismo",
+     "students": 112,
+     "graduates": 46
+    }
+   ]
+  }
+ ],
+ "training": [],
+ "employers": [
+  {
+   "name": "Ministério do Turismo (MINTUR)",
+   "sector": "estado",
+   "kind": "ministerio",
+   "source": {
+    "label": "Decreto Presidencial n.º 134/24, Estatuto Orgânico do Ministério do Turismo (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-do-turismo-134a-24a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "SANA Hotels",
+   "sector": "turismo",
+   "kind": "hotel",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.sanahotels.com"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Grupo Hoteleiro TD Hotels",
+   "sector": "turismo",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 4,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  }
+ ]
+}

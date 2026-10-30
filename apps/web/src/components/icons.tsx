@@ -235,6 +235,37 @@ const PATHS = {
       <path d="M8 20l2-4M16 20l-2-4M7 9h6M7 12h4" />
     </>
   ),
+  helmet: <path d="M3 18h18M5 18v-2a7 7 0 0 1 14 0v2M10 9V6h4v3" />,
+  ruler: <path d="M3 17 17 3l4 4L7 21Zm4-4 2 2m1-5 2 2m1-5 2 2" />,
+  gear: (
+    <>
+      <circle cx="12" cy="12" r="3.5" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" />
+    </>
+  ),
+  bolt: <path d="M13 2 4 14h7l-1 8 9-12h-7Z" />,
+  drop: <path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" />,
+  mountain: <path d="m2 20 7-12 4 6 3-4 6 10Z" />,
+  sprout: <path d="M12 21v-9m0 0c0-4-3-7-8-7 0 5 3 7 8 7Zm0 0c0-3 2-6 7-6 0 4-2 6-7 6Z" />,
+  paw: (
+    <>
+      <circle cx="7" cy="9" r="1.8" />
+      <circle cx="12" cy="6.5" r="1.8" />
+      <circle cx="17" cy="9" r="1.8" />
+      <path d="M8 17c0-3 2-5 4-5s4 2 4 5a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2Z" />
+    </>
+  ),
+  fish: <path d="M3 12c3-4 7-5 10-5s6 2 8 5c-2 3-5 5-8 5s-7-1-10-5Zm0 0-1-3m1 3-1 3m14-4h.01" />,
+  tree: <path d="M12 22v-6M12 2 5 12h4l-3 4h12l-3-4h4Z" />,
+  truck: (
+    <>
+      <path d="M2 6h11v10H2ZM13 10h5l3 3v3h-8" />
+      <circle cx="6" cy="18" r="2" />
+      <circle cx="17" cy="18" r="2" />
+    </>
+  ),
+  plane: <path d="M10 3h2l3 7h5a1.5 1.5 0 0 1 0 3h-5l-3 7h-2l1.5-7H7l-1.5 2H3l1-3.5L3 8h2.5L7 10h4.5Z" />,
+  bed: <path d="M3 6v13M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6M7 12.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />,
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof PATHS

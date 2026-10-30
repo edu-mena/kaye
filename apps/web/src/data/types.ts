@@ -54,6 +54,20 @@ export const CAREER_GROUPS = [
   'pedagogia',
   'ensino_superior',
   'desporto',
+  // Engineering, oil and mining, agriculture, logistics, tourism
+  'construcao_civil',
+  'arquitectura',
+  'engenharia_industrial',
+  'engenharia_electrica',
+  'petroleo_gas',
+  'minas_geologia',
+  'agricultura',
+  'pecuaria',
+  'pescas',
+  'ambiente',
+  'logistica',
+  'transportes',
+  'turismo',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
 
@@ -101,6 +115,19 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   pedagogia: 'education',
   ensino_superior: 'education',
   desporto: 'education',
+  construcao_civil: 'engineering',
+  arquitectura: 'engineering',
+  engenharia_industrial: 'engineering',
+  engenharia_electrica: 'engineering',
+  petroleo_gas: 'oil_mining',
+  minas_geologia: 'oil_mining',
+  agricultura: 'agriculture',
+  pecuaria: 'agriculture',
+  pescas: 'agriculture',
+  ambiente: 'agriculture',
+  logistica: 'logistics',
+  transportes: 'logistics',
+  turismo: 'hospitality',
 }
 
 export type Demand = 'alta' | 'media' | 'baixa'
@@ -368,6 +395,9 @@ export const COMPANY_SECTORS = [
   'justica',
   'comunicacao',
   'educacao',
+  'mineracao',
+  'agricultura',
+  'turismo',
   'comercio',
 ] as const
 export type CompanySector = (typeof COMPANY_SECTORS)[number]

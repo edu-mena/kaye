@@ -1,0 +1,246 @@
+{
+ "area": "logistics",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Instituto Superior Privado Kiaxi",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Logística e Gestão Comercial",
+      "area": "logistics",
+      "students": 337,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Logística e Gestão Comercial",
+      "area": "logistics",
+      "students": 439,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia de Gestão logística e dos Transporte",
+      "area": "engineering",
+      "students": 142,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão Logistica e Transporte",
+      "area": "logistics",
+      "students": 559,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia dos Transportes",
+      "area": "engineering",
+      "students": 133,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Logística e Transportes",
+      "area": "logistics",
+      "students": 0,
+      "graduates": 27
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Logística e Gestão Comercial",
+    "students": 776,
+    "graduates": 22,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão Logistica e Transporte",
+    "students": 559,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Gestão logística e dos Transporte",
+    "students": 142,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia dos Transportes",
+    "students": 133,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Logística e Transportes",
+    "students": 0,
+    "graduates": 27,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [],
+ "salaries": {
+  "year": 2026,
+  "decree": "Decreto Presidencial n.º 16/26, de 22 de Janeiro",
+  "urls": {
+   "aviacao_civil": "https://angolex.com/paginas/diversos/tabela-salarial-do-regime-especial-da-aviacao-civil-2026a.html"
+  },
+  "careers": {
+   "aviacao_civil": [
+    {
+     "category": "Técnico da Aviação Civil de 3ª Classe",
+     "index": 260,
+     "salary": 156828
+    },
+    {
+     "category": "Técnico da Aviação Civil de 2ª Classe",
+     "index": 280,
+     "salary": 168891
+    },
+    {
+     "category": "Técnico da Aviação Civil de 1ª Classe",
+     "index": 300,
+     "salary": 180955
+    },
+    {
+     "category": "Técnico da Aviação Civil Principal",
+     "index": 340,
+     "salary": 205082
+    },
+    {
+     "category": "Especialista da Aviação Civil de 3ª Classe",
+     "index": 370,
+     "salary": 223178
+    },
+    {
+     "category": "Especialista da Aviação Civil de 2ª Classe",
+     "index": 400,
+     "salary": 241273
+    },
+    {
+     "category": "Especialista da Aviação Civil de 1ª Classe",
+     "index": 420,
+     "salary": 253337
+    },
+    {
+     "category": "Especialista Principal da Aviação Civil",
+     "index": 480,
+     "salary": 289528
+    },
+    {
+     "category": "Auditor/ Inspector de Supervisão da Aviação Civil Assistente",
+     "index": 600,
+     "salary": 361910
+    },
+    {
+     "category": "Auditor/Inspector de Supervisão da Aviação Civil de 3ª Classe",
+     "index": 680,
+     "salary": 410165
+    },
+    {
+     "category": "Auditor/ Inspector de Supervisão da Aviação Civil de 2ª Classe",
+     "index": 760,
+     "salary": 458419
+    },
+    {
+     "category": "Auditor/Inspector de Supervisão da Aviação Civil de 1ª Classe",
+     "index": 840,
+     "salary": 506674
+    },
+    {
+     "category": "Auditor/Inspector de Supervisão da Aviação Civil Supervisor",
+     "index": 900,
+     "salary": 542865
+    },
+    {
+     "category": "Auditor/Inspector de Supervisão da Aviação Civil Sénior",
+     "index": 960,
+     "salary": 579056
+    }
+   ]
+  }
+ },
+ "employers": {
+  "named": [
+   {
+    "name": "Ministério dos Transportes (MINTRANS)",
+    "sector": "estado",
+    "kind": "ministerio",
+    "source": {
+     "label": "Decreto Presidencial n.º 233/20, Estatuto Orgânico do Ministério dos Transportes (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-dos-transportes-233a-20a.html"
+    }
+   },
+   {
+    "name": "Autoridade Nacional da Aviação Civil (ANAC)",
+    "sector": "estado",
+    "kind": "aviacao",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.anac.ao"
+    }
+   },
+   {
+    "name": "Porto de Luanda",
+    "sector": "transportes",
+    "kind": "porto",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.portoluanda.co.ao"
+    }
+   },
+   {
+    "name": "Porto do Lobito",
+    "sector": "transportes",
+    "kind": "porto",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://portodolobito.co.ao"
+    }
+   },
+   {
+    "name": "Caminho de Ferro de Benguela (CFB)",
+    "sector": "transportes",
+    "kind": "caminho_de_ferro",
+    "source": {
+     "label": "Decreto Presidencial n.º 150/10, Estatuto da Empresa do Caminho de Ferro de Benguela (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-da-empresa-do-caminho-de-ferro-de-benguela-150a-10a.html"
+    }
+   }
+  ],
+  "jobAds": []
+ }
+}

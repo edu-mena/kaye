@@ -1,0 +1,398 @@
+{
+ "year": "2023/24",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "institutions": [
+  {
+   "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Engenharia de Refinação de Petróleos",
+     "students": 188,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kalandula de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Petróleos",
+     "students": 107,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Katangojo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleos",
+     "students": 184,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleo",
+     "students": 0,
+     "graduates": 39
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Metropolitano",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Geologia e Minas",
+     "students": 381,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tundavala",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Engenharia Geológica",
+     "students": 9,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Tecnologias e Ciências",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Petróleos",
+     "students": 379,
+     "graduates": 0
+    },
+    {
+     "name": "Geofísica",
+     "students": 102,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Geologia",
+     "students": 384,
+     "graduates": 17
+    },
+    {
+     "name": "Geofísica",
+     "students": 224,
+     "graduates": 12
+    },
+    {
+     "name": "Engenharia de Minas",
+     "students": 123,
+     "graduates": 25
+    },
+    {
+     "name": "Engenharia de Petróleos",
+     "students": 112,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "students": 0,
+     "graduates": 30
+    }
+   ]
+  },
+  {
+   "name": "Universidade Católica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Petróleo",
+     "students": 0,
+     "graduates": 22
+    }
+   ]
+  },
+  {
+   "name": "Universidade Lueji A´Nkonde",
+   "nature": "publica",
+   "province": "Lunda Norte",
+   "courses": [
+    {
+     "name": "Engenharia em Geologia",
+     "students": 353,
+     "graduates": 25
+    },
+    {
+     "name": "Engenharia de Minas",
+     "students": 333,
+     "graduates": 32
+    },
+    {
+     "name": "Engenharia de Metalurgia e Materiais",
+     "students": 209,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Metalúrgica e Materiais",
+     "students": 0,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Universidade Mandume Ya Ndemufayo",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Engenharia em Geologia",
+     "students": 199,
+     "graduates": 35
+    },
+    {
+     "name": "Engenharia de Minas",
+     "students": 144,
+     "graduates": 37
+    },
+    {
+     "name": "Engenharia de Geologia",
+     "students": 31,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Técnica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Minas",
+     "students": 0,
+     "graduates": 10
+    },
+    {
+     "name": "Geologia",
+     "students": 0,
+     "graduates": 13
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Belas",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Petróleo",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Universidade do Namibe",
+   "nature": "publica",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Engenharia de Metalurgia e Materiais",
+     "students": 140,
+     "graduates": 0
+    },
+    {
+     "name": "Engenharia Metalúrgica e Materiais",
+     "students": 0,
+     "graduates": 28
+    }
+   ]
+  },
+  {
+   "name": "Universidades Jean Piaget",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleo",
+     "students": 0,
+     "graduates": 39
+    },
+    {
+     "name": "Refinação de Petróleos",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  }
+ ],
+ "training": [],
+ "employers": [
+  {
+   "name": "Agência Nacional de Petróleo, Gás e Biocombustíveis (ANPG)",
+   "sector": "estado",
+   "kind": "agencia",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.anpg.co.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Ministério dos Recursos Minerais, Petróleo e Gás (MIREMPET)",
+   "sector": "estado",
+   "kind": "ministerio",
+   "source": {
+    "label": "Estatuto Orgânico do Ministério dos Recursos Minerais, Petróleo e Gás (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-dos-recursos-minerais-petroleo-e-gas.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Geológico de Angola (IGEO)",
+   "sector": "estado",
+   "kind": "geologico",
+   "source": {
+    "label": "Decreto Presidencial n.º 16/19, Estatuto Orgânico do IGEO (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-geologico-de-angola-igeo-16a-19a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Endiama",
+   "sector": "mineracao",
+   "kind": "diamantes",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.endiama.co.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Sociedade Mineira de Catoca",
+   "sector": "mineracao",
+   "kind": "mina",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.catoca.com"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Azule Energy",
+   "sector": "energia",
+   "kind": "petrolifera",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.azule-energy.com"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Chevron",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 43,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "TotalEnergies",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 41,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Halliburton",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 11,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Southey Contracting Limitada",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 9,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Baker Hughes",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 7,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "SPIE Oil & Gas Services",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 6,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  },
+  {
+   "name": "Sercomoil Group",
+   "sector": "energia",
+   "kind": "anuncios",
+   "province": "Luanda",
+   "postings": 5,
+   "source": {
+    "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+    "url": "https://www.jobartis.com"
+   }
+  }
+ ]
+}

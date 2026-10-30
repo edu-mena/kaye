@@ -1,0 +1,583 @@
+{
+ "area": "agriculture",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Recursos Naturais e Ambiente",
+      "area": "agriculture",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 98,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia do Ambiente",
+      "area": "agriculture",
+      "students": 86,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Economia Agrária",
+      "area": "agriculture",
+      "students": 37,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 123,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 90,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 80,
+      "graduates": 2
+     },
+     {
+      "name": "Engenharia do Ambiente",
+      "area": "agriculture",
+      "students": 55,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bengo",
+    "nature": "publica",
+    "province": "Bengo",
+    "courses": [
+     {
+      "name": "Engenharia em Tecnologia Agro-Alimentar",
+      "area": "engineering",
+      "students": 93,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 89,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cazenga",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 75,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuanza Sul",
+    "nature": "publica",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Gestão de Empresas Agrárias",
+      "area": "agriculture",
+      "students": 138,
+      "graduates": 11
+     },
+     {
+      "name": "Agronomia",
+      "area": "agriculture",
+      "students": 128,
+      "graduates": 15
+     },
+     {
+      "name": "Zootecnia",
+      "area": "agriculture",
+      "students": 99,
+      "graduates": 8
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Libolo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Agronomia",
+      "area": "agriculture",
+      "students": 61,
+      "graduates": 0
+     },
+     {
+      "name": "Zootecnia",
+      "area": "agriculture",
+      "students": 13,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Nimi Ya Lukeni",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 92,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Waku-Cungo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Engenharia Agrária",
+      "area": "agriculture",
+      "students": 91,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Intituto Superior Politécnico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Agropecuária",
+      "area": "agriculture",
+      "students": 75,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão do Ambiente",
+      "area": "agriculture",
+      "students": 35,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia dos Recursos Naturais e Ambiente",
+      "area": "agriculture",
+      "students": 0,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 561,
+      "graduates": 10
+     },
+     {
+      "name": "Medicina Veterinária",
+      "area": "agriculture",
+      "students": 385,
+      "graduates": 14
+     },
+     {
+      "name": "Engenharia Florestal",
+      "area": "agriculture",
+      "students": 357,
+      "graduates": 9
+     },
+     {
+      "name": "Aquicultura",
+      "area": "agriculture",
+      "students": 176,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Agronomia",
+      "area": "agriculture",
+      "students": 276,
+      "graduates": 56
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Agronomia",
+      "area": "agriculture",
+      "students": 564,
+      "graduates": 53
+     },
+     {
+      "name": "Zootecnia",
+      "area": "agriculture",
+      "students": 151,
+      "graduates": 26
+     },
+     {
+      "name": "Engenharia Agronómica",
+      "area": "agriculture",
+      "students": 0,
+      "graduates": 29
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ambiente e Gestão do Território",
+      "area": "agriculture",
+      "students": 0,
+      "graduates": 97
+     },
+     {
+      "name": "Engenharia do Ambiente",
+      "area": "agriculture",
+      "students": 0,
+      "graduates": 16
+     }
+    ]
+   },
+   {
+    "name": "Universidade Onze de Novembro",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Engenharia Florestal",
+      "area": "agriculture",
+      "students": 168,
+      "graduates": 22
+     }
+    ]
+   },
+   {
+    "name": "Universidade Rainha Njinga a Mbande",
+    "nature": "publica",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia em Tecnologia Agro-Alimentar",
+      "area": "engineering",
+      "students": 207,
+      "graduates": 23
+     }
+    ]
+   },
+   {
+    "name": "Universidade do Namibe",
+    "nature": "publica",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Engenharia de Ambiente",
+      "area": "agriculture",
+      "students": 399,
+      "graduates": 46
+     },
+     {
+      "name": "Biologia Marinha",
+      "area": "agriculture",
+      "students": 392,
+      "graduates": 68
+     },
+     {
+      "name": "Recursos Marinhos",
+      "area": "agriculture",
+      "students": 179,
+      "graduates": 20
+     },
+     {
+      "name": "Aquicultura",
+      "area": "agriculture",
+      "students": 130,
+      "graduates": 20
+     },
+     {
+      "name": "Engenharia de Técnicas de Processamento de Pescado",
+      "area": "engineering",
+      "students": 105,
+      "graduates": 8
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Engenharia Agronómica",
+    "students": 1208,
+    "graduates": 41,
+    "institutions": 9
+   },
+   {
+    "name": "Agronomia",
+    "students": 1029,
+    "graduates": 124,
+    "institutions": 4
+   },
+   {
+    "name": "Engenharia Florestal",
+    "students": 525,
+    "graduates": 31,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia de Ambiente",
+    "students": 399,
+    "graduates": 46,
+    "institutions": 1
+   },
+   {
+    "name": "Biologia Marinha",
+    "students": 392,
+    "graduates": 68,
+    "institutions": 1
+   },
+   {
+    "name": "Medicina Veterinária",
+    "students": 385,
+    "graduates": 14,
+    "institutions": 1
+   },
+   {
+    "name": "Aquicultura",
+    "students": 306,
+    "graduates": 21,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia em Tecnologia Agro-Alimentar",
+    "students": 300,
+    "graduates": 23,
+    "institutions": 2
+   },
+   {
+    "name": "Zootecnia",
+    "students": 263,
+    "graduates": 34,
+    "institutions": 3
+   },
+   {
+    "name": "Recursos Marinhos",
+    "students": 179,
+    "graduates": 20,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia do Ambiente",
+    "students": 141,
+    "graduates": 17,
+    "institutions": 3
+   },
+   {
+    "name": "Gestão de Empresas Agrárias",
+    "students": 138,
+    "graduates": 11,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Técnicas de Processamento de Pescado",
+    "students": 105,
+    "graduates": 8,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Agrária",
+    "students": 91,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Agropecuária",
+    "students": 75,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Economia Agrária",
+    "students": 37,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão do Ambiente",
+    "students": 35,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Recursos Naturais e Ambiente",
+    "students": 0,
+    "graduates": 6,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia dos Recursos Naturais e Ambiente",
+    "students": 0,
+    "graduates": 22,
+    "institutions": 1
+   },
+   {
+    "name": "Ambiente e Gestão do Território",
+    "students": 0,
+    "graduates": 97,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [],
+ "salaries": null,
+ "employers": {
+  "named": [
+   {
+    "name": "Ministério da Agricultura e Florestas (MINAGRIF)",
+    "sector": "estado",
+    "kind": "agricultura",
+    "source": {
+     "label": "Estatuto Orgânico do Ministério da Agricultura e Floresta (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-agricultura-e-floresta.html"
+    }
+   },
+   {
+    "name": "Ministério das Pescas e Recursos Marinhos (MINPERMAR)",
+    "sector": "estado",
+    "kind": "pescas",
+    "source": {
+     "label": "Decreto Presidencial n.º 132/24, Estatuto Orgânico do Ministério das Pescas e Recursos Marinhos (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-das-pescas-e-recursos-marinhos-132a-24a.html"
+    }
+   },
+   {
+    "name": "Instituto de Desenvolvimento Agrário (IDA)",
+    "sector": "estado",
+    "kind": "desenvolvimento_agrario",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://ida.gov.ao"
+    }
+   },
+   {
+    "name": "Instituto de Desenvolvimento Florestal (IDF)",
+    "sector": "estado",
+    "kind": "florestal",
+    "source": {
+     "label": "Decreto Presidencial n.º 5/14, Estatuto Orgânico do Instituto de Desenvolvimento Florestal (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-de-desenvolvimento-florestal-5a-14a.html"
+    }
+   },
+   {
+    "name": "Instituto Nacional de Meteorologia e Geofísica (INAMET)",
+    "sector": "estado",
+    "kind": "meteorologia",
+    "source": {
+     "label": "Decreto Presidencial n.º 164/21, Estatuto Orgânico do INAMET (AngoLEX)",
+     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-meteorologia-e-geofisica-164a-21a.html"
+    }
+   },
+   {
+    "name": "Biocom, Companhia de Bioenergia de Angola",
+    "sector": "agricultura",
+    "kind": "agroindustria",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://biocom-angola.com"
+    }
+   }
+  ],
+  "jobAds": []
+ }
+}

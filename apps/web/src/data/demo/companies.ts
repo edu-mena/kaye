@@ -71,6 +71,9 @@ const SECTOR_CAREERS: Record<CompanySector, string[]> = {
   justica: ['juiz', 'procurador', 'oficial-de-justica', 'jurista'],
   comunicacao: ['jornalista', 'editor-de-video', 'tecnico-de-relacoes-publicas'],
   educacao: ['professor-do-ensino-primario', 'professor-de-matematica', 'educador-de-infancia'],
+  mineracao: ['engenheiro-de-minas', 'geologo', 'engenheiro-metalurgico'],
+  agricultura: ['engenheiro-agronomo', 'tecnico-agropecuario', 'zootecnico'],
+  turismo: ['gestor-hoteleiro', 'recepcionista-de-hotel', 'chefe-de-cozinha'],
   comercio: ['tecnico-comercial', 'gestor-de-loja', 'assistente-administrativo', 'tecnico-de-compras'],
 }
 
