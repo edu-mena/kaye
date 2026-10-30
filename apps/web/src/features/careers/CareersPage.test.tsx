@@ -49,6 +49,13 @@ describe('CareersPage', () => {
     expect(screen.getByRole('button', { name: /^Medicina/ })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /^Design/ })).not.toBeInTheDocument()
 
+    // Phones choose the area in a select.
+    const select = screen.getByRole('combobox', { name: 'Explora por área' })
+    expect(select).toHaveValue('health')
+    await userEvent.selectOptions(select, 'education')
+    expect(screen.getByRole('button', { name: /^Desporto e educação física/ })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^Medicina/ })).not.toBeInTheDocument()
+
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'turismo')
     expect(within(areas).getByRole('button', { name: 'Turismo e hotelaria' })).toHaveAttribute(
       'aria-pressed',
