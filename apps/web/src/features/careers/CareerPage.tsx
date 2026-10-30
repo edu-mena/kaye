@@ -653,17 +653,24 @@ function MarketSection({ career }: { career: Career }) {
           {market.trendPct === null ? (
             // A career the job sites do not show (the State hires by public competition): what is known instead.
             market.demandNote && (
-              <p className="text-sm font-light text-copy">
-                {market.demandNote.text}{' '}
-                <a
-                  href={market.demandNote.source.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-normal text-night underline underline-offset-2"
-                >
-                  {market.demandNote.source.label}
-                </a>
-              </p>
+              <div className="space-y-3">
+                {[market.demandNote, market.demandNote.salary].map(
+                  (note) =>
+                    note && (
+                      <p key={note.source.url} className="text-sm font-light text-copy">
+                        {note.text}{' '}
+                        <a
+                          href={note.source.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-normal text-night underline underline-offset-2"
+                        >
+                          {note.source.label}
+                        </a>
+                      </p>
+                    ),
+                )}
+              </div>
             )
           ) : (
             <>

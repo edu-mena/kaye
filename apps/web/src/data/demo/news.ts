@@ -1,6 +1,7 @@
 import type { NewsItem } from '../types'
 import { COMPANIES } from './companies'
 import { PROGRAMS } from './programs'
+import { PROJECT_NEWS } from './projectManagement'
 
 // DEMO DATA. What Kayé itself shipped is real (dates from the project history); the companies'
 // programs are real and sourced (dated when they reached Kayé); what the "Exemplo"
@@ -127,6 +128,6 @@ const YOUTH_PROGRAMS: NewsItem[] = COMPANIES.flatMap((company) =>
 )
 
 /** Newest first. */
-export const NEWS: NewsItem[] = [...KAYE, ...EXAMPLES, ...YOUTH_PROGRAMS].toSorted((a, b) =>
+export const NEWS: NewsItem[] = [...KAYE, ...EXAMPLES, ...YOUTH_PROGRAMS, ...PROJECT_NEWS].toSorted((a, b) =>
   b.date.localeCompare(a.date),
 )

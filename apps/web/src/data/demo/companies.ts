@@ -243,10 +243,16 @@ export const COMPANIES: Company[] = [
     website: 'https://www.bfa.ao',
     summary:
       'Banco angolano. Abre contas de forma totalmente digital nos balcões e investe em cibersegurança.',
-    careers: ['analista-de-ciberseguranca'],
+    careers: ['analista-de-ciberseguranca', 'gestor-de-projectos'],
     careersSourced: true,
+    /** It sponsored PMI Angola's 6th annual conference (2022). */
+    partners: ['pmi-angola-chapter'],
     sources: [
       { label: 'BFA, apresentação', url: 'https://bfa.ao/media/5265/bfa-apresentacao-institucional.pdf' },
+      {
+        label: 'BFA: 6.ª Conferência Anual do PMI Angola (2022)',
+        url: 'https://bfa.ao/en/bfa/current-news/news/6th-pmi-angola-chapter-conference/',
+      },
       { label: 'RTP África', url: 'https://rtpafrica.rtp.pt/?p=31654' },
     ],
   }),

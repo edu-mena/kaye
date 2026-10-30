@@ -40,12 +40,20 @@ export const OIL_MINING = buildArea(catalog as AreaData, {
     ],
     [
       /halliburton|baker hughes/,
-      ['engenheiro-de-perfuracao', 'engenheiro-de-petroleos', 'operador-de-producao-petrolifera'],
+      [
+        'engenheiro-de-perfuracao',
+        'engenheiro-de-petroleos',
+        'operador-de-producao-petrolifera',
+        'mecanico-de-sonda',
+        'tecnico-de-manutencao-mecanica',
+      ],
     ],
   ],
   fallback: [
     'engenheiro-de-petroleos',
     'operador-de-producao-petrolifera',
+    'tecnico-de-manutencao-mecanica',
+    'tecnico-de-instrumentacao',
     'tecnico-de-seguranca-no-trabalho',
   ],
   sector: 'energia',

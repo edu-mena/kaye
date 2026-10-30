@@ -6,6 +6,8 @@ import { CV_EXAMPLES } from './demo/cvExamples'
 import { withAreas } from './demo/areaCatalog'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
+import { OFFSHORE_COMPANIES, OIL_ACADEMIES } from './demo/offshoreTrades'
+import { PMI_ANGOLA, PROJECT_COMPANIES } from './demo/projectManagement'
 import { BUSINESS } from './demo/businessCatalog'
 import { HEALTH } from './demo/healthCatalog'
 import { HUMANITIES } from './demo/humanitiesCatalog'
@@ -61,7 +63,7 @@ export async function listPrograms(careerSlug?: string): Promise<Program[]> {
  * sciences, education and the five after it), with the courses their decrees create and approve (ADR 0011).
  */
 const AREA_ACADEMIES = withAreas(
-  [...ACADEMIES, SPECIALISATION_INSTITUTE],
+  [...ACADEMIES, SPECIALISATION_INSTITUTE, PMI_ANGOLA, ...OIL_ACADEMIES],
   [
     HEALTH.academies,
     BUSINESS.academies,
@@ -88,6 +90,8 @@ const ALL_COMPANIES = [
   ...AGRICULTURE.companies,
   ...LOGISTICS.companies,
   ...HOSPITALITY.companies,
+  ...PROJECT_COMPANIES,
+  ...OFFSHORE_COMPANIES,
 ]
 
 export async function listAcademies(): Promise<Academy[]> {

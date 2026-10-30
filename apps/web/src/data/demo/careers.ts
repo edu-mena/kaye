@@ -5,6 +5,8 @@ import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
 import { MEDICINE_GUIDES } from './medicineGuides'
 import { NURSING_GUIDES } from './nursingGuides'
+import { OFFSHORE_CAREERS, OFFSHORE_GUIDES } from './offshoreTrades'
+import { PROJECT_CAREERS, PROJECT_GUIDES } from './projectManagement'
 import { DIAGNOSIS_GUIDES } from './diagnosisGuides'
 import { PHARMACY_GUIDES } from './pharmacyGuides'
 import { REHABILITATION_GUIDES } from './rehabilitationGuides'
@@ -273,11 +275,13 @@ export const CAREER_SUMMARIES: CareerSummary[] = [
   ...TECH_CAREERS,
   ...HEALTH_CAREERS,
   ...BUSINESS_CAREERS,
+  ...PROJECT_CAREERS,
   ...HUMANITIES_CAREERS,
   ...SCIENCES_CAREERS,
   ...EDUCATION_CAREERS,
   ...ENGINEERING_CAREERS,
   ...OIL_MINING_CAREERS,
+  ...OFFSHORE_CAREERS,
   ...AGRICULTURE_CAREERS,
   ...LOGISTICS_CAREERS,
   ...HOSPITALITY_CAREERS,
@@ -865,4 +869,6 @@ export const CAREERS: Career[] = [
   ...ORAL_HEALTH_GUIDES,
   ...PUBLIC_HEALTH_GUIDES,
   ...MENTAL_HEALTH_GUIDES,
+  ...PROJECT_GUIDES,
+  ...OFFSHORE_GUIDES,
 ]

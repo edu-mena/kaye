@@ -33,6 +33,7 @@ export const CAREER_GROUPS = [
   'recursos_humanos',
   'comercial',
   'economia',
+  'gestao_projetos',
   // Law, public administration and the social and human sciences
   'advocacia',
   'justica',
@@ -60,6 +61,7 @@ export const CAREER_GROUPS = [
   'engenharia_industrial',
   'engenharia_electrica',
   'petroleo_gas',
+  'mecanica_offshore',
   'minas_geologia',
   'agricultura',
   'pecuaria',
@@ -97,6 +99,7 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   recursos_humanos: 'business',
   comercial: 'business',
   economia: 'business',
+  gestao_projetos: 'business',
   advocacia: 'legal',
   justica: 'legal',
   administracao_publica: 'public',
@@ -120,6 +123,7 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   engenharia_industrial: 'engineering',
   engenharia_electrica: 'engineering',
   petroleo_gas: 'oil_mining',
+  mecanica_offshore: 'oil_mining',
   minas_geologia: 'oil_mining',
   agricultura: 'agriculture',
   pecuaria: 'agriculture',
@@ -205,7 +209,12 @@ export type Market = {
   /** Null for a career the job sites do not show (the State hires it by public competition): see demandNote. */
   trendPct: number | null
   /** What is known of the demand instead of the job ads, with its source. */
-  demandNote?: { text: string; source: SourceLink }
+  demandNote?: {
+    text: string
+    source: SourceLink
+    /** What a published salary survey says, when no State table names the career. */
+    salary?: { text: string; source: SourceLink }
+  }
   salary: { p25: number; p50: number; p75: number; basis: string } | null
   /** Median monthly salary at each career stage (example data, or the State's table for its careers). */
   salaryByStage: { level: StageLevel; median: number }[]
