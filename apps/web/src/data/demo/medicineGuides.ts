@@ -1,7 +1,8 @@
 import type { Career, PathwayStep, Skill } from '../types'
 import { detailedHealthCareer as summaryOf } from './healthCareers'
 
-// The full guides of the medical careers (the Medicina group), from public sources:
+// The full guides of the medical careers (the Medicina group, and the public health doctor of the Saúde pública
+// group, who has the same career), from public sources:
 // - the specialities and how long each internship takes, how one enters it and the foreign degrees: Regulamento sobre
 //   o Internato Médico (Decreto Presidencial n.º 60/25, articles 9, 10, 40 and 41 and annex I);
 // - the categories and what each promotion asks: Regime Jurídico da Carreira Médica (Decreto Presidencial n.º 186/18);
@@ -196,8 +197,8 @@ type Spec = {
   /** The speciality as Decreto Presidencial n.º 60/25 names it, and its years of internship (annex I). */
   speciality: string
   years: number
-  /** Doctors in this speciality's internship in 2023 (MINSA). */
-  residents: number
+  /** Doctors in this speciality's internship in 2023 (MINSA), when the yearbook counts them. */
+  residents?: number
   /** What the doctor does and where; the guide adds the internship. */
   description: string
   dayToDay: string[]
@@ -211,7 +212,7 @@ function specialistGuide(spec: Spec): Career {
   const summary = summaryOf(spec.slug)
   return {
     ...summary,
-    description: `${spec.description} A especialização faz-se no internato de ${spec.speciality}, com ${spec.years} anos: ${MINSA} ${spec.residents} médicos nele.`,
+    description: `${spec.description} A especialização faz-se no internato de ${spec.speciality}, com ${spec.years} anos${spec.residents ? `: ${MINSA} ${spec.residents} médicos nele` : ''}.`,
     dayToDay: spec.dayToDay,
     workContext: spec.workContext,
     workStyles: spec.workStyles,
@@ -235,7 +236,7 @@ function specialistGuide(spec: Spec): Career {
       },
     ],
     stages: stages(spec.years, summary.name),
-    market: MARKET,
+    market: { ...MARKET, demand: summary.demand },
     cvGuide: CV_GUIDE,
   }
 }
@@ -804,6 +805,39 @@ export const MEDICINE_GUIDES: Career[] = [
       { id: 'biopsia-pele', name: 'Biópsia e pequena cirurgia da pele', importance: 'essencial' },
       { id: 'dermatoses-tropicais', name: 'Doenças da pele tropicais', importance: 'essencial' },
       { id: 'dermatologia-estetica', name: 'Dermatologia estética', importance: 'opcional' },
+    ],
+  }),
+  specialistGuide({
+    slug: 'medico-saude-publica',
+    speciality: 'Saúde Pública',
+    years: 3,
+    description:
+      'Cuida da saúde de uma população inteira, não de um doente de cada vez: vigia as doenças e os surtos, organiza vacinações e campanhas e planeia os serviços de saúde. Trabalha na Direcção Nacional de Saúde Pública, nos gabinetes provinciais de saúde e nos centros de saúde; pode exercer os poderes de autoridade sanitária e dirigir um centro de saúde (Decreto Presidencial n.º 186/18, artigo 11.º).',
+    dayToDay: [
+      'Analisar os dados das doenças de notificação obrigatória',
+      'Investigar e controlar surtos, como os de cólera e de sarampo',
+      'Organizar campanhas de vacinação',
+      'Inspeccionar e decidir como autoridade sanitária, quando designado',
+      'Planear as actividades dos centros de saúde',
+    ],
+    workContext: [
+      { label: 'Ambiente', value: 'Serviços de saúde pública, centros de saúde e trabalho de campo' },
+      { label: 'Horário', value: 'De dia, com alertas quando há surtos' },
+      { label: 'Equipa', value: 'Técnicos de saúde pública e ambiental, enfermeiros e estatísticos' },
+      { label: 'Local', value: 'Muitas deslocações às comunidades' },
+    ],
+    workStyles: [
+      'Pensar na população inteira',
+      'Gosto por números',
+      'Organização',
+      'Falar com comunidades',
+      'Calma em emergências',
+    ],
+    skills: [
+      { id: 'epidemiologia', name: 'Epidemiologia e vigilância', importance: 'essencial' },
+      { id: 'bioestatistica', name: 'Bioestatística', importance: 'essencial' },
+      { id: 'investigacao-surtos', name: 'Investigação de surtos', importance: 'essencial' },
+      { id: 'gestao-saude', name: 'Planeamento e gestão em saúde', importance: 'opcional' },
     ],
   }),
 ]

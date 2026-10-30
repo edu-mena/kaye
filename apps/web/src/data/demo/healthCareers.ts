@@ -5,7 +5,7 @@ import { entry, riasec, summary } from './careerSummary'
 // service (MINSA, Anuário Estatístico Sanitário 2023: who works there and the specialities in training), the
 // technical courses of Decreto Executivo Conjunto 97/11 and the job ads. Interest profiles approximate O*NET's.
 // Salaries: the State's 2026 base salary on entry to the career (Decreto Presidencial 16/26), for the careers with
-// a table (medical, nursing, and diagnosis and therapy as each guide comes); the others have none yet.
+// a table: medical, nursing, and diagnosis and therapy. The dentist and the medical sales rep have none.
 
 /** The medical career on entry (Médico Interno de Especialidade / Médico Geral), in Kz a month. */
 const MEDICAL = entry(410_165)
@@ -21,9 +21,9 @@ const SPECIALISED_TECHNICAL_NURSE = entry(180_955)
  * The diagnosis and therapy career (Decreto Presidencial n.º 188/18) with a degree, on entry (Técnico Superior de
  * Diagnóstico e Terapêutica de 2.ª Classe): the State opened only these places in 2026.
  */
-const DIAGNOSIS_GRADUATE = entry(361_910)
+const DIAGNOSIS_THERAPY_GRADUATE = entry(361_910)
 /** The same career with the technical course only, on entry (Técnico Médio de Diagnóstico e Terapêutica de 2.ª Classe). */
-const DIAGNOSIS_TECHNICIAN = entry(156_828)
+const DIAGNOSIS_THERAPY_TECHNICIAN = entry(156_828)
 
 const doctor = (slug: string, name: string, text: string, R: number, A: number, S: number) =>
   summary(slug, name, 'medicina', text, riasec(R, 0.85, A, S, 0.3, 0.35), 'alta', SPECIALIST)
@@ -219,7 +219,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Faz as análises ao sangue e a outras amostras que ajudam no diagnóstico.',
     riasec(0.55, 0.75, 0.1, 0.3, 0.15, 0.7),
     'media',
-    DIAGNOSIS_GRADUATE,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'tecnico-radiologia',
@@ -228,7 +228,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Faz raios-X, ecografias e TACs com segurança para o doente.',
     riasec(0.65, 0.6, 0.15, 0.5, 0.15, 0.55),
     'media',
-    DIAGNOSIS_GRADUATE,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'tecnico-anatomia-patologica',
@@ -237,7 +237,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Prepara tecidos e células para o patologista ver ao microscópio.',
     riasec(0.6, 0.75, 0.15, 0.2, 0.1, 0.7),
     'baixa',
-    DIAGNOSIS_TECHNICIAN,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'cardiopneumologista',
@@ -246,7 +246,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Faz electrocardiogramas e exames ao coração e aos pulmões.',
     riasec(0.55, 0.75, 0.1, 0.5, 0.15, 0.55),
     'media',
-    DIAGNOSIS_GRADUATE,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'tecnico-electromedicina',
@@ -255,7 +255,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Instala e repara os equipamentos dos hospitais: monitores, raios-X, laboratórios.',
     riasec(0.85, 0.6, 0.1, 0.25, 0.2, 0.5),
     'media',
-    DIAGNOSIS_GRADUATE,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'farmaceutico',
@@ -264,7 +264,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Garante que os medicamentos são os certos, seguros e bem usados.',
     riasec(0.3, 0.8, 0.1, 0.55, 0.35, 0.75),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'tecnico-farmacia',
@@ -273,7 +273,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Prepara e entrega medicamentos e explica às pessoas como os tomar.',
     riasec(0.45, 0.45, 0.1, 0.55, 0.3, 0.8),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'delegado-informacao-medica',
@@ -291,7 +291,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Ajuda as pessoas a recuperar o movimento depois de lesões, doenças ou cirurgias.',
     riasec(0.55, 0.65, 0.15, 0.85, 0.25, 0.35),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'nutricionista',
@@ -300,7 +300,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Planeia a alimentação de pessoas e doentes para melhorar a saúde.',
     riasec(0.25, 0.75, 0.2, 0.75, 0.35, 0.45),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'ortoprotesico',
@@ -309,7 +309,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Faz e adapta próteses e ortóteses para quem perdeu ou tem dificuldade num membro.',
     riasec(0.8, 0.55, 0.4, 0.55, 0.15, 0.45),
     'baixa',
-    null,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'ortoptista',
@@ -318,7 +318,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Avalia e trata problemas da visão, como o estrabismo, com o oftalmologista.',
     riasec(0.45, 0.7, 0.15, 0.7, 0.15, 0.5),
     'baixa',
-    null,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'medico-dentista',
@@ -336,7 +336,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Apoia o dentista nos tratamentos e cuida da higiene oral dos doentes.',
     riasec(0.65, 0.5, 0.2, 0.6, 0.2, 0.5),
     'baixa',
-    null,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'tecnico-saude-ambiental',
@@ -345,7 +345,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Controla água, lixo, mosquitos e alimentos para evitar doenças.',
     riasec(0.6, 0.65, 0.1, 0.45, 0.3, 0.55),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_TECHNICIAN,
   ),
   summary(
     'tecnico-saude-publica',
@@ -354,7 +354,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Organiza vacinação, rastreios e campanhas de prevenção nas comunidades.',
     riasec(0.35, 0.65, 0.15, 0.8, 0.45, 0.5),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
   summary(
     'psicologo-clinico',
@@ -363,7 +363,7 @@ export const HEALTH_CAREERS: CareerSummary[] = [
     'Avalia e acompanha pessoas com sofrimento psicológico, com consultas e terapia.',
     riasec(0.1, 0.8, 0.45, 0.9, 0.3, 0.35),
     'media',
-    null,
+    DIAGNOSIS_THERAPY_GRADUATE,
   ),
 ]
 

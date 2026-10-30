@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './demo/assessment'
-import { MEDICINE_GUIDES } from './demo/medicineGuides'
-import { NURSING_GUIDES } from './demo/nursingGuides'
-import { DIAGNOSIS_GUIDES } from './demo/diagnosisGuides'
+import { HEALTH_CAREERS } from './demo/healthCareers'
 import {
   getAssessment,
   getCareer,
@@ -15,7 +13,7 @@ import {
 import { GROUP_AREAS, RIASEC_KEYS } from './types'
 
 describe('demo data source', () => {
-  it('lists the careers area by area (27 of technology, 39 of health) and marks the curated ones', async () => {
+  it('lists the careers area by area (27 of technology, 39 of health) and marks the curated ones: all of health', async () => {
     const careers = await listCareers()
     const areas = careers.map((career) => GROUP_AREAS[career.group])
     expect(areas.filter((area) => area === 'technology')).toHaveLength(27)
@@ -24,9 +22,7 @@ describe('demo data source', () => {
       'desenvolvedor-frontend',
       'analista-de-dados',
       'designer-ui-ux',
-      ...MEDICINE_GUIDES.map((career) => career.slug),
-      ...NURSING_GUIDES.map((career) => career.slug),
-      ...DIAGNOSIS_GUIDES.map((career) => career.slug),
+      ...HEALTH_CAREERS.map((career) => career.slug),
     ])
   })
 

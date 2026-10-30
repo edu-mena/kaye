@@ -541,6 +541,136 @@ export const CAREER_IMAGES: Partial<Record<string, Photo>> = {
       url: 'https://commons.wikimedia.org/wiki/File:US_Army_biomedical_equipment_technician_trains_Burundian_counterparts_during_medical_exercise_(8550288).jpg',
     },
   ),
+  // The pharmacy careers (ADR 0010).
+  farmaceutico: photo(
+    'careers',
+    'farmaceutico',
+    'Farmacêutico sorri na sua farmácia, em Selebi-Phikwe, no Botswana',
+    {
+      author: 'Gamu Ndawana',
+      license: 'CC BY-SA 4.0',
+      url: "https://commons.wikimedia.org/wiki/File:Phikwe's_only_Private_Pharmacist.jpg",
+    },
+  ),
+  'tecnico-farmacia': photo(
+    'careers',
+    'tecnico-farmacia',
+    'Profissional de farmácia faz um teste rápido a uma doente, na Gâmbia',
+    {
+      author: 'Haddy Sowe',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Point_of_Care_Testing.jpg',
+    },
+  ),
+  'delegado-informacao-medica': photo(
+    'careers',
+    'delegado-informacao-medica',
+    'Farmacêutico mostra dois produtos numa farmácia, no Botswana',
+    {
+      author: 'Gamu Ndawana',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Pharmacist_in_Selebi_Phikwe.jpg',
+    },
+  ),
+  // The rehabilitation careers (ADR 0010).
+  fisioterapeuta: photo(
+    'careers',
+    'fisioterapeuta',
+    'Sessão de reabilitação no serviço de fisioterapia de um hospital de Douala, nos Camarões',
+    {
+      author: 'Happi Raphael',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Séance_de_Rééducation_-_Hopital_Douala_Cameroun_01.jpg',
+    },
+  ),
+  nutricionista: photo(
+    'careers',
+    'nutricionista',
+    'Nutricionista aconselha a mãe de uma criança desnutrida, num hospital de Jinja, no Uganda',
+    {
+      author: 'USAID in Africa',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:Uganda_Nutrition_(26941720597).jpg',
+    },
+  ),
+  ortoprotesico: photo(
+    'careers',
+    'ortoprotesico',
+    'Técnico ortoprotésico prova uma prótese da perna a um doente, numa oficina com várias próteses, na Indonésia',
+    {
+      author: 'Arie Basuki',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Pembuat_Kaki_Palsu.jpg',
+    },
+  ),
+  ortoptista: photo(
+    'careers',
+    'ortoptista',
+    'Profissional de saúde põe gotas nos olhos de um doente antes de uma cirurgia, num hospital de Lilongwe, no Malawi',
+    {
+      author: 'US Army Africa from Vicenza, Italy',
+      license: 'CC BY 2.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Optometry_Care_at_the_Kamuzu_Central_Hospital_2011.jpg',
+    },
+  ),
+  // The oral health careers (ADR 0010).
+  'medico-dentista': photo('careers', 'medico-dentista', 'Dentista trata um doente numa clínica dentária', {
+    author: 'Jameswasswa',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Precision_and_Care,_A_Dental_Procedure_in_Progress.jpg',
+  }),
+  'tecnico-estomatologia': photo(
+    'careers',
+    'tecnico-estomatologia',
+    'Profissionais de saúde oral atendem um doente numa clínica dentária',
+    {
+      author: 'Jameswasswa',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Modern_Dentistry_in_Practice.jpg',
+    },
+  ),
+  // The public health careers (ADR 0010).
+  'medico-saude-publica': photo(
+    'careers',
+    'medico-saude-publica',
+    'Equipa de resposta à cólera, com as caixas térmicas, no estado do Nilo Azul, no Sudão',
+    {
+      author: 'Wd adil',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Blue_nile_state_2.jpg',
+    },
+  ),
+  'tecnico-saude-ambiental': photo(
+    'careers',
+    'tecnico-saude-ambiental',
+    'Técnico de água e saneamento testa a qualidade da água num campo de deslocados',
+    {
+      author: 'Oxfam East Africa',
+      license: 'CC BY 2.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Ensuring_water_quality_(7831355868).jpg',
+    },
+  ),
+  'tecnico-saude-publica': photo(
+    'careers',
+    'tecnico-saude-publica',
+    'Duas agentes de saúde comunitária, de bata branca, na Etiópia',
+    {
+      author: 'USAID Africa Bureau',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:Community_Health_Workers_(5762479865).jpg',
+    },
+  ),
+  // The mental health careers (ADR 0010).
+  'psicologo-clinico': photo(
+    'careers',
+    'psicologo-clinico',
+    'Trabalhadoras de apoio psicossocial conversam com mulheres de uma comunidade, no Kivu do Sul, na República Democrática do Congo',
+    {
+      author: 'USAID Africa Bureau',
+      license: 'Public domain',
+      url: 'https://commons.wikimedia.org/wiki/File:Psychosocial_workers_help_rape_survivors_(5686874987).jpg',
+    },
+  ),
 }
 
 // Course photos, as an institution would publish them. Same licence rules as above.

@@ -10,6 +10,12 @@ const COMPETITION_2026 = {
   url: 'https://angolex.com/paginas/despachos/atribui-3037a-vagas-concurso-publico-ingresso-externo-ministerio-saude-servicos-superintendidos-42a-26a.html',
 }
 
+/** The Ministry of Health's 2023 yearbook. */
+export const MINSA_2023 = {
+  label: 'MINSA, Anuário Estatístico Sanitário 2023',
+  url: 'https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf',
+}
+
 export const NINTH: PathwayStep = {
   kind: 'academico',
   level: 'i_ciclo',
@@ -63,17 +69,20 @@ export function stageSalaries(...salaries: number[]): Career['market']['salaryBy
   return salaries.map((median, index) => ({ level: levels[index], median }))
 }
 
-/** The market of a career the State hires by competition: no ads or trend, the 2026 places instead. */
+/**
+ * The market of a career the job sites do not show: no ads or trend, what is known of the demand instead (a text
+ * about the 2026 places, whose source is the competition, or a text with its own source).
+ */
 export function stateMarket(
   demand: Career['market']['demand'],
   salaryByStage: Career['market']['salaryByStage'],
-  note: string,
+  note: string | NonNullable<Career['market']['demandNote']>,
   hiringSectors: string[],
 ) {
   return {
     demand,
     trendPct: null,
-    demandNote: { text: note, source: COMPETITION_2026 },
+    demandNote: typeof note === 'string' ? { text: note, source: COMPETITION_2026 } : note,
     salary: null,
     salaryByStage,
     postingsByMonth: [],

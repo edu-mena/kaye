@@ -226,6 +226,20 @@ describe('Market', () => {
       within(panel).getByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
     ).toHaveTextContent(/Técnico Especialista, com uma especialidade.*506.674 Kz/)
   })
+
+  it('shows no salary for a career no State table names, and says what is known with its source', async () => {
+    open('medico-dentista')
+    expect(await screen.findByRole('banner')).not.toHaveTextContent(/Kz\/mês/)
+    await openTab('Mercado')
+    const panel = screen.getByRole('tabpanel')
+    expect(panel).toHaveTextContent('330 123 consultas de estomatologia')
+    expect(
+      within(panel).getByRole('link', { name: /Anuário Estatístico Sanitário 2023/ }),
+    ).toBeInTheDocument()
+    expect(
+      within(panel).queryByRole('list', { name: 'Salário mediano por mês, em cada etapa' }),
+    ).not.toBeInTheDocument()
+  })
 })
 
 describe('Model CVs', () => {

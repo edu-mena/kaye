@@ -6,6 +6,11 @@ import { HUMANITIES_CAREERS } from './humanitiesCareers'
 import { MEDICINE_GUIDES } from './medicineGuides'
 import { NURSING_GUIDES } from './nursingGuides'
 import { DIAGNOSIS_GUIDES } from './diagnosisGuides'
+import { PHARMACY_GUIDES } from './pharmacyGuides'
+import { REHABILITATION_GUIDES } from './rehabilitationGuides'
+import { ORAL_HEALTH_GUIDES } from './oralHealthGuides'
+import { PUBLIC_HEALTH_GUIDES } from './publicHealthGuides'
+import { MENTAL_HEALTH_GUIDES } from './mentalHealthGuides'
 import { SCIENCES_CAREERS } from './sciencesCareers'
 import { EDUCATION_CAREERS } from './educationCareers'
 import { ENGINEERING_CAREERS } from './engineeringCareers'
@@ -855,4 +860,9 @@ export const CAREERS: Career[] = [
   ...MEDICINE_GUIDES,
   ...NURSING_GUIDES,
   ...DIAGNOSIS_GUIDES,
+  ...PHARMACY_GUIDES,
+  ...REHABILITATION_GUIDES,
+  ...ORAL_HEALTH_GUIDES,
+  ...PUBLIC_HEALTH_GUIDES,
+  ...MENTAL_HEALTH_GUIDES,
 ]

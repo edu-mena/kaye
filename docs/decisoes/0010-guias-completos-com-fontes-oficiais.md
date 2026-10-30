@@ -32,8 +32,14 @@
 - Os 7 395 médicos e 49 283 profissionais de enfermagem de 2023 são a linha "Total" da tabela 70 do anuário; somá-la às províncias dava o dobro, erro que o guia de Medicina tinha e foi corrigido.
 - O Diagnóstico (30/10/2026), terceiro grupo: as cinco profissões são da carreira dos Profissionais de Diagnóstico e Terapêutica (Decreto Presidencial n.º 188/18), que tem a sua tabela de 2026. Em 2026 o Estado abriu 588 vagas de Técnico Superior de Diagnóstico e Terapêutica e nenhuma de Técnico Médio (Despacho Conjunto n.º 42/26); por isso o salário de entrada é o do licenciado (361 910 Kz), menos em Anatomia Patológica, que só tem curso médio (156 828 Kz). Os alunos de cada licenciatura vêm do anuário do ensino superior de 2023/24.
 - O que os guias da saúde partilham (os passos da escola, o concurso de 2026, o mercado de quem o Estado contrata por concurso, o que evitar no CV) está em `data/demo/healthGuideParts.ts`.
+- Os últimos cinco grupos da saúde (30/10/2026): Farmácia, Reabilitação, Saúde oral, Saúde pública e Saúde mental. Com eles, as 39 profissões da saúde têm guia completo.
+  - Quase todas são da carreira de diagnóstico e terapêutica, cujas peças (salários, concursos, etapas, mercado) passam para `data/demo/diagnosisTherapyCareer.ts`. O salário de entrada é o do licenciado quando há licenciatura (farmacêutico, fisioterapeuta, nutricionista, técnico de saúde pública, psicólogo clínico) e o do técnico médio quando só há curso médio (técnico de farmácia, ortoprotésico, ortoptista, técnico de estomatologia, técnico de saúde ambiental).
+  - O médico de saúde pública fica com os médicos, porque é da carreira médica (ramo de Saúde Pública e Administração, Decreto Presidencial n.º 186/18; internato de 3 anos).
+  - Fontes próprias: o licenciamento farmacêutico, que exige a cada farmácia, distribuidor e importador um Director Técnico declarado pela Ordem dos Farmacêuticos (Decreto Presidencial n.º 41/24); a Ordem dos Fisioterapeutas, que desde 2025 pede curso superior, exame e 2 anos de estágio (Decreto Presidencial n.º 195/25); e o anuário do MINSA de 2023 (consultas de estomatologia, de fisioterapia e do Programa de Saúde Mental).
+  - O médico dentista e o delegado de informação médica não têm tabela do Estado nem anúncios: os guias não mostram salário e dizem o que se sabe, com a fonte.
+- As fotografias mostram profissionais de saúde em África; quando não há uma do trabalho em si, usa-se uma de trabalho próximo, com uma descrição fiel. Ficam de fora as que têm o nome da pessoa fotografada no ficheiro. A única de fora de África é a do ortoprotésico (uma oficina de próteses na Indonésia), porque nenhuma africana mostrava o trabalho.
 
 ## Consequências
 
 - O mesmo molde serve para os outros grupos: um ficheiro por grupo, as partes comuns uma vez, fontes oficiais.
-- Os guias de Medicina, Enfermagem e Diagnóstico ainda não têm CVs modelo.
+- Os guias da saúde ainda não têm CVs modelo.
