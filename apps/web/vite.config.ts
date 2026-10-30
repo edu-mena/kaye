@@ -3,17 +3,18 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// The same app is built twice:
+// The same app is built three ways:
 // - web (default): served by Laravel at /, assets under /spa, output in apps/api/public/spa
 // - native (`vite build --mode native`): bundled into the Capacitor apps, output in dist/
+// - static (`vite build --mode static`): a static site at / for test hosting (Vercel), output in dist/
 export default defineConfig(({ command, mode }) => {
-  const native = mode === 'native'
+  const standalone = mode === 'native' || mode === 'static'
 
   return {
     plugins: [react(), tailwindcss()],
-    base: command === 'build' && !native ? '/spa/' : '/',
+    base: command === 'build' && !standalone ? '/spa/' : '/',
     build: {
-      outDir: native ? 'dist' : '../api/public/spa',
+      outDir: standalone ? 'dist' : '../api/public/spa',
       emptyOutDir: true,
     },
     server: {
