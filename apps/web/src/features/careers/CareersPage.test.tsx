@@ -36,6 +36,29 @@ describe('CareersPage', () => {
     expect(screen.getByText(ALL, { selector: 'output' })).toBeInTheDocument()
   })
 
+  it('shows the groups of one area at a time, and the area of a group chosen in the filter', async () => {
+    renderWithApp(<CareersPage />)
+    const areas = await screen.findByRole('group', { name: 'Explora por área' })
+    expect(within(areas).getByRole('button', { name: 'Tecnologia e telecomunicações' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(screen.queryByRole('button', { name: /^Medicina/ })).not.toBeInTheDocument()
+
+    await userEvent.click(within(areas).getByRole('button', { name: 'Saúde' }))
+    expect(screen.getByRole('button', { name: /^Medicina/ })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^Design/ })).not.toBeInTheDocument()
+
+    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'turismo')
+    expect(within(areas).getByRole('button', { name: 'Turismo e hotelaria' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(
+      screen.getByRole('button', { name: /^Turismo e hotelaria.*profiss/, pressed: true }),
+    ).toBeInTheDocument()
+  })
+
   it('shows 12 careers a page and starts again on the first page when a filter changes', async () => {
     renderWithApp(<CareersPage />)
     const list = await screen.findByRole('region', { name: 'Todas as profissões' })

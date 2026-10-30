@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
@@ -21,6 +21,7 @@ import {
   type CareerGroup,
   type CareerSummary,
   type Demand,
+  type MarketArea,
 } from '../../data/types'
 import { SALARY_BANDS, findBand } from '../../domain/bands'
 import { filterCareers, type CareerSort } from '../../domain/careers'
@@ -246,36 +247,45 @@ type AreasProps = {
   onSelect: (value: CareerGroup | null) => void
 }
 
-/** The areas as tiles with their icon and how many careers each has; pressing one filters the list. */
+/**
+ * The areas of the catalogue (technology, health…) as a row of buttons and, below, the groups of the one chosen as
+ * tiles with their icon and how many careers each has; pressing a tile filters the list. One area at a time: all of
+ * them, with every group, would fill several screens.
+ */
 function Areas({ careers, selected, onSelect }: AreasProps) {
   const { t } = useTranslation()
+  const areas = MARKET_AREAS.filter((area) => careers.some((career) => GROUP_AREAS[career.group] === area))
+  const [shown, setShown] = useState<MarketArea | undefined>(selected ? GROUP_AREAS[selected] : areas[0])
+  // A group chosen elsewhere (the list's filter) brings its area into view.
+  const [seen, setSeen] = useState(selected)
+  if (selected !== seen) {
+    setSeen(selected)
+    if (selected) setShown(GROUP_AREAS[selected])
+  }
+  const tiles = CAREER_GROUPS.flatMap((group) => {
+    const count = careers.filter((career) => career.group === group).length
+    return GROUP_AREAS[group] !== shown || count === 0
+      ? []
+      : [
+          {
+            value: group,
+            icon: GROUP_ICONS[group],
+            label: t(`groups.${group}`),
+            note: t('careers.count', { count }),
+          },
+        ]
+  })
   return (
     <section aria-labelledby="areas">
       <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
-      {/* One block per area of the catalogue (technology, health…), each with its groups. */}
-      <div className="space-y-5">
-        {MARKET_AREAS.map((area) => {
-          const tiles = CAREER_GROUPS.flatMap((group) => {
-            const count = careers.filter((career) => career.group === group).length
-            return GROUP_AREAS[group] !== area || count === 0
-              ? []
-              : [
-                  {
-                    value: group,
-                    icon: GROUP_ICONS[group],
-                    label: t(`groups.${group}`),
-                    note: t('careers.count', { count }),
-                  },
-                ]
-          })
-          return tiles.length === 0 ? null : (
-            <div key={area}>
-              <h3 className="mb-2 text-xs font-semibold text-night">{t(`market.area_${area}`)}</h3>
-              <FilterTiles selected={selected} onSelect={onSelect} tiles={tiles} />
-            </div>
-          )
-        })}
-      </div>
+      <Segmented
+        label={t('careers.areasTitle')}
+        options={areas.map((area) => ({ value: area, label: t(`market.area_${area}`) }))}
+        value={shown ?? null}
+        onChange={(area) => area && setShown(area)}
+        className="mb-4"
+      />
+      <FilterTiles selected={selected} onSelect={onSelect} tiles={tiles} />
     </section>
   )
 }
