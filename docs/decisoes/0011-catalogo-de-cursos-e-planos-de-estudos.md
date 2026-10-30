@@ -15,6 +15,12 @@
 - **Academia:** os cursos em cartões de duas colunas; o cartão abre uma janela com a oferta (o que está por confirmar diz "Por confirmar"), o plano de estudos dessa instituição e "Ver mais sobre o curso", que leva à página do curso nessa instituição.
 - **Planos de estudos:** cada plano tem o decreto como fonte (`Curriculum.source`). Sem plano, a página diz que ainda não o temos; nunca se inventa uma disciplina. Os planos são transcritos à mão do PDF oficial, a começar pelos cursos de saúde.
 - Um nível novo, "Especialização", para as especialidades e especializações depois de um curso.
+- **Os primeiros planos (30/10/2026), todos da saúde**, em `data/demo/healthCourseDecrees.ts` (juntados às academias por `courseDecrees.ts`):
+  - as licenciaturas em Enfermagem, Ciências Farmacêuticas, Fisioterapia e Análises Clínicas da Escola Superior de Saúde Castelo (Decreto Executivo n.º 174/23);
+  - as licenciaturas em Enfermagem, Análises Clínicas, Ciências Farmacêuticas, Fisioterapia e Medicina Dentária do Instituto Superior Politécnico Ombaka (Decreto Executivo n.º 2/25), que o anuário de 2023/24 ainda não tinha;
+  - as especializações em Enfermagem em Urgência e Emergências, Bioquímica Clínica e Hematologia, Enfermagem Pediátrica e Enfermagem Gineco-Obstétrica do Instituto Superior Politécnico da Caála (Decretos Executivos n.º 367/25 a 370/25), em Novas Tecnologias Aplicadas à Saúde da Universidade José Eduardo dos Santos (n.º 92/23), em Educação para a Saúde do Instituto Superior Politécnico Tundavala (n.º 13/25) e em Informática Médica da Universidade Katyavala Bwila (n.º 421/25).
+  - A transcrição segue a ordem do decreto e corrige só gralhas evidentes ("Inmunologia").
+- **As 39 especialidades médicas** do Regulamento sobre o Internato Médico (Decreto Presidencial n.º 60/25, anexo I) entram como cursos do Instituto de Especialização em Saúde, que coordena os internatos (Decreto Presidencial n.º 151/21); sem plano de estudos, que o decreto não publica.
 
 ## Consequências
 

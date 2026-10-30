@@ -4,6 +4,8 @@ import { CAREER_SUMMARIES, CAREERS } from './demo/careers'
 import { COMPANIES } from './demo/companies'
 import { CV_EXAMPLES } from './demo/cvExamples'
 import { withAreas } from './demo/areaCatalog'
+import { withDecrees } from './demo/courseDecrees'
+import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
 import { BUSINESS } from './demo/businessCatalog'
 import { HEALTH } from './demo/healthCatalog'
 import { HUMANITIES } from './demo/humanitiesCatalog'
@@ -54,19 +56,26 @@ export async function listPrograms(careerSlug?: string): Promise<Program[]> {
 }
 
 /** GET /institutions — real ones, with public facts only. */
-/** The curated institutions and companies, and those of each area of the catalogue (health, business, humanities, sciences, education and the five after it). */
-const ALL_ACADEMIES = withAreas(ACADEMIES, [
-  HEALTH.academies,
-  BUSINESS.academies,
-  HUMANITIES.academies,
-  SCIENCES.academies,
-  EDUCATION.academies,
-  ENGINEERING.academies,
-  OIL_MINING.academies,
-  AGRICULTURE.academies,
-  LOGISTICS.academies,
-  HOSPITALITY.academies,
-])
+/**
+ * The curated institutions and companies, and those of each area of the catalogue (health, business, humanities,
+ * sciences, education and the five after it), with the courses their decrees create and approve (ADR 0011).
+ */
+const AREA_ACADEMIES = withAreas(
+  [...ACADEMIES, SPECIALISATION_INSTITUTE],
+  [
+    HEALTH.academies,
+    BUSINESS.academies,
+    HUMANITIES.academies,
+    SCIENCES.academies,
+    EDUCATION.academies,
+    ENGINEERING.academies,
+    OIL_MINING.academies,
+    AGRICULTURE.academies,
+    LOGISTICS.academies,
+    HOSPITALITY.academies,
+  ],
+)
+const ALL_ACADEMIES = withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)
 const ALL_COMPANIES = [
   ...COMPANIES,
   ...HEALTH.companies,

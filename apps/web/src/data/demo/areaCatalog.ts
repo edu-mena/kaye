@@ -49,12 +49,12 @@ export type AreaRules = {
   describe: (employer: Employer) => string
 }
 
-const fold = (text: string) =>
+export const fold = (text: string) =>
   text
     .normalize('NFD')
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
-const slug = (text: string) =>
+export const slug = (text: string) =>
   fold(text)
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')

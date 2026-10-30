@@ -22,6 +22,20 @@ describe('CatalogCoursePage', () => {
     )
   })
 
+  it('shows the plan of studies of the institution it was opened from, with its decree', async () => {
+    open('/cursos/curso/enfermagem?academia=escola-superior-de-saude-castelo')
+    const plan = await screen.findByRole('region', { name: 'Plano de estudos' })
+    expect(within(plan).getByRole('combobox', { name: 'Instituição' })).toHaveValue(
+      'escola-superior-de-saude-castelo',
+    )
+    expect(within(plan).getByRole('heading', { name: '1.º ano · 1.º semestre' })).toBeInTheDocument()
+    expect(within(plan).getByText('Introdução à Enfermagem')).toBeInTheDocument()
+    expect(within(plan).getByRole('link', { name: /Decreto Executivo n.º 174\/23/ })).toHaveAttribute(
+      'href',
+      expect.stringContaining('lex.ao'),
+    )
+  })
+
   it('says when no plan of studies is on record yet', async () => {
     open('/cursos/curso/medicina')
     expect(await screen.findByText(/Ainda não temos o plano de estudos deste curso/)).toBeInTheDocument()
