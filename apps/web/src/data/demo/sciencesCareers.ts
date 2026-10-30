@@ -7,7 +7,8 @@ import { riasec, summary } from './careerSummary'
 // Interest profiles approximate O*NET's. Demand reads the job ads. Salaries: the median of the State's 2026 base
 // salaries of the career (Decreto Presidencial 16/26), only where a table names the career.
 
-/** The scientific career (Estagiário de Investigação to Investigador Coordenador), in Kz a month. */
+/** The scientific career (Estagiário de Investigação to Investigador Coordenador), in Kz a month; Decreto Presidencial
+ * 17/26 adds a supplementary pay. */
 const RESEARCHER = 579_056
 /** The statisticians' senior staff (Técnico Superior de Estatística de 2.ª Classe to Assessor Principal). */
 const STATISTICIAN = 482_546

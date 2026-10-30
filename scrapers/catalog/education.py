@@ -37,7 +37,8 @@ MIN_POSTINGS = 2
 ANGOLEX = 'https://angolex.com/paginas/diversos/'
 STATUTES = 'https://angolex.com/paginas/decreto-presidencial/'
 # The State's 2026 base salaries (Decreto Presidencial n.º 16/26), each a table of ranks: the primary and secondary
-# school teachers, the nursery teachers, the lecturers, the pedagogical staff and the employment and training staff.
+# school teachers, the nursery teachers, the lecturers, the pedagogical staff and the employment and training staff
+# (the trainers' column, beside the specialists', has the same salaries).
 SALARY_TABLES = {
     'professores': f'{ANGOLEX}tabela-salarial-do-regime-especial-do-professor-do-ensino-primario-e-secundario-2026a.html',
     'educadores_infancia': f'{ANGOLEX}tabela-salarial-do-regime-especial-do-educador-de-infancia-2026a.html',

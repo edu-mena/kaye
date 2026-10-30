@@ -9,14 +9,15 @@ import { riasec, summary } from './careerSummary'
 
 /** Primary and secondary school teachers with a degree (Professor do 6.º Grau to 1.º Grau), in Kz a month. */
 const TEACHER = 482_546
-/** Nursery teachers of Nível I (6.º to 1.º Grau). */
-const NURSERY_TEACHER = 367_942
-/** Lecturers (Assistente Estagiário to Professor Catedrático). */
+/** Nursery teachers with a degree (Técnico Superior: Educador de Infância de Nível I do 3.º to 1.º Grau). */
+const NURSERY_TEACHER = 458_419
+/** Lecturers (Assistente Estagiário to Professor Catedrático); Decreto Presidencial 17/26 adds a supplementary pay. */
 const LECTURER = 579_056
 /** Especialista de Administração da Educação (6.º to 1.º Grau), the pedagogical staff with a degree. */
 const EDUCATION_SPECIALIST = 482_546
-/** Especialista de Emprego e Formação (Técnico Superior de 2.ª Classe to Assessor Principal). */
-const EMPLOYMENT_SPECIALIST = 482_546
+/** Formador and Especialista de Emprego e Formação, side by side in one table (Técnico Superior de 2.ª Classe to
+ * Assessor Principal). */
+const EMPLOYMENT_AND_TRAINING = 482_546
 
 export const EDUCATION_CAREERS: CareerSummary[] = [
   summary(
@@ -188,7 +189,7 @@ export const EDUCATION_CAREERS: CareerSummary[] = [
     'Ensina uma profissão a jovens e adultos em cursos curtos e práticos. Trabalha em centros de formação profissional, públicos e privados, e nas empresas.',
     riasec(0.45, 0.4, 0.25, 0.85, 0.5, 0.45),
     'media',
-    null,
+    EMPLOYMENT_AND_TRAINING,
   ),
   summary(
     'tecnico-de-emprego-e-formacao',
@@ -197,7 +198,7 @@ export const EDUCATION_CAREERS: CareerSummary[] = [
     'Ajuda quem procura emprego, organiza cursos de formação e acompanha os estágios nas empresas. Trabalha nos centros de emprego e de formação do Estado.',
     riasec(0.1, 0.4, 0.15, 0.85, 0.55, 0.7),
     'baixa',
-    EMPLOYMENT_SPECIALIST,
+    EMPLOYMENT_AND_TRAINING,
   ),
   summary(
     'professor-de-educacao-fisica',
