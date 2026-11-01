@@ -46,16 +46,37 @@ const PAGE_SIZE = 12
 /** How far down the demand scale a career is: 0 is "alta", the top of the highlights. */
 const demandRank = (demand: Demand) => DEMANDS.indexOf(demand)
 
+/** One slot of "Destaques" per area, so the row does not fill up with a single area's careers. */
+const HIGHLIGHT_BUCKETS: CareerGroup[][] = [
+  ['desenvolvimento', 'dados', 'infraestrutura', 'seguranca', 'telecomunicacoes', 'digital'],
+  ['gestao_projetos'],
+  [
+    'medicina',
+    'enfermagem',
+    'diagnostico',
+    'farmacia',
+    'reabilitacao',
+    'saude_oral',
+    'saude_publica',
+    'saude_mental',
+  ],
+]
+
 /**
- * The careers to put forward as "Destaques": full guide pages, ranked by how in-demand and how
- * well paid they are, so the highlights move with the market instead of a fixed pick.
+ * The careers to put forward as "Destaques": one full guide page per area above (tech, project
+ * management, health), the best in-demand and best-paid in each, so one area never crowds out
+ * the others.
  */
 function highlightCareers(careers: CareerSummary[]): CareerSummary[] {
-  return careers
+  const ranked = careers
     .filter((career) => career.detailed && career.image)
     .toSorted(
       (a, b) => demandRank(a.demand) - demandRank(b.demand) || (b.salaryMedian ?? 0) - (a.salaryMedian ?? 0),
     )
+  return HIGHLIGHT_BUCKETS.flatMap((groups) => {
+    const best = ranked.find((career) => groups.includes(career.group))
+    return best ? [best] : []
+  })
 }
 
 export default function CareersPage() {
