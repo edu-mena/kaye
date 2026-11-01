@@ -4,7 +4,7 @@ import { entry, riasec, summary } from './careerSummary'
 // Law, public administration and the social and human sciences, the fourth area of the catalogue
 // (scrapers/catalog/humanities.json): the professions behind the area's degrees (MESCTI yearbook 2023-2024), the
 // training of lawyers, magistrates and diplomats and the employers (courts, the Public Prosecutor, the State). Interest
-// profiles approximate O*NET's. Demand reads the job ads and the public competitions. Salaries: the State's 2026 base
+// profiles approximate O*NET's. Demand reads the job ads and the public competitions; law's and public administration's, the job ads alone. Salaries: the State's 2026 base
 // salary on entry to the career (Decreto Presidencial 16/26), only where a table names the career; the magistrates'
 // representation allowance is left out.
 
@@ -39,7 +39,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'advocacia',
     'Prepara contratos, pareceres e regulamentos para que a organização cumpra a lei. Trabalha em empresas, bancos e organismos públicos.',
     riasec(0.05, 0.6, 0.2, 0.4, 0.5, 0.8),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -57,7 +57,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'justica',
     'Julga os processos e decide segundo a lei, nos tribunais de comarca e nos superiores. Entra-se por concurso e pela formação do INEJ.',
     riasec(0.05, 0.75, 0.2, 0.5, 0.55, 0.7),
-    'media',
+    'baixa',
     JUDGE,
   ),
   summary(
@@ -66,7 +66,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'justica',
     'Dirige a investigação dos crimes, acusa em tribunal e defende a legalidade. Trabalha no Ministério Público, em todo o país.',
     riasec(0.05, 0.75, 0.15, 0.5, 0.65, 0.65),
-    'media',
+    'baixa',
     PROSECUTOR,
   ),
   summary(
@@ -75,7 +75,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'justica',
     'Trata dos processos no tribunal: notifica as partes, organiza os autos e cumpre as ordens do juiz. Começa como oficial de diligência e pode chegar a secretário judicial.',
     riasec(0.2, 0.3, 0.05, 0.4, 0.3, 0.9),
-    'media',
+    'baixa',
     COURT_OFFICER,
   ),
   summary(
@@ -102,7 +102,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'administracao_publica',
     'Prepara processos, pareceres e planos num ministério, governo provincial ou administração municipal. Entra-se por concurso público.',
     riasec(0.1, 0.45, 0.1, 0.45, 0.45, 0.85),
-    'alta',
+    'baixa',
     SENIOR_CIVIL_SERVANT,
   ),
   summary(
@@ -111,7 +111,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'administracao_publica',
     'Prepara e acompanha os concursos em que o Estado compra bens, obras e serviços, segundo a lei. Trabalha em ministérios, empresas públicas e fornecedores do Estado.',
     riasec(0.05, 0.45, 0.05, 0.3, 0.5, 0.9),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -129,7 +129,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'relacoes_internacionais',
     'Prepara e acompanha projectos com outros países e com organizações como a ONU ou a União Africana. Trabalha em ministérios, embaixadas e organizações internacionais.',
     riasec(0.05, 0.55, 0.2, 0.7, 0.6, 0.55),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -147,7 +147,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'investigacao_criminal',
     'Investiga os crimes, recolhe as provas e identifica os suspeitos para o Ministério Público. Trabalha no Serviço de Investigação Criminal.',
     riasec(0.45, 0.75, 0.1, 0.45, 0.5, 0.55),
-    'media',
+    'baixa',
     POLICE_OFFICER,
   ),
   summary(
@@ -156,7 +156,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'investigacao_criminal',
     'Comanda equipas de agentes na prevenção do crime e na ordem pública. Forma-se no Instituto Superior de Ciências Policiais e Criminais.',
     riasec(0.6, 0.35, 0.05, 0.55, 0.7, 0.6),
-    'media',
+    'baixa',
     POLICE_OFFICER,
   ),
   summary(
@@ -174,7 +174,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'psicologia',
     'Ajuda a escolher, formar e motivar as pessoas e a melhorar o ambiente de trabalho. Trabalha nos recursos humanos de empresas e em consultoras.',
     riasec(0.05, 0.65, 0.25, 0.75, 0.6, 0.5),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -219,7 +219,7 @@ export const HUMANITIES_CAREERS: CareerSummary[] = [
     'ciencias_sociais',
     'Apoia famílias, crianças e idosos em situação difícil e liga-os aos apoios que existem. Trabalha em hospitais, escolas, administrações municipais, ministérios e ONG.',
     riasec(0.1, 0.4, 0.15, 0.95, 0.4, 0.5),
-    'media',
+    'baixa',
     null,
   ),
   summary(

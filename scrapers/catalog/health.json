@@ -722,6 +722,30 @@
      "label": "Decreto Presidencial n.º 273/14 (AngoLEX)",
      "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-emergencias-medicas-inema-273a-14a.html"
     }
+   },
+   {
+    "name": "Elnor Pharma",
+    "kind": "distribuidora",
+    "source": {
+     "label": "Directório de empresas",
+     "url": "https://village.ai/company/elnor-pharma"
+    }
+   },
+   {
+    "name": "Pharmadis",
+    "kind": "distribuidora",
+    "source": {
+     "label": "Directório de empresas",
+     "url": "https://village.ai/company/pharmadis-sa"
+    }
+   },
+   {
+    "name": "Neofarma",
+    "kind": "distribuidora",
+    "source": {
+     "label": "Devex",
+     "url": "https://www.devex.com/organizations/neofarma-distribuidora-de-mediamentos-e-cosmeticos-lda-172313"
+    }
    }
   ],
   "public": [

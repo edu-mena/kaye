@@ -152,7 +152,7 @@ export const EDUCATION_CAREERS: CareerSummary[] = [
     'pedagogia',
     'Prepara os programas, os manuais e os métodos de ensino e ajuda os professores a melhorar as aulas. Trabalha em escolas, nas direcções de educação e nos institutos do Ministério da Educação.',
     riasec(0.1, 0.7, 0.45, 0.8, 0.45, 0.55),
-    'baixa',
+    'media',
     null,
   ),
   summary(
@@ -188,7 +188,7 @@ export const EDUCATION_CAREERS: CareerSummary[] = [
     'ensino_superior',
     'Ensina uma profissão a jovens e adultos em cursos curtos e práticos. Trabalha em centros de formação profissional, públicos e privados, e nas empresas.',
     riasec(0.45, 0.4, 0.25, 0.85, 0.5, 0.45),
-    'media',
+    'alta',
     EMPLOYMENT_AND_TRAINING,
   ),
   summary(

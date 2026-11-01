@@ -557,8 +557,14 @@ export const PROJECT_GUIDES: Career[] = [
 ]
 
 const CAREERS_BY_CERTIFICATION: [string, string[]][] = [
-  ['Project Management Professional (PMP)', ['gestor-de-projectos', 'gestor-de-projetos-de-ti']],
-  ['Certified Associate in Project Management (CAPM)', ['coordenador-de-projectos', 'gestor-de-projectos']],
+  [
+    'Project Management Professional (PMP)',
+    ['gestor-de-projectos', 'gestor-de-projetos-de-ti', 'tecnico-de-cooperacao-internacional'],
+  ],
+  [
+    'Certified Associate in Project Management (CAPM)',
+    ['coordenador-de-projectos', 'gestor-de-projectos', 'tecnico-de-cooperacao-internacional'],
+  ],
   ['Program Management Professional (PgMP)', ['gestor-de-programas-e-portfolio']],
   ['Portfolio Management Professional (PfMP)', ['gestor-de-programas-e-portfolio']],
   ['PMI Scheduling Professional (PMI-SP)', ['planeador-de-projectos']],

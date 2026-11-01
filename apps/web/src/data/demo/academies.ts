@@ -1,16 +1,26 @@
+import cinfotecBanner from '../../assets/academies/cinfotec-banner-800.webp'
+import cinfotecLogo from '../../assets/academies/cinfotec-logo.webp'
+import escola42Banner from '../../assets/academies/escola-42-luanda-banner-800.webp'
 import escola42Logo from '../../assets/academies/escola-42-luanda-logo.webp'
+import inefopBanner from '../../assets/academies/inefop-banner-800.webp'
 import inefopLogo from '../../assets/academies/inefop-logo.webp'
 import isptecBanner from '../../assets/academies/isptec-banner-800.webp'
 import isptecLogo from '../../assets/academies/isptec-logo.webp'
+import isuticBanner from '../../assets/academies/isutic-banner-800.webp'
 import itelBanner from '../../assets/academies/itel-banner-800.webp'
 import itelLogo from '../../assets/academies/itel-logo.webp'
 import uanBanner from '../../assets/academies/uan-banner-800.webp'
 import uanLogo from '../../assets/academies/uan-logo.webp'
 import ucanBanner from '../../assets/academies/ucan-banner-800.webp'
 import ucanLogo from '../../assets/academies/ucan-logo.webp'
+import ulaBanner from '../../assets/academies/ula-banner-800.webp'
 import ulaLogo from '../../assets/academies/ula-logo.webp'
 import umaBanner from '../../assets/academies/uma-banner-800.webp'
 import umaLogo from '../../assets/academies/uma-logo.webp'
+import umnBanner from '../../assets/academies/umn-banner-800.webp'
+import umnLogo from '../../assets/academies/umn-logo.webp'
+import utangaBanner from '../../assets/academies/utanga-banner-800.webp'
+import utangaLogo from '../../assets/academies/utanga-logo.webp'
 import type { Academy, AcademyOffer, SourceLink } from '../types'
 import { CAREER_SUMMARIES } from './careers'
 import { COURSES } from './programs'
@@ -32,6 +42,9 @@ const ACADEMY_COURSES = {
 const COURSE_CAREERS: Record<keyof typeof ACADEMY_COURSES, string[]> = {
   'engenharia-informatica': [
     'desenvolvedor-backend',
+    'engenheiro-de-qa',
+    'administrador-de-base-de-dados',
+    'product-manager',
     'desenvolvedor-full-stack',
     'engenheiro-de-dados',
     'engenheiro-devops',
@@ -124,6 +137,7 @@ export const ACADEMIES: Academy[] = [
   },
   {
     id: 'isutic',
+    banner: isuticBanner,
     name: 'ISUTIC',
     type: 'universidade',
     ownership: 'publica',
@@ -139,13 +153,13 @@ export const ACADEMIES: Academy[] = [
     website: 'https://isptec.co.ao',
     logo: isptecLogo,
     banner: isptecBanner,
-    name: 'ISPTEC',
+    name: 'Instituto Superior Politécnico de Tecnologias e Ciências',
     type: 'universidade',
     ownership: 'privada',
     province: 'Luanda',
     place: 'Luanda Sul',
     summary:
-      'Instituto Superior Politécnico de Tecnologias e Ciências. Começou em 2012, numa parceria com a Sonangol, e tem um laboratório de automação da Siemens.',
+      'O ISPTEC começou em 2012, numa parceria com a Sonangol, e tem um laboratório de automação da Siemens.',
     offers: [offer('engenharia-informatica', ENG_INF, 'licenciatura')],
     sources: [
       BAGUETE,
@@ -192,6 +206,7 @@ export const ACADEMIES: Academy[] = [
     id: 'ula',
     website: 'https://ula.co.ao',
     logo: ulaLogo,
+    banner: ulaBanner,
     name: 'Universidade Lusíada de Angola',
     type: 'universidade',
     ownership: 'privada',
@@ -229,6 +244,8 @@ export const ACADEMIES: Academy[] = [
   },
   {
     id: 'cinfotec',
+    logo: cinfotecLogo,
+    banner: cinfotecBanner,
     name: 'CINFOTEC',
     type: 'centro_formacao',
     ownership: 'publica',
@@ -252,6 +269,7 @@ export const ACADEMIES: Academy[] = [
     id: 'escola-42-luanda',
     website: 'https://42luanda.com',
     logo: escola42Logo,
+    banner: escola42Banner,
     name: 'Escola 42 Luanda',
     type: 'centro_formacao',
     ownership: null,
@@ -276,6 +294,7 @@ export const ACADEMIES: Academy[] = [
     id: 'inefop',
     website: 'https://inefop.gov.ao',
     logo: inefopLogo,
+    banner: inefopBanner,
     name: 'INEFOP',
     type: 'centro_formacao',
     ownership: 'publica',
@@ -293,6 +312,8 @@ export const ACADEMIES: Academy[] = [
   },
   {
     id: 'utanga',
+    logo: utangaLogo,
+    banner: utangaBanner,
     name: 'Universidade Técnica de Angola',
     type: 'universidade',
     ownership: 'privada',
@@ -306,6 +327,8 @@ export const ACADEMIES: Academy[] = [
   },
   {
     id: 'umn',
+    logo: umnLogo,
+    banner: umnBanner,
     name: 'Universidade Mandume ya Ndemufayo',
     type: 'universidade',
     ownership: 'publica',

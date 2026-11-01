@@ -20,7 +20,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'comunicacao_social',
     'Investiga, escreve e conta as notícias na televisão, na rádio, nos jornais e na internet. Trabalha numa redacção, muitas vezes na rua e com prazos curtos.',
     riasec(0.15, 0.6, 0.7, 0.55, 0.6, 0.35),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -38,7 +38,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'comunicacao_social',
     'Cuida da imagem de uma organização: prepara comunicados, organiza eventos e responde aos jornalistas. Trabalha em empresas, bancos e organismos públicos.',
     riasec(0.05, 0.3, 0.55, 0.75, 0.75, 0.45),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -47,7 +47,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'comunicacao_social',
     'Planeia e publica o que uma marca diz nas redes sociais e responde a quem lá escreve. Trabalha em empresas, agências de publicidade ou por conta própria.',
     riasec(0.1, 0.35, 0.75, 0.55, 0.65, 0.4),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -200,7 +200,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'ciencias_vida',
     'Analisa os alimentos e controla a higiene da produção, para que cheguem seguros a quem os come. Trabalha em fábricas de alimentos e bebidas e em laboratórios de controlo.',
     riasec(0.55, 0.7, 0.1, 0.2, 0.25, 0.8),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -227,7 +227,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'ciencias_exactas',
     'Analisa e transforma substâncias no laboratório, para controlar a qualidade e criar produtos. Trabalha nas indústrias petrolífera e de bebidas, no tratamento de água e em laboratórios.',
     riasec(0.5, 0.9, 0.15, 0.1, 0.2, 0.65),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -254,7 +254,7 @@ export const SCIENCES_CAREERS: CareerSummary[] = [
     'ciencias_exactas',
     'Planeia inquéritos e recenseamentos e tira conclusões dos números que recolhem. Trabalha no Instituto Nacional de Estatística, nos ministérios, em bancos e em organizações internacionais.',
     riasec(0.1, 0.85, 0.1, 0.2, 0.25, 0.85),
-    'media',
+    'baixa',
     STATISTICIAN,
   ),
   summary(

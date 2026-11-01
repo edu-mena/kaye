@@ -30,13 +30,24 @@ export const OIL_MINING = buildArea(catalog as AreaData, {
   ],
   employs: [
     [
-      /agencia nacional de petroleo|recursos minerais/,
-      ['engenheiro-de-petroleos', 'geologo', 'engenheiro-de-minas'],
+      /agencia nacional de petroleo/,
+      ['engenheiro-de-petroleos', 'geologo', 'geofisico', 'engenheiro-de-minas'],
     ],
+    [/recursos minerais/, ['engenheiro-de-petroleos', 'geologo', 'engenheiro-de-minas']],
     [/geologico/, ['geologo', 'geofisico']],
     [
-      /endiama|catoca/,
+      /endiama/,
       ['engenheiro-de-minas', 'geologo', 'engenheiro-metalurgico', 'tecnico-de-seguranca-no-trabalho'],
+    ],
+    [
+      /catoca/,
+      [
+        'engenheiro-de-minas',
+        'geologo',
+        'engenheiro-metalurgico',
+        'tecnico-de-seguranca-no-trabalho',
+        'operador-de-maquinas-pesadas',
+      ],
     ],
     [
       /halliburton|baker hughes/,

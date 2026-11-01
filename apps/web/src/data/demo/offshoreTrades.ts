@@ -24,7 +24,7 @@ import { riasec, summary } from './careerSummary'
 const GROUP: CareerGroup = 'mecanica_offshore'
 const WAGE = 'https://wageindicator.org/pt-ao/trabalho-em-angola/trabalho-e-salario/'
 
-const LAW_17_09: SourceLink = {
+export const LAW_17_09: SourceLink = {
   label: 'Decreto-Lei n.º 17/09: recrutamento no sector petrolífero (AngoLEX)',
   url: 'https://angolex.com/paginas/decreto-presidencial/regras-a-observar-no-recrutamento-e-formacao-de-trabalhadores-do-sector-petrolifero-17a-09a.html',
 }
@@ -114,7 +114,7 @@ const NINTH: PathwayStep = {
   months: null,
 }
 
-function technicalCourse(course: string): PathwayStep {
+export function technicalCourse(course: string): PathwayStep {
   return {
     kind: 'academico',
     level: 'medio_tecnico',
@@ -125,7 +125,7 @@ function technicalCourse(course: string): PathwayStep {
   }
 }
 
-function inpCourse(course: string): PathwayStep {
+export function inpCourse(course: string): PathwayStep {
   return {
     kind: 'formacao',
     title: `Formação em ${course} (Instituto Nacional de Petróleos ou outro centro)`,
@@ -137,7 +137,7 @@ function inpCourse(course: string): PathwayStep {
   }
 }
 
-const MEDICAL: PathwayStep = {
+export const MEDICAL: PathwayStep = {
   kind: 'certificacao',
   title: 'Exame médico para trabalho offshore',
   need: 'essencial',
@@ -147,7 +147,7 @@ const MEDICAL: PathwayStep = {
   months: null,
 }
 
-const BOSIET: PathwayStep = {
+export const BOSIET: PathwayStep = {
   kind: 'certificacao',
   title: 'BOSIET (ou T-BOSIET) com CA-EBS, da OPITO',
   need: 'essencial',
@@ -797,7 +797,184 @@ const employer = (
   sources: [source],
 })
 
+/** An employer outside Luanda or outside the offshore group; careersSourced is true only where an ad names the post. */
+const elsewhere = (
+  base: Company,
+  province: string,
+  place: string,
+  careersSourced: boolean,
+  group: CareerGroup = 'petroleo_gas',
+): Company => ({ ...base, province, place, careersSourced, areas: [group] })
+
+const MINE: CareerGroup = 'minas_geologia'
+
 export const OFFSHORE_COMPANIES: Company[] = [
+  elsewhere(
+    {
+      ...employer(
+        'angola-lng',
+        'Angola LNG',
+        'A fábrica de gás natural liquefeito do Soyo, a produzir desde 2013, com capacidade de 5,2 milhões de toneladas por ano. Os sócios são a Sonangol, a Chevron, a TotalEnergies, a BP e a Eni.',
+        [
+          'engenheiro-de-processos-de-refinacao',
+          'operador-de-producao-petrolifera',
+          'tecnico-de-manutencao-mecanica',
+          'tecnico-de-instrumentacao',
+        ],
+        ad(
+          'Angorecruta: vagas da Angola LNG (Julho de 2026)',
+          'https://angorecruta.com/a-angola-lng-abre-vagas-de-emprego-em-diversas-areas/',
+        ),
+      ),
+      website: 'https://www.angolalng.com',
+    },
+    'Zaire',
+    'Soyo',
+    false,
+  ),
+  elsewhere(
+    employer(
+      'refinaria-de-cabinda',
+      'Refinaria de Cabinda (Gemcorp)',
+      'Nova refinaria ligada à Gemcorp, com 10% da Sonangol. A primeira fase trata 30 mil barris por dia e arrancou em 2026.',
+      [
+        'engenheiro-de-processos-de-refinacao',
+        'operador-de-producao-petrolifera',
+        'tecnico-de-instrumentacao',
+      ],
+      ad(
+        'Ver Angola: arranque da refinaria de Cabinda (Fevereiro de 2026)',
+        'https://www.verangola.net/va/en/022026/Energy/47618/Cabinda-refinery-expected-to-start-selling-fuels-in-March.htm',
+      ),
+    ),
+    'Cabinda',
+    'Cabinda',
+    false,
+  ),
+  elsewhere(
+    employer(
+      'cnec-refinaria-do-lobito',
+      'CNEC (obra da Refinaria do Lobito)',
+      'Em Abril de 2026 anunciou vagas em 16 áreas para o projecto da Refinaria do Lobito, incluindo operadores de máquina e de grua.',
+      ['operador-de-maquinas-pesadas', 'rigger-e-operador-de-grua'],
+      ad(
+        'Angorecruta: vagas no projecto da Refinaria do Lobito (Abril de 2026)',
+        'https://angorecruta.com/a-empresa-cnec-vagas-em-16-areas-para-o-projecto-da-refinaria-do-lobito/',
+      ),
+    ),
+    'Benguela',
+    'Lobito',
+    true,
+    GROUP,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'sociedade-mineira-do-chitotolo',
+        'Sociedade Mineira do Chitotolo',
+        'Explora diamantes na Lunda Norte. Em Junho de 2026 anunciou vagas de engenheiro de minas, especialista em Micromine e metalurgista.',
+        ['engenheiro-de-minas', 'engenheiro-metalurgico'],
+        ad(
+          'Angorecruta: vagas do Chitotolo (Junho de 2026)',
+          'https://angorecruta.com/a-sociedade-mineira-do-chitotolo-abre-vagas-de-emprego-em-diversas-areas/',
+        ),
+      ),
+      sector: 'mineracao',
+    },
+    'Lunda Norte',
+    'Lunda Norte',
+    true,
+    MINE,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'sociedade-mineira-de-kaixepa',
+        'Sociedade Mineira de Kaixepa',
+        'Empresa mineira da Lunda Norte, com mais de 600 trabalhadores. Em Agosto de 2026 procurava um superintendente de metalurgia e técnicos de metalurgia e mecânica.',
+        ['engenheiro-metalurgico'],
+        ad(
+          'Angorecruta: vagas da Kaixepa (Agosto de 2026)',
+          'https://angorecruta.com/sociedade-mineira-de-kaixepa-recrutamento/',
+        ),
+      ),
+      sector: 'mineracao',
+    },
+    'Lunda Norte',
+    'Lunda Norte',
+    true,
+    MINE,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'sociedade-mineira-do-lulo',
+        'Sociedade Mineira do Lulo',
+        'Explora os diamantes aluvionares do Lulo, na Lunda Norte, de onde saiu o maior diamante conhecido de Angola, com 404 quilates. A Endiama e a australiana Lucapa são sócias.',
+        ['engenheiro-de-minas', 'geologo', 'operador-de-maquinas-pesadas'],
+        ad('Lucapa: projecto do Lulo', 'https://www.lucapa.com.au/projects/lulo/'),
+      ),
+      sector: 'mineracao',
+    },
+    'Lunda Norte',
+    'Lunda Norte',
+    false,
+    MINE,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'ozango-minerais',
+        'Ozango Minerais',
+        'A empresa angolana do projecto de terras raras de Longonjo, no Huambo, participada pela britânica Pensana e pelo Estado.',
+        ['engenheiro-de-minas', 'geologo', 'engenheiro-metalurgico'],
+        ad('Pensana: projecto de Longonjo', 'https://pensana.co.uk/longonjo-rare-earths-refinery-project'),
+      ),
+      sector: 'mineracao',
+    },
+    'Huambo',
+    'Longonjo',
+    false,
+    MINE,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'ango-alloys',
+        'Ango Alloys',
+        'Sociedade angolana que vai instalar uma fábrica de ferro-ligas. Em Maio de 2026 anunciou 28 vagas, de engenharia, produção e manutenção.',
+        ['engenheiro-metalurgico'],
+        ad(
+          'Angorecruta: 28 vagas (Maio de 2026)',
+          'https://angorecruta.com/a-ango-alloys-lda-abre-28-vagas-para-industria-de-producao-de-ferro-ligas/',
+        ),
+      ),
+      sector: 'industria',
+    },
+    'Icolo e Bengo',
+    'Icolo e Bengo',
+    false,
+    MINE,
+  ),
+  elsewhere(
+    {
+      ...employer(
+        'angola-iron-and-steel',
+        'Angola Iron and Steel Corporation',
+        'Em Setembro de 2026 anunciou 8 vagas, sobretudo de recursos humanos, para trabalhar no Dande, no Bengo.',
+        ['engenheiro-metalurgico'],
+        ad(
+          'Angorecruta: 8 vagas (Setembro de 2026)',
+          'https://angorecruta.com/recrutamento-8-vagas-na-empresa-angola-iron-and-steel-corporation/',
+        ),
+      ),
+      sector: 'industria',
+    },
+    'Bengo',
+    'Dande',
+    false,
+    MINE,
+  ),
   employer(
     'oceaneering-angola',
     'Oceaneering Angola',

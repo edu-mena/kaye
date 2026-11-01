@@ -13,7 +13,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'agricultura',
     'Planeia as culturas, escolhe sementes e adubos e combate as pragas para que a terra produza mais. Trabalha em fazendas, empresas agrícolas e no Instituto de Desenvolvimento Agrário.',
     riasec(0.8, 0.75, 0.15, 0.35, 0.45, 0.5),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -49,7 +49,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'agricultura',
     'Transforma os produtos do campo em alimentos e bebidas e controla a sua qualidade. Trabalha em fábricas de alimentos, de bebidas e de farinha.',
     riasec(0.65, 0.8, 0.15, 0.2, 0.4, 0.7),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -58,7 +58,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'pecuaria',
     'Trata e previne as doenças dos animais, de estimação e de criação, e inspecciona os alimentos de origem animal. Trabalha em clínicas, fazendas e nos serviços veterinários do Estado.',
     riasec(0.75, 0.85, 0.1, 0.6, 0.35, 0.45),
-    'baixa',
+    'media',
     null,
   ),
   summary(
@@ -67,7 +67,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'pecuaria',
     'Planeia a criação de gado, galinhas e porcos: a alimentação, a reprodução e a saúde dos animais. Trabalha em fazendas, aviários e fábricas de rações.',
     riasec(0.85, 0.7, 0.1, 0.3, 0.45, 0.55),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -103,7 +103,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'ambiente',
     'Estuda o impacto das obras e das fábricas no ambiente e projecta o tratamento de resíduos e de águas. Trabalha em consultoras, petrolíferas, construtoras e no Estado.',
     riasec(0.6, 0.85, 0.2, 0.35, 0.45, 0.6),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -112,7 +112,7 @@ export const AGRICULTURE_CAREERS: CareerSummary[] = [
     'ambiente',
     'Controla os resíduos, as descargas e as licenças ambientais de uma empresa. Trabalha nas equipas de ambiente e segurança de petrolíferas, minas e fábricas.',
     riasec(0.7, 0.6, 0.1, 0.35, 0.35, 0.75),
-    'media',
+    'alta',
     null,
   ),
 ]

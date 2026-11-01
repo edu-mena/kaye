@@ -127,6 +127,44 @@ export function buildArea(data: AreaData, rules: AreaRules): { academies: Academ
   return { academies: [...institutions, ...training], companies }
 }
 
+/** One employer in the job ads of two areas is one company, with the careers of both. */
+export function withoutRepeats(companies: Company[]): Company[] {
+  const byId = new Map<string, Company>()
+  for (const company of companies) {
+    const known = byId.get(company.id)
+    byId.set(
+      company.id,
+      known
+        ? {
+            ...known,
+            careers: [...new Set([...known.careers, ...company.careers])],
+            areas: [...new Set([...known.areas, ...company.areas])],
+          }
+        : company,
+    )
+  }
+  return [...byId.values()]
+}
+
+const sameOffer = (a: AcademyOffer, b: AcademyOffer) => a.course.id === b.course.id && a.level === b.level
+
+/** A curated offer takes the yearbook's figures for the same course at the same level, instead of showing it twice. */
+function mergeOffers(curated: AcademyOffer[], extra: AcademyOffer[]): AcademyOffer[] {
+  return [
+    ...curated.map((offer) => {
+      const found = extra.find((other) => sameOffer(other, offer))
+      if (!found) return offer
+      return {
+        ...found,
+        ...offer,
+        careers: [...new Set([...offer.careers, ...found.careers])],
+        areas: [...new Set([...offer.areas, ...found.areas])],
+      }
+    }),
+    ...extra.filter((other) => !curated.some((offer) => sameOffer(offer, other))),
+  ]
+}
+
 /**
  * The curated academies with the courses of every area added, then the institutions no curated entry covers.
  * One institution in two areas (Universidade Agostinho Neto teaches health and economics) is one academy.
@@ -146,7 +184,7 @@ export function withAreas(curated: Academy[], areas: Academy[][]): Academy[] {
     byName.delete(fold(academy.name))
     return {
       ...academy,
-      offers: [...academy.offers, ...extra.offers],
+      offers: mergeOffers(academy.offers, extra.offers),
       sources: [...academy.sources, ...extra.sources],
     }
   })

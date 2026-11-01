@@ -1,11 +1,20 @@
 import type { Career, CareerSummary, PathwayStep } from '../types'
 import { riasec, summary } from './careerSummary'
 import { BUSINESS_CAREERS } from './businessCareers'
+import { BUSINESS_GUIDES } from './businessGuides'
+import { COMMUNICATION_GUIDES } from './communicationGuides'
+import { EDUCATION_GUIDES } from './educationGuides'
+import { LAST_AREAS_GUIDES } from './lastAreasGuides'
+import { LEGAL_GUIDES } from './legalGuides'
+import { PUBLIC_GUIDES } from './publicGuides'
+import { SCIENCES_GUIDES } from './sciencesGuides'
+import { ENGINEERING_GUIDES } from './engineeringGuides'
 import { HEALTH_CAREERS } from './healthCareers'
 import { HUMANITIES_CAREERS } from './humanitiesCareers'
 import { MEDICINE_GUIDES } from './medicineGuides'
 import { NURSING_GUIDES } from './nursingGuides'
 import { OFFSHORE_CAREERS, OFFSHORE_GUIDES } from './offshoreTrades'
+import { OIL_MINING_GUIDES } from './oilMiningGuides'
 import { PROJECT_CAREERS, PROJECT_GUIDES } from './projectManagement'
 import { DIAGNOSIS_GUIDES } from './diagnosisGuides'
 import { PHARMACY_GUIDES } from './pharmacyGuides'
@@ -14,6 +23,7 @@ import { ORAL_HEALTH_GUIDES } from './oralHealthGuides'
 import { PUBLIC_HEALTH_GUIDES } from './publicHealthGuides'
 import { MENTAL_HEALTH_GUIDES } from './mentalHealthGuides'
 import { SCIENCES_CAREERS } from './sciencesCareers'
+import { market, SALARY, TECH_GUIDES } from './technologyGuides'
 import { EDUCATION_CAREERS } from './educationCareers'
 import { ENGINEERING_CAREERS } from './engineeringCareers'
 import { OIL_MINING_CAREERS } from './oilMiningCareers'
@@ -21,8 +31,8 @@ import { AGRICULTURE_CAREERS } from './agricultureCareers'
 import { LOGISTICS_CAREERS } from './logisticsCareers'
 import { HOSPITALITY_CAREERS } from './hospitalityCareers'
 
-// DEMO DATA. Profiles approximate O*NET interest profiles; demand and salaries are
-// illustrative, not measured. Real values come from curation (roadmap, Fase 0.4).
+// Profiles approximate O*NET interest profiles. Demand reads the job ads; the salaries are in the guides
+// (technologyGuides.ts).
 
 const TECH_CAREERS: CareerSummary[] = [
   summary(
@@ -31,8 +41,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'desenvolvimento',
     'Constrói os ecrãs de sites e apps: o que as pessoas veem e tocam.',
     riasec(0.3, 0.75, 0.55, 0.25, 0.3, 0.5),
-    'alta',
-    350000,
+    'baixa',
+    null,
   ),
   summary(
     'desenvolvedor-backend',
@@ -40,8 +50,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'desenvolvimento',
     'Programa o que corre nos servidores: dados, regras e segurança.',
     riasec(0.4, 0.85, 0.25, 0.2, 0.25, 0.6),
-    'alta',
-    420000,
+    'baixa',
+    null,
   ),
   summary(
     'desenvolvedor-full-stack',
@@ -49,8 +59,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'desenvolvimento',
     'Faz o frontend e o backend de um produto, de ponta a ponta.',
     riasec(0.35, 0.8, 0.4, 0.2, 0.3, 0.55),
-    'alta',
-    450000,
+    'media',
+    null,
   ),
   summary(
     'desenvolvedor-mobile',
@@ -58,8 +68,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'desenvolvimento',
     'Cria apps para Android e iPhone.',
     riasec(0.35, 0.8, 0.5, 0.2, 0.3, 0.5),
-    'media',
-    400000,
+    'baixa',
+    null,
   ),
   summary(
     'engenheiro-de-qa',
@@ -67,8 +77,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'desenvolvimento',
     'Encontra os erros antes dos utilizadores e automatiza testes.',
     riasec(0.35, 0.7, 0.15, 0.3, 0.2, 0.8),
-    'media',
-    300000,
+    'baixa',
+    null,
   ),
   summary(
     'analista-de-dados',
@@ -76,8 +86,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'dados',
     'Transforma números em respostas para quem decide.',
     riasec(0.2, 0.85, 0.2, 0.3, 0.35, 0.75),
-    'alta',
-    380000,
+    'media',
+    null,
   ),
   summary(
     'analista-de-bi',
@@ -85,8 +95,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'dados',
     'Cria painéis e relatórios que mostram como vai o negócio.',
     riasec(0.2, 0.7, 0.25, 0.3, 0.5, 0.75),
-    'media',
-    400000,
+    'baixa',
+    null,
   ),
   summary(
     'cientista-de-dados',
@@ -94,8 +104,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'dados',
     'Usa estatística e modelos para prever e explicar.',
     riasec(0.3, 0.95, 0.35, 0.2, 0.3, 0.55),
-    'media',
-    600000,
+    'baixa',
+    null,
   ),
   summary(
     'engenheiro-de-dados',
@@ -103,8 +113,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'dados',
     'Constrói os sistemas que recolhem e organizam os dados.',
     riasec(0.5, 0.8, 0.2, 0.15, 0.25, 0.7),
-    'media',
-    550000,
+    'baixa',
+    null,
   ),
   summary(
     'administrador-de-base-de-dados',
@@ -113,7 +123,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Mantém as bases de dados rápidas, seguras e sem perdas.',
     riasec(0.45, 0.65, 0.1, 0.15, 0.2, 0.85),
     'media',
-    450000,
+    null,
   ),
   summary(
     'administrador-de-sistemas',
@@ -121,8 +131,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'infraestrutura',
     'Mantém servidores e sistemas a funcionar todos os dias.',
     riasec(0.7, 0.65, 0.1, 0.25, 0.2, 0.7),
-    'alta',
-    350000,
+    'baixa',
+    null,
   ),
   summary(
     'administrador-de-redes',
@@ -131,7 +141,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Liga computadores, escritórios e pessoas à rede.',
     riasec(0.75, 0.65, 0.1, 0.25, 0.2, 0.65),
     'alta',
-    320000,
+    null,
   ),
   summary(
     'engenheiro-devops',
@@ -139,8 +149,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'infraestrutura',
     'Automatiza a forma como o software é testado e publicado.',
     riasec(0.65, 0.75, 0.15, 0.2, 0.3, 0.6),
-    'media',
-    650000,
+    'baixa',
+    null,
   ),
   summary(
     'tecnico-de-suporte',
@@ -149,7 +159,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Resolve os problemas técnicos das pessoas, ao vivo.',
     riasec(0.7, 0.5, 0.1, 0.65, 0.25, 0.6),
     'alta',
-    180000,
+    null,
   ),
   summary(
     'tecnico-de-hardware',
@@ -158,7 +168,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Monta, repara e mantém computadores e equipamentos.',
     riasec(0.9, 0.5, 0.15, 0.3, 0.2, 0.5),
     'media',
-    150000,
+    null,
   ),
   summary(
     'analista-de-ciberseguranca',
@@ -166,8 +176,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'seguranca',
     'Protege sistemas e dados contra ataques.',
     riasec(0.5, 0.85, 0.15, 0.2, 0.3, 0.7),
-    'alta',
-    600000,
+    'baixa',
+    null,
   ),
   summary(
     'tecnico-de-telecomunicacoes',
@@ -175,8 +185,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'telecomunicacoes',
     'Instala e mantém antenas, fibra e equipamentos de rede.',
     riasec(0.85, 0.55, 0.1, 0.25, 0.2, 0.55),
-    'alta',
-    220000,
+    'baixa',
+    null,
   ),
   summary(
     'engenheiro-de-telecomunicacoes',
@@ -184,8 +194,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'telecomunicacoes',
     'Desenha as redes que levam voz e internet ao país.',
     riasec(0.7, 0.8, 0.15, 0.2, 0.35, 0.5),
-    'media',
-    500000,
+    'baixa',
+    null,
   ),
   summary(
     'designer-ui-ux',
@@ -193,8 +203,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'design',
     'Desenha apps fáceis de usar, a partir do que as pessoas precisam.',
     riasec(0.15, 0.6, 0.85, 0.5, 0.35, 0.3),
-    'media',
-    350000,
+    'baixa',
+    null,
   ),
   summary(
     'designer-grafico',
@@ -202,8 +212,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'design',
     'Cria imagens, vídeos e marcas que comunicam.',
     riasec(0.3, 0.3, 0.95, 0.3, 0.4, 0.2),
-    'media',
-    200000,
+    'alta',
+    null,
   ),
   summary(
     'analista-de-sistemas',
@@ -212,7 +222,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Traduz o que o negócio precisa em sistemas que funcionam.',
     riasec(0.2, 0.7, 0.2, 0.5, 0.6, 0.6),
     'media',
-    450000,
+    null,
   ),
   summary(
     'gestor-de-projetos-de-ti',
@@ -220,8 +230,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'gestao',
     'Organiza pessoas, prazos e orçamentos para entregar projetos.',
     riasec(0.15, 0.45, 0.2, 0.6, 0.85, 0.65),
-    'media',
-    700000,
+    'baixa',
+    null,
   ),
   summary(
     'product-manager',
@@ -230,7 +240,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Decide o que um produto digital deve fazer e porquê.',
     riasec(0.1, 0.6, 0.45, 0.55, 0.85, 0.4),
     'baixa',
-    750000,
+    null,
   ),
   summary(
     'gestor-de-ti',
@@ -238,8 +248,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'gestao',
     'Dirige a tecnologia de uma empresa e a sua equipa.',
     riasec(0.2, 0.5, 0.15, 0.45, 0.85, 0.6),
-    'media',
-    800000,
+    'baixa',
+    null,
   ),
   summary(
     'comercial-de-ti',
@@ -247,8 +257,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'gestao',
     'Vende soluções de tecnologia e acompanha os clientes.',
     riasec(0.1, 0.35, 0.2, 0.65, 0.9, 0.4),
-    'alta',
-    300000,
+    'baixa',
+    null,
   ),
   summary(
     'formador-de-tic',
@@ -256,8 +266,8 @@ const TECH_CAREERS: CareerSummary[] = [
     'educacao',
     'Ensina tecnologia a jovens e adultos.',
     riasec(0.25, 0.55, 0.45, 0.9, 0.4, 0.35),
-    'media',
-    200000,
+    'baixa',
+    null,
   ),
   summary(
     'gestor-de-marketing-digital',
@@ -266,7 +276,7 @@ const TECH_CAREERS: CareerSummary[] = [
     'Faz marcas crescerem nas redes sociais e na internet.',
     riasec(0.1, 0.4, 0.7, 0.55, 0.8, 0.4),
     'alta',
-    250000,
+    null,
   ),
 ]
 
@@ -361,25 +371,7 @@ export const CAREERS: Career[] = [
       { id: 'acessibilidade', name: 'Acessibilidade', importance: 'opcional' },
       { id: 'figma', name: 'Figma', importance: 'opcional' },
     ],
-    employerAsks: {
-      postings: 58,
-      skills: [
-        { skillId: 'javascript', share: 0.86 },
-        { skillId: 'html-css', share: 0.79 },
-        { skillId: 'react', share: 0.62 },
-        { skillId: 'git', share: 0.55 },
-        { skillId: 'apis-rest', share: 0.48 },
-        { skillId: 'typescript', share: 0.31 },
-        { skillId: 'figma', share: 0.22 },
-      ],
-      education: [
-        { label: 'Licenciatura', share: 0.52 },
-        { label: 'Ensino médio técnico', share: 0.29 },
-        { label: 'Não exigem', share: 0.19 },
-      ],
-      experienceYearsMedian: 2,
-      certifications: [],
-    },
+    employerAsks: null,
     pathways: [
       {
         id: 'universitaria',
@@ -404,7 +396,7 @@ export const CAREERS: Career[] = [
             months: { min: 3, max: 6 },
           },
         ],
-        totalCost: { min: 1500000, max: 6300000 },
+        totalCost: null,
       },
       {
         id: 'tecnica',
@@ -445,7 +437,7 @@ export const CAREERS: Career[] = [
             months: { min: 6, max: 12 },
           },
         ],
-        totalCost: { min: 540000, max: 1900000 },
+        totalCost: null,
       },
       {
         id: 'autodidata',
@@ -480,7 +472,7 @@ export const CAREERS: Career[] = [
             months: { min: 3, max: 9 },
           },
         ],
-        totalCost: { min: 0, max: 250000 },
+        totalCost: null,
       },
     ],
     stages: [
@@ -515,26 +507,7 @@ export const CAREERS: Career[] = [
         responsibilities: ['Orienta a equipa', 'Escolhe tecnologias com o negócio'],
       },
     ],
-    market: {
-      demand: 'alta',
-      trendPct: 12,
-      salary: { p25: 250000, p50: 350000, p75: 520000, basis: '31 vagas e 9 relatos' },
-      salaryByStage: [
-        { level: 'estagio', median: 120000 },
-        { level: 'junior', median: 280000 },
-        { level: 'pleno', median: 480000 },
-        { level: 'senior', median: 800000 },
-      ],
-      postingsByMonth: [
-        { month: '2026-05', count: 40 },
-        { month: '2026-06', count: 42 },
-        { month: '2026-07', count: 41 },
-        { month: '2026-08', count: 44 },
-        { month: '2026-09', count: 46 },
-        { month: '2026-10', count: 47 },
-      ],
-      hiringSectors: ['Banca', 'Telecomunicações', 'Agências digitais', 'Startups'],
-    },
+    market: market(1, SALARY.software, ['Banca', 'Telecomunicações', 'Agências digitais', 'Startups']),
   },
   {
     ...base('analista-de-dados'),
@@ -583,23 +556,7 @@ export const CAREERS: Career[] = [
       { id: 'python', name: 'Python', importance: 'opcional' },
       { id: 'comunicacao-dados', name: 'Apresentar resultados', importance: 'opcional' },
     ],
-    employerAsks: {
-      postings: 64,
-      skills: [
-        { skillId: 'excel', share: 0.81 },
-        { skillId: 'sql', share: 0.78 },
-        { skillId: 'power-bi', share: 0.66 },
-        { skillId: 'python', share: 0.34 },
-        { skillId: 'estatistica', share: 0.3 },
-      ],
-      education: [
-        { label: 'Licenciatura', share: 0.61 },
-        { label: 'Mestrado', share: 0.12 },
-        { label: 'Não exigem', share: 0.27 },
-      ],
-      experienceYearsMedian: 2,
-      certifications: [{ name: 'Microsoft Power BI Data Analyst', share: 0.18 }],
-    },
+    employerAsks: null,
     pathways: [
       {
         id: 'universitaria',
@@ -626,7 +583,7 @@ export const CAREERS: Career[] = [
           },
           portfolio('Três análises com dados públicos (INE, BNA), com painel e conclusões.'),
         ],
-        totalCost: { min: 1440000, max: 5040000 },
+        totalCost: null,
       },
       {
         id: 'reconversao',
@@ -653,7 +610,7 @@ export const CAREERS: Career[] = [
           },
           portfolio('Três análises com dados públicos, explicadas como se fosse para um diretor.'),
         ],
-        totalCost: { min: 240000, max: 600000 },
+        totalCost: null,
       },
     ],
     stages: [
@@ -682,26 +639,7 @@ export const CAREERS: Career[] = [
         responsibilities: ['Define como a empresa mede o sucesso', 'Forma outros analistas'],
       },
     ],
-    market: {
-      demand: 'alta',
-      trendPct: 18,
-      salary: { p25: 280000, p50: 380000, p75: 560000, basis: '27 vagas e 11 relatos' },
-      salaryByStage: [
-        { level: 'estagio', median: 130000 },
-        { level: 'junior', median: 300000 },
-        { level: 'pleno', median: 520000 },
-        { level: 'senior', median: 850000 },
-      ],
-      postingsByMonth: [
-        { month: '2026-05', count: 30 },
-        { month: '2026-06', count: 31 },
-        { month: '2026-07', count: 33 },
-        { month: '2026-08', count: 36 },
-        { month: '2026-09', count: 38 },
-        { month: '2026-10', count: 39 },
-      ],
-      hiringSectors: ['Banca', 'Seguros', 'Telecomunicações', 'Retalho'],
-    },
+    market: market(6, SALARY.closestData, ['Banca', 'Seguros', 'Telecomunicações', 'Retalho']),
   },
   {
     ...base('designer-ui-ux'),
@@ -748,23 +686,7 @@ export const CAREERS: Career[] = [
       { id: 'acessibilidade', name: 'Acessibilidade', importance: 'opcional' },
       { id: 'html-css', name: 'HTML e CSS', importance: 'opcional' },
     ],
-    employerAsks: {
-      postings: 21,
-      skills: [
-        { skillId: 'figma', share: 0.9 },
-        { skillId: 'prototipagem', share: 0.62 },
-        { skillId: 'pesquisa-utilizadores', share: 0.43 },
-        { skillId: 'design-visual', share: 0.38 },
-        { skillId: 'html-css', share: 0.24 },
-      ],
-      education: [
-        { label: 'Licenciatura', share: 0.38 },
-        { label: 'Curso profissional', share: 0.24 },
-        { label: 'Não exigem (portfólio)', share: 0.38 },
-      ],
-      experienceYearsMedian: 1,
-      certifications: [{ name: 'Google UX Design', share: 0.14 }],
-    },
+    employerAsks: null,
     pathways: [
       {
         id: 'portfolio',
@@ -793,7 +715,7 @@ export const CAREERS: Career[] = [
             months: { min: 3, max: 6 },
           },
         ],
-        totalCost: { min: 120000, max: 600000 },
+        totalCost: null,
       },
       {
         id: 'universitaria',
@@ -811,7 +733,7 @@ export const CAREERS: Career[] = [
           },
           portfolio('Três casos completos, do problema ao teste com utilizadores.'),
         ],
-        totalCost: { min: 4800000, max: 4800000 },
+        totalCost: null,
       },
     ],
     stages: [
@@ -840,26 +762,7 @@ export const CAREERS: Career[] = [
         responsibilities: ['Lidera a equipa de design', 'Representa o utilizador na direção'],
       },
     ],
-    market: {
-      demand: 'media',
-      trendPct: 9,
-      salary: { p25: 220000, p50: 350000, p75: 500000, basis: '12 vagas e 6 relatos' },
-      salaryByStage: [
-        { level: 'estagio', median: 100000 },
-        { level: 'junior', median: 250000 },
-        { level: 'pleno', median: 420000 },
-        { level: 'senior', median: 700000 },
-      ],
-      postingsByMonth: [
-        { month: '2026-05', count: 15 },
-        { month: '2026-06', count: 15 },
-        { month: '2026-07', count: 16 },
-        { month: '2026-08', count: 16 },
-        { month: '2026-09', count: 17 },
-        { month: '2026-10', count: 17 },
-      ],
-      hiringSectors: ['Banca digital', 'Agências', 'Startups'],
-    },
+    market: market(0, SALARY.design, ['Banca digital', 'Agências', 'Startups']),
   },
   ...MEDICINE_GUIDES,
   ...NURSING_GUIDES,
@@ -871,4 +774,14 @@ export const CAREERS: Career[] = [
   ...MENTAL_HEALTH_GUIDES,
   ...PROJECT_GUIDES,
   ...OFFSHORE_GUIDES,
+  ...TECH_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...BUSINESS_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...OIL_MINING_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...ENGINEERING_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...EDUCATION_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...LEGAL_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...PUBLIC_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...SCIENCES_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...COMMUNICATION_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...LAST_AREAS_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
 ]

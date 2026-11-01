@@ -19,10 +19,16 @@ export const LOGISTICS = buildArea(catalog as AreaData, {
   careers: CAREER_SUMMARIES,
   courses: 'logística e transportes',
   courseCareers: [
-    [/engenharia/, ['engenheiro-de-transportes', 'gestor-de-logistica']],
+    [/engenharia/, ['engenheiro-de-transportes', 'gestor-de-logistica', 'inspector-de-aviacao-civil']],
     [
       /logistica/,
-      ['gestor-de-logistica', 'tecnico-de-logistica', 'tecnico-de-transportes', 'despachante-aduaneiro'],
+      [
+        'gestor-de-logistica',
+        'tecnico-de-logistica',
+        'tecnico-de-transportes',
+        'despachante-aduaneiro',
+        'gestor-portuario',
+      ],
     ],
   ],
   employs: [

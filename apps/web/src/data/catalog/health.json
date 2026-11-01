@@ -1330,6 +1330,33 @@
     "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-emergencias-medicas-inema-273a-14a.html"
    },
    "province": "Luanda"
+  },
+  {
+   "name": "Elnor Pharma",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Directório de empresas",
+    "url": "https://village.ai/company/elnor-pharma"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Pharmadis",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Directório de empresas",
+    "url": "https://village.ai/company/pharmadis-sa"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Neofarma",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Devex",
+    "url": "https://www.devex.com/organizations/neofarma-distribuidora-de-mediamentos-e-cosmeticos-lda-172313"
+   },
+   "province": "Benguela"
   }
  ]
 }

@@ -34,7 +34,7 @@ export const LOGISTICS_CAREERS: CareerSummary[] = [
     'logistica',
     'Trata dos papéis e dos impostos para a mercadoria entrar ou sair do país pela alfândega. Trabalha por conta própria ou em transitários, nos portos e aeroportos.',
     riasec(0.2, 0.45, 0.05, 0.4, 0.6, 0.9),
-    'baixa',
+    'media',
     null,
   ),
   summary(
@@ -61,7 +61,7 @@ export const LOGISTICS_CAREERS: CareerSummary[] = [
     'transportes',
     'Organiza a chegada dos navios e a carga e descarga dos contentores no porto. Trabalha nos portos de Luanda, do Lobito e do Namibe e nos terminais privados.',
     riasec(0.6, 0.45, 0.05, 0.35, 0.6, 0.75),
-    'media',
+    'baixa',
     null,
   ),
   summary(

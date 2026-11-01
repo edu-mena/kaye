@@ -21,7 +21,7 @@ export const HOSPITALITY_CAREERS: CareerSummary[] = [
     'turismo',
     'Recebe os hóspedes, faz as entradas e as saídas e resolve o que precisam durante a estadia. Trabalha em hotéis, resorts e alojamentos, por turnos.',
     riasec(0.15, 0.2, 0.15, 0.85, 0.55, 0.65),
-    'alta',
+    'baixa',
     null,
   ),
   summary(

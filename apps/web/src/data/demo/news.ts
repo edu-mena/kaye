@@ -1,6 +1,5 @@
 import type { NewsItem } from '../types'
 import { COMPANIES } from './companies'
-import { PROGRAMS } from './programs'
 import { PROJECT_NEWS } from './projectManagement'
 
 // DEMO DATA. What Kayé itself shipped is real (dates from the project history); the companies'
@@ -70,49 +69,6 @@ const KAYE: NewsItem[] = [
   },
 ]
 
-/** A made-up announcement from an "Exemplo" institution, about one of its courses. */
-function example(programId: string, date: string, title: string, summary: string): NewsItem {
-  const program = PROGRAMS.find((entry) => entry.id === programId)
-  if (!program) throw new Error(`Unknown program ${programId}`)
-  return {
-    id: `exemplo-${programId}`,
-    date,
-    kind: 'cursos',
-    title,
-    summary,
-    to: `/cursos/${program.id}`,
-    example: true,
-    careers: program.careers,
-  }
-}
-
-const EXAMPLES: NewsItem[] = [
-  example(
-    'eng-informatica-publica',
-    '2026-10-26',
-    'Universidade Pública Exemplo abre candidaturas',
-    'Engenharia Informática e Ciências da Computação: candidaturas até 15 de dezembro, com exame de acesso em janeiro.',
-  ),
-  example(
-    'web-react',
-    '2026-10-23',
-    'Nova turma de Desenvolvimento Web com React',
-    'A Academia Digital Exemplo abre uma turma pós-laboral em novembro, com 20 vagas.',
-  ),
-  example(
-    'analise-dados',
-    '2026-10-20',
-    'Desconto em Análise de Dados',
-    'A Academia Digital Exemplo dá 20% de desconto na inscrição até 30 de novembro.',
-  ),
-  example(
-    'figma-benguela',
-    '2026-10-18',
-    'Design de interfaces chega a Benguela',
-    'O Centro de Formação Exemplo Benguela abre o primeiro curso de Figma fora de Luanda.',
-  ),
-]
-
 /** The companies' programs for young people, from their public sources. */
 const YOUTH_PROGRAMS: NewsItem[] = COMPANIES.flatMap((company) =>
   company.programs.map((program, index): NewsItem => ({
@@ -128,6 +84,6 @@ const YOUTH_PROGRAMS: NewsItem[] = COMPANIES.flatMap((company) =>
 )
 
 /** Newest first. */
-export const NEWS: NewsItem[] = [...KAYE, ...EXAMPLES, ...YOUTH_PROGRAMS, ...PROJECT_NEWS].toSorted((a, b) =>
+export const NEWS: NewsItem[] = [...KAYE, ...YOUTH_PROGRAMS, ...PROJECT_NEWS].toSorted((a, b) =>
   b.date.localeCompare(a.date),
 )

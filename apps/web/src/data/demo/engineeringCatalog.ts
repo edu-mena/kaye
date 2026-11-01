@@ -57,7 +57,28 @@ export const ENGINEERING = buildArea(catalog as AreaData, {
       ['engenheiro-electrotecnico', 'engenheiro-hidraulico', 'engenheiro-de-energias-renovaveis'],
     ],
     [/laboratorio de engenharia/, ['engenheiro-civil', 'tecnico-de-obras', 'engenheiro-quimico']],
-    [/electricidade/, ['engenheiro-electrotecnico', 'tecnico-electricista', 'engenheiro-de-manutencao']],
+    [
+      /electricidade/,
+      [
+        'engenheiro-electrotecnico',
+        'tecnico-electricista',
+        'engenheiro-de-manutencao',
+        'engenheiro-de-energias-renovaveis',
+      ],
+    ],
+    [
+      /mota-engil|omatapalo|casais/,
+      [
+        'engenheiro-civil',
+        'tecnico-de-obras',
+        'medidor-orcamentista',
+        'topografo',
+        'desenhador-projectista',
+        'tecnico-electricista',
+        'tecnico-de-seguranca-no-trabalho',
+        'operador-de-maquinas-pesadas',
+      ],
+    ],
   ],
   fallback: [
     'engenheiro-civil',

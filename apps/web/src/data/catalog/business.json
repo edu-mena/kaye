@@ -1727,6 +1727,26 @@
    "province": "Luanda"
   },
   {
+   "name": "Shoprite Angola",
+   "sector": "comercio",
+   "kind": "retalho",
+   "source": {
+    "label": "Ver Angola, 2017: a Shoprite investe para quase duplicar a rede em Angola",
+    "url": "https://www.verangola.net/va/pt/042017/ComercioIndustria/7954/Sul-africanos-da-Shoprite-investem-mais-de--700-milhões-para-quase-duplicar-rede-em-Angola.htm"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Kero",
+   "sector": "comercio",
+   "kind": "retalho",
+   "source": {
+    "label": "Ver Angola, 2025: o Kero moderniza as suas 12 lojas",
+    "url": "https://www.verangola.net/va/pt/032025/Comercio/43781/Kero-vai-investir-830-milh%C3%B5es-de-kwanzas-na-moderniza%C3%A7%C3%A3o-das-suas-12-lojas.htm"
+   },
+   "province": "Luanda"
+  },
+  {
    "name": "RCS Angola",
    "sector": "comercio",
    "kind": "anuncios",

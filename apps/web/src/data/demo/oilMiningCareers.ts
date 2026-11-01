@@ -13,7 +13,7 @@ export const OIL_MINING_CAREERS: CareerSummary[] = [
     'petroleo_gas',
     'Estuda os reservatórios e planeia como tirar deles o petróleo e o gás. Trabalha nas petrolíferas, na ANPG e nas empresas de serviços, muitas vezes no mar.',
     riasec(0.7, 0.9, 0.15, 0.15, 0.45, 0.6),
-    'alta',
+    'baixa',
     null,
   ),
   summary(
@@ -22,7 +22,7 @@ export const OIL_MINING_CAREERS: CareerSummary[] = [
     'petroleo_gas',
     'Planeia e acompanha a perfuração dos poços, em terra e no mar. Trabalha em plataformas e nas empresas de serviços petrolíferos, por turnos.',
     riasec(0.8, 0.8, 0.1, 0.2, 0.45, 0.55),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -40,7 +40,7 @@ export const OIL_MINING_CAREERS: CareerSummary[] = [
     'petroleo_gas',
     'Opera e vigia os equipamentos que separam e bombeiam o petróleo nas plataformas. Trabalha no mar, em turnos de várias semanas.',
     riasec(0.9, 0.5, 0.05, 0.2, 0.3, 0.65),
-    'alta',
+    'media',
     null,
   ),
   summary(

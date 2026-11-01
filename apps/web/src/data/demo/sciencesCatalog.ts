@@ -39,7 +39,13 @@ export const SCIENCES = buildArea(catalog as AreaData, {
     [/navegacao/, ['oficial-da-marinha-mercante']],
     [
       /sistemas de informacao/,
-      ['analista-de-sistemas', 'administrador-de-sistemas', 'desenvolvedor-backend'],
+      [
+        'analista-de-sistemas',
+        'administrador-de-sistemas',
+        'desenvolvedor-backend',
+        'administrador-de-base-de-dados',
+        'analista-de-bi',
+      ],
     ],
     [
       /comercio internacional/,

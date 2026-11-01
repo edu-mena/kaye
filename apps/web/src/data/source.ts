@@ -3,15 +3,27 @@ import { QUESTIONS } from './demo/assessment'
 import { CAREER_SUMMARIES, CAREERS } from './demo/careers'
 import { COMPANIES } from './demo/companies'
 import { CV_EXAMPLES } from './demo/cvExamples'
-import { withAreas } from './demo/areaCatalog'
+import { withAreas, withoutRepeats } from './demo/areaCatalog'
+import { withImages } from './demo/academyImages'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
+import { HEALTH_SCHOOLS } from './demo/healthSchools'
+import { CERTIFICATION_CENTRES } from './demo/certificationCentres'
+import { EDUCATION_COMPANIES } from './demo/educationGuides'
+import { LEGAL_COMPANIES } from './demo/legalGuides'
+import { PUBLIC_COMPANIES } from './demo/publicGuides'
+import { SCIENCES_COMPANIES } from './demo/sciencesGuides'
+import { COMMUNICATION_COMPANIES } from './demo/communicationGuides'
+import { LAST_AREAS_COMPANIES } from './demo/lastAreasGuides'
+import { ENGINEERING_COMPANIES } from './demo/engineeringGuides'
 import { OFFSHORE_COMPANIES, OIL_ACADEMIES } from './demo/offshoreTrades'
 import { PMI_ANGOLA, PROJECT_COMPANIES } from './demo/projectManagement'
 import { BUSINESS } from './demo/businessCatalog'
+import { BUSINESS_SCHOOLS } from './demo/businessGuides'
 import { HEALTH } from './demo/healthCatalog'
 import { HUMANITIES } from './demo/humanitiesCatalog'
 import { SCIENCES } from './demo/sciencesCatalog'
+import { TECHNOLOGY } from './demo/technologyCatalog'
 import { EDUCATION } from './demo/educationCatalog'
 import { ENGINEERING } from './demo/engineeringCatalog'
 import { OIL_MINING } from './demo/oilMiningCatalog'
@@ -63,8 +75,17 @@ export async function listPrograms(careerSlug?: string): Promise<Program[]> {
  * sciences, education and the five after it), with the courses their decrees create and approve (ADR 0011).
  */
 const AREA_ACADEMIES = withAreas(
-  [...ACADEMIES, SPECIALISATION_INSTITUTE, PMI_ANGOLA, ...OIL_ACADEMIES],
   [
+    ...ACADEMIES,
+    SPECIALISATION_INSTITUTE,
+    PMI_ANGOLA,
+    ...OIL_ACADEMIES,
+    ...HEALTH_SCHOOLS,
+    ...BUSINESS_SCHOOLS,
+    ...CERTIFICATION_CENTRES,
+  ],
+  [
+    TECHNOLOGY.academies,
     HEALTH.academies,
     BUSINESS.academies,
     HUMANITIES.academies,
@@ -77,8 +98,8 @@ const AREA_ACADEMIES = withAreas(
     HOSPITALITY.academies,
   ],
 )
-const ALL_ACADEMIES = withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)
-const ALL_COMPANIES = [
+const ALL_ACADEMIES = withImages(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))
+const ALL_COMPANIES = withoutRepeats([
   ...COMPANIES,
   ...HEALTH.companies,
   ...BUSINESS.companies,
@@ -92,7 +113,14 @@ const ALL_COMPANIES = [
   ...HOSPITALITY.companies,
   ...PROJECT_COMPANIES,
   ...OFFSHORE_COMPANIES,
-]
+  ...ENGINEERING_COMPANIES,
+  ...EDUCATION_COMPANIES,
+  ...LEGAL_COMPANIES,
+  ...PUBLIC_COMPANIES,
+  ...SCIENCES_COMPANIES,
+  ...COMMUNICATION_COMPANIES,
+  ...LAST_AREAS_COMPANIES,
+])
 
 export async function listAcademies(): Promise<Academy[]> {
   return ALL_ACADEMIES

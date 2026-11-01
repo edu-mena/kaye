@@ -4,7 +4,7 @@ import { riasec, summary } from './careerSummary'
 // Management, finance and trade, the third area of the catalogue (scrapers/catalog/business.json): the professions
 // behind the area's degrees (MESCTI yearbook 2023-2024), the job ads (finance, administration and sales) and the
 // employers (banks, insurers, auditors and the State's finance bodies). Interest profiles approximate O*NET's.
-// Demand reads the job ads: "alta" where they ask for it most. No salaries yet: no public table for these careers.
+// Demand reads the job ads of the last 12 months. No salaries here: no public table; the guides quote the WageIndicator survey.
 
 export const BUSINESS_CAREERS: CareerSummary[] = [
   summary(
@@ -22,7 +22,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'contabilidade',
     'Lança faturas, recibos e pagamentos e mantém os livros em dia, depois do curso médio técnico. Apoia o contabilista certificado.',
     riasec(0.2, 0.35, 0.05, 0.25, 0.3, 0.9),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -49,7 +49,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'contabilidade',
     'Calcula e declara os impostos e acompanha as mudanças das leis fiscais. Trabalha em empresas, consultoras ou na AGT.',
     riasec(0.1, 0.6, 0.05, 0.3, 0.45, 0.85),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -85,7 +85,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'financas',
     'Avalia ações, obrigações e projetos para decidir onde investir. Trabalha em bancos, gestoras de fundos e no Fundo Soberano.',
     riasec(0.1, 0.75, 0.1, 0.15, 0.7, 0.7),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -94,7 +94,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'financas',
     'Acompanha os clientes em atraso e negocia o pagamento das dívidas. Comum em bancos, operadoras e distribuidoras.',
     riasec(0.15, 0.3, 0.05, 0.5, 0.6, 0.7),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -103,7 +103,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'banca_seguros',
     'Acompanha uma carteira de clientes do banco: contas, crédito, poupanças e seguros. É a porta de entrada mais comum na banca.',
     riasec(0.1, 0.3, 0.1, 0.7, 0.8, 0.6),
-    'alta',
+    'media',
     null,
   ),
   summary(
@@ -112,7 +112,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'banca_seguros',
     'Atende ao balcão: depósitos, levantamentos e transferências, com rigor no dinheiro. Muitos começam a carreira bancária aqui.',
     riasec(0.25, 0.2, 0.05, 0.55, 0.4, 0.85),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -130,7 +130,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'banca_seguros',
     'Mede os riscos de um banco ou seguradora (crédito, mercado, operações) e propõe limites. Uma área que os reguladores exigem.',
     riasec(0.1, 0.75, 0.05, 0.2, 0.5, 0.8),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -148,7 +148,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'banca_seguros',
     'Usa a matemática e a estatística para calcular o preço dos seguros e das pensões. Poucos e muito procurados pelas seguradoras.',
     riasec(0.15, 0.85, 0.05, 0.1, 0.4, 0.85),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -166,7 +166,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'banca_seguros',
     'Vende seguros a pessoas e empresas e acompanha-as quando precisam deles. Pode trabalhar por conta própria, registado na ARSEG.',
     riasec(0.1, 0.25, 0.1, 0.65, 0.85, 0.5),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -184,7 +184,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'gestao_empresas',
     'Estuda os problemas de outras empresas e propõe soluções: processos, estratégia, custos. Trabalha em consultoras e auditoras.',
     riasec(0.1, 0.7, 0.15, 0.5, 0.8, 0.6),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -202,7 +202,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'gestao_empresas',
     'Organiza a agenda, as reuniões e a comunicação de um diretor ou de uma administração. Exige discrição e boa escrita.',
     riasec(0.1, 0.2, 0.15, 0.6, 0.5, 0.85),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -211,7 +211,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'gestao_empresas',
     'Encontra fornecedores, negocia preços e garante que o que se compra chega a tempo. Também chamado procurement.',
     riasec(0.15, 0.4, 0.05, 0.4, 0.7, 0.75),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -220,7 +220,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'recursos_humanos',
     'Trata dos contratos, das férias, da formação e do dia a dia dos trabalhadores. O curso com mais estudantes desta área.',
     riasec(0.1, 0.3, 0.1, 0.75, 0.55, 0.7),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -229,7 +229,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'recursos_humanos',
     'Define como a empresa contrata, paga, forma e avalia as pessoas. Chega lá com anos de experiência em RH.',
     riasec(0.1, 0.35, 0.1, 0.8, 0.75, 0.6),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -265,7 +265,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'comercial',
     'Lidera a equipa de vendas, define metas e acompanha os grandes clientes. Chega lá quem vendeu bem durante anos.',
     riasec(0.1, 0.35, 0.1, 0.6, 0.9, 0.5),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -274,7 +274,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'comercial',
     'Decide como a marca se apresenta: campanhas, preços, promoções e estudos de mercado. Trabalha em bebidas, telecomunicações, banca e comércio.',
     riasec(0.1, 0.4, 0.6, 0.5, 0.8, 0.45),
-    'media',
+    'alta',
     null,
   ),
   summary(
@@ -301,7 +301,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'economia',
     'Estuda a produção, os preços e o emprego para explicar a economia e prever o que vem. Trabalha no BNA, ministérios, bancos e consultoras.',
     riasec(0.1, 0.85, 0.1, 0.35, 0.55, 0.65),
-    'media',
+    'baixa',
     null,
   ),
   summary(
@@ -310,7 +310,7 @@ export const BUSINESS_CAREERS: CareerSummary[] = [
     'economia',
     'Acompanha a inflação, o câmbio e o crescimento e escreve relatórios para decisores. Comum em bancos e no Estado.',
     riasec(0.1, 0.85, 0.1, 0.2, 0.45, 0.7),
-    'media',
+    'baixa',
     null,
   ),
 ]

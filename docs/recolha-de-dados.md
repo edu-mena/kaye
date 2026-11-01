@@ -202,7 +202,7 @@ Cada número entra com a fonte, o ano e a ligação (tabela `education_stats` em
 
 1. **Rever as ligações editoriais** (curso → carreiras e empresa → carreiras).
 2. **Confirmar as ofertas**: se o curso está acreditado e aberto, e a duração, o horário e o preço. A fonte certa é a instituição ou o Ministério do Ensino Superior.
-3. **Autorização das imagens.** Os logótipos (8) e os banners da UAN, do ISPTEC e do ITEL foram tirados dos sites oficiais a 25/10/2026. Os banners da UCAN e da Metodista e o logótipo da UAN vêm de páginas públicas que o Eduardo indicou. Tudo e estão em `apps/web/src/assets/academies/`. Antes de a app ser pública, cada instituição tem de autorizar o uso. Faltam o ISUTIC e o CINFOTEC (os sites não respondem) e os banners das restantes. Faltam também os contactos.
+3. **Autorização das imagens.** Das 157 instituições do catálogo (01/11/2026), 20 têm logótipo e 13 têm capa; as restantes mostram as iniciais e uma faixa escura. As imagens estão em `apps/web/src/assets/academies/`; a origem de cada uma (site oficial, Facebook, LinkedIn, Wikimedia, notícia) está em `scrapers/catalog/academy_images.csv`. Antes de a app ser pública, cada instituição tem de autorizar o uso. Faltam também os contactos.
 4. **Mais instituições:** as que estão em "Ainda por pesquisar".
 5. **Empresas pelas páginas de carreiras** (BAI, BFA, BIC, Unitel), para saber que profissões procuram hoje.
 6. **Juntar à app** os cursos novos (`informatica-multimedia`, `electronica-telecomunicacoes`, `redes-computadores`, `programacao`) e o nível mestrado.
