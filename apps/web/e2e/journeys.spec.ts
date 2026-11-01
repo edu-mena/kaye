@@ -33,8 +33,9 @@ test.describe('journeys', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(/^O teu perfil: I/)
     await expectAccessible(page)
 
-    // Only a few demo careers have a full page; Desenvolvedor Frontend is one of the five.
-    await page.getByRole('link', { name: /^Desenvolvedor Frontend/ }).click()
+    // Only some demo careers have a full page; this answer pattern (strong I and A) puts
+    // Designer Gráfico in the top recommendations.
+    await page.getByRole('link', { name: /^Designer Gráfico/ }).click()
     const fit = page.getByRole('region', { name: 'O meu encaixe' })
     await expect(fit.getByText(/^Combina (muito|em parte|pouco)$/)).toBeVisible()
     await expectAccessible(page)
@@ -57,21 +58,9 @@ test.describe('journeys', () => {
     expect(consoleErrors).toEqual([])
   })
 
-  test('comparing courses side by side', async ({ page, consoleErrors }) => {
-    await page.goto('/cursos?carreira=desenvolvedor-frontend')
-    const buttons = page.getByRole('button', { name: 'Comparar' })
-    await buttons.nth(0).click()
-    await buttons.nth(1).click()
-    await expect(page.getByText('2 cursos para comparar')).toBeVisible()
-    await expectAccessible(page)
-
-    await page.getByRole('link', { name: 'Comparar' }).click()
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Comparar cursos')
-    // Two courses, two column headers.
-    await expect(page.getByRole('table').getByRole('columnheader')).toHaveCount(2)
-    await expectAccessible(page)
-    expect(consoleErrors).toEqual([])
-  })
+  // "Comparar" (the Programa-based ranking and its compare tray) has no data to show while
+  // the fictional demo programs catalogue (data/demo/programs.ts) is empty; coverage for it
+  // returns once that ranking has real courses behind it again.
 
   test('a model CV becomes the start of the person’s own CV', async ({ page, consoleErrors }) => {
     await page.goto('/cv/modelos/frontend-primeiro-emprego')

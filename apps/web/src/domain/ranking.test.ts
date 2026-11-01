@@ -1,10 +1,45 @@
 import { describe, expect, it } from 'vitest'
-import { PROGRAMS } from '../data/demo/programs'
-import type { Program } from '../data/types'
+import type { Institution, Program } from '../data/types'
 import { MIN_REVIEWS, rankPrograms, recognitionBody, scorePrograms } from './ranking'
 
-const base = PROGRAMS[0]!
+const institution: Institution = {
+  id: 'uprivada',
+  name: 'Universidade Exemplo',
+  type: 'universidade',
+  ownership: 'privada',
+  province: 'Luanda',
+}
+
+const base: Program = {
+  id: 'eng-informatica',
+  institution,
+  course: { id: 'engenharia-informatica', name: 'Engenharia Informática' },
+  name: 'Licenciatura em Engenharia Informática',
+  level: 'licenciatura',
+  durationMonths: 60,
+  schedule: ['diurno', 'pos_laboral'],
+  totalCost: 1800000,
+  recognized: true,
+  rating: { average: 4, count: 20 },
+  careers: ['desenvolvedor-frontend'],
+}
 const course = (change: Partial<Program>): Program => ({ ...base, ...change })
+
+const CATALOGUE: Program[] = [
+  course({ id: 'eng-informatica', totalCost: 1800000, rating: { average: 3.7, count: 28 } }),
+  course({
+    id: 'web-react',
+    totalCost: 280000,
+    rating: { average: 4.6, count: 12 },
+    schedule: ['pos_laboral', 'online'],
+  }),
+  course({
+    id: 'bootcamp-frontend',
+    recognized: false,
+    totalCost: 150000,
+    rating: { average: 4.9, count: 40 },
+  }),
+]
 
 describe('scorePrograms', () => {
   it('ignores a rating with too few reviews and gives its weight to the others', () => {
@@ -35,14 +70,14 @@ describe('scorePrograms', () => {
   })
 
   it('never uses the market criterion yet (Fase 2)', () => {
-    for (const item of scorePrograms(PROGRAMS)) {
+    for (const item of scorePrograms(CATALOGUE)) {
       expect(item.criteria.find((criterion) => criterion.key === 'market')?.value).toBeNull()
     }
   })
 })
 
 describe('rankPrograms', () => {
-  const scored = scorePrograms(PROGRAMS)
+  const scored = scorePrograms(CATALOGUE)
 
   it('ranks only recognised courses and lists the others apart', () => {
     const { ranked, unrecognized } = rankPrograms(scored, 'score')

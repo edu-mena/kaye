@@ -14,11 +14,12 @@ test.describe('app shell', () => {
 
   test('tabs navigate without reloading the page', async ({ page, consoleErrors }) => {
     await page.goto('/')
-    await page.getByRole('link', { name: 'Cursos' }).click()
+    const nav = page.getByRole('navigation', { name: 'Navegação principal' })
+    await nav.getByRole('link', { name: 'Cursos' }).click()
 
     await expect(page).toHaveURL(/\/cursos$/)
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Cursos')
-    await expect(page.getByRole('link', { name: 'Cursos' })).toHaveAttribute('aria-current', 'page')
+    await expect(nav.getByRole('link', { name: 'Cursos' })).toHaveAttribute('aria-current', 'page')
     expect(consoleErrors).toEqual([])
   })
 

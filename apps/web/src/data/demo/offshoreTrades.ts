@@ -24,7 +24,7 @@ import { riasec, summary } from './careerSummary'
 const GROUP: CareerGroup = 'mecanica_offshore'
 const WAGE = 'https://wageindicator.org/pt-ao/trabalho-em-angola/trabalho-e-salario/'
 
-export const LAW_17_09: SourceLink = {
+const LAW_17_09: SourceLink = {
   label: 'Decreto-Lei n.º 17/09: recrutamento no sector petrolífero (AngoLEX)',
   url: 'https://angolex.com/paginas/decreto-presidencial/regras-a-observar-no-recrutamento-e-formacao-de-trabalhadores-do-sector-petrolifero-17a-09a.html',
 }
