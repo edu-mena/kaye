@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import heroLarge from '../../assets/heroes/cursos-1600.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
-import { Icon, type IconName } from '../../components/icons'
-import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
+import type { IconName } from '../../components/icons'
+import { ListHero } from '../../components/ListHero'
 import { ListSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
@@ -75,14 +75,15 @@ export default function TrainingPage() {
 
           return (
             <>
-              <Hero
+              <Hero courses={courses} />
+
+              <CourseCatalogue
                 courses={courses}
+                careers={careers}
                 career={career}
                 careerOptions={careerOptions}
-                onCareer={(value) => setFilter('carreira', value || null)}
+                onCareer={(value) => setFilter('carreira', value)}
               />
-
-              <CourseCatalogue courses={courses} career={career} />
 
               <section aria-labelledby="levels">
                 <SectionHeading id="levels" title={t('training.levelsTitle')} icon="cap" />
@@ -109,7 +110,10 @@ export default function TrainingPage() {
               <section aria-labelledby="ranking">
                 <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                   <div>
-                    <h2 id="ranking" className="text-xl font-extrabold text-night sm:text-2xl">
+                    <h2
+                      id="ranking"
+                      className={`text-xl font-extrabold text-night sm:text-2xl ${careerName ? '' : 'sr-only'}`}
+                    >
                       {careerName
                         ? t('training.forCareer', { career: careerName })
                         : t('training.allCourses')}
@@ -236,13 +240,10 @@ export default function TrainingPage() {
 
 type HeroProps = {
   courses: CatalogCourse[]
-  career: string | null
-  careerOptions: { value: string; label: string }[]
-  onCareer: (value: string) => void
 }
 
-/** The question the page answers (which career?), the catalogue's numbers and a photo of students. */
-function Hero({ courses, career, careerOptions, onCareer }: HeroProps) {
+/** The catalogue's numbers and a photo of students. */
+function Hero({ courses }: HeroProps) {
   const { t, i18n } = useTranslation()
   const stats: { icon: IconName; value: string | number; label: string }[] = [
     { icon: 'cap', value: courses.length, label: t('training.statCourses') },
@@ -263,33 +264,8 @@ function Hero({ courses, career, careerOptions, onCareer }: HeroProps) {
       title={t('training.title')}
       body={t('training.body')}
       stats={stats}
-      control={
-        <label className="block">
-          <span className="block text-xs font-light text-muted">{t('training.careerLabel')}</span>
-          <span className="mt-2 block">
-            <HeroField icon="briefcase">
-              <select
-                value={career ?? ''}
-                onChange={(event) => onCareer(event.target.value)}
-                className={HERO_CONTROL}
-              >
-                <option value="">{t('training.allCareers')}</option>
-                {careerOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <Icon
-                name="chevronRight"
-                className="pointer-events-none absolute top-1/2 right-5 size-5 -translate-y-1/2 rotate-90 text-night"
-              />
-            </HeroField>
-          </span>
-        </label>
-      }
       media={
-        <div className="h-56 sm:h-72 lg:h-full">
+        <div className="h-44 sm:h-60 lg:h-full">
           <img
             src={heroSmall}
             srcSet={`${heroSmall} 800w, ${heroLarge} 1600w`}

@@ -20,8 +20,8 @@ import { useUrlFilters } from '../../lib/useUrlFilters'
 
 /** Filters whose options depend on the sector: changing the sector clears them. */
 const SECTOR_DEPENDENT = ['area', 'programas', 'pagina']
-/** The list's filters in the URL; "Limpar filtros" removes them all, not the hero's career. */
-const FILTER_KEYS = ['setor', 'area', 'programas', 'onde', 'pagina']
+/** The list's filters in the URL; "Limpar filtros" removes them all. */
+const FILTER_KEYS = ['setor', 'area', 'programas', 'onde', 'profissao', 'pagina']
 const PAGE_SIZE = 12
 const WITH_PROGRAMS = 'sim'
 
@@ -90,15 +90,6 @@ export default function CompaniesPage() {
             <>
               <CoverHero
                 title={t('companies.title')}
-                body={t('companies.body')}
-                question={{
-                  label: t('companies.careerLabel'),
-                  icon: 'briefcase',
-                  placeholder: t('companies.allCareers'),
-                  value: career,
-                  options: careerOptions,
-                  onChange: (value) => setParam('profissao', value, ['pagina']),
-                }}
                 stats={stats}
                 photo={{ small: heroSmall, large: heroLarge, largeWidth: 1024 }}
               />
@@ -120,6 +111,13 @@ export default function CompaniesPage() {
                     }
                     onClear={() => setParam('setor', null, FILTER_KEYS)}
                     filters={[
+                      {
+                        key: 'profissao',
+                        label: t('companies.careerLabel'),
+                        placeholder: t('companies.allCareers'),
+                        value: career,
+                        options: careerOptions,
+                      },
                       {
                         key: 'setor',
                         label: t('companies.sectorLabel'),

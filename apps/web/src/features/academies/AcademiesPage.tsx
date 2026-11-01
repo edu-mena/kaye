@@ -36,8 +36,8 @@ const LEVELS: AcademyOffer['level'][] = [
   'formacao_profissional',
   'certificacao',
 ]
-/** The list's filters in the URL; "Limpar filtros" removes them all, not the hero's course. */
-const FILTER_KEYS = ['tipo', 'area', 'nivel', 'faculdade', 'onde', 'gestao', 'pagina']
+/** The list's filters in the URL; "Limpar filtros" removes them all. */
+const FILTER_KEYS = ['tipo', 'area', 'nivel', 'faculdade', 'onde', 'gestao', 'curso', 'pagina']
 const PAGE_SIZE = 12
 
 type OfferFilters = {
@@ -128,19 +128,7 @@ export default function AcademiesPage() {
 
           return (
             <>
-              <CoverHero
-                title={t('academies.title')}
-                body={t('academies.body')}
-                question={{
-                  label: t('academies.courseLabel'),
-                  icon: 'cap',
-                  placeholder: t('academies.allCourses'),
-                  value: course,
-                  options: courses,
-                  onChange: (value) => setParam('curso', value, ['pagina']),
-                }}
-                stats={stats}
-              />
+              <CoverHero title={t('academies.title')} stats={stats} />
 
               <section aria-labelledby="list" ref={list} className="scroll-mt-6">
                 <div className="mb-6">
@@ -159,6 +147,13 @@ export default function AcademiesPage() {
                     }
                     onClear={() => setParam('tipo', null, FILTER_KEYS)}
                     filters={[
+                      {
+                        key: 'curso',
+                        label: t('academies.courseLabel'),
+                        placeholder: t('academies.allCourses'),
+                        value: course,
+                        options: courses,
+                      },
                       {
                         key: 'tipo',
                         label: t('academies.typesTitle'),

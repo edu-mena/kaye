@@ -6,7 +6,7 @@ import { CareerCard } from '../../components/CareerCard'
 import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
-import { HERO_CONTROL, HeroField, ListHero } from '../../components/ListHero'
+import { ListHero } from '../../components/ListHero'
 import { ListSkeleton } from '../../components/PageStates'
 import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
@@ -43,6 +43,21 @@ const FILTER_KEYS = ['area', 'procura', 'salario', 'guia']
 /** Four rows of three on a wide screen. */
 const PAGE_SIZE = 12
 
+/** How far down the demand scale a career is: 0 is "alta", the top of the highlights. */
+const demandRank = (demand: Demand) => DEMANDS.indexOf(demand)
+
+/**
+ * The careers to put forward as "Destaques": full guide pages, ranked by how in-demand and how
+ * well paid they are, so the highlights move with the market instead of a fixed pick.
+ */
+function highlightCareers(careers: CareerSummary[]): CareerSummary[] {
+  return careers
+    .filter((career) => career.detailed && career.image)
+    .toSorted(
+      (a, b) => demandRank(a.demand) - demandRank(b.demand) || (b.salaryMedian ?? 0) - (a.salaryMedian ?? 0),
+    )
+}
+
 export default function CareersPage() {
   const { t } = useTranslation()
   const query = useCareers()
@@ -71,7 +86,7 @@ export default function CareersPage() {
     <QueryState query={query} loading={<ListSkeleton />}>
       {(careers) => {
         const results = filterCareers(careers, { query: search, group, sort, profile, demand, salary, guide })
-        const guides = careers.filter((career) => career.detailed && career.image)
+        const guides = highlightCareers(careers)
         const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
         const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
         const goTo = (next: number) => {
@@ -80,13 +95,14 @@ export default function CareersPage() {
         }
         return (
           <div className="space-y-12">
-            <Hero
+            <Hero careers={careers} guides={guides} />
+            <Areas
               careers={careers}
-              guides={guides}
+              selected={group}
+              onSelect={(value) => setFilter('area', value)}
               search={search}
               onSearch={(value) => setSearch(value, ['pagina'])}
             />
-            <Areas careers={careers} selected={group} onSelect={(value) => setFilter('area', value)} />
             {!search && !group && guides.length > 0 && <Guides guides={guides} />}
 
             <section ref={list} aria-labelledby="all-careers" className="scroll-mt-24">
@@ -154,7 +170,7 @@ export default function CareersPage() {
                   {t('careers.empty')}
                 </p>
               ) : (
-                <ul className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3 2xl:grid-cols-4">
+                <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
                   {shown.map((career) => (
                     <li key={career.slug}>
                       <CareerCard
@@ -178,12 +194,10 @@ export default function CareersPage() {
 type HeroProps = {
   careers: CareerSummary[]
   guides: CareerSummary[]
-  search: string
-  onSearch: (value: string) => void
 }
 
-/** What the section is, a large search, three numbers, and the career photos as a mosaic. */
-function Hero({ careers, guides, search, onSearch }: HeroProps) {
+/** What the section is, three numbers, and the career photos as a mosaic. */
+function Hero({ careers, guides }: HeroProps) {
   const { t } = useTranslation()
   const areas = new Set(careers.map((career) => career.group)).size
   const stats = [
@@ -201,25 +215,11 @@ function Hero({ careers, guides, search, onSearch }: HeroProps) {
       title={t('careers.title')}
       body={t('careers.body')}
       stats={stats}
-      control={
-        <label className="block">
-          <span className="sr-only">{t('careers.search')}</span>
-          <HeroField icon="search">
-            <input
-              type="search"
-              value={search}
-              placeholder={t('careers.searchPlaceholder')}
-              onChange={(event) => onSearch(event.target.value)}
-              className={HERO_CONTROL}
-            />
-          </HeroField>
-        </label>
-      }
       media={
         guides.length >= 3 && (
           <div
             aria-hidden="true"
-            className="grid h-44 grid-cols-3 gap-2 sm:h-56 lg:h-full lg:grid-cols-2 lg:grid-rows-2"
+            className="grid h-36 grid-cols-3 gap-2 sm:h-48 lg:h-full lg:grid-cols-2 lg:grid-rows-2"
           >
             {guides
               .slice(0, 3)
@@ -247,17 +247,19 @@ type AreasProps = {
   careers: CareerSummary[]
   selected: CareerGroup | null
   onSelect: (value: CareerGroup | null) => void
+  search: string
+  onSearch: (value: string) => void
 }
 
 /**
- * The areas of the catalogue (technology, health…) as a row of buttons and, below, the groups of the one chosen as
- * tiles with their icon and how many careers each has; pressing a tile filters the list. One area at a time: all of
- * them, with every group, would fill several screens.
+ * A select for the catalogue's areas (technology, health…), "todas as áreas" first, next to the
+ * search; below, the groups of the area chosen as tiles with their icon and how many careers each
+ * has. Pressing a tile filters the list. With no area chosen, every group with careers shows.
  */
-function Areas({ careers, selected, onSelect }: AreasProps) {
+function Areas({ careers, selected, onSelect, search, onSearch }: AreasProps) {
   const { t } = useTranslation()
   const areas = MARKET_AREAS.filter((area) => careers.some((career) => GROUP_AREAS[career.group] === area))
-  const [shown, setShown] = useState<MarketArea | undefined>(selected ? GROUP_AREAS[selected] : areas[0])
+  const [shown, setShown] = useState<MarketArea | null>(selected ? GROUP_AREAS[selected] : (areas[0] ?? null))
   // A group chosen elsewhere (the list's filter) brings its area into view.
   const [seen, setSeen] = useState(selected)
   if (selected !== seen) {
@@ -266,7 +268,7 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
   }
   const tiles = CAREER_GROUPS.flatMap((group) => {
     const count = careers.filter((career) => career.group === group).length
-    return GROUP_AREAS[group] !== shown || count === 0
+    return (shown !== null && GROUP_AREAS[group] !== shown) || count === 0
       ? []
       : [
           {
@@ -281,12 +283,30 @@ function Areas({ careers, selected, onSelect }: AreasProps) {
   return (
     <section aria-labelledby="areas">
       <SectionHeading id="areas" title={t('careers.areasTitle')} icon="compass" />
-      <AreaPicker
-        label={t('careers.areasTitle')}
-        options={options}
-        value={shown ?? null}
-        onChange={setShown}
-      />
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <AreaPicker
+          label={t('careers.areasTitle')}
+          allLabel={t('careers.allAreas')}
+          options={options}
+          value={shown}
+          onChange={setShown}
+          className="sm:w-64"
+        />
+        <label className="relative block sm:w-64">
+          <span className="sr-only">{t('careers.search')}</span>
+          <Icon
+            name="search"
+            className="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-muted"
+          />
+          <input
+            type="search"
+            value={search}
+            placeholder={t('careers.searchPlaceholder')}
+            onChange={(event) => onSearch(event.target.value)}
+            className="h-11 w-full rounded-full border border-line bg-surface pr-4 pl-10 text-sm text-night placeholder:text-muted"
+          />
+        </label>
+      </div>
       <FilterTiles selected={selected} onSelect={onSelect} tiles={tiles} />
     </section>
   )

@@ -3,24 +3,32 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { AreaPicker } from '../../components/AreaPicker'
 import { Icon } from '../../components/icons'
+import { PhotoImg } from '../../components/PhotoImg'
 import { Chip } from '../../components/ui/Chip'
 import { FilterBar } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
-import { MARKET_AREAS, type CatalogCourse, type MarketArea } from '../../data/types'
+import { MARKET_AREAS, type CareerSummary, type CatalogCourse } from '../../data/types'
 import { filterCourses, OFFER_LEVELS } from '../../domain/courses'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { coursePath } from './coursePath'
 
 const PAGE_SIZE = 12
-const ALL = 'todas'
+
+type CourseCatalogueProps = {
+  courses: CatalogCourse[]
+  careers: CareerSummary[]
+  career: string | null
+  careerOptions: { value: string; label: string }[]
+  onCareer: (value: string | null) => void
+}
 
 /**
- * Every real course (the yearbook's and the decrees'), one area at a time or all, with a level and a search: the
- * catalogue. The hero's career, when chosen, keeps only the courses that lead to it.
+ * Every real course (the yearbook's and the decrees'), one area at a time or all, with a level, a career and a
+ * search: the catalogue.
  */
-export function CourseCatalogue({ courses, career }: { courses: CatalogCourse[]; career: string | null }) {
+export function CourseCatalogue({ courses, careers, career, careerOptions, onCareer }: CourseCatalogueProps) {
   const { t } = useTranslation()
   const [params, setParam] = useUrlFilters()
   const [search, setSearch] = useUrlText('q')
@@ -37,15 +45,13 @@ export function CourseCatalogue({ courses, career }: { courses: CatalogCourse[];
   return (
     <section ref={list} aria-labelledby="catalogue" className="scroll-mt-24">
       <SectionHeading id="catalogue" title={t('training.catalogueTitle')} icon="compass" />
-      <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">{t('training.catalogueBody')}</p>
-      <AreaPicker<MarketArea | typeof ALL>
+      <AreaPicker
         label={t('training.catalogueTitle')}
-        options={[
-          { value: ALL, label: t('training.allAreas') },
-          ...areas.map((value) => ({ value, label: t(`market.area_${value}`) })),
-        ]}
-        value={area ?? ALL}
-        onChange={(value) => setFilter('area', value === ALL ? null : value)}
+        allLabel={t('training.allAreas')}
+        options={areas.map((value) => ({ value, label: t(`market.area_${value}`) }))}
+        value={area}
+        onChange={(value) => setFilter('area', value)}
+        className="mb-4"
       />
       <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end">
         <label className="relative block sm:w-80">
@@ -64,9 +70,19 @@ export function CourseCatalogue({ courses, career }: { courses: CatalogCourse[];
         </label>
         <FilterBar
           clearLabel={t('training.clear')}
-          onChange={setFilter}
-          onClear={() => setParam('grau', null, ['q', 'pagina'])}
+          onChange={(key, value) => (key === 'carreira' ? onCareer(value) : setFilter(key, value))}
+          onClear={() => {
+            setParam('grau', null, ['q', 'pagina'])
+            onCareer(null)
+          }}
           filters={[
+            {
+              key: 'carreira',
+              label: t('training.careerLabel'),
+              placeholder: t('training.allCareers'),
+              value: career,
+              options: careerOptions,
+            },
             {
               key: 'grau',
               label: t('training.level'),
@@ -85,10 +101,10 @@ export function CourseCatalogue({ courses, career }: { courses: CatalogCourse[];
           {t('training.catalogueEmpty')}
         </p>
       ) : (
-        <ul aria-label={t('training.catalogue')} className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul aria-label={t('training.catalogue')} className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {shown.map((course) => (
             <li key={course.id}>
-              <CourseCard course={course} />
+              <CourseCard course={course} careers={careers} />
             </li>
           ))}
         </ul>
@@ -106,50 +122,65 @@ export function CourseCatalogue({ courses, career }: { courses: CatalogCourse[];
   )
 }
 
-/** A course: its levels, its name, its areas, how many institutions teach it and to how many students. */
-function CourseCard({ course }: { course: CatalogCourse }) {
+/**
+ * A course: its photo (the career it leads to), its levels, its name, its areas, how many
+ * institutions teach it and to how many students.
+ */
+function CourseCard({ course, careers }: { course: CatalogCourse; careers: CareerSummary[] }) {
   const { t, i18n } = useTranslation()
   const titleId = `course-${course.id}`
   const curricula = course.offers.filter(({ offer }) => offer.curriculum).length
+  const career = careers.find((item) => course.careers.includes(item.slug))
   return (
     <article
       aria-labelledby={titleId}
-      className="relative flex h-full flex-col rounded-card bg-surface p-5 shadow-card transition hover:shadow-lift"
+      className="relative flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-card transition hover:shadow-lift"
     >
-      <div className="flex flex-wrap gap-1.5">
-        {course.levels.map((level) => (
-          <Chip key={level}>{t(`training.${level}`)}</Chip>
-        ))}
+      <div className="relative h-32 shrink-0 bg-coal sm:h-40">
+        {career?.image && (
+          <PhotoImg
+            photo={career.image}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 33vw, 50vw"
+            className="size-full object-cover object-[center_30%]"
+          />
+        )}
       </div>
-      <h3 id={titleId} className="mt-3 font-display text-lg font-bold break-words text-night">
-        <Link to={coursePath(course.id)} className="after:absolute after:inset-0">
-          {course.name}
-        </Link>
-      </h3>
-      <p className="mt-1 text-xs font-light text-muted">
-        {course.areas.map((value) => t(`market.area_${value}`)).join(' · ')}
-      </p>
-      <p className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 pt-4 text-sm font-light text-copy">
-        <span className="inline-flex items-center gap-1.5">
-          <Icon name="landmark" className="size-4 text-muted" />
-          {t('training.institutionsCount', { count: course.offers.length })}
-        </span>
-        {course.students > 0 && (
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <div className="flex flex-wrap gap-1.5">
+          {course.levels.map((level) => (
+            <Chip key={level}>{t(`training.${level}`)}</Chip>
+          ))}
+        </div>
+        <h3 id={titleId} className="mt-3 font-display text-lg font-bold break-words text-night">
+          <Link to={coursePath(course.id)} className="after:absolute after:inset-0">
+            {course.name}
+          </Link>
+        </h3>
+        <p className="mt-1 text-xs font-light text-muted">
+          {course.areas.map((value) => t(`market.area_${value}`)).join(' · ')}
+        </p>
+        <p className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 pt-4 text-sm font-light text-copy">
           <span className="inline-flex items-center gap-1.5">
-            <Icon name="users" className="size-4 text-muted" />
-            {t('training.students', {
-              count: course.students,
-              value: course.students.toLocaleString(i18n.language),
-            })}
+            <Icon name="landmark" className="size-4 text-muted" />
+            {t('training.institutionsCount', { count: course.offers.length })}
           </span>
-        )}
-        {curricula > 0 && (
-          <span className="inline-flex items-center gap-1.5">
-            <Icon name="document" className="size-4 text-muted" />
-            {t('academy.hasCurriculum')}
-          </span>
-        )}
-      </p>
+          {course.students > 0 && (
+            <span className="inline-flex items-center gap-1.5">
+              <Icon name="users" className="size-4 text-muted" />
+              {t('training.students', {
+                count: course.students,
+                value: course.students.toLocaleString(i18n.language),
+              })}
+            </span>
+          )}
+          {curricula > 0 && (
+            <span className="inline-flex items-center gap-1.5">
+              <Icon name="document" className="size-4 text-muted" />
+              {t('academy.hasCurriculum')}
+            </span>
+          )}
+        </p>
+      </div>
     </article>
   )
 }

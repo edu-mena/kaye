@@ -41,14 +41,14 @@ export function HeroField({ icon, children }: { icon: IconName; children: ReactN
 type ListHeroProps = {
   title: string
   body: string
-  /** The page's main question, in a HeroField. */
-  control: ReactNode
+  /** The page's main question, in a HeroField; left out, the hero stays short. */
+  control?: ReactNode
   stats: Stat[]
   /** Photos: on top on phones, on the right from lg. */
   media: ReactNode
 }
 
-/** The top of a list page (Carreiras, Cursos): a white block with the title, one control, the numbers and photos. */
+/** The top of a list page (Carreiras, Cursos): a white block with the title, an optional control, the numbers and photos. */
 export function ListHero({ title, body, control, stats, media }: ListHeroProps) {
   return (
     <section className="overflow-hidden rounded-card bg-surface text-night shadow-card">
@@ -56,8 +56,8 @@ export function ListHero({ title, body, control, stats, media }: ListHeroProps) 
         <div className="p-6 sm:p-10">
           <h1 className="text-3xl leading-tight font-extrabold sm:text-5xl">{title}</h1>
           <p className="mt-4 max-w-md text-sm font-light text-copy">{body}</p>
-          <div className="mt-8 max-w-lg">{control}</div>
-          <StatPills stats={stats} />
+          {control && <div className="mt-8 max-w-lg">{control}</div>}
+          <StatPills stats={stats} className={control ? 'mt-6' : 'mt-8'} />
         </div>
         <div className="order-first p-2 lg:order-none">{media}</div>
       </div>

@@ -44,8 +44,10 @@ export function FilterTiles<T extends string>({
                 <Icon name={tile.icon} className="size-5" />
               </span>
               <span className="min-w-0">
-                <span className="block text-sm leading-snug font-semibold">{tile.label}</span>
-                <span className={`mt-1 block text-xs font-light ${active ? 'text-white/70' : 'text-muted'}`}>
+                <span className="block truncate text-sm leading-snug font-semibold">{tile.label}</span>
+                <span
+                  className={`mt-1 block truncate text-xs font-light ${active ? 'text-white/70' : 'text-muted'}`}
+                >
                   {tile.note}
                 </span>
               </span>
