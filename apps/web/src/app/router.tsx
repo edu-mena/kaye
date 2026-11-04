@@ -2,17 +2,17 @@ import type { ComponentType } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router'
 import { AppLoading } from '../components/AppLoading'
 import { RequireProfile } from '../components/RequireProfile'
-import HomePage from '../features/home/HomePage'
+import { IndexPage } from '../features/home/IndexPage'
 import { Layout, type RouteHandle } from './Layout'
 
 type PageModule = { default: ComponentType }
 
 /** Each screen downloads its code the first time it is opened. */
-const page = (load: () => Promise<PageModule>) => () =>
+const publicPage = (load: () => Promise<PageModule>) => () =>
   load().then((module) => ({ Component: module.default }))
 
-/** Screens that need a profile (later: an account) send the person to /entrar first. */
-const withProfile = (load: () => Promise<PageModule>) => () =>
+/** The app is for signed-in people (docs/decisoes/0012): the rest go to /entrar first. */
+const page = (load: () => Promise<PageModule>) => () =>
   load().then(({ default: Screen }) => ({
     Component: () => (
       <RequireProfile>
@@ -23,13 +23,23 @@ const withProfile = (load: () => Promise<PageModule>) => () =>
 
 export const router = createBrowserRouter([
   {
+    path: 'entrar',
+    HydrateFallback: AppLoading,
+    lazy: publicPage(() => import('../features/onboarding/OnboardingPage')),
+  },
+  {
+    // Public, outside the app's layout: what someone sees after scanning a card (docs/decisoes/0014).
+    path: 'c/:slug',
+    HydrateFallback: AppLoading,
+    lazy: publicPage(() => import('../features/cv/PublicCardPage')),
+  },
+  {
     Component: Layout,
     // Shown while a screen's code downloads on the first visit (deep links, slow networks).
     HydrateFallback: AppLoading,
     children: [
-      { index: true, Component: HomePage },
-      { path: 'entrar', lazy: page(() => import('../features/onboarding/OnboardingPage')) },
-      { path: 'teste', lazy: withProfile(() => import('../features/assessment/AssessmentPage')) },
+      { index: true, Component: IndexPage, handle: { bare: true } satisfies RouteHandle },
+      { path: 'teste', lazy: page(() => import('../features/assessment/AssessmentPage')) },
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
       {
         path: 'carreiras',
@@ -84,14 +94,18 @@ export const router = createBrowserRouter([
         lazy: page(() => import('../features/market/MarketPage')),
       },
       { path: 'novidades', lazy: page(() => import('../features/news/NewsPage')) },
+      { path: 'bolsas', lazy: page(() => import('../features/scholarships/ScholarshipsPage')) },
+      { path: 'prazos', lazy: page(() => import('../features/deadlines/DeadlinesPage')) },
+      { path: 'estagios', lazy: page(() => import('../features/internships/InternshipsPage')) },
       { path: 'notificacoes', lazy: page(() => import('../features/notifications/NotificationsPage')) },
       { path: 'suporte', lazy: page(() => import('../features/support/SupportPage')) },
       { path: 'configuracoes', lazy: page(() => import('../features/settings/SettingsPage')) },
-      { path: 'termos', lazy: page(() => import('../features/legal/TermsPage')) },
-      { path: 'privacidade', lazy: page(() => import('../features/legal/PrivacyPage')) },
+      { path: 'termos', lazy: publicPage(() => import('../features/legal/TermsPage')) },
+      { path: 'privacidade', lazy: publicPage(() => import('../features/legal/PrivacyPage')) },
       { path: 'cv', lazy: page(() => import('../features/cv/CvPage')) },
       { path: 'cv/modelos/:id', lazy: page(() => import('../features/cv/CvExamplePage')) },
-      { path: 'cv/editar', lazy: withProfile(() => import('../features/cv/CvEditorPage')) },
+      { path: 'cv/editar', lazy: page(() => import('../features/cv/CvEditorPage')) },
+      { path: 'cv/cartao', lazy: page(() => import('../features/cv/CvCardPage')) },
       {
         path: 'perfil',
         handle: { wide: true } satisfies RouteHandle,

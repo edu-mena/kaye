@@ -66,6 +66,12 @@ const PATHS = {
       <path d="m8.5 13-1.5 8 5-3 5 3-1.5-8" />
     </>
   ),
+  calendar: (
+    <>
+      <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" />
+      <path d="M3.5 10h17M8 3v4M16 3v4" />
+    </>
+  ),
   clock: (
     <>
       <circle cx="12" cy="12" r="9" />
@@ -266,6 +272,18 @@ const PATHS = {
   ),
   plane: <path d="M10 3h2l3 7h5a1.5 1.5 0 0 1 0 3h-5l-3 7h-2l1.5-7H7l-1.5 2H3l1-3.5L3 8h2.5L7 10h4.5Z" />,
   bed: <path d="M3 6v13M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6M7 12.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />,
+  volume: (
+    <>
+      <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5Z" />
+      <path d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11" />
+    </>
+  ),
+  volumeOff: (
+    <>
+      <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5Z" />
+      <path d="m16 9.5 5 5M21 9.5l-5 5" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof PATHS

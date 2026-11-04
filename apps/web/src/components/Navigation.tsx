@@ -14,6 +14,9 @@ type NavKey =
   | 'careers'
   | 'courses'
   | 'academies'
+  | 'scholarships'
+  | 'internships'
+  | 'deadlines'
   | 'companies'
   | 'market'
   | 'news'
@@ -37,6 +40,9 @@ const SEARCH: NavItem = { to: '/pesquisa', key: 'search', icon: 'search' }
 const CAREERS: NavItem = { to: '/carreiras', key: 'careers', icon: 'compass' }
 const COURSES: NavItem = { to: '/cursos', key: 'courses', icon: 'cap' }
 const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark' }
+const SCHOLARSHIPS: NavItem = { to: '/bolsas', key: 'scholarships', icon: 'award' }
+const INTERNSHIPS: NavItem = { to: '/estagios', key: 'internships', icon: 'briefcase' }
+const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar' }
 const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
 const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
@@ -49,13 +55,28 @@ const SETTINGS: NavItem = { to: '/configuracoes', key: 'settings', icon: 'slider
 // One map for every navigation: the sidebar shows it all, phones split it
 // between the bottom bar (the five used most) and the menu.
 const SIDEBAR: NavGroup[] = [
-  { key: 'groupExplore', items: [HOME, SEARCH, CAREERS, COURSES, ACADEMIES, COMPANIES, MARKET, NEWS] },
+  {
+    key: 'groupExplore',
+    items: [
+      HOME,
+      SEARCH,
+      CAREERS,
+      COURSES,
+      ACADEMIES,
+      SCHOLARSHIPS,
+      INTERNSHIPS,
+      DEADLINES,
+      COMPANIES,
+      MARKET,
+      NEWS,
+    ],
+  },
   { key: 'groupYou', items: [CV, NOTIFICATIONS, PROFILE] },
 ]
 const SIDEBAR_FOOTER = [SUPPORT, SETTINGS]
 const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
 const MENU: NavGroup[] = [
-  { key: 'groupExplore', items: [ACADEMIES, COMPANIES, MARKET, NEWS] },
+  { key: 'groupExplore', items: [ACADEMIES, SCHOLARSHIPS, INTERNSHIPS, DEADLINES, COMPANIES, MARKET, NEWS] },
   { key: 'groupYou', items: [NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
 ]

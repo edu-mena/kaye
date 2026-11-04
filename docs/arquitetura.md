@@ -194,6 +194,8 @@ erDiagram
 
 **Custo total do caminho.** Para cada passo de formação, soma-se inscrição + propina × duração + outros custos, para o curso mais barato e para o curso mediano disponíveis na província do utilizador. Mostra-se sempre como faixa ("entre X e Y Kz"), nunca como um número único.
 
+**Duração típica por nível (estimada).** Enquanto as instituições não publicam a duração de cada curso, a app usa meses de propina por nível (10 propinas por ano letivo): formação profissional 9, certificação 3, médio técnico 40, licenciatura 40, mestrado 20, especialidade 30 (`TYPICAL_MONTHS` em `apps/web/src/domain/fees.ts`). O custo do estudo é a propina estimada × estes meses, do curso mais barato ao mais caro; o ensino público aparece como "grátis". As páginas da carreira e do curso mostram-no ao lado do salário, com "recuperas o investimento em ~N meses" (custo máximo ÷ salário), sempre com a etiqueta "Estimativa".
+
 ### 4.3 Mercado de trabalho
 
 | Tabela | Campos principais | Notas |
@@ -238,11 +240,11 @@ erDiagram
    - **no telemóvel**, um token Sanctum válido 30 dias.
 5. No telemóvel, a app guarda o token no armazenamento seguro do sistema e envia-o em cada pedido. Na web, o browser envia o cookie sozinho. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
 
-**Primeiro acesso → onboarding.** O utilizador escolhe o idioma, indica o ano de nascimento, a província e a escolaridade atual, e aceita os termos e a política de privacidade. Quem tem menos de 18 anos vê um ecrã extra (confirma que o encarregado de educação tem conhecimento) e fica sem perfil público.
+**Primeiro acesso → onboarding** ([ADR-0012](decisoes/0012-conta-obrigatoria-e-onboarding-adaptativo.md)). Uma conversa com o guia que se adapta às respostas: idioma, voz, fase da vida, objetivo, até 3 áreas (ou "Ainda não sei", e o guia sugere-as) e no máximo 3 perguntas por área. Depois, o nome, o ano de nascimento, a província e a escolaridade. O login com o Google vem no fim, com a aceitação dos termos e da política de privacidade. Quem tem menos de 18 anos confirma aí que o encarregado de educação tem conhecimento e fica sem perfil público.
 
 **iOS (Fase 2).** A Apple obriga a oferecer "Iniciar sessão com a Apple" sempre que há login social (regra 4.8). O fluxo é o mesmo, com `apple_sub`.
 
-**Sem conta** pode-se explorar carreiras, cursos e instituições. **Com conta** faz-se o teste vocacional e o CV, guarda-se e contribui-se.
+**Sem conta** vê-se só a página de entrada, os termos e a política de privacidade. Tudo o resto pede conta.
 
 ### 5.2 Recolha e tratamento de vagas
 
@@ -334,9 +336,14 @@ O que falta passa a ser os próximos passos sugeridos e, na Fase 2, "O meu plano
 
 ### 5.5 CV
 
-- **Por agora, o PDF gera-se no aparelho** (jsPDF, [ADR 0006](decisoes/0006-pdf-do-cv-gerado-no-aparelho.md)). Os 3 modelos visuais (Clássico, Moderno, Europeu) existem em HTML, para a pré-visualização, e em PDF, com as mesmas medidas. Quando o download for pago, o PDF do CV pessoal passa para o servidor, como descrito abaixo.
+- **Por agora, o PDF gera-se no aparelho** (jsPDF, [ADR 0006](decisoes/0006-pdf-do-cv-gerado-no-aparelho.md)). Os 8 modelos visuais (Clássico, Moderno, Europeu, Retrato, Duas Colunas, Minimalista, Criativo e Destaque) são desenhados uma só vez, em milímetros, por `cvLayout.ts`: a pré-visualização pinta o resultado em SVG e o PDF em jsPDF, com as mesmas quebras de linha e de página. As fontes são TTF (só latinas) em `public/fonts/cv/`, o mesmo ficheiro para o ecrã e para o PDF. Quando o download for pago, o PDF do CV pessoal passa para o servidor, como descrito abaixo.
 - **As regras do CV mudam por profissão** (`cvGuide`): o que incluir, o que evitar e o modelo visual recomendado. Por exemplo, um programador não põe foto e põe os links do GitHub e dos projetos; um DevOps destaca as certificações.
 - **Um CV ideal por caminho.** No separador "CVs modelo" da carreira há uma miniatura por caminho do roteiro. Tocar abre um popup, sem sair da carreira, com o CV à esquerda e, à direita, porque funciona, as regras e as ações: descarregar, comparar (com outro modelo ou com o meu CV) e começar a partir do modelo.
+- **Vários CVs.** Cada pessoa pode ter vários CVs, cada um com conteúdo, modelo e estilo próprios; "começar a partir deste modelo" cria um CV novo em vez de substituir. O estilo guarda só o que a pessoa mudou, e `domain/cvStyle.ts` completa-o com o do modelo e aplica os limites (margens, tamanhos, espaços, contraste das cores), por isso "repor modelo" nunca toca no conteúdo. Trocar de modelo mantém o conteúdo e o que a pessoa ajustou. Os modelos com foto (Retrato e Criativo) usam a foto do perfil, ou as iniciais se não houver, e a foto pode ser desligada; os CVs modelo nunca a mostram.
+- **Conselhos por área e destino.** A pessoa diz para onde vai enviar o CV (área, profissão e tipo de destino) e vê sugestões de estrutura, cores, foto e comprimento, com um modelo sugerido que só se aplica se ela aceitar. As regras estão em `domain/cvAdvice.ts`, por área, com exceções por grupo e profissão; uma área nova obriga a acrescentar uma linha. São opiniões da equipa apresentadas como conselhos, sem números nem estatísticas.
+- **Preenchimento a partir do que já sabemos.** O editor propõe nome, título, objetivo, localização, formação e competências, a partir do perfil, do guia, da carreira de interesse e da verificação de encaixe (`domain/cvFill.ts`). A pessoa vê cada item, escolhe e aplica: campos vazios vêm marcados e o que substituiria texto dela vem desmarcado e assinalado. Não se pedem dados novos e, nos menores, não se propõe a localização.
+- **Cartão de visita.** Parte dos dados de um CV à escolha, em 10 modelos, frente e verso, com 85 × 55 mm (`cardLayout.ts`), com o mesmo motor do CV. Dados e aspeto editam-se no cartão sem alterar o CV. Exporta em PDF e PNG, no aparelho.
+- **Página pública.** Opcional e só para adultos, em `/c/:slug`, com QR no cartão ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md)).
 - **O editor é feito em React**, por secções. Guarda o JSON automaticamente, com um pequeno atraso para não enviar a cada tecla.
 - **Pré-visualização:** `GET /api/v1/cv/preview?template=x` devolve HTML com a marca d'água "Pré-visualização", mostrado dentro da app.
 - **Download:** `POST /api/v1/cv/export` devolve o PDF.
@@ -411,6 +418,9 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |
 | GET | `/companies`, `/companies/{slug}` | Empresas, com as profissões que contratam e os programas para jovens (só com fonte) | — |
 | GET | `/news` | Novidades: do Kayé, das instituições e das empresas, as mais recentes primeiro | — |
+| GET | `/admissions` | Acesso ao ensino superior 2026/27 ("Como entrar" nos cursos e nas academias): inscrições, datas do exame, disciplinas, vagas, nota do último colocado, taxa, requisitos e fonte; o calendário nacional do MESCTI e o de cada instituição | — |
+| GET | `/scholarships` | Bolsas de estudo reais (página `/bolsas`), com nível, destino, áreas, o que cobrem, prazo e fonte; ligadas às carreiras e aos cursos pela área | — |
+| GET | `/internships` | Estágios e programas de trainee reais (página `/estagios`), com tipo, áreas, para quem, idade, se são pagos, prazo e fonte; ligados às carreiras pela área e às empresas pelo `companyId` | — |
 | GET, PUT | `/cv` | Dados do CV | sim |
 | GET | `/cv/preview` | Pré-visualização em HTML | sim |
 | POST | `/cv/export` | PDF | sim |
@@ -436,11 +446,12 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
 | | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
 | | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
+| | Prazos (`/prazos`) | Os prazos com data publicada (bolsas, candidaturas e exames de acesso, estágios; os concursos públicos entram quando tiverem data de fecho), por mês, com o filtro "Só para mim" (estado local) e "Adicionar ao calendário" (um `.ics` com alarme 3 dias antes, feito no telemóvel). Os da pessoa a ≤ 14 dias aparecem nas Notificações e os a ≤ 7 dias contam no sino | Menu |
 | | Empresas | As empresas líderes de cada setor | Menu |
 | | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |
 | | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
 | Para ti | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
-| | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província) | Sino |
+| | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província); em cima, os prazos da pessoa a ≤ 14 dias | Sino |
 | | Perfil | Conta, resultado do teste, competências, guardados | Menu |
 | Em baixo | Suporte, Configurações | Ajuda; idioma, privacidade e dados | Menu |
 

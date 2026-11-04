@@ -112,12 +112,12 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 
 | # | Bloco | Inclui |
 |---|---|---|
-| 1.1 | Entrada | Explorar sem conta; login Google; onboarding com consentimentos; fluxo para menores |
+| 1.1 | Entrada | Conta obrigatória (ADR 0012); login Google; onboarding com consentimentos; fluxo para menores |
 | 1.2 | Teste vocacional | 42 perguntas RIASEC em pt/en/fr, com progresso guardado. Resultado: perfil nas 6 dimensões, top 5 profissões com razões, e a área forte fora da tech marcada "em breve". |
 | 1.3 | Carreiras | A página completa de cada profissão ([arquitetura, 7](arquitetura.md#página-de-uma-carreira)): o que faz, características profissionais, o que os empregadores pedem em Angola, percurso académico, formação profissional, etapas da carreira, custo, mercado e salários com fonte. Rankings "mais procuradas" e "mais bem pagas". Guardar carreiras. |
 | 1.4 | Encaixe | Em cada carreira: interesses (teste), formação (o que falta) e competências (a pessoa marca o que sabe). Mostra o que falta como próximos passos |
 | 1.5 | Formação | Instituições e cursos com filtros; **as melhores instituições para cada curso**, com critérios públicos ([arquitetura, 5.7](arquitetura.md#57-as-melhores-instituições-para-cada-curso)); comparar até 3 cursos; custo total do caminho |
-| 1.6 | CV | Editor por secções, 3 modelos visuais, pré-visualização, PDF grátis. **CVs modelo por profissão**, com notas, e "começar a partir deste modelo" |
+| 1.6 | CV | Editor por secções, 8 modelos visuais (com foto, duas colunas, minimalista, criativo, com destaque), pré-visualização, PDF grátis. **Vários CVs** com estilo próprio (fontes, tamanhos, margens, espaços, cores, caixas e separadores), igual no ecrã e no PDF. **Conselhos por área e destino**, com modelo sugerido a um clique. **Preenchimento com um clique** a partir do que a pessoa já disse, sempre com confirmação. **CVs modelo por profissão**, com notas, e "começar a partir deste modelo" |
 | 1.7 | Contribuições | Testemunhos moderados, com nota para os cursos; reportar erro; partilhar vaga (só como dado); partilhar salário (18+, anónimo) |
 | 1.8 | Gamificação leve | XP por ações úteis (terminar o teste, completar o perfil, contribuição aprovada), 6–8 badges, barra de progresso |
 | 1.9 | Conta e privacidade | Exportar dados, apagar conta, política de privacidade e termos em pt/en/fr |
@@ -132,7 +132,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 
 ## Fase 2 — Voltar sempre
 
-- Página pública do profissional, cartão de visita com QR e "guardar contacto" (vCard)
+- "Guardar contacto" (vCard) na página pública. O cartão de visita (10 modelos, dados e aspeto editáveis), a página pública e o QR já existem no site de teste; falta passá-los para o Laravel ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md))
+- Notificações push dos prazos (`/prazos`), mesmo com a app fechada: precisam de backend (guardar o token do telemóvel e um cron que envia)
 - "O meu plano": escolher uma carreira-alvo e seguir os passos que o encaixe mostrou, com progresso e lembretes semanais
 - Transição de carreira: para quem já trabalha noutra área, as competências e a experiência que já tem contra as que faltam (a ESCO já liga profissões e competências)
 - Ligação ao mercado na classificação dos cursos (quem fez o curso e trabalha na área)

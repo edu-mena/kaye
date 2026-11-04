@@ -10,9 +10,12 @@ import { Panel } from '../../components/ui/Panel'
 import { Soon } from '../../components/ui/Rows'
 import { useNews } from '../../data/queries'
 import type { NewsItem } from '../../data/types'
-import { isAboutMe, isUnseen, myCareers, pathSteps } from '../../domain/path'
+import { daysUntil } from '../../domain/deadlines'
+import { isNotification, isUnseen, myCareers, pathSteps } from '../../domain/path'
 import { stagger } from '../../lib/ui'
 import { userActions, useUser } from '../../state/userStore'
+import { DeadlineRow } from '../deadlines/DeadlineRow'
+import { useDeadlines } from '../../state/useDeadlines'
 import { NewsCard } from '../news/NewsCard'
 
 /**
@@ -41,6 +44,9 @@ export default function NotificationsPage() {
   )
 }
 
+/** The person's deadlines shown on top: two weeks away or less. */
+const SOON_DAYS = 14
+
 function Inbox({ news }: { news: NewsItem[] }) {
   const { t, i18n } = useTranslation()
   const user = useUser()
@@ -48,14 +54,35 @@ function Inbox({ news }: { news: NewsItem[] }) {
   const [seenAt] = useState(() => user.notificationsSeenAt)
   useEffect(() => userActions.seeNotifications(), [])
 
+  const deadlines = useDeadlines()
+  const soon = deadlines.mine.filter((item) => daysUntil(deadlines.today, item.date) <= SOON_DAYS)
   const mine = myCareers(user)
-  const about = news.filter((item) => isAboutMe(item, mine))
+  const about = news.filter((item) => isNotification(item, mine))
   const next = pathSteps(user).find((step) => !step.done)
   const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
       <div className="space-y-3">
+        {soon.length > 0 && (
+          <section aria-labelledby="deadlines-soon" className="space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <h2 id="deadlines-soon" className="text-sm font-semibold text-night">
+                {t('deadlines.soonTitle')}
+              </h2>
+              <Link to="/prazos?meus=sim" className="text-xs font-normal text-night hover:text-blue">
+                {t('common.seeAll')}
+              </Link>
+            </div>
+            <ul className="space-y-2">
+              {soon.map((item) => (
+                <li key={item.id}>
+                  <DeadlineRow item={item} today={deadlines.today} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         {next && (
           <section
             aria-labelledby="next-step"
