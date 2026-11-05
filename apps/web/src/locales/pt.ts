@@ -1727,6 +1727,18 @@ export const pt = {
     legalTitle: 'Termos e privacidade',
     erased: 'Pronto: apagámos tudo o que o Kayé guardava neste aparelho.',
   },
+  install: {
+    title: 'Instala o Kayé',
+    body: 'Fica no ecrã principal como uma app e abre mesmo sem rede.',
+    action: 'Instalar',
+    notNow: 'Agora não',
+    iosGuide: 'Toca em Partilhar (o quadrado com a seta) → Adicionar ao ecrã principal.',
+  },
+  appStatus: {
+    update: 'Há uma versão nova do Kayé.',
+    reload: 'Atualizar',
+    offline: 'Sem ligação: estás a ver a versão guardada.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Poupar dados',

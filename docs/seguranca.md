@@ -53,6 +53,16 @@ São aplicados a todas as respostas por `App\Http\Middleware\SecurityHeaders`.
 | Painel (`/admin`) | Como a app, mas com `unsafe-inline` e `unsafe-eval` nos scripts | O Livewire e o Alpine precisam deles. Aceite porque só pessoal autorizado lá entra. Ver [ADR-0002](decisoes/0002-csp-do-painel-admin.md) |
 | API (`/api/*`) | `default-src 'none'` | Só devolve JSON; não carrega nada |
 
+### App instalável (PWA) e cache offline
+
+A app web regista um service worker (`vite-plugin-pwa`, Workbox) para se instalar no ecrã principal e abrir sem rede. Nunca dentro da app Android (Capacitor).
+
+- **O que fica guardado no telemóvel:** o código, os estilos, as fontes e os ícones (precache, ~3,4 MB) e as últimas 150 fotos vistas (30 dias; as mais antigas saem primeiro, e tudo sai se faltar espaço).
+- **O que nunca fica:** dados pessoais. O perfil e o CV vivem no `localStorage` e não passam pelo service worker; tudo em `/api` é `NetworkOnly`. Quando os endpoints públicos do catálogo existirem, só esses passam a `StaleWhileRevalidate`.
+- **"Apagar tudo"** também apaga todas as caches do browser.
+- **CSP:** `worker-src 'self'` e `manifest-src 'self'` ficam escritos, mas não alargam nada (o `default-src 'self'` já os cobria).
+- **Atualizações:** `sw.js` e `manifest.webmanifest` vão com `Cache-Control: no-cache`; quando há versão nova, a pessoa vê "Há uma versão nova do Kayé." e escolhe quando atualizar.
+
 ## Autenticação e sessões
 
 - **Só login social:** Google (e Apple no iOS). Não há senhas para roubar nem para reutilizar.

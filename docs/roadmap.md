@@ -57,6 +57,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Proteção do `main` (exige GitHub Pro nos repositórios privados: Student Developer Pack)
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token)
 - [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy
+- [ ] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
 - [ ] Sentry: conta, DSN e Sentry na app React
 - [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
 
@@ -122,9 +123,11 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 | 1.8 | Gamificação leve | XP por ações úteis (terminar o teste, completar o perfil, contribuição aprovada), 6–8 badges, barra de progresso |
 | 1.9 | Conta e privacidade | Exportar dados, apagar conta, política de privacidade e termos em pt/en/fr |
 | 1.10 | Métricas | Eventos; painel das 5 métricas no admin; inquérito "Como te sentirias se o Kayé deixasse de existir?" após 2 semanas de uso |
-| 1.11 | Lançamento | Web pública; Android na Google Play |
+| 1.11 | Lançamento | Web pública e instalável (PWA, abre sem rede); Android na Google Play |
 
 **Atenção à Google Play.** As contas pessoais novas precisam de um teste fechado com pelo menos 12 testadores durante 14 dias seguidos antes de publicar. Convém começar este teste antes de a app estar "perfeita".
+
+**Canais de instalação.** A Google Play é o canal principal. A PWA é a porta de entrada de quem chega por um link do WhatsApp: instala-se a partir do browser (no iPhone, com um guia curto "Partilhar → Adicionar ao ecrã principal"). Sem APK para descarregar (avisos de "fonte desconhecida") e sem App Store por agora (99 USD/ano, exige um Mac, poucos iPhones no público).
 
 **Os dados também são o marketing.** Os números do próprio Kayé dão conteúdos para TikTok e Instagram ("As 5 profissões tech mais procuradas em Luanda esta semana", "Quanto custa tornar-se programador em Angola?"). Cada publicação leva à página de carreira correspondente.
 

@@ -1750,6 +1750,18 @@ export const fr: Messages = {
     legalTitle: 'Conditions et confidentialité',
     erased: 'C’est fait : nous avons effacé tout ce que Kayé gardait sur cet appareil.',
   },
+  install: {
+    title: 'Installe Kayé',
+    body: 'Il reste sur ton écran d’accueil comme une app et s’ouvre même sans réseau.',
+    action: 'Installer',
+    notNow: 'Pas maintenant',
+    iosGuide: 'Touche Partager (le carré avec la flèche) → Sur l’écran d’accueil.',
+  },
+  appStatus: {
+    update: 'Une nouvelle version de Kayé est disponible.',
+    reload: 'Mettre à jour',
+    offline: 'Pas de connexion : tu vois la version enregistrée.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Économiser les données',

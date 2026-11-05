@@ -4,14 +4,19 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build:static",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|api/|sw.js|workbox-[^/]*.js|manifest.webmanifest).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
         },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
@@ -22,6 +27,10 @@
         },
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
+    },
+    {
+      "source": "/(sw.js|manifest.webmanifest)",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
     },
     {
       "source": "/assets/(.*)",

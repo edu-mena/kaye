@@ -1,8 +1,10 @@
 import { useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon, type IconName } from '../../components/icons'
+import { InstallButton } from '../../components/InstallApp'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Soon } from '../../components/ui/Rows'
+import { useInstall } from '../../lib/install'
 import { stagger } from '../../lib/ui'
 import {
   DataSaverSwitch,
@@ -59,6 +61,7 @@ function Row({ title, body, action }: { title: string; body?: string; action: Re
 export default function SettingsPage() {
   const { t } = useTranslation()
   const [erased, setErased] = useState(false)
+  const { method: installMethod } = useInstall()
 
   return (
     <>
@@ -108,6 +111,9 @@ export default function SettingsPage() {
             <Row title={t('profile.notifyTips')} action={<Soon />} />
           </Group>
           <Group id="about" icon="info" title={t('profile.about')} index={5}>
+            {installMethod && (
+              <Row title={t('install.title')} body={t('install.body')} action={<InstallButton />} />
+            )}
             <Row title={t('app.tagline')} action={<ServiceStatus />} />
           </Group>
         </div>

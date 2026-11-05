@@ -229,6 +229,12 @@ export const userActions = {
     } catch {
       // Nothing stored, nothing to erase.
     }
+    // The offline copies (code, photos seen): no personal data, but "erase everything" means everything.
+    if (typeof caches !== 'undefined')
+      void caches
+        .keys()
+        .then((names) => Promise.all(names.map((name) => caches.delete(name))))
+        .catch(() => {})
     reloadUser()
   },
 }

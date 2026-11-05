@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Outlet, ScrollRestoration, useMatches } from 'react-router'
 import { BottomNav, Sidebar, TopBar } from '../components/Navigation'
 import { usePersistentFlag } from '../lib/usePersistentFlag'
+import { AppStatus } from './AppStatus'
 
 /** What a route can ask of the layout, through its `handle`. */
 export type RouteHandle = {
@@ -37,6 +38,7 @@ export function Layout() {
         </main>
       </div>
       <BottomNav />
+      <AppStatus />
       {/* New screens start at the top; going back restores where you were. */}
       <ScrollRestoration />
     </div>

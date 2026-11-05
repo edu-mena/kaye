@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
 import { Icon, type IconName } from '../../components/icons'
+import { InstallCard } from '../../components/InstallApp'
 import { PathMark } from '../../components/PathMark'
 import { PhotoImg } from '../../components/PhotoImg'
 import { ButtonLink } from '../../components/ui/Button'
@@ -50,7 +51,8 @@ export default function HomePage() {
       <h1 className="rise text-3xl leading-tight font-extrabold text-night sm:text-4xl">
         {t('home.greeting', { name: user.profile.name })}
       </h1>
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+      <InstallCard />
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         {/* A feed: what to do next, then what is new, then the careers that fit; always two columns. */}
         <div className="min-w-0 space-y-8">
           <ul className="grid gap-4 sm:grid-cols-2">

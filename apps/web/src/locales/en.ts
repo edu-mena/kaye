@@ -1728,6 +1728,18 @@ export const en: Messages = {
     legalTitle: 'Terms and privacy',
     erased: 'Done: we deleted everything Kayé kept on this device.',
   },
+  install: {
+    title: 'Install Kayé',
+    body: 'It sits on your home screen like an app and opens even without a connection.',
+    action: 'Install',
+    notNow: 'Not now',
+    iosGuide: 'Tap Share (the square with the arrow) → Add to Home Screen.',
+  },
+  appStatus: {
+    update: 'A new version of Kayé is available.',
+    reload: 'Update',
+    offline: 'No connection: you are seeing the saved version.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Save data',
