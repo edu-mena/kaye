@@ -66,7 +66,6 @@ function pwa(base: string, native: boolean) {
       start_url: '/',
       scope: '/',
       display: 'standalone',
-      orientation: 'portrait',
       // index.css tokens: --color-navy (the bar and splash) and --color-paper (the page).
       theme_color: '#1b2a43',
       background_color: '#f7f4ee',
