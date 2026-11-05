@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import heroLarge from '../../assets/heroes/empresas-1024.webp'
+import heroThumb from '../../assets/heroes/empresas-400.webp'
 import heroSmall from '../../assets/heroes/empresas-800.webp'
 import { CoverHero } from '../../components/CoverHero'
 import { EntityCard } from '../../components/EntityCard'
@@ -91,7 +92,7 @@ export default function CompaniesPage() {
               <CoverHero
                 title={t('companies.title')}
                 stats={stats}
-                photo={{ small: heroSmall, large: heroLarge, largeWidth: 1024 }}
+                photo={{ thumb: heroThumb, small: heroSmall, large: heroLarge, largeWidth: 1024 }}
               />
 
               <section aria-labelledby="list" ref={list} className="scroll-mt-6">

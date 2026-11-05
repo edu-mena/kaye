@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next'
+import { useDataSaver } from '../../lib/useDataSaver'
 import heroLarge from '../../assets/heroes/cursos-1600.webp'
+import heroThumb from '../../assets/heroes/cursos-400.webp'
 import heroSmall from '../../assets/heroes/cursos-800.webp'
 import type { IconName } from '../../components/icons'
 import { ListHero } from '../../components/ListHero'
@@ -245,6 +247,7 @@ type HeroProps = {
 /** The catalogue's numbers and a photo of students. */
 function Hero({ courses }: HeroProps) {
   const { t, i18n } = useTranslation()
+  const saveData = useDataSaver()
   const stats: { icon: IconName; value: string | number; label: string }[] = [
     { icon: 'cap', value: courses.length, label: t('training.statCourses') },
     {
@@ -267,9 +270,9 @@ function Hero({ courses }: HeroProps) {
       media={
         <div className="h-44 sm:h-60 lg:h-full">
           <img
-            src={heroSmall}
-            srcSet={`${heroSmall} 800w, ${heroLarge} 1600w`}
-            sizes="(min-width: 1024px) 45vw, 100vw"
+            src={saveData ? heroThumb : heroSmall}
+            srcSet={saveData ? undefined : `${heroSmall} 800w, ${heroLarge} 1600w`}
+            sizes={saveData ? undefined : '(min-width: 1024px) 45vw, 100vw'}
             alt=""
             fetchPriority="high"
             decoding="async"

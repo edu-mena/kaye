@@ -1728,6 +1728,14 @@ export const en: Messages = {
     legalTitle: 'Terms and privacy',
     erased: 'Done: we deleted everything Kayé kept on this device.',
   },
+  dataSaver: {
+    group: 'Internet',
+    title: 'Save data',
+    body: 'Lighter photos, and only when you tap them. Handy when your balance is low.',
+    fromPhone: 'On because your phone is saving data.',
+    showPhoto: 'Show photo',
+    showPhotoLabel: 'Show this photo (uses data)',
+  },
   legal: {
     terms: 'Terms of use',
     privacy: 'Privacy policy',

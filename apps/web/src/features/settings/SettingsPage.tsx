@@ -4,7 +4,14 @@ import { Icon, type IconName } from '../../components/icons'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Soon } from '../../components/ui/Rows'
 import { stagger } from '../../lib/ui'
-import { EraseButton, ExportButton, LanguagePicker, LegalLinks, ServiceStatus } from './SettingsParts'
+import {
+  DataSaverSwitch,
+  EraseButton,
+  ExportButton,
+  LanguagePicker,
+  LegalLinks,
+  ServiceStatus,
+} from './SettingsParts'
 
 type GroupProps = {
   id: string
@@ -63,11 +70,14 @@ export default function SettingsPage() {
               <LanguagePicker />
             </div>
           </Group>
+          <Group id="data-saver" icon="wallet" title={t('dataSaver.group')} index={1}>
+            <Row title={t('dataSaver.title')} body={t('dataSaver.body')} action={<DataSaverSwitch />} />
+          </Group>
           <Group
             id="data"
             icon="shield"
             title={t('profile.data')}
-            index={1}
+            index={2}
             note={
               <>
                 {/* Always there, so screen readers hear the message when it appears. */}
@@ -89,15 +99,15 @@ export default function SettingsPage() {
         </div>
 
         <div className="space-y-6">
-          <Group id="legal" icon="document" title={t('settings.legalTitle')} index={2}>
+          <Group id="legal" icon="document" title={t('settings.legalTitle')} index={3}>
             <LegalLinks />
           </Group>
-          <Group id="notifications" icon="bell" title={t('profile.notificationsTitle')} index={3}>
+          <Group id="notifications" icon="bell" title={t('profile.notificationsTitle')} index={4}>
             <Row title={t('profile.notifyInstitutions')} action={<Soon />} />
             <Row title={t('profile.notifyDeadlines')} action={<Soon />} />
             <Row title={t('profile.notifyTips')} action={<Soon />} />
           </Group>
-          <Group id="about" icon="info" title={t('profile.about')} index={4}>
+          <Group id="about" icon="info" title={t('profile.about')} index={5}>
             <Row title={t('app.tagline')} action={<ServiceStatus />} />
           </Group>
         </div>

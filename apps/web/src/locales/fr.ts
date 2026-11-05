@@ -1750,6 +1750,14 @@ export const fr: Messages = {
     legalTitle: 'Conditions et confidentialité',
     erased: 'C’est fait : nous avons effacé tout ce que Kayé gardait sur cet appareil.',
   },
+  dataSaver: {
+    group: 'Internet',
+    title: 'Économiser les données',
+    body: 'Des photos plus légères, et seulement quand tu les touches. Utile quand il te reste peu de crédit.',
+    fromPhone: 'Activé parce que ton téléphone économise les données.',
+    showPhoto: 'Voir la photo',
+    showPhotoLabel: 'Voir cette photo (utilise des données)',
+  },
   legal: {
     terms: 'Conditions d’utilisation',
     privacy: 'Politique de confidentialité',

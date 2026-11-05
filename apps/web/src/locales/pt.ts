@@ -1727,6 +1727,14 @@ export const pt = {
     legalTitle: 'Termos e privacidade',
     erased: 'Pronto: apagámos tudo o que o Kayé guardava neste aparelho.',
   },
+  dataSaver: {
+    group: 'Internet',
+    title: 'Poupar dados',
+    body: 'Fotos mais leves e só quando tocas nelas. Útil com pouco saldo.',
+    fromPhone: 'Ligado porque o teu telemóvel está a poupar dados.',
+    showPhoto: 'Ver foto',
+    showPhotoLabel: 'Ver esta foto (gasta dados)',
+  },
   legal: {
     terms: 'Termos de uso',
     privacy: 'Política de privacidade',

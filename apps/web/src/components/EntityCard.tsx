@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { Icon } from './icons'
+import { useDataSaver } from '../lib/useDataSaver'
 import { InstitutionLogo } from './InstitutionLogo'
+import { TapToLoad } from './PhotoImg'
 
 type Entity = { id: string; name: string; logo?: string; logoOnDark?: boolean; banner?: string }
 
@@ -20,6 +22,7 @@ type EntityCardProps = {
  */
 export function EntityCard({ entity, to, meta, place, badge }: EntityCardProps) {
   const titleId = `card-${entity.id}`
+  const saveData = useDataSaver()
   // Without a photo, the logo fills the band (on light, or on black when it is white).
   const logoBand = !entity.banner && entity.logo !== undefined
   const dark = !logoBand || entity.logoOnDark
@@ -29,7 +32,8 @@ export function EntityCard({ entity, to, meta, place, badge }: EntityCardProps) 
       className="relative flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-card transition hover:shadow-lift"
     >
       <div className={`relative h-24 shrink-0 sm:h-32 ${dark ? 'bg-coal' : 'bg-paper'}`}>
-        {entity.banner && (
+        {entity.banner && saveData && <TapToLoad src={entity.banner} className="size-full object-cover" />}
+        {entity.banner && !saveData && (
           <img
             src={entity.banner}
             alt=""

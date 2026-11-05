@@ -7,6 +7,7 @@ import { Dialog } from '../../components/ui/Dialog'
 import { changeLocale, LOCALE_NAMES, LOCALES } from '../../lib/i18n'
 import { saveFile } from '../../lib/saveFile'
 import { useApiHealth } from '../../lib/useApiHealth'
+import { deviceSavesData, setDataSaver, useDataSaver, useDataSaverChoice } from '../../lib/useDataSaver'
 import { getUser, userActions } from '../../state/userStore'
 
 // The working parts of the settings (docs/arquitetura.md, 7). Configurações lays them out in
@@ -141,5 +142,34 @@ export function LegalLinks({ className = '' }: { className?: string }) {
         </li>
       ))}
     </ul>
+  )
+}
+
+/**
+ * The data saver switch. Until the person chooses, it follows the phone's own "save data"
+ * setting, and says so.
+ */
+export function DataSaverSwitch() {
+  const { t } = useTranslation()
+  const choice = useDataSaverChoice()
+  const on = useDataSaver()
+  const fromPhone = choice === 'auto' && deviceSavesData()
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={on}
+        aria-label={t('dataSaver.title')}
+        onClick={() => setDataSaver(on ? 'off' : 'on')}
+        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition ${on ? 'bg-blue' : 'bg-line'}`}
+      >
+        <span
+          aria-hidden="true"
+          className={`inline-block size-5 rounded-full bg-white shadow-card transition ${on ? 'translate-x-6' : 'translate-x-1'}`}
+        />
+      </button>
+      {fromPhone && <p className="text-xs font-light text-muted">{t('dataSaver.fromPhone')}</p>}
+    </div>
   )
 }
