@@ -81,7 +81,92 @@ export const ENGLISH_A1: Course = {
   ],
 }
 
-export const KURSOS: Course[] = [ENGLISH_A1]
+export const PROJECT_MANAGEMENT: Course = {
+  id: 'gestao-projetos',
+  title: 'Fundamentos da Gestão de Projetos',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'target',
+  tone: 'gold',
+  subtitle: 'Como levar uma ideia do papel ao fim: objetivo, plano, prazos, dinheiro e equipa.',
+  audience:
+    'Para quem vai organizar alguma coisa pela primeira vez (uma feira, um evento, um pequeno negócio) e para quem quer trabalhar em projetos numa empresa, ONG ou serviço público.',
+  goals: [
+    'Distinguir um projeto do trabalho do dia a dia e explicar o triângulo âmbito, prazo e custo.',
+    'Conhecer as fases de um projeto, do início ao fecho.',
+    'Escrever um objetivo SMART e identificar as partes interessadas.',
+    'Preparar um termo de abertura simples para um projeto teu.',
+  ],
+  units: [
+    {
+      id: 'u1',
+      number: 1,
+      title: 'O que é um projeto',
+      summary: 'Projeto e operação; âmbito, prazo e custo; o ciclo de vida.',
+      load: () => import('./gestao-projetos/unit1').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Projeto ou operação?', estimatedMinutes: 15 },
+        { id: 'l2', title: 'O triângulo: âmbito, prazo e custo', estimatedMinutes: 15 },
+        { id: 'l3', title: 'O ciclo de vida de um projeto', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u2',
+      number: 2,
+      title: 'Iniciar',
+      summary: 'O objetivo SMART, as partes interessadas e o termo de abertura.',
+      load: () => import('./gestao-projetos/unit2').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'O objetivo SMART', estimatedMinutes: 15 },
+        { id: 'l2', title: 'As partes interessadas', estimatedMinutes: 20 },
+        { id: 'l3', title: 'O termo de abertura', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u3',
+      number: 3,
+      title: 'Âmbito e EAP',
+      summary: 'Dividir o trabalho em partes: a estrutura analítica do projeto (WBS).',
+    },
+    {
+      id: 'u4',
+      number: 4,
+      title: 'Cronograma',
+      summary: 'Dependências, gráfico de Gantt e caminho crítico.',
+    },
+    {
+      id: 'u5',
+      number: 5,
+      title: 'Orçamento e riscos',
+      summary: 'Estimar custos e preparar-se para o que pode correr mal.',
+    },
+    {
+      id: 'u6',
+      number: 6,
+      title: 'Acompanhar e fechar',
+      summary: 'Relatório de estado, entrega final e lições aprendidas.',
+    },
+  ],
+  loadExam: () => import('./gestao-projetos/exam').then((module) => module.default),
+  credits: [
+    {
+      title: 'Project Management, 2nd ed. (Adrienne Watt, BCcampus, 2014)',
+      author: 'Adrienne Watt',
+      license: 'CC BY 4.0',
+      url: 'https://opentextbc.ca/projectmanagement/',
+      use: 'Fonte principal: definição de projeto, tripla restrição, ciclo de vida, partes interessadas e termo de abertura, adaptados e traduzidos; os casos são nossos.',
+    },
+    {
+      title: 'SMART criteria (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/SMART_criteria',
+      use: 'Significado das letras SMART.',
+    },
+  ],
+}
+
+export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT]
 
 /** Next in line, one at a time (docs/roadmap.md). */
 export const ANNOUNCED: AnnouncedCourse[] = [

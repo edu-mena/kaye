@@ -1,0 +1,412 @@
+import type { UnitContent } from '../types'
+
+// Unit 1: what a project is. Adapted from Project Management, 2nd ed. (Adrienne Watt, BCcampus,
+// CC BY 4.0), chapters 1 to 3; the cases are Angolan and the amounts in Kz only illustrate.
+
+const unit: UnitContent = {
+  lessons: [
+    {
+      id: 'l1',
+      title: 'Projeto ou operação?',
+      estimatedMinutes: 15,
+      blocks: [
+        {
+          type: 'text',
+          title: 'Para que serve',
+          body: [
+            'Todos os dias fazes coisas que se repetem: ir às aulas, abrir a loja, preparar o almoço. Mas, de vez em quando, aparece um trabalho diferente, com princípio e fim: organizar a festa de finalistas, pintar a escola, lançar um negócio. A esse trabalho chama-se projeto (project).',
+            'Saber distinguir um projeto do trabalho do dia a dia é o primeiro passo da gestão de projetos. Um projeto precisa de ser planeado de propósito; a rotina, não.',
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Definição',
+          body: 'Um projeto é um esforço temporário para criar um resultado único: um produto, um serviço ou uma mudança. Temporário quer dizer que tem início e fim definidos. Único quer dizer que o resultado não é igual a nada que já tenha sido feito exatamente assim.',
+        },
+        {
+          type: 'text',
+          title: 'A operação',
+          body: [
+            'Ao trabalho que se repete sempre da mesma maneira chama-se operação (operations). A operação mantém as coisas a funcionar: vender pão todas as manhãs, dar aulas, atender clientes no banco.',
+            'Os dois precisam um do outro. Muitas vezes um projeto cria algo que depois passa a ser operação: abrir uma cantina é um projeto; servir refeições todos os dias, depois de a cantina abrir, é operação.',
+          ],
+        },
+        {
+          type: 'table',
+          caption: 'Projeto e operação, lado a lado',
+          head: ['', 'Projeto', 'Operação'],
+          rows: [
+            ['Duração', 'Tem início e fim', 'Continua sem data para acabar'],
+            ['Resultado', 'Único, feito uma vez', 'Repetido, sempre igual'],
+            ['Equipa', 'Juntada para o projeto', 'Fixa, faz parte da organização'],
+            ['Exemplo', 'Abrir uma cantina na escola', 'Servir o almoço todos os dias'],
+          ],
+        },
+        {
+          type: 'examples',
+          title: 'Exemplos',
+          items: [
+            {
+              text: 'Organizar a feira de emprego da escola, marcada para 15 de março.',
+              note: 'Projeto: tem data de fim e acontece uma vez.',
+            },
+            {
+              text: 'Limpar as salas de aula todas as tardes.',
+              note: 'Operação: repete-se sem data para acabar.',
+            },
+            {
+              text: 'Montar uma loja de telemóveis no Kilamba.',
+              note: 'Projeto: acaba quando a loja abre as portas.',
+            },
+            {
+              text: 'Vender e reparar telemóveis nessa loja.',
+              note: 'Operação: é o trabalho de todos os dias depois da abertura.',
+            },
+            {
+              text: 'Uma campanha de vacinação no bairro durante duas semanas.',
+              note: 'Projeto: tem início, fim e um resultado (pessoas vacinadas).',
+            },
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Como reconhecer',
+          body: 'Pergunta: “quando é que isto acaba?” Se a resposta é uma data ou um resultado concreto, é um projeto. Se a resposta é “nunca, faz-se sempre”, é operação.',
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l1-a',
+          kind: 'choice',
+          instruction: 'Projeto ou operação?',
+          items: [
+            { prompt: 'Construir um furo de água no bairro.', options: ['Projeto', 'Operação'], answer: 0 },
+            {
+              prompt: 'Cobrar as quotas da associação todos os meses.',
+              options: ['Projeto', 'Operação'],
+              answer: 1,
+            },
+            {
+              prompt: 'Preparar a cerimónia de entrega de diplomas deste ano.',
+              options: ['Projeto', 'Operação'],
+              answer: 0,
+            },
+            { prompt: 'Atender os clientes da farmácia.', options: ['Projeto', 'Operação'], answer: 1 },
+            {
+              prompt: 'Criar o site de uma empresa de transportes.',
+              options: ['Projeto', 'Operação'],
+              answer: 0,
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l1-b',
+          kind: 'gap',
+          instruction: 'Completa com uma palavra.',
+          items: [
+            { prompt: 'Um projeto é um esforço ___: tem início e fim.', answers: ['temporário'] },
+            { prompt: 'O resultado de um projeto é ___: não se repete igual.', answers: ['único'] },
+            {
+              prompt: 'O trabalho que se repete todos os dias chama-se ___.',
+              answers: ['operação', 'operações'],
+            },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'Projeto: temporário (início e fim) e com resultado único.',
+            'Operação: trabalho que se repete para manter as coisas a funcionar.',
+            'Muitas vezes o projeto cria algo que depois vira operação.',
+            'Pergunta de controlo: quando é que isto acaba?',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'l2',
+      title: 'O triângulo: âmbito, prazo e custo',
+      estimatedMinutes: 15,
+      blocks: [
+        {
+          type: 'text',
+          title: 'Três limites',
+          body: [
+            'Todo o projeto vive dentro de três limites. O âmbito (scope) é o que se vai entregar: o trabalho e o resultado. O prazo (time) é até quando. O custo (cost) é quanto dinheiro e recursos se podem gastar.',
+            'Os três estão ligados como os lados de um triângulo: se mexes num, os outros mexem também. Por isso se fala no triângulo de ferro (iron triangle), ou tripla restrição (triple constraint). No meio do triângulo está a qualidade: o resultado tem de servir para aquilo que se queria.',
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Regra do triângulo',
+          body: 'Não podes mudar um lado sem que os outros sintam. Mais âmbito pede mais tempo ou mais dinheiro. Menos tempo pede menos âmbito ou mais dinheiro. Menos dinheiro pede menos âmbito ou mais tempo. Se nada disto acontecer, quem paga é a qualidade.',
+        },
+        {
+          type: 'table',
+          caption: 'O que acontece quando um lado muda',
+          head: ['Mudança', 'Para manter a qualidade…'],
+          rows: [
+            ['Pedem mais trabalho (âmbito ↑)', '…precisas de mais tempo ou de mais dinheiro.'],
+            ['Antecipam a data (prazo ↓)', '…cortas âmbito ou juntas mais pessoas (custo ↑).'],
+            ['Cortam o orçamento (custo ↓)', '…cortas âmbito ou dás mais tempo.'],
+          ],
+        },
+        {
+          type: 'case',
+          title: 'A cantina da escola',
+          body: [
+            'A direção de uma escola em Viana quer abrir uma cantina em 8 semanas, com um orçamento de 2 000 000 Kz (valor só para ilustrar). O âmbito inicial é: cozinha pintada, fogão, 10 mesas e um balcão.',
+            'A meio do projeto, a direção pede também uma arca congeladora e um lava-loiça novo. É mais âmbito. A equipa explica que há três saídas: aumentar o orçamento para comprar o que falta, adiar a abertura para procurar material mais barato, ou abrir na data com menos mesas.',
+            'A direção escolhe abrir na data e aumentar o orçamento. Foi uma decisão consciente: ninguém fingiu que o triângulo não existia.',
+          ],
+        },
+        {
+          type: 'examples',
+          title: 'Mais casos curtos',
+          items: [
+            {
+              text: 'A feira de emprego passa de 10 para 20 empresas, sem mais tempo nem dinheiro.',
+              note: 'Âmbito ↑ sem mexer nos outros lados: a qualidade (organização, espaço) sofre.',
+            },
+            {
+              text: 'A campanha de vacinação tem de acabar uma semana mais cedo.',
+              note: 'Prazo ↓: são precisos mais enfermeiros (custo ↑) ou vacinar só parte do bairro (âmbito ↓).',
+            },
+            {
+              text: 'O orçamento da loja no Kilamba é cortado a metade.',
+              note: 'Custo ↓: abre-se uma loja mais pequena (âmbito ↓) ou mais tarde (prazo ↑).',
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l2-a',
+          kind: 'match',
+          instruction: 'Liga cada termo ao que quer dizer.',
+          items: [
+            { left: 'Âmbito', right: 'o que se vai entregar' },
+            { left: 'Prazo', right: 'até quando' },
+            { left: 'Custo', right: 'quanto se pode gastar' },
+            { left: 'Qualidade', right: 'se o resultado serve' },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l2-b',
+          kind: 'choice',
+          instruction: 'Escolhe a consequência mais provável.',
+          items: [
+            {
+              prompt: 'O cliente pede mais funcionalidades no site, mas quer manter a data e o preço.',
+              options: ['Nada muda', 'A qualidade fica em risco', 'O projeto fica mais barato'],
+              answer: 1,
+            },
+            {
+              prompt: 'A data da feira foi antecipada duas semanas.',
+              options: ['Mais pessoas ou menos atividades', 'Menos custo', 'Mais âmbito'],
+              answer: 0,
+            },
+            {
+              prompt: 'Deram mais dinheiro e mais tempo à equipa da cantina.',
+              options: ['Pode-se aumentar o âmbito', 'Tem de se cortar o âmbito', 'A qualidade baixa'],
+              answer: 0,
+            },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'Âmbito (o quê), prazo (até quando) e custo (quanto): o triângulo.',
+            'Mexer num lado obriga a mexer noutro, ou a qualidade sofre.',
+            'Uma boa gestão não esconde as trocas: põe as opções à frente de quem decide.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'l3',
+      title: 'O ciclo de vida de um projeto',
+      estimatedMinutes: 20,
+      blocks: [
+        {
+          type: 'text',
+          title: 'As fases',
+          body: [
+            'Todo o projeto, grande ou pequeno, passa pelas mesmas fases. Ao conjunto das fases chama-se ciclo de vida do projeto (project life cycle). Conhecê-lo ajuda a saber o que fazer agora e o que vem a seguir.',
+            'Neste curso usamos cinco fases: iniciar, planear, executar, acompanhar e fechar. Cada unidade seguinte trata uma delas.',
+          ],
+        },
+        {
+          type: 'table',
+          caption: 'As cinco fases',
+          head: ['Fase', 'Pergunta', 'Resultado'],
+          rows: [
+            ['Iniciar (initiating)', 'Vale a pena fazer isto? Para quê?', 'Termo de abertura aprovado'],
+            [
+              'Planear (planning)',
+              'Como, quando e com quanto?',
+              'Plano: tarefas, cronograma, orçamento, riscos',
+            ],
+            ['Executar (executing)', 'Mãos à obra.', 'O trabalho feito, as entregas'],
+            ['Acompanhar (monitoring)', 'Estamos a cumprir o plano?', 'Relatórios de estado, correções'],
+            ['Fechar (closing)', 'Acabou? O que aprendemos?', 'Entrega final, lições aprendidas'],
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Acompanhar não espera pelo fim',
+          body: 'As fases seguem esta ordem, mas acompanhar acontece ao mesmo tempo que executar: enquanto se trabalha, compara-se o que foi feito com o plano e corrige-se cedo. Esperar pelo fim para ver se correu bem é tarde demais.',
+        },
+        {
+          type: 'case',
+          title: 'A campanha de vacinação no bairro',
+          body: [
+            'Iniciar: o centro de saúde do Cazenga decide vacinar as crianças do bairro contra o sarampo. Define o objetivo e quem é o responsável.',
+            'Planear: divide o bairro em zonas, marca os dias de cada zona, calcula quantas vacinas, enfermeiros e ativistas são precisos, e o que fazer se chover.',
+            'Executar: as equipas saem para as ruas e vacinam. Acompanhar: todas as tardes, o responsável conta as crianças vacinadas por zona e compara com o plano. Numa zona ficou abaixo, e manda uma equipa extra no dia seguinte.',
+            'Fechar: no fim das duas semanas, entrega o relatório final ao município e reúne a equipa para anotar o que correu bem e o que mudar na próxima campanha.',
+          ],
+        },
+        {
+          type: 'examples',
+          title: 'Em que fase estamos?',
+          items: [
+            {
+              text: 'A comissão da feira de emprego faz a lista das empresas a convidar e das datas.',
+              note: 'Planear.',
+            },
+            { text: 'A loja no Kilamba abriu e o dono escreve o que faria diferente.', note: 'Fechar.' },
+            {
+              text: 'A meio da obra, o mestre compara o gasto em cimento com o previsto.',
+              note: 'Acompanhar.',
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l3-a',
+          kind: 'order',
+          instruction: 'Põe as fases pela ordem certa.',
+          items: [
+            {
+              words: ['fechar', 'planear', 'acompanhar', 'iniciar', 'executar'],
+              answer: 'iniciar planear executar acompanhar fechar',
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l3-b',
+          kind: 'choice',
+          instruction: 'Em que fase está cada tarefa?',
+          items: [
+            {
+              prompt: 'Decidir se vale a pena abrir a cantina e quem fica responsável.',
+              options: ['Iniciar', 'Executar', 'Fechar'],
+              answer: 0,
+            },
+            {
+              prompt: 'Comprar o fogão e pintar a cozinha.',
+              options: ['Planear', 'Executar', 'Fechar'],
+              answer: 1,
+            },
+            {
+              prompt: 'Ver, todas as semanas, se o dinheiro gasto bate com o orçamento.',
+              options: ['Iniciar', 'Acompanhar', 'Fechar'],
+              answer: 1,
+            },
+            {
+              prompt: 'Escrever as lições aprendidas depois da feira.',
+              options: ['Planear', 'Acompanhar', 'Fechar'],
+              answer: 2,
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'gp-u1l3-c',
+          kind: 'gap',
+          instruction: 'Completa com o nome da fase.',
+          items: [
+            { prompt: 'Calcular quantas vacinas são precisas é ___.', answers: ['planear', 'planeamento'] },
+            {
+              prompt: 'Comparar o feito com o plano, enquanto se trabalha, é ___.',
+              answers: ['acompanhar', 'acompanhamento'],
+            },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'Ciclo de vida: iniciar, planear, executar, acompanhar, fechar.',
+            'Acompanhar acontece ao mesmo tempo que executar.',
+            'Fechar inclui entregar e registar as lições aprendidas.',
+          ],
+        },
+      ],
+    },
+  ],
+  review: [
+    {
+      type: 'exercise',
+      id: 'gp-u1r-a',
+      kind: 'choice',
+      instruction: 'Escolhe a resposta certa.',
+      items: [
+        {
+          prompt: 'Qual destes é um projeto?',
+          options: [
+            'Pagar os salários todos os meses',
+            'Mudar o escritório para Talatona',
+            'Abrir a loja às 8h',
+          ],
+          answer: 1,
+        },
+        {
+          prompt: 'O que torna um projeto temporário?',
+          options: ['Ser barato', 'Ter início e fim', 'Ter pouca gente'],
+          answer: 1,
+        },
+        {
+          prompt: 'Pedem mais trabalho sem mais tempo nem dinheiro. O que fica em risco?',
+          options: ['A qualidade', 'O âmbito', 'Nada'],
+          answer: 0,
+        },
+        {
+          prompt: 'Em que fase se escreve o plano do orçamento?',
+          options: ['Iniciar', 'Planear', 'Fechar'],
+          answer: 1,
+        },
+        {
+          prompt: 'Quando se acompanha um projeto?',
+          options: ['Só no fim', 'Ao mesmo tempo que se executa', 'Antes de iniciar'],
+          answer: 1,
+        },
+      ],
+    },
+    {
+      type: 'exercise',
+      id: 'gp-u1r-b',
+      kind: 'gap',
+      instruction: 'Completa com uma palavra.',
+      items: [
+        { prompt: 'O ___ é o que o projeto vai entregar.', answers: ['âmbito'] },
+        { prompt: 'Servir refeições todos os dias na cantina é ___.', answers: ['operação'] },
+        { prompt: 'A última fase do ciclo de vida é ___.', answers: ['fechar', 'fecho', 'encerramento'] },
+      ],
+    },
+    {
+      type: 'exercise',
+      id: 'gp-u1r-c',
+      kind: 'match',
+      instruction: 'Liga cada tarefa à fase.',
+      items: [
+        { left: 'Aprovar o termo de abertura', right: 'Iniciar' },
+        { left: 'Vacinar as crianças da zona A', right: 'Executar' },
+        { left: 'Anotar o que correu mal', right: 'Fechar' },
+      ],
+    },
+  ],
+}
+
+export default unit

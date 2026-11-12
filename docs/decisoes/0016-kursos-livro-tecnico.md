@@ -20,3 +20,12 @@
 
 - Mudar de telemóvel perde o progresso até haver API.
 - Quando o conteúdo for revisto e houver verificação no servidor, a faixa e a marca de água saem numa nova decisão.
+
+## Nota (13 de novembro de 2026): cursos que não são de línguas
+
+- O segundo curso é Fundamentos da Gestão de Projetos (nível "Iniciante": o campo `level` é texto livre, o QECR só serve para línguas). 6 unidades no roadmap, só as unidades 1 e 2 escritas.
+- Num curso que não é de línguas, a explicação, os exemplos e os exercícios ficam todos em português. Um exemplo é um caso curto angolano (`examples` com `text` e `note`); um caso mais longo usa o bloco `case`. Valores em Kz só como ilustração, sem afirmar preços reais.
+- Termos ingleses do ofício aparecem entre parênteses na primeira vez: âmbito (scope), partes interessadas (stakeholders).
+- O PMBOK é protegido e não é usado. A fonte principal é "Project Management, 2nd ed." (Adrienne Watt, BCcampus, CC BY 4.0).
+- As respostas escritas ignoram acentos ("ambito" = "âmbito"), porque no telemóvel muita gente escreve sem eles.
+- Os cursos anunciados ("Em breve") são dados (`ANNOUNCED` em `data/kursos/index.ts`), um de cada vez: Economia, Contabilidade, Programação.
