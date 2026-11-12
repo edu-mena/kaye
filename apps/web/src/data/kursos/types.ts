@@ -52,7 +52,8 @@ export type ExamQuestion = { id: string; unit: string } & (
 export type Credit = { title: string; author: string; license: string; url: string; use: string }
 
 /** A course's icon: names from components/icons (data/ does not import UI). */
-export type CourseIcon = 'globe' | 'briefcase' | 'target' | 'chart' | 'wallet' | 'code' | 'book'
+export type CourseIcon =
+  'globe' | 'briefcase' | 'target' | 'chart' | 'wallet' | 'code' | 'book' | 'shield' | 'megaphone' | 'server'
 
 /** The colour behind a course's icon. */
 export type CourseTone = 'blue' | 'gold' | 'coral' | 'night' | 'success'

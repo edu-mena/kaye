@@ -29,3 +29,10 @@
 - O PMBOK é protegido e não é usado. A fonte principal é "Project Management, 2nd ed." (Adrienne Watt, BCcampus, CC BY 4.0).
 - As respostas escritas ignoram acentos ("ambito" = "âmbito"), porque no telemóvel muita gente escreve sem eles.
 - Os cursos anunciados ("Em breve") são dados (`ANNOUNCED` em `data/kursos/index.ts`), um de cada vez: Economia, Contabilidade, Programação.
+
+## Nota (13 de novembro de 2026): Fundamentos da Cibersegurança
+
+- Nível "Iniciante". 6 unidades no roadmap; escritas a 1 (palavras-passe e verificação em dois passos) e a 2 (burlas e phishing), com revisão, exame (21 perguntas no banco) e certificado.
+- Fontes: NIST SP 800-63B e os conselhos ao consumidor da FTC, ambos obras do governo dos EUA (domínio público nos EUA; a NIST reserva direitos fora dos EUA, por isso usamos só as recomendações, escritas de raiz), e a Wikipedia (CC BY-SA 4.0). Os materiais da CISA não foram usados: o site não os declara de domínio público ("subject to copyright controls").
+- Só defesa: nenhuma técnica de ataque nem passo a passo para entrar em contas alheias. Os riscos explicam-se só o necessário para os reconhecer (por exemplo, porque é que o SMS pode ser desviado).
+- Contactos de denúncia só com fonte oficial angolana. Enquanto não houver, o conselho é "contacta o teu banco pelo número no verso do cartão", denunciar o perfil na própria app e guardar provas.

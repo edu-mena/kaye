@@ -166,7 +166,94 @@ export const PROJECT_MANAGEMENT: Course = {
   ],
 }
 
-export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT]
+export const CYBERSECURITY: Course = {
+  id: 'ciberseguranca',
+  title: 'Fundamentos da Cibersegurança',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'shield',
+  tone: 'night',
+  subtitle: 'Proteger as tuas contas, o teu telemóvel e o teu dinheiro das burlas mais comuns.',
+  audience:
+    'Para quem usa o telemóvel para tudo (WhatsApp, banco, redes sociais, candidaturas) e quer evitar perder contas ou dinheiro; e para quem pensa numa carreira em cibersegurança. Só ensina a defender.',
+  goals: [
+    'Criar palavras-passe fortes e usar um gestor de palavras-passe.',
+    'Ativar a verificação em dois passos e saber porque é que o código é só teu.',
+    'Reconhecer phishing, falsos familiares e falsas ofertas de emprego e de bolsas.',
+    'Saber o que fazer, e a quem recorrer, se caíres numa burla.',
+  ],
+  units: [
+    {
+      id: 'u1',
+      number: 1,
+      title: 'Palavras-passe e verificação em dois passos',
+      summary: 'Frases-passe, gestor de palavras-passe, códigos por SMS e por app.',
+      load: () => import('./ciberseguranca/unit1').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Uma palavra-passe forte', estimatedMinutes: 15 },
+        { id: 'l2', title: 'O gestor de palavras-passe', estimatedMinutes: 15 },
+        { id: 'l3', title: 'A verificação em dois passos', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u2',
+      number: 2,
+      title: 'Burlas e phishing',
+      summary: 'SMS e WhatsApp falsos, “olá mãe, mudei de número”, falsas ofertas; como verificar.',
+      load: () => import('./ciberseguranca/unit2').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'O que é phishing e como o reconhecer', estimatedMinutes: 15 },
+        { id: 'l2', title: '“Olá mãe, mudei de número” e os pedidos de código', estimatedMinutes: 20 },
+        { id: 'l3', title: 'Falsas ofertas de emprego e de bolsas', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u3',
+      number: 3,
+      title: 'O telemóvel seguro',
+      summary: 'Atualizações, apps só da loja oficial, permissões e bloqueio.',
+    },
+    { id: 'u4', number: 4, title: 'Redes e navegação', summary: 'Wi-Fi público, HTTPS e downloads.' },
+    {
+      id: 'u5',
+      number: 5,
+      title: 'Privacidade e redes sociais',
+      summary: 'O que não publicar e a Lei n.º 22/11, de Proteção de Dados Pessoais.',
+    },
+    {
+      id: 'u6',
+      number: 6,
+      title: 'Carreiras em cibersegurança',
+      summary: 'As funções da área e as certificações mais conhecidas.',
+    },
+  ],
+  loadExam: () => import('./ciberseguranca/exam').then((module) => module.default),
+  credits: [
+    {
+      title: 'NIST SP 800-63B, Digital Identity Guidelines: Authentication and Authenticator Management',
+      author: 'National Institute of Standards and Technology (EUA)',
+      license: 'Domínio público nos EUA (obra do governo dos EUA, 17 U.S.C. §105)',
+      url: 'https://pages.nist.gov/800-63-4/sp800-63b.html',
+      use: 'Recomendações sobre palavras-passe (comprimento, sem trocas periódicas, listas de palavras-passe comuns, gestores) e as limitações do código por SMS. Só as recomendações, escritas de raiz em português.',
+    },
+    {
+      title: 'Consumer Advice: phishing, falsos familiares e burlas de emprego',
+      author: 'Federal Trade Commission (EUA)',
+      license: 'Domínio público (obra do governo dos EUA, 17 U.S.C. §105)',
+      url: 'https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams',
+      use: 'Sinais de alerta e formas de verificar nas lições sobre phishing, falsos familiares e ofertas de emprego, adaptados a Angola.',
+    },
+    {
+      title: 'Phishing; Multi-factor authentication (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Phishing',
+      use: 'Origem do termo phishing e os três tipos de prova da verificação em dois passos.',
+    },
+  ],
+}
+
+export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT, CYBERSECURITY]
 
 /** Next in line, one at a time (docs/roadmap.md). */
 export const ANNOUNCED: AnnouncedCourse[] = [
@@ -183,10 +270,22 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     icon: 'wallet',
   },
   {
+    id: 'marketing-digital',
+    title: 'Marketing Digital',
+    body: 'Redes sociais, anúncios e conteúdos para dar a conhecer um negócio ou uma causa.',
+    icon: 'megaphone',
+  },
+  {
     id: 'programacao',
     title: 'Programação',
     body: 'Os primeiros passos em programação, com exercícios no navegador.',
     icon: 'code',
+  },
+  {
+    id: 'analise-dados',
+    title: 'Análise de Dados',
+    body: 'Folhas de cálculo, gráficos e as primeiras perguntas feitas aos dados.',
+    icon: 'server',
   },
 ]
 
