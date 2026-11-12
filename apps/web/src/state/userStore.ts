@@ -1,6 +1,28 @@
 import { useSyncExternalStore } from 'react'
-import type { CvData, CvExample, EducationLevel, Likert, SkillLevel } from '../data/types'
-import { newEntry } from '../domain/cv'
+import { CV_EXAMPLES } from '../data/demo/cvExamples'
+import { deletePublicCard } from '../data/source'
+import type {
+  CardModel,
+  CardStyle,
+  CvCard,
+  CvData,
+  CvDocument,
+  CvEntry,
+  CvExample,
+  CvStyle,
+  CvTarget,
+  CvTemplate,
+  EducationLevel,
+  Likert,
+  MarketArea,
+  PublicCard,
+  SkillLevel,
+  Subscriptions,
+} from '../data/types'
+import { NEWS_KINDS } from '../data/types'
+import { newEntry, newId } from '../domain/cv'
+import type { Discovery } from '../domain/discovery'
+import type { Level, Mode, Scores } from '../domain/psychotech'
 
 // What the person has done in the app. Until the API exists it lives only on this
 // device (localStorage); later each action becomes a /api/v1 call (docs/decisoes/0005).
@@ -20,17 +42,51 @@ export type HistoryEvent = {
   ref?: string
 }
 
+/** One finished psychotechnical session: only the scores, never the answers. */
+export type PsychotechResult = { at: string; mode: Mode; level: Level; scores: Scores }
+
+/** One interview sent for review: only when and which area; the answers live with the Kayé team. */
+export type InterviewResult = { at: string; area: MarketArea; questions: number; career?: string }
+
+/** One try at a course's final exam: the grade and the grade per unit, never the answers. */
+export type KursoExamAttempt = { at: string; score: number; units: Record<string, number> }
+
+/** Progress in one Kurso (docs/decisoes/0016): kept on this device only. */
+export type KursoProgress = {
+  /** Finished steps, as "unit/lesson" ("u1/revisao" for a unit's review). */
+  done: string[]
+  /** Grade of each unit's review, 0 to 1. */
+  scores: Record<string, number>
+  /** The last step opened, for "Continuar". */
+  position: string | null
+  /** Active study time: page visible and used in the last 2 minutes. */
+  seconds: number
+  /** Newest first. */
+  exam: KursoExamAttempt[]
+  completedAt?: string
+  certificate?: string
+}
+
+export const EMPTY_KURSO: KursoProgress = { done: [], scores: {}, position: null, seconds: 0, exam: [] }
+
+export type PublicPage = { slug: string; secret: string; card: PublicCard }
+
 export type UserData = {
   version: 1
   profile: Profile | null
+  /** What the person told the guide on their first visit. */
+  discovery: Discovery | null
   answers: Record<string, Likert>
   assessmentCompletedAt: string | null
   skills: Record<string, SkillLevel>
   savedCareers: string[]
   visitedCareers: string[]
   targetCareer: string | null
-  cv: CvData
-  cvBasedOn: string | null
+  /** All the person's CVs; `activeCvId` is the one open in the editor. */
+  cvs: CvDocument[]
+  activeCvId: string | null
+  /** The person's public page, while on; `secret` is what lets this device change or delete it. */
+  publicPage: PublicPage | null
   compare: string[]
   /** Newest first, at most MAX_HISTORY. */
   history: HistoryEvent[]
@@ -41,6 +97,14 @@ export type UserData = {
   cover: string | null
   /** When the notifications were last opened (ISO), so the bell knows what is new. */
   notificationsSeenAt: string | null
+  /** Psychotechnical practice, newest first, at most MAX_PSYCHOTECH. */
+  psychotech: PsychotechResult[]
+  /** Interview practice, newest first, at most MAX_INTERVIEWS. */
+  interviews: InterviewResult[]
+  /** The topics followed on Novidades; filled at the end of onboarding, null before. */
+  subscriptions: Subscriptions | null
+  /** Kursos progress, by course id. */
+  kursos: Record<string, KursoProgress>
 }
 
 export const EMPTY_CV: CvData = {
@@ -60,35 +124,62 @@ export const EMPTY_CV: CvData = {
 const INITIAL: UserData = {
   version: 1,
   profile: null,
+  discovery: null,
   answers: {},
   assessmentCompletedAt: null,
   skills: {},
   savedCareers: [],
   visitedCareers: [],
   targetCareer: null,
-  cv: EMPTY_CV,
-  cvBasedOn: null,
+  cvs: [],
+  activeCvId: null,
+  publicPage: null,
   compare: [],
   history: [],
   searches: [],
   photo: null,
   cover: null,
   notificationsSeenAt: null,
+  psychotech: [],
+  interviews: [],
+  subscriptions: null,
+  kursos: {},
 }
 
 export const MAX_COMPARE = 3
 export const MAX_HISTORY = 100
 export const MAX_SEARCHES = 6
+export const MAX_PSYCHOTECH = 30
+export const MAX_INTERVIEWS = 30
 const KEY = 'kaye.user.v1'
 const listeners = new Set<() => void>()
 let state: UserData = load()
 
+/** What devices saved when a person had a single CV. */
+type LegacyCv = { cv?: Partial<CvData>; cvBasedOn?: string | null }
+
+/** A device with the old single CV gets it as the first of the list, with the layout it had. */
+function migrateCvs({ cv, cvBasedOn = null }: LegacyCv): CvDocument[] {
+  const content = { ...EMPTY_CV, ...cv }
+  if (!cvBasedOn && JSON.stringify(content) === JSON.stringify(EMPTY_CV)) return []
+  const template = CV_EXAMPLES.find((example) => example.id === cvBasedOn)?.template ?? 'classico'
+  return [{ id: newId(), title: '', cv: content, template, style: {}, basedOn: cvBasedOn }]
+}
+
+const withAllFields = (document: CvDocument): CvDocument => ({
+  ...document,
+  cv: { ...EMPTY_CV, ...document.cv },
+})
+
 function load(): UserData {
   try {
     const raw = localStorage.getItem(KEY)
-    const saved = raw ? (JSON.parse(raw) as Partial<UserData>) : null
+    const saved = raw ? (JSON.parse(raw) as Partial<UserData> & LegacyCv) : null
+    if (saved?.version !== 1) return INITIAL
+    const { cv, cvBasedOn, ...rest } = saved
     // CVs saved before a field existed get it empty, so old data keeps working.
-    return saved?.version === 1 ? { ...INITIAL, ...saved, cv: { ...EMPTY_CV, ...saved.cv } } : INITIAL
+    const cvs = (saved.cvs ?? migrateCvs({ cv, cvBasedOn })).map(withAllFields)
+    return { ...INITIAL, ...rest, cvs, activeCvId: saved.activeCvId ?? cvs[0]?.id ?? null }
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
     return INITIAL
@@ -135,12 +226,86 @@ function logged(user: UserData, type: HistoryEvent['type'], ref?: string): UserD
   return { ...user, history: [event, ...user.history].slice(0, MAX_HISTORY) }
 }
 
+/** The CV open in the editor. */
+export function activeCv(user: UserData): CvDocument | null {
+  return user.cvs.find((document) => document.id === user.activeCvId) ?? user.cvs[0] ?? null
+}
+
+/** A change to the open CV. */
+function updateActive(change: (document: CvDocument) => CvDocument) {
+  update((user) => {
+    const active = activeCv(user)
+    return {
+      ...user,
+      cvs: user.cvs.map((document) => (document === active ? change(document) : document)),
+    }
+  })
+}
+
+function blankCv(user: UserData): CvDocument {
+  return {
+    id: newId(),
+    title: '',
+    cv: { ...EMPTY_CV, name: user.profile?.name ?? '' },
+    template: 'classico',
+    style: {},
+    basedOn: null,
+  }
+}
+
+/** A change to the card of one CV. */
+function updateCard(id: string, change: (card: CvCard) => CvCard) {
+  update((user) => ({
+    ...user,
+    cvs: user.cvs.map((document) =>
+      document.id === id ? { ...document, card: change(document.card ?? {}) } : document,
+    ),
+  }))
+}
+
+/** A change to the progress in one Kurso. */
+function updateKurso(course: string, change: (progress: KursoProgress) => KursoProgress) {
+  update((user) => ({
+    ...user,
+    kursos: { ...user.kursos, [course]: change(user.kursos[course] ?? EMPTY_KURSO) },
+  }))
+}
+
+function withEducation(document: CvDocument, entry: Omit<CvEntry, 'id'>): CvDocument {
+  return {
+    ...document,
+    cv: { ...document.cv, education: [{ id: newId(), ...entry }, ...document.cv.education] },
+  }
+}
+
+function withNewCv(user: UserData, document: CvDocument): UserData {
+  return { ...user, cvs: [document, ...user.cvs], activeCvId: document.id }
+}
+
 export const userActions = {
   /** The notifications were opened: what is dated until today stops being new. */
   seeNotifications: () => update((user) => ({ ...user, notificationsSeenAt: new Date().toISOString() })),
 
   saveProfile: (profile: Profile) =>
     update((user) => logged({ ...user, profile }, user.profile ? 'profileEdit' : 'profile')),
+
+  /** The end of the first visit: the account, what the guide learned and the careers the person liked. */
+  completeOnboarding: (profile: Profile, discovery: Discovery, liked: string[]) =>
+    update((user) =>
+      logged(
+        {
+          ...user,
+          profile,
+          discovery,
+          savedCareers: [...new Set([...user.savedCareers, ...liked])],
+          subscriptions: user.subscriptions ?? { areas: discovery.areas, kinds: [...NEWS_KINDS] },
+        },
+        'profile',
+      ),
+    ),
+
+  /** The topics the person follows on Novidades (in the app only, until there is a server). */
+  subscribe: (subscriptions: Subscriptions) => update((user) => ({ ...user, subscriptions })),
 
   answer: (questionId: string, value: Likert) =>
     update((user) => ({ ...user, answers: { ...user.answers, [questionId]: value } })),
@@ -176,15 +341,66 @@ export const userActions = {
       slug ? logged({ ...user, targetCareer: slug }, 'target', slug) : { ...user, targetCareer: null },
     ),
 
-  updateCv: (cv: CvData) => update((user) => ({ ...user, cv })),
+  /** The editor always has a CV to work on. */
+  ensureCv: () => update((user) => (user.cvs.length > 0 ? user : withNewCv(user, blankCv(user)))),
 
-  /** Copies the structure of a model CV, never its data (docs/arquitetura.md, 5.5). */
+  createCv: () => update((user) => withNewCv(user, blankCv(user))),
+
+  /** Same content, model and style, as a CV of its own. */
+  duplicateCv: (id: string, title: string) =>
+    update((user) => {
+      const source = user.cvs.find((document) => document.id === id)
+      return source ? withNewCv(user, { ...source, id: newId(), title }) : user
+    }),
+
+  renameCv: (id: string, title: string) =>
+    update((user) => ({
+      ...user,
+      cvs: user.cvs.map((document) => (document.id === id ? { ...document, title } : document)),
+    })),
+
+  deleteCv: (id: string) =>
+    update((user) => {
+      const cvs = user.cvs.filter((document) => document.id !== id)
+      return { ...user, cvs, activeCvId: user.activeCvId === id ? (cvs[0]?.id ?? null) : user.activeCvId }
+    }),
+
+  openCv: (id: string) => update((user) => ({ ...user, activeCvId: id })),
+
+  updateCv: (cv: CvData) => updateActive((document) => ({ ...document, cv })),
+
+  setCvTemplate: (template: CvTemplate) => updateActive((document) => ({ ...document, template })),
+
+  setCvStyle: (change: Partial<CvStyle>) =>
+    updateActive((document) => ({ ...document, style: { ...document.style, ...change } })),
+
+  setCvTarget: (target: CvTarget) => updateActive((document) => ({ ...document, target })),
+
+  setCvCardModel: (id: string, model: CardModel) => updateCard(id, (card) => ({ ...card, model })),
+
+  setCvCardStyle: (id: string, style: Partial<CardStyle>) =>
+    updateCard(id, (card) => ({ ...card, style: { ...card.style, ...style } })),
+
+  setCvCardDetails: (id: string, details: NonNullable<CvCard['details']>) =>
+    updateCard(id, (card) => ({ ...card, details: { ...card.details, ...details } })),
+
+  /** Back to the CV's data, or to the CV's look. */
+  resetCvCard: (id: string, part: 'details' | 'style') => updateCard(id, (card) => ({ ...card, [part]: {} })),
+
+  setPublicPage: (publicPage: PublicPage | null) => update((user) => ({ ...user, publicPage })),
+
+  /** "Repor modelo": back to the template's look; the content stays. */
+  resetCvStyle: () => updateActive((document) => ({ ...document, style: {} })),
+
+  /** A new CV with the structure of a model, never its data (docs/arquitetura.md, 5.5). */
   startCvFrom: (example: CvExample) =>
     update((user) =>
       logged(
-        {
-          ...user,
-          cvBasedOn: example.id,
+        withNewCv(user, {
+          ...blankCv(user),
+          title: example.cv.headline,
+          template: example.template,
+          basedOn: example.id,
           cv: {
             ...EMPTY_CV,
             name: user.profile?.name ?? '',
@@ -193,7 +409,7 @@ export const userActions = {
             projects: example.cv.projects.map(newEntry),
             certifications: example.cv.certifications.map(newEntry),
           },
-        },
+        }),
         'cv',
         example.id,
       ),
@@ -216,6 +432,46 @@ export const userActions = {
       return { ...user, searches: [search, ...others].slice(0, MAX_SEARCHES) }
     }),
 
+  addPsychotech: (result: PsychotechResult) =>
+    update((user) => ({ ...user, psychotech: [result, ...user.psychotech].slice(0, MAX_PSYCHOTECH) })),
+
+  addInterview: (result: InterviewResult) =>
+    update((user) => ({ ...user, interviews: [result, ...user.interviews].slice(0, MAX_INTERVIEWS) })),
+
+  /** "Concluir e seguir": the step is done, with its grade when it is a unit review. */
+  completeKursoStep: (course: string, step: string, score?: { unit: string; value: number }) =>
+    updateKurso(course, (progress) => ({
+      ...progress,
+      done: progress.done.includes(step) ? progress.done : [...progress.done, step],
+      scores: score ? { ...progress.scores, [score.unit]: score.value } : progress.scores,
+    })),
+
+  openKursoStep: (course: string, step: string) =>
+    updateKurso(course, (progress) =>
+      progress.position === step ? progress : { ...progress, position: step },
+    ),
+
+  addKursoTime: (course: string, seconds: number) =>
+    updateKurso(course, (progress) => ({ ...progress, seconds: progress.seconds + seconds })),
+
+  addKursoExam: (course: string, attempt: KursoExamAttempt, certificate?: string) =>
+    updateKurso(course, (progress) => ({
+      ...progress,
+      exam: [attempt, ...progress.exam].slice(0, 20),
+      ...(certificate && !progress.completedAt ? { completedAt: attempt.at, certificate } : {}),
+    })),
+
+  /** "Adicionar ao CV": a suggestion in the education of the open CV (one is made if there is none). */
+  addCvEducation: (entry: Omit<CvEntry, 'id'>) =>
+    update((user) => {
+      const base = user.cvs.length > 0 ? user : withNewCv(user, blankCv(user))
+      const active = activeCv(base)
+      return {
+        ...base,
+        cvs: base.cvs.map((document) => (document === active ? withEducation(document, entry) : document)),
+      }
+    }),
+
   clearSearches: () => update((user) => ({ ...user, searches: [] })),
 
   setPhoto: (photo: string | null) => update((user) => ({ ...user, photo })),
@@ -224,6 +480,9 @@ export const userActions = {
 
   /** "Apagar os meus dados": everything the app keeps about the person. */
   eraseAll: () => {
+    // The public page lives on the server: without this, it would outlive the data that made it.
+    if (state.publicPage)
+      void deletePublicCard(state.publicPage.slug, state.publicPage.secret).catch(() => {})
     try {
       localStorage.removeItem(KEY)
     } catch {

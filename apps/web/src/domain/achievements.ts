@@ -1,5 +1,5 @@
 import type { CvData } from '../data/types'
-import { cvCompleteness } from './cv'
+import { bestCvCompleteness } from './cv'
 
 /** The part of the person's data that earns points; the saved user data fits it. */
 type Progress = {
@@ -8,8 +8,11 @@ type Progress = {
   visitedCareers: string[]
   targetCareer: string | null
   skills: Record<string, unknown>
-  cv: CvData
+  cvs: { cv: CvData }[]
+  kursos?: Record<string, { done: string[]; completedAt?: string }>
 }
+
+const kursos = (user: Progress) => Object.values(user.kursos ?? {})
 
 // Points only for useful actions (docs/roadmap.md, 1.8). Server-side ledger later.
 const RULES = [
@@ -18,7 +21,9 @@ const RULES = [
   { id: 'explorador', xp: 50, earned: (user: Progress) => user.visitedCareers.length >= 3 },
   { id: 'destino', xp: 50, earned: (user: Progress) => user.targetCareer !== null },
   { id: 'competencias', xp: 50, earned: (user: Progress) => Object.keys(user.skills).length >= 5 },
-  { id: 'cv', xp: 100, earned: (user: Progress) => cvCompleteness(user.cv) === 1 },
+  { id: 'cv', xp: 100, earned: (user: Progress) => bestCvCompleteness(user.cvs) === 1 },
+  { id: 'licao', xp: 20, earned: (user: Progress) => kursos(user).some((course) => course.done.length > 0) },
+  { id: 'kurso', xp: 150, earned: (user: Progress) => kursos(user).some((course) => course.completedAt) },
 ] as const
 
 type AchievementId = (typeof RULES)[number]['id']

@@ -41,6 +41,8 @@ export const router = createBrowserRouter([
       { index: true, Component: IndexPage, handle: { bare: true } satisfies RouteHandle },
       { path: 'teste', lazy: page(() => import('../features/assessment/AssessmentPage')) },
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
+      { path: 'treino', lazy: page(() => import('../features/psychotech/PsychotechPage')) },
+      { path: 'entrevistas', lazy: page(() => import('../features/interviews/InterviewsPage')) },
       {
         path: 'carreiras',
         handle: { wide: true } satisfies RouteHandle,
@@ -66,6 +68,19 @@ export const router = createBrowserRouter([
         path: 'cursos/:id',
         handle: { wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/training/CoursePage')),
+      },
+      { path: 'kursos', lazy: page(() => import('../features/kursos/KursosPage')) },
+      { path: 'kursos/:curso', lazy: page(() => import('../features/kursos/CourseOverviewPage')) },
+      {
+        path: 'kursos/:curso/exame',
+        handle: { reader: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/kursos/ExamPage')),
+      },
+      { path: 'kursos/:curso/concluido', lazy: page(() => import('../features/kursos/CompletedPage')) },
+      {
+        path: 'kursos/:curso/:unidade/:licao',
+        handle: { reader: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/kursos/LessonPage')),
       },
       { path: 'pesquisa', lazy: page(() => import('../features/search/SearchPage')) },
       {

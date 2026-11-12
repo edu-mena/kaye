@@ -136,6 +136,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 ## Fase 2 — Voltar sempre
 
 - "Guardar contacto" (vCard) na página pública. O cartão de visita (10 modelos, dados e aspeto editáveis), a página pública e o QR já existem no site de teste; falta passá-los para o Laravel ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md))
+- [x] Kursos (`/kursos`): Inglês A1 em versão de teste, ao estilo de um livro técnico; unidades 1 e 2 escritas, exame final e certificado sem validade no aparelho (ADR 0016). Faltam as unidades 3 a 8 e Programação
+- [x] "Mostrar à família": na carreira, um PDF de uma página criado no telemóvel (o que faz, salários, procura, custo do curso, reconhecimento, como pagar, testemunho real e, se o jovem quiser, as razões do teste só com o primeiro nome), para enviar pelo WhatsApp ou imprimir. Falta a ficha do curso ("este curso, nesta instituição": propina, duração, exame de acesso), depois do 1A/1B
 - Notificações push dos prazos (`/prazos`), mesmo com a app fechada: precisam de backend (guardar o token do telemóvel e um cron que envia)
 - "O meu plano": escolher uma carreira-alvo e seguir os passos que o encaixe mostrou, com progresso e lembretes semanais
 - Transição de carreira: para quem já trabalha noutra área, as competências e a experiência que já tem contra as que faltam (a ESCO já liga profissões e competências)

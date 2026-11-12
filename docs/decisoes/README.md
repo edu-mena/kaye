@@ -15,9 +15,14 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0006](0006-pdf-do-cv-gerado-no-aparelho.md) | O PDF do CV gera-se no aparelho, por agora (jsPDF) | Aceite |
 | [0007](0007-sem-faixa-de-demonstracao.md) | Sem a faixa "Demonstração" no topo dos ecrãs | Aceite |
 | [0008](0008-recolha-de-vagas-de-todos-os-sites.md) | Recolha de vagas de todos os sites de emprego, só para estatística | Aceite |
-| [0009](0009-catalogo-por-areas-a-comecar-pela-saude.md) | O catálogo cresce por áreas, a começar pela Saúde | Aceite |
+| [0009](0009-catalogo-por-areas-a-comecar-pela-saude.md) | O catálogo cresce por áreas, a começar pela Saúde | Substituída por 0015 |
 | [0010](0010-guias-completos-com-fontes-oficiais.md) | Guias completos das profissões com fontes oficiais, um grupo de cada vez | Aceite |
 | [0011](0011-catalogo-de-cursos-e-planos-de-estudos.md) | Catálogo de cursos reais e planos de estudos dos decretos | Aceite |
+| [0012](0012-conta-obrigatoria-e-onboarding-adaptativo.md) | Conta obrigatória e onboarding adaptativo com guia e voz | Aceite (a voz mudou com a 0013) |
+| [0013](0013-voz-do-guia-em-audio-pre-gerado.md) | A voz do guia é áudio gerado de antemão | Aceite |
+| [0014](0014-pagina-publica-do-cartao.md) | A página pública do cartão guarda só o que a pessoa escolheu | Aceite |
+| [0015](0015-catalogo-largo.md) | Catálogo largo: todas as áreas desde o MVP | Aceite |
+| [0016](0016-kursos-livro-tecnico.md) | Kursos: cursos como livro técnico, progresso e certificado no aparelho | Aceite |
 
 Modelo para um novo ADR:
 

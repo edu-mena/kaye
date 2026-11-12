@@ -12,7 +12,10 @@ type NavKey =
   | 'home'
   | 'search'
   | 'careers'
+  | 'psychotech'
+  | 'interviews'
   | 'courses'
+  | 'kursos'
   | 'academies'
   | 'scholarships'
   | 'internships'
@@ -32,17 +35,22 @@ type NavItem = {
   icon: IconName
   /** White icon instead of gold: Suporte and Configurações stay in the background. */
   quiet?: boolean
+  /** On large screens the tutorial points at the sidebar link (components/Tour.tsx). */
+  tour?: string
 }
 type NavGroup = { key: 'groupExplore' | 'groupYou' | 'groupHelp'; items: NavItem[] }
 
 const HOME: NavItem = { to: '/', key: 'home', icon: 'home' }
 const SEARCH: NavItem = { to: '/pesquisa', key: 'search', icon: 'search' }
 const CAREERS: NavItem = { to: '/carreiras', key: 'careers', icon: 'compass' }
+const PSYCHOTECH: NavItem = { to: '/treino', key: 'psychotech', icon: 'brain', tour: 'psychotech' }
+const INTERVIEWS: NavItem = { to: '/entrevistas', key: 'interviews', icon: 'message', tour: 'interviews' }
 const COURSES: NavItem = { to: '/cursos', key: 'courses', icon: 'cap' }
+const KURSOS: NavItem = { to: '/kursos', key: 'kursos', icon: 'book' }
 const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark' }
 const SCHOLARSHIPS: NavItem = { to: '/bolsas', key: 'scholarships', icon: 'award' }
-const INTERNSHIPS: NavItem = { to: '/estagios', key: 'internships', icon: 'briefcase' }
-const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar' }
+const INTERNSHIPS: NavItem = { to: '/estagios', key: 'internships', icon: 'briefcase', tour: 'internships' }
+const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar', tour: 'deadlines' }
 const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
 const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
@@ -61,7 +69,10 @@ const SIDEBAR: NavGroup[] = [
       HOME,
       SEARCH,
       CAREERS,
+      PSYCHOTECH,
+      INTERVIEWS,
       COURSES,
+      KURSOS,
       ACADEMIES,
       SCHOLARSHIPS,
       INTERNSHIPS,
@@ -76,7 +87,21 @@ const SIDEBAR: NavGroup[] = [
 const SIDEBAR_FOOTER = [SUPPORT, SETTINGS]
 const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
 const MENU: NavGroup[] = [
-  { key: 'groupExplore', items: [ACADEMIES, SCHOLARSHIPS, INTERNSHIPS, DEADLINES, COMPANIES, MARKET, NEWS] },
+  {
+    key: 'groupExplore',
+    items: [
+      PSYCHOTECH,
+      INTERVIEWS,
+      KURSOS,
+      ACADEMIES,
+      SCHOLARSHIPS,
+      INTERNSHIPS,
+      DEADLINES,
+      COMPANIES,
+      MARKET,
+      NEWS,
+    ],
+  },
   { key: 'groupYou', items: [NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
 ]
@@ -94,6 +119,7 @@ function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
       to={item.to}
       end={item.to === '/'}
       title={iconOnly ? label : undefined}
+      data-tour={item.tour}
       onClick={onNavigate}
       className={({ isActive }) =>
         `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-light transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${

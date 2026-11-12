@@ -1,5 +1,5 @@
 import { QUESTIONS } from '../data/demo/assessment'
-import type { Likert, RiasecKey } from '../data/types'
+import type { CvData, CvDocument, Likert, RiasecKey } from '../data/types'
 import { EMPTY_CV, reloadUser, type Profile, type UserData } from '../state/userStore'
 
 const PROFILE: Profile = {
@@ -22,20 +22,26 @@ export function seedUser(change: Partial<UserData> = {}) {
   const user: UserData = {
     version: 1,
     profile: PROFILE,
+    discovery: null,
     answers: {},
     assessmentCompletedAt: null,
     skills: {},
     savedCareers: [],
     visitedCareers: [],
     targetCareer: null,
-    cv: EMPTY_CV,
-    cvBasedOn: null,
+    cvs: [],
+    activeCvId: null,
+    publicPage: null,
     compare: [],
     history: [],
     searches: [],
     photo: null,
     cover: null,
     notificationsSeenAt: null,
+    psychotech: [],
+    interviews: [],
+    subscriptions: null,
+    kursos: {},
     ...change,
   }
   localStorage.setItem('kaye.user.v1', JSON.stringify(user))
@@ -46,4 +52,9 @@ export function seedUser(change: Partial<UserData> = {}) {
 /** A user who finished the test. */
 export function seedTested(change: Partial<UserData> = {}) {
   return seedUser({ answers: answersFor(), assessmentCompletedAt: '2026-10-23T10:00:00.000Z', ...change })
+}
+
+/** One saved CV, as the store keeps it. */
+export function savedCv(cv: Partial<CvData>, basedOn: string | null = null): CvDocument {
+  return { id: 'cv-1', title: '', cv: { ...EMPTY_CV, ...cv }, template: 'classico', style: {}, basedOn }
 }
