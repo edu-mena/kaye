@@ -99,6 +99,22 @@ export function BlockView({ block, lang }: { block: Block; lang: string }) {
           ))}
         </section>
       )
+    case 'code':
+      return (
+        <figure className="my-6">
+          <div className="overflow-hidden rounded-2xl bg-coal text-white shadow-card">
+            <p className="border-b border-white/10 px-4 py-1.5 text-xs font-semibold text-white/60">
+              {block.language}
+            </p>
+            <pre className="overflow-x-auto px-4 py-3 text-sm leading-relaxed">
+              <code lang="en" className="font-mono">
+                {block.code}
+              </code>
+            </pre>
+          </div>
+          {block.caption && <figcaption className="mt-2 text-sm text-muted">{block.caption}</figcaption>}
+        </figure>
+      )
     case 'exercise':
       return <PracticeExercise block={block} lang={lang} />
     case 'summary':

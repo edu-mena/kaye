@@ -339,7 +339,84 @@ export const DIGITAL_MARKETING: Course = {
   ],
 }
 
-export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT, CYBERSECURITY, DIGITAL_MARKETING]
+export const PROGRAMMING: Course = {
+  id: 'programacao',
+  title: 'Programação: Nível Iniciante (Python)',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'code',
+  tone: 'blue',
+  subtitle:
+    'Os primeiros passos em programação com Python: ler código, prever o que faz e praticar num editor online.',
+  audience:
+    'Para quem nunca programou e quer perceber como funciona: estudantes, quem pensa em cursos de informática ou dados e quem quer automatizar tarefas. Basta um telemóvel com navegador.',
+  goals: [
+    'Explicar o que é um algoritmo e um programa.',
+    'Escrever e ler programas curtos em Python com print, variáveis e operações.',
+    'Distinguir os tipos int, float, str e bool e converter entre eles.',
+    'Fazer perguntas ao utilizador com input e calcular com as respostas.',
+  ],
+  units: [
+    {
+      id: 'u1',
+      number: 1,
+      title: 'O que é programar',
+      summary: 'Algoritmo, programa, o Python e a função print.',
+      load: () => import('./programacao/unit1').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'O que é um algoritmo', estimatedMinutes: 15 },
+        { id: 'l2', title: 'Programas, linguagens e o Python', estimatedMinutes: 15 },
+        { id: 'l3', title: 'A função print', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u2',
+      number: 2,
+      title: 'Variáveis e tipos',
+      summary: 'Números, texto, input e conversões.',
+      load: () => import('./programacao/unit2').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Variáveis', estimatedMinutes: 15 },
+        { id: 'l2', title: 'Tipos de dados e operações', estimatedMinutes: 20 },
+        { id: 'l3', title: 'input e conversões', estimatedMinutes: 20 },
+      ],
+    },
+    { id: 'u3', number: 3, title: 'Decisões', summary: 'if, elif, else e comparações.' },
+    { id: 'u4', number: 4, title: 'Repetições', summary: 'Os ciclos for e while.' },
+    { id: 'u5', number: 5, title: 'Funções', summary: 'Criar as tuas funções e reutilizar código.' },
+    {
+      id: 'u6',
+      number: 6,
+      title: 'Listas e um pequeno projeto',
+      summary: 'Listas e uma calculadora de propinas, do início ao fim.',
+    },
+  ],
+  loadExam: () => import('./programacao/exam').then((module) => module.default),
+  credits: [
+    {
+      title: 'Python Programming (Wikibooks)',
+      author: 'Contribuidores do Wikibooks',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikibooks.org/wiki/Python_Programming',
+      use: 'Fonte principal: print, variáveis, tipos de dados, números, input e conversões, adaptados e escritos de raiz em português; os programas de exemplo são nossos.',
+    },
+    {
+      title: 'Algorithm; Python (programming language) (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Algorithm',
+      use: 'Definição de algoritmo e origem da palavra; autor e ano da primeira versão do Python.',
+    },
+  ],
+}
+
+export const KURSOS: Course[] = [
+  ENGLISH_A1,
+  PROJECT_MANAGEMENT,
+  CYBERSECURITY,
+  DIGITAL_MARKETING,
+  PROGRAMMING,
+]
 
 /** Next in line, one at a time (docs/roadmap.md). */
 export const ANNOUNCED: AnnouncedCourse[] = [
@@ -354,12 +431,6 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     title: 'Contabilidade',
     body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
     icon: 'wallet',
-  },
-  {
-    id: 'programacao',
-    title: 'Programação',
-    body: 'Os primeiros passos em programação, com exercícios no navegador.',
-    icon: 'code',
   },
   {
     id: 'analise-dados',

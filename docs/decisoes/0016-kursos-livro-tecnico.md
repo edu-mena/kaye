@@ -43,3 +43,10 @@
 - Fonte: Wikipedia (CC BY-SA 4.0). O "Principles of Marketing" da OpenStax não foi usado: é CC BY-NC-SA 4.0. O "Introduction to Business" e o "Entrepreneurship", da OpenStax, também ficaram de fora (NC-SA ou licença ambígua).
 - As funções das plataformas (WhatsApp, Instagram, Facebook) descrevem-se de forma geral, sem caminhos de menus, porque os menus mudam.
 - Nada de promessas de ganhos. Os negócios dos exemplos são inventados: nenhuma marca real como cliente.
+
+## Nota (13 de novembro de 2026): Programação: Nível Iniciante (Python)
+
+- Nível "Iniciante". 6 unidades no roadmap; escritas a 1 (o que é programar: algoritmo, programa, Python, print) e a 2 (variáveis e tipos: números, texto, input, conversões), com revisão, exame (21 perguntas no banco) e certificado.
+- Fonte principal: o Wikibook "Python Programming" (CC BY-SA 4.0), com a Wikipedia (CC BY-SA 4.0). O "Introduction to Python Programming" da OpenStax não foi usado: é CC BY-NC-SA 4.0. A documentação do Python também não: o texto está sob a licença PSF v2, que não é uma das permitidas. O Think Python é CC BY-NC.
+- Novo bloco `code`: o código aparece como está, em monospace e sem cores. A página não corre código, porque a CSP estrita não o permite sem um ADR. Os exercícios são "o que imprime este código?", completar e ordenar; para praticar, o curso indica um editor de Python online, sem nada embutido na página.
+- Os identificadores do código ficam em inglês; os comentários e as explicações, em português.

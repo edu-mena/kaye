@@ -25,6 +25,8 @@ export type Block =
   | { type: 'examples'; title?: string; items: { text: string; note?: string }[] }
   /** A worked case study, longer than an example. */
   | { type: 'case'; title: string; body: string[] }
+  /** A code listing, shown as written (no colours, never run in the browser). */
+  | { type: 'code'; caption?: string; language: string; code: string }
   | ExerciseBlock
   | { type: 'summary'; points: string[] }
 
