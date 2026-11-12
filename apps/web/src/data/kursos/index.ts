@@ -253,7 +253,93 @@ export const CYBERSECURITY: Course = {
   ],
 }
 
-export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT, CYBERSECURITY]
+export const DIGITAL_MARKETING: Course = {
+  id: 'marketing-digital',
+  title: 'Fundamentos do Marketing Digital',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'megaphone',
+  tone: 'coral',
+  subtitle: 'Perceber o cliente e mostrar bem o teu negócio no WhatsApp, Instagram e Facebook.',
+  audience:
+    'Para quem tem ou quer ter um pequeno negócio (salão, venda de roupa, explicações, comida) e para quem pensa trabalhar em marketing. Não promete ganhos: ensina o método.',
+  goals: [
+    'Explicar o que é marketing e distinguir necessidade de desejo.',
+    'Escrever a proposta de valor de um negócio e decidir os 4 P.',
+    'Montar um perfil de negócio com nome, foto, descrição, catálogo e horário.',
+    'Responder aos clientes com método e sem promessas enganosas.',
+  ],
+  units: [
+    {
+      id: 'u1',
+      number: 1,
+      title: 'O que é marketing',
+      summary: 'Cliente, necessidade, proposta de valor e os 4 P.',
+      load: () => import('./marketing-digital/unit1').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Marketing é mais do que publicidade', estimatedMinutes: 15 },
+        { id: 'l2', title: 'A proposta de valor', estimatedMinutes: 15 },
+        { id: 'l3', title: 'Os 4 P', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u2',
+      number: 2,
+      title: 'Presença digital',
+      summary:
+        'O perfil de negócio no WhatsApp, Instagram e Facebook: nome, foto, descrição, catálogo e horário.',
+      load: () => import('./marketing-digital/unit2').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'O perfil de negócio', estimatedMinutes: 15 },
+        { id: 'l2', title: 'A descrição e o catálogo', estimatedMinutes: 20 },
+        { id: 'l3', title: 'Horário, respostas e confiança', estimatedMinutes: 15 },
+      ],
+    },
+    {
+      id: 'u3',
+      number: 3,
+      title: 'Conteúdo e calendário',
+      summary: 'O que publicar, com que frequência e como planear o mês.',
+    },
+    {
+      id: 'u4',
+      number: 4,
+      title: 'Anúncios pagos básicos',
+      summary: 'Escolher o público, definir um orçamento em Kz e saber quando vale a pena.',
+    },
+    {
+      id: 'u5',
+      number: 5,
+      title: 'Métricas',
+      summary: 'Alcance, interações, cliques e vendas: o que medir.',
+    },
+    {
+      id: 'u6',
+      number: 6,
+      title: 'Ética e lei',
+      summary: 'Publicidade enganosa, dados dos clientes e a Lei n.º 22/11, de Proteção de Dados Pessoais.',
+    },
+  ],
+  loadExam: () => import('./marketing-digital/exam').then((module) => module.default),
+  credits: [
+    {
+      title: 'Marketing; Value proposition; Marketing mix (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Marketing_mix',
+      use: 'Fonte principal da unidade 1: definição de marketing, proposta de valor e os 4 P (McCarthy, 1960), adaptados e escritos de raiz em português.',
+    },
+    {
+      title: 'Digital marketing; Social media marketing (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Social_media_marketing',
+      use: 'Conceitos de presença digital e perfis de negócio da unidade 2; as funções das plataformas são descritas de forma geral.',
+    },
+  ],
+}
+
+export const KURSOS: Course[] = [ENGLISH_A1, PROJECT_MANAGEMENT, CYBERSECURITY, DIGITAL_MARKETING]
 
 /** Next in line, one at a time (docs/roadmap.md). */
 export const ANNOUNCED: AnnouncedCourse[] = [
@@ -268,12 +354,6 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     title: 'Contabilidade',
     body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
     icon: 'wallet',
-  },
-  {
-    id: 'marketing-digital',
-    title: 'Marketing Digital',
-    body: 'Redes sociais, anúncios e conteúdos para dar a conhecer um negócio ou uma causa.',
-    icon: 'megaphone',
   },
   {
     id: 'programacao',

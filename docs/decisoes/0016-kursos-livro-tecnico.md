@@ -36,3 +36,10 @@
 - Fontes: NIST SP 800-63B e os conselhos ao consumidor da FTC, ambos obras do governo dos EUA (domínio público nos EUA; a NIST reserva direitos fora dos EUA, por isso usamos só as recomendações, escritas de raiz), e a Wikipedia (CC BY-SA 4.0). Os materiais da CISA não foram usados: o site não os declara de domínio público ("subject to copyright controls").
 - Só defesa: nenhuma técnica de ataque nem passo a passo para entrar em contas alheias. Os riscos explicam-se só o necessário para os reconhecer (por exemplo, porque é que o SMS pode ser desviado).
 - Contactos de denúncia só com fonte oficial angolana. Enquanto não houver, o conselho é "contacta o teu banco pelo número no verso do cartão", denunciar o perfil na própria app e guardar provas.
+
+## Nota (13 de novembro de 2026): Fundamentos do Marketing Digital
+
+- Nível "Iniciante". 6 unidades no roadmap; escritas a 1 (o que é marketing: cliente, necessidade, proposta de valor, 4 P) e a 2 (presença digital: perfil de negócio, descrição, catálogo, horário e respostas), com revisão, exame (21 perguntas no banco) e certificado.
+- Fonte: Wikipedia (CC BY-SA 4.0). O "Principles of Marketing" da OpenStax não foi usado: é CC BY-NC-SA 4.0. O "Introduction to Business" e o "Entrepreneurship", da OpenStax, também ficaram de fora (NC-SA ou licença ambígua).
+- As funções das plataformas (WhatsApp, Instagram, Facebook) descrevem-se de forma geral, sem caminhos de menus, porque os menus mudam.
+- Nada de promessas de ganhos. Os negócios dos exemplos são inventados: nenhuma marca real como cliente.
