@@ -410,12 +410,88 @@ export const PROGRAMMING: Course = {
   ],
 }
 
+export const DATA_ANALYSIS: Course = {
+  id: 'analise-dados',
+  title: 'Fundamentos da Análise de Dados',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'chart',
+  tone: 'blue',
+  subtitle: 'Organizar, limpar e resumir dados, com exemplos de turmas e cantinas fictícias.',
+  audience:
+    'Para quem trabalha ou vai trabalhar com listas, inquéritos e folhas de cálculo (escola, comércio, saúde, associações) e para quem pensa numa carreira em dados. Não precisas de saber programar.',
+  goals: [
+    'Distinguir dados de informação e organizar dados numa tabela arrumada.',
+    'Reconhecer os tipos de variáveis e o que se pode calcular com cada um.',
+    'Recolher dados com uma amostra sem viés.',
+    'Limpar erros comuns, duplicados e formatos de data e de Kz.',
+  ],
+  units: [
+    {
+      id: 'u1',
+      number: 1,
+      title: 'O que são dados',
+      summary: 'Dados e informação, a tabela (linha = registo, coluna = variável) e os tipos de variáveis.',
+      load: () => import('./analise-dados/unit1').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Dados e informação', estimatedMinutes: 15 },
+        { id: 'l2', title: 'A tabela: linhas e colunas', estimatedMinutes: 15 },
+        { id: 'l3', title: 'Tipos de variáveis', estimatedMinutes: 20 },
+      ],
+    },
+    {
+      id: 'u2',
+      number: 2,
+      title: 'Recolher e limpar',
+      summary: 'Amostras sem viés, erros comuns, duplicados e formatos de data e de Kz.',
+      load: () => import('./analise-dados/unit2').then((module) => module.default),
+      lessons: [
+        { id: 'l1', title: 'Recolher bem', estimatedMinutes: 15 },
+        { id: 'l2', title: 'Erros comuns e duplicados', estimatedMinutes: 20 },
+        { id: 'l3', title: 'Formatos de data e de Kz', estimatedMinutes: 20 },
+      ],
+    },
+    { id: 'u3', number: 3, title: 'Resumir', summary: 'Contagem, percentagem, média, mediana e moda.' },
+    { id: 'u4', number: 4, title: 'Gráficos', summary: 'Qual escolher e quando.' },
+    {
+      id: 'u5',
+      number: 5,
+      title: 'Folha de cálculo',
+      summary: 'SOMA, MÉDIA, CONTAR.SE, filtros e tabela dinâmica, com os nomes em pt-PT e em inglês.',
+    },
+    {
+      id: 'u6',
+      number: 6,
+      title: 'Contar uma história com dados',
+      summary: 'Da tabela à conclusão que outros percebem.',
+    },
+  ],
+  loadExam: () => import('./analise-dados/exam').then((module) => module.default),
+  credits: [
+    {
+      title: 'OpenIntro Statistics, 4th ed. (Diez, Çetinkaya-Rundel e Barr)',
+      author: 'OpenIntro',
+      license: 'CC BY-SA 3.0',
+      url: 'https://www.openintro.org/book/os/',
+      use: 'Fonte principal: observações, variáveis, matriz de dados, tipos de variáveis (secção 1.2), população, amostra e viés (secção 1.3), adaptados e escritos de raiz em português.',
+    },
+    {
+      title: 'Data cleansing; Sampling bias; ISO 8601 (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Data_cleansing',
+      use: 'Erros comuns na limpeza de dados, viés de amostragem e o formato de data ano-mês-dia.',
+    },
+  ],
+}
+
 export const KURSOS: Course[] = [
   ENGLISH_A1,
   PROJECT_MANAGEMENT,
   CYBERSECURITY,
   DIGITAL_MARKETING,
   PROGRAMMING,
+  DATA_ANALYSIS,
 ]
 
 /** Next in line, one at a time (docs/roadmap.md). */
@@ -431,12 +507,6 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     title: 'Contabilidade',
     body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
     icon: 'wallet',
-  },
-  {
-    id: 'analise-dados',
-    title: 'Análise de Dados',
-    body: 'Folhas de cálculo, gráficos e as primeiras perguntas feitas aos dados.',
-    icon: 'server',
   },
 ]
 

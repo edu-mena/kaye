@@ -50,3 +50,10 @@
 - Fonte principal: o Wikibook "Python Programming" (CC BY-SA 4.0), com a Wikipedia (CC BY-SA 4.0). O "Introduction to Python Programming" da OpenStax não foi usado: é CC BY-NC-SA 4.0. A documentação do Python também não: o texto está sob a licença PSF v2, que não é uma das permitidas. O Think Python é CC BY-NC.
 - Novo bloco `code`: o código aparece como está, em monospace e sem cores. A página não corre código, porque a CSP estrita não o permite sem um ADR. Os exercícios são "o que imprime este código?", completar e ordenar; para praticar, o curso indica um editor de Python online, sem nada embutido na página.
 - Os identificadores do código ficam em inglês; os comentários e as explicações, em português.
+
+## Nota (13 de novembro de 2026): Fundamentos da Análise de Dados
+
+- Nível "Iniciante". 6 unidades no roadmap; escritas a 1 (o que são dados: dados e informação, tabela, tipos de variáveis) e a 2 (recolher e limpar: amostra e viés, erros e duplicados, formatos de data e de Kz), com revisão, exame (21 perguntas no banco) e certificado.
+- Fonte principal: OpenIntro Statistics, 4.ª ed. (CC BY-SA 3.0, confirmada na página de licenças da OpenIntro), com a Wikipedia (CC BY-SA 4.0).
+- Todos os dados são inventados e marcados como tal (turmas, cantinas e associações fictícias). Não há dados pessoais reais.
+- As fórmulas de folha de cálculo usam o bloco `code`, com os nomes das funções em pt-PT e, depois de //, em inglês. O separador de argumentos é ";", como na configuração portuguesa.
