@@ -48,13 +48,13 @@ const unit: UnitContent = {
         {
           type: 'examples',
           items: [
-            { en: 'I am Nzinga. I am 17.', pt: 'Sou a Nzinga. Tenho 17 anos.' },
-            { en: 'You are a good student.', pt: 'És um bom estudante.' },
-            { en: 'Mateus is a nurse in Huambo.', pt: 'O Mateus é enfermeiro no Huambo.' },
-            { en: 'She is at the market.', pt: 'Ela está no mercado.' },
-            { en: 'It is hot in Luanda.', pt: 'Está calor em Luanda.' },
-            { en: 'We are from Lubango.', pt: 'Somos do Lubango.' },
-            { en: 'They are at work.', pt: 'Eles estão no trabalho.' },
+            { text: 'I am Nzinga. I am 17.', note: 'Sou a Nzinga. Tenho 17 anos.' },
+            { text: 'You are a good student.', note: 'És um bom estudante.' },
+            { text: 'Mateus is a nurse in Huambo.', note: 'O Mateus é enfermeiro no Huambo.' },
+            { text: 'She is at the market.', note: 'Ela está no mercado.' },
+            { text: 'It is hot in Luanda.', note: 'Está calor em Luanda.' },
+            { text: 'We are from Lubango.', note: 'Somos do Lubango.' },
+            { text: 'They are at work.', note: 'Eles estão no trabalho.' },
           ],
         },
         {
@@ -148,11 +148,11 @@ const unit: UnitContent = {
         {
           type: 'examples',
           items: [
-            { en: "I'm not tired.", pt: 'Não estou cansado.' },
-            { en: "Joana isn't at school today.", pt: 'A Joana não está na escola hoje.' },
-            { en: "We aren't from Luanda. We're from Uíge.", pt: 'Não somos de Luanda. Somos do Uíge.' },
-            { en: "It isn't expensive.", pt: 'Não é caro.' },
-            { en: "They're not ready.", pt: 'Eles não estão prontos.' },
+            { text: "I'm not tired.", note: 'Não estou cansado.' },
+            { text: "Joana isn't at school today.", note: 'A Joana não está na escola hoje.' },
+            { text: "We aren't from Luanda. We're from Uíge.", note: 'Não somos de Luanda. Somos do Uíge.' },
+            { text: "It isn't expensive.", note: 'Não é caro.' },
+            { text: "They're not ready.", note: 'Eles não estão prontos.' },
           ],
         },
         {
@@ -251,15 +251,15 @@ const unit: UnitContent = {
           type: 'examples',
           title: 'Um diálogo numa entrevista de estágio',
           items: [
-            { en: "Hello. What's your name?", pt: 'Olá. Como te chamas?' },
-            { en: "My name is Ndalu. I'm 21.", pt: 'Chamo-me Ndalu. Tenho 21 anos.' },
-            { en: 'Where are you from?', pt: 'De onde és?' },
+            { text: "Hello. What's your name?", note: 'Olá. Como te chamas?' },
+            { text: "My name is Ndalu. I'm 21.", note: 'Chamo-me Ndalu. Tenho 21 anos.' },
+            { text: 'Where are you from?', note: 'De onde és?' },
             {
-              en: "I'm from Benguela, but I'm a student in Luanda.",
-              pt: 'Sou de Benguela, mas estudo em Luanda.',
+              text: "I'm from Benguela, but I'm a student in Luanda.",
+              note: 'Sou de Benguela, mas estudo em Luanda.',
             },
-            { en: 'Are you a student of informatics?', pt: 'És estudante de informática?' },
-            { en: "Yes, I am. I'm in my third year.", pt: 'Sim. Estou no terceiro ano.' },
+            { text: 'Are you a student of informatics?', note: 'És estudante de informática?' },
+            { text: "Yes, I am. I'm in my third year.", note: 'Sim. Estou no terceiro ano.' },
           ],
         },
         {

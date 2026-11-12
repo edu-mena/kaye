@@ -1,6 +1,7 @@
 // Kursos: short courses written like a technical textbook (docs/decisoes/0016).
-// Course > Unit > Lesson > Block. Explanations in Portuguese, examples and exercises in the
-// language being taught. Each unit lives in its own file and downloads when opened.
+// Course > Unit > Lesson > Block. Explanations in Portuguese. In a language course, examples and
+// exercises are in the language taught; in any other course they are short Angolan cases, in
+// Portuguese. Each unit lives in its own file and downloads when opened.
 
 export type ChoiceItem = { prompt: string; options: string[]; /** Index in `options`. */ answer: number }
 /** `prompt` has one "___" for the gap; any of `answers` is right (see domain/kursos.ts). */
@@ -20,7 +21,10 @@ export type Block =
   | { type: 'text'; title?: string; body: string[] }
   | { type: 'rule'; title: string; body: string }
   | { type: 'table'; caption?: string; head: string[]; rows: string[][] }
-  | { type: 'examples'; title?: string; items: { en: string; pt: string }[] }
+  /** `text` is the example (a sentence, or a short case); `note` its translation or a comment. */
+  | { type: 'examples'; title?: string; items: { text: string; note?: string }[] }
+  /** A worked case study, longer than an example. */
+  | { type: 'case'; title: string; body: string[] }
   | ExerciseBlock
   | { type: 'summary'; points: string[] }
 
@@ -47,10 +51,21 @@ export type ExamQuestion = { id: string; unit: string } & (
 
 export type Credit = { title: string; author: string; license: string; url: string; use: string }
 
+/** A course's icon: names from components/icons (data/ does not import UI). */
+export type CourseIcon = 'globe' | 'briefcase' | 'target' | 'chart' | 'wallet' | 'code' | 'book'
+
+/** The colour behind a course's icon. */
+export type CourseTone = 'blue' | 'gold' | 'coral' | 'night' | 'success'
+
 export type Course = {
   id: string
   title: string
+  /** Free text: "A1 (QECR)" for a language, "Iniciante" otherwise. */
   level: string
+  /** BCP 47 code of the examples and exercises ("en" in English A1, "pt" otherwise). */
+  lang: string
+  icon: CourseIcon
+  tone: CourseTone
   subtitle: string
   audience: string
   goals: string[]
@@ -58,3 +73,6 @@ export type Course = {
   loadExam: () => Promise<ExamQuestion[]>
   credits: Credit[]
 }
+
+/** A course announced as "Em breve": shown in the catalogue, not written yet. */
+export type AnnouncedCourse = { id: string; title: string; body: string; icon: CourseIcon }

@@ -1,11 +1,14 @@
-import type { Course } from './types'
+import type { AnnouncedCourse, Course } from './types'
 
-// The Kursos catalogue. Only English A1 for now; Programação is announced as "Em breve".
+// The Kursos catalogue: the courses written (test versions) and the ones announced as "Em breve".
 
 export const ENGLISH_A1: Course = {
   id: 'ingles-a1',
   title: 'Inglês A1',
   level: 'A1 (QECR)',
+  lang: 'en',
+  icon: 'globe',
+  tone: 'blue',
   subtitle: 'O inglês básico, explicado como num livro: regra, exemplos, exercícios e chave.',
   audience:
     'Para quem está a começar ou nunca estudou inglês com método: estudantes, quem procura o primeiro emprego e quem quer ler documentação técnica.',
@@ -79,6 +82,34 @@ export const ENGLISH_A1: Course = {
 }
 
 export const KURSOS: Course[] = [ENGLISH_A1]
+
+/** Next in line, one at a time (docs/roadmap.md). */
+export const ANNOUNCED: AnnouncedCourse[] = [
+  {
+    id: 'economia',
+    title: 'Economia',
+    body: 'Oferta, procura, preços e inflação, com exemplos do mercado angolano.',
+    icon: 'chart',
+  },
+  {
+    id: 'contabilidade',
+    title: 'Contabilidade',
+    body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
+    icon: 'wallet',
+  },
+  {
+    id: 'programacao',
+    title: 'Programação',
+    body: 'Os primeiros passos em programação, com exercícios no navegador.',
+    icon: 'code',
+  },
+]
+
+/** What CompletedPage offers next: the following written course, else the first announced. */
+export function nextCourse(id: string): Course | AnnouncedCourse | undefined {
+  const at = KURSOS.findIndex((course) => course.id === id)
+  return (at >= 0 ? KURSOS[at + 1] : undefined) ?? ANNOUNCED[0]
+}
 
 export function findCourse(id: string | undefined): Course | undefined {
   return KURSOS.find((course) => course.id === id)

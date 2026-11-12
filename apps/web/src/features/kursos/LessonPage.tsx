@@ -81,6 +81,7 @@ export default function LessonPage() {
         <Review
           key={key}
           blocks={content.review}
+          lang={course.lang}
           saved={progress.scores[unit.id]}
           onDone={finish}
           isLast={!next}
@@ -94,7 +95,7 @@ export default function LessonPage() {
               {t('kursos.minutes', { count: lesson.estimatedMinutes })}
             </p>
             {lesson.blocks.map((block) => (
-              <BlockView key={JSON.stringify(block)} block={block} />
+              <BlockView key={JSON.stringify(block)} block={block} lang={course.lang} />
             ))}
           </>
         )
@@ -105,13 +106,14 @@ export default function LessonPage() {
 
 type ReviewProps = {
   blocks: ExerciseBlock[]
+  lang: string
   saved?: number
   onDone: (score: number) => void
   isLast: boolean
 }
 
 /** The end of a unit: every answer counts towards the grade. */
-function Review({ blocks, saved, onDone, isLast }: ReviewProps) {
+function Review({ blocks, lang, saved, onDone, isLast }: ReviewProps) {
   const { t } = useTranslation()
   const [answers, setAnswers] = useState<Record<string, Answer[]>>(() =>
     Object.fromEntries(blocks.map((block) => [block.id, block.items.map(() => null)])),
@@ -139,6 +141,7 @@ function Review({ blocks, saved, onDone, isLast }: ReviewProps) {
         <ExerciseView
           key={block.id}
           block={block}
+          lang={lang}
           answers={answers[block.id] ?? []}
           onChange={(next) => {
             setAnswers({ ...answers, [block.id]: next })

@@ -10,7 +10,8 @@ import { itemCorrect, itemKey, shuffle, type Answer } from '../../domain/kursos'
 const HEADING = 'mt-10 mb-3 text-lg font-semibold text-night'
 const PARA = 'mb-4 leading-relaxed text-ink'
 
-export function BlockView({ block }: { block: Block }) {
+/** `lang`: the language of the course's examples and exercises (Course.lang). */
+export function BlockView({ block, lang }: { block: Block; lang: string }) {
   switch (block.type) {
     case 'text':
       return (
@@ -73,18 +74,33 @@ export function BlockView({ block }: { block: Block }) {
           {block.title && <h2 className={HEADING}>{block.title}</h2>}
           <ul className="space-y-2">
             {block.items.map((item) => (
-              <li key={item.en} className="rounded-xl bg-surface px-4 py-2.5 shadow-card">
-                <p lang="en" className="font-semibold text-night">
-                  {item.en}
+              <li key={item.text} className="rounded-xl bg-surface px-4 py-2.5 shadow-card">
+                <p lang={lang} className="font-semibold text-night">
+                  {item.text}
                 </p>
-                <p className="text-sm text-muted">{item.pt}</p>
+                {item.note && <p className="text-sm text-muted">{item.note}</p>}
               </li>
             ))}
           </ul>
         </section>
       )
+    case 'case':
+      return (
+        <section className="my-6 rounded-card border border-line bg-surface px-5 py-5 shadow-card">
+          <p className="mb-1 flex items-center gap-2 text-xs font-semibold tracking-wide text-gold uppercase">
+            <Icon name="briefcase" className="size-4" />
+            Caso
+          </p>
+          <h3 className="mb-3 font-semibold text-night">{block.title}</h3>
+          {block.body.map((paragraph) => (
+            <p key={paragraph} className="mb-3 leading-relaxed text-ink last:mb-0">
+              {paragraph}
+            </p>
+          ))}
+        </section>
+      )
     case 'exercise':
-      return <PracticeExercise block={block} />
+      return <PracticeExercise block={block} lang={lang} />
     case 'summary':
       return <Summary points={block.points} />
   }
@@ -104,7 +120,7 @@ function Summary({ points }: { points: string[] }) {
 }
 
 /** A lesson's exercise: check and answer key on demand, nothing saved. */
-function PracticeExercise({ block }: { block: ExerciseBlock }) {
+function PracticeExercise({ block, lang }: { block: ExerciseBlock; lang: string }) {
   const { t } = useTranslation()
   const [answers, setAnswers] = useState<Answer[]>(() => block.items.map(() => null))
   const [checked, setChecked] = useState(false)
@@ -112,6 +128,7 @@ function PracticeExercise({ block }: { block: ExerciseBlock }) {
   return (
     <ExerciseView
       block={block}
+      lang={lang}
       answers={answers}
       onChange={(next) => {
         setAnswers(next)
@@ -135,6 +152,7 @@ function PracticeExercise({ block }: { block: ExerciseBlock }) {
 
 type ExerciseViewProps = {
   block: ExerciseBlock
+  lang: string
   answers: Answer[]
   onChange: (answers: Answer[]) => void
   checked: boolean
@@ -142,7 +160,15 @@ type ExerciseViewProps = {
   actions?: ReactNode
 }
 
-export function ExerciseView({ block, answers, onChange, checked, showKey, actions }: ExerciseViewProps) {
+export function ExerciseView({
+  block,
+  lang,
+  answers,
+  onChange,
+  checked,
+  showKey,
+  actions,
+}: ExerciseViewProps) {
   const { t } = useTranslation()
   const set = (index: number, value: Answer) =>
     onChange(answers.map((answer, at) => (at === index ? value : answer)))
@@ -165,7 +191,7 @@ export function ExerciseView({ block, answers, onChange, checked, showKey, actio
           return (
             <li key={itemId(item)} className="flex gap-3">
               <span className="w-5 shrink-0 pt-1 text-sm text-muted">{index + 1}.</span>
-              <div className="min-w-0 flex-1" lang="en">
+              <div className="min-w-0 flex-1" lang={lang}>
                 {block.kind === 'choice' && 'options' in item && (
                   <>
                     <p className="mb-2 text-ink">{item.prompt}</p>

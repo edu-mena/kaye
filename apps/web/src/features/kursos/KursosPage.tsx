@@ -5,13 +5,13 @@ import { Card } from '../../components/ui/Card'
 import { Chip } from '../../components/ui/Chip'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { ProgressBar } from '../../components/ui/ProgressBar'
-import { KURSOS } from '../../data/kursos'
+import { ANNOUNCED, KURSOS } from '../../data/kursos'
 import { courseState, formatMinutes } from '../../domain/kursos'
 import { EMPTY_KURSO, useUser } from '../../state/userStore'
-import { percent, totalMinutes } from './shared'
+import { percent, TONE_CLASS, totalMinutes } from './shared'
 import { TestBanner } from './TestBanner'
 
-/** The Kursos catalogue: English A1 and what comes next. */
+/** The Kursos catalogue: the written courses and the ones announced. */
 export default function KursosPage() {
   const { t } = useTranslation()
   const { kursos } = useUser()
@@ -29,8 +29,10 @@ export default function KursosPage() {
           return (
             <Card key={course.id} as="article" className="flex flex-col gap-4 p-6">
               <div className="flex items-center gap-3">
-                <span className="grid size-12 place-items-center rounded-2xl bg-blue text-white">
-                  <Icon name="globe" className="size-6" />
+                <span
+                  className={`grid size-12 shrink-0 place-items-center rounded-2xl ${TONE_CLASS[course.tone]}`}
+                >
+                  <Icon name={course.icon} className="size-6" />
                 </span>
                 <div>
                   <h2 className="text-lg font-semibold text-night">{course.title}</h2>
@@ -60,18 +62,20 @@ export default function KursosPage() {
             </Card>
           )
         })}
-        <Card as="article" tone="gray" className="flex flex-col gap-4 p-6">
-          <div className="flex items-center gap-3">
-            <span className="grid size-12 place-items-center rounded-2xl bg-surface text-muted">
-              <Icon name="code" className="size-6" />
-            </span>
-            <div>
-              <h2 className="text-lg font-semibold text-night">{t('kursos.programming')}</h2>
-              <p className="text-sm text-muted">{t('kursos.programmingBody')}</p>
+        {ANNOUNCED.map((course) => (
+          <Card key={course.id} as="article" tone="gray" className="flex flex-col gap-4 p-6">
+            <div className="flex items-center gap-3">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-surface text-muted">
+                <Icon name={course.icon} className="size-6" />
+              </span>
+              <div>
+                <h2 className="text-lg font-semibold text-night">{course.title}</h2>
+                <p className="text-sm text-muted">{course.body}</p>
+              </div>
             </div>
-          </div>
-          <Chip className="self-start">{t('kursos.soon')}</Chip>
-        </Card>
+            <Chip className="self-start">{t('kursos.soon')}</Chip>
+          </Card>
+        ))}
       </div>
     </div>
   )

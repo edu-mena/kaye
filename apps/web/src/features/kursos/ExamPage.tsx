@@ -127,6 +127,7 @@ export default function ExamPage() {
                 </p>
                 <ExamItem
                   question={question}
+                  lang={course.lang}
                   answer={answers[index] ?? null}
                   onChange={(value) => set(index, value)}
                   done={result !== null}
@@ -142,17 +143,18 @@ export default function ExamPage() {
 
 type ExamItemProps = {
   question: ExamQuestion
+  lang: string
   answer: Answer
   onChange: (value: Answer) => void
   done: boolean
 }
 
-function ExamItem({ question, answer, onChange, done }: ExamItemProps) {
+function ExamItem({ question, lang, answer, onChange, done }: ExamItemProps) {
   const { t } = useTranslation()
   const right = examCorrect(question, answer)
   const key = question.kind === 'choice' ? question.options[question.answer] : question.answers.join(' / ')
   return (
-    <div lang="en">
+    <div lang={lang}>
       {question.kind === 'choice' ? (
         <>
           <p className="mb-2 text-ink">{question.prompt}</p>

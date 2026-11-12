@@ -18,10 +18,13 @@ const CONTRACTIONS: [RegExp, string][] = [
 /**
  * What a typed answer means, whatever the case, spacing, apostrophe or contraction:
  * "They’re  NOT" and "they are not" are the same answer. The possessive 's is kept.
+ * Accents do not count either, for courses in Portuguese typed on a phone: "ambito" = "âmbito".
  */
 export function normalizeAnswer(text: string): string {
   let result = text
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
     .replace(/[‘’ʼ`´]/g, "'")
     .replace(/\s+'/g, "'")
     .replace(/[.!?,;:]+$/g, '')

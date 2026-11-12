@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { courseSteps, findCourse, stepKey, type Step } from '../../data/kursos'
-import type { Course, Unit, UnitContent } from '../../data/kursos/types'
+import type { Course, CourseTone, Unit, UnitContent } from '../../data/kursos/types'
 import { EMPTY_KURSO, userActions, useUser, type KursoProgress } from '../../state/userStore'
 
 export function useCourse(): { course: Course | undefined; progress: KursoProgress } {
@@ -69,6 +69,15 @@ export function useActiveTime(courseId: string | undefined) {
       events.forEach((name) => window.removeEventListener(name, touch))
     }
   }, [courseId])
+}
+
+/** The square behind a course's icon. */
+export const TONE_CLASS: Record<CourseTone, string> = {
+  blue: 'bg-blue text-white',
+  gold: 'bg-gold text-night',
+  coral: 'bg-coral text-white',
+  night: 'bg-night text-white',
+  success: 'bg-success text-white',
 }
 
 export const percent = (share: number) => Math.round(share * 100)

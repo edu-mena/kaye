@@ -6,6 +6,7 @@ import { Button, ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
 import { Chip } from '../../components/ui/Chip'
 import { PageHeader } from '../../components/ui/PageHeader'
+import { nextCourse } from '../../data/kursos'
 import { formatMinutes } from '../../domain/kursos'
 import { userActions, useUser } from '../../state/userStore'
 import { downloadCertificate } from './certificatePdf'
@@ -30,6 +31,7 @@ export default function CompletedPage() {
       </div>
     )
 
+  const next = nextCourse(course.id)
   const date = new Date(progress.completedAt)
   const minutes = formatMinutes(progress.seconds)
   const download = async () => {
@@ -129,14 +131,24 @@ export default function CompletedPage() {
         </ul>
       </section>
 
-      <Card tone="gray" className="flex items-center gap-4 p-5">
-        <Icon name="code" className="size-6 text-muted" />
-        <div className="flex-1">
-          <p className="font-semibold text-night">{t('kursos.nextCourse')}</p>
-          <p className="text-sm text-muted">{t('kursos.nextCourseBody')}</p>
-        </div>
-        <Chip>{t('kursos.soon')}</Chip>
-      </Card>
+      {next && (
+        <Card tone="gray" className="flex items-center gap-4 p-5">
+          <Icon name={next.icon} className="size-6 shrink-0 text-muted" />
+          <div className="min-w-0 flex-1">
+            <p className="font-semibold text-night">{t('kursos.nextCourse')}</p>
+            <p className="text-sm text-muted">
+              {next.title} · {'units' in next ? next.subtitle : next.body}
+            </p>
+          </div>
+          {'units' in next ? (
+            <ButtonLink to={`/kursos/${next.id}`} size="sm">
+              {t('kursos.open')}
+            </ButtonLink>
+          ) : (
+            <Chip>{t('kursos.soon')}</Chip>
+          )}
+        </Card>
+      )}
     </div>
   )
 }

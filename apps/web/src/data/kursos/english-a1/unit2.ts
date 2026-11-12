@@ -40,12 +40,12 @@ const unit: UnitContent = {
         {
           type: 'examples',
           items: [
-            { en: 'The teacher knows me.', pt: 'O professor conhece-me.' },
-            { en: 'Call him tomorrow.', pt: 'Liga-lhe amanhã.' },
-            { en: 'This message is for her.', pt: 'Esta mensagem é para ela.' },
-            { en: 'Can you help us?', pt: 'Podes ajudar-nos?' },
-            { en: 'I like them.', pt: 'Gosto deles.' },
-            { en: 'Where is my phone? I need it.', pt: 'Onde está o meu telefone? Preciso dele.' },
+            { text: 'The teacher knows me.', note: 'O professor conhece-me.' },
+            { text: 'Call him tomorrow.', note: 'Liga-lhe amanhã.' },
+            { text: 'This message is for her.', note: 'Esta mensagem é para ela.' },
+            { text: 'Can you help us?', note: 'Podes ajudar-nos?' },
+            { text: 'I like them.', note: 'Gosto deles.' },
+            { text: 'Where is my phone? I need it.', note: 'Onde está o meu telefone? Preciso dele.' },
           ],
         },
         {
@@ -128,12 +128,12 @@ const unit: UnitContent = {
         {
           type: 'examples',
           items: [
-            { en: 'My name is Edna.', pt: 'O meu nome é Edna.' },
-            { en: 'Kiala is with his sister.', pt: 'O Kiala está com a irmã (dele).' },
-            { en: 'Teresa is with her brother.', pt: 'A Teresa está com o irmão (dela).' },
-            { en: 'Our school is in Viana.', pt: 'A nossa escola é em Viana.' },
-            { en: 'The company and its workers.', pt: 'A empresa e os seus trabalhadores.' },
-            { en: 'Their office is on the second floor.', pt: 'O escritório deles é no segundo andar.' },
+            { text: 'My name is Edna.', note: 'O meu nome é Edna.' },
+            { text: 'Kiala is with his sister.', note: 'O Kiala está com a irmã (dele).' },
+            { text: 'Teresa is with her brother.', note: 'A Teresa está com o irmão (dela).' },
+            { text: 'Our school is in Viana.', note: 'A nossa escola é em Viana.' },
+            { text: 'The company and its workers.', note: 'A empresa e os seus trabalhadores.' },
+            { text: 'Their office is on the second floor.', note: 'O escritório deles é no segundo andar.' },
           ],
         },
         {
@@ -223,11 +223,11 @@ const unit: UnitContent = {
         {
           type: 'examples',
           items: [
-            { en: 'Is this pen yours? Yes, it is mine.', pt: 'Esta caneta é tua? Sim, é minha.' },
-            { en: "This is Pedro's car.", pt: 'Este é o carro do Pedro.' },
-            { en: "My mother's shop is in Kilamba.", pt: 'A loja da minha mãe é no Kilamba.' },
-            { en: "The workers' uniforms are blue.", pt: 'Os uniformes dos trabalhadores são azuis.' },
-            { en: "Whose keys are these? They're hers.", pt: 'De quem são estas chaves? São dela.' },
+            { text: 'Is this pen yours? Yes, it is mine.', note: 'Esta caneta é tua? Sim, é minha.' },
+            { text: "This is Pedro's car.", note: 'Este é o carro do Pedro.' },
+            { text: "My mother's shop is in Kilamba.", note: 'A loja da minha mãe é no Kilamba.' },
+            { text: "The workers' uniforms are blue.", note: 'Os uniformes dos trabalhadores são azuis.' },
+            { text: "Whose keys are these? They're hers.", note: 'De quem são estas chaves? São dela.' },
           ],
         },
         {
