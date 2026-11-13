@@ -21,7 +21,7 @@ class SecurityHeaders
         'X-Content-Type-Options' => 'nosniff',
         'X-Frame-Options' => 'DENY',
         'Referrer-Policy' => 'strict-origin-when-cross-origin',
-        'Permissions-Policy' => 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+        'Permissions-Policy' => 'camera=(), microphone=(self), geolocation=(), payment=(), usb=(), interest-cohort=()',
         // Allows the Google sign-in popup to talk back to the page.
         'Cross-Origin-Opener-Policy' => 'same-origin-allow-popups',
     ];
