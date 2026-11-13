@@ -11,6 +11,28 @@ Regras:
 
 Na app: as instituições e as ofertas já aparecem no ecrã Academias (`apps/web/src/data/demo/academies.ts`). As empresas aparecem no ecrã Empresas (`apps/web/src/data/demo/companies.ts`), com as 10 novas abaixo. As notícias ainda não.
 
+## Contagens finais do frontend (13/11/2026)
+
+O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/source.ts`:
+
+| O quê | Quantos | Nota |
+|---|---|---|
+| Carreiras | 256 | Todas com guia completo e foto com licença; 58 grupos |
+| Ofícios (sem universidade) | 14 | Incluídos nas 256; procura, duração e custo estimados |
+| Carreiras com salário publicado | 68 | As outras mostram "—" até haver fonte |
+| Academias | 167 | Instituições reais |
+| Cursos no catálogo | 422 | |
+| Empresas | 252 | 19 pessoas com nome, cargo e fonte |
+| Bolsas | 19 | |
+| Estágios e programas de trainee | 13 | |
+| Admissões (exames e candidaturas) | 14 | |
+| Novidades | 66 | |
+| Cursos online grátis | 45 | |
+| Apoios para trabalhar por conta própria | 11 | |
+| Kursos Kayé | 6 | Versões de teste, unidades 1 e 2 |
+| CVs modelo | 7 | |
+| Testemunhos | 21 | |
+
 ## Como os dados se ligam
 
 ```

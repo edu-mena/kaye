@@ -31,6 +31,7 @@ import { SaveCompany } from './SaveCompany'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { CareersEvaluation, CareersMarket } from '../careers/CareersOverview'
 import { InternshipsOfCompany } from '../internships/InternshipLinks'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 const TABS = [
   { id: 'geral', icon: 'eye' },
@@ -73,6 +74,7 @@ export default function CompanyPage() {
 
 function CompanyView({ company }: { company: Company }) {
   const { t } = useTranslation()
+  const showsSalaries = useShowsSalaries()
   const [params, setParam] = useUrlFilters()
   const { data: allCareers = [] } = useCareers()
   const { data: academies = [] } = useAcademies()
@@ -154,9 +156,11 @@ function CompanyView({ company }: { company: Company }) {
             fitSubtitle={t('company.fitSubtitle')}
           >
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <SoonBlock id="salaries" icon="wallet" title={t('company.salariesTitle')}>
-                {t('company.salariesBody')}
-              </SoonBlock>
+              {showsSalaries && (
+                <SoonBlock id="salaries" icon="wallet" title={t('company.salariesTitle')}>
+                  {t('company.salariesBody')}
+                </SoonBlock>
+              )}
               <SoonBlock id="reviews" icon="award" title={t('company.reviewsTitle')}>
                 {t('company.reviewsBody')}
               </SoonBlock>

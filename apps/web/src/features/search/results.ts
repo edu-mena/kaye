@@ -14,7 +14,16 @@ import type {
 import { byInterest, groupAreas } from '../../domain/interests'
 import { rank } from '../../domain/search'
 
-export const RESULT_TYPES = ['carreiras', 'cursos', 'academias', 'bolsas', 'estagios', 'empresas'] as const
+export const RESULT_TYPES = [
+  'carreiras',
+  'cursos',
+  'academias',
+  'bolsas',
+  'estagios',
+  'empresas',
+  'pessoas',
+  'paginas',
+] as const
 export type ResultType = (typeof RESULT_TYPES)[number]
 
 /** Each type of result is one of the app's sections: its name, icon and address. */
@@ -25,7 +34,32 @@ export const SECTIONS = {
   bolsas: { nav: 'scholarships', icon: 'award', to: '/oportunidades?tab=bolsas' },
   estagios: { nav: 'internships', icon: 'briefcase', to: '/oportunidades?tab=estagios' },
   empresas: { nav: 'companies', icon: 'building', to: '/empresas' },
+  pessoas: { nav: 'people', icon: 'users', to: '/empresas' },
+  paginas: { nav: 'pages', icon: 'compass', to: '/' },
 } as const satisfies Record<ResultType, { nav: string; icon: string; to: string }>
+
+/** The sections a tile of "Explorar" leads to; people and pages are only found by typing. */
+export const EXPLORE_TYPES = RESULT_TYPES.filter((type) => type !== 'pessoas' && type !== 'paginas')
+
+/** The app's own pages, so "plano" or "exames de acesso" lead there; each has its lines in search.appPages. */
+const PAGES = [
+  { id: 'plan', to: '/plano', icon: 'path' },
+  { id: 'noDegree', to: '/sem-universidade', icon: 'helmet' },
+  { id: 'admissions', to: '/prazos?tipo=exame', icon: 'calendar' },
+  { id: 'deadlines', to: '/prazos', icon: 'calendar' },
+  { id: 'tests', to: '/testes', icon: 'target' },
+  { id: 'psychotech', to: '/treino', icon: 'brain' },
+  { id: 'interviews', to: '/entrevistas', icon: 'message' },
+  { id: 'kursos', to: '/kursos', icon: 'book' },
+  { id: 'market', to: '/mercado', icon: 'chart' },
+  { id: 'news', to: '/novidades', icon: 'newspaper' },
+  { id: 'opportunities', to: '/oportunidades', icon: 'award' },
+  { id: 'cv', to: '/cv', icon: 'document' },
+  { id: 'card', to: '/cv/cartao', icon: 'share' },
+  { id: 'profile', to: '/perfil', icon: 'user' },
+  { id: 'support', to: '/suporte', icon: 'help' },
+  { id: 'settings', to: '/configuracoes', icon: 'gear' },
+] as const satisfies { id: string; to: string; icon: IconName }[]
 
 /** A career shows its area's icon, a scholarship its section's; everything else its logo (or initials). */
 type Picture =
@@ -125,6 +159,17 @@ export function findResults(
     }),
   )
 
+  // Only the name and the post: the rest of a person's record stays on the company's page.
+  const people = rank(
+    data.companies.flatMap((company) => (company.people ?? []).map((person) => ({ company, person }))),
+    words,
+    ({ company, person }) => ({ name: person.name, others: [person.role, company.name] }),
+  )
+  const pages = rank([...PAGES], words, (page) => ({
+    name: t(`search.appPages.${page.id}_title`),
+    others: [t(`search.appPages.${page.id}_words`)],
+  }))
+
   return {
     carreiras: careers.map((career) => ({
       key: career.slug,
@@ -167,6 +212,20 @@ export function findResults(
       title: company.name,
       meta: `${t(`companies.sector_${company.sector}`)} · ${company.place}`,
       picture: { logo: company },
+    })),
+    pessoas: people.map(({ company, person }) => ({
+      key: `${company.id}-${person.name}`,
+      to: `/empresas/${company.id}`,
+      title: person.name,
+      meta: `${person.role} · ${company.name}`,
+      picture: { icon: 'user' },
+    })),
+    paginas: pages.map((page) => ({
+      key: page.id,
+      to: page.to,
+      title: t(`search.appPages.${page.id}_title`),
+      meta: t(`search.appPages.${page.id}_words`),
+      picture: { icon: page.icon },
     })),
   }
 }

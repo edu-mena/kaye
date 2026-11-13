@@ -14,7 +14,7 @@ import { stagger } from '../../lib/ui'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
 import { useInterestAreas } from '../../lib/useInterestAreas'
-import { findResults, RESULT_TYPES, SECTIONS, type Result, type ResultType } from './results'
+import { EXPLORE_TYPES, findResults, RESULT_TYPES, SECTIONS, type Result, type ResultType } from './results'
 import { ResultRow } from './ResultRow'
 
 /** Results of each type shown under "Tudo"; the rest are one tap away. */
@@ -24,7 +24,8 @@ const PAGE_SIZE = 12
 const SECTION_TITLE = 'flex items-center gap-2 text-base font-bold text-night'
 
 /**
- * Pesquisa: one field over careers, courses, academies, scholarships and companies (?q=), narrowed to one
+ * Pesquisa: one field over careers (trades too), courses, academies, scholarships, companies and their people,
+ * and the app's own pages (?q=), narrowed to one
  * type (?tipo=). Before typing: the recent searches and the four sections.
  */
 export default function SearchPage() {
@@ -148,7 +149,7 @@ function Explore({ index }: { index: number }) {
         {t('search.exploreTitle')}
       </h2>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-5">
-        {RESULT_TYPES.map((type) => (
+        {EXPLORE_TYPES.map((type) => (
           <li key={type}>
             <Link to={SECTIONS[type].to} className={`${LIST_ROW} h-full`}>
               <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-gold">

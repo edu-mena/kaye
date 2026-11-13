@@ -34,6 +34,7 @@ import { paginate } from '../../lib/pagination'
 import { useInterestAreas } from '../../lib/useInterestAreas'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.some((group) => group === value)
 const DEMANDS: Demand[] = ['alta', 'media', 'baixa']
@@ -91,10 +92,15 @@ export default function CareersPage() {
   const groupParam = params.get('area')
   const group = isGroup(groupParam) ? groupParam : null
   const sortParam = params.get('ordem')
-  const sorts: CareerSort[] = profile ? ['forYou', 'demand', 'salary'] : ['demand', 'salary']
+  const showsSalaries = useShowsSalaries()
+  const sorts: CareerSort[] = [
+    ...(profile ? (['forYou'] as const) : []),
+    'demand',
+    ...(showsSalaries ? (['salary'] as const) : []),
+  ]
   const sort = sorts.find((option) => option === sortParam) ?? sorts[0] ?? 'demand'
   const demand = DEMANDS.find((value) => value === params.get('procura')) ?? null
-  const salary = findBand(SALARY_BANDS, params.get('salario'))
+  const salary = showsSalaries ? findBand(SALARY_BANDS, params.get('salario')) : undefined
   const guide = GUIDES.find((value) => value === params.get('guia')) ?? null
   const noDegreeOnly = params.get('entrada') === NO_DEGREE
   const { data: traits = [] } = useCareerTraits()
@@ -179,16 +185,20 @@ export default function CareersPage() {
                       value: demand,
                       options: DEMANDS.map((value) => ({ value, label: t(`demand.${value}`) })),
                     },
-                    {
-                      key: 'salario',
-                      label: t('careers.salaryLabel'),
-                      placeholder: t('careers.anySalary'),
-                      value: salary?.key ?? null,
-                      options: SALARY_BANDS.map((band) => ({
-                        value: band.key,
-                        label: t(`careers.salary_${band.key}`),
-                      })),
-                    },
+                    ...(showsSalaries
+                      ? [
+                          {
+                            key: 'salario',
+                            label: t('careers.salaryLabel'),
+                            placeholder: t('careers.anySalary'),
+                            value: salary?.key ?? null,
+                            options: SALARY_BANDS.map((band) => ({
+                              value: band.key,
+                              label: t(`careers.salary_${band.key}`),
+                            })),
+                          },
+                        ]
+                      : []),
                     {
                       key: 'guia',
                       label: t('careers.guideLabel'),
@@ -368,6 +378,7 @@ function Areas({ careers, selected, onSelect, search, onSearch }: AreasProps) {
  */
 function Guides({ guides }: { guides: CareerSummary[] }) {
   const { t } = useTranslation()
+  const showsSalaries = useShowsSalaries()
   return (
     <section aria-labelledby="guides">
       <SectionHeading id="guides" title={t('careers.guidesTitle')} icon="path" />
@@ -399,7 +410,8 @@ function Guides({ guides }: { guides: CareerSummary[] }) {
                 <span className="mt-1 block text-xl leading-tight font-extrabold">{career.name}</span>
                 <span className="mt-4 flex flex-wrap items-center justify-between gap-3">
                   <span className="text-sm font-semibold">
-                    {career.salaryMedian !== null &&
+                    {showsSalaries &&
+                      career.salaryMedian !== null &&
                       t('careers.perMonth', { value: formatKz(career.salaryMedian) })}
                   </span>
                   <DemandMeter demand={career.demand} tone="dark" />

@@ -21,7 +21,7 @@ function Links({ title, items, seeAllTo, className }: LinksProps) {
   )
 }
 
-/** "Estágios nesta área" on a career: up to three, and all of them on /estagios with the area set. */
+/** "Estágios nesta área" on a career: up to three, and all of them on the Oportunidades internships tab with the area set. */
 export function InternshipsForArea({ area, className }: { area: MarketArea; className?: string }) {
   const { t } = useTranslation()
   const { data = [] } = useInternships()

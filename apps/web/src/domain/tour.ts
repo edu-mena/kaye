@@ -19,6 +19,8 @@ export type TourStepId =
   | 'subscribe'
   | 'deadlines'
   | 'plan'
+  | 'noDegree'
+  | 'admissions'
 
 export type TourStep = { id: TourStepId; to: string }
 
@@ -26,10 +28,10 @@ const MAX_STEPS = 6
 
 const GOAL_STEPS: Record<Goal, TourStepId[]> = {
   discover: ['test', 'recommended', 'plan', 'psychotech'],
-  course: ['courses', 'compare'],
+  course: ['courses', 'admissions', 'compare'],
   job: ['internships', 'interviews', 'cv'],
   cv: ['cv', 'card'],
-  change: ['recommended', 'freeCourses', 'selfEmployment'],
+  change: ['recommended', 'noDegree', 'freeCourses', 'selfEmployment'],
 }
 
 /** Everyone ends here: what is new for them (and following it), then the dates not to miss. */
@@ -42,6 +44,7 @@ function extraFor(situation: Situation, goal: Goal): TourStepId | null {
     return 'internships'
   }
   if (situation === 'seeking' && goal === 'cv') return 'interviews'
+  if (situation === 'seeking' && goal === 'job') return 'noDegree'
   return null
 }
 
@@ -71,6 +74,10 @@ function routeOf(id: TourStepId, career: string | null): string | null {
       return '/novidades'
     case 'deadlines':
       return '/prazos'
+    case 'admissions':
+      return '/prazos?tipo=exame'
+    case 'noDegree':
+      return '/sem-universidade'
   }
 }
 

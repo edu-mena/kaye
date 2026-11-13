@@ -88,7 +88,7 @@ const KURSO_FOR: { id: string; words: RegExp }[] = [
   { id: 'analise-dados', words: /dados|excel|\bsql\b|estat[íi]stic|power bi/i },
 ]
 
-export function kursoFor(skill: string): string | null {
+function kursoFor(skill: string): string | null {
   const written = new Set(KURSOS.map((course) => course.id))
   return KURSO_FOR.find((entry) => written.has(entry.id) && entry.words.test(skill))?.id ?? null
 }
@@ -344,7 +344,7 @@ export function evidenceOf(
 }
 
 /** Whether the app closed the step on its own. */
-export function autoDone(step: PlanStep, evidence: PlanEvidence): boolean {
+function autoDone(step: PlanStep, evidence: PlanEvidence): boolean {
   switch (step.auto?.kind) {
     case 'cv':
       return evidence.cvComplete

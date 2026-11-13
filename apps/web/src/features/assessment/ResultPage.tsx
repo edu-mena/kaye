@@ -14,7 +14,6 @@ import { KURSOS } from '../../data/kursos'
 import { useSkills } from '../../data/queries'
 import type { SkillLevel } from '../../data/types'
 import { applyCvSuggestions } from '../../domain/cvFill'
-import { isMinor } from '../../domain/education'
 import { rankDimensions, riasecCode } from '../../domain/riasec'
 import { DIGITAL_SKILLS, hasStrengths, SOFT_SKILLS } from '../../domain/strengths'
 import { stagger } from '../../lib/ui'
@@ -72,7 +71,6 @@ export default function ResultPage() {
   const ranked = rankDimensions(profile)
   const top = ranked.slice(0, 3)
   const code = riasecCode(profile)
-  const minor = user.profile ? isMinor(user.profile.birthYear) : false
 
   return (
     <div className="space-y-10">
@@ -153,7 +151,7 @@ export default function ResultPage() {
         <ul className="grid gap-4 lg:grid-cols-2">
           {recommendations?.map((item, index) => (
             <li key={item.career.slug} className="rise" style={stagger(index)}>
-              <CareerCard career={item.career} match={item.match} reasons={item.reasons} hideSalary={minor} />
+              <CareerCard career={item.career} match={item.match} reasons={item.reasons} />
             </li>
           ))}
         </ul>

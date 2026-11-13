@@ -4,6 +4,7 @@ import { Chip } from '../../components/ui/Chip'
 import { paybackMonths, type StudyCost } from '../../domain/fees'
 import { formatKz } from '../../domain/format'
 import { useDuration } from '../../lib/useFormat'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 type CostVsSalaryProps = {
   cost: StudyCost
@@ -17,7 +18,8 @@ type CostVsSalaryProps = {
 export function CostVsSalary({ cost, salary, salaryLabel, freeOnline = false }: CostVsSalaryProps) {
   const { t } = useTranslation()
   const duration = useDuration()
-  const payback = paybackMonths(cost, salary)
+  const showsSalaries = useShowsSalaries()
+  const payback = showsSalaries ? paybackMonths(cost, salary) : null
   const paid = cost.max > 0 ? t('cost.range', { min: formatKz(cost.min), max: formatKz(cost.max) }) : null
   const price = [cost.free && t('cost.free'), paid].filter(Boolean).join(' · ')
 
@@ -33,10 +35,14 @@ export function CostVsSalary({ cost, salary, salaryLabel, freeOnline = false }: 
         items={[
           { label: t('cost.duration'), value: duration(cost.months) },
           { label: t('cost.total'), value: price },
-          {
-            label: salaryLabel,
-            value: salary === null ? '—' : t('cost.perMonth', { value: formatKz(salary) }),
-          },
+          ...(showsSalaries
+            ? [
+                {
+                  label: salaryLabel,
+                  value: salary === null ? '—' : t('cost.perMonth', { value: formatKz(salary) }),
+                },
+              ]
+            : []),
         ]}
       />
       {payback !== null && (

@@ -42,7 +42,7 @@ export default function NoDegreePage() {
   return (
     <DetailLayout<TabId>
       header={
-        <Card tone="coal" className="relative overflow-hidden p-6 sm:p-10">
+        <Card tone="coal" data-tour="noDegree" className="relative overflow-hidden p-6 sm:p-10">
           <PathMark className="pointer-events-none absolute -right-10 -bottom-12 w-56 opacity-40 sm:w-80" />
           <div className="relative max-w-2xl">
             <h1 className="text-3xl leading-tight font-extrabold sm:text-4xl">{t('noDegree.title')}</h1>

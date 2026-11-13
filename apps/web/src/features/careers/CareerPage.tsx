@@ -52,6 +52,7 @@ import { CostVsSalary } from './CostVsSalary'
 import { FitPanel } from './FitPanel'
 import { FreeCourses } from './FreeCourses'
 import { SelfEmploymentPanel } from './SelfEmploymentPanel'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 const TABS = [
   { id: 'overview', icon: 'eye' },
@@ -218,8 +219,9 @@ function HeroFacts({ career }: { career: Career }) {
   const { profile } = useUser()
   const quickest = quickestPathway(career, profile?.education ?? null)
   const { trendPct } = career.market
+  const showsSalaries = useShowsSalaries()
   const facts: { icon: IconName; text: string; label?: string }[] = []
-  if (career.salaryMedian !== null) {
+  if (showsSalaries && career.salaryMedian !== null) {
     facts.push({
       icon: 'wallet',
       label: t(career.salaryKind === 'entrada' ? 'career.factSalaryEntry' : 'career.factSalary'),

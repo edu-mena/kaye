@@ -8,6 +8,7 @@ import { GROUP_ICONS } from './groupIcons'
 import { Icon } from './icons'
 import { PhotoImg } from './PhotoImg'
 import { Chip } from './ui/Chip'
+import { useShowsSalaries } from '../state/useShowsSalaries'
 
 const NO_REASONS: string[] = []
 const MATCH_STEPS: Record<InterestLevel, number> = { baixo: 1, medio: 2, alto: 3 }
@@ -18,8 +19,6 @@ type CareerCardProps = {
   reasons?: string[]
   /** Leaves out the two lines on what the career is (long lists, where the name says enough). */
   brief?: boolean
-  /** Minors (14–17) do not see salaries. */
-  hideSalary?: boolean
   /** Its shortest path asks no degree: the "Sem licenciatura" badge. */
   noDegree?: boolean
 }
@@ -34,10 +33,10 @@ export function CareerCard({
   match,
   reasons = NO_REASONS,
   brief = false,
-  hideSalary = false,
   noDegree = false,
 }: CareerCardProps) {
   const { t } = useTranslation()
+  const showsSalaries = useShowsSalaries()
 
   return (
     <Link
@@ -85,7 +84,7 @@ export function CareerCard({
 
         <span className="mt-auto pt-4 @3xs:pt-5">
           <span className="flex flex-col items-start gap-2 border-t border-line pt-3 @3xs:flex-row @3xs:items-end @3xs:justify-between @3xs:gap-4 @3xs:pt-4">
-            <span className={hideSalary ? 'hidden' : 'hidden @3xs:block'}>
+            <span className={showsSalaries ? 'hidden @3xs:block' : 'hidden'}>
               <span className="block text-xs font-light text-muted">
                 {t(career.salaryKind === 'entrada' ? 'careers.entryLabel' : 'careers.medianLabel')}
               </span>

@@ -6,7 +6,6 @@ import { Dialog } from '../../components/ui/Dialog'
 import { CheckboxField } from '../../components/ui/Field'
 import { useCareerDetails } from '../../data/queries'
 import type { Career } from '../../data/types'
-import { isMinor } from '../../domain/education'
 import { careerFit } from '../../domain/fit'
 import { riasecCode } from '../../domain/riasec'
 import type { Locale } from '../../lib/i18n'
@@ -15,6 +14,7 @@ import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { useUser } from '../../state/userStore'
 import { FamilyPdfButton } from '../careers/FamilySheetButton'
 import { familyLinkUrl, linkFirstName } from './familyLink'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 function PdfFor({
   career,
@@ -61,8 +61,7 @@ export function ShowFamily({ slugs, className = '' }: { slugs: string[]; classNa
 
   const name = linkFirstName(user.profile?.name)
   const firstName = withName ? name : undefined
-  // Without a birth year we cannot know: treated as a minor.
-  const adult = user.profile ? !isMinor(user.profile.birthYear) : false
+  const adult = useShowsSalaries()
 
   const sendLink = () => {
     const url = familyLinkUrl({

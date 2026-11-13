@@ -167,23 +167,38 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 
 **Distribuição**
 - **Programa para escolas** (ensino médio e institutos técnicos): uma sessão de orientação e o teste feito em turma. É o canal mais barato para chegar aos 14–18 anos; a privacidade forte do Kayé é o argumento para o diretor dizer sim.
-- **WhatsApp como canal principal:** links partilháveis para tudo (resultado do teste, carreira, bolsa), com pré-visualização bonita. As páginas públicas de carreira, indexáveis no Google, trazem visitas sem custo.
+- **WhatsApp como canal principal:** links partilháveis para tudo (resultado do teste, carreira, bolsa), com pré-visualização bonita. Os links e a pré-visualização geral estão feitos; a pré-visualização por página espera pelo servidor. As páginas públicas de carreira, indexáveis no Google, trazem visitas sem custo.
 - **Embaixadores** em universidades e escolas, com o XP e os badges que já existem.
 
 **Produto**
-- **"O meu plano"** (Fase 2): passa o Kayé de consulta pontual a acompanhamento.
-- **Alertas de prazos** de bolsas e candidaturas: calendário, estrela e Notificações feitos a 13/11/2026 (ver a Fase 2); o push com a app fechada precisa do servidor.
-- **Preparação para os exames de acesso** às universidades públicas, com os dados de admissões que já existem.
+- [x] **"O meu plano"** (Fase 2): passa o Kayé de consulta pontual a acompanhamento. Feito a 13/11/2026, só no telemóvel.
+- [x] **Alertas de prazos** de bolsas e candidaturas: calendário, estrela e Notificações feitos a 13/11/2026 (ver a Fase 2); o push com a app fechada precisa do servidor.
+- **Preparação para os exames de acesso** às universidades públicas, com os dados de admissões que já existem. Já há as datas, as disciplinas de cada exame e o filtro "Exames" em `/prazos`; falta o material de preparação.
 - **Testemunhos curtos em vídeo** de jovens profissionais angolanos ("o meu dia como técnico de redes").
-- **Caminhos sem ensino superior:** formação técnica, INEFOP, ofícios, autoemprego e economia informal. Feito a 13/11/2026: ver a Fase 2.
-- **Modo para pais e encarregados:** uma página que explica o resultado do filho, para além do PDF.
+- [x] **Caminhos sem ensino superior:** formação técnica, INEFOP, ofícios, autoemprego e economia informal. Feito a 13/11/2026: ver a Fase 2.
+- [x] **Modo para pais e encarregados:** uma página que explica o resultado do filho, para além do PDF (`/familia`, ADR 0018).
 - **Mentores** começados à mão, com 5 a 10 voluntários, antes de haver marketplace (Fase 4).
+
+- [x] **Fecho do frontend** (13/11/2026): revisão de coerência (texto "Kayé Tech" fora dos termos e da privacidade, menores sem salários em lado nenhum, links antigos só como redirecionamento), tutorial com os passos "Sem universidade" e "Exames de acesso", pesquisa com as pessoas das empresas e as páginas da app, fotos de 1600 px até 150 KB.
 
 **Receita, sem comprometer a neutralidade**
 - **B2B e institucional:** escolas, governo provincial, INEFOP e programas de responsabilidade social dos bancos (como o Futuro BFA) pagam pelo serviço de orientação, com relatórios só agregados.
 - **Instituições** pagam para gerir a sua página e os preços, sempre marcadas e fora das recomendações.
 - **Financiamento de impacto:** UNICEF, PNUD, Banco Mundial e fundações de empregabilidade jovem.
 - **Premium para o utilizador**, só depois e barato: modelos extra de CV, revisão humana do CV, simulação de entrevista com feedback.
+
+### Espera pelo servidor
+
+O frontend está fechado; o que falta precisa do Laravel na Hostinger:
+
+- [ ] Login Google de ponta a ponta (web com cookie, Android com token)
+- [ ] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0)
+- [ ] Notificações push dos prazos e do plano, mesmo com a app fechada
+- [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
+- [ ] Painel B2B só com dados agregados, para escolas, INEFOP e programas de responsabilidade social
+- [ ] Páginas geridas pelas próprias instituições (preços e dados), sempre marcadas e fora das recomendações
+- [ ] Premium (Fase 3)
+- [ ] Mentores com marcação de sessões (Fase 4)
 
 ## Fase 3 — Monetização
 

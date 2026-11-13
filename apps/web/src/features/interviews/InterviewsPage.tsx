@@ -28,6 +28,7 @@ import { useFocus } from '../../lib/focusMode'
 import { userActions, useUser } from '../../state/userStore'
 import { AREA_ICONS } from '../onboarding/areaIcons'
 import { InterviewRunner } from './InterviewRunner'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 type Session = {
   area: MarketArea
@@ -52,6 +53,7 @@ export default function InterviewsPage() {
   const { t } = useTranslation()
   const [stage, setStage] = useState<Stage>({ name: 'setup' })
   const { skills } = useUser()
+  const showsSalaries = useShowsSalaries()
   useFocus(stage.name === 'running' || stage.name === 'send')
 
   const startCareer = async (slug: string) => {
@@ -62,7 +64,10 @@ export default function InterviewsPage() {
       session: {
         area: GROUP_AREAS[career.group],
         career: { slug: career.slug, name: career.name },
-        questions: buildCareerInterview(career, skills, Date.now()),
+        // A minor practises without the salary question: it quotes the career's real salaries.
+        questions: buildCareerInterview(career, skills, Date.now()).filter(
+          (question) => showsSalaries || question.kind !== 'salary',
+        ),
         startedAt: new Date().toISOString(),
       },
     })

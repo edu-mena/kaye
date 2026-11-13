@@ -28,7 +28,7 @@ export default function DeadlinesPage() {
   return (
     <>
       <PageHeader compact tour="deadlines" title={t('nav.deadlines')} subtitle={t('deadlines.subtitle')} />
-      <div className="space-y-6">
+      <div data-tour="admissions" className="space-y-6">
         <FilterBar
           clearLabel={t('scholarships.clear')}
           onChange={setParam}

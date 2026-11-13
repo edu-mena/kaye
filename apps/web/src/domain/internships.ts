@@ -1,7 +1,7 @@
 import type { Internship, InternshipAudience, InternshipKind, MarketArea } from '../data/types'
 import { isOpen } from './scholarships'
 
-// Estágios: which internships suit a career or a company, and the filters of /estagios.
+// Estágios: which internships suit a career or a company, and the filters of the Oportunidades internships tab.
 
 export const INTERNSHIP_KINDS: InternshipKind[] = [
   'trainee',

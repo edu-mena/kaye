@@ -10,6 +10,7 @@ import type { CareerSummary } from '../../data/types'
 import { formatKz } from '../../domain/format'
 import { CareerMarket } from './CareerMarket'
 import { FitPanel } from './FitPanel'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 // The careers a course or an institution leads to, on its Mercado and Avaliação tabs.
 
@@ -74,6 +75,7 @@ export function CareersEvaluation({
   const { t } = useTranslation()
   const { data: detailed, isPending } = useCareerDetails(careers.map((career) => career.slug))
   const demand = DEMAND_ORDER.find((level) => careers.some((career) => career.demand === level))
+  const showsSalaries = useShowsSalaries()
   const salaries = careers.flatMap((career) => (career.salaryMedian === null ? [] : [career.salaryMedian]))
   return (
     <>
@@ -83,10 +85,14 @@ export function CareersEvaluation({
           { label: count.label, value: String(count.value) },
           ...(plans === undefined ? [] : [{ label: t('course.evalPlans'), value: String(plans) }]),
           { label: t('course.evalDemand'), value: demand ? t(`demand.${demand}`) : '—' },
-          {
-            label: t('course.evalSalary'),
-            value: salaries.length > 0 ? formatKz(Math.max(...salaries)) : '—',
-          },
+          ...(showsSalaries
+            ? [
+                {
+                  label: t('course.evalSalary'),
+                  value: salaries.length > 0 ? formatKz(Math.max(...salaries)) : '—',
+                },
+              ]
+            : []),
         ]}
       />
       <p className="mt-3 text-xs font-light text-muted">{note}</p>

@@ -17,7 +17,7 @@ export const TERMS: LegalDoc = {
         id: 'o-que-e',
         title: 'O que é o Kayé',
         body: [
-          'O Kayé ajuda jovens dos 14 aos 30 anos em Angola a descobrir profissões, o que cada uma exige e onde estudar. Nesta primeira fase, o Kayé Tech mostra as profissões da tecnologia em Luanda.',
+          'O Kayé ajuda jovens dos 14 aos 30 anos em Angola a descobrir profissões, o que cada uma exige e onde estudar. Nesta primeira fase, mostra as profissões de todas as áreas, começando por Luanda.',
           'O Kayé orienta: não é um site de emprego, não recruta e não garante emprego nem entrada em nenhum curso.',
         ],
       },
@@ -124,7 +124,7 @@ export const TERMS: LegalDoc = {
         id: 'o-que-e',
         title: 'What Kayé is',
         body: [
-          'Kayé helps young people aged 14 to 30 in Angola discover careers, what each one requires and where to study. In this first phase, Kayé Tech covers tech careers in Luanda.',
+          'Kayé helps young people aged 14 to 30 in Angola discover careers, what each one requires and where to study. In this first phase, it covers careers in every field, starting with Luanda.',
           'Kayé guides: it is not a job site, it does not recruit, and it does not guarantee a job or a place on any course.',
         ],
       },
@@ -231,7 +231,7 @@ export const TERMS: LegalDoc = {
         id: 'o-que-e',
         title: 'Ce qu’est Kayé',
         body: [
-          'Kayé aide les jeunes de 14 à 30 ans en Angola à découvrir des métiers, ce que chacun exige et où étudier. Dans cette première phase, Kayé Tech présente les métiers du numérique à Luanda.',
+          'Kayé aide les jeunes de 14 à 30 ans en Angola à découvrir des métiers, ce que chacun exige et où étudier. Dans cette première phase, il présente les métiers de tous les domaines, en commençant par Luanda.',
           'Kayé oriente : ce n’est pas un site d’emploi, il ne recrute pas et ne garantit ni un emploi ni une place dans une formation.',
         ],
       },

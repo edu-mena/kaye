@@ -6,7 +6,7 @@ import { scholarshipsFor, todayIso } from '../../domain/scholarships'
 
 type ScholarshipLinksProps = { areas: MarketArea[]; levels?: AcademyOffer['level'][]; className?: string }
 
-/** "Bolsas para esta área": up to three, each to its official site, and all of them on /bolsas with the area set. */
+/** "Bolsas para esta área": up to three, each to its official site, and all of them on the Oportunidades scholarships tab with the area set. */
 export function ScholarshipLinks({ areas, levels, className = '' }: ScholarshipLinksProps) {
   const { t } = useTranslation()
   const { data = [] } = useScholarships()

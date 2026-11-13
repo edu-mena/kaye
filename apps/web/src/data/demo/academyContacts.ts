@@ -46,7 +46,7 @@ const ISPTEC_SITE = site('ISPTEC', 'https://isptec.co.ao')
 const UCAN_SITE = site('UCAN', 'https://www.ucan.co.ao')
 const BELAS_SITE = site('Unibelas', 'https://unibelas.online')
 
-export const ACADEMY_CONTACTS: Record<string, Entry> = {
+const ACADEMY_CONTACTS: Record<string, Entry> = {
   uan: {
     phone: '+244 924 535 230',
     social: {

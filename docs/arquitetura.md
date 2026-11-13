@@ -449,20 +449,27 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | Grupo | Secção | Conteúdo | Telemóvel |
 |---|---|---|---|
 | Explorar | Início | Teste vocacional, recomendações, progresso, próxima ação | Barra de baixo |
-| | Pesquisa | Carreiras, cursos, academias e empresas num só sítio | Barra de baixo |
+| | Pesquisa | Carreiras (também os ofícios), cursos, academias, bolsas, estágios, empresas, as pessoas das empresas (só nome e cargo) e as páginas da app ("plano", "exames de acesso"…) num só sítio | Barra de baixo |
 | | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
 | | Testes (`/testes`) | Todos os testes num só sítio, com o estado de cada um: teste vocacional (`/teste`), psicotécnicos (`/treino`), simulação de entrevistas (`/entrevistas`) e exames dos Kursos. O item fica ativo também nessas páginas | Menu |
 | | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
+| | Kursos (`/kursos`) | Cursos curtos grátis do Kayé, com lições, exame e certificado sem validade (ADR 0016) | Menu |
 | | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
 | | Oportunidades (`/oportunidades`) | Bolsas e estágios reais, em dois separadores (`?tab=bolsas` ou `?tab=estagios`), cada um com os seus filtros na URL | Menu |
 | | Prazos (`/prazos`) | Os prazos com data publicada (bolsas, candidaturas e exames de acesso, estágios; os concursos públicos entram quando tiverem data de fecho), por mês, com o filtro "Só para mim" (estado local) e "Adicionar ao calendário" (um `.ics` com alarme 3 dias antes, feito no telemóvel). Os da pessoa a ≤ 14 dias aparecem nas Notificações e os a ≤ 7 dias contam no sino | Menu |
-| | Empresas | As empresas líderes de cada setor | Menu |
+| | Sem universidade (`/sem-universidade`) | Ofícios, onde aprendê-los (centros do INEFOP), trabalhar por conta própria e passar do informal ao formal, em separadores (`?secao=`) | Menu |
+| | Empresas | As empresas líderes de cada setor, com as pessoas (nome e cargo), as publicações e as profissões que contratam | Menu |
 | | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |
 | | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
-| Para ti | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
+| Para ti | O meu plano (`/plano`) | Uma carreira e um caminho, com passos, progresso e prazos; guardado só no telemóvel | Menu |
+| | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
 | | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província); em cima, os prazos da pessoa a ≤ 14 dias | Sino |
 | | Perfil | Conta, resultado do teste, competências, guardados | Menu |
 | Em baixo | Suporte, Configurações | Ajuda; idioma, privacidade e dados | Menu |
+
+**Fora do menu:** `/entrar` (entrada e onboarding), `/c/:slug` (a página pública do cartão, ADR 0014), `/familia` (o link da família, com os dados no `#`, ADR 0018), `/termos` e `/privacidade` são públicas. Os endereços antigos `/bolsas` e `/estagios` só redirecionam para os separadores de `/oportunidades`, mantendo os filtros. Cada ecrã descarrega o seu código na primeira visita (`lazy` em `app/router.tsx`).
+
+**Tutorial** (`domain/tour.ts`): até 6 passos escolhidos pelo objetivo da pessoa, cada um num elemento `data-tour` da sua página: teste, recomendações, plano, psicotécnicos, cursos, exames de acesso (`/prazos?tipo=exame`), comparar, estágios, entrevistas, CV, cartão, sem universidade, cursos grátis e conta própria; no fim, Novidades e Prazos.
 
 **Recrutamento no Mercado:** só título, fonte, data e ligação para o original, e só de fontes que o permitem ([fontes-de-vagas.md](fontes-de-vagas.md)). Quando a fonte não o permite, entra só como dado agregado. O Kayé continua a não ser um site de emprego.
 
@@ -529,7 +536,7 @@ Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O a
 
 - **Recolher só o necessário:** ano de nascimento (não a data), província (não a morada), telefone opcional.
 - **Consentimentos** guardados com versão e data.
-- **Menores (14–17):** linguagem adaptada, confirmação de que o encarregado de educação tem conhecimento, perfil público desligado e sem contribuições de salário.
+- **Menores (14–17):** linguagem adaptada, confirmação de que o encarregado de educação tem conhecimento, perfil público desligado e sem contribuições de salário. Não veem salários em lado nenhum da app (cartões, carreira, cursos, empresas, entrevistas, link da família): `useShowsSalaries()`; sem ano de nascimento conhecido, contam como menores.
 - **Direitos do utilizador:** exportar os dados e apagar a conta dentro da app (também exigido pela Apple e pela Google).
 - **Nenhum dado individual** sai para instituições ou anunciantes: só estatísticas agregadas de 5 ou mais pessoas.
 - **Sem trackers de publicidade.**

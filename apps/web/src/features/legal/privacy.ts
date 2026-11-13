@@ -18,7 +18,7 @@ export const PRIVACY: LegalDoc = {
         id: 'quem-somos',
         title: 'Quem somos',
         body: [
-          'O Kayé é uma plataforma gratuita de orientação de carreira para jovens dos 14 aos 30 anos em Angola. Nesta primeira fase, o Kayé Tech, mostra as profissões e os cursos de tecnologia em Luanda.',
+          'O Kayé é uma plataforma gratuita de orientação de carreira para jovens dos 14 aos 30 anos em Angola. Nesta primeira fase, mostra as profissões e os cursos de todas as áreas, começando por Luanda.',
           'O Kayé é o responsável pelo tratamento dos teus dados pessoais, nos termos da Lei n.º 22/11, de 17 de junho, da Proteção de Dados Pessoais. Para qualquer pedido sobre os teus dados, escreve para {email}.',
         ],
       },
@@ -129,7 +129,7 @@ export const PRIVACY: LegalDoc = {
         id: 'quem-somos',
         title: 'Who we are',
         body: [
-          'Kayé is a free career guidance platform for young people aged 14 to 30 in Angola. In this first phase, Kayé Tech, it covers tech careers and courses in Luanda.',
+          'Kayé is a free career guidance platform for young people aged 14 to 30 in Angola. In this first phase, it covers careers and courses in every field, starting with Luanda.',
           'Kayé is the controller of your personal data under Law no. 22/11 of 17 June on Personal Data Protection. For any request about your data, write to {email}.',
         ],
       },
@@ -240,7 +240,7 @@ export const PRIVACY: LegalDoc = {
         id: 'quem-somos',
         title: 'Qui sommes-nous',
         body: [
-          'Kayé est une plateforme gratuite d’orientation professionnelle pour les jeunes de 14 à 30 ans en Angola. Dans cette première phase, Kayé Tech présente les métiers et les formations du numérique à Luanda.',
+          'Kayé est une plateforme gratuite d’orientation professionnelle pour les jeunes de 14 à 30 ans en Angola. Dans cette première phase, il présente les métiers et les formations de tous les domaines, en commençant par Luanda.',
           'Kayé est responsable du traitement de tes données personnelles, au sens de la loi n° 22/11 du 17 juin sur la protection des données personnelles. Pour toute demande concernant tes données, écris à {email}.',
         ],
       },

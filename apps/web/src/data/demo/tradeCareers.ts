@@ -696,6 +696,8 @@ function pathways(trade: Trade): Career['pathways'] {
 const NOTE =
   'Os sites de emprego mostram poucos anúncios para este ofício: a maior parte do trabalho é por conta própria e chega por recomendação. A procura é uma estimativa do Kayé.'
 
+// `base` belongs to TRADE_CAREERS: mutating it in place (the rule's advice) would change that list too.
+// oxlint-disable-next-line no-map-spread
 export const TRADE_GUIDES: Career[] = TRADES.map((trade) => {
   const base = TRADE_CAREERS.find((career) => career.slug === trade.slug)
   if (!base) throw new Error(`Unknown trade ${trade.slug}`)
@@ -731,11 +733,6 @@ export const TRADE_GUIDES: Career[] = TRADES.map((trade) => {
     cvGuide: CV_GUIDE,
   }
 })
-
-/** The first clients of each trade, for "Trabalhar por conta própria" (estimated, like selfEmployment.ts). */
-export const TRADE_CLIENTS: Record<string, string[]> = Object.fromEntries(
-  TRADES.map((trade) => [trade.slug, trade.clients]),
-)
 
 const offer = (name: string, careers: string[]): AcademyOffer => ({
   course: {

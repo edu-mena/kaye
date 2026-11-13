@@ -7,17 +7,19 @@ import type { Career } from '../../data/types'
 import { formatKz } from '../../domain/format'
 import { PostingsChart } from './PostingsChart'
 import { SalaryRange } from './SalaryRange'
+import { useShowsSalaries } from '../../state/useShowsSalaries'
 
 /** A career's pay, demand and hiring sectors: the career page's Mercado tab, and the course page's. */
 export function CareerMarket({ career }: { career: Career }) {
   const { t } = useTranslation()
   const { market } = career
+  const showsSalaries = useShowsSalaries()
   const topStage = Math.max(...market.salaryByStage.map((item) => item.median), 1)
   const stageTitle = (level: string) => career.stages.find((stage) => stage.level === level)?.title ?? level
 
   return (
     <>
-      {market.salary && (
+      {showsSalaries && market.salary && (
         <>
           <Subheading>{t('career.salaryTitle')}</Subheading>
           <SalaryRange salary={market.salary} />
@@ -25,7 +27,7 @@ export function CareerMarket({ career }: { career: Career }) {
       )}
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
-        {market.salaryByStage.length > 0 && (
+        {showsSalaries && market.salaryByStage.length > 0 && (
           <div>
             <Subheading>{t('career.stageSalaryTitle')}</Subheading>
             <BarList
@@ -45,7 +47,7 @@ export function CareerMarket({ career }: { career: Career }) {
             // A career the job sites do not show (the State hires by public competition): what is known instead.
             market.demandNote && (
               <div className="space-y-3">
-                {[market.demandNote, market.demandNote.salary].map(
+                {[market.demandNote, showsSalaries ? market.demandNote.salary : undefined].map(
                   (note) =>
                     note && (
                       <p key={note.source.url} className="text-sm font-light text-copy">
