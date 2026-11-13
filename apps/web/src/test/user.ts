@@ -30,6 +30,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     savedCareers: [],
     savedAcademies: [],
     savedCompanies: [],
+    remindedDeadlines: [],
     visitedCareers: [],
     targetCareer: null,
     cvs: [],

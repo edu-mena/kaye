@@ -88,6 +88,8 @@ export type UserData = {
   savedAcademies: string[]
   /** Companies saved with the bookmark, by id: their news counts as "Para ti". */
   savedCompanies: string[]
+  /** Deadlines starred with "Lembrar-me", by DeadlineItem id: they join "Só para mim" and the notifications. */
+  remindedDeadlines: string[]
   visitedCareers: string[]
   targetCareer: string | null
   /** All the person's CVs; `activeCvId` is the one open in the editor. */
@@ -142,6 +144,7 @@ const INITIAL: UserData = {
   savedCareers: [],
   savedAcademies: [],
   savedCompanies: [],
+  remindedDeadlines: [],
   visitedCareers: [],
   targetCareer: null,
   cvs: [],
@@ -371,6 +374,9 @@ export const userActions = {
 
   toggleSavedCompany: (id: string) =>
     update((user) => ({ ...user, savedCompanies: toggle(user.savedCompanies, id) })),
+
+  toggleReminder: (id: string) =>
+    update((user) => ({ ...user, remindedDeadlines: toggle(user.remindedDeadlines, id) })),
 
   visitCareer: (slug: string) =>
     update((user) =>

@@ -9,6 +9,7 @@ export function ScholarshipCard({ scholarship, today }: { scholarship: Scholarsh
   return (
     <OpportunityCard
       item={scholarship}
+      deadlineKind="bolsa"
       chips={[
         t(`scholarships.destination_${scholarship.destination}`),
         t(`scholarships.kind_${scholarship.kind}`),

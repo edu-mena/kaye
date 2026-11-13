@@ -2,6 +2,7 @@ import type { TFunction } from 'i18next'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useSearchParams } from 'react-router'
+import { ShareButton } from '../../components/ShareButton'
 import { DetailLayout, DetailSection, StatBlock, Subheading } from '../../components/DetailLayout'
 import {
   CareerPills,
@@ -89,7 +90,16 @@ function AcademyView({ academy }: { academy: Academy }) {
           entity={academy}
           back={{ to: '/academias', label: t('academy.back') }}
           meta={academyMeta(academy, t)}
-          actions={<SaveAcademy id={academy.id} name={academy.name} />}
+          actions={
+            <>
+              <SaveAcademy id={academy.id} name={academy.name} />
+              <ShareButton
+                look="onDark"
+                text={t('share.academy', { name: academy.name })}
+                path={`/academias/${academy.id}`}
+              />
+            </>
+          }
         />
       }
       tabs={{
@@ -177,12 +187,21 @@ function HowToGetIn({ academy }: { academy: Academy }) {
       <Subheading>{t('admission.title')}</Subheading>
       <div className="grid gap-4">
         {own.map((admission) => (
-          <AdmissionBlock key={admission.id} admission={admission} title={title(admission)} />
+          <AdmissionBlock
+            key={admission.id}
+            admission={admission}
+            title={title(admission)}
+            path={`/academias/${academy.id}`}
+          />
         ))}
         {own.length === 0 && national && (
           <>
             <p className="text-sm font-light text-copy">{t('admission.noneYet')}</p>
-            <AdmissionBlock admission={national} title={t('admission.national')} />
+            <AdmissionBlock
+              admission={national}
+              title={t('admission.national')}
+              path={`/academias/${academy.id}`}
+            />
           </>
         )}
       </div>

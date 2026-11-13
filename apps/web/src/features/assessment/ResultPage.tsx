@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, Navigate } from 'react-router'
 import { CareerCard } from '../../components/CareerCard'
 import { Icon } from '../../components/icons'
+import { ShareButton } from '../../components/ShareButton'
 import { BarList } from '../../components/ui/BarList'
 import { Button, ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -26,6 +27,36 @@ import { ClearStrengths } from './ClearStrengths'
 import { useTestProgress } from '../../state/useTestProgress'
 
 const LEVELS: SkillLevel[] = ['domino', 'sei', 'aprender']
+
+/**
+ * "Partilhar" the result: only the RIASEC code and the three careers, never the answers; the first name only
+ * when the person ticks it. The link invites to take the test.
+ */
+function ShareResult({ code, careers, firstName }: { code: string; careers: string[]; firstName: string }) {
+  const { t } = useTranslation()
+  const [withName, setWithName] = useState(false)
+  const values = { code, careers: careers.join(', '), name: firstName }
+  return (
+    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+      <ShareButton
+        className="-ml-3"
+        path="/teste"
+        text={t(withName && firstName ? 'share.resultNamed' : 'share.result', values)}
+      />
+      {firstName && (
+        <label className="inline-flex items-center gap-2 text-xs font-light text-copy">
+          <input
+            type="checkbox"
+            checked={withName}
+            onChange={(event) => setWithName(event.target.checked)}
+            className="size-4 accent-blue"
+          />
+          {t('share.withName')}
+        </label>
+      )}
+    </div>
+  )
+}
 
 export default function ResultPage() {
   const { t } = useTranslation()
@@ -51,6 +82,11 @@ export default function ResultPage() {
             {t('assessment.resultTitle', { code })}
           </h1>
           <p className="mt-2 text-sm font-light text-copy">{t('assessment.resultBody')}</p>
+          <ShareResult
+            code={code}
+            careers={(recommendations ?? []).slice(0, 3).map((item) => item.career.name)}
+            firstName={user.profile?.name.trim().split(/\s+/)[0] ?? ''}
+          />
         </div>
       </header>
 

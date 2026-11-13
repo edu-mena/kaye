@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { DemandMeter } from '../../components/DemandMeter'
+import { ShareButton } from '../../components/ShareButton'
 import { DetailLayout, DetailSection, StatBlock, Subheading } from '../../components/DetailLayout'
 import {
   ContactsBlock,
@@ -89,7 +90,16 @@ function CompanyView({ company }: { company: Company }) {
           entity={company}
           back={{ to: '/empresas', label: t('company.back') }}
           meta={t(`companies.sector_${company.sector}`)}
-          actions={<SaveCompany id={company.id} name={company.name} />}
+          actions={
+            <>
+              <SaveCompany id={company.id} name={company.name} />
+              <ShareButton
+                look="onDark"
+                text={t('share.company', { name: company.name })}
+                path={`/empresas/${company.id}`}
+              />
+            </>
+          }
         />
       }
       tabs={{

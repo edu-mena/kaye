@@ -9,6 +9,7 @@ import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
 import { ScoreRing } from '../../components/ScoreRing'
 import { Chip } from '../../components/ui/Chip'
+import { ShareButton } from '../../components/ShareButton'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { useCareer, useCareers, usePrograms } from '../../data/queries'
 import type { Program } from '../../data/types'
@@ -154,13 +155,20 @@ function Hero({ item, institutions, back }: HeroProps) {
         className="absolute inset-0 -z-10 bg-linear-to-t from-coal via-coal/75 to-coal/20"
       />
       <div className="flex min-h-72 flex-col justify-between gap-10 p-6 sm:p-10 lg:min-h-96">
-        <Link
-          to={back}
-          className="inline-flex w-fit items-center gap-2 rounded-full bg-coal/70 px-4 py-2 text-sm font-light hover:bg-coal"
-        >
-          <Icon name="arrowLeft" className="size-4" />
-          {t('training.back')}
-        </Link>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <Link
+            to={back}
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-coal/70 px-4 py-2 text-sm font-light hover:bg-coal"
+          >
+            <Icon name="arrowLeft" className="size-4" />
+            {t('training.back')}
+          </Link>
+          <ShareButton
+            look="onDark"
+            text={t('share.course', { name: program.course.name })}
+            path={`/cursos/${program.id}`}
+          />
+        </div>
         <div className="max-w-2xl">
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-light text-white/80">
             <span>{t(`training.${program.level}`)}</span>

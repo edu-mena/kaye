@@ -11,8 +11,11 @@ const compact = (iso: string) => iso.replaceAll('-', '')
 const nextDay = (iso: string) =>
   new Date(Date.parse(`${iso}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10)
 
-/** One all-day event on the deadline, with a reminder 3 days before. */
-export function toIcs(item: DeadlineItem, label: string, url: string, now = new Date()): string {
+/** What a calendar event needs: a deadline (one day) or an event of the news (it may last several days). */
+export type CalendarEvent = Pick<DeadlineItem, 'id' | 'title' | 'date'> & { ends?: string }
+
+/** One all-day event on the deadline (or from `date` to `ends`), with a reminder 3 days before. */
+export function toIcs(item: CalendarEvent, label: string, url: string, now = new Date()): string {
   const stamp = now
     .toISOString()
     .replace(/[-:]/g, '')
@@ -26,7 +29,7 @@ export function toIcs(item: DeadlineItem, label: string, url: string, now = new 
     `UID:${item.id}@kaye`,
     `DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${compact(item.date)}`,
-    `DTEND;VALUE=DATE:${compact(nextDay(item.date))}`,
+    `DTEND;VALUE=DATE:${compact(nextDay(item.ends ?? item.date))}`,
     `SUMMARY:${escape(`${label}: ${item.title}`)}`,
     `URL:${url}`,
     'BEGIN:VALARM',

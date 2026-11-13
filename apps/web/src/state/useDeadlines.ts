@@ -36,10 +36,11 @@ export function useDeadlines(): {
       item.status === 'todo' && item.step.deadlineId ? [item.step.deadlineId] : [],
     ),
   )
+  const reminded = new Set(user.remindedDeadlines)
   const theirs = new Set(mine(all, { areas: myAreas(careers, slugs), careers: slugs }))
   return {
     all,
-    mine: all.filter((item) => theirs.has(item) || planned.has(item.id)),
+    mine: all.filter((item) => theirs.has(item) || planned.has(item.id) || reminded.has(item.id)),
     today,
     loading: scholarships.isPending || admissions.isPending || internships.isPending || academies.isPending,
   }

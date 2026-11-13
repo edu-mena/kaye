@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import logo from '../../assets/kaye-logo.png'
 import { Icon, type IconName } from '../../components/icons'
 import { ButtonLink } from '../../components/ui/Button'
@@ -8,6 +8,7 @@ import { Card } from '../../components/ui/Card'
 import { useCareers } from '../../data/queries'
 import { areaCounts } from '../../domain/discovery'
 import { changeLocale, LOCALES, type Locale } from '../../lib/i18n'
+import { safeNext } from '../../lib/ui'
 import { AREA_ICONS } from '../onboarding/areaIcons'
 import { ContactSection } from './ContactSection'
 import { FeedbackForm } from './FeedbackForm'
@@ -67,6 +68,9 @@ function Feature({ id, flip = false, children }: FeatureProps) {
 export function LandingPage() {
   const { t } = useTranslation()
   const { data: careers = [] } = useCareers()
+  // A shared link opened without an account: sign in first, then straight back to it.
+  const next = safeNext(useSearchParams()[0].get('next'))
+  const signIn = next ? `/entrar?next=${encodeURIComponent(next)}` : '/entrar'
 
   return (
     <div className="bg-paper">
@@ -74,13 +78,35 @@ export function LandingPage() {
         <img src={logo} alt="Kayé" className="h-9 w-auto" />
         <div className="flex items-center gap-2">
           <LanguagePicker />
-          <ButtonLink to="/entrar" size="sm" variant="secondary">
+          <ButtonLink to={signIn} size="sm" variant="secondary">
             {t('landing.signIn')}
           </ButtonLink>
         </div>
       </header>
 
       <main id="conteudo">
+        {next && (
+          <section
+            aria-labelledby="shared-link"
+            className="mx-auto mt-2 flex max-w-6xl flex-wrap items-center gap-4 px-4"
+          >
+            <div className="flex w-full flex-wrap items-center gap-4 rounded-card bg-coal p-5 text-white">
+              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white/10 text-gold">
+                <Icon name="lock" className="size-5" />
+              </span>
+              <div className="min-w-0 flex-1 basis-60">
+                <h2 id="shared-link" className="text-lg font-extrabold">
+                  {t('share.signInToSee')}
+                </h2>
+                <p className="mt-0.5 text-sm font-light text-white/80">{t('share.signInToSeeBody')}</p>
+              </div>
+              <ButtonLink to={signIn} variant="onDark">
+                {t('share.signInAndSee')}
+                <Icon name="arrowRight" className="size-4" />
+              </ButtonLink>
+            </div>
+          </section>
+        )}
         <WelcomeBanner />
 
         <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-10 sm:pt-16 lg:grid-cols-2 lg:gap-8">
@@ -89,7 +115,7 @@ export function LandingPage() {
               {t('landing.title')}
             </h1>
             <p className="mt-5 max-w-lg rise text-lg font-light text-copy">{t('landing.subtitle')}</p>
-            <ButtonLink to="/entrar" size="lg" className="mt-8 rise">
+            <ButtonLink to={signIn} size="lg" className="mt-8 rise">
               {t('landing.start')}
               <Icon name="arrowRight" className="size-5" />
             </ButtonLink>
@@ -165,7 +191,7 @@ export function LandingPage() {
                   </li>
                 ))}
               </ul>
-              <ButtonLink to="/entrar" size="lg" variant="onDark" className="mt-10">
+              <ButtonLink to={signIn} size="lg" variant="onDark" className="mt-10">
                 {t('landing.start')}
                 <Icon name="arrowRight" className="size-5" />
               </ButtonLink>

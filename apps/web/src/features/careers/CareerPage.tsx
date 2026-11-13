@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
+import { ShareButton } from '../../components/ShareButton'
 import { DetailLayout, DetailSection as Section, StatBlock, Subheading } from '../../components/DetailLayout'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
@@ -274,10 +275,18 @@ function CareerView({ career }: { career: Career }) {
           facts={<HeroFacts career={career} />}
           onFit={showFit}
           actions={
-            <FamilySheetButton
-              career={career}
-              className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
-            />
+            <>
+              <FamilySheetButton
+                career={career}
+                className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
+              />
+              <ShareButton
+                look="onDark"
+                text={t('share.career', { name: career.name })}
+                path={`/carreiras/${career.slug}`}
+                className="bg-coal ring-white/15 hover:bg-night"
+              />
+            </>
           }
         />
       }

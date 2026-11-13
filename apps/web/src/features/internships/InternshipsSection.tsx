@@ -137,6 +137,7 @@ function InternshipCard({ internship, today }: { internship: Internship; today: 
   return (
     <OpportunityCard
       item={internship}
+      deadlineKind="estagio"
       chips={[
         t(`internships.kind_${internship.kind}`),
         ...(internship.province ? [internship.province] : []),

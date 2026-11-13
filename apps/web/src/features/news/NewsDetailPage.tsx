@@ -1,12 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
+import { CalendarButton } from '../../components/DeadlineActions'
 import { ExternalLink } from '../../components/DetailParts'
 import { Icon } from '../../components/icons'
 import { DetailSkeleton, ErrorState, NotFoundState } from '../../components/PageStates'
 import { PhotoImg } from '../../components/PhotoImg'
+import { ShareButton } from '../../components/ShareButton'
 import { ButtonLink } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
 import { useNews } from '../../data/queries'
+import { todayIso } from '../../domain/scholarships'
 import { useNewsForMe } from '../../lib/useNewsForMe'
 import { EventDetails, EventLine } from './EventFacts'
 import { isPoster, newsHref } from './links'
@@ -87,6 +90,16 @@ export default function NewsDetailPage() {
               <EventDetails event={item.event} />
             </div>
           )}
+          <div className="mt-4 flex flex-wrap items-center gap-1">
+            {item.event && (item.event.ends ?? item.event.starts) >= todayIso() && (
+              <CalendarButton
+                event={{ id: item.id, title: item.title, date: item.event.starts, ends: item.event.ends }}
+                label={t(`news.kind_${item.kind}`)}
+                path={`/novidades/${item.id}`}
+              />
+            )}
+            <ShareButton text={t('share.news', { title: item.title })} path={`/novidades/${item.id}`} />
+          </div>
           {item.body && item.body.length > 0 && (
             <div className="mt-6 space-y-4">
               {item.body.map((paragraph) => (

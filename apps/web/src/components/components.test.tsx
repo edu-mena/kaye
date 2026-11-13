@@ -82,10 +82,10 @@ describe('navigation', () => {
 })
 
 describe('RequireProfile', () => {
-  it('sends a person without a profile to /entrar and remembers where they were', () => {
+  it('sends a person without a profile to the landing page and remembers where they were', () => {
     renderWithApp(<RequireProfile>segredo</RequireProfile>, { route: '/teste', path: '/teste' })
     expect(screen.queryByText('segredo')).not.toBeInTheDocument()
-    expect(screen.getByTestId('location')).toHaveTextContent('/entrar?next=%2Fteste')
+    expect(screen.getByTestId('location')).toHaveTextContent('/?next=%2Fteste')
   })
 
   it('shows the page once there is a profile', () => {

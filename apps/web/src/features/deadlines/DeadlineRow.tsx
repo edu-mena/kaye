@@ -1,23 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { Icon } from '../../components/icons'
+import { CalendarButton, RemindStar } from '../../components/DeadlineActions'
 import { daysUntil, type DeadlineItem } from '../../domain/deadlines'
-import { toIcs } from '../../domain/ics'
 
-/** Downloads the event as a Blob: the phone's calendar opens it, with no server. */
-function addToCalendar(item: DeadlineItem, label: string) {
-  const link = document.createElement('a')
-  link.href = URL.createObjectURL(
-    new Blob([toIcs(item, label, `${window.location.origin}${item.to}`)], {
-      type: 'text/calendar;charset=utf-8',
-    }),
-  )
-  link.download = `${item.id}.ics`
-  link.click()
-  URL.revokeObjectURL(link.href)
-}
-
-/** One deadline: the day, the kind, the title, the days left, "Adicionar ao calendário" and the link. */
+/** One deadline: the day, the kind, the title, the days left, the star ("Lembrar-me"), "Adicionar ao calendário" and the link. */
 export function DeadlineRow({
   item,
   today,
@@ -51,17 +37,8 @@ export function DeadlineRow({
           {item.title}
         </Link>
       </div>
-      {!compact && (
-        <button
-          type="button"
-          onClick={() => addToCalendar(item, kind)}
-          className="inline-flex shrink-0 items-center gap-1 rounded-full px-3 py-1.5 text-xs font-normal text-night hover:bg-ash-100"
-        >
-          <Icon name="calendar" className="size-4" />
-          <span className="hidden sm:inline">{t('deadlines.addToCalendar')}</span>
-          <span className="sr-only sm:hidden">{t('deadlines.addToCalendar')}</span>
-        </button>
-      )}
+      <RemindStar id={item.id} title={item.title} />
+      {!compact && <CalendarButton event={item} label={kind} path={item.to} compact />}
     </div>
   )
 }

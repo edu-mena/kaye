@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next'
+import { CalendarButton, RemindStar } from '../../components/DeadlineActions'
+import { ShareButton } from '../../components/ShareButton'
 import { ExternalLink } from '../../components/DetailParts'
 import { StatBlock, Subheading } from '../../components/DetailLayout'
 import { Card } from '../../components/ui/Card'
@@ -6,6 +8,7 @@ import { Chip } from '../../components/ui/Chip'
 import type { Admission } from '../../data/types'
 import { useAdmissionDates } from './useAdmissionDates'
 import { admissionStatus, type AdmissionStatus } from '../../domain/admissions'
+import { admissionDeadlines } from '../../domain/deadlines'
 import { formatKz } from '../../domain/format'
 import { todayIso } from '../../domain/scholarships'
 
@@ -31,10 +34,54 @@ export function AdmissionStatusChip({ admission }: { admission: Admission }) {
 }
 
 /**
+ * The next dated deadline of an access record (applications' last day or an exam): the star, the calendar and
+ * "Partilhar" with the day in the text. Nothing when no day from today on is published.
+ */
+export function AdmissionActions({
+  admission,
+  title,
+  path,
+}: {
+  admission: Admission
+  title: string
+  path: string
+}) {
+  const { t, i18n } = useTranslation()
+  const next = admissionDeadlines(admission, title, path).find((item) => item.date >= todayIso())
+  if (!next) return null
+  const kind = t(`deadlines.kind_${next.kind}`)
+  const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })
+  return (
+    <span className="inline-flex shrink-0 items-center">
+      <RemindStar id={next.id} title={title} />
+      <CalendarButton event={next} label={kind} path={path} compact />
+      <ShareButton
+        look="icon"
+        path={path}
+        text={t('share.opportunity', {
+          kind,
+          name: title,
+          deadline: t('opportunity.deadline', { date: date.format(new Date(`${next.date}T12:00:00`)) }),
+        })}
+      />
+    </span>
+  )
+}
+
+/**
  * How to get in, in one record: whether applications are open, their days and the exam's, the subjects, the
  * vacancies, the last admitted grade, the fee, what to bring, the official site and the source.
  */
-export function AdmissionBlock({ admission, title }: { admission: Admission; title: string }) {
+export function AdmissionBlock({
+  admission,
+  title,
+  path,
+}: {
+  admission: Admission
+  title: string
+  /** The page it is on, for the calendar and the shared link. */
+  path: string
+}) {
   const { t } = useTranslation()
   const dates = useAdmissionDates()(admission)
   const facts = [
@@ -58,6 +105,9 @@ export function AdmissionBlock({ admission, title }: { admission: Admission; tit
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="text-base leading-snug font-semibold text-night">{title}</h3>
         <AdmissionStatusChip admission={admission} />
+        <span className="ml-auto">
+          <AdmissionActions admission={admission} title={title} path={path} />
+        </span>
       </div>
       <p className="mt-1 text-xs font-light text-muted">{t('admission.year', { year: admission.year })}</p>
       <div className="mt-4">

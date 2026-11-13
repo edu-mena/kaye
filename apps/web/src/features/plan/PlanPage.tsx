@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useSearchParams } from 'react-router'
+import { CalendarButton, RemindStar } from '../../components/DeadlineActions'
 import { Icon, type IconName } from '../../components/icons'
 import { Loading, RowsSkeleton } from '../../components/PageStates'
 import { Button, ButtonLink } from '../../components/ui/Button'
@@ -325,6 +326,16 @@ function StepRow({ item, today, highlight = false }: { item: PlanItem; today: st
             {t('plan.go')}
             <Icon name="arrowRight" className="size-4" />
           </ButtonLink>
+        )}
+        {step.due && status === 'todo' && (
+          <span className="inline-flex items-center">
+            {step.deadlineId && <RemindStar id={step.deadlineId} title={text(step.title)} />}
+            <CalendarButton
+              event={{ id: step.deadlineId ?? step.id, title: text(step.title), date: step.due }}
+              label={t('nav.plan')}
+              path={external ? '/plano' : step.to}
+            />
+          </span>
         )}
         {!item.auto && (
           <Button

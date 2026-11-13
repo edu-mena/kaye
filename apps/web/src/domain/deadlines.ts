@@ -32,6 +32,10 @@ export type DeadlineSources = {
   academies: Pick<Academy, 'id' | 'name' | 'offers'>[]
 }
 
+/** The stable address of one scholarship or internship: its tab, scrolled to its card (a shared link opens it). */
+export const opportunityPath = (kind: 'bolsa' | 'estagio', id: string) =>
+  `/oportunidades?tab=${kind === 'bolsa' ? 'bolsas' : 'estagios'}#opportunity-${id}`
+
 /** Days from one ISO day to another. */
 export const daysUntil = (today: string, date: string) =>
   Math.round((Date.parse(`${date}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000)
@@ -45,15 +49,17 @@ function admissionAreas(admission: Admission, academy: DeadlineSources['academie
   return [...new Set(offers.flatMap((offer) => offer.areas.map((group) => GROUP_AREAS[group])))]
 }
 
-function admissionItems(admission: Admission, academies: DeadlineSources['academies']): DeadlineItem[] {
-  const academy = academies.find((item) => item.id === admission.academyId)
-  const name = academy?.name ?? 'MESCTI'
-  const to = academy ? `/academias/${academy.id}` : '/cursos'
-  const areas = admissionAreas(admission, academy)
+/** An access record's dated deadlines (applications' last day, then each exam), with /prazos' ids. */
+export function admissionDeadlines(
+  admission: Admission,
+  title: string,
+  to: string,
+  areas: MarketArea[] = [],
+): DeadlineItem[] {
   const items: DeadlineItem[] = admission.examDates.map((date, index) => ({
     id: `${admission.id}-exame-${index}`,
     kind: 'exame',
-    title: name,
+    title,
     date,
     to,
     areas,
@@ -61,7 +67,17 @@ function admissionItems(admission: Admission, academies: DeadlineSources['academ
   const end = admission.registration.end
   return end === null
     ? items
-    : [{ id: `${admission.id}-acesso`, kind: 'acesso', title: name, date: end, to, areas }, ...items]
+    : [{ id: `${admission.id}-acesso`, kind: 'acesso', title, date: end, to, areas }, ...items]
+}
+
+function admissionItems(admission: Admission, academies: DeadlineSources['academies']): DeadlineItem[] {
+  const academy = academies.find((item) => item.id === admission.academyId)
+  return admissionDeadlines(
+    admission,
+    academy?.name ?? 'MESCTI',
+    academy ? `/academias/${academy.id}` : '/cursos',
+    admissionAreas(admission, academy),
+  )
 }
 
 /** The deadlines from today on, nearest first. */
@@ -76,7 +92,7 @@ export function upcomingDeadlines(sources: DeadlineSources, today: string): Dead
               kind: 'bolsa',
               title: item.name,
               date: item.deadline,
-              to: '/oportunidades?tab=bolsas',
+              to: opportunityPath('bolsa', item.id),
               areas: item.areas,
             },
           ],
@@ -90,7 +106,7 @@ export function upcomingDeadlines(sources: DeadlineSources, today: string): Dead
               kind: 'estagio',
               title: item.name,
               date: item.deadline,
-              to: '/oportunidades?tab=estagios',
+              to: opportunityPath('estagio', item.id),
               areas: item.areas,
             },
           ],

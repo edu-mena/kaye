@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { LIST_ROW } from '../../components/CareerRow'
 import { CareerPills, DetailBlock, ExternalLink } from '../../components/DetailParts'
+import { ShareButton } from '../../components/ShareButton'
 import { DetailLayout, DetailSection, StatBlock, Subheading } from '../../components/DetailLayout'
 import { Icon, type IconName } from '../../components/icons'
 import { FilteredGrid } from '../../components/FilteredGrid'
@@ -17,7 +18,7 @@ import { useUrlFilters } from '../../lib/useUrlFilters'
 import { CareersEvaluation, CareersMarket } from '../careers/CareersOverview'
 import { CostVsSalary } from '../careers/CostVsSalary'
 import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
-import { AdmissionStatusChip } from './AdmissionBlock'
+import { AdmissionActions, AdmissionStatusChip } from './AdmissionBlock'
 import { useAdmissionDates } from './useAdmissionDates'
 import { CurriculumView } from './CurriculumView'
 import { FeeLine } from './FeeLine'
@@ -153,13 +154,20 @@ function Hero({ course }: { course: CatalogCourse }) {
   ]
   return (
     <section className="rounded-card bg-coal p-6 text-white sm:p-10">
-      <Link
-        to="/cursos"
-        className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-light hover:bg-white/20"
-      >
-        <Icon name="arrowLeft" className="size-4" />
-        {t('training.back')}
-      </Link>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <Link
+          to="/cursos"
+          className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-light hover:bg-white/20"
+        >
+          <Icon name="arrowLeft" className="size-4" />
+          {t('training.back')}
+        </Link>
+        <ShareButton
+          look="onDark"
+          text={t('share.course', { name: course.name })}
+          path={`/cursos/curso/${course.id}`}
+        />
+      </div>
       <div className="mt-10 flex flex-wrap gap-1.5">
         {course.levels.map((level) => (
           <Chip key={level} tone="onDark">
@@ -260,21 +268,31 @@ function HowToGetIn({ course }: { course: CatalogCourse }) {
       <Subheading>{t('admission.title')}</Subheading>
       <ul className="grid gap-2">
         {national.map((admission) => (
-          <li key={admission.id}>
-            <a href={admission.url} target="_blank" rel="noopener noreferrer" className={LIST_ROW}>
+          <li key={admission.id} className="flex items-center gap-1">
+            <a
+              href={admission.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${LIST_ROW} min-w-0 flex-1`}
+            >
               <AdmissionRow
                 name={t('admission.national')}
                 admission={admission}
                 detail={t('admission.examsOn', { dates: dates(admission).exams })}
               />
             </a>
+            <AdmissionActions
+              admission={admission}
+              title={t('admission.national')}
+              path={`/cursos/curso/${course.id}`}
+            />
           </li>
         ))}
         {institutions.map((admission) => (
-          <li key={admission.id}>
+          <li key={admission.id} className="flex items-center gap-1">
             <Link
               to={`/academias/${admission.academyId}?curso=${course.id}&secao=geral`}
-              className={LIST_ROW}
+              className={`${LIST_ROW} min-w-0 flex-1`}
             >
               <AdmissionRow
                 name={names.get(admission.academyId ?? '') ?? ''}
@@ -282,6 +300,11 @@ function HowToGetIn({ course }: { course: CatalogCourse }) {
                 detail={t('admission.registrationOn', { dates: dates(admission).registration })}
               />
             </Link>
+            <AdmissionActions
+              admission={admission}
+              title={names.get(admission.academyId ?? '') ?? ''}
+              path={`/academias/${admission.academyId}?curso=${course.id}&secao=geral`}
+            />
           </li>
         ))}
       </ul>

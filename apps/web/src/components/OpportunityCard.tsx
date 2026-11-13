@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { IconName } from './icons'
 import { Icon } from './icons'
@@ -10,6 +10,9 @@ import { Card } from './ui/Card'
 import { Chip } from './ui/Chip'
 import { stagger } from '../lib/ui'
 import type { SourceLink } from '../data/types'
+import { opportunityPath } from '../domain/deadlines'
+import { CalendarButton, RemindStar } from './DeadlineActions'
+import { ShareButton } from './ShareButton'
 
 // Bolsas and Estágios: real opportunities with a provider, a deadline, the official site and the source.
 
@@ -45,6 +48,8 @@ type OpportunityCardProps = {
   showDeadline?: boolean
   /** A second action under the apply button ("Treinar a entrevista"). */
   extra?: ReactNode
+  /** A scholarship or an internship: its own link to share, and the star and calendar when it has a deadline. */
+  deadlineKind?: 'bolsa' | 'estagio'
 }
 
 /** One opportunity: chips, name, provider, the facts (the deadline last), the official site and the source. */
@@ -56,10 +61,18 @@ export function OpportunityCard({
   facts,
   showDeadline = true,
   extra,
+  deadlineKind,
 }: OpportunityCardProps) {
   const { t } = useTranslation()
   const deadline = useDeadline()
   const titleId = `opportunity-${item.id}`
+  // A shared link (…#opportunity-id) opens on this card once the list has loaded.
+  useEffect(() => {
+    if (window.location.hash === `#${titleId}`)
+      document.getElementById(titleId)?.scrollIntoView({ block: 'center' })
+  }, [titleId])
+  const path = deadlineKind ? opportunityPath(deadlineKind, item.id) : null
+  const kindLabel = deadlineKind ? t(`deadlines.kind_${deadlineKind}`) : ''
   return (
     <Card as="article" aria-labelledby={titleId} className="flex h-full flex-col">
       <div className="flex flex-wrap gap-1.5">
@@ -67,6 +80,20 @@ export function OpportunityCard({
           <Chip key={chip}>{chip}</Chip>
         ))}
         {open && <Chip tone="success">{openLabel}</Chip>}
+        {path && (
+          <span className="-my-1.5 ml-auto inline-flex items-center">
+            {item.deadline && <RemindStar id={item.id} title={item.name} />}
+            <ShareButton
+              look="icon"
+              path={path}
+              text={t('share.opportunity', {
+                kind: kindLabel,
+                name: item.name,
+                deadline: deadline(item),
+              })}
+            />
+          </span>
+        )}
       </div>
       <h3 id={titleId} className="mt-3 text-base leading-snug font-semibold text-night">
         {item.name}
@@ -87,6 +114,13 @@ export function OpportunityCard({
           {t('opportunity.apply')}
           <Icon name="arrowRight" className="size-4" />
         </ButtonLink>
+        {path && item.deadline && (
+          <CalendarButton
+            event={{ id: item.id, title: item.name, date: item.deadline }}
+            label={kindLabel}
+            path={path}
+          />
+        )}
         <span className="text-xs font-light text-muted">
           {t('opportunity.source')}{' '}
           {item.sources.map((source, index) => (
