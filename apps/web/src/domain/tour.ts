@@ -18,13 +18,14 @@ export type TourStepId =
   | 'selfEmployment'
   | 'subscribe'
   | 'deadlines'
+  | 'plan'
 
 export type TourStep = { id: TourStepId; to: string }
 
 const MAX_STEPS = 6
 
 const GOAL_STEPS: Record<Goal, TourStepId[]> = {
-  discover: ['test', 'recommended', 'psychotech'],
+  discover: ['test', 'recommended', 'plan', 'psychotech'],
   course: ['courses', 'compare'],
   job: ['internships', 'interviews', 'cv'],
   cv: ['cv', 'card'],
@@ -49,6 +50,7 @@ function routeOf(id: TourStepId, career: string | null): string | null {
   switch (id) {
     case 'test':
     case 'recommended':
+    case 'plan':
     case 'cv':
       return '/'
     case 'psychotech':

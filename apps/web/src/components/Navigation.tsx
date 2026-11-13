@@ -22,6 +22,7 @@ type NavKey =
   | 'market'
   | 'news'
   | 'cv'
+  | 'plan'
   | 'notifications'
   | 'profile'
   | 'support'
@@ -58,6 +59,7 @@ const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building'
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
 const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
 const CV: NavItem = { to: '/cv', key: 'cv', icon: 'document' }
+const PLAN: NavItem = { to: '/plano', key: 'plan', icon: 'path' }
 const NOTIFICATIONS: NavItem = { to: '/notificacoes', key: 'notifications', icon: 'bell' }
 const PROFILE: NavItem = { to: '/perfil', key: 'profile', icon: 'user' }
 const SUPPORT: NavItem = { to: '/suporte', key: 'support', icon: 'help', quiet: true }
@@ -83,7 +85,7 @@ const SIDEBAR: NavGroup[] = [
       NEWS,
     ],
   },
-  { key: 'groupYou', items: [CV, NOTIFICATIONS, PROFILE] },
+  { key: 'groupYou', items: [PLAN, CV, NOTIFICATIONS, PROFILE] },
 ]
 const SIDEBAR_FOOTER = [SUPPORT, SETTINGS]
 const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
@@ -92,7 +94,7 @@ const MENU: NavGroup[] = [
     key: 'groupExplore',
     items: [TESTS, KURSOS, ACADEMIES, OPPORTUNITIES, DEADLINES, COMPANIES, MARKET, NEWS],
   },
-  { key: 'groupYou', items: [NOTIFICATIONS, PROFILE] },
+  { key: 'groupYou', items: [PLAN, NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
 ]
 

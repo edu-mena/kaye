@@ -46,6 +46,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     subscriptions: null,
     kursos: {},
     strengths: EMPTY_STRENGTHS,
+    plan: null,
     ...change,
   }
   localStorage.setItem('kaye.user.v1', JSON.stringify(user))

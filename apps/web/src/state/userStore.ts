@@ -70,6 +70,9 @@ export type KursoProgress = {
 
 export const EMPTY_KURSO: KursoProgress = { done: [], scores: {}, position: null, seconds: 0, exam: [] }
 
+/** "O meu plano": the career and path the person follows, and the steps they ticked (domain/plan.ts). */
+export type Plan = { career: string; pathway: string; done: string[]; startedAt: string }
+
 export type PublicPage = { slug: string; secret: string; card: PublicCard }
 
 export type UserData = {
@@ -112,6 +115,7 @@ export type UserData = {
   kursos: Record<string, KursoProgress>
   /** Part 2 of the career test: languages, skills, experience, how and where they want to work. */
   strengths: Strengths
+  plan: Plan | null
 }
 
 export const EMPTY_CV: CvData = {
@@ -154,6 +158,7 @@ const INITIAL: UserData = {
   subscriptions: null,
   kursos: {},
   strengths: EMPTY_STRENGTHS,
+  plan: null,
 }
 
 export const MAX_COMPARE = 3
@@ -198,6 +203,8 @@ function load(): UserData {
       // Devices from before academies could be saved have none.
       savedAcademies: saved.savedAcademies ?? [],
       savedCompanies: saved.savedCompanies ?? [],
+      // Devices from before "O meu plano" have none.
+      plan: saved.plan ?? null,
     }
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
@@ -507,6 +514,21 @@ export const userActions = {
         cvs: base.cvs.map((document) => (document === active ? withEducation(document, entry) : document)),
       }
     }),
+
+  /** A new plan, or another career or path: what was ticked starts again. */
+  startPlan: (career: string, pathway: string) =>
+    update((user) => ({
+      ...user,
+      plan: { career, pathway, done: [], startedAt: new Date().toISOString().slice(0, 10) },
+      targetCareer: career,
+    })),
+
+  togglePlanStep: (id: string) =>
+    update((user) =>
+      user.plan ? { ...user, plan: { ...user.plan, done: toggle(user.plan.done, id) } } : user,
+    ),
+
+  clearPlan: () => update((user) => ({ ...user, plan: null })),
 
   clearSearches: () => update((user) => ({ ...user, searches: [] })),
 

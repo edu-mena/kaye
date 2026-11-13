@@ -21,6 +21,7 @@ import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { strengthsDone } from '../../domain/strengths'
 import { activeCv, useUser } from '../../state/userStore'
 import { DeadlineRow } from '../deadlines/DeadlineRow'
+import { PlanCard } from '../plan/PlanCard'
 import { useDeadlines } from '../../state/useDeadlines'
 import { BentoGrid, Tile } from './Bento'
 import {
@@ -56,6 +57,7 @@ export default function HomePage() {
   return (
     <div className="space-y-4">
       <InstallCard />
+      <PlanCard />
       {/* A bento: the first tile always says what to do next; then a bit of everything. */}
       <BentoGrid>
         <HeroTile aside={<TargetCard />} />

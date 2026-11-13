@@ -117,6 +117,23 @@ export default function ResultPage() {
 
       <StrengthsSummary />
       <ToCv />
+      <Card tone="coal" className="flex flex-wrap items-center gap-4 p-6">
+        <div className="min-w-0 flex-1 basis-60">
+          <h2 className="text-lg font-extrabold">{t('plan.resultTitle')}</h2>
+          <p className="mt-1 text-sm font-light text-white/80">{t('plan.resultBody')}</p>
+        </div>
+        <ButtonLink
+          to={
+            user.plan
+              ? '/plano'
+              : `/plano${recommendations?.[0] ? `?carreira=${recommendations[0].career.slug}` : ''}`
+          }
+          variant="onDark"
+        >
+          {user.plan ? t('plan.homeOpen') : t('plan.homeCta')}
+          <Icon name="arrowRight" className="size-4" />
+        </ButtonLink>
+      </Card>
 
       <div className="flex flex-wrap gap-2">
         <ButtonLink to="/teste" variant="secondary">

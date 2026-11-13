@@ -89,7 +89,7 @@ type CareerHeroProps = { career: CareerSummary; facts?: ReactNode; onFit?: () =>
 
 function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
   const { t } = useTranslation()
-  const { savedCareers, targetCareer } = useUser()
+  const { savedCareers, targetCareer, plan } = useUser()
   const [aboutOpen, setAboutOpen] = useState(false)
   const saved = savedCareers.includes(career.slug)
   const isTarget = targetCareer === career.slug
@@ -157,6 +157,17 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
             <Icon name={isTarget ? 'check' : 'target'} className="size-4" />
             {isTarget ? t('career.isTarget') : t('career.setTarget')}
           </Button>
+          {career.detailed && (
+            <ButtonLink
+              to={plan?.career === career.slug ? '/plano' : `/plano?carreira=${career.slug}`}
+              variant="ghost"
+              size="sm"
+              className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
+            >
+              <Icon name={plan?.career === career.slug ? 'check' : 'path'} className="size-4" />
+              {plan?.career === career.slug ? t('plan.careerIsPlan') : t('plan.careerCta')}
+            </ButtonLink>
+          )}
           <Button
             variant="ghost"
             size="sm"
