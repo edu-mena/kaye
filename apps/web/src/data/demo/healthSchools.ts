@@ -152,7 +152,7 @@ export const HEALTH_SCHOOLS: Academy[] = [
     ownership: 'publica',
     province: 'Luanda',
     place: 'Rua da Samba, 13, Maianga, Luanda',
-    summary: `Escola pública de técnicos de saúde. Telefone: +244 2 357879. Em Julho de 2025, a Ver Angola noticiou a Escola Técnica de Saúde de Luanda - IMS entre as impedidas de matricular: confirma antes de te inscreveres. ${SUSPENDED} ${PREDICTED}`,
+    summary: `Escola pública de técnicos de saúde. Em Julho de 2025, a Ver Angola noticiou a Escola Técnica de Saúde de Luanda - IMS entre as impedidas de matricular: confirma antes de te inscreveres. ${SUSPENDED} ${PREDICTED}`,
     offers: (
       [
         'anatomia',

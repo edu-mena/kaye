@@ -31,6 +31,8 @@ import { AdmissionBlock, ExamSubjects } from '../training/AdmissionBlock'
 import { CurriculumView } from '../training/CurriculumView'
 import { FeeLine } from '../training/FeeLine'
 import { academyMeta } from './labels'
+import { CompleteThis } from './CompleteThis'
+import { SaveAcademy } from './SaveAcademy'
 
 const TABS = [
   { id: 'geral', icon: 'eye' },
@@ -87,6 +89,7 @@ function AcademyView({ academy }: { academy: Academy }) {
           entity={academy}
           back={{ to: '/academias', label: t('academy.back') }}
           meta={academyMeta(academy, t)}
+          actions={<SaveAcademy id={academy.id} name={academy.name} />}
         />
       }
       tabs={{
@@ -99,7 +102,15 @@ function AcademyView({ academy }: { academy: Academy }) {
       }}
       aside={
         <>
-          <ContactsBlock website={academy.website} />
+          <ContactsBlock
+            website={academy.website}
+            phone={academy.phone}
+            email={academy.email}
+            address={academy.address}
+            mapsUrl={academy.mapsUrl}
+            social={academy.social}
+          />
+          <CompleteThis academy={academy} />
           {academy.type === 'universidade' && (
             <section
               aria-labelledby="accreditation"
@@ -190,6 +201,7 @@ function General({ academy }: { academy: Academy }) {
       <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">{academy.summary}</p>
       <div className="mt-8">
         <StatBlock items={facts(academy, t)} />
+        <FactSources academy={academy} />
       </div>
       <HowToGetIn academy={academy} />
       <div className="mt-10">
@@ -210,12 +222,37 @@ function facts(academy: Academy, t: TFunction) {
         ? t(`training.ownership_${academy.ownership}`)
         : t('academies.ownershipPending'),
     },
+    ...(academy.founded ? [{ label: t('academy.founded'), value: String(academy.founded.year) }] : []),
+    ...(academy.recognizedBy ? [{ label: t('academy.recognizedBy'), value: academy.recognizedBy.name }] : []),
     { label: t('academy.place'), value: academy.place },
     { label: t('academy.province'), value: academy.province },
     ...(academy.minAge === undefined
       ? []
       : [{ label: t('academy.minAge'), value: t('academy.minAgeValue', { age: academy.minAge }) }]),
   ]
+}
+
+/** Where the year of foundation and the recognition are stated, under the facts. */
+function FactSources({ academy }: { academy: Academy }) {
+  const { t } = useTranslation()
+  const { founded, recognizedBy } = academy
+  if (!founded && !recognizedBy) return null
+  return (
+    <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-muted">
+      {founded && (
+        <span>
+          {t('academy.founded')}:{' '}
+          <ExternalLink href={founded.source.url}>{founded.source.label}</ExternalLink>
+        </span>
+      )}
+      {recognizedBy && (
+        <span>
+          {t('academy.recognizedBy')}:{' '}
+          <ExternalLink href={recognizedBy.source.url}>{recognizedBy.source.label}</ExternalLink>
+        </span>
+      )}
+    </p>
+  )
 }
 
 /**

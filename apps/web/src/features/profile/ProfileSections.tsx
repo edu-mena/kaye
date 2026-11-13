@@ -13,7 +13,7 @@ import { Hexagon } from '../../components/ui/Hexagon'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { ProgressBar } from '../../components/ui/ProgressBar'
 import { Rows, Soon } from '../../components/ui/Rows'
-import { useCareers, usePrograms } from '../../data/queries'
+import { useAcademies, useCareers, usePrograms } from '../../data/queries'
 import type { Institution } from '../../data/types'
 import { achievements, totalXp } from '../../domain/achievements'
 import { bestCvCompleteness } from '../../domain/cv'
@@ -113,12 +113,14 @@ function Target() {
   )
 }
 
-/** The first saved career as a card with its photo, the rest as one-line items. */
+/** The first saved career as a card with its photo, the rest as one-line items; then the saved academies. */
 function Saved() {
   const { t } = useTranslation()
-  const { savedCareers } = useUser()
+  const { savedCareers, savedAcademies } = useUser()
   const query = useCareers()
+  const { data: academies = [] } = useAcademies()
   const saved = (query.data ?? []).filter((career) => savedCareers.includes(career.slug))
+  const places = academies.filter((academy) => savedAcademies.includes(academy.id))
   const [first, ...rest] = saved
   return (
     <section aria-labelledby="profile-saved">
@@ -129,19 +131,48 @@ function Saved() {
         </Loading>
       ) : query.isError ? (
         <ErrorState compact onRetry={() => void query.refetch()} />
-      ) : !first ? (
+      ) : !first && places.length === 0 ? (
         <p className="text-sm font-light text-muted">{t('profile.savedNone')}</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-3 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:items-start">
-          <li className="md:row-span-6">
-            <CareerCard career={first} brief />
-          </li>
-          {rest.map((career) => (
-            <li key={career.slug}>
-              <CareerRow career={career} />
-            </li>
-          ))}
-        </ul>
+        <>
+          {first && (
+            <ul className="grid grid-cols-1 gap-3 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:items-start">
+              <li className="md:row-span-6">
+                <CareerCard career={first} brief />
+              </li>
+              {rest.map((career) => (
+                <li key={career.slug}>
+                  <CareerRow career={career} />
+                </li>
+              ))}
+            </ul>
+          )}
+          {places.length > 0 && (
+            <>
+              <h3 className={`${first ? 'mt-8' : ''} mb-3 text-sm font-bold text-night`}>
+                {t('profile.savedAcademies')}
+              </h3>
+              <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                {places.map((academy) => (
+                  <li key={academy.id}>
+                    <Link
+                      to={`/academias/${academy.id}`}
+                      className="flex items-center gap-3 rounded-2xl border border-line p-3 hover:border-night"
+                    >
+                      <InstitutionLogo institution={academy} />
+                      <span className="min-w-0">
+                        <span className="block truncate text-sm font-semibold text-night">
+                          {academy.name}
+                        </span>
+                        <span className="block truncate text-xs font-light text-muted">{academy.place}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </>
       )}
     </section>
   )

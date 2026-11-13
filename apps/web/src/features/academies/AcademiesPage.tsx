@@ -15,6 +15,9 @@ import type { Academy, AcademyOffer, CareerGroup, Institution } from '../../data
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { academyMeta } from './labels'
+import { SaveAcademy } from './SaveAcademy'
+import { completeness, hasContacts } from '../../domain/academyCompleteness'
+import { useUser } from '../../state/userStore'
 
 const TYPES: Academy['type'][] = ['universidade', 'instituto_medio', 'centro_formacao', 'online']
 /**
@@ -39,7 +42,22 @@ const LEVELS: AcademyOffer['level'][] = [
   'certificacao',
 ]
 /** The list's filters in the URL; "Limpar filtros" removes them all. */
-const FILTER_KEYS = ['tipo', 'area', 'nivel', 'faculdade', 'onde', 'gestao', 'curso', 'pagina']
+const FILTER_KEYS = [
+  'tipo',
+  'area',
+  'nivel',
+  'faculdade',
+  'onde',
+  'gestao',
+  'curso',
+  'mostrar',
+  'ordem',
+  'pagina',
+]
+/** "Guardadas": the ones saved on this device; "Com contactos": a phone, email or address published. */
+const SHOW = ['guardadas', 'contactos'] as const
+/** "Mais completas primeiro": by how many facts a source confirms. Without it, by the person's interests. */
+const ORDERS = ['completas'] as const
 const PAGE_SIZE = 12
 
 type OfferFilters = {
@@ -71,6 +89,9 @@ export default function AcademiesPage() {
     values.find((value) => value === params.get(key)) ?? null
   const type = pick('tipo', TYPES)
   const ownership = pick('gestao', OWNERSHIPS)
+  const show = pick('mostrar', SHOW)
+  const order = pick('ordem', ORDERS)
+  const { savedAcademies } = useUser()
   const shown = type ? FILTERS_BY_TYPE[type] : []
   const list = useRef<HTMLElement>(null)
 
@@ -101,16 +122,21 @@ export default function AcademiesPage() {
           const level = pick('nivel', levels)
           const faculty = pick('faculdade', faculties)
           const province = pick('onde', provinces)
-          const visible = byInterest(
+          const ranked = byInterest(
             ofType.filter(
               (academy) =>
                 offersMatch(academy, { course, area, level, faculty }) &&
                 (!province || academy.province === province) &&
-                (!ownership || academy.ownership === ownership),
+                (!ownership || academy.ownership === ownership) &&
+                (show !== 'guardadas' || savedAcademies.includes(academy.id)) &&
+                (show !== 'contactos' || hasContacts(academy)),
             ),
             (academy) => groupAreas(academy.offers.flatMap((offer) => offer.areas)),
             mine,
           )
+          // A stable sort: equally complete ones keep the order of the person's interests.
+          const visible =
+            order === 'completas' ? ranked.toSorted((a, b) => completeness(b) - completeness(a)) : ranked
           const courseName = courses.find((option) => option.value === course)?.label
           const { page, pages, shown: onPage } = paginate(visible, Number(params.get('pagina')), PAGE_SIZE)
           const goTo = (next: number) => {
@@ -221,6 +247,20 @@ export default function AcademiesPage() {
                           label: t(`training.ownership_${value}`),
                         })),
                       },
+                      {
+                        key: 'mostrar',
+                        label: t('academies.showLabel'),
+                        placeholder: t('academies.showAll'),
+                        value: show,
+                        options: SHOW.map((value) => ({ value, label: t(`academies.show_${value}`) })),
+                      },
+                      {
+                        key: 'ordem',
+                        label: t('academies.orderLabel'),
+                        placeholder: t('academies.orderInterest'),
+                        value: order,
+                        options: ORDERS.map((value) => ({ value, label: t(`academies.order_${value}`) })),
+                      },
                     ]}
                   />
                 </div>
@@ -246,6 +286,7 @@ export default function AcademiesPage() {
                               ? undefined
                               : t('academies.minAge', { age: academy.minAge })
                           }
+                          action={<SaveAcademy id={academy.id} name={academy.name} compact />}
                         />
                       </li>
                     ))}

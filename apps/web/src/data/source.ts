@@ -10,6 +10,8 @@ import { CV_EXAMPLES } from './demo/cvExamples'
 import { withAreas, withoutRepeats } from './demo/areaCatalog'
 import { withFees } from './demo/academyFees'
 import { withImages } from './demo/academyImages'
+import { withContacts } from './demo/academyContacts'
+import { LUANDA_MIDDLE_SCHOOLS } from './demo/luandaMiddleSchools'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
 import { HEALTH_SCHOOLS } from './demo/healthSchools'
@@ -176,6 +178,7 @@ const AREA_ACADEMIES = withAreas(
     PMI_ANGOLA,
     ...OIL_ACADEMIES,
     ...HEALTH_SCHOOLS,
+    ...LUANDA_MIDDLE_SCHOOLS,
     ...BUSINESS_SCHOOLS,
     ...CERTIFICATION_CENTRES,
   ],
@@ -193,7 +196,7 @@ const AREA_ACADEMIES = withAreas(
     HOSPITALITY.academies,
   ],
 )
-const ALL_ACADEMIES = withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)))
+const ALL_ACADEMIES = withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))))
 const ALL_COMPANIES = withoutRepeats([
   ...COMPANIES,
   ...HEALTH.companies,

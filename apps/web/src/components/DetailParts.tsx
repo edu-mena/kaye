@@ -13,10 +13,12 @@ type DetailHeroProps = {
   back: { to: string; label: string }
   /** One line over the name ("Universidade · Pública"). */
   meta: string
+  /** Buttons under the name (Guardar). */
+  actions?: ReactNode
 }
 
 /** The photo under a dark gradient: the way back, the logo, what it is and the name. */
-export function DetailHero({ entity, back, meta }: DetailHeroProps) {
+export function DetailHero({ entity, back, meta, actions }: DetailHeroProps) {
   return (
     <section className="relative isolate overflow-hidden rounded-card bg-coal text-white">
       {entity.banner && (
@@ -49,6 +51,7 @@ export function DetailHero({ entity, back, meta }: DetailHeroProps) {
             <h1 className="mt-1 text-3xl leading-tight font-extrabold break-words sm:text-5xl">
               {entity.name}
             </h1>
+            {actions && <div className="mt-4 flex flex-wrap gap-2">{actions}</div>}
           </div>
         </div>
       </div>
@@ -122,17 +125,79 @@ export function SourcesBlock({ sources }: { sources: SourceLink[] }) {
   )
 }
 
-/** The official site and what is still to confirm. */
-export function ContactsBlock({ website }: { website?: string | undefined }) {
+/** The ways to reach an institution: each shows only when a source published it. */
+export type Contacts = {
+  website?: string | undefined
+  phone?: string | undefined
+  email?: string | undefined
+  address?: string | undefined
+  mapsUrl?: string | undefined
+  social?: { facebook?: string; instagram?: string; linkedin?: string } | undefined
+}
+
+const SOCIAL = ['facebook', 'instagram', 'linkedin'] as const
+const NO_SOCIAL: NonNullable<Contacts['social']> = {}
+const SOCIAL_NAMES = { facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn' }
+
+/** Phone, email, site, official pages and the map, each only if it exists; then what is still to confirm. */
+export function ContactsBlock({ website, phone, email, address, mapsUrl, social = NO_SOCIAL }: Contacts) {
   const { t } = useTranslation()
+  const row = 'flex items-start gap-2.5 text-sm'
+  const icon = 'mt-0.5 size-4 shrink-0 text-muted'
+  const pages = SOCIAL.filter((network) => social[network])
   return (
     <DetailBlock id="contacts" icon="globe" title={t('academy.contactsTitle')}>
-      {website && (
-        <p className="mb-3 text-sm">
-          <ExternalLink href={website}>{t('academy.website')}</ExternalLink>
-        </p>
+      <ul className="space-y-3">
+        {phone && (
+          <li className={row}>
+            <Icon name="phone" className={icon} />
+            <a
+              href={`tel:${phone.replaceAll(/[^+\d]/g, '')}`}
+              className="font-normal text-night hover:text-blue"
+            >
+              {phone}
+            </a>
+          </li>
+        )}
+        {email && (
+          <li className={row}>
+            <Icon name="mail" className={icon} />
+            <a href={`mailto:${email}`} className="font-normal break-all text-night hover:text-blue">
+              {email}
+            </a>
+          </li>
+        )}
+        {website && (
+          <li className={row}>
+            <Icon name="globe" className={icon} />
+            <ExternalLink href={website}>{t('academy.website')}</ExternalLink>
+          </li>
+        )}
+        {pages.length > 0 && (
+          <li className={row}>
+            <Icon name="share" className={icon} />
+            <span className="flex flex-wrap gap-x-3 gap-y-1">
+              {pages.map((network) => (
+                <ExternalLink key={network} href={social[network] ?? ''}>
+                  {SOCIAL_NAMES[network]}
+                </ExternalLink>
+              ))}
+            </span>
+          </li>
+        )}
+        {(address ?? mapsUrl) && (
+          <li className={row}>
+            <Icon name="pin" className={icon} />
+            <span>
+              {address && <span className="block font-light text-copy">{address}</span>}
+              {mapsUrl && <ExternalLink href={mapsUrl}>{t('academy.map')}</ExternalLink>}
+            </span>
+          </li>
+        )}
+      </ul>
+      {!(phone ?? email ?? address) && (
+        <p className="mt-3 text-sm font-light text-copy">{t('academy.contactsBody')}</p>
       )}
-      <p className="text-sm font-light text-copy">{t('academy.contactsBody')}</p>
     </DetailBlock>
   )
 }

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 import { Icon } from './icons'
 import { useDataSaver } from '../lib/useDataSaver'
@@ -13,14 +14,16 @@ type EntityCardProps = {
   meta: string
   place: string
   /** A short gold-on-black label ("A partir dos 17 anos"). */
-  badge?: string
+  badge?: string | undefined
+  /** A button over the photo's corner, above the card's link (the bookmark). */
+  action?: ReactNode
 }
 
 /**
  * An institution or a company in a directory: its photo (or a dark band), its logo over the edge
  * (or its initials), what it is and where. The whole card opens its page.
  */
-export function EntityCard({ entity, to, meta, place, badge }: EntityCardProps) {
+export function EntityCard({ entity, to, meta, place, badge, action }: EntityCardProps) {
   const titleId = `card-${entity.id}`
   const saveData = useDataSaver()
   // Without a photo, the logo fills the band (on light, or on black when it is white).
@@ -54,6 +57,7 @@ export function EntityCard({ entity, to, meta, place, badge }: EntityCardProps) 
         <span className="absolute -bottom-6 left-4 rounded-full ring-4 ring-surface">
           <InstitutionLogo institution={entity} />
         </span>
+        {action && <div className="absolute top-2 right-2 z-10">{action}</div>}
       </div>
       <div className="flex flex-1 flex-col p-4 pt-9 sm:p-5 sm:pt-10">
         <h3 id={titleId} className="font-display text-base font-bold break-words text-night">

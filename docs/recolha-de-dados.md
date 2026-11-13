@@ -46,7 +46,26 @@ Notícia ──fala de──▶ Instituição, Empresa ou Carreira
 
 A Escola 42 aceita a partir dos 17 anos. Na app, só a mostramos como opção a quem já tem essa idade, ou como "quando fizeres 17". O ITEL é de nível médio, por isso é o caminho mais direto para quem tem 14–17.
 
-Ainda por pesquisar: Universidade Jean Piaget, Universidade Óscar Ribas, Universidade Gregório Semedo, IMIL (Instituto Médio Industrial de Luanda) e os institutos médios politécnicos de Luanda.
+Pesquisadas a 13/11/2026: a Universidade Jean Piaget, a Óscar Ribas e a Gregório Semedo já estavam no catálogo (anuário MESCTI). O IMIL e mais seis institutos médios públicos de Luanda entraram em `apps/web/src/data/demo/luandaMiddleSchools.ts`, só com o que a Expansão publicou (vagas, candidatos). Os cursos ficam **por confirmar**.
+
+### Contactos e identidade (13/11/2026)
+
+Em `apps/web/src/data/demo/academyContacts.ts`, por id. Só entra o que a própria instituição publicou (site oficial, Facebook, Instagram ou LinkedIn oficiais) ou um decreto (lex.ao, angolex). Os diretórios (uniRank, Mabumbe, Angola Formativa, ZoomInfo) não contam como fonte. O link do mapa é uma pesquisa do nome no Google Maps, nunca coordenadas.
+
+| O quê | Instituições |
+|---|---|
+| Contactos (telefone, e-mail ou morada) | 12: UAN, ISPTEC, UCAN, UMA (só morada), ITEL, INSTIC/ISUTIC, Universidade de Luanda, UNIA, Unibelas, Escola 42, Jean Piaget, EFTS Luanda |
+| Redes sociais oficiais | 11 |
+| Ano de fundação com fonte | 11 (UCAN e Unibelas pelo site; ISPTEC, Jean Piaget, ISPEKA, ISIA, ISPIL, Privado do Kilamba, UTANGA, UPRA e Gregório Semedo pelo decreto que os criou) |
+| Logótipos / capas | sem novos: continuam 22 logótipos e 13 capas (`scrapers/catalog/academy_images.csv`) |
+
+Não encontrados (para ligar ou visitar):
+
+- **Sites que não respondem:** Óscar Ribas (uor.ed.ao), Gregório Semedo (ugs.ed.ao), UTANGA (utanga.ao e utanga.co.ao), UPRA (upra.ao, certificado expirado), IMETRO (imetroangola.com, certificado inválido). O site da Lusíada (ula.co.ao) e o do INEFOP abrem sem conteúdo.
+- **UMA:** o site mostra o telefone +244 923 456 789 e o e-mail info@uma.ao, que parecem de exemplo. Não entraram.
+- **Sem site nem página oficial encontrada:** ISPAJ, INSUTEC, ISPIL, ISIA (o site é só o portal académico), CINFOTEC, IMIL e os outros institutos médios.
+- **Propinas de 2026/27:** ainda não publicadas. As de 2025/26 continuam para as 8 privadas; as outras são estimadas.
+- **Ofertas novas confirmadas por decreto:** nenhuma nesta ronda.
 
 ### Ecossistema (não dá cursos)
 
@@ -404,7 +423,7 @@ Páginas lidas a 05/11/2026 (`apps/web/src/data/demo/lastAreasGuides.ts`):
 
 1. **Rever as ligações editoriais** (curso → carreiras e empresa → carreiras).
 2. **Confirmar as ofertas**: se o curso está acreditado e aberto, e a duração, o horário e o preço. A fonte certa é a instituição ou o Ministério do Ensino Superior. Já há propinas de 2025/26 para 8 privadas (ver "Propinas publicadas"); faltam as de 2026/27 e as das outras instituições.
-3. **Autorização das imagens.** Das 157 instituições do catálogo (01/11/2026), 20 têm logótipo e 13 têm capa; as restantes mostram as iniciais e uma faixa escura. As imagens estão em `apps/web/src/assets/academies/`; a origem de cada uma (site oficial, Facebook, LinkedIn, Wikimedia, notícia) está em `scrapers/catalog/academy_images.csv`. Antes de a app ser pública, cada instituição tem de autorizar o uso. Faltam também os contactos.
+3. **Autorização das imagens.** Das 157 instituições do catálogo (01/11/2026), 20 têm logótipo e 13 têm capa; as restantes mostram as iniciais e uma faixa escura. As imagens estão em `apps/web/src/assets/academies/`; a origem de cada uma (site oficial, Facebook, LinkedIn, Wikimedia, notícia) está em `scrapers/catalog/academy_images.csv`. Antes de a app ser pública, cada instituição tem de autorizar o uso. Contactos: 12 instituições a 13/11/2026 (ver "Contactos e identidade").
 4. **Mais instituições:** as que estão em "Ainda por pesquisar".
 5. **Empresas pelas páginas de carreiras:** feito para BAI, BFA e Unitel a 05/11/2026 (ver Empresas). Falta o Banco BIC (sem página de carreiras) e voltar ao BAI e ao BFA quando abrirem vagas, para ter requisitos por profissão.
 6. **Trabalhar por conta própria:** confirmar custos de arranque, passos e licenças estimados em `selfEmployment.ts`.

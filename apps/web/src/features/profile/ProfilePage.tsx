@@ -129,7 +129,11 @@ function Hero() {
   }
   const stats = [
     { icon: 'award', value: xp, label: t('profile.statXp') },
-    { icon: 'bookmark', value: user.savedCareers.length, label: t('profile.statSaved') },
+    {
+      icon: 'bookmark',
+      value: user.savedCareers.length + user.savedAcademies.length,
+      label: t('profile.statSaved'),
+    },
     { icon: 'check', value: Object.keys(user.skills).length, label: t('profile.statSkills') },
     { icon: 'document', value: `${cv}%`, label: t('profile.statCv') },
   ] satisfies { icon: IconName; value: string | number; label: string }[]

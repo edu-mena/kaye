@@ -371,6 +371,20 @@ export type Academy = Omit<Institution, 'ownership'> & {
   banner?: string
   /** The official site, when it answers. */
   website?: string
+  /** Contacts the institution itself published (site or official pages); never guessed. */
+  phone?: string
+  email?: string
+  address?: string
+  /** A Google Maps search for the institution's name: never invented coordinates. */
+  mapsUrl?: string
+  /** Its official pages only. */
+  social?: { facebook?: string; instagram?: string; linkedin?: string }
+  /** The year it was founded or created, and where that is stated. */
+  founded?: { year: number; source: SourceLink }
+  /** Who recognises it (the ministry, by a decree), and where. */
+  recognizedBy?: { name: string; source: SourceLink }
+  /** When the Kayé team last checked these facts (ISO date). */
+  checkedAt?: string
   sources: SourceLink[]
 }
 
