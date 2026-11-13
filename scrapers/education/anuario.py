@@ -1,4 +1,4 @@
-"""Graduates per course from the higher education yearbook, for the Mercado.
+"""Graduates per course and province, students, candidates and places from the higher education yearbook, for the Mercado.
 
     python -m education.anuario
 
@@ -29,7 +29,19 @@ YEARBOOK = {
     'enrolled': ('Quadro 5.7', 'Quadro 5.8'),
     # Quadro 1.2: the national numbers, among them candidates and first-year students.
     'indicators': ('Quadro 1.2', 'Quadro 1.3'),
+    # Quadro 1.3: the same by nature. Its places ("Vagas") are public and private (Quadro 1.2 shows only the
+    # private ones). The yearbook has no places per course.
+    'places': ('Quadro 1.3', 'GRADUADOS'),
+    # Quadros 2.8 and 2.9: graduates per province and institution, public then private.
+    'provinces': ('Quadro 2.8', 'Quadro 2.10'),
+    # Quadro 4.4: candidates per institution and course, admitted or not.
+    'candidates': ('Quadro 4.4', 'Quadro 4.5'),
 }
+# The 18 provinces of the yearbook (before the 2024 division).
+PROVINCES = (
+    'Bengo', 'Benguela', 'Bié', 'Cabinda', 'Cuando Cubango', 'Cuanza Norte', 'Cuanza Sul', 'Cunene', 'Huambo',
+    'Huíla', 'Luanda', 'Lunda Norte', 'Lunda Sul', 'Malanje', 'Moxico', 'Namibe', 'Uíge', 'Zaire',
+)
 # The national numbers the Mercado shows, by their row in Quadro 1.2.
 INDICATORS = {
     'candidates': 'Número de Candidatos Inscritos',
@@ -64,6 +76,8 @@ _UNIT = re.compile(r'^(Faculdade|Escola|Instituto|Departamento|Unidade|Centro|P[
 _HEADERS = {
     'Instituições de Ensino Superior e Cursos', 'Instituições de Ensino Superior', 'Sexo', 'Sexo Total', 'Total Geral',
     'Geral', 'M F',
+    # Quadro 4.4.
+    'Admitidos', 'Admitidos Total', 'Não Admitidos', 'Estudantes', 'Matriculados', 'pela 1ª vez', 'Estudantes não',
 }
 
 
@@ -92,8 +106,22 @@ def _split(groups: list[str]) -> list[int] | None:
     return None
 
 
+def _by_sex(field: str):
+    """Reads a row of men, women and total as {field: total}."""
+
+    def read(groups: list[str]) -> dict | None:
+        numbers = _split(groups)
+        return {field: numbers[2]} if numbers else None
+
+    return read
+
+
 def courses(
-    text: str, table: tuple[str, str] = YEARBOOK['graduates'], field: str = 'graduates', nature: str | None = None
+    text: str,
+    table: tuple[str, str] = YEARBOOK['graduates'],
+    field: str = 'graduates',
+    nature: str | None = None,
+    read=None,
 ) -> tuple[list[dict], int]:
     """Each course of each institution (with the institution, and whether it is public or private), and the
     table's own total, to check against.
@@ -102,16 +130,17 @@ def courses(
     they add up to the institution's total. Tables of both natures say which rows are "Pública" or "Privada".
     """
     # What is still to come under each open institution and faculty, and their names.
+    read = read or _by_sex(field)
     rows, total, left, names, pending = [], 0, [], [], ''
     for line in _table(text, *table):
         match = _ROW.match(line)
-        numbers = match and _split(match.group(2).split())
+        numbers = match and read(match.group(2).split())
         if not numbers:
             # A long course name breaks over two lines.
             keep = line not in _HEADERS and not line.isdigit() and not line.startswith('Quadro')
             pending = f'{pending} {line}'.strip() if keep else ''
             continue
-        name, count = f'{pending} {match.group(1)}'.strip(), numbers[2]
+        name, count = f'{pending} {match.group(1)}'.strip(), numbers[field]
         pending = ''
         if name in ('Pública', 'Privada'):
             total += count
@@ -124,7 +153,7 @@ def courses(
             left.append(count)
             names.append(name)
         else:
-            rows.append({'institution': names[0], 'nature': nature, 'name': name, field: count})
+            rows.append({'institution': names[0], 'nature': nature, 'name': name, **numbers})
             left = [open_count - count for open_count in left]
             if left[-1] < 0:
                 raise SystemExit(f'{name}: more than its institution')
@@ -206,6 +235,53 @@ def indicators(text: str) -> dict[str, int]:
     return found
 
 
+def _admission(groups: list[str]) -> dict | None:
+    """A row of Quadro 4.4 as {candidates, admitted}. Its columns: enrolled for the first time, admitted but not
+    enrolled, admitted, not admitted, total, with empty cells left out. The reading where admitted (if any) is the
+    sum of the cells before it, and admitted + not admitted = total."""
+    for numbers in _readings(groups):
+        *parts, total = numbers
+        for size in (0, 2, 3):
+            head, tail = parts[:size], parts[size:]
+            if len(head) != size or len(tail) > 1:
+                continue
+            admitted = head[-1] if head else 0
+            if head and sum(head[:-1]) != admitted:
+                continue
+            if (head or tail) and admitted + sum(tail) == total:
+                return {'candidates': total, 'admitted': admitted}
+    return None
+
+
+def admissions(text: str) -> tuple[list[dict], int]:
+    """Candidates and admitted per course (Quadro 4.4), and the table's total."""
+    return courses(text, YEARBOOK['candidates'], 'candidates', read=_admission)
+
+
+def places(text: str) -> int:
+    """All the places offered, public and private (Quadro 1.3)."""
+    for line in _table(text, *YEARBOOK['places']):
+        if line.startswith('Vagas '):
+            for found in _readings(line[len('Vagas ') :].split()):
+                if len(found) == 3 and found[0] + found[1] == found[2]:
+                    return found[2]
+    raise SystemExit('Quadro 1.3: no places')
+
+
+def provinces(text: str) -> tuple[dict[str, int], int]:
+    """Graduates per province, public and private added up (Quadros 2.8 and 2.9), and the tables' totals."""
+    found: Counter = Counter()
+    total = 0
+    for line in _table(text, *YEARBOOK['provinces']):
+        match = _ROW.match(line)
+        numbers = match and _split(match.group(2).split())
+        if numbers and match.group(1) in PROVINCES:
+            found[match.group(1)] += numbers[2]
+        elif numbers and match.group(1) == 'Total Geral':
+            total += numbers[2]
+    return dict(found), total
+
+
 def by_course(rows: list[dict], field: str) -> dict[str, dict]:
     """The same course in every institution, added up, under its most common spelling, by its folded name."""
     counts: Counter = Counter()
@@ -234,6 +310,22 @@ def main() -> None:
     access = indicators(raw)
     if set(access) != set(INDICATORS) or access['enrolled'] != students_total:
         raise SystemExit(f'Quadro 1.2 read as {access}')
+    access['places'] = places(raw)
+    regions, regions_total = provinces(raw)
+    if len(regions) != len(PROVINCES) or sum(regions.values()) != regions_total or regions_total != total:
+        raise SystemExit(f'Quadros 2.8 and 2.9 read as {regions} ({regions_total}), the graduates are {total}')
+    applied, applied_total = admissions(raw)
+    admitted = sum(row['admitted'] for row in applied)
+    if sum(row['candidates'] for row in applied) != applied_total or applied_total != access['candidates']:
+        raise SystemExit(f'Quadro 4.4: {applied_total} candidates, Quadro 1.2 says {access["candidates"]}')
+    # The admitted total is in the table's last row ("... admitted, not admitted, total"), not in Quadro 1.2.
+    spaced = [f'{value:,}'.replace(',', ' ') for value in (admitted, applied_total - admitted, applied_total)]
+    if not _table(raw, *YEARBOOK['candidates'])[-1].endswith(' '.join(spaced)):
+        raise SystemExit(f'Quadro 4.4: {admitted} admitted do not match its total row')
+    # Candidates and admitted per area, from each course's name.
+    admission: dict[str, Counter] = defaultdict(Counter)
+    for row in applied:
+        admission[course_area(row['name'])].update(candidates=row['candidates'], admitted=row['admitted'])
 
     # Each course with its graduates and its students now (a new course has students and no graduates yet).
     merged: dict[str, dict] = defaultdict(lambda: {'graduates': 0, 'enrolled': 0})
@@ -254,10 +346,13 @@ def main() -> None:
                 'area': area,
                 'graduates': sum(row['graduates'] for row in items),
                 'enrolled': sum(row['enrolled'] for row in items),
+                'candidates': admission[area]['candidates'],
+                'admitted': admission[area]['admitted'],
                 'courses': sorted(items, key=lambda row: -row['graduates']),
             }
             for area, items in areas.items()
         ],
+        'provinces': [{'province': name, 'graduates': count} for name, count in sorted(regions.items(), key=lambda x: -x[1])],
         'series': SERIES,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
