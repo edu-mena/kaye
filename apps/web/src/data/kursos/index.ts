@@ -2,7 +2,7 @@ import type { AnnouncedCourse, Course } from './types'
 
 // The Kursos catalogue: the courses written (test versions) and the ones announced as "Em breve".
 
-export const ENGLISH_A1: Course = {
+const ENGLISH_A1: Course = {
   id: 'ingles-a1',
   title: 'Inglês A1',
   level: 'A1 (QECR)',
@@ -81,7 +81,7 @@ export const ENGLISH_A1: Course = {
   ],
 }
 
-export const PROJECT_MANAGEMENT: Course = {
+const PROJECT_MANAGEMENT: Course = {
   id: 'gestao-projetos',
   title: 'Fundamentos da Gestão de Projetos',
   level: 'Iniciante',
@@ -166,7 +166,7 @@ export const PROJECT_MANAGEMENT: Course = {
   ],
 }
 
-export const CYBERSECURITY: Course = {
+const CYBERSECURITY: Course = {
   id: 'ciberseguranca',
   title: 'Fundamentos da Cibersegurança',
   level: 'Iniciante',
@@ -253,7 +253,7 @@ export const CYBERSECURITY: Course = {
   ],
 }
 
-export const DIGITAL_MARKETING: Course = {
+const DIGITAL_MARKETING: Course = {
   id: 'marketing-digital',
   title: 'Fundamentos do Marketing Digital',
   level: 'Iniciante',
@@ -339,7 +339,7 @@ export const DIGITAL_MARKETING: Course = {
   ],
 }
 
-export const PROGRAMMING: Course = {
+const PROGRAMMING: Course = {
   id: 'programacao',
   title: 'Programação: Nível Iniciante (Python)',
   level: 'Iniciante',
@@ -410,7 +410,7 @@ export const PROGRAMMING: Course = {
   ],
 }
 
-export const DATA_ANALYSIS: Course = {
+const DATA_ANALYSIS: Course = {
   id: 'analise-dados',
   title: 'Fundamentos da Análise de Dados',
   level: 'Iniciante',

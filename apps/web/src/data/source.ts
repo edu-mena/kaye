@@ -1,9 +1,14 @@
+import type { InterviewSubmission } from '../domain/interviews'
+import { api, ApiError } from '../lib/api'
 import { ACADEMIES } from './demo/academies'
-import { QUESTIONS } from './demo/assessment'
+import { questions } from './demo/assessment'
 import { CAREER_SUMMARIES, CAREERS } from './demo/careers'
+import { SELF_EMPLOYMENT } from './demo/selfEmployment'
+import { SUPPORT_PROGRAMS } from './demo/supportPrograms'
 import { COMPANIES } from './demo/companies'
 import { CV_EXAMPLES } from './demo/cvExamples'
 import { withAreas, withoutRepeats } from './demo/areaCatalog'
+import { withFees } from './demo/academyFees'
 import { withImages } from './demo/academyImages'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
@@ -30,22 +35,40 @@ import { OIL_MINING } from './demo/oilMiningCatalog'
 import { AGRICULTURE } from './demo/agricultureCatalog'
 import { LOGISTICS } from './demo/logisticsCatalog'
 import { HOSPITALITY } from './demo/hospitalityCatalog'
+import { FIGURES } from './demo/figures'
 import { NEWS } from './demo/news'
+import { SCHOLARSHIPS } from './demo/scholarships'
+import { INTERNSHIPS } from './demo/internships'
+import { FREE_COURSES } from './demo/freeCourses'
+import { ADMISSIONS } from './demo/admissions'
 import { PROGRAMS } from './demo/programs'
+import { TESTIMONIALS } from './demo/testimonials'
 import { catalogCourses } from '../domain/courses'
+import { careerTraits } from '../domain/recommend'
+import type { Locale } from '../lib/i18n'
 import type {
+  CareerTraits,
   Academy,
-  CatalogCourse,
-  Company,
+  Admission,
   AssessmentQuestion,
   Career,
   CareerSummary,
+  CatalogCourse,
+  Company,
   CvExample,
   EducationStats,
   EmploymentStats,
+  Figure,
+  FreeCourse,
   JobMarket,
   NewsItem,
   Program,
+  PublicCard,
+  Scholarship,
+  Internship,
+  Skill,
+  SupportProgram,
+  Testimonial,
 } from './types'
 
 // Where the app's content comes from. Today: demo data bundled with the app, so the
@@ -59,9 +82,81 @@ export async function listCareers(): Promise<CareerSummary[]> {
   return CAREER_SUMMARIES.map((career) => Object.assign({}, career, { detailed: DETAILED.has(career.slug) }))
 }
 
+/** GET /public-cards/{slug} (null = 404 or switched off): the one thing that needs a real server. */
+export async function getPublicCard(slug: string): Promise<PublicCard | null> {
+  try {
+    return await api<PublicCard>(`/public-cards/${encodeURIComponent(slug)}`)
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) return null
+    throw error
+  }
+}
+
+/** POST /public-cards: the secret comes back once and only this device keeps it. */
+export function createPublicCard(card: PublicCard): Promise<{ slug: string; secret: string }> {
+  return api('/public-cards', { method: 'POST', body: JSON.stringify(card) })
+}
+
+const ownerHeaders = (secret: string) => ({ Authorization: `Bearer ${secret}` })
+
+/** PUT /public-cards/{slug} */
+export function updatePublicCard(slug: string, secret: string, card: PublicCard): Promise<PublicCard> {
+  return api(`/public-cards/${encodeURIComponent(slug)}`, {
+    method: 'PUT',
+    headers: ownerHeaders(secret),
+    body: JSON.stringify(card),
+  })
+}
+
+/** DELETE /public-cards/{slug}: the link stops working at once. */
+export function deletePublicCard(slug: string, secret: string): Promise<void> {
+  return api(`/public-cards/${encodeURIComponent(slug)}`, { method: 'DELETE', headers: ownerHeaders(secret) })
+}
+
+/** POST /interviews: the answers go to the Kayé team, who review them and get in touch. */
+export function sendInterview(interview: InterviewSubmission): Promise<{ id: string }> {
+  return api('/interviews', { method: 'POST', body: JSON.stringify(interview) })
+}
+
+/** GET /skills: each skill once, whichever careers ask for it. */
+export async function listSkills(): Promise<Skill[]> {
+  const skills = new Map(CAREERS.flatMap((career) => career.skills).map((skill) => [skill.id, skill]))
+  return [...skills.values()]
+}
+
+// Where each career is taught: the demo programmes and the real catalogue's courses. A function, because
+// COURSES is defined further down.
+const places = () => [
+  ...PROGRAMS.map((program) => ({
+    careers: program.careers,
+    province: program.institution.province,
+    online: program.schedule.includes('online') || program.institution.type === 'online',
+  })),
+  ...COURSES.flatMap((course) =>
+    course.offers.map(({ academy }) => ({
+      careers: course.careers,
+      province: academy.province,
+      online: academy.type === 'online',
+    })),
+  ),
+]
+
+/** GET /occupations?fields=traits: the curated careers, in what the recommendation weighs. */
+export async function listCareerTraits(): Promise<CareerTraits[]> {
+  return CAREERS.map((career) => careerTraits(career, places()))
+}
+
 /** GET /occupations/{slug} (null = 404) */
 export async function getCareer(slug: string): Promise<Career | null> {
-  return CAREERS.find((career) => career.slug === slug) ?? null
+  const career = CAREERS.find((item) => item.slug === slug)
+  if (!career) return null
+  const selfEmployment = SELF_EMPLOYMENT[slug]
+  return selfEmployment ? { ...career, selfEmployment } : career
+}
+
+/** GET /support-programs: real programmes for starting on one's own (registration, kits, credit, incubation). */
+export async function listSupportPrograms(): Promise<SupportProgram[]> {
+  return SUPPORT_PROGRAMS
 }
 
 /** GET /programs?occupation= */
@@ -98,7 +193,7 @@ const AREA_ACADEMIES = withAreas(
     HOSPITALITY.academies,
   ],
 )
-const ALL_ACADEMIES = withImages(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))
+const ALL_ACADEMIES = withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)))
 const ALL_COMPANIES = withoutRepeats([
   ...COMPANIES,
   ...HEALTH.companies,
@@ -173,12 +268,42 @@ export async function listNews(): Promise<NewsItem[]> {
   return NEWS
 }
 
-/** GET /assessment */
-export async function getAssessment(): Promise<AssessmentQuestion[]> {
-  return QUESTIONS
+/** GET /scholarships */
+export async function listScholarships(): Promise<Scholarship[]> {
+  return SCHOLARSHIPS
+}
+
+/** GET /internships */
+export async function listInternships(): Promise<Internship[]> {
+  return INTERNSHIPS
+}
+
+/** GET /free-courses?occupation= */
+export async function listFreeCourses(careerSlug?: string): Promise<FreeCourse[]> {
+  return careerSlug ? FREE_COURSES.filter((course) => course.careerSlugs.includes(careerSlug)) : FREE_COURSES
+}
+
+/** GET /admissions */
+export async function listAdmissions(): Promise<Admission[]> {
+  return ADMISSIONS
+}
+
+/** GET /figures */
+export async function listFigures(): Promise<Figure[]> {
+  return FIGURES
+}
+
+/** GET /assessment, in the language of Accept-Language. */
+export async function getAssessment(locale: Locale = 'pt'): Promise<AssessmentQuestion[]> {
+  return questions(locale)
 }
 
 /** GET /occupations/{slug}/cv-examples, or all of them */
 export async function listCvExamples(careerSlug?: string): Promise<CvExample[]> {
   return careerSlug ? CV_EXAMPLES.filter((example) => example.careerSlug === careerSlug) : CV_EXAMPLES
+}
+
+/** GET /occupations/{slug}/testimonials, or all of them */
+export async function listTestimonials(careerSlug?: string): Promise<Testimonial[]> {
+  return careerSlug ? TESTIMONIALS.filter((item) => item.careerSlug === careerSlug) : TESTIMONIALS
 }

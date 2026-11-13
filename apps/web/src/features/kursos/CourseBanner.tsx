@@ -30,11 +30,11 @@ type CourseBannerProps = {
 export function CourseBanner({ title, icon, tone, eyebrow, to, children }: CourseBannerProps) {
   const body = (
     <>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[36%]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[30%]">
         <span
-          className={`absolute -top-10 -right-10 size-36 rounded-full sm:size-44 ${tone ? SOFT[tone] : 'bg-ash-100'}`}
+          className={`absolute -top-8 -right-8 size-28 rounded-full ${tone ? SOFT[tone] : 'bg-ash-100'}`}
         />
-        <svg viewBox="0 0 240 112" fill="none" className="absolute right-3 bottom-4 w-[90%] max-w-52">
+        <svg viewBox="0 0 240 112" fill="none" className="absolute right-2 bottom-3 w-[85%] max-w-32">
           <path d={PATH_LINE} className="stroke-ash-200" strokeWidth="8" strokeLinecap="round" />
           <path
             d={PATH_LINE}
@@ -46,25 +46,27 @@ export function CourseBanner({ title, icon, tone, eyebrow, to, children }: Cours
           <circle cx="8" cy="104" r="6" className="fill-night" />
         </svg>
         <span
-          className={`absolute top-6 right-6 grid size-16 rotate-[-8deg] place-items-center rounded-2xl sm:top-8 sm:right-10 sm:size-20 ${
+          className={`absolute top-5 right-5 grid size-12 rotate-[-8deg] place-items-center rounded-2xl sm:size-14 ${
             tone ? TONE_CLASS[tone] : 'bg-ash-200 text-muted'
           }`}
         >
-          <Icon name={icon} className="size-8 sm:size-10" />
+          <Icon name={icon} className="size-6 sm:size-7" />
         </span>
       </div>
-      <div className="relative max-w-[64%]">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold text-night">
+      <div className="relative max-w-[72%]">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-2.5 py-0.5 text-[11px] font-semibold text-night">
           <Icon name="cap" className="size-3.5 text-blue" />
           {eyebrow}
         </span>
-        <h2 className="mt-4 text-2xl leading-tight font-extrabold text-night sm:text-3xl">{title}</h2>
+        <h2 className="mt-3 line-clamp-3 text-lg leading-snug font-extrabold text-night sm:text-xl">
+          {title}
+        </h2>
         {children}
       </div>
     </>
   )
   const frame =
-    'relative block min-h-44 overflow-hidden rounded-card border border-line bg-surface p-6 shadow-card'
+    'relative block h-full min-h-40 overflow-hidden rounded-card border border-line bg-surface p-5 shadow-card'
   return to ? (
     <Link
       to={to}

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import type { NewsItem } from '../data/types'
-import { EMPTY_CV } from '../state/userStore'
 import { isAboutMe, isUnseen, myCareers, pathSteps } from './path'
 
 const person = {
@@ -9,7 +8,7 @@ const person = {
   targetCareer: null,
   savedCareers: ['analista-de-dados'],
   skills: {},
-  cv: EMPTY_CV,
+  cvs: [],
   compare: [],
 }
 const news = (careers?: string[], date = '2026-10-20') => ({ id: 'n', date, careers }) as NewsItem

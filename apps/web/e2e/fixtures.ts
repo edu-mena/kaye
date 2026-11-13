@@ -4,9 +4,34 @@ import { test as base, expect, type Page } from '@playwright/test'
 type Fixtures = {
   /** Fails the test if the page logs any error (CSP violations included). */
   consoleErrors: string[]
+  /** The app asks for an account: tests start with one, unless they turn this off. */
+  signedIn: boolean
+}
+
+const PROFILE = {
+  version: 1,
+  profile: {
+    name: 'Joana',
+    birthYear: 2006,
+    province: 'Luanda',
+    education: 'medio_tecnico',
+    guardianInformed: false,
+  },
 }
 
 export const test = base.extend<Fixtures>({
+  signedIn: [true, { option: true }],
+  page: async ({ page, signedIn }, provide) => {
+    if (signedIn) {
+      // Only once per tab, so erasing the data is not undone by the next page load.
+      await page.addInitScript((user) => {
+        if (sessionStorage.getItem('e2e.seeded')) return
+        sessionStorage.setItem('e2e.seeded', '1')
+        localStorage.setItem('kaye.user.v1', user)
+      }, JSON.stringify(PROFILE))
+    }
+    await provide(page)
+  },
   consoleErrors: async ({ page }, provide) => {
     const errors: string[] = []
     page.on('console', (message) => {

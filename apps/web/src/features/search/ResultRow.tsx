@@ -40,6 +40,10 @@ export function ResultRow({
         <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-gold">
           <Icon name={GROUP_ICONS[result.picture.group]} className="size-4" />
         </span>
+      ) : 'icon' in result.picture ? (
+        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-coal text-gold">
+          <Icon name={result.picture.icon} className="size-4" />
+        </span>
       ) : (
         <InstitutionLogo institution={result.picture.logo} size="sm" />
       )}

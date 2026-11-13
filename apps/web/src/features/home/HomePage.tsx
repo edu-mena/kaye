@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { CareerCard } from '../../components/CareerCard'
 import { Icon, type IconName } from '../../components/icons'
 import { InstallCard } from '../../components/InstallApp'
 import { PathMark } from '../../components/PathMark'
@@ -11,27 +10,36 @@ import { Chip } from '../../components/ui/Chip'
 import { Hexagon } from '../../components/ui/Hexagon'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { ProgressBar } from '../../components/ui/ProgressBar'
-import { useAcademies, useCareer, useCareers, useCompanies, useCourses, useNews } from '../../data/queries'
-import { MARKET_AREAS, type NewsItem } from '../../data/types'
+import { useAcademies, useCareer, useCareers, useCompanies, useCourses } from '../../data/queries'
+import { MARKET_AREAS } from '../../data/types'
 import { achievements, totalXp } from '../../domain/achievements'
 import { cvCompleteness } from '../../domain/cv'
 import { quickestPathway } from '../../domain/education'
-import { isAboutMe, myCareers } from '../../domain/path'
 import { riasecCode } from '../../domain/riasec'
 import { stagger } from '../../lib/ui'
-import { useRecommendations } from '../../lib/useRecommendations'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
+import { strengthsDone } from '../../domain/strengths'
 import { activeCv, useUser } from '../../state/userStore'
 import { DeadlineRow } from '../deadlines/DeadlineRow'
 import { useDeadlines } from '../../state/useDeadlines'
-import { NewsCard } from '../news/NewsCard'
+import { BentoGrid, Tile } from './Bento'
+import {
+  CareersTile,
+  EventsTile,
+  HeroTile,
+  KursosTile,
+  MarketTile,
+  NewsTile,
+  OpportunitiesTile,
+  TrainingTile,
+} from './HomeTiles'
 
 const LINK = 'text-sm font-normal text-blue underline-offset-4 hover:underline'
 
 /** A small card title with its icon in a circle of the main blue. */
-function CardTitle({ icon, children }: { icon: IconName; children: string }) {
+function CardTitle({ icon, id, children }: { icon: IconName; id?: string; children: string }) {
   return (
-    <h2 className="flex items-center gap-3 text-base font-semibold text-night">
+    <h2 id={id} className="flex items-center gap-3 text-base font-semibold text-night">
       <span className="grid size-8 shrink-0 place-items-center rounded-full bg-blue text-white">
         <Icon name={icon} className="size-4" />
       </span>
@@ -41,37 +49,36 @@ function CardTitle({ icon, children }: { icon: IconName; children: string }) {
 }
 
 export default function HomePage() {
-  const { t } = useTranslation()
   const user = useUser()
 
   if (!user.profile) return <Welcome />
 
   return (
-    <div className="space-y-8">
-      <h1 className="rise text-3xl leading-tight font-extrabold text-night sm:text-4xl">
-        {t('home.greeting', { name: user.profile.name })}
-      </h1>
+    <div className="space-y-4">
       <InstallCard />
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        {/* A feed: what to do next, then what is new, then the careers that fit; always two columns. */}
-        <div className="min-w-0 space-y-8">
-          <ul className="grid gap-4 sm:grid-cols-2">
-            <li className="rise">
-              <TestCard />
-            </li>
-            <li className="rise" style={stagger(1)}>
-              <CvCard />
-            </li>
-          </ul>
-          <Latest />
-          <Recommended />
-        </div>
-        <aside aria-label={t('home.asideLabel')} className="space-y-4 lg:sticky lg:top-6">
-          <TargetCard />
-          <UpcomingDeadlines />
-          <Progress />
-        </aside>
-      </div>
+      {/* A bento: the first tile always says what to do next; then a bit of everything. */}
+      <BentoGrid>
+        <HeroTile aside={<TargetCard />} />
+        <Tile size="square" tone="plain" labelledBy="home-test" index={1} data-tour="test">
+          <TestCard headingId="home-test" />
+        </Tile>
+        <Tile size="square" tone="plain" labelledBy="home-cv" index={2} data-tour="cv">
+          <CvCard headingId="home-cv" />
+        </Tile>
+        <NewsTile index={3} />
+        <EventsTile index={4} />
+        <Tile size="tall" tone="plain" labelledBy="home-deadlines" index={5}>
+          <UpcomingDeadlines headingId="home-deadlines" />
+        </Tile>
+        <CareersTile index={6} />
+        <KursosTile index={7} />
+        <TrainingTile index={8} />
+        <MarketTile index={9} />
+        <OpportunitiesTile index={10} />
+        <Tile size="wide" tone="plain" labelledBy="home-progress" index={11}>
+          <Progress headingId="home-progress" />
+        </Tile>
+      </BentoGrid>
     </div>
   )
 }
@@ -166,14 +173,14 @@ const VALUES = [
     photoSlug: 'formador-de-tic',
   },
   {
-    to: '/bolsas',
+    to: '/oportunidades?tab=bolsas',
     icon: 'award',
     title: 'home.valueScholarshipsTitle',
     body: 'home.valueScholarshipsBody',
     photoSlug: 'engenheiro-civil',
   },
   {
-    to: '/estagios',
+    to: '/oportunidades?tab=estagios',
     icon: 'briefcase',
     title: 'home.valueInternshipsTitle',
     body: 'home.valueInternshipsBody',
@@ -337,22 +344,32 @@ function FinalCta() {
   )
 }
 
-function TestCard() {
+type HeadingProps = { headingId: string }
+
+function TestCard({ headingId }: HeadingProps) {
   const { t } = useTranslation()
   const { profile, answered, total, completed } = useRiasecProfile()
+  const { strengths } = useUser()
 
   if (completed && profile) {
     return (
       <Card className="flex h-full items-center gap-4 p-6">
         <Hexagon>{riasecCode(profile)}</Hexagon>
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-light text-muted">{t('home.profileCode')}</p>
+          <h2 id={headingId} className="text-xs font-light text-muted">
+            {t('home.profileCode')}
+          </h2>
           <Link
             to="/teste/resultado"
             className="mt-1 block text-base font-semibold text-night underline-offset-4 hover:underline"
           >
             {t('home.seeResult')}
           </Link>
+          {!strengthsDone(strengths) && (
+            <Link to="/teste/valencias" className="mt-1 block text-sm font-normal text-blue hover:underline">
+              {t('assessment.completeStrengths')}
+            </Link>
+          )}
         </div>
         <Icon name="chevronRight" className="size-5 shrink-0 text-muted" />
       </Card>
@@ -361,7 +378,9 @@ function TestCard() {
 
   return (
     <Card tone="coal" className="flex h-full flex-col items-start p-6">
-      <h2 className="text-xl font-extrabold">{t('home.testTitle')}</h2>
+      <h2 id={headingId} className="text-xl font-extrabold">
+        {t('home.testTitle')}
+      </h2>
       <p className="mt-2 max-w-prose text-sm font-light text-white/80">{t('home.testBody')}</p>
       {answered > 0 && (
         <ProgressBar
@@ -380,14 +399,16 @@ function TestCard() {
   )
 }
 
-function CvCard() {
+function CvCard({ headingId }: HeadingProps) {
   const { t } = useTranslation()
   const user = useUser()
   const document = activeCv(user)
 
   return (
     <Card tone="notice" className="flex h-full flex-col items-start p-6">
-      <CardTitle icon="document">{t('home.cvTitle')}</CardTitle>
+      <CardTitle icon="document" id={headingId}>
+        {t('home.cvTitle')}
+      </CardTitle>
       {document ? (
         <>
           <p className="mt-2 text-sm font-light text-copy">{t('home.cvSome', { count: user.cvs.length })}</p>
@@ -405,74 +426,6 @@ function CvCard() {
         <Icon name="arrowRight" className="size-4" />
       </ButtonLink>
     </Card>
-  )
-}
-
-/** The latest news, the ones about the person's careers first. */
-function Latest() {
-  const { t, i18n } = useTranslation()
-  const { data: news } = useNews()
-  const { savedCareers, targetCareer } = useUser()
-  if (!news || news.length === 0) return null
-
-  const mine = myCareers({ savedCareers, targetCareer })
-  const forYou = (item: NewsItem) => isAboutMe(item, mine)
-  const shown = [...news.filter(forYou), ...news.filter((item) => !forYou(item))].slice(0, 4)
-  const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short' })
-
-  return (
-    <section aria-labelledby="latest">
-      <SectionHeading
-        id="latest"
-        title={t('nav.news')}
-        icon="newspaper"
-        action={
-          <Link to="/novidades" className={LINK}>
-            {t('common.seeAll')}
-          </Link>
-        }
-      />
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {shown.map((item, index) => (
-          <li key={item.id} className="rise [&>*]:h-full" style={stagger(index + 1)}>
-            <NewsCard
-              item={item}
-              forYou={forYou(item)}
-              date={date.format(new Date(`${item.date}T12:00:00`))}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
-}
-
-function Recommended() {
-  const { t } = useTranslation()
-  const recommendations = useRecommendations(4)
-  const { assessmentCompletedAt } = useUser()
-  if (!recommendations) return null
-
-  return (
-    <section aria-labelledby="recommended">
-      <SectionHeading
-        id="recommended"
-        title={t('home.recommended')}
-        icon="compass"
-        action={
-          <Link to={assessmentCompletedAt ? '/teste/resultado' : '/carreiras'} className={LINK}>
-            {t('common.seeAll')}
-          </Link>
-        }
-      />
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {recommendations.map((item, index) => (
-          <li key={item.career.slug} className="rise [&>*]:h-full" style={stagger(index + 1)}>
-            <CareerCard career={item.career} match={item.match} reasons={item.reasons} />
-          </li>
-        ))}
-      </ul>
-    </section>
   )
 }
 
@@ -520,15 +473,17 @@ function TargetCard() {
 }
 
 /** Próximos prazos: the person's three nearest deadlines (or anyone's, when none is theirs). */
-function UpcomingDeadlines() {
+function UpcomingDeadlines({ headingId }: HeadingProps) {
   const { t } = useTranslation()
   const deadlines = useDeadlines()
   const shown = (deadlines.mine.length > 0 ? deadlines.mine : deadlines.all).slice(0, 3)
-  if (shown.length === 0) return null
 
   return (
     <Card className="p-6">
-      <CardTitle icon="calendar">{t('deadlines.homeTitle')}</CardTitle>
+      <CardTitle icon="calendar" id={headingId}>
+        {t('deadlines.homeTitle')}
+      </CardTitle>
+      {shown.length === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.deadlinesEmpty')}</p>}
       <ul className="mt-4 space-y-2">
         {shown.map((item) => (
           <li key={item.id}>
@@ -543,7 +498,7 @@ function UpcomingDeadlines() {
   )
 }
 
-function Progress() {
+function Progress({ headingId }: HeadingProps) {
   const { t } = useTranslation()
   const list = achievements(useUser())
   const earned = list.filter((achievement) => achievement.earned).length
@@ -551,9 +506,12 @@ function Progress() {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between gap-4">
-        <CardTitle icon="award">{t('home.progressTitle')}</CardTitle>
+        <CardTitle icon="award" id={headingId}>
+          {t('home.progressTitle')}
+        </CardTitle>
         <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
       </div>
+      {earned === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.progressEmpty')}</p>}
       <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="mt-4" />
       <Link to="/perfil" className={`mt-4 inline-block ${LINK}`}>
         {t('profile.achievements')} · {earned}/{list.length}

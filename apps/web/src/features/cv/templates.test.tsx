@@ -49,7 +49,7 @@ describe('CV layouts', () => {
     )
     const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
 
-    await downloadCvPdf(FULL, template, LABELS)
+    await downloadCvPdf({ cv: FULL, template }, LABELS)
 
     await waitFor(() => expect(createObjectURL).toHaveBeenCalledTimes(1))
     const pdf = createObjectURL.mock.calls[0]![0]
@@ -67,8 +67,8 @@ describe('CV layouts', () => {
       'URL',
       Object.assign(URL, { createObjectURL: () => 'blob:kaye', revokeObjectURL: () => {} }),
     )
-    await downloadCvPdf({ ...EMPTY_CV, name: 'Délcio Neto' }, 'classico', LABELS)
-    await downloadCvPdf(EMPTY_CV, 'europeu', LABELS)
+    await downloadCvPdf({ cv: { ...EMPTY_CV, name: 'Délcio Neto' }, template: 'classico' }, LABELS)
+    await downloadCvPdf({ cv: EMPTY_CV, template: 'europeu' }, LABELS)
     expect(names).toEqual(['cv-delcio-neto.pdf', 'cv-kaye.pdf'])
   })
 })

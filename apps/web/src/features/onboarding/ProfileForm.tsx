@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router'
 import { CheckboxField, SelectField, TextField } from '../../components/ui/Field'
 import { Button } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -8,12 +7,7 @@ import { PROVINCES } from '../../data/provinces'
 import { EDUCATION_LEVELS, type EducationLevel } from '../../data/types'
 import { isMinor } from '../../domain/education'
 import { userActions, useUser } from '../../state/userStore'
-
-const MIN_AGE = 14
-const LEGAL_LINK = 'font-normal text-night underline underline-offset-2 hover:text-blue'
-// Read once when the app loads: render must not depend on the clock.
-const CURRENT_YEAR = new Date().getFullYear()
-const OLDEST = 60
+import { BIRTH_YEARS, CURRENT_YEAR } from './flow'
 
 type Values = {
   name: string
@@ -21,16 +15,15 @@ type Values = {
   province: string
   education: string
   guardian: boolean
-  terms: boolean
 }
 type Errors = Partial<Record<keyof Values, string>>
 
 type ProfileFormProps = {
   onSaved: () => void
-  /** Editing an existing profile (Perfil > Dados pessoais): no terms to accept again, and a way out. */
-  onCancel?: () => void
+  onCancel: () => void
 }
 
+/** Editing the profile (Perfil > Dados pessoais). The first time, the guide asks all of this. */
 export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
   const { t } = useTranslation()
   const { profile } = useUser()
@@ -41,7 +34,6 @@ export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
     province: profile?.province ?? '',
     education: profile?.education ?? '',
     guardian: profile?.guardianInformed ?? false,
-    terms: Boolean(profile),
   })
   const [errors, setErrors] = useState<Errors>({})
   const minor = values.birthYear !== '' && isMinor(Number(values.birthYear), year)
@@ -58,7 +50,6 @@ export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
     if (!values.province) found.province = required
     if (!values.education) found.education = required
     if (minor && !values.guardian) found.guardian = required
-    if (!values.terms) found.terms = required
     setErrors(found)
     if (Object.keys(found).length > 0) return
 
@@ -71,8 +62,6 @@ export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
     })
     onSaved()
   }
-
-  const years = Array.from({ length: OLDEST - MIN_AGE + 1 }, (_, index) => String(year - MIN_AGE - index))
 
   return (
     <form noValidate onSubmit={submit} className="space-y-5">
@@ -89,7 +78,7 @@ export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
         <SelectField
           label={t('onboarding.birthYear')}
           placeholder={t('common.select')}
-          options={years.map((value) => ({ value, label: value }))}
+          options={BIRTH_YEARS.map((value) => ({ value, label: value }))}
           value={values.birthYear}
           error={errors.birthYear}
           onChange={(event) => set('birthYear', event.target.value)}
@@ -125,38 +114,13 @@ export function ProfileForm({ onSaved, onCancel }: ProfileFormProps) {
         </Card>
       )}
 
-      {!onCancel && (
-        <div>
-          <CheckboxField
-            label={t('onboarding.terms')}
-            checked={values.terms}
-            error={errors.terms}
-            onChange={(event) => set('terms', event.target.checked)}
-          />
-          {/* Outside the label, so the links do not become part of the checkbox's name. A new
-              tab keeps what was already filled in here. */}
-          <p className="mt-1 pl-8 text-xs font-light text-muted">
-            {t('onboarding.termsRead')}{' '}
-            <Link to="/termos" target="_blank" className={LEGAL_LINK}>
-              {t('legal.terms')}
-            </Link>
-            {' · '}
-            <Link to="/privacidade" target="_blank" className={LEGAL_LINK}>
-              {t('legal.privacy')}
-            </Link>
-          </p>
-        </div>
-      )}
-
       <div className="flex flex-wrap gap-2">
         <Button type="submit" size="lg" className="w-full sm:w-auto">
-          {onCancel ? t('common.save') : t('common.continue')}
+          {t('common.save')}
         </Button>
-        {onCancel && (
-          <Button variant="ghost" size="lg" onClick={onCancel}>
-            {t('common.cancel')}
-          </Button>
-        )}
+        <Button variant="ghost" size="lg" onClick={onCancel}>
+          {t('common.cancel')}
+        </Button>
       </div>
     </form>
   )

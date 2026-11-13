@@ -63,8 +63,8 @@ describe('userStore', () => {
     seedUser()
     const example = CV_EXAMPLES[0]!
     userActions.startCvFrom(example)
-    const { cv, cvBasedOn } = getUser()
-    expect(cvBasedOn).toBe(example.id)
+    const { cv, basedOn } = getUser().cvs[0]!
+    expect(basedOn).toBe(example.id)
     expect(cv.name).toBe('Joana')
     expect(cv.summary).toBe('')
     expect(cv.experience).toHaveLength(example.cv.experience.length)

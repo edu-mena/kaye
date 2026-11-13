@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
+import { DetailLayout, DetailSection as Section, StatBlock, Subheading } from '../../components/DetailLayout'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
 import {
@@ -20,10 +21,19 @@ import { Card } from '../../components/ui/Card'
 import { Chip } from '../../components/ui/Chip'
 import { Dialog } from '../../components/ui/Dialog'
 import { Segmented } from '../../components/ui/Segmented'
-import { TabPanel, Tabs } from '../../components/ui/Tabs'
-import { useCareer, useCareers, useCvExamples, usePrograms } from '../../data/queries'
-import { RIASEC_KEYS, type Career, type CareerSummary } from '../../data/types'
+import {
+  useCareer,
+  useCareers,
+  useCompanies,
+  useCourses,
+  useCvExamples,
+  useFreeCourses,
+  usePrograms,
+  useTestimonials,
+} from '../../data/queries'
+import { GROUP_AREAS, RIASEC_KEYS, type Career, type CareerSummary, type Testimonial } from '../../data/types'
 import { quickestPathway, remainingSteps } from '../../domain/education'
+import { studyCost } from '../../domain/fees'
 import { formatKz, formatPercent } from '../../domain/format'
 import { rankPrograms, scorePrograms } from '../../domain/ranking'
 import { rankDimensions } from '../../domain/riasec'
@@ -31,11 +41,16 @@ import { useDuration } from '../../lib/useFormat'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
 import { ModelCvGrid } from '../cv/ModelCvGrid'
+import { InternshipsForArea } from '../internships/InternshipLinks'
+import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
 import { ProgramSummary } from '../training/ProgramSummary'
+import { CareerMarket } from './CareerMarket'
 import { CareerPath } from './CareerPath'
+import { CostVsSalary } from './CostVsSalary'
+import { FamilySheetButton } from './FamilySheetButton'
 import { FitPanel } from './FitPanel'
-import { PostingsChart } from './PostingsChart'
-import { SalaryRange } from './SalaryRange'
+import { FreeCourses } from './FreeCourses'
+import { SelfEmploymentPanel } from './SelfEmploymentPanel'
 
 const TABS = [
   { id: 'overview', icon: 'eye' },
@@ -44,6 +59,7 @@ const TABS = [
   { id: 'path', icon: 'path' },
   { id: 'study', icon: 'cap' },
   { id: 'market', icon: 'chart' },
+  { id: 'stories', icon: 'message' },
   { id: 'cvs', icon: 'document' },
 ] as const satisfies readonly { id: string; icon: IconName }[]
 
@@ -65,67 +81,13 @@ export default function CareerPage() {
   )
 }
 
-function Section({
-  id,
-  title,
-  icon,
-  children,
-}: {
-  id: string
-  title: string
-  icon: IconName
-  children: ReactNode
-}) {
-  return (
-    <section aria-labelledby={`${id}-title`}>
-      <h2
-        id={`${id}-title`}
-        className="mb-6 flex items-center gap-3 text-2xl font-extrabold text-night sm:text-3xl"
-      >
-        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-blue text-white">
-          <Icon name={icon} className="size-5" />
-        </span>
-        {title}
-      </h2>
-      {children}
-    </section>
-  )
-}
-
-/** The second level under a section title: a small label and a thin rule. */
-function Subheading({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return (
-    <h3
-      className={`mb-4 flex items-center gap-3 text-sm font-semibold text-night after:h-px after:flex-1 after:bg-line ${className}`}
-    >
-      {children}
-    </h3>
-  )
-}
-
-/** Navy cells with big numbers: the few figures a section is about. */
-function StatBlock({ items }: { items: { label: string; value: string }[] }) {
-  return (
-    <dl
-      className={`grid gap-px overflow-hidden rounded-card ${items.length > 2 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2'}`}
-    >
-      {items.map((item) => (
-        <div key={item.label} className="bg-coal p-4 text-white sm:p-5">
-          <dt className="text-xs font-light text-white/75">{item.label}</dt>
-          <dd className="mt-1 text-sm leading-snug font-normal">{item.value}</dd>
-        </div>
-      ))}
-    </dl>
-  )
-}
-
 /**
  * Photo (or the brand path) at a fixed height, with the name and the two actions.
  * Next to the name, the area and the demand as icons; the "i" opens them in words.
  */
-type CareerHeroProps = { career: CareerSummary; facts?: ReactNode; onFit?: () => void }
+type CareerHeroProps = { career: CareerSummary; facts?: ReactNode; onFit?: () => void; actions?: ReactNode }
 
-function CareerHero({ career, facts, onFit }: CareerHeroProps) {
+function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
   const { t } = useTranslation()
   const { savedCareers, targetCareer } = useUser()
   const [aboutOpen, setAboutOpen] = useState(false)
@@ -216,6 +178,7 @@ function CareerHero({ career, facts, onFit }: CareerHeroProps) {
               {t('career.fitButton')}
             </Button>
           )}
+          {actions}
         </div>
       </div>
 
@@ -281,7 +244,7 @@ function CareerView({ career }: { career: Career }) {
     icon: tab.icon,
     label: t(`career.${tab.id}`),
   }))
-  const active = tabs.find((tab) => tab.id === params.get('secao')) ?? tabs[0]
+  const active = (tabs.find((tab) => tab.id === params.get('secao')) ?? tabs[0])?.id ?? 'overview'
   const [fitOpen, setFitOpen] = useState(true)
   const showFit = () => {
     setFitOpen(true)
@@ -293,26 +256,33 @@ function CareerView({ career }: { career: Career }) {
   }, [career.slug])
 
   return (
-    <article className="min-w-0">
-      <CareerHero career={career} facts={<HeroFacts career={career} />} onFit={showFit} />
-      <div className="sticky top-[var(--topbar-space,0px)] z-10 mt-4 rounded-card bg-surface p-2 shadow-card transition-[top] duration-300">
-        <Tabs
-          label={t('career.sectionsLabel')}
-          tabs={tabs}
-          value={active?.id ?? 'overview'}
-          onChange={(id) => setParam('secao', id === 'overview' ? null : id)}
-          idPrefix="career"
+    <DetailLayout
+      header={
+        <CareerHero
+          career={career}
+          facts={<HeroFacts career={career} />}
+          onFit={showFit}
+          actions={
+            <FamilySheetButton
+              career={career}
+              className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
+            />
+          }
         />
-      </div>
-      {active && (
-        <TabPanel key={active.id} idPrefix="career" id={active.id} className="mt-5">
-          <Panel tab={active.id} career={career} />
-        </TabPanel>
-      )}
-      <div className="mt-10">
-        <FitPanel career={career} expanded={fitOpen} onToggle={() => setFitOpen((value) => !value)} />
-      </div>
-    </article>
+      }
+      tabs={{
+        label: t('career.sectionsLabel'),
+        items: tabs,
+        value: active,
+        onChange: (id) => setParam('secao', id === 'overview' ? null : id),
+        idPrefix: 'career',
+      }}
+      footer={
+        <FitPanel careers={[career]} expanded={fitOpen} onToggle={() => setFitOpen((value) => !value)} />
+      }
+    >
+      <Panel tab={active} career={career} />
+    </DetailLayout>
   )
 }
 
@@ -330,6 +300,8 @@ function Panel({ tab, career }: { tab: TabId; career: Career }) {
       return <Study career={career} />
     case 'market':
       return <MarketSection career={career} />
+    case 'stories':
+      return <Stories career={career} />
     case 'cvs':
       return <ModelCvs career={career} />
   }
@@ -461,6 +433,12 @@ function Path({ career }: { career: Career }) {
   const { t } = useTranslation()
   const duration = useDuration()
   const { profile } = useUser()
+  const { data: courses = [] } = useCourses()
+  const { data: freeCourses = [] } = useFreeCourses(career.slug)
+  // The cheapest and the dearest of the courses that lead to the career.
+  const cost = studyCost(
+    courses.filter((course) => course.careers.includes(career.slug)).flatMap((course) => course.offers),
+  )
   const [pathwayId, setPathwayId] = useState(career.pathways[0]?.id ?? '')
   const pathway = career.pathways.find((item) => item.id === pathwayId) ?? career.pathways[0]
   if (!pathway) return null
@@ -470,6 +448,11 @@ function Path({ career }: { career: Career }) {
 
   return (
     <Section id="path" title={t('career.path')} icon="path">
+      {freeCourses.length > 0 && (
+        <div data-tour="freeCourses" className="mb-10">
+          <FreeCourses careerSlug={career.slug} />
+        </div>
+      )}
       <Segmented
         label={t('career.pathways')}
         value={pathway.id}
@@ -498,6 +481,23 @@ function Path({ career }: { career: Career }) {
           <CareerPath pathway={pathway} education={profile?.education ?? null} />
         </div>
       </Card>
+
+      {cost && (
+        <div className="mt-10">
+          <CostVsSalary
+            cost={cost}
+            salary={career.salaryMedian}
+            salaryLabel={t(career.salaryKind === 'entrada' ? 'cost.salaryEntry' : 'cost.salary')}
+            freeOnline={freeCourses.some((course) => course.certificate !== 'pago')}
+          />
+        </div>
+      )}
+
+      {career.selfEmployment && career.selfEmployment.fit !== 'raro' && (
+        <div data-tour="selfEmployment" className="mt-10">
+          <SelfEmploymentPanel data={career.selfEmployment} />
+        </div>
+      )}
 
       <Subheading className="mt-10">{t('career.stagesTitle')}</Subheading>
       <ol className="grid gap-3 sm:grid-cols-2">
@@ -614,87 +614,102 @@ function Study({ career }: { career: Career }) {
           )
         }}
       </QueryState>
+      <ScholarshipLinks areas={[GROUP_AREAS[career.group]]} className="mt-10" />
     </Section>
   )
 }
 
 function MarketSection({ career }: { career: Career }) {
   const { t } = useTranslation()
-  const { market } = career
-  const topStage = Math.max(...market.salaryByStage.map((item) => item.median), 1)
-  const stageTitle = (level: string) => career.stages.find((stage) => stage.level === level)?.title ?? level
-
   return (
     <Section id="market" title={t('career.market')} icon="chart">
-      {market.salary && (
-        <>
-          <Subheading>{t('career.salaryTitle')}</Subheading>
-          <SalaryRange salary={market.salary} />
-        </>
-      )}
+      <CareerMarket career={career} />
+      <ButtonLink to={`/entrevistas?carreira=${career.slug}`} variant="secondary" className="mt-6">
+        <Icon name="message" className="size-4" />
+        {t('interviews.train')}
+      </ButtonLink>
+      <InternshipsForArea area={GROUP_AREAS[career.group]} className="mt-10" />
+    </Section>
+  )
+}
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-2">
-        {market.salaryByStage.length > 0 && (
-          <div>
-            <Subheading>{t('career.stageSalaryTitle')}</Subheading>
-            <BarList
-              label={t('career.stageSalaryList')}
-              items={market.salaryByStage.map((item) => ({
-                label: stageTitle(item.level),
-                value: item.median / topStage,
-                valueLabel: formatKz(item.median),
-                emphasized: true,
-              }))}
-            />
-          </div>
-        )}
-        <div>
-          <Subheading>{t('career.demandTitle')}</Subheading>
-          {market.trendPct === null ? (
-            // A career the job sites do not show (the State hires by public competition): what is known instead.
-            market.demandNote && (
-              <div className="space-y-3">
-                {[market.demandNote, market.demandNote.salary].map(
-                  (note) =>
-                    note && (
-                      <p key={note.source.url} className="text-sm font-light text-copy">
-                        {note.text}{' '}
-                        <a
-                          href={note.source.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="font-normal text-night underline underline-offset-2"
-                        >
-                          {note.source.label}
-                        </a>
-                      </p>
-                    ),
-                )}
-              </div>
-            )
+function Stories({ career }: { career: Career }) {
+  const { t } = useTranslation()
+  const query = useTestimonials(career.slug)
+
+  return (
+    <Section id="stories" title={t('career.stories')} icon="message">
+      <QueryState
+        query={query}
+        compact
+        loading={
+          <Loading>
+            <CardsSkeleton count={2} className="xl:grid-cols-2" />
+          </Loading>
+        }
+      >
+        {(stories) =>
+          stories.length === 0 ? (
+            <p className="text-sm font-light text-muted">{t('career.storiesEmpty')}</p>
           ) : (
             <>
-              <p className="mb-5 flex items-center gap-1.5 text-sm font-normal text-success">
-                <Icon name="signal" className="size-4" />
-                {t('career.trend', {
-                  value: `${market.trendPct > 0 ? '+' : ''}${market.trendPct}%`,
-                })}
-              </p>
-              <PostingsChart months={market.postingsByMonth} />
+              <p className="mb-5 text-sm font-light text-copy">{t('career.storiesIntro')}</p>
+              <ul className="grid gap-4 xl:grid-cols-2">
+                {stories.map((story) => (
+                  <li key={story.id}>
+                    <StoryCard story={story} />
+                  </li>
+                ))}
+              </ul>
             </>
-          )}
-        </div>
-      </div>
-
-      <Subheading className="mt-10">{t('career.sectors')}</Subheading>
-      <ul className="flex flex-wrap gap-2">
-        {market.hiringSectors.map((sector) => (
-          <li key={sector}>
-            <Chip tone="night">{sector}</Chip>
-          </li>
-        ))}
-      </ul>
+          )
+        }
+      </QueryState>
     </Section>
+  )
+}
+
+function StoryCard({ story }: { story: Testimonial }) {
+  const { t } = useTranslation()
+  const companies = useCompanies()
+  const company = story.companyId
+    ? companies.data?.find((item) => item.id === story.companyId)?.name
+    : undefined
+  const who = [story.name, story.role, company].filter(Boolean).join(' · ')
+  const where = [story.place, story.years ? t('career.storyYears', { count: story.years }) : null]
+    .filter(Boolean)
+    .join(' · ')
+
+  return (
+    <Card className="flex h-full flex-col gap-3">
+      <blockquote className="text-sm leading-relaxed font-light text-copy">
+        <span aria-hidden="true" className="mr-1 font-serif text-2xl leading-none text-muted">
+          “
+        </span>
+        {story.path}
+      </blockquote>
+      <p className="flex items-start gap-2 text-sm text-night">
+        <Icon name="target" className="mt-0.5 size-4 shrink-0" />
+        <span>
+          <span className="font-medium">{t('career.storyTip')}</span> {story.tip}
+        </span>
+      </p>
+      <footer className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted">
+        {story.example && <Chip>{t('news.example')}</Chip>}
+        <span className="font-normal text-copy">{who}</span>
+        {where && <span>{where}</span>}
+        {story.source && (
+          <a
+            href={story.source.url}
+            target="_blank"
+            rel="noreferrer"
+            className="font-normal text-night underline underline-offset-2"
+          >
+            {story.source.label}
+          </a>
+        )}
+      </footer>
+    </Card>
   )
 }
 

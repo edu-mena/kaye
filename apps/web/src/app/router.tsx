@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router'
 import { AppLoading } from '../components/AppLoading'
 import { RequireProfile } from '../components/RequireProfile'
 import { IndexPage } from '../features/home/IndexPage'
+import { KeepQuery } from './KeepQuery'
 import { Layout, type RouteHandle } from './Layout'
 
 type PageModule = { default: ComponentType }
@@ -38,9 +39,12 @@ export const router = createBrowserRouter([
     // Shown while a screen's code downloads on the first visit (deep links, slow networks).
     HydrateFallback: AppLoading,
     children: [
-      { index: true, Component: IndexPage, handle: { bare: true } satisfies RouteHandle },
+      // Outside: the landing page brings its own margins (bare); signed in, the bento uses the whole width.
+      { index: true, Component: IndexPage, handle: { bare: true, wide: true } satisfies RouteHandle },
       { path: 'teste', lazy: page(() => import('../features/assessment/AssessmentPage')) },
       { path: 'teste/resultado', lazy: page(() => import('../features/assessment/ResultPage')) },
+      { path: 'teste/valencias', lazy: page(() => import('../features/assessment/StrengthsPage')) },
+      { path: 'testes', lazy: page(() => import('../features/tests/TestsPage')) },
       { path: 'treino', lazy: page(() => import('../features/psychotech/PsychotechPage')) },
       { path: 'entrevistas', lazy: page(() => import('../features/interviews/InterviewsPage')) },
       {
@@ -109,9 +113,12 @@ export const router = createBrowserRouter([
         lazy: page(() => import('../features/market/MarketPage')),
       },
       { path: 'novidades', lazy: page(() => import('../features/news/NewsPage')) },
-      { path: 'bolsas', lazy: page(() => import('../features/scholarships/ScholarshipsPage')) },
+      { path: 'novidades/:id', lazy: page(() => import('../features/news/NewsDetailPage')) },
+      { path: 'oportunidades', lazy: page(() => import('../features/opportunities/OpportunitiesPage')) },
+      // Old addresses (shared links, bookmarks): the same list, now a tab of Oportunidades.
+      { path: 'bolsas', Component: () => <KeepQuery to="bolsas" /> },
       { path: 'prazos', lazy: page(() => import('../features/deadlines/DeadlinesPage')) },
-      { path: 'estagios', lazy: page(() => import('../features/internships/InternshipsPage')) },
+      { path: 'estagios', Component: () => <KeepQuery to="estagios" /> },
       { path: 'notificacoes', lazy: page(() => import('../features/notifications/NotificationsPage')) },
       { path: 'suporte', lazy: page(() => import('../features/support/SupportPage')) },
       { path: 'configuracoes', lazy: page(() => import('../features/settings/SettingsPage')) },

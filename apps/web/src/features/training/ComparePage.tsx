@@ -17,7 +17,11 @@ export default function ComparePage() {
 
   return (
     <div>
-      <PageHeader title={t('training.compareTitle')} back={{ to: '/cursos', label: t('training.back') }} />
+      <PageHeader
+        tour="compare"
+        title={t('training.compareTitle')}
+        back={{ to: '/cursos', label: t('training.back') }}
+      />
       <QueryState
         query={query}
         loading={

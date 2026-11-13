@@ -27,7 +27,7 @@ export default function DeadlinesPage() {
 
   return (
     <>
-      <PageHeader compact title={t('nav.deadlines')} subtitle={t('deadlines.subtitle')} />
+      <PageHeader compact tour="deadlines" title={t('nav.deadlines')} subtitle={t('deadlines.subtitle')} />
       <div className="space-y-6">
         <FilterBar
           clearLabel={t('scholarships.clear')}

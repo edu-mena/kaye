@@ -3,7 +3,7 @@ import type { Course, ExamQuestion, ExerciseBlock } from '../data/kursos/types'
 
 export const EXAM_SIZE = 20
 export const EXAM_PASS = 0.7
-export const EXAM_RETRY_MS = 60 * 60 * 1000
+const EXAM_RETRY_MS = 60 * 60 * 1000
 
 const CONTRACTIONS: [RegExp, string][] = [
   [/\bwon't\b/g, 'will not'],
@@ -20,7 +20,7 @@ const CONTRACTIONS: [RegExp, string][] = [
  * "They’re  NOT" and "they are not" are the same answer. The possessive 's is kept.
  * Accents do not count either, for courses in Portuguese typed on a phone: "ambito" = "âmbito".
  */
-export function normalizeAnswer(text: string): string {
+function normalizeAnswer(text: string): string {
   let result = text
     .toLowerCase()
     .normalize('NFD')
@@ -33,7 +33,7 @@ export function normalizeAnswer(text: string): string {
   return result.replace(/\s+/g, ' ').trim()
 }
 
-export const gapMatches = (typed: string, answers: string[]) =>
+const gapMatches = (typed: string, answers: string[]) =>
   answers.some((answer) => normalizeAnswer(answer) === normalizeAnswer(typed))
 
 /** One answer per item: the option index (choice), the text (gap, order) or the chosen right side (match). */

@@ -22,6 +22,7 @@ import type {
 import { NEWS_KINDS } from '../data/types'
 import { newEntry, newId } from '../domain/cv'
 import type { Discovery } from '../domain/discovery'
+import { EMPTY_STRENGTHS, withAllStrengths, type Strengths, type StrengthStep } from '../domain/strengths'
 import type { Level, Mode, Scores } from '../domain/psychotech'
 
 // What the person has done in the app. Until the API exists it lives only on this
@@ -105,6 +106,8 @@ export type UserData = {
   subscriptions: Subscriptions | null
   /** Kursos progress, by course id. */
   kursos: Record<string, KursoProgress>
+  /** Part 2 of the career test: languages, skills, experience, how and where they want to work. */
+  strengths: Strengths
 }
 
 export const EMPTY_CV: CvData = {
@@ -144,13 +147,14 @@ const INITIAL: UserData = {
   interviews: [],
   subscriptions: null,
   kursos: {},
+  strengths: EMPTY_STRENGTHS,
 }
 
 export const MAX_COMPARE = 3
 export const MAX_HISTORY = 100
 export const MAX_SEARCHES = 6
-export const MAX_PSYCHOTECH = 30
-export const MAX_INTERVIEWS = 30
+const MAX_PSYCHOTECH = 30
+const MAX_INTERVIEWS = 30
 const KEY = 'kaye.user.v1'
 const listeners = new Set<() => void>()
 let state: UserData = load()
@@ -166,10 +170,10 @@ function migrateCvs({ cv, cvBasedOn = null }: LegacyCv): CvDocument[] {
   return [{ id: newId(), title: '', cv: content, template, style: {}, basedOn: cvBasedOn }]
 }
 
-const withAllFields = (document: CvDocument): CvDocument => ({
-  ...document,
-  cv: { ...EMPTY_CV, ...document.cv },
-})
+/** A function declaration, not a const: load() runs at import time, above this line. */
+function withAllFields(document: CvDocument): CvDocument {
+  return { ...document, cv: { ...EMPTY_CV, ...document.cv } }
+}
 
 function load(): UserData {
   try {
@@ -179,7 +183,13 @@ function load(): UserData {
     const { cv, cvBasedOn, ...rest } = saved
     // CVs saved before a field existed get it empty, so old data keeps working.
     const cvs = (saved.cvs ?? migrateCvs({ cv, cvBasedOn })).map(withAllFields)
-    return { ...INITIAL, ...rest, cvs, activeCvId: saved.activeCvId ?? cvs[0]?.id ?? null }
+    return {
+      ...INITIAL,
+      ...rest,
+      cvs,
+      activeCvId: saved.activeCvId ?? cvs[0]?.id ?? null,
+      strengths: withAllStrengths(saved.strengths),
+    }
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
     return INITIAL
@@ -314,6 +324,17 @@ export const userActions = {
     update((user) => logged({ ...user, assessmentCompletedAt: new Date().toISOString() }, 'test')),
 
   restartAssessment: () => update((user) => ({ ...user, answers: {}, assessmentCompletedAt: null })),
+
+  /** An answer in part 2; with `step`, that step counts as done (answered or skipped). */
+  saveStrengths: (change: Partial<Strengths>, step?: StrengthStep) =>
+    update((user) => {
+      const next = { ...user.strengths, ...change }
+      const done = step && !next.done.includes(step) ? [...next.done, step] : next.done
+      return { ...user, strengths: { ...next, done } }
+    }),
+
+  /** "Apagar as valências": part 2 only; the skills marked there stay, they belong to the fit too. */
+  clearStrengths: () => update((user) => ({ ...user, strengths: EMPTY_STRENGTHS })),
 
   setSkill: (skillId: string, level: SkillLevel | null) =>
     update((user) => {

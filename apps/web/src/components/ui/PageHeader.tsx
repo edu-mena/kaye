@@ -9,12 +9,14 @@ type PageHeaderProps = {
   action?: ReactNode
   /** Dashboards and settings: a smaller title and less room below, so the content starts high. */
   compact?: boolean
+  /** Where the tutorial points for this screen (components/Tour.tsx). */
+  tour?: string
 }
 
 /** Top of a screen: a quiet way back, the title, and one line on what the screen is for. */
-export function PageHeader({ title, subtitle, back, action, compact = false }: PageHeaderProps) {
+export function PageHeader({ title, subtitle, back, action, compact = false, tour }: PageHeaderProps) {
   return (
-    <header className={`rise ${compact ? 'mb-4' : 'mb-8'}`}>
+    <header data-tour={tour} className={`rise ${compact ? 'mb-4' : 'mb-8'}`}>
       {back && (
         <Link
           to={back.to}

@@ -17,6 +17,9 @@ if (!HTMLDialogElement.prototype.showModal) {
   HTMLDialogElement.prototype.close = close
 }
 window.scrollTo = () => {}
+window.matchMedia = () => ({ matches: false }) as MediaQueryList
+HTMLMediaElement.prototype.play = () => Promise.resolve()
+HTMLMediaElement.prototype.pause = () => {}
 Element.prototype.scrollTo = () => {}
 Element.prototype.scrollIntoView = () => {}
 

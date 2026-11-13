@@ -1,3 +1,4 @@
+import { EMPTY_STRENGTHS } from '../domain/strengths'
 import { QUESTIONS } from '../data/demo/assessment'
 import type { CvData, CvDocument, Likert, RiasecKey } from '../data/types'
 import { EMPTY_CV, reloadUser, type Profile, type UserData } from '../state/userStore'
@@ -42,6 +43,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     interviews: [],
     subscriptions: null,
     kursos: {},
+    strengths: EMPTY_STRENGTHS,
     ...change,
   }
   localStorage.setItem('kaye.user.v1', JSON.stringify(user))

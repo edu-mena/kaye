@@ -40,15 +40,6 @@ const ENVIRONMENT_AFTER = 'entre 515 704 e 1 608 957'
 const FARM_START = 'entre 225 031 e 1 398 188'
 const FARM_AFTER = 'entre 321 489 e 2 108 237'
 
-/** A function with its own page in the survey, whose values are still to be read: no number until they are confirmed. */
-const pending = (page: string): TechSalary => ({
-  text: 'Nenhuma tabela pública nomeia esta profissão. O inquérito WageIndicator de 2026 tem uma página para esta função, onde podes consultar o valor.',
-  source: {
-    label: 'WageIndicator, Angola 2026',
-    url: `https://wageindicator.org/pt-ao/trabalho-em-angola/trabalho-e-salario/${page}/`,
-  },
-})
-
 const SALARY = {
   agronomist: wage(
     'tecnicos-agricolas',
@@ -56,7 +47,12 @@ const SALARY = {
     FARM_START,
     FARM_AFTER,
   ),
-  farmManager: pending('gerentes-de-producao-agricola-e-de-silvicultura'),
+  farmManager: wage(
+    'gerentes-de-producao-agricola-e-de-silvicultura',
+    'os directores de produção agrícola, animal e florestal',
+    'entre 221 581 e 1 563 228',
+    'entre 365 165 e 2 322 648',
+  ),
   vet: wage('veterinarios', 'os veterinários', 'entre 263 233 e 869 657', 'entre 418 092 e 1 429 876'),
   environment: wage(
     'profissionais-em-proteccao-ambiental',
@@ -88,16 +84,36 @@ const SALARY = {
     'entre 112 644 e 408 782',
     'entre 160 739 e 716 144',
   ),
-  logistics: pending('gerentes-de-fornecimento-distribuicao-e-assuntos'),
-  customs: pending('despachantes-alfandegarios'),
-  fleet: pending('funcionarios-de-transporte'),
+  logistics: wage(
+    'gerentes-de-fornecimento-distribuicao-e-assuntos',
+    'os directores de compras, transportes e distribuição',
+    'entre 221 581 e 1 563 228',
+    'entre 365 165 e 2 322 648',
+  ),
+  customs: wage(
+    'despachantes-alfandegarios',
+    'os despachantes',
+    'entre 183 438 e 652 181',
+    'entre 285 029 e 1 143 054',
+  ),
+  fleet: wage(
+    'funcionarios-de-transporte',
+    'os empregados dos serviços de transportes',
+    'entre 112 644 e 408 782',
+    'entre 160 739 e 716 144',
+  ),
   transportEngineer: wage(
     'engenheiros-civis',
     'os engenheiros civis',
     'entre 493 864 e 882 343',
     'entre 672 762 e 1 210 790',
   ),
-  port: pending('gerentes-de-fornecimento-distribuicao-e-assuntos'),
+  port: wage(
+    'gerentes-de-fornecimento-distribuicao-e-assuntos',
+    'os directores de compras, transportes e distribuição, a função mais próxima',
+    'entre 221 581 e 1 563 228',
+    'entre 365 165 e 2 322 648',
+  ),
   aviation: publicPay(
     'um técnico superior de 2.ª classe',
     '361 910',
@@ -112,11 +128,36 @@ const SALARY = {
     'entre 236 457 e 651 392',
     'entre 325 145 e 1 016 698',
   ),
-  hotel: pending('gerentes-de-hoteis'),
-  frontDesk: pending('recepcionistas-de-hoteis'),
-  travel: pending('consultores-e-funcionarios-de-viagens'),
-  guide: pending('guias-de-viagens'),
-  restaurant: pending('gerentes-de-restaurantes'),
+  hotel: wage(
+    'gerentes-de-hoteis',
+    'os directores e gerentes de hotelaria',
+    'entre 217 222 e 1 220 145',
+    'entre 422 679 e 1 975 764',
+  ),
+  frontDesk: wage(
+    'recepcionistas-de-hoteis',
+    'os recepcionistas de hotel',
+    'entre 135 095 e 381 987',
+    'entre 177 515 e 601 494',
+  ),
+  travel: wage(
+    'consultores-e-funcionarios-de-viagens',
+    'os empregados das agências de viagem',
+    'entre 135 095 e 381 987',
+    'entre 177 515 e 601 494',
+  ),
+  guide: wage(
+    'guias-de-viagens',
+    'os guias-intérpretes',
+    'entre 114 214 e 395 306',
+    'entre 189 510 e 685 139',
+  ),
+  restaurant: wage(
+    'gerentes-de-restaurantes',
+    'os directores e gerentes de restauração',
+    'entre 217 222 e 1 220 145',
+    'entre 422 679 e 1 975 764',
+  ),
 }
 
 const FIELD = context(

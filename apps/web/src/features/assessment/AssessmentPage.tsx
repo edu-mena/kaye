@@ -8,7 +8,11 @@ import { Card } from '../../components/ui/Card'
 import { ProgressBar } from '../../components/ui/ProgressBar'
 import { useAssessment } from '../../data/queries'
 import type { AssessmentQuestion, Likert } from '../../data/types'
+import { hasStrengths } from '../../domain/strengths'
 import { userActions, useUser } from '../../state/userStore'
+import { ClearStrengths } from './ClearStrengths'
+import { TestParts } from './TestParts'
+import { useTestProgress } from '../../state/useTestProgress'
 
 const SCALE: Likert[] = [1, 2, 3, 4, 5]
 
@@ -38,7 +42,13 @@ type IntroProps = { answered: number; completed: boolean; onStart: () => void }
 
 function Intro({ answered, completed, onStart }: IntroProps) {
   const { t } = useTranslation()
-  const points = [t('assessment.point1'), t('assessment.point2'), t('assessment.point3')]
+  const { strengths } = useUser()
+  const progress = useTestProgress()
+  const points = [
+    t('assessment.point1', { count: progress.total, minutes: progress.minutes1 }),
+    t('assessment.point2', { count: progress.stepsTotal, minutes: progress.minutes2 }),
+    t('assessment.point3'),
+  ]
 
   return (
     <div className="mx-auto max-w-xl">
@@ -56,9 +66,20 @@ function Intro({ answered, completed, onStart }: IntroProps) {
         <div className="mt-8 flex flex-wrap gap-2">
           {completed ? (
             <>
-              <ButtonLink to="/teste/resultado" variant="onDark" size="lg">
-                {t('home.seeResult')}
-              </ButtonLink>
+              {progress.strengthsDone ? (
+                <ButtonLink to="/teste/resultado" variant="onDark" size="lg">
+                  {t('home.seeResult')}
+                </ButtonLink>
+              ) : (
+                <>
+                  <ButtonLink to="/teste/valencias" variant="onDark" size="lg">
+                    {t('assessment.completeStrengths')}
+                  </ButtonLink>
+                  <ButtonLink to="/teste/resultado" variant="onDarkOutline" size="lg">
+                    {t('home.seeResult')}
+                  </ButtonLink>
+                </>
+              )}
               <Button
                 variant="ghost"
                 size="lg"
@@ -70,6 +91,7 @@ function Intro({ answered, completed, onStart }: IntroProps) {
               >
                 {t('assessment.restart')}
               </Button>
+              {hasStrengths(strengths) && <ClearStrengths onDark />}
             </>
           ) : (
             <Button variant="onDark" size="lg" onClick={onStart}>
@@ -88,6 +110,7 @@ function Question({ questions, index, onMove }: QuestionProps) {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { answers } = useUser()
+  const { strengthsDone } = useTestProgress()
   const question = questions[index]
   if (!question) return null
 
@@ -103,11 +126,13 @@ function Question({ questions, index, onMove }: QuestionProps) {
 
   function finish() {
     userActions.completeAssessment()
-    navigate('/teste/resultado')
+    // Part 2 next, unless it is already done (an old test redone).
+    navigate(strengthsDone ? '/teste/resultado' : '/teste/valencias')
   }
 
   return (
     <div className="mx-auto max-w-xl">
+      <TestParts current={1} />
       <div className="mb-8">
         <p className="mb-2 text-xs font-light text-muted">
           {t('assessment.progress', { current: index + 1, total: questions.length })}

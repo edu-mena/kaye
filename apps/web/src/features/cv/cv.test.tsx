@@ -1,9 +1,9 @@
 import { screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-import { EMPTY_CV, getUser } from '../../state/userStore'
+import { getUser } from '../../state/userStore'
 import { renderWithApp } from '../../test/render'
-import { seedUser } from '../../test/user'
+import { savedCv, seedUser } from '../../test/user'
 import CvEditorPage from './CvEditorPage'
 import CvExamplePage from './CvExamplePage'
 import CvPage from './CvPage'
@@ -28,10 +28,10 @@ describe('CvPage', () => {
   })
 
   it('shows how complete the CV is', () => {
-    seedUser({ cv: { ...EMPTY_CV, name: 'Joana', headline: 'Frontend' } })
+    seedUser({ cvs: [savedCv({ name: 'Joana', headline: 'Frontend' })] })
     renderWithApp(<CvPage />)
     expect(screen.getByText('Completo a 29%')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Editar o meu CV' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Editar o meu CV' })).toBeInTheDocument()
   })
 })
 
@@ -53,25 +53,8 @@ describe('CvExamplePage', () => {
     seedUser()
     openExample('dados-junior')
     await userEvent.click(await screen.findByRole('button', { name: 'Começar a partir deste modelo' }))
-    expect(getUser().cvBasedOn).toBe('dados-junior')
+    expect(getUser().cvs[0]?.basedOn).toBe('dados-junior')
     expect(screen.getByTestId('location')).toHaveTextContent('/cv/editar')
-  })
-
-  it('asks before replacing a CV already started', async () => {
-    seedUser({ cv: { ...EMPTY_CV, summary: 'O meu resumo' } })
-    openExample('dados-junior')
-    await userEvent.click(await screen.findByRole('button', { name: 'Começar a partir deste modelo' }))
-    const dialog = screen.getByRole('dialog', { name: 'Substituir o teu CV?' })
-    await userEvent.click(within(dialog).getByRole('button', { name: 'Cancelar' }))
-    expect(getUser().cv.summary).toBe('O meu resumo')
-
-    await userEvent.click(screen.getByRole('button', { name: 'Começar a partir deste modelo' }))
-    await userEvent.click(
-      within(screen.getByRole('dialog', { name: 'Substituir o teu CV?' })).getByRole('button', {
-        name: 'Substituir',
-      }),
-    )
-    expect(getUser().cv.summary).toBe('')
   })
 
   it('offers a way back when the model does not exist', async () => {
@@ -87,7 +70,7 @@ describe('CvEditorPage', () => {
     await userEvent.type(screen.getByLabelText('Nome'), 'Joana Manuel')
     await userEvent.type(screen.getByRole('textbox', { name: 'Competências' }), 'React, Git,')
 
-    expect(getUser().cv).toMatchObject({ name: 'Joana Manuel', skills: ['React', 'Git'] })
+    expect(getUser().cvs[0]!.cv).toMatchObject({ name: 'Joana Manuel', skills: ['React', 'Git'] })
     // The text keeps the trailing comma while typing.
     expect(screen.getByRole('textbox', { name: 'Competências' })).toHaveValue('React, Git,')
     expect(screen.getAllByText('Joana Manuel').length).toBeGreaterThan(0)
@@ -100,10 +83,10 @@ describe('CvEditorPage', () => {
     await userEvent.click(within(experience).getByRole('button', { name: 'Acrescentar' }))
     await userEvent.click(within(experience).getByRole('button', { name: 'Acrescentar' }))
     await userEvent.type(within(experience).getAllByLabelText('Título')[1]!, 'Estágio')
-    expect(getUser().cv.experience.map((entry) => entry.title)).toEqual(['', 'Estágio'])
+    expect(getUser().cvs[0]!.cv.experience.map((entry) => entry.title)).toEqual(['', 'Estágio'])
 
     await userEvent.click(within(experience).getAllByRole('button', { name: 'Tirar' })[0]!)
-    expect(getUser().cv.experience.map((entry) => entry.title)).toEqual(['Estágio'])
+    expect(getUser().cvs[0]!.cv.experience.map((entry) => entry.title)).toEqual(['Estágio'])
   })
 
   it('fills every field, and the CV becomes complete', async () => {
@@ -125,7 +108,7 @@ describe('CvEditorPage', () => {
     }
     await fill(screen.getByRole('textbox', { name: 'Competências' }), 'Figma')
 
-    const { cv } = getUser()
+    const { cv } = getUser().cvs[0]!
     expect(cv).toMatchObject({
       headline: 'Designer UI/UX',
       contact: 'ana@exemplo.ao',
@@ -142,7 +125,7 @@ describe('CvEditorPage', () => {
   })
 
   it('shows the tips of the model it started from, and makes the PDF on the device', async () => {
-    seedUser({ cvBasedOn: 'frontend-primeiro-emprego', cv: { ...EMPTY_CV, name: 'Joana Manuel' } })
+    seedUser({ cvs: [savedCv({ name: 'Joana Manuel' }, 'frontend-primeiro-emprego')] })
     const createObjectURL = vi.fn<(blob: Blob) => string>(() => 'blob:kaye')
     vi.stubGlobal(
       'URL',

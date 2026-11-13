@@ -14,12 +14,12 @@ export default function KursosPage() {
   const { kursos } = useUser()
 
   return (
-    <div className="space-y-6">
-      <PageHeader title={t('kursos.title')} subtitle={t('kursos.subtitle')} />
+    <div className="space-y-5">
+      <PageHeader compact title={t('kursos.title')} subtitle={t('kursos.subtitle')} />
       <div className="-mx-3 overflow-hidden lg:mx-0 lg:rounded-2xl">
         <TestBanner />
       </div>
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {KURSOS.map((course) => {
           const progress = kursos[course.id] ?? EMPTY_KURSO
           const share = courseState(course, progress.done).share
@@ -37,7 +37,7 @@ export default function KursosPage() {
                 {t('kursos.minutes', { count: totalMinutes(course) })}
               </p>
               {progress.done.length > 0 && (
-                <div className="mt-4 max-w-56">
+                <div className="mt-3 max-w-48">
                   <ProgressBar value={share} label={t('kursos.progress', { value: percent(share) })} />
                   <p className="mt-1 text-xs text-muted">{t('kursos.progress', { value: percent(share) })}</p>
                 </div>

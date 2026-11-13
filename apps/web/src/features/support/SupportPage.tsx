@@ -4,6 +4,7 @@ import { Icon, type IconName } from '../../components/icons'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Panel } from '../../components/ui/Panel'
 import { Soon } from '../../components/ui/Rows'
+import { FeedbackForm } from '../landing/FeedbackForm'
 import { LegalLinks } from '../settings/SettingsParts'
 
 /** The questions, by group; their texts are support.q_<id> and support.a_<id>. */
@@ -53,6 +54,10 @@ export default function SupportPage() {
               </div>
             </Panel>
           ))}
+          <Panel id="support-feedback" icon="message" title={t('prelaunch.feedbackTitle')}>
+            <p className="mb-4 text-sm font-light text-copy">{t('prelaunch.feedbackText')}</p>
+            <FeedbackForm page="support" />
+          </Panel>
         </div>
 
         <aside aria-label={t('support.asideLabel')} className="space-y-4 lg:sticky lg:top-6">

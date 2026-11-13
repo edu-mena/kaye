@@ -1,5 +1,6 @@
 import type { NewsItem, Photo } from '../types'
 import { COMPANIES } from './companies'
+import { EVENTS } from './events'
 import { CAREER_IMAGES } from './images'
 import { PROJECT_NEWS } from './projectManagement'
 
@@ -8,6 +9,15 @@ import { PROJECT_NEWS } from './projectManagement'
 // institutions publish is made up, and says so.
 
 const KAYE: NewsItem[] = [
+  {
+    id: 'kaye-cursos-gratis',
+    date: '2026-11-05',
+    kind: 'kaye',
+    title: 'Começa já, sem pagar',
+    summary:
+      'Em cada carreira, cursos online grátis (Cisco, Microsoft Learn, Khan Academy, freeCodeCamp, NAU, OMS) e o que dão no fim. E certificações baratas, com o preço oficial: AWS, Microsoft, Google Cloud, Python Institute e Udemy.',
+    to: '/carreiras/desenvolvedor-frontend?secao=path',
+  },
   {
     id: 'kaye-prazos',
     date: '2026-11-04',
@@ -24,7 +34,7 @@ const KAYE: NewsItem[] = [
     title: 'Estágios e programas de trainee',
     summary:
       'Os estágios do INEFOP, de bancos, operadoras e petrolíferas: para quem são, se são pagos, o prazo e a fonte de cada um.',
-    to: '/estagios',
+    to: '/oportunidades?tab=estagios',
   },
   {
     id: 'kaye-como-entrar',
@@ -42,7 +52,7 @@ const KAYE: NewsItem[] = [
     title: 'Bolsas de estudo',
     summary:
       'As bolsas do INAGBE, de empresas e de governos estrangeiros, com o prazo, o que cobrem e a fonte de cada uma.',
-    to: '/bolsas',
+    to: '/oportunidades?tab=bolsas',
   },
   {
     id: 'kaye-mercado-novidades',
@@ -177,10 +187,10 @@ const GENERAL_PHOTOS = photosOf([
 function withImage(item: NewsItem, index: number): NewsItem {
   const photos = photosOf(item.careers ?? [])
   const pool = photos.length > 0 ? photos : GENERAL_PHOTOS
-  return { ...item, image: pool[index % pool.length] }
+  return { ...item, image: item.image ?? pool[index % pool.length] }
 }
 
 /** Newest first. */
-export const NEWS: NewsItem[] = [...KAYE, ...YOUTH_PROGRAMS, ...PROJECT_NEWS, ...ANALYSIS]
+export const NEWS: NewsItem[] = [...KAYE, ...EVENTS, ...YOUTH_PROGRAMS, ...PROJECT_NEWS, ...ANALYSIS]
   .toSorted((a, b) => b.date.localeCompare(a.date))
   .map(withImage)

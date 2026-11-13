@@ -12,6 +12,8 @@ import { FilterBar } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { useCareers, useCompanies } from '../../data/queries'
+import { byInterest, groupAreas } from '../../domain/interests'
+import { useInterestAreas } from '../../lib/useInterestAreas'
 import { COMPANY_SECTORS } from '../../data/types'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
@@ -29,6 +31,7 @@ const WITH_PROGRAMS = 'sim'
 export default function CompaniesPage() {
   const { t } = useTranslation()
   const companiesQuery = useCompanies()
+  const mine = useInterestAreas()
   const { data: careers = [] } = useCareers()
   const careerName = (slug: string) => careers.find((career) => career.slug === slug)?.name ?? slug
   const [params, setParam] = useUrlFilters()
@@ -63,12 +66,16 @@ export default function CompaniesPage() {
           const area = pick('area', areas)
           const programs = pick('programas', programOptions)
           const province = pick('onde', provinces)
-          const visible = ofSector.filter(
-            (company) =>
-              (!career || company.careers.includes(career)) &&
-              (!area || company.areas.includes(area)) &&
-              (!programs || company.programs.length > 0) &&
-              (!province || company.province === province),
+          const visible = byInterest(
+            ofSector.filter(
+              (company) =>
+                (!career || company.careers.includes(career)) &&
+                (!area || company.areas.includes(area)) &&
+                (!programs || company.programs.length > 0) &&
+                (!province || company.province === province),
+            ),
+            (company) => groupAreas(company.areas),
+            mine,
           )
           const { page, pages, shown: onPage } = paginate(visible, Number(params.get('pagina')), PAGE_SIZE)
           const goTo = (next: number) => {

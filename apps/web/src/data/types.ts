@@ -266,6 +266,27 @@ export type Career = CareerSummary & {
   stages: CareerStage[]
   market: Market
   cvGuide: CvGuide
+  /** How people work on their own in this career in Angola; editorial and estimated (data/demo/selfEmployment.ts). */
+  selfEmployment?: SelfEmployment
+}
+
+/** The least schooling a path asks: training only (up to the II ciclo), médio técnico, or a degree. */
+export type EntryLevel = 'short' | 'technical' | 'degree'
+
+/**
+ * What the recommendation needs from each curated career, without the whole page
+ * (GET /occupations?fields=traits): its skills, work styles, the easiest way in and where it is taught.
+ */
+export type CareerTraits = {
+  slug: string
+  skills: Skill[]
+  workStyles: string[]
+  /** The path that asks the least schooling; null without paths. */
+  entry: { level: EntryLevel; pathway: string } | null
+  /** Provinces with an in-person course for it. */
+  provinces: string[]
+  /** Some course can be followed online, from anywhere. */
+  online: boolean
 }
 
 export type Institution = {
@@ -295,7 +316,13 @@ export type Curriculum = {
   source: SourceLink
 }
 
-/** A course an academy is confirmed to offer (by a decree or the news); no length or price yet. */
+/**
+ * A monthly fee an institution or the press published. 'course': this course's own fee; 'average': the institution's
+ * average across its licenciaturas (the middle of its cheapest and dearest), when no fee per course is published.
+ */
+export type PublishedFee = { monthly: number; basis: 'course' | 'average'; year: string; source: SourceLink }
+
+/** A course an academy is confirmed to offer (by a decree or the news); no length yet. */
 export type AcademyOffer = {
   course: Course
   name: string
@@ -313,6 +340,8 @@ export type AcademyOffer = {
   year?: string
   /** The approved plan of studies, when its decree is published. */
   curriculum?: Curriculum
+  /** The published fee; without one, the app estimates it (domain/fees.ts). */
+  fee?: PublishedFee
 }
 
 /** A course across the institutions that offer it (GET /courses): the catalogue the Cursos page shows. */
@@ -388,9 +417,124 @@ export type CvSection =
 
 /**
  * Known CV layouts. classico: one column, Harvard style, read without errors by hiring
- * software. moderno: two columns. europeu: labels on the left, Europass style.
+ * software. moderno: two columns. europeu: labels on the left, Europass style. retrato: photo
+ * in a light band. colunas: header, then two columns. minimalista: only type and white space.
+ * criativo: colour, shapes and photo. destaque: boxed summary and skills as chips.
  */
-export type CvTemplate = 'classico' | 'moderno' | 'europeu'
+export type CvTemplate =
+  'classico' | 'moderno' | 'europeu' | 'retrato' | 'colunas' | 'minimalista' | 'criativo' | 'destaque'
+
+/** Fonts hosted in public/fonts/cv, one TTF for the screen and the PDF. */
+export type CvFont = 'arimo' | 'inter' | 'montserrat' | 'lora' | 'merriweather'
+
+/** none, tint or solid behind section titles, or outline around whole sections. */
+export type CvBox = 'none' | 'tint' | 'solid' | 'outline'
+
+export type CvSeparator = 'none' | 'thin' | 'thick' | 'dotted'
+
+/** How one CV looks. Lengths in mm, font sizes in pt, colours as #rrggbb. */
+export type CvStyle = {
+  font: CvFont
+  marginX: number
+  marginY: number
+  nameSize: number
+  headingSize: number
+  bodySize: number
+  lineHeight: number
+  /** From a section title to its content. */
+  headingGap: number
+  /** From an entry's title to its description. */
+  entryGap: number
+  sectionGap: number
+  accent: string
+  text: string
+  muted: string
+  box: CvBox
+  separator: CvSeparator
+  /** In the templates that have a photo. */
+  photo: boolean
+}
+
+export const CV_DESTINATIONS = [
+  'company',
+  'multinational',
+  'government',
+  'ngo',
+  'startup',
+  'internship',
+] as const
+export type CvDestination = (typeof CV_DESTINATIONS)[number]
+
+/** Where the person is sending a CV, for the advice. */
+export type CvTarget = { area: MarketArea | null; career: string | null; destination: CvDestination | null }
+
+export type CvStructureAdvice = 'oneColumn' | 'twoColumns' | 'labels'
+export type CvColourAdvice = 'mono' | 'discreet' | 'strong'
+export type CvPhotoAdvice = 'yes' | 'no' | 'optional'
+export type CvLengthAdvice = 'one' | 'oneOrTwo' | 'long'
+
+export const CARD_MODELS = [
+  'claro',
+  'faixa',
+  'cheio',
+  'foto',
+  'moldura',
+  'topo',
+  'duo',
+  'minimal',
+  'arco',
+  'pontos',
+] as const
+export type CardModel = (typeof CARD_MODELS)[number]
+
+export type CardAlign = 'left' | 'center'
+
+/** How a business card looks. Font sizes in pt. */
+export type CardStyle = {
+  font: CvFont
+  accent: string
+  text: string
+  nameSize: number
+  roleSize: number
+  contactSize: number
+  align: CardAlign
+  photo: boolean
+  qr: boolean
+}
+
+/** A CV's business card. It keeps only what changed: the rest comes from the CV, which it never alters. */
+export type CvCard = {
+  model?: CardModel
+  /** `contacts` has one contact per line. */
+  details?: { name?: string; headline?: string; contacts?: string }
+  style?: Partial<CardStyle>
+}
+
+/** What a public page shows: only the fields the person ticked (docs/decisoes/0014). */
+export type PublicCard = {
+  name: string
+  accent: string
+  headline?: string
+  photo?: string
+  email?: string
+  whatsapp?: string
+  linkedin?: string
+  portfolio?: string
+}
+
+/** One of the person's CVs. `style` keeps only what they changed; the template gives the rest. */
+export type CvDocument = {
+  id: string
+  /** Empty until renamed: the screen shows "O meu CV" in the current language. */
+  title: string
+  cv: CvData
+  template: CvTemplate
+  style: Partial<CvStyle>
+  /** The model CV it started from, for its tips. */
+  basedOn: string | null
+  target?: CvTarget
+  card?: CvCard
+}
 
 /** The ideal CV for one path into a career (fictional person, docs/arquitetura.md, 5.5). */
 export type CvExample = {
@@ -467,7 +611,141 @@ export type Company = {
   sources: SourceLink[]
 }
 
-export type NewsKind = 'kaye' | 'cursos' | 'empresas'
+export type InternshipKind = 'trainee' | 'estagio_profissional' | 'estagio_curricular' | 'programa_publico'
+export type InternshipAudience = 'finalista' | 'recem_formado' | 'medio_tecnico' | 'licenciado'
+
+/** A real internship or trainee programme a young Angolan can apply to, with its public source. */
+export type Internship = {
+  id: string
+  name: string
+  provider: string
+  /** The provider's id in COMPANIES, when it is one. */
+  companyId?: string
+  kind: InternshipKind
+  /** Empty: open to any area. */
+  areas: MarketArea[]
+  /** Empty: the source names no schooling level. */
+  audience: InternshipAudience[]
+  minAge?: number
+  maxAge?: number
+  /** null: no source says. */
+  paid: boolean | null
+  durationMonths?: number
+  province?: string
+  requirements: string[]
+  /** Last day to apply (ISO), only when published for 2026/27; otherwise null. */
+  deadline: string | null
+  recurring: boolean
+  url: string
+  sources: SourceLink[]
+  checkedAt: string
+}
+
+/** null: no source says what the course gives at the end. */
+type FreeCourseCertificate = 'gratis' | 'pago' | 'nenhum' | null
+
+/** A free, good online course to start a career without paying, with what it gives at the end and its source. */
+export type FreeCourse = {
+  id: string
+  name: string
+  provider: string
+  languages: ('pt' | 'en' | 'fr')[]
+  careerSlugs: string[]
+  areas: MarketArea[]
+  /** Only when the provider publishes it. */
+  hours?: number
+  certificate: FreeCourseCertificate
+  /** What the certificate is (e.g. "badge Credly"), only with a source. */
+  credential?: string
+  /** What the certificate costs, in US dollars, before tax; only when the provider publishes one price. */
+  priceUsd?: number
+  level: 'iniciante' | 'intermedio' | 'avancado'
+  url: string
+  sources: SourceLink[]
+  checkedAt: string
+}
+
+type ScholarshipKind = 'estado' | 'empresa' | 'fundacao' | 'governo_estrangeiro' | 'universidade'
+type ScholarshipCover = 'propina' | 'subsidio' | 'viagem' | 'alojamento'
+
+/** A real scholarship a young Angolan can apply for, with its public source. */
+export type Scholarship = {
+  id: string
+  name: string
+  provider: string
+  /** The provider's id in COMPANIES, when it is one. */
+  companyId?: string
+  kind: ScholarshipKind
+  destination: 'angola' | 'exterior'
+  levels: AcademyOffer['level'][]
+  /** Empty: open to any area. */
+  areas: MarketArea[]
+  /** Only what a source says it covers. */
+  covers: ScholarshipCover[]
+  minAge?: number
+  maxAge?: number
+  requirements: string[]
+  /** Last day to apply (ISO), only when published for 2026/27; otherwise null. */
+  deadline: string | null
+  recurring: boolean
+  url: string
+  sources: SourceLink[]
+  checkedAt: string
+}
+
+/** Access to higher education in 2026/27: one institution's access exam, or the MESCTI national calendar. */
+export type Admission = {
+  id: string
+  /** null: the national calendar (MESCTI). */
+  academyId: string | null
+  /** CatalogCourse ids; omitted, every course of the institution. */
+  courseIds?: string[]
+  year: '2026/27'
+  /** ISO dates; null when no source gives them. */
+  registration: { start: string | null; end: string | null }
+  /** ISO dates, one per exam day. */
+  examDates: string[]
+  /** The subjects of the exam; empty when no source gives them. */
+  subjects: string[]
+  vacancies?: number
+  /** 0–20, the grade of the last candidate admitted, only with a source. */
+  minGrade?: { value: number; year: string }
+  /** Registration fee in kwanzas (one option). */
+  fee?: number
+  requirements: string[]
+  url: string
+  sources: SourceLink[]
+  checkedAt: string
+}
+
+export const NEWS_KINDS = ['kaye', 'eventos', 'cursos', 'empresas', 'analise'] as const
+export type NewsKind = (typeof NEWS_KINDS)[number]
+
+/** The topics the person follows on Novidades: shown first there and sent to Notificações. */
+export type Subscriptions = { areas: MarketArea[]; kinds: NewsKind[] }
+
+const EVENT_FORMATS = ['conferencia', 'palestra', 'networking', 'workshop', 'feira', 'hackathon'] as const
+type EventFormat = (typeof EVENT_FORMATS)[number]
+
+/** A talk, conference, networking or fair open to the public (Novidades, "Eventos"). */
+export type NewsEvent = {
+  /** First and last day, "2026-11-14"; `ends` only when it lasts more than one day. */
+  starts: string
+  ends?: string
+  /** "09h00", "08h00–15h00", as the organiser publishes it. */
+  time?: string
+  venue: string
+  city: string
+  formats: EventFormat[]
+  /** Whether it costs anything to get in, and the cheapest ticket as published. */
+  free: boolean
+  price?: string
+  organizer?: string
+  /** Where to sign up or buy the ticket. */
+  register?: SourceLink
+  /** Something on the date or the details is not confirmed by the organiser. */
+  unconfirmed?: boolean
+}
 
 /** Novidades: what changed in Kayé, and what institutions and companies did. */
 export type NewsItem = {
@@ -477,6 +755,10 @@ export type NewsItem = {
   kind: NewsKind
   title: string
   summary: string
+  /** Paragraphs shown when the piece is opened, on Novidades. */
+  body?: string[]
+  /** Illustrative: never a portrait of the people in the piece. */
+  image?: Photo
   /** The page of the app it is about. */
   to?: string
   /** Where a fact about an institution or a company was published. */
@@ -485,6 +767,23 @@ export type NewsItem = {
   example?: boolean
   /** The careers it is about: "Para ti" when one of them is saved or the destination. */
   careers?: string[]
+  /** For "eventos": when, where and how to get in. */
+  event?: NewsEvent
+}
+
+/** Figuras da semana: a real person worth following, with a role confirmed in a public source. */
+export type Figure = {
+  id: string
+  name: string
+  role: string
+  /** One sentence: why they inspire. */
+  why: string
+  careers: string[]
+  /** Their own verified public profile. */
+  follow: { label: string; url: string }
+  source: SourceLink
+  /** Only with a free licence; without one, the app shows the initials. */
+  photo?: string
 }
 
 /** The areas of the Mercado overview, shared by job posts and graduates (scrapers/areas.py). */
@@ -569,15 +868,69 @@ export type EducationStats = {
   /** The academic year of the numbers: "2023/24". */
   year: string
   total: number
-  /** Candidates, first-year students and all students of the same academic year (Quadro 1.2). */
-  access: { candidates: number; firstTime: number; enrolled: number }
+  /** Candidates, first-year students and all students of the same academic year (Quadro 1.2), and the places
+   * offered, public and private (Quadro 1.3). */
+  access: { candidates: number; firstTime: number; enrolled: number; places: number }
   source: SourceLink
   /** Graduates of the year and students now ("enrolled"): the graduates of the coming years. */
   areas: {
     area: MarketArea
     graduates: number
     enrolled: number
+    /** Candidates to its courses and those admitted (Quadro 4.4): the yearbook has no places per course. */
+    candidates: number
+    admitted: number
     courses: { name: string; graduates: number; enrolled: number }[]
   }[]
+  /** Graduates per province, public and private (Quadros 2.8 and 2.9). */
+  provinces: { province: string; graduates: number }[]
   series: { year: string; graduates: number; source: SourceLink }[]
+}
+
+/** "Como cheguei aqui": a professional's path into a career, in a few sentences, and one tip. */
+export type Testimonial = {
+  id: string
+  careerSlug: string
+  /** Only as published, and then `source` says where; examples have none. */
+  name?: string
+  role: string
+  place?: string
+  years?: number
+  /** 2–4 sentences, at most 350 characters. */
+  path: string
+  /** At most 140 characters. */
+  tip: string
+  companyId?: string
+  /** Made up for the demonstration, coherent with the career's guide: never a real person. */
+  example?: true
+} & ({ name: string; source: SourceLink } | { name?: undefined; source?: SourceLink })
+
+type SupportProgramKind = 'credito' | 'kit' | 'formacao' | 'registo' | 'incubadora'
+
+/** A real public or partner programme that helps someone start on their own, with its source (2025–2026). */
+export type SupportProgram = {
+  id: string
+  name: string
+  provider: string
+  kind: SupportProgramKind
+  /** Who it is for, in a few words. */
+  audience: string
+  minAge?: number
+  url: string
+  sources: SourceLink[]
+  checkedAt: string
+}
+
+/** Working on one's own in a career: plausible editorial content, always estimated (see data-to-collect-later). */
+export type SelfEmployment = {
+  fit: 'comum' | 'possivel' | 'raro'
+  /** How people do it in Angola (≤ 300 characters). */
+  how: string
+  /** What it costs to start, in Kz. */
+  startCost?: { min: number; max: number; estimated: true }
+  firstSteps: string[]
+  formalise: string[]
+  /** Ids in SUPPORT_PROGRAMS. */
+  programIds: string[]
+  estimated: true
 }

@@ -260,7 +260,7 @@ describe('Model CVs', () => {
     expect(within(popup).getAllByRole('figure')).toHaveLength(2)
 
     await userEvent.click(within(popup).getByRole('button', { name: 'Começar a partir deste modelo' }))
-    expect(getUser().cvBasedOn).toBe('frontend-autodidata')
+    expect(getUser().cvs[0]?.basedOn).toBe('frontend-autodidata')
     expect(screen.getByTestId('location')).toHaveTextContent('/cv/editar')
   })
 })

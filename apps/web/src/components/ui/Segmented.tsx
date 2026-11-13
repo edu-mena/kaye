@@ -21,7 +21,7 @@ export function Segmented<T extends string>({
 }: SegmentedProps<T>) {
   return (
     <fieldset
-      className={`-mx-3 no-scrollbar flex gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
+      className={`-mx-3 no-scrollbar flex min-w-0 gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
     >
       <legend className="sr-only">{label}</legend>
       {options.map((option) => {

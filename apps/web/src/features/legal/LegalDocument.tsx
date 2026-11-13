@@ -23,7 +23,7 @@ type LegalText = {
 export type LegalDoc = Record<Locale, LegalText>
 
 /** Date of the texts in force; the consents will record it (docs/arquitetura.md, `consents`). */
-const LEGAL_VERSION = '2026-10-27'
+const LEGAL_VERSION = '2026-11-12'
 const CONTACT_EMAIL = 'ola@kaye.ao'
 
 const PATHS = { terms: '/termos', privacy: '/privacidade' } as const

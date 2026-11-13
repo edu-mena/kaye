@@ -16,7 +16,7 @@ import { Rows, Soon } from '../../components/ui/Rows'
 import { useCareers, usePrograms } from '../../data/queries'
 import type { Institution } from '../../data/types'
 import { achievements, totalXp } from '../../domain/achievements'
-import { cvCompleteness } from '../../domain/cv'
+import { bestCvCompleteness } from '../../domain/cv'
 import { isMinor } from '../../domain/education'
 import { rankDimensions, riasecCode } from '../../domain/riasec'
 import { scorePrograms } from '../../domain/ranking'
@@ -517,8 +517,7 @@ const DOCUMENTS = ['certificado', 'notas', 'identificacao', 'formacoes', 'recome
 /** The CV, and the school documents that will be uploaded once there is a secure account. */
 export function Documents() {
   const { t } = useTranslation()
-  const { cv } = useUser()
-  const complete = cvCompleteness(cv)
+  const complete = bestCvCompleteness(useUser().cvs)
 
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">

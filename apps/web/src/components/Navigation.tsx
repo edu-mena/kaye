@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, NavLink, useMatch } from 'react-router'
+import { Link, NavLink, useLocation, useMatch } from 'react-router'
 import logo from '../assets/kaye-logo.png'
 import { useHideOnScroll } from '../lib/useHideOnScroll'
 import { useUnseenNotifications } from '../state/notifications'
@@ -12,13 +12,11 @@ type NavKey =
   | 'home'
   | 'search'
   | 'careers'
-  | 'psychotech'
-  | 'interviews'
+  | 'tests'
   | 'courses'
   | 'kursos'
   | 'academies'
-  | 'scholarships'
-  | 'internships'
+  | 'opportunities'
   | 'deadlines'
   | 'companies'
   | 'market'
@@ -37,19 +35,24 @@ type NavItem = {
   quiet?: boolean
   /** On large screens the tutorial points at the sidebar link (components/Tour.tsx). */
   tour?: string
+  /** Other addresses that belong to this item: the tests it gathers, for example. */
+  also?: string[]
 }
 type NavGroup = { key: 'groupExplore' | 'groupYou' | 'groupHelp'; items: NavItem[] }
 
 const HOME: NavItem = { to: '/', key: 'home', icon: 'home' }
 const SEARCH: NavItem = { to: '/pesquisa', key: 'search', icon: 'search' }
 const CAREERS: NavItem = { to: '/carreiras', key: 'careers', icon: 'compass' }
-const PSYCHOTECH: NavItem = { to: '/treino', key: 'psychotech', icon: 'brain', tour: 'psychotech' }
-const INTERVIEWS: NavItem = { to: '/entrevistas', key: 'interviews', icon: 'message', tour: 'interviews' }
+const TESTS: NavItem = {
+  to: '/testes',
+  key: 'tests',
+  icon: 'brain',
+  also: ['/teste', '/treino', '/entrevistas'],
+}
 const COURSES: NavItem = { to: '/cursos', key: 'courses', icon: 'cap' }
 const KURSOS: NavItem = { to: '/kursos', key: 'kursos', icon: 'book' }
 const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark' }
-const SCHOLARSHIPS: NavItem = { to: '/bolsas', key: 'scholarships', icon: 'award' }
-const INTERNSHIPS: NavItem = { to: '/estagios', key: 'internships', icon: 'briefcase', tour: 'internships' }
+const OPPORTUNITIES: NavItem = { to: '/oportunidades', key: 'opportunities', icon: 'award' }
 const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar', tour: 'deadlines' }
 const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
@@ -69,13 +72,11 @@ const SIDEBAR: NavGroup[] = [
       HOME,
       SEARCH,
       CAREERS,
-      PSYCHOTECH,
-      INTERVIEWS,
+      TESTS,
       COURSES,
       KURSOS,
       ACADEMIES,
-      SCHOLARSHIPS,
-      INTERNSHIPS,
+      OPPORTUNITIES,
       DEADLINES,
       COMPANIES,
       MARKET,
@@ -89,18 +90,7 @@ const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
 const MENU: NavGroup[] = [
   {
     key: 'groupExplore',
-    items: [
-      PSYCHOTECH,
-      INTERVIEWS,
-      KURSOS,
-      ACADEMIES,
-      SCHOLARSHIPS,
-      INTERNSHIPS,
-      DEADLINES,
-      COMPANIES,
-      MARKET,
-      NEWS,
-    ],
+    items: [TESTS, KURSOS, ACADEMIES, OPPORTUNITIES, DEADLINES, COMPANIES, MARKET, NEWS],
   },
   { key: 'groupYou', items: [NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },
@@ -114,6 +104,8 @@ type DarkLinkProps = { item: NavItem; iconOnly?: boolean; onNavigate?: () => voi
 function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
   const { t } = useTranslation()
   const label = t(`nav.${item.key}`)
+  const { pathname } = useLocation()
+  const alsoActive = (item.also ?? []).some((path) => pathname === path || pathname.startsWith(`${path}/`))
   return (
     <NavLink
       to={item.to}
@@ -123,7 +115,7 @@ function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
       onClick={onNavigate}
       className={({ isActive }) =>
         `flex items-center gap-3 rounded-2xl py-2.5 text-sm font-light transition-colors ${iconOnly ? 'justify-center' : 'px-3'} ${
-          isActive ? 'bg-white/15 font-normal text-white' : 'text-white hover:bg-white/5'
+          isActive || alsoActive ? 'bg-white/15 font-normal text-white' : 'text-white hover:bg-white/5'
         }`
       }
     >

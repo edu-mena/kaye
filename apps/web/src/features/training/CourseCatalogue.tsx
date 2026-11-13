@@ -10,7 +10,9 @@ import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { MARKET_AREAS, type CareerSummary, type CatalogCourse } from '../../data/types'
 import { filterCourses, OFFER_LEVELS } from '../../domain/courses'
+import { byInterest } from '../../domain/interests'
 import { paginate } from '../../lib/pagination'
+import { useInterestAreas } from '../../lib/useInterestAreas'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { coursePath } from './coursePath'
 
@@ -33,17 +35,23 @@ export function CourseCatalogue({ courses, careers, career, careerOptions, onCar
   const [params, setParam] = useUrlFilters()
   const [search, setSearch] = useUrlText('q')
   const list = useRef<HTMLElement>(null)
+  const mine = useInterestAreas()
   const area = MARKET_AREAS.find((value) => value === params.get('area')) ?? null
   const level = OFFER_LEVELS.find((value) => value === params.get('grau')) ?? null
   const areas = MARKET_AREAS.filter((value) => courses.some((course) => course.areas.includes(value)))
   const levels = OFFER_LEVELS.filter((value) => courses.some((course) => course.levels.includes(value)))
-  const results = filterCourses(courses, { query: search, area, level, career })
+  // In "todas as áreas", the person's areas first (health has the most courses and would fill the top).
+  const results = byInterest(
+    filterCourses(courses, { query: search, area, level, career }),
+    (course) => course.areas,
+    mine,
+  )
   const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
   // A new area, level or search starts again on the first page.
   const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
 
   return (
-    <section ref={list} aria-labelledby="catalogue" className="scroll-mt-24">
+    <section ref={list} data-tour="courses" aria-labelledby="catalogue" className="scroll-mt-24">
       <SectionHeading id="catalogue" title={t('training.catalogueTitle')} icon="compass" />
       <AreaPicker
         label={t('training.catalogueTitle')}
@@ -51,6 +59,7 @@ export function CourseCatalogue({ courses, careers, career, careerOptions, onCar
         options={areas.map((value) => ({ value, label: t(`market.area_${value}`) }))}
         value={area}
         onChange={(value) => setFilter('area', value)}
+        mine={mine}
         className="mb-4"
       />
       <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end">

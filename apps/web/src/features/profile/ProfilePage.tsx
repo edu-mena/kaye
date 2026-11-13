@@ -8,7 +8,7 @@ import { Chip } from '../../components/ui/Chip'
 import { ProgressBar } from '../../components/ui/ProgressBar'
 import { TabPanel, Tabs } from '../../components/ui/Tabs'
 import { achievements, totalXp } from '../../domain/achievements'
-import { cvCompleteness } from '../../domain/cv'
+import { bestCvCompleteness } from '../../domain/cv'
 import { ageIn, isMinor } from '../../domain/education'
 import { pathSteps } from '../../domain/path'
 import { checkImage } from '../../lib/encodeImage'
@@ -115,7 +115,7 @@ function Hero() {
   }
 
   const xp = totalXp(achievements(user))
-  const cv = Math.round(cvCompleteness(user.cv) * 100)
+  const cv = Math.round(bestCvCompleteness(user.cvs) * 100)
   // A picked picture is checked, then placed in the cropper before anything is saved.
   const pick = (file: File, kind: 'photo' | 'cover') => {
     const check = checkImage(file)

@@ -1,68 +1,83 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Icon } from '../../components/icons'
+import { useNavigate } from 'react-router'
 import { QueryState } from '../../components/QueryState'
-import { ButtonLink } from '../../components/ui/Button'
-import { Card } from '../../components/ui/Card'
-import { PageHeader, SectionHeading } from '../../components/ui/PageHeader'
-import { ProgressBar } from '../../components/ui/ProgressBar'
+import { SectionHeading } from '../../components/ui/PageHeader'
+import { Segmented } from '../../components/ui/Segmented'
 import { useCareers, useCvExamples } from '../../data/queries'
-import { cvCompleteness } from '../../domain/cv'
-import { formatPercent } from '../../domain/format'
-import { useUser } from '../../state/userStore'
+import {
+  GROUP_AREAS,
+  MARKET_AREAS,
+  type CareerSummary,
+  type CvExample,
+  type MarketArea,
+} from '../../data/types'
+import { userActions, useUser } from '../../state/userStore'
+import { CvCards } from './CvCards'
+import { CvGallery } from './CvGallery'
+import { CvHero } from './CvHero'
 import { ModelCvGrid } from './ModelCvGrid'
 
+/** The CV studio: the CV in progress on top, every CV as a gallery, the cards, then model CVs. */
 export default function CvPage() {
-  const { t } = useTranslation()
-  const { cv } = useUser()
+  const navigate = useNavigate()
+  const { cvs, activeCvId } = useUser()
   const examples = useCvExamples()
   const { data: careers = [] } = useCareers()
-  const completeness = cvCompleteness(cv)
-  const started = completeness > 0
+  const current = cvs.find((document) => document.id === activeCvId) ?? cvs[0] ?? null
+
+  const create = () => {
+    userActions.createCv()
+    void navigate('/cv/editar')
+  }
+  const edit = (id: string) => {
+    userActions.openCv(id)
+    void navigate('/cv/editar')
+  }
 
   return (
     <div>
-      <PageHeader title={t('cv.title')} subtitle={t('cv.body')} />
-
-      <Card tone="coal" className="mb-10 flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:p-8">
-        <span className="grid size-12 shrink-0 place-items-center rounded-full bg-white/10 text-white">
-          <Icon name="document" className="size-6" />
-        </span>
-        <div className="flex-1">
-          <h2 className="text-2xl font-extrabold">{t('cv.mine')}</h2>
-          {started ? (
-            <>
-              <p className="mt-2 text-sm font-light text-white/80">
-                {t('cv.completeness', { value: formatPercent(completeness) })}
-              </p>
-              <ProgressBar
-                value={completeness}
-                label={t('cv.mine')}
-                tone="white"
-                track="bg-white/15"
-                className="mt-2"
-              />
-            </>
-          ) : (
-            <p className="mt-2 text-sm font-light text-white/80">{t('cv.mineEmpty')}</p>
-          )}
-        </div>
-        <ButtonLink to="/cv/editar" variant="onDark">
-          {started ? t('cv.edit') : t('cv.start')}
-        </ButtonLink>
-      </Card>
-
-      <section aria-labelledby="examples">
-        <SectionHeading id="examples" title={t('cv.examples')} icon="document" />
-        <p className="mb-6 text-sm font-light text-copy">{t('cv.examplesBody')}</p>
-        <QueryState query={examples}>
-          {(list) => (
-            <ModelCvGrid
-              examples={list}
-              name={(example) => careers.find((career) => career.slug === example.careerSlug)?.name ?? ''}
-            />
-          )}
-        </QueryState>
-      </section>
+      <CvHero current={current} examples={examples.data ?? []} onCreate={create} onEdit={edit} />
+      {cvs.length > 0 && (
+        <>
+          <CvGallery cvs={cvs} onCreate={create} onEdit={edit} />
+          <CvCards cvs={cvs} />
+        </>
+      )}
+      <QueryState query={examples}>{(list) => <Examples examples={list} careers={careers} />}</QueryState>
     </div>
+  )
+}
+
+type ExamplesProps = { examples: CvExample[]; careers: CareerSummary[] }
+
+/** Model CVs, with chips for the areas they cover. */
+function Examples({ examples, careers }: ExamplesProps) {
+  const { t } = useTranslation()
+  const [area, setArea] = useState<MarketArea | null>(null)
+  const career = (example: CvExample) => careers.find((item) => item.slug === example.careerSlug)
+  const areaOf = (example: CvExample) => {
+    const found = career(example)
+    return found ? GROUP_AREAS[found.group] : null
+  }
+  const areas = MARKET_AREAS.filter((value) => examples.some((example) => areaOf(example) === value))
+  const shown = area ? examples.filter((example) => areaOf(example) === area) : examples
+
+  return (
+    <section aria-labelledby="examples">
+      <SectionHeading id="examples" title={t('cv.examplesTitle')} icon="eye" />
+      <p className="-mt-3 mb-5 text-sm font-light text-copy">{t('cv.examplesBody')}</p>
+      {areas.length > 1 && (
+        <Segmented
+          label={t('cv.examplesArea')}
+          options={areas.map((value) => ({ value, label: t(`market.area_${value}`) }))}
+          value={area}
+          onChange={setArea}
+          clearable
+          className="mb-5"
+        />
+      )}
+      <ModelCvGrid examples={shown} name={(example) => career(example)?.name ?? ''} />
+    </section>
   )
 }

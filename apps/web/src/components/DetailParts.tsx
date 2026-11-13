@@ -107,20 +107,6 @@ export function SoonBlock({
   )
 }
 
-/** The facts as label and value, two or three to a row. */
-export function FactList({ facts }: { facts: { label: string; value: ReactNode }[] }) {
-  return (
-    <dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-      {facts.map((fact) => (
-        <div key={fact.label}>
-          <dt className="text-xs font-light text-muted">{fact.label}</dt>
-          <dd className="mt-0.5 text-sm font-normal text-night">{fact.value}</dd>
-        </div>
-      ))}
-    </dl>
-  )
-}
-
 export function SourcesBlock({ sources }: { sources: SourceLink[] }) {
   const { t } = useTranslation()
   return (

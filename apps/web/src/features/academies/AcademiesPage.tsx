@@ -9,6 +9,8 @@ import { FilterBar } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { useAcademies } from '../../data/queries'
+import { byInterest, groupAreas } from '../../domain/interests'
+import { useInterestAreas } from '../../lib/useInterestAreas'
 import type { Academy, AcademyOffer, CareerGroup, Institution } from '../../data/types'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
@@ -62,6 +64,7 @@ function offersMatch(academy: Academy, { course, area, level, faculty }: OfferFi
 export default function AcademiesPage() {
   const { t } = useTranslation()
   const academiesQuery = useAcademies()
+  const mine = useInterestAreas()
   const [params, setParam] = useUrlFilters()
   /** A filter from the URL, only when it is one of the options: unknown values are ignored. */
   const pick = <T extends string>(key: string, values: readonly T[]) =>
@@ -98,11 +101,15 @@ export default function AcademiesPage() {
           const level = pick('nivel', levels)
           const faculty = pick('faculdade', faculties)
           const province = pick('onde', provinces)
-          const visible = ofType.filter(
-            (academy) =>
-              offersMatch(academy, { course, area, level, faculty }) &&
-              (!province || academy.province === province) &&
-              (!ownership || academy.ownership === ownership),
+          const visible = byInterest(
+            ofType.filter(
+              (academy) =>
+                offersMatch(academy, { course, area, level, faculty }) &&
+                (!province || academy.province === province) &&
+                (!ownership || academy.ownership === ownership),
+            ),
+            (academy) => groupAreas(academy.offers.flatMap((offer) => offer.areas)),
+            mine,
           )
           const courseName = courses.find((option) => option.value === course)?.label
           const { page, pages, shown: onPage } = paginate(visible, Number(params.get('pagina')), PAGE_SIZE)

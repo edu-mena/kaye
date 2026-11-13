@@ -29,6 +29,7 @@ export const PRIVACY: LegalDoc = {
           'O Kayé está em demonstração e ainda não tem contas. O perfil, as respostas ao teste, as competências que marcas, as carreiras que guardas, os cursos que comparas, as pesquisas recentes, o CV, as fotos e o teu percurso na app ficam guardados apenas no armazenamento do navegador (ou da app) deste aparelho. Não são enviados para os nossos servidores.',
           'A app só contacta o nosso servidor para saber se ele está ligado, e esse pedido não leva os teus dados. Como em qualquer site, o servidor vê o endereço de internet (IP) do aparelho para lhe poder responder. Os nossos registos técnicos não guardam nomes nem e-mails e são apagados ao fim de 14 dias.',
           'Se limpares os dados do navegador ou mudares de aparelho, o teu progresso não te acompanha.',
+          'Lista de espera e críticas: o email ou WhatsApp que deixas ao entrar no Kayé (ou na lista de espera da página inicial) para seres avisado do lançamento, e as críticas que nos envias, ficam guardados numa base de dados do nosso alojamento de teste (Upstash, fora de Angola), só a equipa do Kayé lê e só serve para isso. Para seres retirado da lista, escreve para {email}.',
         ],
       },
       {
@@ -139,6 +140,7 @@ export const PRIVACY: LegalDoc = {
           'Kayé is in demo mode and has no accounts yet. Your profile, test answers, the skills you mark, saved careers, the courses you compare, recent searches, your CV, photos and your history in the app are stored only in this device’s browser (or app) storage. They are not sent to our servers.',
           'The app only contacts our server to check that it is up, and that request carries none of your data. As with any website, the server sees the device’s internet address (IP) so it can reply. Our technical logs do not store names or emails and are deleted after 14 days.',
           'If you clear your browser data or switch devices, your progress does not come with you.',
+          'Waiting list and critiques: the email or WhatsApp you leave when you join Kayé (or on the home page waiting list) to hear about the launch, and the critiques you send us, are kept in a database at our test host (Upstash, outside Angola), read only by the Kayé team and used only for that. To be removed from the list, write to {email}.',
         ],
       },
       {
@@ -249,6 +251,7 @@ export const PRIVACY: LegalDoc = {
           'Kayé est en démonstration et n’a pas encore de comptes. Ton profil, tes réponses au test, les compétences que tu coches, les métiers que tu enregistres, les formations que tu compares, tes recherches récentes, ton CV, tes photos et ton parcours dans l’application sont stockés uniquement dans le stockage du navigateur (ou de l’application) de cet appareil. Ils ne sont pas envoyés à nos serveurs.',
           'L’application contacte notre serveur seulement pour vérifier qu’il fonctionne, et cette demande ne contient aucune de tes données. Comme pour tout site, le serveur voit l’adresse internet (IP) de l’appareil pour pouvoir lui répondre. Nos journaux techniques ne conservent ni noms ni e-mails et sont effacés au bout de 14 jours.',
           'Si tu effaces les données du navigateur ou changes d’appareil, ta progression ne te suit pas.',
+          'Liste d’attente et critiques : l’e-mail ou le WhatsApp que tu laisses en entrant sur Kayé (ou sur la liste d’attente de la page d’accueil) pour être prévenu du lancement, et les critiques que tu nous envoies, sont gardés dans une base de données chez notre hébergeur de test (Upstash, hors d’Angola), lu uniquement par l’équipe Kayé et utilisé seulement pour cela. Pour être retiré de la liste, écris à {email}.',
         ],
       },
       {

@@ -1,6 +1,7 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { CvSection } from '../../data/types'
-import type { CvLabels } from './cvPdf'
+import type { CvLabels } from './cvLayout'
 
 const SECTIONS: CvSection[] = [
   'summary',
@@ -13,8 +14,11 @@ const SECTIONS: CvSection[] = [
   'links',
 ]
 
-/** The section names in the current language, for the PDF (which has no React). */
+/** The section names in the current language, for the layout (which has no React). */
 export function useCvLabels(): CvLabels {
   const { t } = useTranslation()
-  return Object.fromEntries(SECTIONS.map((section) => [section, t(`cv.${section}`)])) as CvLabels
+  return useMemo(
+    () => Object.fromEntries(SECTIONS.map((section) => [section, t(`cv.${section}`)])) as CvLabels,
+    [t],
+  )
 }

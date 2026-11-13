@@ -31,6 +31,7 @@ import { interestLevel } from '../../domain/fit'
 import { formatKz } from '../../domain/format'
 import { compatibility } from '../../domain/riasec'
 import { paginate } from '../../lib/pagination'
+import { useInterestAreas } from '../../lib/useInterestAreas'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 
@@ -280,7 +281,11 @@ type AreasProps = {
 function Areas({ careers, selected, onSelect, search, onSearch }: AreasProps) {
   const { t } = useTranslation()
   const areas = MARKET_AREAS.filter((area) => careers.some((career) => GROUP_AREAS[career.group] === area))
-  const [shown, setShown] = useState<MarketArea | null>(selected ? GROUP_AREAS[selected] : (areas[0] ?? null))
+  const mine = useInterestAreas().filter((area) => areas.includes(area))
+  // Without ?area=, the person's first area (or, before onboarding, the first one).
+  const [shown, setShown] = useState<MarketArea | null>(
+    selected ? GROUP_AREAS[selected] : (mine[0] ?? areas[0] ?? null),
+  )
   // A group chosen elsewhere (the list's filter) brings its area into view.
   const [seen, setSeen] = useState(selected)
   if (selected !== seen) {
@@ -311,6 +316,7 @@ function Areas({ careers, selected, onSelect, search, onSearch }: AreasProps) {
           options={options}
           value={shown}
           onChange={setShown}
+          mine={mine}
           className="sm:w-64"
         />
         <label className="relative block sm:w-64">

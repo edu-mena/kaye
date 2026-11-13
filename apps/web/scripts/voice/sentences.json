@@ -1,0 +1,1602 @@
+[
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "8e83ede4.mp3",
+    "text": "Como queres que eu soe? Aumenta o volume se não me ouvires."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "cbcf1da5.mp3",
+    "text": "Em que fase estás? Assim adapto as perguntas a ti."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "2d4ff666.mp3",
+    "text": "O que te traz ao Kayé? Escolhe o mais importante. O resto continua aqui para depois."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "3df1e67d.mp3",
+    "text": "Já estudámos o mercado por ti. Estas são as profissões, os cursos, as academias e as empresas de Angola que já conhecemos. Nenhuma recomendação é paga."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "8f785425.mp3",
+    "text": "Que áreas te chamam a atenção? Escolhe até 3. Faço-te no máximo 3 perguntas sobre cada uma."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "a7d6d405.mp3",
+    "text": "O que gostas mais de fazer? Escolhe até 2 e eu sugiro as áreas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "ad06aa1b.mp3",
+    "text": "Agora, um pouco sobre ti. Só para te tratar pelo nome."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "de455129.mp3",
+    "text": "Prazer em conhecer-te! Só mais dois dados. Pedimos o ano, nunca a data completa, e a província, nunca a morada."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "94066b4b.mp3",
+    "text": "Até onde já estudaste? É daqui que parte o teu caminho."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "9532a516.mp3",
+    "text": "A preparar o teu caminho… Estou a juntar tudo o que me disseste."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "90f6f221.mp3",
+    "text": "O teu plano está pronto. Cria a tua conta grátis para o veres. O Kayé é gratuito."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "7ceb5519.mp3",
+    "text": "Tecnologia e telecomunicações: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "df6d1d7.mp3",
+    "text": "Que experiência tens em Tecnologia e telecomunicações? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "cebe8959.mp3",
+    "text": "Verias-te a trabalhar nisto?"
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "615fc706.mp3",
+    "text": "É este o caminho que procuras?"
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "5e30c363.mp3",
+    "text": "Gostavas de chegar aqui?"
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "2269ffc0.mp3",
+    "text": "Engenharia e construção: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "4b21c886.mp3",
+    "text": "Que experiência tens em Engenharia e construção? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "25dcb7a4.mp3",
+    "text": "Petróleo, gás e minas: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "ef5f996.mp3",
+    "text": "Que experiência tens em Petróleo, gás e minas? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "1541e7d3.mp3",
+    "text": "Saúde: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "19b29b1.mp3",
+    "text": "Que experiência tens em Saúde? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "b61ce69b.mp3",
+    "text": "Educação: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "db48ae67.mp3",
+    "text": "Que experiência tens em Educação? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "1bdad124.mp3",
+    "text": "Gestão, finanças e comércio: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "ab53e522.mp3",
+    "text": "Que experiência tens em Gestão, finanças e comércio? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "2fa97f58.mp3",
+    "text": "Direito: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "2dc4a77a.mp3",
+    "text": "Que experiência tens em Direito? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "706b5cb2.mp3",
+    "text": "Administração pública e segurança: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "928a7aa4.mp3",
+    "text": "Que experiência tens em Administração pública e segurança? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "657fa73e.mp3",
+    "text": "Comunicação e artes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "69c596dc.mp3",
+    "text": "Que experiência tens em Comunicação e artes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "ff5140fd.mp3",
+    "text": "Agricultura e ambiente: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "f55139a1.mp3",
+    "text": "Que experiência tens em Agricultura e ambiente? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "85e2a89.mp3",
+    "text": "Turismo e hotelaria: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "3a0559b.mp3",
+    "text": "Que experiência tens em Turismo e hotelaria? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "15b01bbd.mp3",
+    "text": "Logística e transportes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "7497e4bf.mp3",
+    "text": "Que experiência tens em Logística e transportes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "88935e94.mp3",
+    "text": "Ciências e humanidades: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-RaquelNeural",
+    "file": "f9dfb058.mp3",
+    "text": "Que experiência tens em Ciências e humanidades? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "8e83ede4.mp3",
+    "text": "Como queres que eu soe? Aumenta o volume se não me ouvires."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "cbcf1da5.mp3",
+    "text": "Em que fase estás? Assim adapto as perguntas a ti."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "2d4ff666.mp3",
+    "text": "O que te traz ao Kayé? Escolhe o mais importante. O resto continua aqui para depois."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "3df1e67d.mp3",
+    "text": "Já estudámos o mercado por ti. Estas são as profissões, os cursos, as academias e as empresas de Angola que já conhecemos. Nenhuma recomendação é paga."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "8f785425.mp3",
+    "text": "Que áreas te chamam a atenção? Escolhe até 3. Faço-te no máximo 3 perguntas sobre cada uma."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "a7d6d405.mp3",
+    "text": "O que gostas mais de fazer? Escolhe até 2 e eu sugiro as áreas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "ad06aa1b.mp3",
+    "text": "Agora, um pouco sobre ti. Só para te tratar pelo nome."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "de455129.mp3",
+    "text": "Prazer em conhecer-te! Só mais dois dados. Pedimos o ano, nunca a data completa, e a província, nunca a morada."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "94066b4b.mp3",
+    "text": "Até onde já estudaste? É daqui que parte o teu caminho."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "9532a516.mp3",
+    "text": "A preparar o teu caminho… Estou a juntar tudo o que me disseste."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "90f6f221.mp3",
+    "text": "O teu plano está pronto. Cria a tua conta grátis para o veres. O Kayé é gratuito."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "7ceb5519.mp3",
+    "text": "Tecnologia e telecomunicações: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "df6d1d7.mp3",
+    "text": "Que experiência tens em Tecnologia e telecomunicações? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "cebe8959.mp3",
+    "text": "Verias-te a trabalhar nisto?"
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "615fc706.mp3",
+    "text": "É este o caminho que procuras?"
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "5e30c363.mp3",
+    "text": "Gostavas de chegar aqui?"
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "2269ffc0.mp3",
+    "text": "Engenharia e construção: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "4b21c886.mp3",
+    "text": "Que experiência tens em Engenharia e construção? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "25dcb7a4.mp3",
+    "text": "Petróleo, gás e minas: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "ef5f996.mp3",
+    "text": "Que experiência tens em Petróleo, gás e minas? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "1541e7d3.mp3",
+    "text": "Saúde: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "19b29b1.mp3",
+    "text": "Que experiência tens em Saúde? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "b61ce69b.mp3",
+    "text": "Educação: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "db48ae67.mp3",
+    "text": "Que experiência tens em Educação? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "1bdad124.mp3",
+    "text": "Gestão, finanças e comércio: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "ab53e522.mp3",
+    "text": "Que experiência tens em Gestão, finanças e comércio? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "2fa97f58.mp3",
+    "text": "Direito: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "2dc4a77a.mp3",
+    "text": "Que experiência tens em Direito? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "706b5cb2.mp3",
+    "text": "Administração pública e segurança: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "928a7aa4.mp3",
+    "text": "Que experiência tens em Administração pública e segurança? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "657fa73e.mp3",
+    "text": "Comunicação e artes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "69c596dc.mp3",
+    "text": "Que experiência tens em Comunicação e artes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "ff5140fd.mp3",
+    "text": "Agricultura e ambiente: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "f55139a1.mp3",
+    "text": "Que experiência tens em Agricultura e ambiente? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "85e2a89.mp3",
+    "text": "Turismo e hotelaria: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "3a0559b.mp3",
+    "text": "Que experiência tens em Turismo e hotelaria? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "15b01bbd.mp3",
+    "text": "Logística e transportes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "7497e4bf.mp3",
+    "text": "Que experiência tens em Logística e transportes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "88935e94.mp3",
+    "text": "Ciências e humanidades: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-PT-DuarteNeural",
+    "file": "f9dfb058.mp3",
+    "text": "Que experiência tens em Ciências e humanidades? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "8e83ede4.mp3",
+    "text": "Como queres que eu soe? Aumenta o volume se não me ouvires."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "cbcf1da5.mp3",
+    "text": "Em que fase estás? Assim adapto as perguntas a ti."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "2d4ff666.mp3",
+    "text": "O que te traz ao Kayé? Escolhe o mais importante. O resto continua aqui para depois."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "3df1e67d.mp3",
+    "text": "Já estudámos o mercado por ti. Estas são as profissões, os cursos, as academias e as empresas de Angola que já conhecemos. Nenhuma recomendação é paga."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "8f785425.mp3",
+    "text": "Que áreas te chamam a atenção? Escolhe até 3. Faço-te no máximo 3 perguntas sobre cada uma."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "a7d6d405.mp3",
+    "text": "O que gostas mais de fazer? Escolhe até 2 e eu sugiro as áreas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "ad06aa1b.mp3",
+    "text": "Agora, um pouco sobre ti. Só para te tratar pelo nome."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "de455129.mp3",
+    "text": "Prazer em conhecer-te! Só mais dois dados. Pedimos o ano, nunca a data completa, e a província, nunca a morada."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "94066b4b.mp3",
+    "text": "Até onde já estudaste? É daqui que parte o teu caminho."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "9532a516.mp3",
+    "text": "A preparar o teu caminho… Estou a juntar tudo o que me disseste."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "90f6f221.mp3",
+    "text": "O teu plano está pronto. Cria a tua conta grátis para o veres. O Kayé é gratuito."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "7ceb5519.mp3",
+    "text": "Tecnologia e telecomunicações: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "df6d1d7.mp3",
+    "text": "Que experiência tens em Tecnologia e telecomunicações? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "cebe8959.mp3",
+    "text": "Verias-te a trabalhar nisto?"
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "615fc706.mp3",
+    "text": "É este o caminho que procuras?"
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "5e30c363.mp3",
+    "text": "Gostavas de chegar aqui?"
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "2269ffc0.mp3",
+    "text": "Engenharia e construção: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "4b21c886.mp3",
+    "text": "Que experiência tens em Engenharia e construção? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "25dcb7a4.mp3",
+    "text": "Petróleo, gás e minas: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "ef5f996.mp3",
+    "text": "Que experiência tens em Petróleo, gás e minas? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "1541e7d3.mp3",
+    "text": "Saúde: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "19b29b1.mp3",
+    "text": "Que experiência tens em Saúde? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "b61ce69b.mp3",
+    "text": "Educação: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "db48ae67.mp3",
+    "text": "Que experiência tens em Educação? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "1bdad124.mp3",
+    "text": "Gestão, finanças e comércio: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "ab53e522.mp3",
+    "text": "Que experiência tens em Gestão, finanças e comércio? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "2fa97f58.mp3",
+    "text": "Direito: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "2dc4a77a.mp3",
+    "text": "Que experiência tens em Direito? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "706b5cb2.mp3",
+    "text": "Administração pública e segurança: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "928a7aa4.mp3",
+    "text": "Que experiência tens em Administração pública e segurança? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "657fa73e.mp3",
+    "text": "Comunicação e artes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "69c596dc.mp3",
+    "text": "Que experiência tens em Comunicação e artes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "ff5140fd.mp3",
+    "text": "Agricultura e ambiente: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "f55139a1.mp3",
+    "text": "Que experiência tens em Agricultura e ambiente? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "85e2a89.mp3",
+    "text": "Turismo e hotelaria: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "3a0559b.mp3",
+    "text": "Que experiência tens em Turismo e hotelaria? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "15b01bbd.mp3",
+    "text": "Logística e transportes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "7497e4bf.mp3",
+    "text": "Que experiência tens em Logística e transportes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "88935e94.mp3",
+    "text": "Ciências e humanidades: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-FranciscaNeural",
+    "file": "f9dfb058.mp3",
+    "text": "Que experiência tens em Ciências e humanidades? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "8e83ede4.mp3",
+    "text": "Como queres que eu soe? Aumenta o volume se não me ouvires."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "cbcf1da5.mp3",
+    "text": "Em que fase estás? Assim adapto as perguntas a ti."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "2d4ff666.mp3",
+    "text": "O que te traz ao Kayé? Escolhe o mais importante. O resto continua aqui para depois."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "3df1e67d.mp3",
+    "text": "Já estudámos o mercado por ti. Estas são as profissões, os cursos, as academias e as empresas de Angola que já conhecemos. Nenhuma recomendação é paga."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "8f785425.mp3",
+    "text": "Que áreas te chamam a atenção? Escolhe até 3. Faço-te no máximo 3 perguntas sobre cada uma."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "a7d6d405.mp3",
+    "text": "O que gostas mais de fazer? Escolhe até 2 e eu sugiro as áreas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "ad06aa1b.mp3",
+    "text": "Agora, um pouco sobre ti. Só para te tratar pelo nome."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "de455129.mp3",
+    "text": "Prazer em conhecer-te! Só mais dois dados. Pedimos o ano, nunca a data completa, e a província, nunca a morada."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "94066b4b.mp3",
+    "text": "Até onde já estudaste? É daqui que parte o teu caminho."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "9532a516.mp3",
+    "text": "A preparar o teu caminho… Estou a juntar tudo o que me disseste."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "90f6f221.mp3",
+    "text": "O teu plano está pronto. Cria a tua conta grátis para o veres. O Kayé é gratuito."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "7ceb5519.mp3",
+    "text": "Tecnologia e telecomunicações: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "df6d1d7.mp3",
+    "text": "Que experiência tens em Tecnologia e telecomunicações? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "cebe8959.mp3",
+    "text": "Verias-te a trabalhar nisto?"
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "615fc706.mp3",
+    "text": "É este o caminho que procuras?"
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "5e30c363.mp3",
+    "text": "Gostavas de chegar aqui?"
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "2269ffc0.mp3",
+    "text": "Engenharia e construção: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "4b21c886.mp3",
+    "text": "Que experiência tens em Engenharia e construção? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "25dcb7a4.mp3",
+    "text": "Petróleo, gás e minas: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "ef5f996.mp3",
+    "text": "Que experiência tens em Petróleo, gás e minas? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "1541e7d3.mp3",
+    "text": "Saúde: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "19b29b1.mp3",
+    "text": "Que experiência tens em Saúde? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "b61ce69b.mp3",
+    "text": "Educação: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "db48ae67.mp3",
+    "text": "Que experiência tens em Educação? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "1bdad124.mp3",
+    "text": "Gestão, finanças e comércio: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "ab53e522.mp3",
+    "text": "Que experiência tens em Gestão, finanças e comércio? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "2fa97f58.mp3",
+    "text": "Direito: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "2dc4a77a.mp3",
+    "text": "Que experiência tens em Direito? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "706b5cb2.mp3",
+    "text": "Administração pública e segurança: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "928a7aa4.mp3",
+    "text": "Que experiência tens em Administração pública e segurança? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "657fa73e.mp3",
+    "text": "Comunicação e artes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "69c596dc.mp3",
+    "text": "Que experiência tens em Comunicação e artes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "ff5140fd.mp3",
+    "text": "Agricultura e ambiente: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "f55139a1.mp3",
+    "text": "Que experiência tens em Agricultura e ambiente? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "85e2a89.mp3",
+    "text": "Turismo e hotelaria: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "3a0559b.mp3",
+    "text": "Que experiência tens em Turismo e hotelaria? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "15b01bbd.mp3",
+    "text": "Logística e transportes: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "7497e4bf.mp3",
+    "text": "Que experiência tens em Logística e transportes? Não há respostas erradas."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "88935e94.mp3",
+    "text": "Ciências e humanidades: o que te chama mais? Escolhe até 2."
+  },
+  {
+    "voice": "pt-BR-AntonioNeural",
+    "file": "f9dfb058.mp3",
+    "text": "Que experiência tens em Ciências e humanidades? Não há respostas erradas."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "f002fe7e.mp3",
+    "text": "How do you want me to sound? Turn up the volume if you can't hear me."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "c4ce8f78.mp3",
+    "text": "What stage are you at? This lets me adapt the questions to you."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "2132390d.mp3",
+    "text": "What brings you to Kayé? Pick the most important. Everything else stays here for later."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "a715276a.mp3",
+    "text": "We've already studied the market for you. These are the careers, courses, academies and companies in Angola that we know so far. No recommendation is paid for."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "1fac3d19.mp3",
+    "text": "Which areas catch your eye? Pick up to 3. I'll ask at most 3 questions about each."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "7e8f66e.mp3",
+    "text": "What do you most enjoy doing? Pick up to 2 and I'll suggest the areas."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "34cd79b1.mp3",
+    "text": "Now, a little about you. Just so I can call you by your name."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "319041f5.mp3",
+    "text": "Nice to meet you! Just two more things. We ask for the year, never the full date, and the province, never the address."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "8de430b2.mp3",
+    "text": "How far have you studied? This is where your path starts."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "6244c784.mp3",
+    "text": "Preparing your path… I'm putting together everything you told me."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "816aad2b.mp3",
+    "text": "Your plan is ready. Create your free account to see it. Kayé is free."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "69421467.mp3",
+    "text": "Technology and telecoms: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "c0a1b779.mp3",
+    "text": "What experience do you have in Technology and telecoms? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "a5c96669.mp3",
+    "text": "Could you see yourself doing this?"
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "dead596b.mp3",
+    "text": "Is this the path you want?"
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "b98ce3da.mp3",
+    "text": "Would you like to get here?"
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "4999a01.mp3",
+    "text": "Engineering and construction: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "19628015.mp3",
+    "text": "What experience do you have in Engineering and construction? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "a884a262.mp3",
+    "text": "Oil, gas and mining: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "4b99c7dc.mp3",
+    "text": "What experience do you have in Oil, gas and mining? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "b3591d7e.mp3",
+    "text": "Health: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "a3491d8e.mp3",
+    "text": "What experience do you have in Health? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "464a753c.mp3",
+    "text": "Education: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "d6e49e5e.mp3",
+    "text": "What experience do you have in Education? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "d815ccb2.mp3",
+    "text": "Management, finance and trade: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "396420b0.mp3",
+    "text": "What experience do you have in Management, finance and trade? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "5f1dbcf2.mp3",
+    "text": "Law: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "462c9fe4.mp3",
+    "text": "What experience do you have in Law? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "9228fa06.mp3",
+    "text": "Public administration and security: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "b08fc74a.mp3",
+    "text": "What experience do you have in Public administration and security? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "be69d0ff.mp3",
+    "text": "Communication and arts: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "ab3e0c63.mp3",
+    "text": "What experience do you have in Communication and arts? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "7212f7f1.mp3",
+    "text": "Agriculture and environment: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "a85204c7.mp3",
+    "text": "What experience do you have in Agriculture and environment? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "87391588.mp3",
+    "text": "Tourism and hospitality: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "27970552.mp3",
+    "text": "What experience do you have in Tourism and hospitality? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "541811ef.mp3",
+    "text": "Logistics and transport: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "8bb12bad.mp3",
+    "text": "What experience do you have in Logistics and transport? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "c08eded9.mp3",
+    "text": "Sciences and humanities: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-SoniaNeural",
+    "file": "6759ab6b.mp3",
+    "text": "What experience do you have in Sciences and humanities? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "f002fe7e.mp3",
+    "text": "How do you want me to sound? Turn up the volume if you can't hear me."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "c4ce8f78.mp3",
+    "text": "What stage are you at? This lets me adapt the questions to you."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "2132390d.mp3",
+    "text": "What brings you to Kayé? Pick the most important. Everything else stays here for later."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "a715276a.mp3",
+    "text": "We've already studied the market for you. These are the careers, courses, academies and companies in Angola that we know so far. No recommendation is paid for."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "1fac3d19.mp3",
+    "text": "Which areas catch your eye? Pick up to 3. I'll ask at most 3 questions about each."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "7e8f66e.mp3",
+    "text": "What do you most enjoy doing? Pick up to 2 and I'll suggest the areas."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "34cd79b1.mp3",
+    "text": "Now, a little about you. Just so I can call you by your name."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "319041f5.mp3",
+    "text": "Nice to meet you! Just two more things. We ask for the year, never the full date, and the province, never the address."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "8de430b2.mp3",
+    "text": "How far have you studied? This is where your path starts."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "6244c784.mp3",
+    "text": "Preparing your path… I'm putting together everything you told me."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "816aad2b.mp3",
+    "text": "Your plan is ready. Create your free account to see it. Kayé is free."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "69421467.mp3",
+    "text": "Technology and telecoms: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "c0a1b779.mp3",
+    "text": "What experience do you have in Technology and telecoms? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "a5c96669.mp3",
+    "text": "Could you see yourself doing this?"
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "dead596b.mp3",
+    "text": "Is this the path you want?"
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "b98ce3da.mp3",
+    "text": "Would you like to get here?"
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "4999a01.mp3",
+    "text": "Engineering and construction: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "19628015.mp3",
+    "text": "What experience do you have in Engineering and construction? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "a884a262.mp3",
+    "text": "Oil, gas and mining: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "4b99c7dc.mp3",
+    "text": "What experience do you have in Oil, gas and mining? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "b3591d7e.mp3",
+    "text": "Health: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "a3491d8e.mp3",
+    "text": "What experience do you have in Health? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "464a753c.mp3",
+    "text": "Education: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "d6e49e5e.mp3",
+    "text": "What experience do you have in Education? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "d815ccb2.mp3",
+    "text": "Management, finance and trade: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "396420b0.mp3",
+    "text": "What experience do you have in Management, finance and trade? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "5f1dbcf2.mp3",
+    "text": "Law: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "462c9fe4.mp3",
+    "text": "What experience do you have in Law? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "9228fa06.mp3",
+    "text": "Public administration and security: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "b08fc74a.mp3",
+    "text": "What experience do you have in Public administration and security? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "be69d0ff.mp3",
+    "text": "Communication and arts: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "ab3e0c63.mp3",
+    "text": "What experience do you have in Communication and arts? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "7212f7f1.mp3",
+    "text": "Agriculture and environment: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "a85204c7.mp3",
+    "text": "What experience do you have in Agriculture and environment? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "87391588.mp3",
+    "text": "Tourism and hospitality: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "27970552.mp3",
+    "text": "What experience do you have in Tourism and hospitality? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "541811ef.mp3",
+    "text": "Logistics and transport: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "8bb12bad.mp3",
+    "text": "What experience do you have in Logistics and transport? There are no wrong answers."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "c08eded9.mp3",
+    "text": "Sciences and humanities: what appeals to you most? Pick up to 2."
+  },
+  {
+    "voice": "en-GB-RyanNeural",
+    "file": "6759ab6b.mp3",
+    "text": "What experience do you have in Sciences and humanities? There are no wrong answers."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "71fc8dfc.mp3",
+    "text": "Comment veux-tu que je parle ? Monte le volume si tu ne m'entends pas."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "82a0370a.mp3",
+    "text": "Où en es-tu ? Ainsi, j'adapte les questions à toi."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "c2b7266c.mp3",
+    "text": "Qu'est-ce qui t'amène sur Kayé ? Choisis le plus important. Le reste sera là pour plus tard."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "45050b6.mp3",
+    "text": "Nous avons déjà étudié le marché pour toi. Voici les métiers, les formations, les académies et les entreprises d'Angola que nous connaissons déjà. Aucune recommandation n'est payée."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "abd1125d.mp3",
+    "text": "Quels domaines t'attirent ? Choisis-en jusqu'à 3. Je te pose au plus 3 questions sur chacun."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "d31f1be1.mp3",
+    "text": "Qu'aimes-tu le plus faire ? Choisis-en jusqu'à 2 et je te suggère les domaines."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "7ce06ed5.mp3",
+    "text": "Maintenant, un peu sur toi. Juste pour t'appeler par ton prénom."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "1fb51a4a.mp3",
+    "text": "Ravi de te connaître ! Encore deux choses. Nous demandons l'année, jamais la date complète, et la province, jamais l'adresse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "f5c166a7.mp3",
+    "text": "Jusqu'où as-tu étudié ? C'est de là que part ton chemin."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "4224b9e6.mp3",
+    "text": "Je prépare ton chemin… Je rassemble tout ce que tu m'as dit."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "bb65e5a.mp3",
+    "text": "Ton plan est prêt. Crée ton compte gratuit pour le voir. Kayé est gratuit."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "2919746f.mp3",
+    "text": "Technologie et télécoms : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "813fdb19.mp3",
+    "text": "Quelle expérience as-tu en Technologie et télécoms ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "3609eb26.mp3",
+    "text": "Tu te verrais faire cela ?"
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "4ec9d7ff.mp3",
+    "text": "Est-ce le chemin que tu cherches ?"
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "5437f825.mp3",
+    "text": "Aimerais-tu arriver ici ?"
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "22d2199e.mp3",
+    "text": "Ingénierie et construction : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "1ce6ff78.mp3",
+    "text": "Quelle expérience as-tu en Ingénierie et construction ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "b6ac46cd.mp3",
+    "text": "Pétrole, gaz et mines : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "6712f4a3.mp3",
+    "text": "Quelle expérience as-tu en Pétrole, gaz et mines ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "5e848924.mp3",
+    "text": "Santé : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "2eee1be0.mp3",
+    "text": "Quelle expérience as-tu en Santé ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "a62086c9.mp3",
+    "text": "Éducation : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "3a9ebf9b.mp3",
+    "text": "Quelle expérience as-tu en Éducation ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "944103e0.mp3",
+    "text": "Gestion, finance et commerce : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "c5d9d6a2.mp3",
+    "text": "Quelle expérience as-tu en Gestion, finance et commerce ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "7cc0e8c1.mp3",
+    "text": "Droit : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "bcf7cc67.mp3",
+    "text": "Quelle expérience as-tu en Droit ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "530b6405.mp3",
+    "text": "Administration publique et sécurité : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "b0fe22b.mp3",
+    "text": "Quelle expérience as-tu en Administration publique et sécurité ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "b327e0d8.mp3",
+    "text": "Communication et arts : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "dc9d4024.mp3",
+    "text": "Quelle expérience as-tu en Communication et arts ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "42459273.mp3",
+    "text": "Agriculture et environnement : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "9a06b473.mp3",
+    "text": "Quelle expérience as-tu en Agriculture et environnement ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "fcc9fb7a.mp3",
+    "text": "Tourisme et hôtellerie : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "cafe0560.mp3",
+    "text": "Quelle expérience as-tu en Tourisme et hôtellerie ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "4da42ad8.mp3",
+    "text": "Logistique et transports : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "4a47c726.mp3",
+    "text": "Quelle expérience as-tu en Logistique et transports ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "d57e3c97.mp3",
+    "text": "Sciences et humanités : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-DeniseNeural",
+    "file": "41987e89.mp3",
+    "text": "Quelle expérience as-tu en Sciences et humanités ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "71fc8dfc.mp3",
+    "text": "Comment veux-tu que je parle ? Monte le volume si tu ne m'entends pas."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "82a0370a.mp3",
+    "text": "Où en es-tu ? Ainsi, j'adapte les questions à toi."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "c2b7266c.mp3",
+    "text": "Qu'est-ce qui t'amène sur Kayé ? Choisis le plus important. Le reste sera là pour plus tard."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "45050b6.mp3",
+    "text": "Nous avons déjà étudié le marché pour toi. Voici les métiers, les formations, les académies et les entreprises d'Angola que nous connaissons déjà. Aucune recommandation n'est payée."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "abd1125d.mp3",
+    "text": "Quels domaines t'attirent ? Choisis-en jusqu'à 3. Je te pose au plus 3 questions sur chacun."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "d31f1be1.mp3",
+    "text": "Qu'aimes-tu le plus faire ? Choisis-en jusqu'à 2 et je te suggère les domaines."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "7ce06ed5.mp3",
+    "text": "Maintenant, un peu sur toi. Juste pour t'appeler par ton prénom."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "1fb51a4a.mp3",
+    "text": "Ravi de te connaître ! Encore deux choses. Nous demandons l'année, jamais la date complète, et la province, jamais l'adresse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "f5c166a7.mp3",
+    "text": "Jusqu'où as-tu étudié ? C'est de là que part ton chemin."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "4224b9e6.mp3",
+    "text": "Je prépare ton chemin… Je rassemble tout ce que tu m'as dit."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "bb65e5a.mp3",
+    "text": "Ton plan est prêt. Crée ton compte gratuit pour le voir. Kayé est gratuit."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "2919746f.mp3",
+    "text": "Technologie et télécoms : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "813fdb19.mp3",
+    "text": "Quelle expérience as-tu en Technologie et télécoms ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "3609eb26.mp3",
+    "text": "Tu te verrais faire cela ?"
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "4ec9d7ff.mp3",
+    "text": "Est-ce le chemin que tu cherches ?"
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "5437f825.mp3",
+    "text": "Aimerais-tu arriver ici ?"
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "22d2199e.mp3",
+    "text": "Ingénierie et construction : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "1ce6ff78.mp3",
+    "text": "Quelle expérience as-tu en Ingénierie et construction ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "b6ac46cd.mp3",
+    "text": "Pétrole, gaz et mines : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "6712f4a3.mp3",
+    "text": "Quelle expérience as-tu en Pétrole, gaz et mines ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "5e848924.mp3",
+    "text": "Santé : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "2eee1be0.mp3",
+    "text": "Quelle expérience as-tu en Santé ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "a62086c9.mp3",
+    "text": "Éducation : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "3a9ebf9b.mp3",
+    "text": "Quelle expérience as-tu en Éducation ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "944103e0.mp3",
+    "text": "Gestion, finance et commerce : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "c5d9d6a2.mp3",
+    "text": "Quelle expérience as-tu en Gestion, finance et commerce ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "7cc0e8c1.mp3",
+    "text": "Droit : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "bcf7cc67.mp3",
+    "text": "Quelle expérience as-tu en Droit ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "530b6405.mp3",
+    "text": "Administration publique et sécurité : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "b0fe22b.mp3",
+    "text": "Quelle expérience as-tu en Administration publique et sécurité ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "b327e0d8.mp3",
+    "text": "Communication et arts : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "dc9d4024.mp3",
+    "text": "Quelle expérience as-tu en Communication et arts ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "42459273.mp3",
+    "text": "Agriculture et environnement : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "9a06b473.mp3",
+    "text": "Quelle expérience as-tu en Agriculture et environnement ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "fcc9fb7a.mp3",
+    "text": "Tourisme et hôtellerie : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "cafe0560.mp3",
+    "text": "Quelle expérience as-tu en Tourisme et hôtellerie ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "4da42ad8.mp3",
+    "text": "Logistique et transports : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "4a47c726.mp3",
+    "text": "Quelle expérience as-tu en Logistique et transports ? Il n'y a pas de mauvaise réponse."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "d57e3c97.mp3",
+    "text": "Sciences et humanités : qu'est-ce qui t'attire le plus ? Choisis-en jusqu'à 2."
+  },
+  {
+    "voice": "fr-FR-HenriNeural",
+    "file": "41987e89.mp3",
+    "text": "Quelle expérience as-tu en Sciences et humanités ? Il n'y a pas de mauvaise réponse."
+  }
+]

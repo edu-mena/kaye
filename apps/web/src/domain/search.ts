@@ -1,6 +1,6 @@
 import { hasWord, normalize } from './careers'
 
-// Pesquisa: one query over careers, courses, academies and companies.
+// Pesquisa: one query over careers, courses, academies, scholarships, internships and companies.
 
 /** What an item is searched by: its name counts more than the rest. */
 export type Searchable = { name: string; others: string[] }

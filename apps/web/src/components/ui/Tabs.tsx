@@ -1,7 +1,13 @@
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react'
 import { Icon, type IconName } from '../icons'
 
-type Tab<T extends string> = { id: T; label: string; icon?: IconName }
+export type Tab<T extends string> = {
+  id: T
+  label: string
+  icon?: IconName
+  /** Where the tutorial points for this tab (components/Tour.tsx). */
+  tour?: string
+}
 
 type TabsProps<T extends string> = {
   label: string
@@ -67,6 +73,7 @@ export function Tabs<T extends string>({
             type="button"
             role="tab"
             id={`${idPrefix}-tab-${tab.id}`}
+            data-tour={tab.tour}
             aria-selected={active}
             // Only the active panel exists, so only its tab points to it.
             aria-controls={active ? `${idPrefix}-panel-${tab.id}` : undefined}

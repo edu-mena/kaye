@@ -1,26 +1,59 @@
-import type { Page } from '@playwright/test'
 import { expect, expectAccessible, test } from './fixtures'
 
-/** Fills the onboarding profile; the app then returns to where it was. */
-async function createProfile(page: Page) {
-  await page.getByRole('button', { name: 'Continuar com o Google' }).click()
-  await page.getByLabel('Como te chamas?').fill('Joana')
-  await page.getByLabel('Ano em que nasceste').selectOption(String(new Date().getFullYear() - 19))
-  await page.getByLabel('Província').selectOption('Luanda')
-  await page.getByLabel('Último nível que concluíste').selectOption('medio_tecnico')
-  await page.getByLabel(/Aceito os termos/).check()
-  await page.getByRole('button', { name: 'Continuar' }).click()
-}
+test.describe('the first visit', () => {
+  test.use({ signedIn: false })
 
-test.describe('journeys', () => {
-  test('from no profile to the test result, a career and the fit', async ({ page, consoleErrors }) => {
+  test('a short conversation ends in the plan and goes back to what was asked', async ({
+    page,
+    consoleErrors,
+  }) => {
     test.slow()
+    const proceed = () => page.getByRole('button', { name: 'Continuar', exact: true }).click()
+
     await page.goto('/teste')
     await expect(page).toHaveURL(/\/entrar\?next=%2Fteste$/)
     await expectAccessible(page)
-    await createProfile(page)
+    await page.getByRole('button', { name: 'Vamos lá' }).click()
 
+    await expect(page.getByRole('heading', { name: 'Como queres que eu soe?' })).toBeVisible()
+    await proceed()
+    await page.getByRole('button', { name: 'Procuro trabalho' }).click()
+    await proceed()
+    await page.getByRole('button', { name: 'Escolher um curso' }).click()
+    await proceed()
+    await proceed()
+    await page.getByRole('button', { name: /^Saúde/ }).click()
+    await expectAccessible(page)
+    await proceed()
+    await page.getByRole('group').getByRole('button').first().click()
+    await proceed()
+    await page.getByRole('button', { name: 'Estudo isto' }).click()
+    await proceed()
+    await page.getByRole('button', { name: 'Sim', exact: true }).click()
+
+    await page.getByLabel('Como te chamas?').fill('Joana')
+    await proceed()
+    await page.getByLabel('Ano em que nasceste').selectOption(String(new Date().getFullYear() - 19))
+    await page.getByLabel('Província').selectOption('Luanda')
+    await proceed()
+    await page.getByRole('button', { name: 'Licenciatura' }).click()
+    await proceed()
+
+    await page.getByLabel(/Aceito os termos/).check()
+    await expectAccessible(page)
+    await page.getByRole('button', { name: 'Continuar com o Google' }).click()
+    await expect(page.getByRole('heading', { name: 'O teu plano, Joana' })).toBeVisible()
+    await expectAccessible(page)
+    await page.getByRole('link', { name: /Entrar no Kayé/ }).click()
     await expect(page).toHaveURL(/\/teste$/)
+    expect(consoleErrors).toEqual([])
+  })
+})
+
+test.describe('journeys', () => {
+  test('from the test to the result, a career and the fit', async ({ page, consoleErrors }) => {
+    test.slow()
+    await page.goto('/teste')
     await page.getByRole('button', { name: 'Começar' }).click()
     // Questions alternate R, I, A, S, E, C: strong Investigative and Artistic sides, where Frontend fits
     // (the health careers, high on Investigative, also need a strong Social side).
@@ -67,9 +100,6 @@ test.describe('journeys', () => {
     await expectAccessible(page)
     await page.getByRole('button', { name: 'Começar a partir deste modelo' }).click()
 
-    // The editor needs a profile: create it and come back.
-    await expect(page).toHaveURL(/\/entrar\?next=%2Fcv%2Feditar$/)
-    await createProfile(page)
     await expect(page).toHaveURL(/\/cv\/editar$/)
     await expect(page.getByText(/Dica do modelo/).first()).toBeVisible()
 
@@ -81,8 +111,6 @@ test.describe('journeys', () => {
   })
 
   test('the person can erase everything the app keeps', async ({ page, consoleErrors }) => {
-    await page.goto('/entrar')
-    await createProfile(page)
     await page.goto('/perfil')
     await expect(page.getByText('Joana')).toBeVisible()
     await expectAccessible(page)
@@ -93,23 +121,9 @@ test.describe('journeys', () => {
       .getByRole('dialog', { name: 'Apagar tudo?' })
       .getByRole('button', { name: 'Sim, apagar' })
       .click()
-    await expect(page.getByText('Ainda não tens perfil.')).toBeVisible()
+    await expect(page).toHaveURL(/\/entrar/)
     await page.reload()
-    await expect(page.getByText('Ainda não tens perfil.')).toBeVisible()
-    expect(consoleErrors).toEqual([])
-  })
-
-  test('before accepting, the terms and the policy open beside the form', async ({ page, consoleErrors }) => {
-    await page.goto('/entrar')
-    await page.getByRole('button', { name: 'Continuar com o Google' }).click()
-    await page.getByLabel('Como te chamas?').fill('Joana')
-
-    const [policy] = await Promise.all([
-      page.context().waitForEvent('page'),
-      page.getByRole('link', { name: 'Política de privacidade' }).click(),
-    ])
-    await expect(policy.getByRole('heading', { level: 1 })).toHaveText('Política de privacidade')
-    await expect(page.getByLabel('Como te chamas?')).toHaveValue('Joana')
+    await expect(page).toHaveURL(/\/entrar/)
     expect(consoleErrors).toEqual([])
   })
 

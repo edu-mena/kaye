@@ -66,6 +66,132 @@
 
   --animate-rise: rise 520ms var(--ease-out) both;
   --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+  /* The onboarding: the guide's moods, a new step, a choice, a career card leaving. */
+  --animate-step-in: step-in 420ms var(--ease-out) both;
+  --animate-pop: pop 320ms var(--ease-out) both;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-blink: blink 4.6s ease-in-out infinite;
+  --animate-talk: talk 240ms ease-in-out infinite alternate;
+  --animate-hop: hop 560ms var(--ease-out) both;
+  --animate-draw: draw 2.8s var(--ease-out) both;
+  --animate-grow: grow 800ms var(--ease-out) both;
+  --animate-fly-left: fly-left 300ms ease-in both;
+  --animate-fly-right: fly-right 300ms ease-in both;
+  --animate-fly-up: fly-up 300ms ease-in both;
+  /* The ring behind the guide on the landing page. */
+  --animate-spin-slow: spin-slow 40s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes step-in {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    60% {
+      transform: scale(1.15);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    94%,
+    100% {
+      transform: scaleY(1);
+    }
+    97% {
+      transform: scaleY(0.1);
+    }
+  }
+
+  @keyframes talk {
+    from {
+      transform: scaleY(0.5);
+    }
+    to {
+      transform: scaleY(1.7);
+    }
+  }
+
+  @keyframes hop {
+    0% {
+      transform: scale(0.85) translateY(6px);
+    }
+    45% {
+      transform: scale(1.06) translateY(-10px);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes fly-left {
+    to {
+      opacity: 0;
+      transform: translateX(-120%) rotate(-12deg);
+    }
+  }
+
+  @keyframes fly-right {
+    to {
+      opacity: 0;
+      transform: translateX(120%) rotate(12deg);
+    }
+  }
+
+  @keyframes fly-up {
+    to {
+      opacity: 0;
+      transform: translateY(-60%) scale(0.9);
+    }
+  }
 
   @keyframes rise {
     from {
@@ -133,6 +259,17 @@
 @utility rise {
   animation: var(--animate-rise);
   animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Illustrations rise as they scroll into view. Without support (or with less motion) they just stay. */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
 }
 
 /* Sideways rows (filters, section tabs) still scroll by touch, without a grey bar. */

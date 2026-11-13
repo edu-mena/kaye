@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router'
 import { Icon } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
-import { Dialog } from '../../components/ui/Dialog'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCareer, useCvExamples } from '../../data/queries'
 import type { CvExample, CvSection } from '../../data/types'
 import { cvCompleteness } from '../../domain/cv'
-import { userActions, useUser } from '../../state/userStore'
+import { activeCv, userActions, useUser } from '../../state/userStore'
+import { CvGuideList } from './CvGuideList'
 import { ScaledSheet } from './CvSheet'
 import { downloadCvPdf } from './cvPdf'
 import { useCvLabels } from './useCvLabels'
@@ -24,16 +24,16 @@ export function CvModelView({ example }: { example: CvExample }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const labels = useCvLabels()
-  const { cv: myCv } = useUser()
+  const user = useUser()
+  const mine = activeCv(user)
   const { data: career } = useCareer(example.careerSlug)
   const { data: siblings = [] } = useCvExamples(example.careerSlug)
   const [comparing, setComparing] = useState(false)
   const [other, setOther] = useState<string | null>(null)
-  const [confirming, setConfirming] = useState(false)
   const [downloading, setDownloading] = useState(false)
 
   const pathwayName = (id: string) => career?.pathways.find((pathway) => pathway.id === id)?.name ?? ''
-  const hasMine = cvCompleteness(myCv) > 0
+  const hasMine = mine !== null && cvCompleteness(mine.cv) > 0
   const options = [
     ...siblings
       .filter((item) => item.id !== example.id)
@@ -44,8 +44,8 @@ export function CvModelView({ example }: { example: CvExample }) {
   const otherExample = siblings.find((item) => item.id === otherId)
   const otherSheet =
     otherId === MINE
-      ? { cv: myCv, template: example.template }
-      : otherExample && { cv: otherExample.cv, template: otherExample.template }
+      ? mine && { ...mine, photo: user.photo }
+      : otherExample && { cv: otherExample.cv, template: otherExample.template, style: {}, photo: null }
 
   const start = () => {
     userActions.startCvFrom(example)
@@ -55,7 +55,7 @@ export function CvModelView({ example }: { example: CvExample }) {
   const download = async () => {
     setDownloading(true)
     try {
-      await downloadCvPdf(example.cv, example.template, labels)
+      await downloadCvPdf(example, labels)
     } finally {
       setDownloading(false)
     }
@@ -86,6 +86,8 @@ export function CvModelView({ example }: { example: CvExample }) {
               <ScaledSheet
                 cv={otherSheet.cv}
                 template={otherSheet.template}
+                style={otherSheet.style}
+                photo={otherSheet.photo}
                 fit="content"
                 className="shadow-card"
               />
@@ -122,8 +124,7 @@ export function CvModelView({ example }: { example: CvExample }) {
               {comparing ? t('cv.compareClose') : t('cv.compare')}
             </Button>
           )}
-          {/* Starting from a model replaces the current CV: ask first if there is one. */}
-          <Button variant="secondary" size="sm" onClick={() => (hasMine ? setConfirming(true) : start())}>
+          <Button variant="secondary" size="sm" onClick={start}>
             <Icon name="pencil" className="size-4" />
             {t('cv.useThis')}
           </Button>
@@ -143,26 +144,7 @@ export function CvModelView({ example }: { example: CvExample }) {
             <h3 id="cv-guide" className="mb-3 text-sm font-semibold text-night">
               {t('cv.guideTitle')}
             </h3>
-            <ul className="space-y-2">
-              {career.cvGuide.include.map((item) => (
-                <li key={item} className="flex gap-2 text-sm font-light text-night">
-                  <Icon name="check" className="mt-0.5 size-4 shrink-0 text-success" />
-                  <span>
-                    <span className="sr-only">{t('cv.guideInclude')}: </span>
-                    {item}
-                  </span>
-                </li>
-              ))}
-              {career.cvGuide.avoid.map((item) => (
-                <li key={item} className="flex gap-2 text-sm font-light text-night">
-                  <Icon name="close" className="mt-0.5 size-4 shrink-0 text-coral" />
-                  <span>
-                    <span className="sr-only">{t('cv.guideAvoid')}: </span>
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <CvGuideList guide={career.cvGuide} />
           </section>
         )}
 
@@ -182,22 +164,6 @@ export function CvModelView({ example }: { example: CvExample }) {
           </section>
         )}
       </aside>
-
-      <Dialog
-        open={confirming}
-        onClose={() => setConfirming(false)}
-        title={t('cv.replaceTitle')}
-        footer={
-          <div className="flex justify-end gap-2">
-            <Button variant="ghost" onClick={() => setConfirming(false)}>
-              {t('common.cancel')}
-            </Button>
-            <Button onClick={start}>{t('cv.replaceConfirm')}</Button>
-          </div>
-        }
-      >
-        <p className="text-sm font-light text-copy">{t('cv.replaceBody')}</p>
-      </Dialog>
     </div>
   )
 }

@@ -30,7 +30,7 @@ export type Block =
   | ExerciseBlock
   | { type: 'summary'; points: string[] }
 
-export type Lesson = { id: string; title: string; estimatedMinutes: number; blocks: Block[] }
+type Lesson = { id: string; title: string; estimatedMinutes: number; blocks: Block[] }
 
 /** The written part of a unit: its lessons and the review that closes it, with a grade. */
 export type UnitContent = { lessons: Lesson[]; review: ExerciseBlock[] }
@@ -51,7 +51,7 @@ export type ExamQuestion = { id: string; unit: string } & (
   ({ kind: 'choice' } & ChoiceItem) | ({ kind: 'gap' } & GapItem)
 )
 
-export type Credit = { title: string; author: string; license: string; url: string; use: string }
+type Credit = { title: string; author: string; license: string; url: string; use: string }
 
 /** A course's icon: names from components/icons (data/ does not import UI). */
 export type CourseIcon =

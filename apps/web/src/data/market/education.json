@@ -4,7 +4,8 @@
  "access": {
   "enrolled": 340533,
   "firstTime": 95623,
-  "candidates": 197463
+  "candidates": 197463,
+  "places": 231932
  },
  "source": {
   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
@@ -15,6 +16,8 @@
    "area": "technology",
    "graduates": 1568,
    "enrolled": 24904,
+   "candidates": 15295,
+   "admitted": 8457,
    "courses": [
     {
      "name": "Engenharia Informática",
@@ -157,6 +160,8 @@
    "area": "engineering",
    "graduates": 1477,
    "enrolled": 17982,
+   "candidates": 11173,
+   "admitted": 6584,
    "courses": [
     {
      "name": "Arquitectura e Urbanismo",
@@ -334,6 +339,8 @@
    "area": "oil_mining",
    "graduates": 353,
    "enrolled": 4433,
+   "candidates": 2146,
+   "admitted": 1184,
    "courses": [
     {
      "name": "Engenharia de Minas",
@@ -411,6 +418,8 @@
    "area": "health",
    "graduates": 5014,
    "enrolled": 82428,
+   "candidates": 66354,
+   "admitted": 26559,
    "courses": [
     {
      "name": "Enfermagem",
@@ -523,6 +532,8 @@
    "area": "education",
    "graduates": 9216,
    "enrolled": 60513,
+   "candidates": 24512,
+   "admitted": 10000,
    "courses": [
     {
      "name": "Ensino Primário",
@@ -780,6 +791,8 @@
    "area": "business",
    "graduates": 5458,
    "enrolled": 65381,
+   "candidates": 36459,
+   "admitted": 21025,
    "courses": [
     {
      "name": "Gestão de Recursos Humanos",
@@ -1022,6 +1035,8 @@
    "area": "legal",
    "graduates": 2628,
    "enrolled": 34674,
+   "candidates": 16546,
+   "admitted": 9626,
    "courses": [
     {
      "name": "Direito",
@@ -1034,6 +1049,8 @@
    "area": "public",
    "graduates": 1038,
    "enrolled": 7420,
+   "candidates": 4985,
+   "admitted": 2693,
    "courses": [
     {
      "name": "Gestão e Administração Pública",
@@ -1101,6 +1118,8 @@
    "area": "communication",
    "graduates": 895,
    "enrolled": 6813,
+   "candidates": 3334,
+   "admitted": 2047,
    "courses": [
     {
      "name": "Comunicação Social",
@@ -1193,6 +1212,8 @@
    "area": "agriculture",
    "graduates": 552,
    "enrolled": 5571,
+   "candidates": 3141,
+   "admitted": 1512,
    "courses": [
     {
      "name": "Agronomia",
@@ -1295,6 +1316,8 @@
    "area": "hospitality",
    "graduates": 171,
    "enrolled": 1263,
+   "candidates": 428,
+   "admitted": 265,
    "courses": [
     {
      "name": "Hotelaria e Turismo",
@@ -1332,6 +1355,8 @@
    "area": "logistics",
    "graduates": 49,
    "enrolled": 1335,
+   "candidates": 1004,
+   "admitted": 196,
    "courses": [
     {
      "name": "Gestão Logística e Transportes",
@@ -1354,6 +1379,8 @@
    "area": "sciences",
    "graduates": 3084,
    "enrolled": 27816,
+   "candidates": 12086,
+   "admitted": 8869,
    "courses": [
     {
      "name": "Psicologia",
@@ -1536,6 +1563,80 @@
      "enrolled": 185
     }
    ]
+  }
+ ],
+ "provinces": [
+  {
+   "province": "Luanda",
+   "graduates": 13465
+  },
+  {
+   "province": "Huambo",
+   "graduates": 4237
+  },
+  {
+   "province": "Huíla",
+   "graduates": 2025
+  },
+  {
+   "province": "Benguela",
+   "graduates": 1655
+  },
+  {
+   "province": "Bié",
+   "graduates": 1522
+  },
+  {
+   "province": "Lunda Norte",
+   "graduates": 1156
+  },
+  {
+   "province": "Cuanza Norte",
+   "graduates": 1124
+  },
+  {
+   "province": "Moxico",
+   "graduates": 917
+  },
+  {
+   "province": "Cabinda",
+   "graduates": 876
+  },
+  {
+   "province": "Zaire",
+   "graduates": 714
+  },
+  {
+   "province": "Lunda Sul",
+   "graduates": 643
+  },
+  {
+   "province": "Malanje",
+   "graduates": 589
+  },
+  {
+   "province": "Cuando Cubango",
+   "graduates": 563
+  },
+  {
+   "province": "Namibe",
+   "graduates": 501
+  },
+  {
+   "province": "Cunene",
+   "graduates": 465
+  },
+  {
+   "province": "Uíge",
+   "graduates": 401
+  },
+  {
+   "province": "Cuanza Sul",
+   "graduates": 394
+  },
+  {
+   "province": "Bengo",
+   "graduates": 256
   }
  ],
  "series": [

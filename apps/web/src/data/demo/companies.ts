@@ -118,6 +118,36 @@ const OPERATORS_2020: SourceLink = {
   label: 'Ver Angola, 2020',
   url: `${VER_ANGOLA}/pt/032020/Telecomunicacoes/18963/Ministro-pede-“paciência”-para-Africell-cumprir-requisitos-do-concurso.htm`,
 }
+// Careers pages read on 05/11/2026 (docs/recolha-de-dados.md): BAI and BFA had no vacancy open; BIC and Unitel
+// have no careers page that answers. The careers below come from their recent job ads.
+const BAI_PORTAL: SourceLink = {
+  label: 'BAI, portal de recrutamento',
+  url: 'https://recrutamento.bancobai.ao',
+}
+const BAI_ADS: SourceLink = {
+  label: 'Jobartis, anúncios do BAI',
+  url: 'https://www.jobartis.com/vagas-emprego/BAI+(Banco+Angolano+de+Investimentos)',
+}
+const BAI_APRIL_2026: SourceLink = {
+  label: 'Ango Emprego, abril de 2026',
+  url: 'https://angoemprego.com/banco-bai-esta-a-recrutar-vagas-abertas-em-abril-de-2026/',
+}
+const BFA_TRAINEE: SourceLink = {
+  label: 'BFA, Futuro BFA',
+  url: 'https://careers.bfa.ao/lp/%23Futuro%20BFA/dfd879f1e9b8e653/?locale=pt_PT',
+}
+const BFA_INTERNSHIP: SourceLink = {
+  label: 'BFA, Programa de Estágios',
+  url: 'https://careers.bfa.ao/lp/%23PROGRAMA%20DE%20EST%C3%81GIOS/9fcca1f1acbeae67/?locale=pt_PT',
+}
+const UNITEL_OPEN_CALL: SourceLink = {
+  label: 'beBee, candidatura espontânea da Unitel (até 9/11/2026)',
+  url: 'https://bebee.com/ao/jobs/oportunidades-de-carreira-candidatura-espontanea-unitel-luanda--ss-ao-h4md4k',
+}
+const UNITEL_INEFOP: SourceLink = {
+  label: 'Ver Angola, 2024',
+  url: `${VER_ANGOLA}/pt/042024/Sociedade/39657/INEFOP-e-Unitel-juntos-na-oferta-de-oportunidades-de-estágio-profissional-aos-jovens.htm`,
+}
 const BAI_CORE_2025: SourceLink = {
   label: 'Ver Angola, 2025',
   url: `${VER_ANGOLA}/pt/082025/BancaSeguros/45433/BAI-inicia-programa-de-transforma%C3%A7%C3%A3o-de-sistemas-de-informa%C3%A7%C3%A3o.htm`,
@@ -139,8 +169,35 @@ export const COMPANIES: Company[] = [
     place: 'Luanda',
     logo: unitelLogo,
     website: 'https://unitel.ao',
-    summary: 'Operadora de telemóvel. Em 2020 era a líder do mercado, com cerca de 80% dos clientes.',
-    sources: [OPERATORS_2020, site('https://unitel.ao')],
+    summary:
+      'Operadora de telemóvel. Em 2020 era a líder do mercado, com cerca de 80% dos clientes. Recebe candidaturas espontâneas em 11 áreas, da tecnologia ao risco e fraude.',
+    // The areas of its open call (2026): technology, commercial and customer service, procurement, marketing and
+    // communication, legal, digital business, finance and audit, human resources, risk, fraud and security.
+    careers: [
+      'tecnico-de-telecomunicacoes',
+      'engenheiro-de-telecomunicacoes',
+      'gestor-comercial',
+      'tecnico-comercial',
+      'tecnico-de-compras',
+      'gestor-de-marketing',
+      'gestor-de-marketing-digital',
+      'assessor-de-comunicacao',
+      'jurista',
+      'analista-financeiro',
+      'auditor-interno',
+      'tecnico-de-recursos-humanos',
+      'analista-de-risco',
+      'analista-de-ciberseguranca',
+    ],
+    careersSourced: true,
+    programs: [
+      {
+        name: 'Estágios com o INEFOP',
+        summary: '20 estágios profissionais por ano para jovens, num acordo com o INEFOP assinado em 2024.',
+        source: UNITEL_INEFOP,
+      },
+    ],
+    sources: [OPERATORS_2020, UNITEL_OPEN_CALL, UNITEL_INEFOP, site('https://unitel.ao')],
   }),
   company({
     id: 'movicel',
@@ -229,16 +286,31 @@ export const COMPANIES: Company[] = [
     website: 'https://www.bancobai.ao',
     summary:
       'Banco angolano. Desde agosto de 2025 troca o sistema central do banco (plataforma Essence, da Finastra), com a Innovation Makers.',
-    careers: ['analista-de-sistemas', 'administrador-de-base-de-dados', 'gestor-de-projetos-de-ti'],
+    // Its job ads (2026 and earlier, closed by 05/11/2026), then the core-banking work.
+    careers: [
+      'gestor-de-clientes-bancario',
+      'tesoureiro',
+      'tecnico-comercial',
+      'analista-de-ciberseguranca',
+      'tecnico-de-compliance',
+      'tecnico-de-recursos-humanos',
+      'analista-de-sistemas',
+      'administrador-de-base-de-dados',
+      'gestor-de-projetos-de-ti',
+    ],
+    careersSourced: true,
     programs: [
       {
         name: 'Programa de estágios',
         summary:
-          'Estágios pagos, todos os anos, para recém-licenciados angolanos (a fonte é da edição de 2022).',
+          'Estágios pagos, todos os anos, para recém-licenciados angolanos (a fonte é da edição de 2022). A candidatura é no portal de recrutamento, com o CV e a média final do curso.',
         source: { label: 'Banco BAI', url: 'https://bancobai.ao/en/about-us/press/news/programa-de-estagio' },
       },
     ],
     sources: [
+      BAI_PORTAL,
+      BAI_APRIL_2026,
+      BAI_ADS,
       BAI_CORE_2025,
       {
         label: 'Ver Angola, 2026',
@@ -258,6 +330,20 @@ export const COMPANIES: Company[] = [
       'Banco angolano. Abre contas de forma totalmente digital nos balcões e investe em cibersegurança.',
     careers: ['analista-de-ciberseguranca', 'gestor-de-projectos'],
     careersSourced: true,
+    programs: [
+      {
+        name: 'Futuro BFA',
+        summary:
+          'Programa de trainees pago, de cerca de 12 meses, em regra de dois em dois anos. Seleção: triagem, provas de conhecimentos, avaliação do perfil comportamental e entrevista ou dinâmica de grupo.',
+        source: BFA_TRAINEE,
+      },
+      {
+        name: 'Programa de Estágios',
+        summary:
+          'Estágio de 3 meses, não pago, para finalistas e recém-licenciados maiores de 18 anos sem experiência na área. Candidaturas em janeiro–fevereiro e agosto–setembro.',
+        source: BFA_INTERNSHIP,
+      },
+    ],
     /** It sponsored PMI Angola's 6th annual conference (2022). */
     partners: ['pmi-angola-chapter'],
     sources: [
@@ -267,6 +353,8 @@ export const COMPANIES: Company[] = [
         url: 'https://bfa.ao/en/bfa/current-news/news/6th-pmi-angola-chapter-conference/',
       },
       { label: 'RTP África', url: 'https://rtpafrica.rtp.pt/?p=31654' },
+      BFA_TRAINEE,
+      BFA_INTERNSHIP,
     ],
   }),
   company({
@@ -300,6 +388,37 @@ export const COMPANIES: Company[] = [
     website: 'https://www.atlantico.ao',
     summary: 'Banco comercial angolano.',
     sources: [site('https://www.atlantico.ao')],
+  }),
+  company({
+    id: 'bci',
+    name: 'BCI, Banco de Comércio e Indústria',
+    sector: 'banca',
+    place: 'Luanda',
+    website: 'https://www.bci.ao',
+    summary:
+      'Banco comercial angolano. Dá as Bolsas de Excelência aos melhores alunos de Medicina, Economia e Direito em universidades parceiras.',
+    programs: [
+      {
+        name: 'Bolsas de Excelência BCI',
+        summary:
+          'Até 200 bolsas por ano (50 por curso), pagas à universidade durante 10 meses, e um ano de estágio no banco para bons alunos em cursos ligados à banca.',
+        source: {
+          label: 'Expansão, 2024',
+          url: 'https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html',
+        },
+      },
+    ],
+    partners: ['ucan'],
+    sources: [
+      {
+        label: 'Expansão, 2024',
+        url: 'https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html',
+      },
+      {
+        label: 'Ver Angola, 2024',
+        url: `${VER_ANGOLA}/pt/102024/Educacao/41929/BCI-e-Universidade-Lueji-A'nkonde-juntam-se-para-conceder-bolsas-de-estudo.htm`,
+      },
+    ],
   }),
   company({
     id: 'banco-sol',
@@ -416,6 +535,50 @@ export const COMPANIES: Company[] = [
     ],
     partners: ['isptec'],
     sources: [ISPTEC_2012, site('https://www.sonangol.co.ao')],
+  }),
+  company({
+    id: 'mca',
+    name: 'Grupo MCA',
+    sector: 'energia',
+    place: 'Várias províncias',
+    summary:
+      'Grupo português de construção e energia. Constrói centrais solares em seis províncias, incluindo a do Biópio (Benguela), e leva electricidade a zonas rurais.',
+    careers: [
+      'engenheiro-civil',
+      'engenheiro-electrotecnico',
+      'engenheiro-mecanico',
+      'engenheiro-de-energias-renovaveis',
+    ],
+    programs: [
+      {
+        name: 'Bolsas de mérito no ISPTEC',
+        summary:
+          'Propina paga, subsídio mensal e computador para alunos de mérito de Engenharia Civil, Mecânica e Electrotécnica que passam para o 2.º ano (2026/27), com estágios.',
+        source: {
+          label: 'Ver Angola, 2026',
+          url: `${VER_ANGOLA}/pt/052026/Educacao/48842/Alunos-de-mérito-do-ISPTEC-vão-beneficiar-de-bolsas-de-estudo-e-estágios.htm`,
+        },
+      },
+      {
+        name: 'Bolsas na Faculdade de Engenharia da UAN',
+        summary: '25 bolsas em 2024/25, para propinas e alimentação.',
+        source: {
+          label: 'Ver Angola, 2024',
+          url: `${VER_ANGOLA}/pt/122024/Educacao/42632/MCA-tem-25-bolsas-para-alunos-da-Faculdade-de-Engenharia-da-UAN-para-ajudar-com-propinas-e-alimentação.htm`,
+        },
+      },
+    ],
+    partners: ['isptec', 'uan'],
+    sources: [
+      {
+        label: 'Ver Angola, 2020',
+        url: `${VER_ANGOLA}/pt/112020/Energia/22753/Grupo-português-MCA-investe-mais-de-600-milhões-em-sete-centrais-solares.htm`,
+      },
+      {
+        label: 'Ver Angola, 2023',
+        url: `${VER_ANGOLA}/pt/112023/Energia/37880/Grupo-português-MCA-leva-eletricidade-a-mais-de-200-mil-casas-nas-províncias.htm`,
+      },
+    ],
   }),
   company({
     id: 'siemens',

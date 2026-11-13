@@ -13,6 +13,7 @@ import { paginate } from '../../lib/pagination'
 import { stagger } from '../../lib/ui'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
+import { useInterestAreas } from '../../lib/useInterestAreas'
 import { findResults, RESULT_TYPES, SECTIONS, type Result, type ResultType } from './results'
 import { ResultRow } from './ResultRow'
 
@@ -23,7 +24,7 @@ const PAGE_SIZE = 12
 const SECTION_TITLE = 'flex items-center gap-2 text-base font-bold text-night'
 
 /**
- * Pesquisa: one field over careers, courses, academies and companies (?q=), narrowed to one
+ * Pesquisa: one field over careers, courses, academies, scholarships and companies (?q=), narrowed to one
  * type (?tipo=). Before typing: the recent searches and the four sections.
  */
 export default function SearchPage() {
@@ -146,7 +147,7 @@ function Explore({ index }: { index: number }) {
       <h2 id="explore" className={`${SECTION_TITLE} mb-2`}>
         {t('search.exploreTitle')}
       </h2>
-      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-5">
         {RESULT_TYPES.map((type) => (
           <li key={type}>
             <Link to={SECTIONS[type].to} className={`${LIST_ROW} h-full`}>
@@ -175,6 +176,7 @@ function Results({ query, words }: { query: string; words: string[] }) {
   const [params, setParam] = useUrlFilters()
   const list = useRef<HTMLDivElement>(null)
   const catalog = useCatalog()
+  const interests = useInterestAreas()
 
   if (catalog.isError) return <ErrorState onRetry={catalog.retry} />
   if (!catalog.data) {
@@ -185,7 +187,7 @@ function Results({ query, words }: { query: string; words: string[] }) {
     )
   }
 
-  const results = findResults(catalog.data, words, t)
+  const results = findResults(catalog.data, words, t, interests)
   const total = RESULT_TYPES.reduce((sum, type) => sum + results[type].length, 0)
   const tipo = params.get('tipo')
   const type = RESULT_TYPES.find((value) => value === tipo) ?? null

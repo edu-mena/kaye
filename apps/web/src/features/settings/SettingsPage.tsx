@@ -2,6 +2,8 @@ import { useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon, type IconName } from '../../components/icons'
 import { InstallButton } from '../../components/InstallApp'
+import { startTour } from '../../lib/tourRestart'
+import { Button } from '../../components/ui/Button'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Soon } from '../../components/ui/Rows'
 import { useInstall } from '../../lib/install'
@@ -114,6 +116,15 @@ export default function SettingsPage() {
             {installMethod && (
               <Row title={t('install.title')} body={t('install.body')} action={<InstallButton />} />
             )}
+            <Row
+              title={t('settings.tourTitle')}
+              action={
+                <Button variant="secondary" size="sm" onClick={startTour}>
+                  <Icon name="path" className="size-4" />
+                  {t('settings.tourAction')}
+                </Button>
+              }
+            />
             <Row title={t('app.tagline')} action={<ServiceStatus />} />
           </Group>
         </div>

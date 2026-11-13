@@ -29,6 +29,7 @@ import { areaShares, marketSummary, type AreaShares } from '../../domain/market'
 import { stagger } from '../../lib/ui'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { PostingsChart } from '../careers/PostingsChart'
+import { PsychotechHint } from '../psychotech/PsychotechHint'
 
 /** The Entidade Recrutadora Única's competitions are announced here (as images, so they are not counted). */
 const ENAPP = 'https://www.enapp.gov.ao'
@@ -629,6 +630,7 @@ function Public({ jobs }: { jobs: JobMarket }) {
 
   return (
     <Grid>
+      <PsychotechHint className="md:col-span-6 lg:col-span-12" />
       <Panel
         id="public"
         level={2}
@@ -758,7 +760,20 @@ function Study({ companies, education }: Data) {
       text: t('market.accessFirstTime', { share: share(access.firstTime / access.candidates) }),
     },
     { id: 'enrolled', value: access.enrolled, text: t('market.accessEnrolled') },
+    { id: 'places', value: access.places, text: t('market.accessPlaces') },
   ]
+  // Candidates for each admitted student, the most sought-after areas first.
+  const competition = education.areas
+    .filter((entry) => entry.admitted > 0)
+    .map((entry) => ({
+      area: entry.area,
+      ratio: entry.candidates / entry.admitted,
+      candidates: entry.candidates,
+    }))
+    .toSorted((a, b) => b.ratio - a.ratio)
+  const most = Math.max(...competition.map((entry) => entry.ratio))
+  const ratio = (value: number) => value.toLocaleString(i18n.language, { maximumFractionDigits: 1 })
+  const topProvince = Math.max(...education.provinces.map((entry) => entry.graduates))
 
   return (
     <Grid>
@@ -831,6 +846,45 @@ function Study({ companies, education }: Data) {
             </li>
           ))}
         </ul>
+      </Panel>
+      <Panel
+        id="competition"
+        level={2}
+        icon="user"
+        title={t('market.competitionTitle', { year: education.year })}
+        className="md:col-span-3 lg:col-span-7"
+      >
+        <p className="-mt-1 mb-3 text-xs font-light text-muted">{t('market.competitionNote')}</p>
+        <BarList
+          label={t('market.competitionTitle', { year: education.year })}
+          items={competition.map((entry, index) => ({
+            label: t('market.competitionRow', {
+              area: t(`market.area_${entry.area}`),
+              count: entry.candidates,
+              candidates: number(entry.candidates),
+            }),
+            value: entry.ratio / most,
+            valueLabel: ratio(entry.ratio),
+            emphasized: index === 0,
+          }))}
+        />
+      </Panel>
+      <Panel
+        id="graduatesProvinces"
+        level={2}
+        icon="globe"
+        title={t('market.graduatesProvincesTitle', { year: education.year })}
+        className="md:col-span-3 lg:col-span-5"
+      >
+        <BarList
+          label={t('market.graduatesProvincesTitle', { year: education.year })}
+          items={education.provinces.map((entry, index) => ({
+            label: entry.province,
+            value: entry.graduates / topProvince,
+            valueLabel: number(entry.graduates),
+            emphasized: index === 0,
+          }))}
+        />
       </Panel>
       <Panel
         id="programs"

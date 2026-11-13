@@ -1,4 +1,7 @@
-import { Icon } from './icons'
+import { useTranslation } from 'react-i18next'
+import { FilterCombobox } from './ui/Filters'
+
+const NONE: readonly never[] = []
 
 type AreaPickerProps<T extends string> = {
   label: string
@@ -7,12 +10,14 @@ type AreaPickerProps<T extends string> = {
   options: { value: T; label: string }[]
   value: T | null
   onChange: (value: T | null) => void
+  /** The person's areas, most interesting first: they lead the suggestions, marked "Para ti". */
+  mine?: readonly T[]
   className?: string
 }
 
 /**
- * One area of the catalogue (technology, health…) as a select, "todas as áreas" first: thirteen
- * long names do not fit a row of buttons, on a phone or otherwise.
+ * One area of the catalogue (technology, health…) as a box to type in, with the matching areas
+ * as suggestions: thirteen long names do not fit a row of buttons, and a long select is slow.
  */
 export function AreaPicker<T extends string>({
   label,
@@ -20,30 +25,31 @@ export function AreaPicker<T extends string>({
   options,
   value,
   onChange,
+  mine = NONE,
   className = '',
 }: AreaPickerProps<T>) {
+  const { t } = useTranslation()
+  const rank = (option: { value: T }) => {
+    const index = mine.indexOf(option.value)
+    return index === -1 ? mine.length : index
+  }
+  const sorted = options
+    .toSorted((a, b) => rank(a) - rank(b))
+    .map((option) => ({
+      value: option.value,
+      label: option.label,
+      hint: mine.includes(option.value) ? t('common.forYou') : undefined,
+    }))
   return (
-    <label className={`relative block ${className}`}>
-      <span className="sr-only">{label}</span>
-      <select
-        value={value ?? ''}
-        onChange={(event) => {
-          const picked = options.find((option) => option.value === event.target.value)
-          onChange(picked ? picked.value : null)
-        }}
-        className="h-11 w-full appearance-none rounded-full border border-line bg-surface pr-10 pl-4 text-sm text-night *:bg-surface"
-      >
-        <option value="">{allLabel}</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <Icon
-        name="chevronRight"
-        className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rotate-90 text-muted"
+    <div className={className}>
+      <FilterCombobox
+        block
+        label={label}
+        placeholder={allLabel}
+        options={sorted}
+        value={value}
+        onChange={(picked) => onChange(options.find((option) => option.value === picked)?.value ?? null)}
       />
-    </label>
+    </div>
   )
 }

@@ -11,7 +11,8 @@ import { Soon } from '../../components/ui/Rows'
 import { useNews } from '../../data/queries'
 import type { NewsItem } from '../../data/types'
 import { daysUntil } from '../../domain/deadlines'
-import { isNotification, isUnseen, myCareers, pathSteps } from '../../domain/path'
+import { isNotification, isUnseen, pathSteps } from '../../domain/path'
+import { useNewsForMe } from '../../lib/useNewsForMe'
 import { stagger } from '../../lib/ui'
 import { userActions, useUser } from '../../state/userStore'
 import { DeadlineRow } from '../deadlines/DeadlineRow'
@@ -20,7 +21,7 @@ import { NewsCard } from '../news/NewsCard'
 
 /**
  * Notificações: what is about the person (docs/arquitetura.md, 7): the next step of their path and the news
- * about the careers they saved or chose. Opening the page marks the news as seen; this visit still shows
+ * about the careers they saved or chose and of the topics they subscribed to. Opening the page marks the news as seen; this visit still shows
  * which ones were new.
  */
 export default function NotificationsPage() {
@@ -56,8 +57,9 @@ function Inbox({ news }: { news: NewsItem[] }) {
 
   const deadlines = useDeadlines()
   const soon = deadlines.mine.filter((item) => daysUntil(deadlines.today, item.date) <= SOON_DAYS)
-  const mine = myCareers(user)
-  const about = news.filter((item) => isNotification(item, mine))
+  const { mine, subscribed, subscriptions } = useNewsForMe()
+  const about = news.filter((item) => isNotification(item, mine, subscribed(item)))
+  const followsNothing = mine.size === 0 && subscriptions === null
   const next = pathSteps(user).find((step) => !step.done)
   const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })
 
@@ -118,13 +120,13 @@ function Inbox({ news }: { news: NewsItem[] }) {
         ) : (
           <div className="rounded-2xl bg-surface p-5 shadow-card">
             <p className="text-sm font-light text-copy">
-              {mine.size === 0 ? t('news.forYouEmpty') : t('notifications.nothingYet')}
+              {followsNothing ? t('news.forYouEmpty') : t('notifications.nothingYet')}
             </p>
             <Link
-              to={mine.size === 0 ? '/carreiras' : '/novidades'}
+              to={followsNothing ? '/carreiras' : '/novidades'}
               className="mt-2 inline-flex items-center gap-1 text-sm font-normal text-night hover:text-blue"
             >
-              {mine.size === 0 ? t('news.careersLink') : t('notifications.allNews')}
+              {followsNothing ? t('news.careersLink') : t('notifications.allNews')}
               <Icon name="chevronRight" className="size-3.5" />
             </Link>
           </div>
