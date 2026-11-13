@@ -869,11 +869,9 @@ export const fr: Messages = {
   familySheet: {
     button: 'Montrer à la famille',
     dialogTitle: 'Montrer à la famille',
-    dialogBody:
-      "Une page avec l'essentiel de ce métier, en mots simples : ce qu'il fait, ce qu'il rapporte, ce que coûte la formation, si elle est reconnue et comment la payer. Envoie-la sur WhatsApp ou imprime-la.",
     includeFit: 'Ajouter ce que mon test Kayé a montré (avec mon prénom seulement)',
     privacy: "La page est créée sur ton téléphone. Rien n'est envoyé à Kayé.",
-    create: 'Créer et partager le PDF',
+    pdf: 'PDF d’une page',
     creating: 'Création…',
     kicker: 'Un métier expliqué à la famille',
     whatTitle: 'Ce que fait ce métier',
@@ -921,6 +919,47 @@ export const fr: Messages = {
     sourceKaye: 'Kayé (estimations des frais et de la demande)',
     scan: 'Voir sur Kayé',
   },
+  family: {
+    dialogBody:
+      'Envoie à ta famille le résultat du test et les carrières choisies, expliqués simplement : ce qu’elles font, combien coûtent les études, si la formation est reconnue et comment payer.',
+    withName: 'Mettre mon prénom ({{name}})',
+    linkPrivacy:
+      'Le lien emporte les données avec lui : le code du test, les carrières et, si tu veux, ton prénom. Rien n’est enregistré chez Kayé. Qui a le lien peut voir ; qui ne l’a pas ne voit rien. Envoie-le seulement à qui tu veux.',
+    sendLink: 'Envoyer le lien',
+    pdfFor: 'PDF : {{name}}',
+    shareText:
+      'J’ai préparé ceci pour que vous voyiez les carrières auxquelles je pense, expliquées par Kayé :',
+    shareTextNamed:
+      'C’est {{name}}. J’ai préparé ceci pour que vous voyiez les carrières auxquelles je pense, expliquées par Kayé :',
+    kicker: 'Kayé · pour la famille',
+    title: 'Ce que dit le test d’orientation',
+    titleNamed: 'Ce que le test dit de {{name}}',
+    codeIntro:
+      'Le code {{code}} résume les trois intérêts les plus forts du test d’orientation Kayé. Ce n’est pas une note : il montre le type de travail qui plaît le plus.',
+    line0: 'L’intérêt le plus fort est le côté {{dimension}} : {{body}}',
+    line1: 'Juste après vient le côté {{dimension}} : {{body}}',
+    line2: 'Et aussi le côté {{dimension}} : {{body}}',
+    noTest: 'Le test d’orientation n’a pas encore été fait. Voici les carrières choisies.',
+    careersTitle_one: 'La carrière choisie',
+    careersTitle_other: 'Les carrières choisies',
+    demand: 'Demande sur le marché',
+    totalCost: 'Coût total du parcours',
+    shortest: 'Le parcours le plus court : {{name}} ({{time}})',
+    whereTitle: 'Où étudier',
+    recognised: 'Reconnu',
+    helpTitle: 'Comment vous pouvez aider',
+    help1: 'Parlez de ces carrières : demandez ce qui attire et ce qui inquiète.',
+    help2: 'Regardez ensemble les coûts et les bourses, et notez les dates limites de candidature.',
+    help3:
+      'Aidez à contacter quelqu’un qui travaille déjà dans le domaine, ou visitez ensemble une des écoles.',
+    privacyNote:
+      'Cette page n’est pas enregistrée chez Kayé : les données viennent du lien lui-même et du catalogue Kayé, gratuit et impartial.',
+    meetKaye: 'Découvrir Kayé',
+    invalidTitle: 'Ce lien ne s’ouvre pas',
+    invalidBody:
+      'Il est peut-être incomplet ou d’une ancienne version. Demandez un nouveau lien à qui vous l’a envoyé.',
+  },
+
   fit: {
     title: 'Ma compatibilité',
     subtitle: 'Comment tes intérêts, tes études et tes compétences se comparent à ce métier.',

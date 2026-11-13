@@ -853,11 +853,9 @@ export const pt = {
   familySheet: {
     button: 'Mostrar à família',
     dialogTitle: 'Mostrar à família',
-    dialogBody:
-      'Uma página com o essencial desta profissão, em palavras simples: o que faz, quanto ganha, quanto custa o curso, se é reconhecido e como pagar. Envia-a pelo WhatsApp ou imprime-a.',
     includeFit: 'Juntar o que o meu teste do Kayé mostrou (só com o meu primeiro nome)',
     privacy: 'A página é criada no teu telemóvel. Nada é enviado para o Kayé.',
-    create: 'Criar e partilhar o PDF',
+    pdf: 'PDF de uma página',
     creating: 'A criar…',
     kicker: 'Uma profissão explicada à família',
     whatTitle: 'O que faz',
@@ -904,6 +902,44 @@ export const pt = {
     sourceKaye: 'Kayé (estimativas de propina e de procura)',
     scan: 'Ver no Kayé',
   },
+  family: {
+    dialogBody:
+      'Envia à tua família o resultado do teste e as carreiras que escolheste, explicados em palavras simples: o que fazem, quanto custa estudar, se o curso é reconhecido e como pagar.',
+    withName: 'Pôr o meu primeiro nome ({{name}})',
+    linkPrivacy:
+      'O link leva os dados com ele: o código do teste, as carreiras e, se quiseres, o teu primeiro nome. Nada fica guardado no Kayé. Quem tiver o link vê; quem não tiver não vê nada. Envia-o só a quem queres.',
+    sendLink: 'Enviar link',
+    pdfFor: 'PDF: {{name}}',
+    shareText: 'Preparei isto para verem as carreiras que estou a pensar seguir, explicadas pelo Kayé:',
+    shareTextNamed:
+      'Sou {{name}}. Preparei isto para verem as carreiras que estou a pensar seguir, explicadas pelo Kayé:',
+    kicker: 'Kayé · para a família',
+    title: 'O que o teste vocacional diz',
+    titleNamed: 'O que o teste diz sobre {{name}}',
+    codeIntro:
+      'O código {{code}} resume os três interesses mais fortes no teste vocacional do Kayé. Não é uma nota: mostra o tipo de trabalho que dá mais gosto fazer.',
+    line0: 'O interesse mais forte é o lado {{dimension}}: {{body}}',
+    line1: 'Logo a seguir vem o lado {{dimension}}: {{body}}',
+    line2: 'E também o lado {{dimension}}: {{body}}',
+    noTest: 'O teste vocacional ainda não foi feito. Estas são as carreiras escolhidas.',
+    careersTitle_one: 'A carreira escolhida',
+    careersTitle_other: 'As carreiras escolhidas',
+    demand: 'Procura no mercado',
+    totalCost: 'Custo total do caminho',
+    shortest: 'O caminho mais curto: {{name}} ({{time}})',
+    whereTitle: 'Onde estudar',
+    recognised: 'Reconhecido',
+    helpTitle: 'Como podem ajudar',
+    help1: 'Conversem sobre estas carreiras: perguntem o que atrai e o que preocupa.',
+    help2: 'Vejam juntos os custos e as bolsas, e apontem os prazos de candidatura.',
+    help3: 'Ajudem a falar com alguém que já trabalha na área, ou visitem juntos uma das escolas.',
+    privacyNote:
+      'Esta página não fica guardada no Kayé: os dados vêm do próprio link e do catálogo do Kayé, grátis e imparcial.',
+    meetKaye: 'Conhecer o Kayé',
+    invalidTitle: 'Este link não abre',
+    invalidBody: 'Pode estar incompleto ou ser de uma versão antiga. Peçam um link novo a quem o enviou.',
+  },
+
   fit: {
     title: 'O meu encaixe',
     subtitle: 'Como os teus interesses, estudos e competências se comparam com esta profissão.',

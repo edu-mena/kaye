@@ -855,11 +855,9 @@ export const en: Messages = {
   familySheet: {
     button: 'Show my family',
     dialogTitle: 'Show my family',
-    dialogBody:
-      'One page with the essentials of this career, in plain words: what it does, what it pays, what the course costs, whether it is recognised and how to pay. Send it on WhatsApp or print it.',
     includeFit: 'Add what my Kayé test showed (with my first name only)',
     privacy: 'The page is made on your phone. Nothing is sent to Kayé.',
-    create: 'Create and share the PDF',
+    pdf: 'One-page PDF',
     creating: 'Creating…',
     kicker: 'A career explained to the family',
     whatTitle: 'What it does',
@@ -906,6 +904,44 @@ export const en: Messages = {
     sourceKaye: 'Kayé (estimated fees and demand)',
     scan: 'See it on Kayé',
   },
+  family: {
+    dialogBody:
+      'Send your family your test result and the careers you chose, explained in plain words: what they do, what studying costs, whether the course is recognised and how to pay.',
+    withName: 'Add my first name ({{name}})',
+    linkPrivacy:
+      'The link carries the data with it: the test code, the careers and, if you want, your first name. Nothing is stored at Kayé. Whoever has the link can see it; whoever does not sees nothing. Send it only to people you choose.',
+    sendLink: 'Send link',
+    pdfFor: 'PDF: {{name}}',
+    shareText: 'I made this so you can see the careers I am thinking about, explained by Kayé:',
+    shareTextNamed:
+      'It is {{name}}. I made this so you can see the careers I am thinking about, explained by Kayé:',
+    kicker: 'Kayé · for the family',
+    title: 'What the career test says',
+    titleNamed: 'What the test says about {{name}}',
+    codeIntro:
+      'The code {{code}} sums up the three strongest interests in the Kayé career test. It is not a grade: it shows the kind of work that is most enjoyable.',
+    line0: 'The strongest interest is the {{dimension}} side: {{body}}',
+    line1: 'Right after comes the {{dimension}} side: {{body}}',
+    line2: 'And also the {{dimension}} side: {{body}}',
+    noTest: 'The career test has not been taken yet. These are the careers chosen.',
+    careersTitle_one: 'The career chosen',
+    careersTitle_other: 'The careers chosen',
+    demand: 'Job market demand',
+    totalCost: 'Total cost of the path',
+    shortest: 'The shortest path: {{name}} ({{time}})',
+    whereTitle: 'Where to study',
+    recognised: 'Recognised',
+    helpTitle: 'How you can help',
+    help1: 'Talk about these careers: ask what is appealing and what is worrying.',
+    help2: 'Look at the costs and scholarships together, and note the application deadlines.',
+    help3: 'Help reach someone who already works in the field, or visit one of the schools together.',
+    privacyNote:
+      'This page is not stored at Kayé: the data comes from the link itself and from the Kayé catalogue, free and impartial.',
+    meetKaye: 'Discover Kayé',
+    invalidTitle: 'This link does not open',
+    invalidBody: 'It may be incomplete or from an older version. Ask whoever sent it for a new link.',
+  },
+
   fit: {
     title: 'My fit',
     subtitle: 'How your interests, studies and skills compare with this career.',

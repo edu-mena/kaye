@@ -22,6 +22,7 @@ import { useRecommendations } from '../../lib/useRecommendations'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { activeCv, EMPTY_CV, getUser, userActions, useUser } from '../../state/userStore'
 import { CvFillDialog } from '../cv/CvFillPanel'
+import { ShowFamily } from '../family/ShowFamily'
 import { useCvSuggestions } from '../cv/useCvSuggestions'
 import { ClearStrengths } from './ClearStrengths'
 import { useTestProgress } from '../../state/useTestProgress'
@@ -86,6 +87,13 @@ export default function ResultPage() {
             code={code}
             careers={(recommendations ?? []).slice(0, 3).map((item) => item.career.name)}
             firstName={user.profile?.name.trim().split(/\s+/)[0] ?? ''}
+          />
+          <ShowFamily
+            slugs={(recommendations ?? [])
+              .filter((item) => item.career.detailed)
+              .slice(0, 3)
+              .map((item) => item.career.slug)}
+            className="-ml-3"
           />
         </div>
       </header>

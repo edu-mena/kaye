@@ -35,6 +35,12 @@ export const router = createBrowserRouter([
     lazy: publicPage(() => import('../features/cv/PublicCardPage')),
   },
   {
+    // Public: what the family sees; the data travels in the link's fragment (docs/decisoes/0018).
+    path: 'familia',
+    HydrateFallback: AppLoading,
+    lazy: publicPage(() => import('../features/family/FamilyPage')),
+  },
+  {
     Component: Layout,
     // Shown while a screen's code downloads on the first visit (deep links, slow networks).
     HydrateFallback: AppLoading,

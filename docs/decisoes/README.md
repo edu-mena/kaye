@@ -24,6 +24,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0015](0015-catalogo-largo.md) | Catálogo largo: todas as áreas desde o MVP | Aceite |
 | [0016](0016-kursos-livro-tecnico.md) | Kursos: cursos como livro técnico, progresso e certificado no aparelho | Aceite |
 | [0017](0017-teste-vocacional-geral-com-valencias.md) | Teste vocacional geral com valências | Aceite |
+| [0018](0018-link-da-familia-com-dados-no-fragmento.md) | Link para a família com os dados no fragmento (#) | Aceite |
 
 Modelo para um novo ADR:
 

@@ -45,10 +45,10 @@ import { ModelCvGrid } from '../cv/ModelCvGrid'
 import { InternshipsForArea } from '../internships/InternshipLinks'
 import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
 import { ProgramSummary } from '../training/ProgramSummary'
+import { ShowFamily } from '../family/ShowFamily'
 import { CareerMarket } from './CareerMarket'
 import { CareerPath } from './CareerPath'
 import { CostVsSalary } from './CostVsSalary'
-import { FamilySheetButton } from './FamilySheetButton'
 import { FitPanel } from './FitPanel'
 import { FreeCourses } from './FreeCourses'
 import { SelfEmploymentPanel } from './SelfEmploymentPanel'
@@ -276,8 +276,8 @@ function CareerView({ career }: { career: Career }) {
           onFit={showFit}
           actions={
             <>
-              <FamilySheetButton
-                career={career}
+              <ShowFamily
+                slugs={[career.slug]}
                 className="bg-coal text-white ring-1 ring-white/15 hover:bg-night"
               />
               <ShareButton

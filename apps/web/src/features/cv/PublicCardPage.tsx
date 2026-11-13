@@ -1,6 +1,6 @@
-import { useEffect, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useParams } from 'react-router'
+import { useParams } from 'react-router'
+import { PublicShell as Shell } from '../../components/PublicShell'
 import { Icon, type IconName } from '../../components/icons'
 import { usePublicCard } from '../../data/queries'
 import type { PublicCard } from '../../data/types'
@@ -26,38 +26,11 @@ function actions(card: PublicCard, labels: Record<'email' | 'whatsapp' | 'linked
   return list
 }
 
-function Shell({ children }: { children: ReactNode }) {
-  const { t } = useTranslation()
-  return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 py-10">
-      <div className="flex-1">{children}</div>
-      <p className="mt-10 text-center text-xs font-light text-muted">
-        {t('publicCard.madeWith')}{' '}
-        <Link to="/" className="underline">
-          Kayé
-        </Link>
-      </p>
-    </main>
-  )
-}
-
-/** Keeps search engines out, on top of the server's header: this page is shared, not published. */
-function useNoIndex() {
-  useEffect(() => {
-    const meta = document.createElement('meta')
-    meta.name = 'robots'
-    meta.content = 'noindex, nofollow'
-    document.head.append(meta)
-    return () => meta.remove()
-  }, [])
-}
-
 /** /c/:slug, outside the app's layout: what someone sees after scanning a card. */
 export default function PublicCardPage() {
   const { t } = useTranslation()
   const { slug = '' } = useParams()
   const { data: card, isPending, isError } = usePublicCard(slug)
-  useNoIndex()
 
   if (isPending) return <Shell>{null}</Shell>
 

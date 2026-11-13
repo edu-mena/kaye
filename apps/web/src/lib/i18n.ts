@@ -59,6 +59,20 @@ export async function changeLocale(locale: Locale) {
   await i18n.changeLanguage(locale)
 }
 
+/**
+ * A shared page in the sender's language (/familia), unless whoever opens it already chose one. Not saved:
+ * the next visit to the app starts as before.
+ */
+export async function followLocale(locale: Locale) {
+  try {
+    if (isLocale(localStorage.getItem(STORAGE_KEY))) return
+  } catch {
+    // Storage blocked: follow the link.
+  }
+  await load(locale)
+  await i18n.changeLanguage(locale)
+}
+
 i18n.on('languageChanged', (lng) => {
   document.documentElement.lang = lng
 })
