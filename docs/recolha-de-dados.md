@@ -313,10 +313,29 @@ Em `apps/web/src/data/demo/supportPrograms.ts`; aparecem na carreira, separador 
 | Fundo de Inovação Orange Corners (DW Angola, KixiCrédito) | Crédito | [Forbes África Lusófona (03/2026)](https://forbesafricalusofona.com/?p=169347) | Idade; prazos |
 | Orange Corners Angola (Acelera Angola) | Incubadora | [Orange Corners](https://www.orangecorners.com/story-of-systematic-change/), [Concours (2025)](https://concoursn.com/?p=428902) | Prazo da próxima edição |
 | Sonajovem 5.0, incubadora SPACIUM (Sonangol, ISPTEC) | Incubadora | [Forbes África Lusófona (07/2025)](https://forbesafricalusofona.com/sonangol-inaugura-incubadora-para-acelerar-talentos-empreendedores-em-angola/) | Se abre nova edição |
+| PREI: Janela Única e microcrédito (Decreto Presidencial n.º 148/25) | Registo | [Ver Angola (06/2025)](https://www.verangola.net/va/pt/062025/Economia/44945/Governo-reestrutura-programa-de-reconversão-da-economia-informal.htm), [Expansão](https://expansao.co.ao/angola/detalhe/nova-roupagem-do-prei-privilegia-acesso-ao-credito-66825.html) | Onde fica a Janela Única em cada província; condições do crédito |
+| Kwenda: inclusão produtiva (FAS) | Crédito | [Banco Mundial (05/2025)](https://www.worldbank.org/pt/news/feature/2025/05/22/breaking-the-cycle-of-poverty-in-angola-through-cash-transfers-afe.print), [ANGOP](https://angop.ao/en/noticias/sociedade/inclusao-produtiva-com-indicadores-positivos) | Se jovens fora das famílias do Kwenda podem entrar |
+| Projecto Crescer (Banco Mundial e BAD, 15–35 anos) | Formação | [Ver Angola (10/2025)](https://www.verangola.net/va/pt/102025/Sociedade/46187/Projecto-Crescer-vai-criar-mais-de-37000-empregos-para-jovens.htm), [Forbes África Lusófona](https://forbesafricalusofona.com/?p=163792) | Províncias e como candidatar (formação a começar em 2026) |
 
-Descartados: Balcão Único do Empreendedor (nenhuma fonte de 2025–2026; o registo faz-se hoje no GUE); PAPE (últimos números de 2023; os kits passaram para o JOBE); Projecto de Apoio ao Crédito (o BDA suspendeu-o em 2025, [Ecos e Factos](https://www.ecosefactos.com/bda-preve-retomar-financiamentos-ao-sector-produtivo-em-2026/)); Unitel Go (última edição com fonte em 2023); incubadoras da UAN e da UCAN (nenhuma fonte).
+Descartados: Balcão Único do Empreendedor como apoio à parte (nenhuma fonte de 2025–2026; o registo faz-se hoje no GUE e na Janela Única do PREI; `/sem-universidade` só o cita como origem, com o Decreto Presidencial n.º 84/14); PAPE (últimos números de 2023; os kits passaram para o JOBE); Projecto de Apoio ao Crédito (o BDA suspendeu-o em 2025, [Ecos e Factos](https://www.ecosefactos.com/bda-preve-retomar-financiamentos-ao-sector-produtivo-em-2026/)); Unitel Go (última edição com fonte em 2023); incubadoras da UAN e da UCAN (nenhuma fonte).
 
 O conteúdo por carreira (`apps/web/src/data/demo/selfEmployment.ts`: se é comum, como se faz, custo de arranque, passos e licenças) é **estimado** pela Kayé (`estimated: true`); falta confirmá-lo com profissionais e com as ordens e licenças de cada área.
+
+## Sem universidade: ofícios e economia informal (13/11/2026)
+
+Página `/sem-universidade` (`apps/web/src/features/noDegree/`) e os ofícios em `apps/web/src/data/demo/tradeCareers.ts`.
+
+| O quê | Fonte | Por confirmar |
+|---|---|---|
+| Pavilhão de Artes e Ofícios dos Ramiros (Belas, Luanda), INEFOP: construção civil, corte e costura, culinária e pastelaria, mecânica auto, electricidade, carpintaria, marcenaria, canalização | [Ver Angola (13/10/2026)](https://www.verangola.net/va/pt/102026/Sociedade/50392/Pavilh%C3%A3o-de-forma%C3%A7%C3%A3o-profissional-dos-Ramiros-abre-portas-para-qualificar-1000-formandos-por-ciclo.htm) | Os outros 4 dos 13 cursos; preço; datas dos ciclos |
+| Centro de Formação Profissional 1.º de Maio (Uíge), INEFOP: canalização, electricidade de baixa tensão, serralharia de construção civil | [Decreto Executivo n.º 149/23 (AngoLEX)](https://angolex.com/paginas/decreto-executivo/estatuto-organico-do-centro-de-formacao-profissional-1a-de-maio-149a-23a.html) | Se os cursos continuam; duração |
+| Centro de Formação Profissional Feminino (Rangel, Luanda), INEFOP: cabeleireiro e barbeiro, corte e costura, cozinha e pastelaria, massagem e estética | [Decreto Executivo n.º 186/23 (Diário da República, 31/08/2023)](https://faolex.fao.org/docs/pdf/ang221175.pdf) | Se aceita rapazes; duração |
+| Passos do informal ao formal: GUE, PREI (Decreto Presidencial n.º 148/25), NIF na AGT, conta bancária, INSS (Decreto Presidencial n.º 110/22) | [GUE](https://www.gue.gov.ao), [Ver Angola (06/2025)](https://www.verangola.net/va/pt/062025/Economia/44945/Governo-reestrutura-programa-de-reconversão-da-economia-informal.htm), [Portal do Contribuinte](https://portaldocontribuinte.minfin.gov.ao), [lex.ao](https://lex.ao/docs/presidente-da-republica/2022/decreto-presidencial-n-o-110-22-de-12-de-maio/) | Custos e prazos de cada registo; o regime do INSS para quem trabalha por conta própria |
+| Fotos dos 14 ofícios | Wikimedia Commons, Wiki Loves Africa (CC BY-SA 4.0), créditos em `data/demo/images.ts` | — |
+
+**Estimado** (`estimated: true`): a procura dos 14 ofícios (os sites de emprego quase não os anunciam), a duração e o custo dos cursos curtos e o custo de arranque por conta própria. Sem salários: nenhuma tabela pública.
+
+Não encontrado: uma lista oficial e actual dos centros do INEFOP com os cursos de cada um (o INEFOP diz ter 46 centros só em Luanda); cursos de frio e de energia solar com centro e data (uma apresentação do INEFOP cita-os como "cursos inovadores", sem centro); as regras angolanas da carta de condução profissional (só o Código da Estrada de 2008 e a plataforma online do Ministério do Interior, 2025).
 
 ## Formação online grátis
 

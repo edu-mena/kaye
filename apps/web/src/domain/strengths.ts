@@ -178,3 +178,9 @@ export function areaSkills(traits: CareerTraits[], careers: CareerSummary[], are
   }
   return [...counts.values()].toSorted((a, b) => b.count - a.count).map((item) => item.skill)
 }
+
+/** Said in the test that they need to work now or want to study little: "Sem universidade" is for them. */
+export const wantsShortPath = (strengths: Strengths): boolean =>
+  strengths.conditions.workNow === true ||
+  strengths.conditions.study === 'short' ||
+  strengths.conditions.study === 'technical'

@@ -70,6 +70,7 @@ export const CAREER_GROUPS = [
   'logistica',
   'transportes',
   'turismo',
+  'beleza',
 ] as const
 export type CareerGroup = (typeof CAREER_GROUPS)[number]
 
@@ -132,6 +133,7 @@ export const GROUP_AREAS: Record<CareerGroup, MarketArea> = {
   logistica: 'logistics',
   transportes: 'logistics',
   turismo: 'hospitality',
+  beleza: 'hospitality',
 }
 
 export type Demand = 'alta' | 'media' | 'baixa'
@@ -179,6 +181,8 @@ export type Pathway = {
   steps: PathwayStep[]
   /** Total cost in Kz, cheapest and median course (docs/arquitetura.md, 4.2). */
   totalCost: { min: number; max: number } | null
+  /** The cost and lengths are the Kayé team's estimate (data-to-collect-later). */
+  estimated?: true
 }
 
 type StageLevel = 'estagio' | 'junior' | 'pleno' | 'senior' | 'lideranca'

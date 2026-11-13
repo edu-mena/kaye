@@ -60,4 +60,5 @@ export const GROUP_ICONS: Record<CareerGroup, IconName> = {
   logistica: 'truck',
   transportes: 'plane',
   turismo: 'bed',
+  beleza: 'heart',
 }

@@ -38,6 +38,7 @@ import { OIL_MINING } from './demo/oilMiningCatalog'
 import { AGRICULTURE } from './demo/agricultureCatalog'
 import { LOGISTICS } from './demo/logisticsCatalog'
 import { HOSPITALITY } from './demo/hospitalityCatalog'
+import { TRADE_CENTRES } from './demo/tradeCareers'
 import { FIGURES } from './demo/figures'
 import { NEWS } from './demo/news'
 import { SCHOLARSHIPS } from './demo/scholarships'
@@ -182,6 +183,7 @@ const AREA_ACADEMIES = withAreas(
     ...LUANDA_MIDDLE_SCHOOLS,
     ...BUSINESS_SCHOOLS,
     ...CERTIFICATION_CENTRES,
+    ...TRADE_CENTRES,
   ],
   [
     TECHNOLOGY.academies,

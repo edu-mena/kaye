@@ -18,6 +18,81 @@ function photo(folder: 'careers' | 'courses', slug: string, alt: string, credit:
 }
 
 export const CAREER_IMAGES: Partial<Record<string, Photo>> = {
+  canalizador: photo('careers', 'canalizador', 'Canalizador a instalar tubos num prédio', {
+    author: 'Gatien TITCHO SEUMO',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Cameroon_male_plumbier_at_work_01.jpg',
+  }),
+  serralheiro: photo('careers', 'serralheiro', 'Serralheiro a soldar numa oficina', {
+    author: 'ABDULIUMAR',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:A_welder_man.jpg',
+  }),
+  pedreiro: photo('careers', 'pedreiro', 'Pedreiro a assentar blocos numa obra', {
+    author: 'Okhaifo',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Bricklayer_at_work.jpg',
+  }),
+  carpinteiro: photo('careers', 'carpinteiro', 'Carpinteiro a fazer uma cadeira na oficina', {
+    author: 'Fquasie',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Carpenter_Ghana.jpg',
+  }),
+  'tecnico-de-frio': photo('careers', 'tecnico-de-frio', 'Técnico a reparar um frigorífico', {
+    author: 'Gkbediako',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:A_Ghanaian_Fridge_Repairer.jpg',
+  }),
+  'tecnico-de-paineis-solares': photo(
+    'careers',
+    'tecnico-de-paineis-solares',
+    'Técnico a instalar painéis solares',
+    {
+      author: 'SAgbley',
+      license: 'CC BY-SA 4.0',
+      url: 'https://commons.wikimedia.org/wiki/File:Solar_installation_technician.jpg',
+    },
+  ),
+  'mecanico-auto': photo('careers', 'mecanico-auto', 'Mecânico a reparar um carro', {
+    author: 'Minette Lontsie',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Mechanic_at_work.jpg',
+  }),
+  'motorista-profissional': photo('careers', 'motorista-profissional', 'Motorista ao volante de um camião', {
+    author: 'Jamie Tubers',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:A_truck_driver_in_Ilorin.jpg',
+  }),
+  costureiro: photo('careers', 'costureiro', 'Alfaiate a coser à máquina', {
+    author: 'Masako Kato',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Male_tailor.jpg',
+  }),
+  cabeleireiro: photo('careers', 'cabeleireiro', 'Cabeleireira a fazer um penteado', {
+    author: 'Melchisedek ABAKA',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:A_hairdresser_at_work_in_Ivory_Coast.jpg',
+  }),
+  esteticista: photo('careers', 'esteticista', 'Esteticista a tratar uma cliente', {
+    author: 'SAgbley',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Beautician.jpg',
+  }),
+  cozinheiro: photo('careers', 'cozinheiro', 'Cozinheiro a preparar um prato', {
+    author: 'Pixelcrea.bejaia',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Chef_cuisinier.jpg',
+  }),
+  pasteleiro: photo('careers', 'pasteleiro', 'Pasteleira a preparar a massa de bolos', {
+    author: 'Gkbediako',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:A_Ghanaian_Baker.jpg',
+  }),
+  'agricultor-e-criador': photo('careers', 'agricultor-e-criador', 'Agricultor no seu campo de tomate', {
+    author: 'AmyAbroad',
+    license: 'CC BY-SA 4.0',
+    url: 'https://commons.wikimedia.org/wiki/File:Tomato_farmer_in_his_field.jpg',
+  }),
   'desenvolvedor-frontend': photo(
     'careers',
     'desenvolvedor-frontend',

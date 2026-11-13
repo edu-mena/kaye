@@ -139,4 +139,61 @@ export const SUPPORT_PROGRAMS: SupportProgram[] = [
     ],
     checkedAt: CHECKED,
   },
+  {
+    id: 'prei',
+    name: 'PREI: reconversão da economia informal (Janela Única)',
+    provider: 'Governo de Angola (Decreto Presidencial n.º 148/25)',
+    kind: 'registo',
+    audience:
+      'Quem já trabalha no informal (vendedores, oficinas, zungueiras): formalização e, desde 2025, acesso a microcrédito',
+    url: 'https://www.verangola.net/va/pt/062025/Economia/44945/Governo-reestrutura-programa-de-reconversão-da-economia-informal.htm',
+    sources: [
+      {
+        label: 'Ver Angola (06/2025): Governo reestrutura o PREI',
+        url: 'https://www.verangola.net/va/pt/062025/Economia/44945/Governo-reestrutura-programa-de-reconversão-da-economia-informal.htm',
+      },
+      {
+        label: 'Expansão: nova roupagem do PREI privilegia acesso ao crédito',
+        url: 'https://expansao.co.ao/angola/detalhe/nova-roupagem-do-prei-privilegia-acesso-ao-credito-66825.html',
+      },
+    ],
+    checkedAt: '2026-11-13',
+  },
+  {
+    id: 'kwenda-fas',
+    name: 'Kwenda: inclusão produtiva',
+    provider: 'FAS (Fundo de Apoio Social), com o Banco Mundial',
+    kind: 'credito',
+    audience:
+      'Famílias vulneráveis do Kwenda: apoio para começar uma actividade (agricultura, comércio), a devolver depois',
+    url: 'https://fasangola.com',
+    sources: [
+      {
+        label: 'Banco Mundial (05/2025)',
+        url: 'https://www.worldbank.org/pt/news/feature/2025/05/22/breaking-the-cycle-of-poverty-in-angola-through-cash-transfers-afe.print',
+      },
+      {
+        label: 'ANGOP: inclusão produtiva',
+        url: 'https://angop.ao/en/noticias/sociedade/inclusao-produtiva-com-indicadores-positivos',
+      },
+    ],
+    checkedAt: '2026-11-13',
+  },
+  {
+    id: 'projecto-crescer',
+    name: 'Projecto Crescer: emprego e empreendedorismo jovem',
+    provider: 'Governo de Angola, com o Banco Mundial e o BAD',
+    kind: 'formacao',
+    audience:
+      'Jovens dos 15 aos 35 anos em 11 províncias: formação profissional e apoio a negócios na agricultura, transportes, energias renováveis e digital',
+    url: 'https://www.verangola.net/va/pt/102025/Sociedade/46187/Projecto-Crescer-vai-criar-mais-de-37000-empregos-para-jovens.htm',
+    sources: [
+      {
+        label: 'Ver Angola (10/2025)',
+        url: 'https://www.verangola.net/va/pt/102025/Sociedade/46187/Projecto-Crescer-vai-criar-mais-de-37000-empregos-para-jovens.htm',
+      },
+      { label: 'Forbes África Lusófona', url: 'https://forbesafricalusofona.com/?p=163792' },
+    ],
+    checkedAt: '2026-11-13',
+  },
 ]

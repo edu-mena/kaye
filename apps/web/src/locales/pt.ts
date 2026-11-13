@@ -17,6 +17,7 @@ export const pt = {
     academies: 'Academias',
     scholarships: 'Bolsas',
     deadlines: 'Prazos',
+    noDegree: 'Sem universidade',
     plan: 'O meu plano',
     internships: 'Estágios',
     companies: 'Empresas',
@@ -749,6 +750,7 @@ export const pt = {
     logistica: 'Logística e alfândegas',
     transportes: 'Transportes, portos e aviação',
     turismo: 'Turismo e hotelaria',
+    beleza: 'Beleza e cuidados pessoais',
   },
   demand: {
     alta: 'Procura alta',
@@ -2533,6 +2535,93 @@ export const pt = {
     resultBody:
       'Escolhe uma destas carreiras e damos-te os passos até lá: o que estudar, onde te candidatares e o que aprender.',
     external: '(abre noutro site)',
+  },
+  noDegree: {
+    title: 'Sem universidade, com futuro',
+    body: 'Muitos jovens trabalham com as mãos, aprendem um ofício ou têm o seu negócio, e vivem bem disso. Aqui tens os ofícios, onde se aprendem, como começar por conta própria e como passar do informal ao formal, em passos curtos e com fonte.',
+    tabsLabel: 'Partes da página',
+    tab_oficios: 'Aprender um ofício',
+    tab_onde: 'Onde aprender',
+    'tab_conta-propria': 'Trabalhar por conta própria',
+    tab_formal: 'Do informal ao formal',
+    badge: 'Sem licenciatura',
+    filterLabel: 'Estudos',
+    filterAny: 'Qualquer caminho',
+    filterOption: 'Sem licenciatura',
+    tradesBody:
+      'Ofícios que se aprendem em meses, com um curso curto ou como aprendiz. A duração e o custo são do caminho mais curto; o custo é uma estimativa.',
+    areaLabel: 'Área',
+    anyArea: 'Todas as áreas',
+    cost: '{{min}} a {{max}}',
+    costFree: 'Sem custo de curso',
+    estimated: 'estimado',
+    allNoDegree: 'Ver todas as carreiras sem licenciatura',
+    whereBody:
+      'Centros de formação profissional e institutos médios; os da tua província aparecem primeiro. Muitos centros do INEFOP dão cursos curtos com certificado.',
+    provinceLabel: 'Província',
+    anyProvince: 'Todas as províncias',
+    typeLabel: 'Tipo',
+    anyType: 'Todos os tipos',
+    type_centro_formacao: 'Centro de formação',
+    type_instituto_medio: 'Instituto médio',
+    whereEmpty: 'Não há centros com estes filtros.',
+    pages: 'Páginas de centros',
+    ownBody:
+      'Trabalhar para ti é uma escolha séria, não um plano B. Estes passos valem para quase todos os ofícios.',
+    own_learn_title: 'Aprende bem o ofício',
+    own_learn_body:
+      'Um curso curto (INEFOP ou outro centro) e uns meses ao lado de um mestre. O certificado ajuda a ganhar a confiança dos clientes.',
+    own_kit_title: 'Junta as ferramentas',
+    own_kit_body:
+      'Começa com o essencial e compra o resto com o que ganhas. O programa JOBE do INEFOP entrega kits profissionais a quem acaba a formação.',
+    own_clients_title: 'Ganha os primeiros clientes',
+    own_clients_body:
+      'Família, vizinhos, igreja e lojas do bairro. Mostra fotografias do teu trabalho no WhatsApp e nas redes sociais e pede sempre uma recomendação.',
+    own_register_title: 'Regista o teu negócio',
+    own_register_body:
+      'No Guiché Único da Empresa (online ou num balcão) registas-te como empresário em nome individual. Para abrir um espaço, pedes também a licença na Administração Municipal.',
+    own_credit_title: 'Procura crédito com cuidado',
+    own_credit_body:
+      'O PREI dá acesso a microcrédito a pequenos empreendedores. Pede só o que consegues pagar e compara os juros antes de assinar.',
+    programsTitle: 'Apoios e microcrédito',
+    programsBody:
+      'Programas reais, com a fonte. Confirma sempre as condições na página oficial antes de te candidatares.',
+    kind_credito: 'Crédito',
+    kind_kit: 'Kit',
+    kind_formacao: 'Formação',
+    kind_registo: 'Registo',
+    kind_incubadora: 'Incubadora',
+    open: 'Página oficial',
+    ownNote:
+      'O que cada ofício custa a começar e os seus primeiros passos estão na página da carreira, em "Trabalhar por conta própria" (valores estimados).',
+    formalBody:
+      'Muita gente trabalha no informal: na zunga, numa oficina de bairro, em casa. Passar para o formal faz-se aos poucos e compensa.',
+    whyTitle: 'Porque compensa',
+    why_credit: 'Os bancos e os programas de microcrédito pedem o negócio registado.',
+    why_clients: 'Empresas e o Estado só compram a quem passa factura.',
+    why_protection: 'Com a segurança social tens direito a protecção na doença, na velhice e na família.',
+    why_grow: 'Podes contratar pessoas, abrir conta da empresa e crescer sem medo de fiscalizações.',
+    formalStepsTitle: 'Passo a passo',
+    formal_bue_title: 'Regista-te no Guiché Único (o antigo BUE)',
+    formal_bue_body:
+      'Os Balcões Únicos do Empreendedor (BUE) nasceram em 2014, com o PREI, para formalizar micro-empreendedores. Hoje o registo como empresário em nome individual faz-se no Guiché Único da Empresa, online ou num balcão. Leva o bilhete de identidade.',
+    formal_prei_title: 'Inscreve-te na Janela Única do PREI',
+    formal_prei_body:
+      'O programa de reconversão da economia informal foi reorganizado em 2025: a inscrição é digital ou presencial e o foco passou a ser o acesso ao crédito.',
+    formal_nif_title: 'Tira o NIF',
+    formal_nif_body:
+      'O número de identificação fiscal é pedido pela AGT e serve para passares factura ou recibo aos clientes. Pode tratar-se no Portal do Contribuinte.',
+    formal_bank_title: 'Abre uma conta bancária',
+    formal_bank_body:
+      'Separa o dinheiro do negócio do teu. Uma conta com movimentos é o que os bancos olham para dar microcrédito.',
+    formal_inss_title: 'Inscreve-te na segurança social (INSS)',
+    formal_inss_body:
+      'Quem trabalha sem contrato também pode descontar para o INSS e ter protecção social. Informa-te num balcão do INSS sobre o regime de quem trabalha por conta própria.',
+    homeTitle: 'Sem universidade? Há caminho',
+    homeBody:
+      'Disseste que precisas de trabalhar já ou queres estudar pouco. Vê os ofícios, onde aprendê-los e como começar o teu negócio.',
+    homeCta: 'Ver os caminhos',
+    resultLink: 'Caminhos sem universidade: ofícios, cursos curtos e negócio próprio',
   },
   kursos: {
     title: 'Kursos Kayé',

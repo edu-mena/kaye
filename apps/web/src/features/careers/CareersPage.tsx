@@ -15,7 +15,7 @@ import { FilterBar, FilterTiles } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { Segmented } from '../../components/ui/Segmented'
-import { useCareers } from '../../data/queries'
+import { useCareers, useCareerTraits } from '../../data/queries'
 import {
   CAREER_GROUPS,
   GROUP_AREAS,
@@ -39,7 +39,9 @@ const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.so
 const DEMANDS: Demand[] = ['alta', 'media', 'baixa']
 const GUIDES = ['guia', 'curadoria'] as const
 /** The list's filters in the URL; "Limpar filtros" removes them all (and the page). */
-const FILTER_KEYS = ['area', 'procura', 'salario', 'guia']
+const FILTER_KEYS = ['area', 'procura', 'salario', 'guia', 'entrada']
+/** "Sem licenciatura": the shortest path asks no degree (the `entry` of domain/recommend.ts). */
+const NO_DEGREE = 'sem-licenciatura'
 
 /** Four rows of three on a wide screen. */
 const PAGE_SIZE = 12
@@ -94,6 +96,11 @@ export default function CareersPage() {
   const demand = DEMANDS.find((value) => value === params.get('procura')) ?? null
   const salary = findBand(SALARY_BANDS, params.get('salario'))
   const guide = GUIDES.find((value) => value === params.get('guia')) ?? null
+  const noDegreeOnly = params.get('entrada') === NO_DEGREE
+  const { data: traits = [] } = useCareerTraits()
+  const noDegree = new Set(
+    traits.filter((item) => item.entry && item.entry.level !== 'degree').map((item) => item.slug),
+  )
   const list = useRef<HTMLElement>(null)
   // A new search, area or order starts again on the first page.
   const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
@@ -107,7 +114,15 @@ export default function CareersPage() {
   return (
     <QueryState query={query} loading={<ListSkeleton />}>
       {(careers) => {
-        const results = filterCareers(careers, { query: search, group, sort, profile, demand, salary, guide })
+        const results = filterCareers(careers, {
+          query: search,
+          group,
+          sort,
+          profile,
+          demand,
+          salary,
+          guide,
+        }).filter((career) => !noDegreeOnly || noDegree.has(career.slug))
         const guides = highlightCareers(careers)
         const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
         const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
@@ -184,6 +199,13 @@ export default function CareersPage() {
                         { value: 'curadoria', label: t('careers.inCuration') },
                       ],
                     },
+                    {
+                      key: 'entrada',
+                      label: t('noDegree.filterLabel'),
+                      placeholder: t('noDegree.filterAny'),
+                      value: noDegreeOnly ? NO_DEGREE : null,
+                      options: [{ value: NO_DEGREE, label: t('noDegree.filterOption') }],
+                    },
                   ]}
                 />
               </div>
@@ -198,6 +220,7 @@ export default function CareersPage() {
                       <CareerCard
                         career={career}
                         brief
+                        noDegree={noDegree.has(career.slug)}
                         match={profile ? interestLevel(compatibility(profile, career.riasec)) : undefined}
                       />
                     </li>

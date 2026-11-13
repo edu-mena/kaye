@@ -17,6 +17,7 @@ export const fr: Messages = {
     academies: 'Établissements',
     scholarships: 'Bourses',
     deadlines: 'Échéances',
+    noDegree: 'Sans université',
     plan: 'Mon plan',
     internships: 'Stages',
     companies: 'Entreprises',
@@ -763,6 +764,7 @@ export const fr: Messages = {
     logistica: 'Logistique et douanes',
     transportes: 'Transports, ports et aviation',
     turismo: 'Tourisme et hôtellerie',
+    beleza: 'Beauté et soins personnels',
   },
   demand: {
     alta: 'Forte demande',
@@ -2575,6 +2577,94 @@ export const fr: Messages = {
     resultBody:
       'Choisis un de ces métiers et on te donne les étapes pour y arriver : quoi étudier, où postuler et quoi apprendre.',
     external: '(ouvre un autre site)',
+  },
+  noDegree: {
+    title: 'Sans université, avec un avenir',
+    body: "Beaucoup de jeunes travaillent de leurs mains, apprennent un métier ou ont leur propre affaire, et en vivent bien. Voici les métiers, où les apprendre, comment se lancer à son compte et comment passer de l'informel au formel, en étapes courtes et avec des sources.",
+    tabsLabel: 'Parties de la page',
+    tab_oficios: 'Apprendre un métier',
+    tab_onde: 'Où apprendre',
+    'tab_conta-propria': 'Travailler à son compte',
+    tab_formal: "De l'informel au formel",
+    badge: 'Sans licence',
+    filterLabel: 'Études',
+    filterAny: 'Tout parcours',
+    filterOption: 'Sans licence',
+    tradesBody:
+      "Des métiers qui s'apprennent en quelques mois, avec une formation courte ou comme apprenti. La durée et le coût sont ceux du parcours le plus court ; le coût est une estimation.",
+    areaLabel: 'Domaine',
+    anyArea: 'Tous les domaines',
+    cost: '{{min}} à {{max}}',
+    costFree: 'Sans frais de formation',
+    estimated: 'estimé',
+    allNoDegree: 'Voir tous les métiers sans licence',
+    whereBody:
+      "Centres de formation professionnelle et instituts moyens ; ceux de ta province apparaissent d'abord. Beaucoup de centres de l'INEFOP donnent des formations courtes avec certificat.",
+    provinceLabel: 'Province',
+    anyProvince: 'Toutes les provinces',
+    typeLabel: 'Type',
+    anyType: 'Tous les types',
+    type_centro_formacao: 'Centre de formation',
+    type_instituto_medio: 'Institut moyen',
+    whereEmpty: 'Aucun centre avec ces filtres.',
+    pages: 'Pages de centres',
+    ownBody:
+      'Travailler pour soi est un vrai choix, pas un plan B. Ces étapes valent pour presque tous les métiers.',
+    own_learn_title: 'Apprends bien le métier',
+    own_learn_body:
+      "Une formation courte (INEFOP ou un autre centre) et quelques mois aux côtés d'un maître. Le certificat aide à gagner la confiance des clients.",
+    own_kit_title: 'Réunis tes outils',
+    own_kit_body:
+      "Commence par l'essentiel et achète le reste avec ce que tu gagnes. Le programme JOBE de l'INEFOP remet des kits professionnels à ceux qui finissent la formation.",
+    own_clients_title: 'Gagne tes premiers clients',
+    own_clients_body:
+      'Famille, voisins, église et boutiques du quartier. Montre des photos de ton travail sur WhatsApp et les réseaux sociaux et demande toujours une recommandation.',
+    own_register_title: 'Enregistre ton activité',
+    own_register_body:
+      "Au Guiché Único da Empresa (en ligne ou au guichet), tu t'enregistres comme entrepreneur individuel. Pour ouvrir un local, demande aussi la licence à l'Administration municipale.",
+    own_credit_title: 'Cherche un crédit avec prudence',
+    own_credit_body:
+      "Le PREI donne aux petits entrepreneurs l'accès au microcrédit. N'emprunte que ce que tu peux rembourser et compare les taux avant de signer.",
+    programsTitle: 'Aides et microcrédit',
+    programsBody:
+      'De vrais programmes, avec leur source. Vérifie toujours les conditions sur la page officielle avant de postuler.',
+    kind_credito: 'Crédit',
+    kind_kit: 'Kit',
+    kind_formacao: 'Formation',
+    kind_registo: 'Enregistrement',
+    kind_incubadora: 'Incubateur',
+    open: 'Page officielle',
+    ownNote:
+      'Ce que coûte chaque métier pour démarrer et ses premières étapes sont sur la page du métier, dans « Travailler à son compte » (valeurs estimées).',
+    formalBody:
+      "Beaucoup de gens travaillent dans l'informel : vente de rue, atelier de quartier, à la maison. Passer au formel se fait peu à peu et ça vaut la peine.",
+    whyTitle: 'Pourquoi ça vaut la peine',
+    why_credit: 'Les banques et les programmes de microcrédit demandent une activité enregistrée.',
+    why_clients: "Les entreprises et l'État n'achètent qu'à ceux qui font des factures.",
+    why_protection:
+      'Avec la sécurité sociale, tu es protégé en cas de maladie, pour la vieillesse et pour ta famille.',
+    why_grow: "Tu peux embaucher, ouvrir un compte d'entreprise et grandir sans craindre les contrôles.",
+    formalStepsTitle: 'Étape par étape',
+    formal_bue_title: "Enregistre-toi au Guiché Único (l'ancien BUE)",
+    formal_bue_body:
+      "Les Balcões Únicos do Empreendedor (BUE) sont nés en 2014, avec le PREI, pour formaliser les micro-entrepreneurs. Aujourd'hui, on s'enregistre comme entrepreneur individuel au Guiché Único da Empresa, en ligne ou au guichet. Apporte ta carte d'identité.",
+    formal_prei_title: 'Inscris-toi au guichet unique du PREI',
+    formal_prei_body:
+      "Le programme de reconversion de l'économie informelle a été réorganisé en 2025 : l'inscription se fait en ligne ou sur place et l'accent est mis sur l'accès au crédit.",
+    formal_nif_title: 'Obtiens ton NIF',
+    formal_nif_body:
+      "Le numéro d'identification fiscale est délivré par l'AGT et sert à faire des factures ou des reçus. Il peut se traiter sur le Portal do Contribuinte.",
+    formal_bank_title: 'Ouvre un compte bancaire',
+    formal_bank_body:
+      "Sépare l'argent de l'activité du tien. Un compte avec des mouvements est ce que regardent les banques avant d'accorder un microcrédit.",
+    formal_inss_title: 'Inscris-toi à la sécurité sociale (INSS)',
+    formal_inss_body:
+      "Ceux qui travaillent sans contrat peuvent aussi cotiser à l'INSS et avoir une protection sociale. Renseigne-toi à un guichet de l'INSS sur le régime des travailleurs indépendants.",
+    homeTitle: "Pas d'université ? Il y a un chemin",
+    homeBody:
+      'Tu as dit que tu dois travailler tout de suite ou étudier peu. Vois les métiers, où les apprendre et comment lancer ton activité.',
+    homeCta: 'Voir les parcours',
+    resultLink: 'Parcours sans université : métiers, formations courtes et activité à son compte',
   },
   kursos: {
     title: 'Kursos Kayé',

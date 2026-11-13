@@ -135,6 +135,15 @@ export default function ResultPage() {
         </ButtonLink>
       </Card>
 
+      <Link
+        to="/sem-universidade"
+        className="inline-flex items-center gap-1 text-sm font-normal text-night hover:text-blue"
+      >
+        <Icon name="helmet" className="size-4" />
+        {t('noDegree.resultLink')}
+        <Icon name="chevronRight" className="size-3.5" />
+      </Link>
+
       <div className="flex flex-wrap gap-2">
         <ButtonLink to="/teste" variant="secondary">
           {t('assessment.restart')}

@@ -20,6 +20,8 @@ type CareerCardProps = {
   brief?: boolean
   /** Minors (14–17) do not see salaries. */
   hideSalary?: boolean
+  /** Its shortest path asks no degree: the "Sem licenciatura" badge. */
+  noDegree?: boolean
 }
 
 /**
@@ -33,6 +35,7 @@ export function CareerCard({
   reasons = NO_REASONS,
   brief = false,
   hideSalary = false,
+  noDegree = false,
 }: CareerCardProps) {
   const { t } = useTranslation()
 
@@ -55,6 +58,11 @@ export function CareerCard({
         >
           <Icon name={GROUP_ICONS[career.group]} className="size-4 @3xs:size-5" />
         </span>
+        {noDegree && (
+          <span className="absolute top-2 right-2 rounded-full bg-gold px-2 py-0.5 text-[0.65rem] font-semibold text-night @3xs:top-3 @3xs:right-3">
+            {t('noDegree.badge')}
+          </span>
+        )}
       </span>
 
       <span className="flex flex-1 flex-col p-3 @3xs:p-5">

@@ -18,6 +18,7 @@ type NavKey =
   | 'academies'
   | 'opportunities'
   | 'deadlines'
+  | 'noDegree'
   | 'companies'
   | 'market'
   | 'news'
@@ -55,6 +56,7 @@ const KURSOS: NavItem = { to: '/kursos', key: 'kursos', icon: 'book' }
 const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark' }
 const OPPORTUNITIES: NavItem = { to: '/oportunidades', key: 'opportunities', icon: 'award' }
 const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar', tour: 'deadlines' }
+const NO_DEGREE: NavItem = { to: '/sem-universidade', key: 'noDegree', icon: 'helmet' }
 const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
 const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
@@ -80,6 +82,7 @@ const SIDEBAR: NavGroup[] = [
       ACADEMIES,
       OPPORTUNITIES,
       DEADLINES,
+      NO_DEGREE,
       COMPANIES,
       MARKET,
       NEWS,
@@ -92,7 +95,7 @@ const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
 const MENU: NavGroup[] = [
   {
     key: 'groupExplore',
-    items: [TESTS, KURSOS, ACADEMIES, OPPORTUNITIES, DEADLINES, COMPANIES, MARKET, NEWS],
+    items: [TESTS, KURSOS, ACADEMIES, OPPORTUNITIES, DEADLINES, NO_DEGREE, COMPANIES, MARKET, NEWS],
   },
   { key: 'groupYou', items: [PLAN, NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },

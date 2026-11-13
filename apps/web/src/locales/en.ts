@@ -17,6 +17,7 @@ export const en: Messages = {
     academies: 'Academies',
     scholarships: 'Scholarships',
     deadlines: 'Deadlines',
+    noDegree: 'No university',
     plan: 'My plan',
     internships: 'Internships',
     companies: 'Companies',
@@ -751,6 +752,7 @@ export const en: Messages = {
     logistica: 'Logistics and customs',
     transportes: 'Transport, ports and aviation',
     turismo: 'Tourism and hospitality',
+    beleza: 'Beauty and personal care',
   },
   demand: {
     alta: 'High demand',
@@ -2533,6 +2535,93 @@ export const en: Messages = {
     resultBody:
       'Pick one of these careers and we give you the steps to get there: what to study, where to apply and what to learn.',
     external: '(opens another site)',
+  },
+  noDegree: {
+    title: 'No university, still a future',
+    body: 'Many young people work with their hands, learn a trade or run their own business, and make a good living. Here are the trades, where to learn them, how to start on your own and how to move from the informal to the formal economy, in short steps with sources.',
+    tabsLabel: 'Parts of the page',
+    tab_oficios: 'Learn a trade',
+    tab_onde: 'Where to learn',
+    'tab_conta-propria': 'Work on your own',
+    tab_formal: 'From informal to formal',
+    badge: 'No degree',
+    filterLabel: 'Studies',
+    filterAny: 'Any path',
+    filterOption: 'No degree',
+    tradesBody:
+      'Trades you learn in months, with a short course or as an apprentice. Length and cost are those of the shortest path; the cost is an estimate.',
+    areaLabel: 'Area',
+    anyArea: 'All areas',
+    cost: '{{min}} to {{max}}',
+    costFree: 'No course fee',
+    estimated: 'estimated',
+    allNoDegree: 'See every career without a degree',
+    whereBody:
+      'Vocational training centres and middle institutes; those in your province come first. Many INEFOP centres give short courses with a certificate.',
+    provinceLabel: 'Province',
+    anyProvince: 'All provinces',
+    typeLabel: 'Type',
+    anyType: 'All types',
+    type_centro_formacao: 'Training centre',
+    type_instituto_medio: 'Middle institute',
+    whereEmpty: 'No centres with these filters.',
+    pages: 'Pages of centres',
+    ownBody:
+      'Working for yourself is a serious choice, not a plan B. These steps work for almost every trade.',
+    own_learn_title: 'Learn the trade well',
+    own_learn_body:
+      'A short course (INEFOP or another centre) and a few months next to a master. The certificate helps clients trust you.',
+    own_kit_title: 'Get your tools',
+    own_kit_body:
+      "Start with the essentials and buy the rest with what you earn. INEFOP's JOBE programme gives professional kits to those who finish training.",
+    own_clients_title: 'Win your first clients',
+    own_clients_body:
+      'Family, neighbours, church and local shops. Show photos of your work on WhatsApp and social media and always ask for a recommendation.',
+    own_register_title: 'Register your business',
+    own_register_body:
+      'At the Guiché Único da Empresa (online or at a desk) you register as a sole trader. To open premises, you also ask the Municipal Administration for a licence.',
+    own_credit_title: 'Look for credit carefully',
+    own_credit_body:
+      'PREI gives small entrepreneurs access to microcredit. Only borrow what you can repay and compare interest before signing.',
+    programsTitle: 'Support and microcredit',
+    programsBody:
+      'Real programmes, with sources. Always check the conditions on the official page before applying.',
+    kind_credito: 'Credit',
+    kind_kit: 'Kit',
+    kind_formacao: 'Training',
+    kind_registo: 'Registration',
+    kind_incubadora: 'Incubator',
+    open: 'Official page',
+    ownNote:
+      'What each trade costs to start and its first steps are on the career page, under "Working on your own" (estimated values).',
+    formalBody:
+      'Many people work informally: street selling, a neighbourhood workshop, at home. Going formal happens step by step and pays off.',
+    whyTitle: 'Why it pays off',
+    why_credit: 'Banks and microcredit programmes ask for a registered business.',
+    why_clients: 'Companies and the State only buy from those who issue invoices.',
+    why_protection: 'With social security you are protected in sickness, old age and for your family.',
+    why_grow: 'You can hire people, open a business account and grow without fear of inspections.',
+    formalStepsTitle: 'Step by step',
+    formal_bue_title: 'Register at the Guiché Único (the former BUE)',
+    formal_bue_body:
+      'The Balcões Únicos do Empreendedor (BUE) were created in 2014, with PREI, to formalise micro-entrepreneurs. Today you register as a sole trader at the Guiché Único da Empresa, online or at a desk. Bring your identity card.',
+    formal_prei_title: 'Sign up at the PREI single window',
+    formal_prei_body:
+      'The informal economy conversion programme was reorganised in 2025: sign-up is online or in person and the focus is now access to credit.',
+    formal_nif_title: 'Get your tax number (NIF)',
+    formal_nif_body:
+      'The tax number comes from the AGT and lets you issue invoices or receipts. It can be handled on the Portal do Contribuinte.',
+    formal_bank_title: 'Open a bank account',
+    formal_bank_body:
+      'Keep the business money apart from yours. An account with activity is what banks look at before giving microcredit.',
+    formal_inss_title: 'Sign up for social security (INSS)',
+    formal_inss_body:
+      'People who work without a contract can also contribute to the INSS and get social protection. Ask at an INSS desk about the scheme for the self-employed.',
+    homeTitle: 'No university? There is a way',
+    homeBody:
+      'You said you need to work now or want to study for a short time. See the trades, where to learn them and how to start your own business.',
+    homeCta: 'See the paths',
+    resultLink: 'Paths without university: trades, short courses and your own business',
   },
   kursos: {
     title: 'Kursos Kayé',

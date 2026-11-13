@@ -1265,4 +1265,108 @@ export const SELF_EMPLOYMENT: Record<string, SelfEmployment> = {
     'Pesca artesanal com barco próprio ou de cooperativa, ou venda e conservação de pescado.',
     { licence: ['Pedir a licença de pesca no Ministério das Pescas.'] },
   ),
+
+  // Ofícios (tradeCareers.ts)
+  canalizador: entry(
+    'trade',
+    'comum',
+    'Reparações e instalações de água em casas e prédios, chamado pelos vizinhos, pelas lojas de material e pelos empreiteiros.',
+    { cost: [150_000, 800_000] },
+  ),
+  serralheiro: entry(
+    'trade',
+    'comum',
+    'Oficina no bairro a fazer portões, grades e janelas por encomenda, e trabalho para empreiteiros nas obras.',
+    { cost: [500_000, 3_000_000] },
+  ),
+  pedreiro: entry(
+    'trade',
+    'comum',
+    'Obras pequenas (muros, casas de banho, anexos) e, com experiência, uma equipa própria como empreiteiro.',
+    { cost: [100_000, 600_000] },
+  ),
+  carpinteiro: entry(
+    'trade',
+    'comum',
+    'Oficina de móveis por medida (camas, armários, cozinhas) e portas e telhados para obras, por encomenda.',
+    { cost: [500_000, 3_000_000] },
+  ),
+  'tecnico-de-frio': entry(
+    'trade',
+    'comum',
+    'Instalação e manutenção de ar condicionado e frigoríficos em casas, lojas e restaurantes, com contratos de manutenção.',
+    { cost: [300_000, 1_500_000] },
+  ),
+  'tecnico-de-paineis-solares': entry(
+    'trade',
+    'comum',
+    'Instalação de kits solares em casas, escolas e fazendas sem rede estável, e manutenção depois da venda.',
+    { cost: [500_000, 4_000_000] },
+  ),
+  'mecanico-auto': entry(
+    'trade',
+    'comum',
+    'Oficina de bairro para carros e motorizadas; os mototaxistas e candongueiros dão trabalho todos os dias.',
+    { cost: [500_000, 4_000_000] },
+  ),
+  'motorista-profissional': entry(
+    'business',
+    'possivel',
+    'Com veículo próprio ou alugado: táxi, plataformas de transporte, entregas ou transporte de carga.',
+    {
+      cost: [500_000, 15_000_000],
+      steps: ['Tira a carta da categoria certa e ganha experiência a conduzir para uma empresa.'],
+      licence: [
+        'Licenciar o veículo para transporte de passageiros ou de carga, se fores trabalhar com ele.',
+      ],
+    },
+  ),
+  costureiro: entry(
+    'creative',
+    'comum',
+    'Atelier em casa ou no mercado: roupa por medida, panos africanos para festas, arranjos e uniformes.',
+    { cost: [150_000, 1_000_000] },
+  ),
+  cabeleireiro: entry(
+    'creative',
+    'comum',
+    'Cadeira alugada num salão, ao domicílio ou salão próprio; as fotografias nas redes sociais trazem clientes.',
+    {
+      cost: [100_000, 2_000_000],
+      licence: ['Pedir a licença sanitária do salão na Administração Municipal.'],
+    },
+  ),
+  esteticista: entry(
+    'creative',
+    'comum',
+    'Maquilhagem para festas e casamentos, unhas e cuidados de pele, ao domicílio ou num espaço próprio.',
+    {
+      cost: [150_000, 2_000_000],
+      licence: ['Pedir a licença sanitária do espaço na Administração Municipal.'],
+    },
+  ),
+  cozinheiro: entry(
+    'business',
+    'comum',
+    'Comida por encomenda, catering de festas ou uma banca de refeições, antes de um restaurante.',
+    {
+      cost: [200_000, 3_000_000],
+      licence: ['Pedir a licença sanitária do espaço na Administração Municipal.'],
+    },
+  ),
+  pasteleiro: entry(
+    'business',
+    'comum',
+    'Bolos e salgados por encomenda feitos em casa, vendidos pelo WhatsApp e entregues a escritórios e festas.',
+    {
+      cost: [150_000, 2_000_000],
+      licence: ['Pedir a licença sanitária do espaço na Administração Municipal.'],
+    },
+  ),
+  'agricultor-e-criador': entry(
+    'agro',
+    'comum',
+    'Horta ou capoeira num terreno pequeno com água, com o comprador garantido antes de plantar ou criar.',
+    { cost: [200_000, 5_000_000] },
+  ),
 }

@@ -30,6 +30,7 @@ import { OIL_MINING_CAREERS } from './oilMiningCareers'
 import { AGRICULTURE_CAREERS } from './agricultureCareers'
 import { LOGISTICS_CAREERS } from './logisticsCareers'
 import { HOSPITALITY_CAREERS } from './hospitalityCareers'
+import { TRADE_CAREERS, TRADE_GUIDES } from './tradeCareers'
 
 // Profiles approximate O*NET interest profiles. Demand reads the job ads; the salaries are in the guides
 // (technologyGuides.ts).
@@ -295,6 +296,7 @@ export const CAREER_SUMMARIES: CareerSummary[] = [
   ...AGRICULTURE_CAREERS,
   ...LOGISTICS_CAREERS,
   ...HOSPITALITY_CAREERS,
+  ...TRADE_CAREERS,
 ]
 
 function base(slug: string): CareerSummary {
@@ -774,6 +776,7 @@ export const CAREERS: Career[] = [
   ...MENTAL_HEALTH_GUIDES,
   ...PROJECT_GUIDES,
   ...OFFSHORE_GUIDES,
+  ...TRADE_GUIDES,
   ...TECH_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
   ...BUSINESS_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
   ...OIL_MINING_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
