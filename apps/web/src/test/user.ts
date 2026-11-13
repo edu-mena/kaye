@@ -29,6 +29,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     skills: {},
     savedCareers: [],
     savedAcademies: [],
+    savedCompanies: [],
     visitedCareers: [],
     targetCareer: null,
     cvs: [],

@@ -14,15 +14,19 @@ import {
 } from '../../components/DetailParts'
 import { FilteredGrid } from '../../components/FilteredGrid'
 import { GROUP_ICONS } from '../../components/groupIcons'
+import { InstitutionLogo } from '../../components/InstitutionLogo'
 import { Icon, type IconName } from '../../components/icons'
 import { DetailSkeleton, Loading, NotFoundState, RowsSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
 import { ButtonLink } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
 import { Dialog } from '../../components/ui/Dialog'
-import { useAcademies, useCareer, useCareers, useCompany } from '../../data/queries'
-import type { CareerSummary, Company, Demand, SourceLink } from '../../data/types'
-import { companyNeeds } from '../../domain/companyNeeds'
+import { useAcademies, useCareer, useCareers, useCompany, useNews } from '../../data/queries'
+import type { CareerSummary, Company, CompanyPerson, Demand, SourceLink } from '../../data/types'
+import { companyNeeds, companyRoles } from '../../domain/companyNeeds'
+import { useNewsForMe } from '../../lib/useNewsForMe'
+import { NewsCard } from '../news/NewsCard'
+import { SaveCompany } from './SaveCompany'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { CareersEvaluation, CareersMarket } from '../careers/CareersOverview'
 import { InternshipsOfCompany } from '../internships/InternshipLinks'
@@ -31,6 +35,7 @@ const TABS = [
   { id: 'geral', icon: 'eye' },
   { id: 'mercado', icon: 'chart' },
   { id: 'profissoes', icon: 'briefcase' },
+  { id: 'noticias', icon: 'newspaper' },
   { id: 'avaliacao', icon: 'user' },
 ] as const satisfies readonly { id: string; icon: IconName }[]
 
@@ -39,9 +44,9 @@ type TabId = (typeof TABS)[number]['id']
 const DEMANDS: Demand[] = ['alta', 'media', 'baixa']
 
 /**
- * A company's page, in four tabs: what it is and its programmes for young people, the market of the careers it
- * hires for, those careers (one opens what it takes to work in it at this company, estimated, also from
- * ?profissao=) and how they fit the user. Contacts, partner academies and sources stay at the side.
+ * A company's page, in five tabs: what it is, its people and its programmes for young people, the market of the
+ * careers it hires for, its posts and those careers (one opens what it takes to work in it at this company,
+ * estimated, also from ?profissao=), its news and how the careers fit the user. Contacts, partner academies and sources stay at the side.
  */
 export default function CompanyPage() {
   const { t } = useTranslation()
@@ -84,6 +89,7 @@ function CompanyView({ company }: { company: Company }) {
           entity={company}
           back={{ to: '/empresas', label: t('company.back') }}
           meta={t(`companies.sector_${company.sector}`)}
+          actions={<SaveCompany id={company.id} name={company.name} />}
         />
       }
       tabs={{
@@ -96,7 +102,7 @@ function CompanyView({ company }: { company: Company }) {
       }}
       aside={
         <>
-          <ContactsBlock website={company.website} />
+          <ContactsBlock website={company.website} social={company.socials} />
           {partners.length > 0 && (
             <DetailBlock id="partners" icon="landmark" title={t('company.partnersTitle')}>
               <ul className="space-y-2 text-sm">
@@ -128,6 +134,7 @@ function CompanyView({ company }: { company: Company }) {
         </DetailSection>
       )}
       {active === 'profissoes' && <Careers company={company} careers={careers} />}
+      {active === 'noticias' && <CompanyNews id={company.id} />}
       {active === 'avaliacao' && (
         <DetailSection id="avaliacao" title={t('company.tab_avaliacao')} icon="user">
           <CareersEvaluation
@@ -151,15 +158,39 @@ function CompanyView({ company }: { company: Company }) {
   )
 }
 
-/** What the company is, the facts a source confirms, its programmes for young people and where vacancies will go. */
+/**
+ * What the company is and does, the facts a source confirms, its people, its programmes for young people and
+ * where vacancies will go.
+ */
 function General({ company }: { company: Company }) {
   const { t } = useTranslation()
+  const factSources = [company.founded?.source, company.employees?.source].filter(
+    (source, index, all): source is SourceLink =>
+      source !== undefined && all.findIndex((other) => other?.url === source.url) === index,
+  )
   return (
     <DetailSection id="geral" title={t('company.tab_geral')} icon="eye">
       <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">{company.summary}</p>
+      {company.activities && company.activities.length > 0 && (
+        <div className="mt-8">
+          <Subheading>{t('company.activitiesTitle')}</Subheading>
+          <ul className="flex flex-wrap gap-1.5">
+            {company.activities.map((activity) => (
+              <li key={activity}>
+                <Chip>{activity}</Chip>
+              </li>
+            ))}
+          </ul>
+          {company.activitiesSource && <SourceLine source={company.activitiesSource} />}
+        </div>
+      )}
       <div className="mt-8">
         <StatBlock items={facts(company, t)} />
+        {factSources.map((source) => (
+          <SourceLine key={source.url} source={source} />
+        ))}
       </div>
+      <People people={company.people ?? []} />
       {company.programs.length > 0 && (
         <div className="mt-10">
           <Subheading>{t('company.programsTitle')}</Subheading>
@@ -192,8 +223,129 @@ function facts(company: Company, t: TFunction) {
     { label: t('company.sector'), value: t(`companies.sector_${company.sector}`) },
     { label: t('company.place'), value: company.place },
     { label: t('company.province'), value: company.province },
+    ...(company.founded ? [{ label: t('company.founded'), value: company.founded.value }] : []),
+    ...(company.employees ? [{ label: t('company.employees'), value: company.employees.value }] : []),
     { label: t('company.statCareers'), value: String(company.careers.length) },
   ]
+}
+
+/** Where a fact was published, in small print. */
+function SourceLine({ source }: { source: SourceLink }) {
+  const { t } = useTranslation()
+  return (
+    <p className="mt-2 text-xs font-light text-muted">
+      {t('company.source')}: <ExternalLink href={source.url}>{source.label}</ExternalLink>
+    </p>
+  )
+}
+
+/** Its leadership and public spokespeople: initials (or a free-licence photo), the post, their own profile and the source. */
+function People({ people }: { people: CompanyPerson[] }) {
+  const { t } = useTranslation()
+  if (people.length === 0) return null
+  return (
+    <div className="mt-10">
+      <Subheading>{t('company.peopleTitle')}</Subheading>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {people.map((item) => (
+          <li key={item.name} className="flex gap-3 rounded-2xl border border-line p-4">
+            {item.photo ? (
+              <img src={item.photo} alt="" className="size-12 shrink-0 rounded-full object-cover" />
+            ) : (
+              <InstitutionLogo institution={{ name: item.name }} />
+            )}
+            <div className="min-w-0">
+              <h3 className="text-sm font-semibold text-night">{item.name}</h3>
+              <p className="text-xs font-light text-copy">{item.role}</p>
+              {item.profile && (
+                <a
+                  href={item.profile.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t('company.personProfile', { name: item.name })}
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-coal px-3 py-1 text-xs font-normal text-white hover:bg-night"
+                >
+                  {t('company.seeLinkedIn')}
+                  <Icon name="external" className="size-3.5" />
+                </a>
+              )}
+              <SourceLine source={item.source} />
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-xs font-light text-muted">{t('company.peopleNote')}</p>
+    </div>
+  )
+}
+
+/** The company's news, newest first. */
+function CompanyNews({ id }: { id: string }) {
+  const { t, i18n } = useTranslation()
+  const { data: news = [], isPending } = useNews()
+  const { forMe } = useNewsForMe()
+  const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })
+  const mine = news
+    .filter((item) => item.companies?.includes(id))
+    .toSorted((a, b) => b.date.localeCompare(a.date))
+  return (
+    <DetailSection id="noticias" title={t('company.tab_noticias')} icon="newspaper">
+      {isPending ? (
+        <Loading>
+          <RowsSkeleton />
+        </Loading>
+      ) : mine.length === 0 ? (
+        <p className="text-sm font-light text-muted">{t('company.newsNone')}</p>
+      ) : (
+        <ul className="space-y-3">
+          {mine.map((item) => (
+            <li key={item.id}>
+              <NewsCard
+                item={item}
+                date={date.format(new Date(item.date))}
+                forYou={forMe(item)}
+                href={`/novidades/${item.id}`}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </DetailSection>
+  )
+}
+
+/** The posts it hires for: title, the careers they lead to and the ad, or our reading. */
+function Roles({ company, careers }: { company: Company; careers: CareerSummary[] }) {
+  const { t } = useTranslation()
+  const roles = companyRoles(company, careers)
+  const name = (slug: string) => careers.find((career) => career.slug === slug)?.name
+  if (roles.length === 0) return null
+  return (
+    <div className="mb-10">
+      <Subheading>{t('company.rolesTitle')}</Subheading>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {roles.map((item) => (
+          <li key={item.title} className="rounded-2xl border border-line p-4">
+            <h3 className="text-sm font-semibold text-night">{item.title}</h3>
+            <p className="mt-1 flex flex-wrap gap-x-2 text-xs font-light">
+              {item.careers.map((slug) => (
+                <Link key={slug} to={`/carreiras/${slug}`} className="text-night underline hover:text-blue">
+                  {name(slug) ?? slug}
+                </Link>
+              ))}
+            </p>
+            {item.source ? (
+              <SourceLine source={item.source} />
+            ) : (
+              <p className="mt-2 text-xs font-light text-muted">
+                {company.careersSourced ? t('company.roleSourced') : t('company.roleOurs')}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 /** The careers it hires for, filtered by area and demand, a page at a time; one opens what it takes here. */
@@ -214,6 +366,7 @@ function Careers({ company, careers }: { company: Company; careers: CareerSummar
         {company.careersSourced ? t('company.careersSourced') : t('company.careersEditorial')}{' '}
         {t('company.careersHint')}
       </p>
+      <Roles company={company} careers={careers} />
       <FilteredGrid
         filters={[
           {

@@ -131,7 +131,7 @@ function Hero() {
     { icon: 'award', value: xp, label: t('profile.statXp') },
     {
       icon: 'bookmark',
-      value: user.savedCareers.length + user.savedAcademies.length,
+      value: user.savedCareers.length + user.savedAcademies.length + user.savedCompanies.length,
       label: t('profile.statSaved'),
     },
     { icon: 'check', value: Object.keys(user.skills).length, label: t('profile.statSkills') },

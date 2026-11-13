@@ -1,6 +1,8 @@
 import {
   type Career,
+  type CareerSummary,
   type Company,
+  type CompanyRole,
   type CompanySector,
   EDUCATION_LEVELS,
   type EducationLevel,
@@ -140,4 +142,13 @@ function hiring(sector: CompanySector, programme: boolean): HiringStep[] {
 
 function rank(level: EducationLevel): number {
   return EDUCATION_LEVELS.indexOf(level)
+}
+
+/**
+ * The posts a company hires for: the ones it advertised, each with its ad; without them, one per career it hires
+ * for, read from those careers (the screen says whether a public source names them or it is our reading).
+ */
+export function companyRoles(company: Company, careers: readonly CareerSummary[]): CompanyRole[] {
+  if (company.roles && company.roles.length > 0) return company.roles
+  return careers.map((career) => ({ title: career.name, careers: [career.slug] }))
 }

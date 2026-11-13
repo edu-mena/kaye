@@ -1,0 +1,41 @@
+id,kind,status,source_type,image_url,page_url,author,license,notes
+unitel,logo,ok,official,,https://unitel.ao,,,"from the official site (before 13/11/2026, see companies.ts)"
+africell,logo,ok,wikimedia,,https://commons.wikimedia.org,Lulucylulucy,CC BY-SA 4.0,"see companies.ts header"
+africell,banner,ok,official,,https://www.africell.ao,,,
+angola-cables,logo,ok,wikimedia,,https://commons.wikimedia.org,,Public domain,
+multitel,logo,ok,official,,https://www.multitel.co.ao,,,
+multitel,banner,ok,official,,https://www.multitel.co.ao,,,
+paratus,logo,ok,official,,https://paratus.africa,,,
+paratus,banner,ok,official,,https://paratus.africa,,,
+bai,logo,ok,official,,https://www.bancobai.ao,,,
+bai,banner,ok,wikimedia,,https://commons.wikimedia.org,BAI,CC0,
+bfa,logo,ok,official,,https://www.bfa.ao,,,
+bfa,banner,ok,official,,https://www.bfa.ao,,,
+banco-bic,logo,ok,official,,https://www.bancobic.ao,,,
+banco-bic,banner,ok,official,,https://www.bancobic.ao,,,
+standard-bank,banner,ok,official,,https://www.standardbank.co.ao,,,
+atlantico,logo,ok,official,,https://www.atlantico.ao,,,
+atlantico,banner,ok,wikimedia,,https://commons.wikimedia.org,DiogoC300,CC BY-SA 4.0,
+emis,logo,ok,official,,https://emis.ao,,,
+emis,banner,ok,official,,https://emis.ao,,,
+inovflow,logo,ok,official,,https://www.inovflow.pt,,,
+primavera,logo,ok,official,,https://pt.primaverabss.com,,,
+primavera,banner,ok,official,,https://pt.primaverabss.com,,,
+tv-cabo,logo,ok,official,,https://tvcabo.ao,,,
+tv-cabo,banner,ok,official,,https://tvcabo.ao,,,
+zap,logo,ok,official,,https://www.zap.co.ao,,,
+sonangol,logo,ok,official,,https://www.sonangol.co.ao,,,
+sonangol,banner,ok,official,,https://www.sonangol.co.ao,,,
+siemens,logo,ok,wikimedia,,https://commons.wikimedia.org,,Public domain,
+siemens,banner,ok,wikimedia,,https://commons.wikimedia.org,Álvaro de la Paz Franco,CC0,
+taag,logo,ok,wikimedia,,https://commons.wikimedia.org,TAAG,CC BY-SA 4.0,
+taag,banner,ok,official,,https://flytaag.com,,,
+totalenergies,logo,ok,wikimedia,https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_TotalEnergies_%282021%29.png,https://commons.wikimedia.org/wiki/File:Logo_TotalEnergies_(2021).png,TotalEnergies,Public domain,13/11/2026
+chevron,logo,ok,wikimedia,https://upload.wikimedia.org/wikipedia/commons/8/86/Chevron_Logo.svg,https://commons.wikimedia.org/wiki/File:Chevron_Logo.svg,Chevron Corporation,Public domain,13/11/2026
+endiama,logo,ok,wikimedia,https://upload.wikimedia.org/wikipedia/commons/c/cb/ENDIAMA_E.P._logo.svg,https://commons.wikimedia.org/wiki/File:ENDIAMA_E.P._logo.svg,ENDIAMA EP,Public domain,13/11/2026
+banco-sol,banner,rejected,wikimedia,https://upload.wikimedia.org/wikipedia/commons/4/48/Banco_Sol_S._A.jpg,https://commons.wikimedia.org/wiki/File:Banco_Sol_S._A.jpg,Portalobo2020,CC0,"Banco Solidario of Santa Cruz, Bolivia: not the Angolan bank"
+sociedade-mineira-de-catoca,banner,not_found,,,,,,"only satellite radar images on Commons, not a usable cover"
+standard-bank,logo,not_found,,,,,,"Commons has Standard Chartered, not Standard Bank"
+movicel,logo,not_found,,,,,,"nothing on Commons; official site not checked for licence"
+angola-lng,logo,not_found,,,,,,"nothing on Commons"
+azule-energy,logo,not_found,,,,,,"nothing on Commons"

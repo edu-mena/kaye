@@ -598,6 +598,25 @@ export type CompanySector = (typeof COMPANY_SECTORS)[number]
 /** A programme for young people (internships, training, start-ups), with its source. */
 type CompanyProgram = { name: string; summary: string; source: SourceLink }
 
+/** A fact a source states ("1991", "≈ 3 000"): "≈" only when the source says it. */
+export type CompanyFact = { value: string; source: SourceLink }
+
+/** A post the company hires for or advertises, tied to the catalogue's careers; without a source, our reading. */
+export type CompanyRole = { title: string; careers: string[]; source?: SourceLink }
+
+/**
+ * Someone who leads or speaks for the company, with the post confirmed in an official source. Never a minor,
+ * never an ordinary employee, never a personal contact. The profile is their own, matched on name, company and post.
+ */
+export type CompanyPerson = {
+  name: string
+  role: string
+  source: SourceLink
+  profile?: { label: 'LinkedIn'; url: string }
+  /** Only with a free licence; without one, the initials. */
+  photo?: string
+}
+
 /**
  * A real company, with only what public sources confirm (docs/recolha-de-dados.md). No salaries
  * or vacancies of our own.
@@ -623,6 +642,17 @@ export type Company = {
   /** Academies it works with (their ids). */
   partners: string[]
   sources: SourceLink[]
+  /** Its lines of business (3 to 6), from the company or the press, with where they are stated. */
+  activities?: string[]
+  activitiesSource?: SourceLink
+  founded?: CompanyFact
+  employees?: CompanyFact
+  /** Its own pages on social networks. */
+  socials?: { facebook?: string; instagram?: string; linkedin?: string }
+  /** The posts it hires for; without them, the app reads them from `careers`. */
+  roles?: CompanyRole[]
+  /** Its leadership and public spokespeople. */
+  people?: CompanyPerson[]
 }
 
 export type InternshipKind = 'trainee' | 'estagio_profissional' | 'estagio_curricular' | 'programa_publico'
@@ -781,6 +811,8 @@ export type NewsItem = {
   example?: boolean
   /** The careers it is about: "Para ti" when one of them is saved or the destination. */
   careers?: string[]
+  /** The companies it is about (their ids): "Para ti" when one of them is saved. */
+  companies?: string[]
   /** For "eventos": when, where and how to get in. */
   event?: NewsEvent
 }

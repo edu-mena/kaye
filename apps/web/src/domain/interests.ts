@@ -76,3 +76,8 @@ export function isSubscribed(
   if (!subscriptions?.kinds.includes(item.kind)) return false
   return areas.length === 0 || areas.some((area) => subscriptions.areas.includes(area))
 }
+
+/** A piece of news is about a company the person saved (its news counts as "Para ti" and reaches Notificações). */
+export function aboutSavedCompany(item: NewsItem, saved: ReadonlySet<string>): boolean {
+  return item.companies?.some((id) => saved.has(id)) ?? false
+}

@@ -1,5 +1,6 @@
 import type { CvData, NewsItem } from '../data/types'
 import { bestCvCompleteness } from './cv'
+import { aboutSavedCompany } from './interests'
 
 /** The part of the person's data the path and the notifications read; the saved user data fits it. */
 type Person = {
@@ -39,17 +40,28 @@ export function myCareers(person: Pick<Person, 'savedCareers' | 'targetCareer'>)
   return new Set(person.targetCareer ? [...person.savedCareers, person.targetCareer] : person.savedCareers)
 }
 
-/** A piece of news is about the person when it is about one of their careers ("Para ti"). */
-export function isAboutMe(item: NewsItem, mine: Set<string>): boolean {
-  return item.careers?.some((slug) => mine.has(slug)) ?? false
+/** A piece of news is about the person when it is about one of their careers or saved companies ("Para ti"). */
+export function isAboutMe(
+  item: NewsItem,
+  mine: Set<string>,
+  companies: ReadonlySet<string> = new Set(),
+): boolean {
+  return (item.careers?.some((slug) => mine.has(slug)) ?? false) || aboutSavedCompany(item, companies)
 }
 
 /**
- * What reaches Notificações: news of the topics the person subscribed to, and news about their careers
- * except the pieces that only live on Novidades.
+ * What reaches Notificações: news of the topics the person subscribed to and of the companies they saved, and
+ * news about their careers except the pieces that only live on Novidades.
  */
-export function isNotification(item: NewsItem, mine: Set<string>, subscribed = false): boolean {
-  return subscribed || (item.kind !== 'analise' && isAboutMe(item, mine))
+export function isNotification(
+  item: NewsItem,
+  mine: Set<string>,
+  subscribed = false,
+  companies: ReadonlySet<string> = new Set(),
+): boolean {
+  return (
+    subscribed || aboutSavedCompany(item, companies) || (item.kind !== 'analise' && isAboutMe(item, mine))
+  )
 }
 
 /** News the person has not seen: dated after the day they last opened their notifications. */

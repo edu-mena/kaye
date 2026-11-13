@@ -11,22 +11,26 @@ import { QueryState } from '../../components/QueryState'
 import { FilterBar } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
-import { useCareers, useCompanies } from '../../data/queries'
+import { useCareers, useCompanies, useNews } from '../../data/queries'
 import { byInterest, groupAreas } from '../../domain/interests'
 import { useInterestAreas } from '../../lib/useInterestAreas'
 import { COMPANY_SECTORS } from '../../data/types'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
+import { useUser } from '../../state/userStore'
+import { SaveCompany } from './SaveCompany'
 
 // Hero photo: "Luanda Skyline - Angola 2015", David Stanley, CC BY 2.0, Wikimedia Commons.
 // No credit on screen while the photos stay local (see data/demo/images.ts).
 
 /** Filters whose options depend on the sector: changing the sector clears them. */
-const SECTOR_DEPENDENT = ['area', 'programas', 'pagina']
+const SECTOR_DEPENDENT = ['area', 'atuacao', 'programas', 'pagina']
 /** The list's filters in the URL; "Limpar filtros" removes them all. */
-const FILTER_KEYS = ['setor', 'area', 'programas', 'onde', 'profissao', 'pagina']
+const FILTER_KEYS = ['setor', 'area', 'atuacao', 'programas', 'mostrar', 'onde', 'profissao', 'pagina']
 const PAGE_SIZE = 12
 const WITH_PROGRAMS = 'sim'
+/** "Mostrar": the saved ones, those with people, those with news. */
+const SHOW = ['guardadas', 'pessoas', 'noticias'] as const
 
 export default function CompaniesPage() {
   const { t } = useTranslation()
@@ -39,6 +43,10 @@ export default function CompaniesPage() {
   const pick = <T extends string>(key: string, values: readonly T[]) =>
     values.find((value) => value === params.get(key)) ?? null
   const sector = pick('setor', COMPANY_SECTORS)
+  const show = pick('mostrar', SHOW)
+  const { savedCompanies } = useUser()
+  const { data: news = [] } = useNews()
+  const withNews = new Set(news.flatMap((item) => item.companies ?? []))
   const list = useRef<HTMLElement>(null)
 
   return (
@@ -54,6 +62,9 @@ export default function CompaniesPage() {
           // The options come from the chosen sector's companies; a filter with nothing to offer hides.
           const ofSector = companies.filter((company) => !sector || company.sector === sector)
           const areas = [...new Set(ofSector.flatMap((company) => company.areas))]
+          const activities = [...new Set(ofSector.flatMap((company) => company.activities ?? []))].toSorted(
+            (a, b) => a.localeCompare(b),
+          )
           const programOptions = ofSector.some((company) => company.programs.length > 0)
             ? [WITH_PROGRAMS]
             : []
@@ -64,6 +75,7 @@ export default function CompaniesPage() {
             careerOptions.map((option) => option.value),
           )
           const area = pick('area', areas)
+          const activity = pick('atuacao', activities)
           const programs = pick('programas', programOptions)
           const province = pick('onde', provinces)
           const visible = byInterest(
@@ -71,6 +83,10 @@ export default function CompaniesPage() {
               (company) =>
                 (!career || company.careers.includes(career)) &&
                 (!area || company.areas.includes(area)) &&
+                (!activity || (company.activities ?? []).includes(activity)) &&
+                (show !== 'guardadas' || savedCompanies.includes(company.id)) &&
+                (show !== 'pessoas' || (company.people ?? []).length > 0) &&
+                (show !== 'noticias' || withNews.has(company.id)) &&
                 (!programs || company.programs.length > 0) &&
                 (!province || company.province === province),
             ),
@@ -146,6 +162,24 @@ export default function CompaniesPage() {
                             },
                           ]
                         : []),
+                      ...(activities.length > 0
+                        ? [
+                            {
+                              key: 'atuacao',
+                              label: t('companies.activityLabel'),
+                              placeholder: t('companies.allActivities'),
+                              value: activity,
+                              options: activities.map((value) => ({ value, label: value })),
+                            },
+                          ]
+                        : []),
+                      {
+                        key: 'mostrar',
+                        label: t('companies.showLabel'),
+                        placeholder: t('companies.showAll'),
+                        value: show,
+                        options: SHOW.map((value) => ({ value, label: t(`companies.show_${value}`) })),
+                      },
                       ...(programOptions.length > 0
                         ? [
                             {
@@ -189,6 +223,7 @@ export default function CompaniesPage() {
                           meta={t(`companies.sector_${company.sector}`)}
                           place={company.place}
                           badge={company.programs.length > 0 ? t('companies.hasPrograms') : undefined}
+                          action={<SaveCompany id={company.id} name={company.name} compact />}
                         />
                       </li>
                     ))}

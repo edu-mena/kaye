@@ -57,9 +57,9 @@ function Inbox({ news }: { news: NewsItem[] }) {
 
   const deadlines = useDeadlines()
   const soon = deadlines.mine.filter((item) => daysUntil(deadlines.today, item.date) <= SOON_DAYS)
-  const { mine, subscribed, subscriptions } = useNewsForMe()
-  const about = news.filter((item) => isNotification(item, mine, subscribed(item)))
-  const followsNothing = mine.size === 0 && subscriptions === null
+  const { mine, companies, subscribed, subscriptions } = useNewsForMe()
+  const about = news.filter((item) => isNotification(item, mine, subscribed(item), companies))
+  const followsNothing = mine.size === 0 && companies.size === 0 && subscriptions === null
   const next = pathSteps(user).find((step) => !step.done)
   const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })
 

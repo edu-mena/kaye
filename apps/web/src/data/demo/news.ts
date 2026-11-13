@@ -1,5 +1,6 @@
 import type { NewsItem, Photo } from '../types'
 import { COMPANIES } from './companies'
+import { COMPANY_NEWS } from './companyNews'
 import { EVENTS } from './events'
 import { CAREER_IMAGES } from './images'
 import { PROJECT_NEWS } from './projectManagement'
@@ -127,6 +128,7 @@ const YOUTH_PROGRAMS: NewsItem[] = COMPANIES.flatMap((company) =>
     to: `/empresas/${company.id}`,
     source: program.source,
     careers: company.careers,
+    companies: [company.id],
   })),
 )
 
@@ -191,6 +193,13 @@ function withImage(item: NewsItem, index: number): NewsItem {
 }
 
 /** Newest first. */
-export const NEWS: NewsItem[] = [...KAYE, ...EVENTS, ...YOUTH_PROGRAMS, ...PROJECT_NEWS, ...ANALYSIS]
+export const NEWS: NewsItem[] = [
+  ...KAYE,
+  ...EVENTS,
+  ...YOUTH_PROGRAMS,
+  ...PROJECT_NEWS,
+  ...ANALYSIS,
+  ...COMPANY_NEWS,
+]
   .toSorted((a, b) => b.date.localeCompare(a.date))
   .map(withImage)

@@ -83,6 +83,8 @@ export type UserData = {
   savedCareers: string[]
   /** Academies saved with the bookmark, by id. */
   savedAcademies: string[]
+  /** Companies saved with the bookmark, by id: their news counts as "Para ti". */
+  savedCompanies: string[]
   visitedCareers: string[]
   targetCareer: string | null
   /** All the person's CVs; `activeCvId` is the one open in the editor. */
@@ -135,6 +137,7 @@ const INITIAL: UserData = {
   skills: {},
   savedCareers: [],
   savedAcademies: [],
+  savedCompanies: [],
   visitedCareers: [],
   targetCareer: null,
   cvs: [],
@@ -194,6 +197,7 @@ function load(): UserData {
       strengths: withAllStrengths(saved.strengths),
       // Devices from before academies could be saved have none.
       savedAcademies: saved.savedAcademies ?? [],
+      savedCompanies: saved.savedCompanies ?? [],
     }
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
@@ -357,6 +361,9 @@ export const userActions = {
 
   toggleSavedAcademy: (id: string) =>
     update((user) => ({ ...user, savedAcademies: toggle(user.savedAcademies, id) })),
+
+  toggleSavedCompany: (id: string) =>
+    update((user) => ({ ...user, savedCompanies: toggle(user.savedCompanies, id) })),
 
   visitCareer: (slug: string) =>
     update((user) =>

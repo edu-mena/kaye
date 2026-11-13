@@ -681,6 +681,7 @@ export const PROJECT_NEWS: NewsItem[] = [
     to: `/academias/${PMI_ANGOLA.id}`,
     source: SELENIUM_SOURCE,
     careers: PROJECT_SLUGS,
+    companies: ['selenium-digital-solutions'],
   },
   {
     id: 'pmi-angola-ix-conferencia',

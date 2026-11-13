@@ -13,7 +13,7 @@ import { Hexagon } from '../../components/ui/Hexagon'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { ProgressBar } from '../../components/ui/ProgressBar'
 import { Rows, Soon } from '../../components/ui/Rows'
-import { useAcademies, useCareers, usePrograms } from '../../data/queries'
+import { useAcademies, useCareers, useCompanies, usePrograms } from '../../data/queries'
 import type { Institution } from '../../data/types'
 import { achievements, totalXp } from '../../domain/achievements'
 import { bestCvCompleteness } from '../../domain/cv'
@@ -113,14 +113,16 @@ function Target() {
   )
 }
 
-/** The first saved career as a card with its photo, the rest as one-line items; then the saved academies. */
+/** The first saved career as a card with its photo, the rest as one-line items; then the saved academies and companies. */
 function Saved() {
   const { t } = useTranslation()
-  const { savedCareers, savedAcademies } = useUser()
+  const { savedCareers, savedAcademies, savedCompanies } = useUser()
   const query = useCareers()
   const { data: academies = [] } = useAcademies()
+  const { data: companies = [] } = useCompanies()
   const saved = (query.data ?? []).filter((career) => savedCareers.includes(career.slug))
   const places = academies.filter((academy) => savedAcademies.includes(academy.id))
+  const employers = companies.filter((company) => savedCompanies.includes(company.id))
   const [first, ...rest] = saved
   return (
     <section aria-labelledby="profile-saved">
@@ -131,7 +133,7 @@ function Saved() {
         </Loading>
       ) : query.isError ? (
         <ErrorState compact onRetry={() => void query.refetch()} />
-      ) : !first && places.length === 0 ? (
+      ) : !first && places.length === 0 && employers.length === 0 ? (
         <p className="text-sm font-light text-muted">{t('profile.savedNone')}</p>
       ) : (
         <>
@@ -147,34 +149,59 @@ function Saved() {
               ))}
             </ul>
           )}
-          {places.length > 0 && (
-            <>
-              <h3 className={`${first ? 'mt-8' : ''} mb-3 text-sm font-bold text-night`}>
-                {t('profile.savedAcademies')}
-              </h3>
-              <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                {places.map((academy) => (
-                  <li key={academy.id}>
-                    <Link
-                      to={`/academias/${academy.id}`}
-                      className="flex items-center gap-3 rounded-2xl border border-line p-3 hover:border-night"
-                    >
-                      <InstitutionLogo institution={academy} />
-                      <span className="min-w-0">
-                        <span className="block truncate text-sm font-semibold text-night">
-                          {academy.name}
-                        </span>
-                        <span className="block truncate text-xs font-light text-muted">{academy.place}</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+          <SavedPlaces
+            title={t('profile.savedAcademies')}
+            spaced={Boolean(first)}
+            items={places.map((academy) => ({
+              entity: academy,
+              to: `/academias/${academy.id}`,
+              place: academy.place,
+            }))}
+          />
+          <SavedPlaces
+            title={t('profile.savedCompanies')}
+            spaced={Boolean(first) || places.length > 0}
+            items={employers.map((company) => ({
+              entity: company,
+              to: `/empresas/${company.id}`,
+              place: company.place,
+            }))}
+          />
         </>
       )}
     </section>
+  )
+}
+
+type SavedPlace = {
+  entity: { id: string; name: string; logo?: string; logoOnDark?: boolean }
+  to: string
+  place: string
+}
+
+/** Saved academies or companies: logo, name and place, each a link to its page. */
+function SavedPlaces({ title, spaced, items }: { title: string; spaced: boolean; items: SavedPlace[] }) {
+  if (items.length === 0) return null
+  return (
+    <>
+      <h3 className={`${spaced ? 'mt-8' : ''} mb-3 text-sm font-bold text-night`}>{title}</h3>
+      <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {items.map(({ entity, to, place }) => (
+          <li key={entity.id}>
+            <Link
+              to={to}
+              className="flex items-center gap-3 rounded-2xl border border-line p-3 hover:border-night"
+            >
+              <InstitutionLogo institution={entity} />
+              <span className="min-w-0">
+                <span className="block truncate text-sm font-semibold text-night">{entity.name}</span>
+                <span className="block truncate text-xs font-light text-muted">{place}</span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
 

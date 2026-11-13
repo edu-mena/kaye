@@ -8,6 +8,7 @@ import { SUPPORT_PROGRAMS } from './demo/supportPrograms'
 import { COMPANIES } from './demo/companies'
 import { CV_EXAMPLES } from './demo/cvExamples'
 import { withAreas, withoutRepeats } from './demo/areaCatalog'
+import { withProfiles } from './demo/companyProfiles'
 import { withFees } from './demo/academyFees'
 import { withImages } from './demo/academyImages'
 import { withContacts } from './demo/academyContacts'
@@ -197,28 +198,30 @@ const AREA_ACADEMIES = withAreas(
   ],
 )
 const ALL_ACADEMIES = withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))))
-const ALL_COMPANIES = withoutRepeats([
-  ...COMPANIES,
-  ...HEALTH.companies,
-  ...BUSINESS.companies,
-  ...HUMANITIES.companies,
-  ...SCIENCES.companies,
-  ...EDUCATION.companies,
-  ...ENGINEERING.companies,
-  ...OIL_MINING.companies,
-  ...AGRICULTURE.companies,
-  ...LOGISTICS.companies,
-  ...HOSPITALITY.companies,
-  ...PROJECT_COMPANIES,
-  ...OFFSHORE_COMPANIES,
-  ...ENGINEERING_COMPANIES,
-  ...EDUCATION_COMPANIES,
-  ...LEGAL_COMPANIES,
-  ...PUBLIC_COMPANIES,
-  ...SCIENCES_COMPANIES,
-  ...COMMUNICATION_COMPANIES,
-  ...LAST_AREAS_COMPANIES,
-])
+const ALL_COMPANIES = withProfiles(
+  withoutRepeats([
+    ...COMPANIES,
+    ...HEALTH.companies,
+    ...BUSINESS.companies,
+    ...HUMANITIES.companies,
+    ...SCIENCES.companies,
+    ...EDUCATION.companies,
+    ...ENGINEERING.companies,
+    ...OIL_MINING.companies,
+    ...AGRICULTURE.companies,
+    ...LOGISTICS.companies,
+    ...HOSPITALITY.companies,
+    ...PROJECT_COMPANIES,
+    ...OFFSHORE_COMPANIES,
+    ...ENGINEERING_COMPANIES,
+    ...EDUCATION_COMPANIES,
+    ...LEGAL_COMPANIES,
+    ...PUBLIC_COMPANIES,
+    ...SCIENCES_COMPANIES,
+    ...COMMUNICATION_COMPANIES,
+    ...LAST_AREAS_COMPANIES,
+  ]),
+)
 
 export async function listAcademies(): Promise<Academy[]> {
   return ALL_ACADEMIES

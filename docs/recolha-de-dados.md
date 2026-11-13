@@ -185,6 +185,18 @@ Setores que contratam gente de tecnologia:
 - **Banca.** Segundo o estudo PeopleBank 2025, os bancos aumentaram em cerca de 50% as contratações de TI em seis meses: 595 vagas novas. Mas muitos saíram, e o ganho real foi só de 85 lugares. Fonte: [Forbes África Lusófona](https://forbesafricalusofona.com/?p=161847).
 - **Muito pedido:** cibersegurança e análise de dados. O inglês conta nas empresas internacionais. Fonte: [Rivermate (2026)](https://rivermate.com/pt/guias/angola/recrutamento), um guia comercial, por isso serve só como contexto.
 
+### Perfis das empresas (13/11/2026)
+
+Em `apps/web/src/data/demo/companyProfiles.ts`, por id, aplicado a todas as 252 empresas em `data/source.ts`. Notícias em `data/demo/companyNews.ts` (as Novidades têm agora `companies`). Imagens novas em `scrapers/catalog/company_images.csv`.
+
+- **Áreas de atuação** (`activities`, com a fonte): Unitel, Angola Cables, BFA e Sonangol. **Factos com fonte:** fundação da Unitel (1998), do BAI (1996), da Sonangol (1976) e da TAAG (1938); trabalhadores do BFA (2 519 no fim de 2025).
+- **Cargos** (`roles`, com o anúncio): Unitel (as 8 áreas da candidatura espontânea), BAI, Africell e Angola LNG. As outras empresas mostram um cargo por profissão, com o aviso "a nossa leitura" (ou "segundo uma fonte pública" quando `careersSourced`).
+- **Pessoas** (16 empresas): só presidentes do conselho de administração, presidentes executivos e CEO, cada um com a notícia ou o documento oficial que confirma o cargo. Corrigido na pesquisa: o CEO do BAI é Juvelino Domingos (Ver Angola, 04/11/2026) e o da Azule Energy é Joe Murphy desde 01/12/2025 (site da Azule); a Chevron ficou sem pessoa (nenhuma fonte de Angola com o cargo).
+- **LinkedIn:** só quando o título do resultado de pesquisa mostra o mesmo nome e a mesma empresa: Jorge Vazquez (Africell) e Miguel Carneiro (TAAG). O de Ângelo Gama não mostra a empresa no título e ficou de fora. Não há scraping do LinkedIn. Nenhuma foto de pessoa (sem licença livre): aparecem as iniciais.
+- **Notícias** (15, datadas, com fonte): Unitel (2), Africell, Angola Cables, BAI, BFA, Sonangol, TAAG (2), Endiama, Catoca, TotalEnergies, Chevron, Angola LNG e ENDE. Os programas para jovens e o memorando PMI–Selenium também ficaram ligados às empresas.
+- **Imagens novas** (Wikimedia Commons): logótipos da TotalEnergies, da Chevron e da Endiama (domínio público). Rejeitada outra vez uma foto "Banco Sol" do Commons (é do BancoSol de Santa Cruz, Bolívia). Sem imagem livre: Banco Sol, Standard Bank (logótipo), Movicel, Angola LNG, Azule Energy e Catoca (só imagens de radar).
+- **Sem dados novos:** as restantes ~235 empresas (hospitais, ministérios, institutos, escritórios de advogados, empresas dos anúncios). Ficam com o que já tinham; a próxima ronda deve seguir a ordem das mais procuradas.
+
 ## Empresa → carreiras
 
 | Empresa | Carreiras | Base |

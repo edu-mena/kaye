@@ -16,9 +16,10 @@ export function useUnseenNotifications(): number {
   const user = useUser()
   const { data: news = [] } = useNews()
   const deadlines = useDeadlines()
-  const { mine, subscribed } = useNewsForMe()
+  const { mine, companies, subscribed } = useNewsForMe()
   const unseenNews = news.filter(
-    (item) => isNotification(item, mine, subscribed(item)) && isUnseen(item, user.notificationsSeenAt),
+    (item) =>
+      isNotification(item, mine, subscribed(item), companies) && isUnseen(item, user.notificationsSeenAt),
   )
   const unseenDeadlines = deadlines.mine.filter(
     (item) =>
