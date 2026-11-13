@@ -1,6 +1,6 @@
 # Kayé
 
-Career guidance platform for young people in Angola (14–30). MVP: "Kayé Tech" (Luanda, everything free); the catalogue grows one area at a time, health second (ADR 0009).
+Career guidance platform for young people in Angola (14–30). MVP: the catalogue covers every area, Luanda first, everything free; depth grows with what users ask for (ADR 0015).
 Built by Eduardo (founder) and Claude only.
 
 - `docs/` is the source of truth (index: `docs/README.md`). When a roadmap task is done, tick its checkbox.

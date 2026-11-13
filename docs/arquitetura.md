@@ -292,7 +292,9 @@ Há uma tarefa semanal (domingo de madrugada, depois dos scrapers) que calcula, 
 
 ### 5.4 Teste vocacional e recomendações
 
-**Teste.** Modelo RIASEC (Holland), com 6 dimensões: Realista, Investigativo, Artístico, Social, Empreendedor e Convencional. São 42 afirmações (7 por dimensão) numa escala de 1 a 5, cerca de 8 minutos, com o progresso guardado.
+**Teste.** Modelo RIASEC (Holland), com 6 dimensões: Realista, Investigativo, Artístico, Social, Empreendedor e Convencional. São 42 afirmações (7 por dimensão) numa escala de 1 a 5, cerca de 7 minutos, com o progresso guardado. As frases cobrem todas as áreas do catálogo, com no máximo uma de tecnologia por dimensão, e chegam na língua do ecrã ([ADR 0017](decisoes/0017-teste-vocacional-geral-com-valencias.md)).
+
+**Valências (parte 2, opcional).** Sete passos que se podem saltar, guardados em `userStore.strengths` à medida que se responde: línguas e nível, competências digitais, ofícios e competências técnicas das áreas da pessoa (as do catálogo das carreiras, guardadas em `user_skills`), competências transversais (privadas), o que já fez (trabalho, voluntariado, estágio, curso), como gosta de trabalhar e condições (até onde quer estudar, se pode estudar fora da província, se precisa de trabalhar já). Nunca pergunta religião, etnia, rendimento, morada, saúde nem data de nascimento.
 
 **Perfil das profissões.** Cada profissão tem também 6 valores RIASEC, definidos na curadoria com a base O*NET (pública, licença aberta) como referência.
 
@@ -301,8 +303,13 @@ Há uma tarefa semanal (domingo de madrugada, depois dos scrapers) que calcula, 
 ```
 pontuação = 0,60 × compatibilidade   perfil do utilizador vs perfil da profissão
           + 0,25 × mercado           procura e salário em Angola (pesados pela confiança dos dados)
-          + 0,15 × viabilidade       formação na província, custo, escolaridade atual
+          + 0,15 × viabilidade       nível de estudo, formação na província, precisa de trabalhar já
+          + 0,05 × estilo            como gosta de trabalhar vs estilos de trabalho da profissão
 ```
+
+- **Viabilidade** (`domain/recommend.ts`, `FEASIBILITY`): média das condições respondidas. Nível: cada nível acima do que a pessoa quer estudar (formação curta < médio técnico < licenciatura) tira 0,4, medido pelo caminho da profissão que pede menos escolaridade. Precisa de trabalhar já: formação curta e médio técnico valem 1, licenciatura 0,35. Não pode estudar fora: 1 se há formação na sua província ou online, 0,3 se só noutras, 0,6 se não se sabe. Sem respostas, 0,5.
+- **Estilo:** parte das preferências que os estilos de trabalho da profissão mostram; "rendimento depressa" conta como um caminho sem licenciatura. Sem respostas, 0,5.
+- A lista inclui pelo menos uma profissão sem ensino superior, quando há uma que combina.
 
 - Os pesos ficam em configuração e ajustam-se sem mexer no código.
 - A compatibilidade mede a semelhança entre os dois perfis (cosseno entre vetores centrados).
@@ -419,8 +426,8 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | GET | `/companies`, `/companies/{slug}` | Empresas, com as profissões que contratam e os programas para jovens (só com fonte) | — |
 | GET | `/news` | Novidades: do Kayé, das instituições e das empresas, as mais recentes primeiro | — |
 | GET | `/admissions` | Acesso ao ensino superior 2026/27 ("Como entrar" nos cursos e nas academias): inscrições, datas do exame, disciplinas, vagas, nota do último colocado, taxa, requisitos e fonte; o calendário nacional do MESCTI e o de cada instituição | — |
-| GET | `/scholarships` | Bolsas de estudo reais (página `/bolsas`), com nível, destino, áreas, o que cobrem, prazo e fonte; ligadas às carreiras e aos cursos pela área | — |
-| GET | `/internships` | Estágios e programas de trainee reais (página `/estagios`), com tipo, áreas, para quem, idade, se são pagos, prazo e fonte; ligados às carreiras pela área e às empresas pelo `companyId` | — |
+| GET | `/scholarships` | Bolsas de estudo reais (separador Bolsas de `/oportunidades`; `/bolsas` redireciona), com nível, destino, áreas, o que cobrem, prazo e fonte; ligadas às carreiras e aos cursos pela área | — |
+| GET | `/internships` | Estágios e programas de trainee reais (separador Estágios de `/oportunidades`; `/estagios` redireciona), com tipo, áreas, para quem, idade, se são pagos, prazo e fonte; ligados às carreiras pela área e às empresas pelo `companyId` | — |
 | GET, PUT | `/cv` | Dados do CV | sim |
 | GET | `/cv/preview` | Pré-visualização em HTML | sim |
 | POST | `/cv/export` | PDF | sim |
@@ -444,8 +451,10 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 | Explorar | Início | Teste vocacional, recomendações, progresso, próxima ação | Barra de baixo |
 | | Pesquisa | Carreiras, cursos, academias e empresas num só sítio | Barra de baixo |
 | | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
+| | Testes (`/testes`) | Todos os testes num só sítio, com o estado de cada um: teste vocacional (`/teste`), psicotécnicos (`/treino`), simulação de entrevistas (`/entrevistas`) e exames dos Kursos. O item fica ativo também nessas páginas | Menu |
 | | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
 | | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
+| | Oportunidades (`/oportunidades`) | Bolsas e estágios reais, em dois separadores (`?tab=bolsas` ou `?tab=estagios`), cada um com os seus filtros na URL | Menu |
 | | Prazos (`/prazos`) | Os prazos com data publicada (bolsas, candidaturas e exames de acesso, estágios; os concursos públicos entram quando tiverem data de fecho), por mês, com o filtro "Só para mim" (estado local) e "Adicionar ao calendário" (um `.ics` com alarme 3 dias antes, feito no telemóvel). Os da pessoa a ≤ 14 dias aparecem nas Notificações e os a ≤ 7 dias contam no sino | Menu |
 | | Empresas | As empresas líderes de cada setor | Menu |
 | | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |

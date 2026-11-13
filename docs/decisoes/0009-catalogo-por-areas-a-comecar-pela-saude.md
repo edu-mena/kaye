@@ -1,6 +1,6 @@
 # 0009. O catálogo cresce por áreas, a começar pela Saúde
 
-29 de outubro de 2026 · Estado: Aceite (alarga o MVP "Kayé Tech", que era só de tecnologia)
+29 de outubro de 2026 · Estado: Substituída por [0015](0015-catalogo-largo.md) (alargava o MVP "Kayé Tech", que era só de tecnologia)
 
 ## Contexto
 

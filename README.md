@@ -105,6 +105,19 @@ O detalhe está em [infraestrutura.md](docs/infraestrutura.md).
 | `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração, para testes no Vercel (`apps/web/vercel.json`: o projecto `kaye` do Vercel usa `apps/web` como pasta raiz; o `.vercelignore` da raiz só envia `apps/web`). Publicado em https://kaye-indol.vercel.app; `vercel deploy --prod` na raiz volta a publicar |
 | `npm run android` | Abre o projeto Android no Android Studio |
 
+## Lista de espera e críticas (pré-lançamento)
+
+No site de teste (Vercel), a landing guarda a lista de espera e as críticas no Redis (listas `waitlist` e `feedback`, `apps/web/api/_waitlist.ts`). Para as descarregar em CSV:
+
+| Variável | Onde | Para quê |
+|---|---|---|
+| `WAITLIST_EXPORT_TOKEN` | Vercel, projeto `kaye`, Production | Senha da exportação (16 caracteres ou mais); sem ela a exportação responde 401 |
+
+- Lista de espera: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=waitlist&token=<token>`
+- Críticas: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=feedback&token=<token>`
+
+O token também pode ir no header `X-Export-Token` ou `Authorization: Bearer <token>` (não fica no histórico do navegador).
+
 ## Segurança
 
 Para reportar uma vulnerabilidade, vê [SECURITY.md](SECURITY.md).

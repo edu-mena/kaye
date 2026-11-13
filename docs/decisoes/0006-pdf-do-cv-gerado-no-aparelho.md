@@ -20,6 +20,8 @@
   As medidas são as mesmas nos dois.
 - O ficheiro é entregue pela ajuda `saveFile`, a mesma do "Descarregar os meus dados", e não pelo `save()` do jsPDF, cujo comportamento muda entre ambientes.
 
+**Atualização (2 de novembro de 2026):** os modelos deixaram de existir duas vezes. `features/cv/cvLayout.ts` desenha cada modelo uma só vez, em milímetros, e a pré-visualização (`CvSheet.tsx`, em SVG) e o PDF (`cvPdf.ts`) só pintam o resultado, com as mesmas fontes (`public/fonts/cv/`). Continua no aparelho, com o jsPDF e texto verdadeiro. A nota abaixo sobre manter duas versões já não se aplica.
+
 ## Consequências
 
 - Os CVs modelo e o CV da pessoa descarregam-se já, sem servidor e sem rede.

@@ -114,7 +114,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 | # | Bloco | Inclui |
 |---|---|---|
 | 1.1 | Entrada | Conta obrigatória (ADR 0012); login Google; onboarding com consentimentos; fluxo para menores |
-| 1.2 | Teste vocacional | 42 perguntas RIASEC em pt/en/fr, com progresso guardado. Resultado: perfil nas 6 dimensões, top 5 profissões com razões, e a área forte fora da tech marcada "em breve". |
+| 1.2 | Teste vocacional | Duas partes, para todas as áreas ([ADR 0017](decisoes/0017-teste-vocacional-geral-com-valencias.md)). **1. O que gostas:** 42 frases RIASEC do dia a dia, em pt/en/fr, com progresso guardado. **2. O que já sabes** (opcional, 7 passos que se podem saltar): línguas, competências digitais, ofícios da área, competências transversais, o que já fez, como gosta de trabalhar e condições. Resultado: perfil nas 6 dimensões, 6 profissões de todas as áreas com razões (interesses, competências que já tem, caminho possível; pelo menos uma sem ensino superior), resumo das valências e "Leva para o teu CV". |
 | 1.3 | Carreiras | A página completa de cada profissão ([arquitetura, 7](arquitetura.md#página-de-uma-carreira)): o que faz, características profissionais, o que os empregadores pedem em Angola, percurso académico, formação profissional, etapas da carreira, custo, mercado e salários com fonte. Rankings "mais procuradas" e "mais bem pagas". Guardar carreiras. |
 | 1.4 | Encaixe | Em cada carreira: interesses (teste), formação (o que falta) e competências (a pessoa marca o que sabe). Mostra o que falta como próximos passos |
 | 1.5 | Formação | Instituições e cursos com filtros; **as melhores instituições para cada curso**, com critérios públicos ([arquitetura, 5.7](arquitetura.md#57-as-melhores-instituições-para-cada-curso)); comparar até 3 cursos; custo total do caminho |
@@ -155,6 +155,32 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - Segundo setor, escolhido com dados: o que os utilizadores mais pedem e a área forte mais comum fora da tech
 
 **Critério de saída:** retenção semanal a subir face à base da Fase 1.
+
+## Para fechar (13 de novembro de 2026)
+
+Decisão: fechar o que já existe antes de abrir frentes novas. A primeira tarefa é o teste vocacional geral, para todas as áreas, que recolhe também as valências que vão para o CV. As ideias abaixo, aprovadas pelo Eduardo, guiam o fecho.
+
+- [x] Teste vocacional geral, para todas as áreas, com as valências que vão para o CV ([ADR 0017](decisoes/0017-teste-vocacional-geral-com-valencias.md))
+
+**Distribuição**
+- **Programa para escolas** (ensino médio e institutos técnicos): uma sessão de orientação e o teste feito em turma. É o canal mais barato para chegar aos 14–18 anos; a privacidade forte do Kayé é o argumento para o diretor dizer sim.
+- **WhatsApp como canal principal:** links partilháveis para tudo (resultado do teste, carreira, bolsa), com pré-visualização bonita. As páginas públicas de carreira, indexáveis no Google, trazem visitas sem custo.
+- **Embaixadores** em universidades e escolas, com o XP e os badges que já existem.
+
+**Produto**
+- **"O meu plano"** (Fase 2): passa o Kayé de consulta pontual a acompanhamento.
+- **Alertas de prazos** de bolsas e candidaturas (precisa do servidor): a razão mais forte para voltar todas as semanas.
+- **Preparação para os exames de acesso** às universidades públicas, com os dados de admissões que já existem.
+- **Testemunhos curtos em vídeo** de jovens profissionais angolanos ("o meu dia como técnico de redes").
+- **Caminhos sem ensino superior:** formação técnica, INEFOP, ofícios, autoemprego e economia informal.
+- **Modo para pais e encarregados:** uma página que explica o resultado do filho, para além do PDF.
+- **Mentores** começados à mão, com 5 a 10 voluntários, antes de haver marketplace (Fase 4).
+
+**Receita, sem comprometer a neutralidade**
+- **B2B e institucional:** escolas, governo provincial, INEFOP e programas de responsabilidade social dos bancos (como o Futuro BFA) pagam pelo serviço de orientação, com relatórios só agregados.
+- **Instituições** pagam para gerir a sua página e os preços, sempre marcadas e fora das recomendações.
+- **Financiamento de impacto:** UNICEF, PNUD, Banco Mundial e fundações de empregabilidade jovem.
+- **Premium para o utilizador**, só depois e barato: modelos extra de CV, revisão humana do CV, simulação de entrevista com feedback.
 
 ## Fase 3 — Monetização
 
