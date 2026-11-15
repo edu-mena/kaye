@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { LIST_ROW } from '../../components/CareerRow'
 import { CareerPills, DetailBlock, ExternalLink } from '../../components/DetailParts'
 import { ShareButton } from '../../components/ShareButton'
+import { ButtonLink } from '../../components/ui/Button'
 import { DetailLayout, DetailSection, StatBlock, Subheading } from '../../components/DetailLayout'
 import { Icon, type IconName } from '../../components/icons'
 import { FilteredGrid } from '../../components/FilteredGrid'
@@ -308,6 +309,17 @@ function HowToGetIn({ course }: { course: CatalogCourse }) {
           </li>
         ))}
       </ul>
+      {institutions.length > 0 && (
+        <ButtonLink
+          to={`/exames-de-acesso?curso=${course.id}`}
+          variant="secondary"
+          size="sm"
+          className="mt-4"
+        >
+          <Icon name="pencil" className="size-4" />
+          {t('accessExams.prepare')}
+        </ButtonLink>
+      )}
     </div>
   )
 }

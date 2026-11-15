@@ -43,6 +43,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     cover: null,
     notificationsSeenAt: null,
     psychotech: [],
+    accessExams: [],
     interviews: [],
     subscriptions: null,
     kursos: {},

@@ -26,6 +26,7 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Bolsas | 19 | |
 | Estágios e programas de trainee | 13 | |
 | Admissões (exames e candidaturas) | 14 | |
+| Perguntas dos exames de acesso | 260 | Matemática 126, Língua Portuguesa 134; originais |
 | Novidades | 66 | |
 | Cursos online grátis | 45 | |
 | Apoios para trabalhar por conta própria | 11 | |
@@ -391,7 +392,7 @@ Descartados: Escola Virtual da Fundação Bradesco (o registo pede CPF, o que po
 
 ## Acesso ao ensino superior (2026/27)
 
-Em `apps/web/src/data/demo/admissions.ts` (ainda sem ecrã). Verificado a 03/11/2026, nos editais das instituições (muitos são PDF digitalizados) e nos calendários do MESCTI. Datas, vagas e taxas só com fonte. Nenhuma fonte publica a nota do último colocado, por isso `minGrade` está vazio em todos.
+Em `apps/web/src/data/demo/admissions.ts`, mostrado em "Como entrar" (curso e academia), em `/prazos` e em `/exames-de-acesso`. Verificado a 03/11/2026, nos editais das instituições (muitos são PDF digitalizados) e nos calendários do MESCTI. Datas, vagas e taxas só com fonte. Nenhuma fonte publica a nota do último colocado, por isso `minGrade` está vazio em todos.
 
 | Instituição | Registos | Fonte | Por confirmar |
 |---|---|---|---|
@@ -406,6 +407,18 @@ Em `apps/web/src/data/demo/admissions.ts` (ainda sem ecrã). Verificado a 03/11/
 | `universidades-jean-piaget` | 1 | [Calendário 2026/2027](https://www.unipiaget-angola.org/upload/formularios/calendario/CALENDA%CC%81RIO%20_DO_ANO_ACADE%CC%81MICO_2026-2027.pdf) | Disciplinas, taxa, vagas |
 
 Procuradas sem nada de 2026/27: Universidade Metodista, Lusíada, UTANGA, Óscar Ribas, Gregório Semedo, Universidade Privada de Angola, ISUTIC (site com certificado errado), Mandume ya Ndemufayo e Katyavala Bwila (só regulamentos antigos). ANGOP e Jornal de Angola não apareceram nas pesquisas.
+
+### Banco de perguntas dos exames de acesso (15/11/2026)
+
+Em `apps/web/src/data/demo/accessExams/`, um ficheiro por disciplina, usado em `/exames-de-acesso`. Todas as perguntas e textos são **originais**, escritos pelo Kayé ao nível do programa: nenhuma foi copiada de exames, sebentas ou livros. As perguntas estão em português (a língua do exame) e seguem o Acordo Ortográfico de 1990, como o resto da app; as de ortografia só usam palavras que se escrevem da mesma maneira antes e depois do acordo.
+
+| Disciplina | Perguntas | Temas |
+|---|---|---|
+| Matemática | 126 | Álgebra, funções, equações e inequações, geometria, trigonometria, estatística e probabilidades (21 cada) |
+| Língua Portuguesa | 134 | Interpretação de texto (8 textos curtos originais e figuras de estilo), gramática, ortografia, vocabulário |
+| Física, Química, Biologia, História, Geografia | 0 | Aparecem como "em breve" |
+
+Referência dos temas: os programas oficiais do II ciclo do ensino secundário geral (10.ª, 11.ª e 12.ª classes) de Matemática e de Língua Portuguesa, do INIDE/MED, e os tópicos publicados para 2026/27 pela [UAN](https://uan.ao/sobre-uan/admissao) e pela [UCAN](https://www.ucan.co.ao/topicos-para-os-exames-de-acesso/). Por fazer: confirmar tema a tema contra o PDF dos programas do INIDE e pôr aqui a ligação; escrever as outras disciplinas, uma de cada vez.
 
 ## Contexto do ensino superior (2026/27)
 

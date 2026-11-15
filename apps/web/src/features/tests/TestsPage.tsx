@@ -8,6 +8,7 @@ import { PageHeader } from '../../components/ui/PageHeader'
 import { ProgressBar } from '../../components/ui/ProgressBar'
 import { KURSOS } from '../../data/kursos'
 import type { CourseTone } from '../../data/kursos/types'
+import { QUESTION_COUNT, READY_SUBJECTS } from '../../domain/accessExams'
 import { AREA_COUNT, GENERAL_COUNT, INTERVIEWS_PER_DAY } from '../../domain/interviews'
 import { EXAM_PASS, EXAM_SIZE } from '../../domain/kursos'
 import { FULL_QUESTIONS, FULL_SECONDS, LEVELS, overall, SKILLS } from '../../domain/psychotech'
@@ -115,7 +116,7 @@ function Done({ children }: { children: ReactNode }) {
 /** Testes (/testes): every test in the app, with where the person stands in each. */
 export default function TestsPage() {
   const { t } = useTranslation()
-  const { psychotech, interviews, kursos } = useUser()
+  const { psychotech, interviews, kursos, accessExams } = useUser()
   const progress = useTestProgress()
   const { total, answered, stepsDone, stepsTotal } = progress
 
@@ -190,6 +191,24 @@ export default function TestsPage() {
         ),
       action: { to: '/treino', label: best === null ? t('tests.start') : t('tests.trainAgain') },
       tour: 'psychotech',
+    },
+    {
+      icon: 'pencil',
+      tone: 'blue',
+      title: t('tests.accessTitle'),
+      body: t('tests.accessBody'),
+      facts: [
+        t('tests.questions', { count: QUESTION_COUNT }),
+        ...READY_SUBJECTS.map((subject) => t(`accessExams.subject_${subject}`)),
+      ],
+      status:
+        accessExams.length === 0 ? undefined : (
+          <Done>{t('tests.sessions', { count: accessExams.length })}</Done>
+        ),
+      action: {
+        to: '/exames-de-acesso',
+        label: accessExams.length === 0 ? t('tests.start') : t('tests.trainAgain'),
+      },
     },
     {
       icon: 'message',

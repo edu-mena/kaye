@@ -24,6 +24,8 @@ import { newEntry, newId } from '../domain/cv'
 import type { Discovery } from '../domain/discovery'
 import { EMPTY_STRENGTHS, withAllStrengths, type Strengths, type StrengthStep } from '../domain/strengths'
 import type { Level, Mode, Scores } from '../domain/psychotech'
+import type { ExamMode, TopicScores } from '../domain/accessExams'
+import type { ExamSubject } from '../data/demo/accessExams'
 
 // What the person has done in the app. Until the API exists it lives only on this
 // device (localStorage); later each action becomes a /api/v1 call (docs/decisoes/0005).
@@ -45,6 +47,9 @@ export type HistoryEvent = {
 
 /** One finished psychotechnical session: only the scores, never the answers. */
 export type PsychotechResult = { at: string; mode: Mode; level: Level; scores: Scores }
+
+/** One access-exam session (Exames de acesso): only the grades per topic, never the answers. */
+export type AccessExamResult = { at: string; subject: ExamSubject; mode: ExamMode; topics: TopicScores }
 
 /** One interview sent for review: only when and which area; the answers live with the Kayé team. */
 export type InterviewResult = { at: string; area: MarketArea; questions: number; career?: string }
@@ -109,6 +114,8 @@ export type UserData = {
   notificationsSeenAt: string | null
   /** Psychotechnical practice, newest first, at most MAX_PSYCHOTECH. */
   psychotech: PsychotechResult[]
+  /** Access-exam practice, newest first, at most MAX_ACCESS_EXAMS. */
+  accessExams: AccessExamResult[]
   /** Interview practice, newest first, at most MAX_INTERVIEWS. */
   interviews: InterviewResult[]
   /** The topics followed on Novidades; filled at the end of onboarding, null before. */
@@ -157,6 +164,7 @@ const INITIAL: UserData = {
   cover: null,
   notificationsSeenAt: null,
   psychotech: [],
+  accessExams: [],
   interviews: [],
   subscriptions: null,
   kursos: {},
@@ -169,6 +177,7 @@ export const MAX_HISTORY = 100
 export const MAX_SEARCHES = 6
 const MAX_PSYCHOTECH = 30
 const MAX_INTERVIEWS = 30
+const MAX_ACCESS_EXAMS = 60
 const KEY = 'kaye.user.v1'
 const listeners = new Set<() => void>()
 let state: UserData = load()
@@ -483,6 +492,9 @@ export const userActions = {
 
   addPsychotech: (result: PsychotechResult) =>
     update((user) => ({ ...user, psychotech: [result, ...user.psychotech].slice(0, MAX_PSYCHOTECH) })),
+
+  addAccessExam: (result: AccessExamResult) =>
+    update((user) => ({ ...user, accessExams: [result, ...user.accessExams].slice(0, MAX_ACCESS_EXAMS) })),
 
   addInterview: (result: InterviewResult) =>
     update((user) => ({ ...user, interviews: [result, ...user.interviews].slice(0, MAX_INTERVIEWS) })),

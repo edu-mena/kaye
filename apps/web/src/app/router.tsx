@@ -52,6 +52,7 @@ export const router = createBrowserRouter([
       { path: 'teste/valencias', lazy: page(() => import('../features/assessment/StrengthsPage')) },
       { path: 'testes', lazy: page(() => import('../features/tests/TestsPage')) },
       { path: 'treino', lazy: page(() => import('../features/psychotech/PsychotechPage')) },
+      { path: 'exames-de-acesso', lazy: page(() => import('../features/accessExams/AccessExamsPage')) },
       { path: 'entrevistas', lazy: page(() => import('../features/interviews/InterviewsPage')) },
       {
         path: 'carreiras',

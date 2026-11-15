@@ -182,6 +182,12 @@ function HowToGetIn({ academy }: { academy: Academy }) {
       .map((offer) => offer.course.name)
     return courses.length === 0 ? t('admission.allCourses') : [...new Set(courses)].join(', ')
   }
+  // Practice for the exam: on the course opened, or else the first one an access record covers.
+  const examCourse =
+    academy.offers.find(
+      (offer) =>
+        (!curso || offer.course.id === curso) && own.some((admission) => covers(admission, offer.course.id)),
+    )?.course.id ?? null
   return (
     <div className="mt-10">
       <Subheading>{t('admission.title')}</Subheading>
@@ -205,9 +211,24 @@ function HowToGetIn({ academy }: { academy: Academy }) {
           </>
         )}
       </div>
+      {examCourse && (
+        <ButtonLink
+          to={`/exames-de-acesso?curso=${examCourse}&instituicao=${academy.id}`}
+          variant="secondary"
+          size="sm"
+          className="mt-4"
+        >
+          <Icon name="pencil" className="size-4" />
+          {t('accessExams.prepare')}
+        </ButtonLink>
+      )}
     </div>
   )
 }
+
+/** Whether a record covers the course (one with no course ids covers them all). */
+const covers = (admission: Admission, courseId: string) =>
+  admission.courseIds === undefined || admission.courseIds.includes(courseId)
 
 /** Whether a record names the course (one with no course ids covers them all, without naming any). */
 const names = (admission: Admission, courseId: string) => admission.courseIds?.includes(courseId) ?? false

@@ -28,7 +28,11 @@ export type PlanText = { key: string; values?: Record<string, string | number> }
 
 /** What closes a step without the person ticking it. */
 type AutoDone =
-  { kind: 'cv' } | { kind: 'kurso'; id: string } | { kind: 'psychotech' } | { kind: 'interview' }
+  | { kind: 'cv' }
+  | { kind: 'kurso'; id: string }
+  | { kind: 'psychotech' }
+  | { kind: 'interview' }
+  | { kind: 'accessExam' }
 
 export type PlanStep = {
   id: string
@@ -223,7 +227,30 @@ function applySteps(
       deadlineId: scholarship.id,
     }))
 
-  return [...admissions.toSorted(byDue).slice(0, MAX_APPLY), ...scholarships]
+  // An access exam ahead: practice for it (Exames de acesso), on the first course with a record.
+  const examCourse = courses.find((course) =>
+    sources.admissions.some(
+      (admission) =>
+        admission.academyId !== null &&
+        course.offers.some(({ academy }) => academy.id === admission.academyId) &&
+        (admission.courseIds === undefined || admission.courseIds.includes(course.id)),
+    ),
+  )
+  const examPrep: PlanStep[] =
+    admissions.length > 0
+      ? [
+          {
+            id: 'apply-access-exam',
+            kind: 'apply',
+            title: { key: 'plan.accessExamTitle' },
+            why: { key: 'plan.whyAccessExam' },
+            to: examCourse ? `/exames-de-acesso?curso=${examCourse.id}` : '/exames-de-acesso',
+            auto: { kind: 'accessExam' },
+          },
+        ]
+      : []
+
+  return [...admissions.toSorted(byDue).slice(0, MAX_APPLY), ...examPrep, ...scholarships]
 }
 
 function skillSteps(career: Career, person: PlanPerson, sources: PlanSources): PlanStep[] {
@@ -323,6 +350,7 @@ export type PlanEvidence = {
   kursosDone: Set<string>
   psychotech: boolean
   interview: boolean
+  accessExam: boolean
 }
 
 export function evidenceOf(
@@ -331,6 +359,7 @@ export function evidenceOf(
     kursos: Record<string, { completedAt?: string }>
     psychotech: { at: string }[]
     interviews: { at: string }[]
+    accessExams: { at: string }[]
   },
   plan: { done: string[]; startedAt: string },
 ): PlanEvidence {
@@ -340,6 +369,7 @@ export function evidenceOf(
     kursosDone: new Set(Object.keys(user.kursos).filter((id) => user.kursos[id]?.completedAt)),
     psychotech: user.psychotech.some((result) => result.at >= plan.startedAt),
     interview: user.interviews.some((result) => result.at >= plan.startedAt),
+    accessExam: user.accessExams.some((result) => result.at >= plan.startedAt),
   }
 }
 
@@ -354,6 +384,8 @@ function autoDone(step: PlanStep, evidence: PlanEvidence): boolean {
       return evidence.psychotech
     case 'interview':
       return evidence.interview
+    case 'accessExam':
+      return evidence.accessExam
     default:
       return false
   }

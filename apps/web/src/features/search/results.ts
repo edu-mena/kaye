@@ -46,6 +46,7 @@ const PAGES = [
   { id: 'plan', to: '/plano', icon: 'path' },
   { id: 'noDegree', to: '/sem-universidade', icon: 'helmet' },
   { id: 'admissions', to: '/prazos?tipo=exame', icon: 'calendar' },
+  { id: 'accessExams', to: '/exames-de-acesso', icon: 'pencil' },
   { id: 'deadlines', to: '/prazos', icon: 'calendar' },
   { id: 'tests', to: '/testes', icon: 'target' },
   { id: 'psychotech', to: '/treino', icon: 'brain' },
