@@ -125,6 +125,7 @@ export const router = createBrowserRouter([
       // Old addresses (shared links, bookmarks): the same list, now a tab of Oportunidades.
       { path: 'bolsas', Component: () => <KeepQuery to="bolsas" /> },
       { path: 'sem-universidade', lazy: page(() => import('../features/noDegree/NoDegreePage')) },
+      { path: 'mentores', lazy: page(() => import('../features/mentors/MentorsPage')) },
       { path: 'plano', lazy: page(() => import('../features/plan/PlanPage')) },
       { path: 'prazos', lazy: page(() => import('../features/deadlines/DeadlinesPage')) },
       { path: 'estagios', Component: () => <KeepQuery to="estagios" /> },

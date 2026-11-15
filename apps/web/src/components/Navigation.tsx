@@ -6,6 +6,7 @@ import { useHideOnScroll } from '../lib/useHideOnScroll'
 import { useUnseenNotifications } from '../state/notifications'
 import { useUser } from '../state/userStore'
 import { Icon, type IconName } from './icons'
+import { MENTORS } from '../data/demo/mentors'
 import { Dialog } from './ui/Dialog'
 
 type NavKey =
@@ -19,6 +20,7 @@ type NavKey =
   | 'opportunities'
   | 'deadlines'
   | 'noDegree'
+  | 'mentors'
   | 'companies'
   | 'market'
   | 'news'
@@ -57,6 +59,8 @@ const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark
 const OPPORTUNITIES: NavItem = { to: '/oportunidades', key: 'opportunities', icon: 'award' }
 const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar', tour: 'deadlines' }
 const NO_DEGREE: NavItem = { to: '/sem-universidade', key: 'noDegree', icon: 'helmet' }
+// Only once Kayé has approved mentors (docs/mentores.md).
+const MENTORS_ITEM: NavItem[] = MENTORS.length > 0 ? [{ to: '/mentores', key: 'mentors', icon: 'users' }] : []
 const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
 const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
 const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
@@ -83,6 +87,7 @@ const SIDEBAR: NavGroup[] = [
       OPPORTUNITIES,
       DEADLINES,
       NO_DEGREE,
+      ...MENTORS_ITEM,
       COMPANIES,
       MARKET,
       NEWS,
@@ -95,7 +100,18 @@ const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
 const MENU: NavGroup[] = [
   {
     key: 'groupExplore',
-    items: [TESTS, KURSOS, ACADEMIES, OPPORTUNITIES, DEADLINES, NO_DEGREE, COMPANIES, MARKET, NEWS],
+    items: [
+      TESTS,
+      KURSOS,
+      ACADEMIES,
+      OPPORTUNITIES,
+      DEADLINES,
+      NO_DEGREE,
+      ...MENTORS_ITEM,
+      COMPANIES,
+      MARKET,
+      NEWS,
+    ],
   },
   { key: 'groupYou', items: [PLAN, NOTIFICATIONS, PROFILE] },
   { key: 'groupHelp', items: SIDEBAR_FOOTER },

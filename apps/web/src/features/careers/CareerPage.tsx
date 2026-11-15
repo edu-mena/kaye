@@ -46,6 +46,8 @@ import { InternshipsForArea } from '../internships/InternshipLinks'
 import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
 import { ProgramSummary } from '../training/ProgramSummary'
 import { ShowFamily } from '../family/ShowFamily'
+import { CareerMentorsLink } from '../mentors/CareerMentorsLink'
+import { CareerVideos } from '../videos/VideoStories'
 import { CareerMarket } from './CareerMarket'
 import { CareerPath } from './CareerPath'
 import { CostVsSalary } from './CostVsSalary'
@@ -349,6 +351,8 @@ function Overview({ career }: { career: Career }) {
           </li>
         ))}
       </ol>
+
+      <CareerVideos careerSlug={career.slug} careerName={career.name} />
 
       <Subheading className="mt-10">{t('career.workContext')}</Subheading>
       <StatBlock items={career.workContext} />
@@ -687,6 +691,7 @@ function Stories({ career }: { career: Career }) {
           )
         }
       </QueryState>
+      <CareerMentorsLink careerSlug={career.slug} />
     </Section>
   )
 }

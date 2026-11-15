@@ -17,6 +17,7 @@ import { useNewsForMe } from '../../lib/useNewsForMe'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { Figures } from './Figures'
 import { NewsStory } from './NewsStory'
+import { NewStories } from '../videos/VideoStories'
 import { SubscribeDialog } from './SubscribeDialog'
 
 type Filter = 'tudo' | 'para-ti' | NewsKind
@@ -42,6 +43,7 @@ export default function NewsPage() {
   return (
     <>
       <PageHeader compact title={t('nav.news')} subtitle={t('news.subtitle')} />
+      <NewStories className="mb-6" />
       <QueryState
         query={query}
         loading={

@@ -5,6 +5,8 @@ interface ImportMetaEnv {
   readonly VITE_API_URL?: string
   /** Kayé's email for corrections ("Ajuda-nos a completar"); without it, that link is hidden. */
   readonly VITE_KAYE_EMAIL?: string
+  /** Kayé's WhatsApp number, digits only with the country code (244…), for mentor requests. */
+  readonly VITE_KAYE_WHATSAPP?: string
 }
 
 interface ImportMeta {

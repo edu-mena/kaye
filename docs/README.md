@@ -12,6 +12,8 @@
 | [observabilidade.md](observabilidade.md) | Logs, erros, saúde, alertas e o que fazer quando algo falha |
 | [infraestrutura.md](infraestrutura.md) | Ambientes, containers, CI/CD, deploy, variáveis de ambiente |
 | [recolha-de-dados.md](recolha-de-dados.md) | Que dados reais temos de instituições, empresas e notícias, com fonte, e o que falta confirmar |
+| [videos.md](videos.md) | Como gravar um vídeo "O meu dia como…", o consentimento e onde pôr os ficheiros |
+| [mentores.md](mentores.md) | Regras para os mentores, como são aprovados e o consentimento |
 | [decisoes/](decisoes/README.md) | Porque decidimos o que decidimos (ADR) |
 
 Para pôr o projeto a correr, vê o [README](../README.md) na raiz.

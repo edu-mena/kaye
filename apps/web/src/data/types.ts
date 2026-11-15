@@ -984,3 +984,45 @@ export type SelfEmployment = {
   programIds: string[]
   estimated: true
 }
+
+/**
+ * "O meu dia como…": a 60–90 s video recorded by Kayé with a professional (docs/videos.md). Only with written
+ * consent (`consentAt`), never a minor. It opens on the platform: no iframes, the CSP stays as it is.
+ */
+export type VideoStory = {
+  id: string
+  careerSlug: string
+  name: string
+  role: string
+  company?: string
+  title: string
+  url: string
+  platform: 'youtube' | 'tiktok' | 'instagram'
+  durationSeconds: number
+  /** File name in assets/videos/; the cover is never loaded from outside. */
+  thumbnail?: string
+  /** ISO date of the signed consent. */
+  consentAt: string
+  /** ISO date. */
+  recordedAt: string
+}
+
+/** A volunteer approved by Kayé to talk with young people about their career (docs/mentores.md). */
+export type Mentor = {
+  id: string
+  name: string
+  role: string
+  company?: string
+  /** Career slugs. */
+  careers: string[]
+  /** At most 280 characters. */
+  bio: string
+  /** ISO codes: 'pt', 'en', 'fr', 'umb', 'kmb'… */
+  languages: string[]
+  /** File name in assets/mentors/. */
+  photo?: string
+  /** ISO date of the signed consent. */
+  consentAt: string
+  /** Minors only see 'grupo'. */
+  availability: 'grupo' | 'individual'
+}

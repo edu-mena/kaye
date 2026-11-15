@@ -174,10 +174,10 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 - [x] **"O meu plano"** (Fase 2): passa o Kayé de consulta pontual a acompanhamento. Feito a 13/11/2026, só no telemóvel.
 - [x] **Alertas de prazos** de bolsas e candidaturas: calendário, estrela e Notificações feitos a 13/11/2026 (ver a Fase 2); o push com a app fechada precisa do servidor.
 - [x] **Preparação para os exames de acesso** às universidades públicas (`/exames-de-acesso`, 15/11/2026): escolhe-se o curso e a instituição e veem-se as disciplinas, datas, vagas, taxa e fonte; treino com correção (10 perguntas) e simulação com tempo (30 perguntas em 60 minutos), notas por tema e explicação de cada erro. 260 perguntas originais de Matemática e Língua Portuguesa (ver `recolha-de-dados.md`); Física, Química, Biologia, História e Geografia ficam "em breve". Entradas: cartão em `/testes`, "Prepara-te para o exame" no curso e na academia, passo no "O meu plano".
-- **Testemunhos curtos em vídeo** de jovens profissionais angolanos ("o meu dia como técnico de redes").
+- **Testemunhos curtos em vídeo** de jovens profissionais angolanos ("o meu dia como técnico de redes"). A interface está pronta e vazia desde 15/11/2026 (bloco "O meu dia como…" na carreira, "Histórias novas" no início e nas Novidades); falta gravar: ver [videos.md](videos.md).
 - [x] **Caminhos sem ensino superior:** formação técnica, INEFOP, ofícios, autoemprego e economia informal. Feito a 13/11/2026: ver a Fase 2.
 - [x] **Modo para pais e encarregados:** uma página que explica o resultado do filho, para além do PDF (`/familia`, ADR 0018).
-- **Mentores** começados à mão, com 5 a 10 voluntários, antes de haver marketplace (Fase 4).
+- **Mentores** começados à mão, com 5 a 10 voluntários, antes de haver marketplace (Fase 4). A página `/mentores` e o pedido por WhatsApp ou email estão prontos e vazios desde 15/11/2026; falta aprovar os primeiros: ver [mentores.md](mentores.md).
 
 - [x] **Fecho do frontend** (13/11/2026): revisão de coerência (texto "Kayé Tech" fora dos termos e da privacidade, menores sem salários em lado nenhum, links antigos só como redirecionamento), tutorial com os passos "Sem universidade" e "Exames de acesso", pesquisa com as pessoas das empresas e as páginas da app, fotos de 1600 px até 150 KB.
 

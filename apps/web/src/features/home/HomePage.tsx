@@ -23,6 +23,7 @@ import { activeCv, useUser } from '../../state/userStore'
 import { DeadlineRow } from '../deadlines/DeadlineRow'
 import { PlanCard } from '../plan/PlanCard'
 import { NoDegreeCard } from '../noDegree/NoDegreeCard'
+import { NewStories } from '../videos/VideoStories'
 import { useDeadlines } from '../../state/useDeadlines'
 import { BentoGrid, Tile } from './Bento'
 import {
@@ -60,6 +61,7 @@ export default function HomePage() {
       <InstallCard />
       <PlanCard />
       <NoDegreeCard />
+      <NewStories />
       {/* A bento: the first tile always says what to do next; then a bit of everything. */}
       <BentoGrid>
         <HeroTile aside={<TargetCard />} />
