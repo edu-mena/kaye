@@ -136,6 +136,8 @@ Python 3 com `httpx` e `selectolax` (ou BeautifulSoup). Playwright só para site
 
 ## 4. Modelo de dados
 
+> O modelo que o backend constrói, tabela a tabela, está em [base-de-dados.md](base-de-dados.md#modelo-completo-adr-0019) (ADR 0019). Esta secção é a visão de longo prazo (vagas, estatísticas semanais, XP).
+
 A base de dados é **relacional (MySQL)**. O Kayé é uma rede de ligações (profissão ↔ competência ↔ curso ↔ instituição ↔ vaga), e as bases relacionais existem para isso. Onde a informação é um documento lido sempre inteiro (o CV, os resultados do teste), usamos uma coluna JSON dentro do MySQL.
 
 Nomes de tabelas e colunas em inglês (convenção do Laravel); tudo o que o utilizador vê está em pt/en/fr. Os campos marcados com `*` são traduzíveis.
@@ -393,51 +395,89 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 
 ## 6. API v1
 
-- Prefixo `/api/v1`, respostas em JSON.
-- Autenticação com `Authorization: Bearer`; idioma por `Accept-Language`; paginação com `?page=`.
-- As leituras públicas respondem com `Cache-Control` e `ETag`, para que a CDN e a app guardem cópia.
+A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a uma função de `apps/web/src/data/source.ts` (ou a um módulo que a app lê diretamente) e devolve **exatamente a mesma forma** de `apps/web/src/data/types.ts`: o frontend troca de fonte sem mudar tipos, e o teste de paridade compara cada rota com o JSON exportado.
 
-| Método | Caminho | Para quê | Conta |
+- Prefixo `/api/v1`, respostas em JSON, **sem envelope `data`** (`JsonResource::withoutWrapping()`): uma lista é um array, um detalhe é o objeto. Um detalhe que não existe (ou não está `published`) responde 404, que a app lê como `null`.
+- Idioma por `Accept-Language` (`pt`, `en`, `fr`; o que falta vem em português).
+- As listas vêm inteiras, como hoje (a maior tem algumas centenas de registos, comprimidas com gzip); paginação só se uma lista passar de 1 MB.
+- As leituras públicas respondem com `Cache-Control` e `ETag` e ficam em cache na base de dados (5 minutos, limpa quando o conteúdo muda).
+- Web: sessão em cookie `HttpOnly` com CSRF (ADR 0003). Android: `Authorization: Bearer` com o token Sanctum.
+- Limite de pedidos em todas; mais apertado nas escritas sem conta (lista de espera, críticas, entrevistas, cartões).
+
+### Públicas (leitura)
+
+| Método | Caminho | Função de `source.ts` (ou módulo) | Devolve |
 |---|---|---|---|
-| POST | `/auth/google` | Trocar o ID token Google por um token Kayé | — |
-| POST | `/auth/logout` | Terminar sessão | sim |
-| GET, PATCH | `/me` | Perfil, preferências, onboarding | sim |
-| POST | `/me/consents` | Registar consentimentos | sim |
-| GET | `/me/export` | Descarregar os meus dados | sim |
-| DELETE | `/me` | Apagar a conta | sim |
-| GET | `/assessment` | Perguntas da versão atual | sim |
-| POST | `/assessment/attempts` | Começar o teste | sim |
-| PUT | `/assessment/attempts/{id}/answers` | Guardar respostas (pode ser parcial) | sim |
-| POST | `/assessment/attempts/{id}/complete` | Calcular perfil e recomendações | sim |
-| GET | `/recommendations` | Últimas recomendações | sim |
-| GET | `/occupations` | Lista, pesquisa e rankings (`?sort=demand` ou `salary`) | — |
-| GET | `/occupations/{slug}` | Página de carreira completa | — |
-| GET | `/occupations/{slug}/pathways` | Caminhos e custo estimado (`?province=`) | — |
-| GET | `/occupations/{slug}/stages` | Histórico profissional: etapas da carreira | — |
-| GET | `/occupations/{slug}/market` | O que os empregadores pedem, procura e salários (só agregados) | — |
-| GET | `/occupations/{slug}/cv-examples` | CVs modelo da profissão | — |
-| GET | `/occupations/{slug}/fit` | O meu encaixe com a profissão | sim |
-| GET, PUT | `/me/skills` | As competências que sei | sim |
-| GET | `/institutions`, `/institutions/{slug}` | Instituições | — |
-| GET | `/courses`, `/courses/{slug}` | Os cursos reais, cada um com a oferta de cada instituição e o plano de estudos quando há decreto (ADR 0011) | — |
-| GET | `/programs` | Cursos (`?occupation=&level=&province=`) | — |
-| GET | `/programs/ranking` | As melhores instituições para os cursos de uma profissão (`?occupation=&province=&sort=`) | — |
-| GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |
-| GET | `/companies`, `/companies/{slug}` | Empresas, com as profissões que contratam e os programas para jovens (só com fonte) | — |
-| GET | `/news` | Novidades: do Kayé, das instituições e das empresas, as mais recentes primeiro | — |
-| GET | `/admissions` | Acesso ao ensino superior 2026/27 ("Como entrar" nos cursos e nas academias): inscrições, datas do exame, disciplinas, vagas, nota do último colocado, taxa, requisitos e fonte; o calendário nacional do MESCTI e o de cada instituição | — |
-| GET | `/scholarships` | Bolsas de estudo reais (separador Bolsas de `/oportunidades`; `/bolsas` redireciona), com nível, destino, áreas, o que cobrem, prazo e fonte; ligadas às carreiras e aos cursos pela área | — |
-| GET | `/internships` | Estágios e programas de trainee reais (separador Estágios de `/oportunidades`; `/estagios` redireciona), com tipo, áreas, para quem, idade, se são pagos, prazo e fonte; ligados às carreiras pela área e às empresas pelo `companyId` | — |
-| GET, PUT | `/cv` | Dados do CV | sim |
-| GET | `/cv/preview` | Pré-visualização em HTML | sim |
-| POST | `/cv/export` | PDF | sim |
-| POST | `/contributions/jobs` | Partilhar uma vaga (entra só nas estatísticas) | sim |
-| POST | `/contributions/salaries` | Partilhar salário (anónimo) | sim |
-| POST | `/reports` | Reportar um erro | sim |
-| POST | `/testimonials` | Escrever um testemunho | sim |
-| GET | `/me/progress` | XP, badges, progresso | sim |
-| POST | `/events` | Eventos de produto (em lote) | opcional |
-| POST | `/ingest/jobs` | Entrada dos scrapers (assinatura HMAC) | máquina |
+| GET | `/occupations` | `listCareers` | `CareerSummary[]` |
+| GET | `/occupations?fields=traits` | `listCareerTraits` | `CareerTraits[]` |
+| GET | `/occupations/{slug}` | `getCareer` | `Career` (com `selfEmployment` quando existe) |
+| GET | `/occupations/{slug}/cv-examples`, `/cv-examples` | `listCvExamples` | `CvExample[]` |
+| GET | `/occupations/{slug}/testimonials`, `/testimonials` | `listTestimonials` | `Testimonial[]` |
+| GET | `/skills` | `listSkills` | `Skill[]` |
+| GET | `/support-programs` | `listSupportPrograms` | `SupportProgram[]` |
+| GET | `/programs?occupation=` | `listPrograms` | `Program[]` |
+| GET | `/institutions`, `/institutions/{slug}` | `listAcademies`, `getAcademy` | `Academy[]`, `Academy` |
+| GET | `/courses`, `/courses/{slug}` | `listCourses`, `getCourse` | `CatalogCourse[]`, `CatalogCourse` |
+| GET | `/companies`, `/companies/{slug}` | `listCompanies`, `getCompany` | `Company[]`, `Company` |
+| GET | `/market/jobs` | `getJobMarket` | `JobMarket` |
+| GET | `/market/education` | `getEducation` | `EducationStats` |
+| GET | `/market/employment` | `getEmployment` | `EmploymentStats` |
+| GET | `/news` | `listNews` | `NewsItem[]`, mais recentes primeiro |
+| GET | `/scholarships` | `listScholarships` | `Scholarship[]` |
+| GET | `/internships` | `listInternships` | `Internship[]` |
+| GET | `/free-courses?occupation=` | `listFreeCourses` | `FreeCourse[]` |
+| GET | `/admissions` | `listAdmissions` | `Admission[]` |
+| GET | `/figures` | `listFigures` | `Figure[]` |
+| GET | `/assessment` | `getAssessment` | `AssessmentQuestion[]` na língua pedida |
+| GET | `/access-exams` | `data/demo/accessExams` | Disciplinas, temas e o banco de perguntas |
+| GET | `/interview-questions` | `data/demo/interviews` | As perguntas do treino de entrevistas |
+| GET | `/mentors` | `data/demo/mentors` | `Mentor[]` (só `grupo` quando quem pede é menor) |
+| GET | `/video-stories` | `data/demo/videoStories` | `VideoStory[]` |
+| GET | `/kursos` | `data/kursos` | Os Kursos e os anunciados, sem o conteúdo das unidades |
+| GET | `/kursos/{slug}/units/{unit}` | `Unit.load` | `UnitContent` |
+| GET | `/kursos/{slug}/exam` | `Course.loadExam` | `ExamQuestion[]` |
+| GET | `/public-cards/{slug}` | `getPublicCard` | `PublicCard` (404 = desligado) |
+
+### Escritas sem conta
+
+| Método | Caminho | Função | Notas |
+|---|---|---|---|
+| POST | `/public-cards` | `createPublicCard` | Devolve `{slug, secret}` uma só vez |
+| PUT, DELETE | `/public-cards/{slug}` | `updatePublicCard`, `deletePublicCard` | `Authorization: Bearer <secret>` |
+| POST | `/interviews` | `sendInterview` | Devolve `{id}` |
+| POST | `/waitlist` | `data/waitlist.ts` | Campo-isco `website`; consentimento obrigatório |
+| GET | `/waitlist/confirm/{token}` | | Confirmação dupla do email (URL assinada) |
+| POST | `/feedback` | `data/waitlist.ts` | Campo-isco `website` |
+| GET, POST | `/unsubscribe/{token}` | | "Deixar de receber" de cada mensagem (URL assinada), sem conta |
+
+### Com conta
+
+| Método | Caminho | Para quê |
+|---|---|---|
+| GET | `/auth/google/redirect`, `/auth/google/callback` | Login na web (fora de `/api/v1`; cria o cookie) |
+| POST | `/auth/google` | Android: troca o `id_token` Google (assinatura, `aud`, `exp` verificados) por um token Sanctum |
+| POST | `/auth/logout` | Terminar sessão (apaga o token ou o cookie) |
+| GET, PATCH | `/me` | Perfil: nome, ano de nascimento, província, nível de estudo, língua |
+| GET, PUT | `/me/data` | O `UserData` com `version`; uma versão antiga recebe 409 |
+| POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
+| GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
+| DELETE | `/me/consents/{kind}` | Retirar um consentimento |
+| POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o push neste aparelho |
+| GET | `/me/export` | Os meus dados em JSON (Lei n.º 22/11) |
+| DELETE | `/me` | Apagar a conta e tudo o que é da pessoa |
+
+### Máquinas e painel
+
+| Método | Caminho | Para quê | Autenticação |
+|---|---|---|---|
+| POST | `/ingest/jobs` | Entrada dos scrapers | Assinatura HMAC |
+| GET, POST | `/webhooks/whatsapp` | Estado das entregas e "PARAR" (WhatsApp Cloud API) | `X-Hub-Signature-256` da Meta |
+| — | `/mcp` | Servidor MCP para a IA: lê o conteúdo público, escreve só em `revisions` | Token Sanctum de um editor, com a permissão `ai` |
+| — | `/admin` | Painel Filament | Sessão, papéis `admin`, `editor`, `revisor` |
+
+### Planeadas depois do fecho
+
+Ficam no aparelho por agora e só passam a rotas quando forem precisas no servidor: tentativas do teste e recomendações no servidor, `/occupations/{slug}/fit`, `/me/skills` à parte de `user_data`, CV e PDF no servidor (ADR 0006), contribuições de vagas e salários, `/reports`, testemunhos escritos por utilizadores, `/me/progress` e `/events`.
 
 ## 7. App (frontend)
 

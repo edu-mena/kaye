@@ -200,6 +200,22 @@ O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 - [ ] Premium (Fase 3)
 - [ ] Mentores com marcação de sessões (Fase 4)
 
+## Fecho do backend (15 de novembro de 2026)
+
+O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](decisoes/0019-backend-e-migracao-dos-dados.md)); o modelo de dados está em [base-de-dados.md](base-de-dados.md#modelo-completo-adr-0019) e as rotas em [arquitetura.md, secção 6](arquitetura.md#6-api-v1). Um prompt de cada vez, por esta ordem, com os testes e os gates completos (`CLAUDE.md`).
+
+- [x] 0. Decisão e modelo de dados: ADR 0019, tabelas e rotas
+- [ ] 1. Exportar os dados do frontend para JSON de paridade, com `manifest.json`
+- [ ] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
+- [ ] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
+- [ ] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor
+- [ ] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado
+- [ ] 6. Comunicação: email, WhatsApp e push, só com consentimento (menores sem marketing)
+- [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
+- [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte
+- [ ] 9. Painel de administração completo, com o design do site
+- [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
+
 ## Fase 3 — Monetização
 
 - Decidir com dados o que é premium. Candidatos: download do CV e modelos extra, cartão QR personalizado, "O meu plano" com acompanhamento, histórico e comparações detalhadas.

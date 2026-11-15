@@ -25,6 +25,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0016](0016-kursos-livro-tecnico.md) | Kursos: cursos como livro técnico, progresso e certificado no aparelho | Aceite |
 | [0017](0017-teste-vocacional-geral-com-valencias.md) | Teste vocacional geral com valências | Aceite |
 | [0018](0018-link-da-familia-com-dados-no-fragmento.md) | Link para a família com os dados no fragmento (#) | Aceite |
+| [0019](0019-backend-e-migracao-dos-dados.md) | Backend em Laravel e migração dos dados do frontend | Aceite |
 
 Modelo para um novo ADR:
 
