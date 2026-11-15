@@ -97,7 +97,9 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 | `estimated` | boolean, por omissão `false` | Estimativa da equipa (o `estimated` do frontend; ver `data-to-collect-later`) |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | *Soft delete*: o conteúdo apagado recupera-se no painel |
 
-**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua.
+**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA traduz para en e fr no prompt 8 (`ai_tasks` do tipo `translate`), e cada tradução entra em `revisions` até ser aprovada.
+
+**Dados de exemplo.** O que foi inventado para a demonstração (as instituições com `example`, os `programs` delas, as novidades e os testemunhos com `example`) é importado com `status = draft`: fica na base de dados, **invisível em produção**, até haver dados reais que o substituam.
 
 **Listas de textos e fontes.** `sources` é sempre JSON `[{label, url}]` (o `SourceLink[]`); uma `source` única é JSON `{label, url}`. As fotografias (`Photo`) são JSON `{thumb, small, large, alt*, credit}`.
 
@@ -573,7 +575,7 @@ Nenhuma destas tabelas sai na API pública nem vai para a IA, o Sentry ou as ins
 
 #### `users` (o que muda)
 
-A tabela já existe ([acima](#users)). Acrescenta-se `last_login_at` (timestamp). **Só o ano de nascimento, nunca a data.** Menor = `ano atual − birth_year < 18`, calculado, nunca guardado. O papel do painel passa para `spatie/laravel-permission` (`admin`, `editor`, `revisor`); a coluna `role` fica até essa migração estar em produção.
+A tabela já existe ([acima](#users)). Acrescenta-se `last_login_at` (timestamp). **Só o ano de nascimento, nunca a data.** Menor = `ano atual − birth_year < 18`, calculado, nunca guardado. O papel do painel passa para `spatie/laravel-permission` (`admin`, `editor`, `revisor`); a coluna `role` fica até essa migração estar em produção. Os três papéis criam-se já; por agora só o Eduardo entra no painel, como `admin`.
 
 #### `user_data`
 
@@ -650,6 +652,8 @@ As entrevistas enviadas para revisão (`InterviewSubmission`).
 | `status` | varchar(10) | `received`, `reviewed`, `contacted` |
 | `reviewed_by`, `reviewed_at` | fk → `users`, timestamp, podem ser vazios | |
 | `created_at`, `updated_at` | timestamp | |
+
+**Retenção:** 12 meses. Uma tarefa diária (02:00) apaga as entrevistas com mais de 12 meses, com as respostas e os contactos.
 
 #### `public_cards`
 

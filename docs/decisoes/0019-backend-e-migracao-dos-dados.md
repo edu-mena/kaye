@@ -32,6 +32,8 @@
 | Notificações no aparelho com a app fechada (VAPID) | `laravel-notification-channels/webpush` |
 | WhatsApp | WhatsApp Cloud API por HTTP (`Http::` do Laravel), sem SDK |
 
+8. **Decisões do Eduardo (15/11/2026):** os dados de exemplo (instituições, ofertas, novidades e testemunhos inventados) importam-se como `draft`, invisíveis em produção; o conteúdo em en e fr é traduzido pela IA como rascunho para aprovar; as listas da API vêm inteiras (paginação só acima de 1 MB); os papéis `admin`, `editor` e `revisor` existem desde o início, embora por agora só o Eduardo entre no painel; a foto e a capa do perfil nunca saem do aparelho; as entrevistas apagam-se ao fim de 12 meses.
+
 ## Consequências
 
 - O conteúdo passa a ter uma só fonte: o MySQL. Depois da importação, editar `apps/web/src/data/demo` deixa de ter efeito em produção; o modo `demo` fica só para o Vercel até à mudança (`VITE_DATA_SOURCE`).

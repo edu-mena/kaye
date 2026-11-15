@@ -212,7 +212,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [ ] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado
 - [ ] 6. Comunicação: email, WhatsApp e push, só com consentimento (menores sem marketing)
 - [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
-- [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte
+- [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos
 - [ ] 9. Painel de administração completo, com o design do site
 - [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
 
