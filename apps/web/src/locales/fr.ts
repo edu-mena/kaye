@@ -2355,7 +2355,7 @@ export const fr: Messages = {
       'Les métiers, où les apprendre (comme les centres de l’INEFOP) et comment travailler à ton compte.',
     admissionsTitle: 'Examens d’accès',
     admissionsBody:
-      'Les dates des examens et des candidatures de chaque formation. Touche l’étoile pour qu’on te le rappelle.',
+      'Choisis la formation : tu vois les matières et les dates de l’examen, puis tu t’entraînes avec des questions et des simulations.',
   },
   install: {
     title: 'Installe Kayé',

@@ -11,7 +11,7 @@ Regras:
 
 Na app: as instituições e as ofertas já aparecem no ecrã Academias (`apps/web/src/data/demo/academies.ts`). As empresas aparecem no ecrã Empresas (`apps/web/src/data/demo/companies.ts`), com as 10 novas abaixo. As notícias ainda não.
 
-## Contagens finais do frontend (13/11/2026)
+## Contagens finais do frontend (15/11/2026)
 
 O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/source.ts`:
 
@@ -33,6 +33,8 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Kursos Kayé | 6 | Versões de teste, unidades 1 e 2 |
 | CVs modelo | 7 | |
 | Testemunhos | 21 | |
+| Vídeos "O meu dia como…" | 0 | Interface pronta; falta gravar (`videos.md`) |
+| Mentores | 0 | Interface pronta; falta aprovar os primeiros (`mentores.md`) |
 
 ## Como os dados se ligam
 

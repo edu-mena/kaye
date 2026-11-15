@@ -179,7 +179,7 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 - [x] **Modo para pais e encarregados:** uma página que explica o resultado do filho, para além do PDF (`/familia`, ADR 0018).
 - **Mentores** começados à mão, com 5 a 10 voluntários, antes de haver marketplace (Fase 4). A página `/mentores` e o pedido por WhatsApp ou email estão prontos e vazios desde 15/11/2026; falta aprovar os primeiros: ver [mentores.md](mentores.md).
 
-- [x] **Fecho do frontend** (13/11/2026): revisão de coerência (texto "Kayé Tech" fora dos termos e da privacidade, menores sem salários em lado nenhum, links antigos só como redirecionamento), tutorial com os passos "Sem universidade" e "Exames de acesso", pesquisa com as pessoas das empresas e as páginas da app, fotos de 1600 px até 150 KB.
+- [x] **Fecho do frontend** (13/11/2026): revisão de coerência (texto "Kayé Tech" fora dos termos e da privacidade, menores sem salários em lado nenhum, links antigos só como redirecionamento), tutorial com os passos "Sem universidade" e "Exames de acesso", pesquisa com as pessoas das empresas e as páginas da app, fotos de 1600 px até 150 KB. Revisto a 15/11/2026, depois dos exames de acesso, vídeos e mentores: o passo "Exames de acesso" do tutorial leva agora a `/exames-de-acesso`; os blocos vazios de vídeos e mentores não aparecem.
 
 **Receita, sem comprometer a neutralidade**
 - **B2B e institucional:** escolas, governo provincial, INEFOP e programas de responsabilidade social dos bancos (como o Futuro BFA) pagam pelo serviço de orientação, com relatórios só agregados.

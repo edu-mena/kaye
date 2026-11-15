@@ -142,7 +142,12 @@ export default function AccessExamsPage() {
 
   return (
     <>
-      <PageHeader compact title={t('accessExams.title')} subtitle={t('accessExams.subtitle')} />
+      <PageHeader
+        compact
+        tour="admissions"
+        title={t('accessExams.title')}
+        subtitle={t('accessExams.subtitle')}
+      />
       {finished ? (
         <Result finished={finished} onStart={start} onBack={() => setFinished(null)} />
       ) : (

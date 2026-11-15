@@ -2316,7 +2316,8 @@ export const en: Messages = {
     noDegreeTitle: 'Without university',
     noDegreeBody: 'Trades, where to learn them (like the INEFOP centres) and how to work for yourself.',
     admissionsTitle: 'Entrance exams',
-    admissionsBody: 'The exam and application dates for each course. Tap the star and we will remind you.',
+    admissionsBody:
+      'Pick the course: see the exam subjects and dates, then practise with questions and mock exams.',
   },
   install: {
     title: 'Install Kayé',

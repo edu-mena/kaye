@@ -2317,7 +2317,7 @@ export const pt = {
     noDegreeBody: 'Ofícios, onde aprendê-los (como os centros do INEFOP) e como trabalhar por conta própria.',
     admissionsTitle: 'Exames de acesso',
     admissionsBody:
-      'As datas dos exames e das candidaturas de cada curso. Marca a estrela para te lembrarmos.',
+      'Escolhe o curso: vês as disciplinas e as datas do exame, e treinas com perguntas e simulações.',
   },
   install: {
     title: 'Instala o Kayé',

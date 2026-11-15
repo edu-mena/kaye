@@ -75,7 +75,7 @@ function routeOf(id: TourStepId, career: string | null): string | null {
     case 'deadlines':
       return '/prazos'
     case 'admissions':
-      return '/prazos?tipo=exame'
+      return '/exames-de-acesso'
     case 'noDegree':
       return '/sem-universidade'
   }
