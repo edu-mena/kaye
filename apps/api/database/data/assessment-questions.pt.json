@@ -1,0 +1,254 @@
+[
+  {
+    "id": "A1",
+    "dimension": "A",
+    "text": "desenhar, pintar ou fazer artesanato",
+    "position": 2
+  },
+  {
+    "id": "A2",
+    "dimension": "A",
+    "text": "cantar, dançar ou tocar um instrumento",
+    "position": 8
+  },
+  {
+    "id": "A3",
+    "dimension": "A",
+    "text": "escrever histórias, poemas ou letras de música",
+    "position": 14
+  },
+  {
+    "id": "A4",
+    "dimension": "A",
+    "text": "fazer fotografias ou vídeos que contam uma história",
+    "position": 20
+  },
+  {
+    "id": "A5",
+    "dimension": "A",
+    "text": "criar roupa, penteados ou maquilhagem",
+    "position": 26
+  },
+  {
+    "id": "A6",
+    "dimension": "A",
+    "text": "decorar uma sala, uma montra ou uma festa",
+    "position": 32
+  },
+  {
+    "id": "A7",
+    "dimension": "A",
+    "text": "imaginar como devia ser o ecrã de uma app",
+    "position": 38
+  },
+  {
+    "id": "C1",
+    "dimension": "C",
+    "text": "controlar as contas de um negócio",
+    "position": 5
+  },
+  {
+    "id": "C2",
+    "dimension": "C",
+    "text": "organizar documentos e arquivos",
+    "position": 11
+  },
+  {
+    "id": "C3",
+    "dimension": "C",
+    "text": "registar o que entra e sai de um armazém",
+    "position": 17
+  },
+  {
+    "id": "C4",
+    "dimension": "C",
+    "text": "preencher formulários e seguir as regras com cuidado",
+    "position": 23
+  },
+  {
+    "id": "C5",
+    "dimension": "C",
+    "text": "rever um trabalho até não haver nenhum erro",
+    "position": 29
+  },
+  {
+    "id": "C6",
+    "dimension": "C",
+    "text": "planear horários, turnos ou uma viagem ao pormenor",
+    "position": 35
+  },
+  {
+    "id": "C7",
+    "dimension": "C",
+    "text": "organizar dados numa folha de Excel",
+    "position": 41
+  },
+  {
+    "id": "E1",
+    "dimension": "E",
+    "text": "vender na praça ou online",
+    "position": 4
+  },
+  {
+    "id": "E2",
+    "dimension": "E",
+    "text": "liderar um grupo e tomar decisões",
+    "position": 10
+  },
+  {
+    "id": "E3",
+    "dimension": "E",
+    "text": "abrir e fazer crescer o teu próprio negócio",
+    "position": 16
+  },
+  {
+    "id": "E4",
+    "dimension": "E",
+    "text": "convencer alguém a apoiar uma ideia tua",
+    "position": 22
+  },
+  {
+    "id": "E5",
+    "dimension": "E",
+    "text": "negociar um preço ou um acordo",
+    "position": 28
+  },
+  {
+    "id": "E6",
+    "dimension": "E",
+    "text": "defender alguém numa discussão ou num tribunal",
+    "position": 34
+  },
+  {
+    "id": "E7",
+    "dimension": "E",
+    "text": "falar em público, na rádio ou num evento",
+    "position": 40
+  },
+  {
+    "id": "I1",
+    "dimension": "I",
+    "text": "descobrir porque é que uma pessoa ficou doente",
+    "position": 1
+  },
+  {
+    "id": "I2",
+    "dimension": "I",
+    "text": "fazer experiências num laboratório",
+    "position": 7
+  },
+  {
+    "id": "I3",
+    "dimension": "I",
+    "text": "perceber porque é que uma colheita correu mal",
+    "position": 13
+  },
+  {
+    "id": "I4",
+    "dimension": "I",
+    "text": "analisar números para perceber o que está a acontecer",
+    "position": 19
+  },
+  {
+    "id": "I5",
+    "dimension": "I",
+    "text": "investigar um caso até encontrar a verdade",
+    "position": 25
+  },
+  {
+    "id": "I6",
+    "dimension": "I",
+    "text": "pesquisar a história de Angola e de outros povos",
+    "position": 31
+  },
+  {
+    "id": "I7",
+    "dimension": "I",
+    "text": "resolver um problema de lógica ou de programação",
+    "position": 37
+  },
+  {
+    "id": "R1",
+    "dimension": "R",
+    "text": "cuidar de plantas, de uma horta ou de animais",
+    "position": 0
+  },
+  {
+    "id": "R2",
+    "dimension": "R",
+    "text": "reparar uma mota, um gerador ou uma bomba de água",
+    "position": 6
+  },
+  {
+    "id": "R3",
+    "dimension": "R",
+    "text": "construir coisas com as tuas mãos, como um móvel ou uma parede",
+    "position": 12
+  },
+  {
+    "id": "R4",
+    "dimension": "R",
+    "text": "fazer uma instalação elétrica ou de canalização",
+    "position": 18
+  },
+  {
+    "id": "R5",
+    "dimension": "R",
+    "text": "conduzir, carregar e entregar mercadorias",
+    "position": 24
+  },
+  {
+    "id": "R6",
+    "dimension": "R",
+    "text": "cozinhar para muitas pessoas numa cozinha a sério",
+    "position": 30
+  },
+  {
+    "id": "R7",
+    "dimension": "R",
+    "text": "montar ou reparar um computador ou um telemóvel",
+    "position": 36
+  },
+  {
+    "id": "S1",
+    "dimension": "S",
+    "text": "cuidar de alguém doente",
+    "position": 3
+  },
+  {
+    "id": "S2",
+    "dimension": "S",
+    "text": "ajudar um colega a estudar",
+    "position": 9
+  },
+  {
+    "id": "S3",
+    "dimension": "S",
+    "text": "ouvir os problemas de um amigo e dar conselhos",
+    "position": 15
+  },
+  {
+    "id": "S4",
+    "dimension": "S",
+    "text": "dar aulas a crianças",
+    "position": 21
+  },
+  {
+    "id": "S5",
+    "dimension": "S",
+    "text": "organizar atividades no teu bairro, igreja ou associação",
+    "position": 27
+  },
+  {
+    "id": "S6",
+    "dimension": "S",
+    "text": "receber e orientar as pessoas que chegam a um serviço",
+    "position": 33
+  },
+  {
+    "id": "S7",
+    "dimension": "S",
+    "text": "ensinar alguém a usar o telemóvel ou o computador",
+    "position": 39
+  }
+]

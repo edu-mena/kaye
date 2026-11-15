@@ -717,8 +717,16 @@ export const OIL_ACADEMIES: Academy[] = [
       offer('Oil & Gas', ['operador-de-producao-petrolifera', ...MECHANICS], ['petroleo_gas', GROUP]),
       offer('Capacitação Técnico-profissional', OFFSHORE_ALL),
       offer('Gestão e Soft Skills', ['tecnico-de-procurement']),
+      {
+        ...offer('Formação marítima e certificação STCW', ['oficial-da-marinha-mercante'], ['ciencias_vida']),
+        level: 'certificacao',
+      },
     ],
     sources: [
+      {
+        label: 'The Maritime Executive: abertura do CFMA (2014)',
+        url: 'https://maritime-executive.com/corporate/New-Maritime-Training-Facility-Launched-in-Angola-2014-08-29',
+      },
       {
         label: 'Ver Angola: Sonangol relança o CFMA (2021)',
         url: 'https://www.verangola.net/va/pt/062021/Educacao/25748/Sonangol-relan%C3%A7a-Centro-de-Forma%C3%A7%C3%A3o-Mar%C3%ADtima.htm',

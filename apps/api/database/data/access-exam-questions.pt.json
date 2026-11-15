@@ -1,0 +1,4196 @@
+[
+  {
+    "id": "mat-algebra-1",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Simplifica 3x + 5x − 2x.",
+    "options": [
+      "6x",
+      "10x",
+      "8x",
+      "6x²"
+    ],
+    "answer": 0,
+    "explanation": "Somam-se os coeficientes dos termos semelhantes: 3 + 5 − 2 = 6, logo 6x.",
+    "position": 0
+  },
+  {
+    "id": "mat-algebra-10",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Escreve 6/√3 sem raiz no denominador.",
+    "options": [
+      "2√3",
+      "3√3",
+      "√3/2",
+      "6√3"
+    ],
+    "answer": 0,
+    "explanation": "Multiplica-se em cima e em baixo por √3: 6√3/3 = 2√3.",
+    "position": 9
+  },
+  {
+    "id": "mat-algebra-11",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Simplifica (x² − 4)/(x − 2), com x ≠ 2.",
+    "options": [
+      "x + 2",
+      "x − 2",
+      "x",
+      "x² − 2"
+    ],
+    "answer": 0,
+    "explanation": "x² − 4 = (x − 2)(x + 2). Dividindo por (x − 2), fica x + 2.",
+    "position": 10
+  },
+  {
+    "id": "mat-algebra-12",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Quanto é 10⁻³?",
+    "options": [
+      "0,001",
+      "0,0001",
+      "−1000",
+      "0,01"
+    ],
+    "answer": 0,
+    "explanation": "Um expoente negativo é o inverso: 10⁻³ = 1/10³ = 1/1000 = 0,001.",
+    "position": 11
+  },
+  {
+    "id": "mat-algebra-13",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Se x + 1/x = 3, quanto vale x² + 1/x²?",
+    "options": [
+      "7",
+      "9",
+      "11",
+      "8"
+    ],
+    "answer": 0,
+    "explanation": "Elevando ao quadrado: (x + 1/x)² = x² + 2 + 1/x² = 9. Logo x² + 1/x² = 9 − 2 = 7.",
+    "position": 12
+  },
+  {
+    "id": "mat-algebra-14",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Calcula (√3 + √2)(√3 − √2).",
+    "options": [
+      "1",
+      "5",
+      "√6",
+      "3 − √2"
+    ],
+    "answer": 0,
+    "explanation": "Diferença de quadrados: (√3)² − (√2)² = 3 − 2 = 1.",
+    "position": 13
+  },
+  {
+    "id": "mat-algebra-15",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Calcula log₂ 32.",
+    "options": [
+      "5",
+      "16",
+      "4",
+      "6"
+    ],
+    "answer": 0,
+    "explanation": "log₂ 32 é o expoente a que se eleva 2 para obter 32: 2⁵ = 32, logo 5.",
+    "position": 14
+  },
+  {
+    "id": "mat-algebra-16",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Calcula log 100 + log 10 (logaritmos de base 10).",
+    "options": [
+      "3",
+      "1000",
+      "110",
+      "2"
+    ],
+    "answer": 0,
+    "explanation": "log 100 = 2 e log 10 = 1, logo a soma é 3 (também log 1000 = 3).",
+    "position": 15
+  },
+  {
+    "id": "mat-algebra-17",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Quanto é 15% de 2000 Kz?",
+    "options": [
+      "300 Kz",
+      "150 Kz",
+      "30 Kz",
+      "3000 Kz"
+    ],
+    "answer": 0,
+    "explanation": "15% = 15/100 = 0,15, e 0,15 × 2000 = 300.",
+    "position": 16
+  },
+  {
+    "id": "mat-algebra-18",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Um produto custa 8000 Kz e o preço sobe 25%. Qual é o novo preço?",
+    "options": [
+      "10 000 Kz",
+      "8025 Kz",
+      "12 000 Kz",
+      "9000 Kz"
+    ],
+    "answer": 0,
+    "explanation": "O aumento é 0,25 × 8000 = 2000 Kz; 8000 + 2000 = 10 000 Kz. Ou, de uma vez, 8000 × 1,25.",
+    "position": 17
+  },
+  {
+    "id": "mat-algebra-19",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Calcula 3/4 + 5/6.",
+    "options": [
+      "19/12",
+      "8/10",
+      "15/24",
+      "4/5"
+    ],
+    "answer": 0,
+    "explanation": "Com o denominador comum 12: 9/12 + 10/12 = 19/12. Não se somam numeradores e denominadores diretamente.",
+    "position": 18
+  },
+  {
+    "id": "mat-algebra-2",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Qual é o valor de 2a − b para a = 3 e b = −4?",
+    "options": [
+      "10",
+      "2",
+      "−2",
+      "6"
+    ],
+    "answer": 0,
+    "explanation": "2 × 3 − (−4) = 6 + 4 = 10. Subtrair um número negativo é somar o seu simétrico.",
+    "position": 1
+  },
+  {
+    "id": "mat-algebra-20",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Simplifica (2x − 1)² − (2x + 1)².",
+    "options": [
+      "−8x",
+      "0",
+      "8x",
+      "−2"
+    ],
+    "answer": 0,
+    "explanation": "(4x² − 4x + 1) − (4x² + 4x + 1) = −8x.",
+    "position": 19
+  },
+  {
+    "id": "mat-algebra-21",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "hard",
+    "text": "Calcula 8^(2/3).",
+    "options": [
+      "4",
+      "2",
+      "16",
+      "12"
+    ],
+    "answer": 0,
+    "explanation": "8^(1/3) é a raiz cúbica de 8, que é 2; ao quadrado dá 4.",
+    "position": 20
+  },
+  {
+    "id": "mat-algebra-3",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Desenvolve (x + 3)².",
+    "options": [
+      "x² + 6x + 9",
+      "x² + 9",
+      "x² + 3x + 9",
+      "x² + 6x + 6"
+    ],
+    "answer": 0,
+    "explanation": "Quadrado de uma soma: (a + b)² = a² + 2ab + b², logo x² + 2·3·x + 9 = x² + 6x + 9.",
+    "position": 2
+  },
+  {
+    "id": "mat-algebra-4",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Desenvolve (x − 5)(x + 5).",
+    "options": [
+      "x² − 25",
+      "x² + 25",
+      "x² − 10x − 25",
+      "x² − 10x + 25"
+    ],
+    "answer": 0,
+    "explanation": "Diferença de quadrados: (a − b)(a + b) = a² − b², logo x² − 25.",
+    "position": 3
+  },
+  {
+    "id": "mat-algebra-5",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "easy",
+    "text": "Calcula 2³ × 2⁴.",
+    "options": [
+      "2⁷",
+      "2¹²",
+      "4⁷",
+      "2¹"
+    ],
+    "answer": 0,
+    "explanation": "No produto de potências com a mesma base, mantém-se a base e somam-se os expoentes: 3 + 4 = 7.",
+    "position": 4
+  },
+  {
+    "id": "mat-algebra-6",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Escreve x² − 5x + 6 como produto de dois binómios.",
+    "options": [
+      "(x − 2)(x − 3)",
+      "(x + 2)(x + 3)",
+      "(x − 1)(x − 6)",
+      "(x + 1)(x − 6)"
+    ],
+    "answer": 0,
+    "explanation": "Procuram-se dois números com soma 5 e produto 6: 2 e 3. Logo x² − 5x + 6 = (x − 2)(x − 3).",
+    "position": 5
+  },
+  {
+    "id": "mat-algebra-7",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Simplifica √50.",
+    "options": [
+      "5√2",
+      "25√2",
+      "2√5",
+      "10√5"
+    ],
+    "answer": 0,
+    "explanation": "√50 = √(25 × 2) = √25 × √2 = 5√2.",
+    "position": 6
+  },
+  {
+    "id": "mat-algebra-8",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Calcula (a²b³)².",
+    "options": [
+      "a⁴b⁶",
+      "a⁴b⁹",
+      "a²b⁶",
+      "2a²b³"
+    ],
+    "answer": 0,
+    "explanation": "Na potência de uma potência multiplicam-se os expoentes: (a²)² = a⁴ e (b³)² = b⁶.",
+    "position": 7
+  },
+  {
+    "id": "mat-algebra-9",
+    "subject": "matematica",
+    "topic": "algebra",
+    "level": "medium",
+    "text": "Simplifica 1/x + 1/(2x), com x ≠ 0.",
+    "options": [
+      "3/(2x)",
+      "2/(3x)",
+      "1/(3x)",
+      "3/x"
+    ],
+    "answer": 0,
+    "explanation": "Com o denominador comum 2x: 2/(2x) + 1/(2x) = 3/(2x).",
+    "position": 8
+  },
+  {
+    "id": "mat-equacoes-1",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "easy",
+    "text": "Resolve 3x − 7 = 11.",
+    "options": [
+      "x = 6",
+      "x = 4/3",
+      "x = 18",
+      "x = 3"
+    ],
+    "answer": 0,
+    "explanation": "3x = 11 + 7 = 18, logo x = 18/3 = 6.",
+    "position": 42
+  },
+  {
+    "id": "mat-equacoes-10",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "easy",
+    "text": "Resolve 2x − 4 > 6.",
+    "options": [
+      "x > 5",
+      "x < 5",
+      "x > 1",
+      "x > 10"
+    ],
+    "answer": 0,
+    "explanation": "2x > 10 ⇔ x > 5.",
+    "position": 51
+  },
+  {
+    "id": "mat-equacoes-11",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve −3x ≤ 12.",
+    "options": [
+      "x ≥ −4",
+      "x ≤ −4",
+      "x ≥ 4",
+      "x ≤ 4"
+    ],
+    "answer": 0,
+    "explanation": "Ao dividir por um número negativo (−3), o sinal da desigualdade troca: x ≥ −4.",
+    "position": 52
+  },
+  {
+    "id": "mat-equacoes-12",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Resolve x² − 5x + 6 < 0.",
+    "options": [
+      "2 < x < 3",
+      "x < 2 ou x > 3",
+      "x < 3",
+      "x > 2"
+    ],
+    "answer": 0,
+    "explanation": "Os zeros são 2 e 3 e a parábola tem a concavidade para cima, por isso é negativa entre os zeros.",
+    "position": 53
+  },
+  {
+    "id": "mat-equacoes-13",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Resolve x² ≥ 9.",
+    "options": [
+      "x ≤ −3 ou x ≥ 3",
+      "−3 ≤ x ≤ 3",
+      "x ≥ 3",
+      "x ≥ 9"
+    ],
+    "answer": 0,
+    "explanation": "x² − 9 ≥ 0 fora dos zeros −3 e 3 (concavidade para cima). Não esquecer os números negativos.",
+    "position": 54
+  },
+  {
+    "id": "mat-equacoes-14",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve 2ˣ = 16.",
+    "options": [
+      "x = 4",
+      "x = 8",
+      "x = 3",
+      "x = 2"
+    ],
+    "answer": 0,
+    "explanation": "16 = 2⁴, logo x = 4.",
+    "position": 55
+  },
+  {
+    "id": "mat-equacoes-15",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Resolve 3^(x + 1) = 27.",
+    "options": [
+      "x = 2",
+      "x = 3",
+      "x = 9",
+      "x = 1"
+    ],
+    "answer": 0,
+    "explanation": "27 = 3³, logo x + 1 = 3 e x = 2.",
+    "position": 56
+  },
+  {
+    "id": "mat-equacoes-16",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Resolve |x − 1| = 4.",
+    "options": [
+      "x = −3 ou x = 5",
+      "Só x = 5",
+      "x = 3 ou x = 5",
+      "x = −5 ou x = 3"
+    ],
+    "answer": 0,
+    "explanation": "x − 1 = 4 ou x − 1 = −4, logo x = 5 ou x = −3.",
+    "position": 57
+  },
+  {
+    "id": "mat-equacoes-17",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve (x + 1)/2 = (x − 1)/3.",
+    "options": [
+      "x = −5",
+      "x = 5",
+      "x = −1",
+      "x = 1"
+    ],
+    "answer": 0,
+    "explanation": "Multiplicando em cruz: 3(x + 1) = 2(x − 1) ⇔ 3x + 3 = 2x − 2 ⇔ x = −5.",
+    "position": 58
+  },
+  {
+    "id": "mat-equacoes-18",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Resolve √(x + 3) = x − 3.",
+    "options": [
+      "x = 6",
+      "x = 1",
+      "x = 1 ou x = 6",
+      "Não tem solução"
+    ],
+    "answer": 0,
+    "explanation": "Ao quadrado: x + 3 = x² − 6x + 9 ⇔ x² − 7x + 6 = 0, com x = 1 ou x = 6. Verificando, x = 1 dá 2 = −2 (falso); só x = 6 serve.",
+    "position": 59
+  },
+  {
+    "id": "mat-equacoes-19",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Somando um número com o seu dobro obtém-se 45. Qual é o número?",
+    "options": [
+      "15",
+      "22,5",
+      "9",
+      "30"
+    ],
+    "answer": 0,
+    "explanation": "x + 2x = 45 ⇔ 3x = 45 ⇔ x = 15.",
+    "position": 60
+  },
+  {
+    "id": "mat-equacoes-2",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "easy",
+    "text": "Resolve x/4 = 5.",
+    "options": [
+      "x = 20",
+      "x = 5/4",
+      "x = 9",
+      "x = 1"
+    ],
+    "answer": 0,
+    "explanation": "Multiplicam-se os dois membros por 4: x = 20.",
+    "position": 43
+  },
+  {
+    "id": "mat-equacoes-20",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Qual é a soma das soluções de x² − 8x + 12 = 0?",
+    "options": [
+      "8",
+      "12",
+      "−8",
+      "6"
+    ],
+    "answer": 0,
+    "explanation": "Numa equação x² + bx + c = 0, a soma das soluções é −b = 8 (as soluções são 2 e 6).",
+    "position": 61
+  },
+  {
+    "id": "mat-equacoes-21",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "hard",
+    "text": "Um terreno tem 30 m de perímetro e o comprimento tem mais 3 m do que a largura. Qual é a área?",
+    "options": [
+      "54 m²",
+      "56 m²",
+      "36 m²",
+      "90 m²"
+    ],
+    "answer": 0,
+    "explanation": "2(l + l + 3) = 30 ⇔ 4l + 6 = 30 ⇔ l = 6. O comprimento é 9 e a área 6 × 9 = 54 m².",
+    "position": 62
+  },
+  {
+    "id": "mat-equacoes-3",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "easy",
+    "text": "Resolve 2(x + 3) = 14.",
+    "options": [
+      "x = 4",
+      "x = 5",
+      "x = 8",
+      "x = 11/2"
+    ],
+    "answer": 0,
+    "explanation": "2x + 6 = 14 ⇔ 2x = 8 ⇔ x = 4.",
+    "position": 44
+  },
+  {
+    "id": "mat-equacoes-4",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "easy",
+    "text": "Resolve 5x = 3x + 8.",
+    "options": [
+      "x = 4",
+      "x = 8",
+      "x = 1",
+      "x = 2"
+    ],
+    "answer": 0,
+    "explanation": "5x − 3x = 8 ⇔ 2x = 8 ⇔ x = 4.",
+    "position": 45
+  },
+  {
+    "id": "mat-equacoes-5",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve x² − 16 = 0.",
+    "options": [
+      "x = −4 ou x = 4",
+      "Só x = 4",
+      "x = 8",
+      "x = −16 ou x = 16"
+    ],
+    "answer": 0,
+    "explanation": "x² = 16 tem duas soluções: 4 e −4, porque ambos ao quadrado dão 16.",
+    "position": 46
+  },
+  {
+    "id": "mat-equacoes-6",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve x² − 7x + 10 = 0.",
+    "options": [
+      "x = 2 ou x = 5",
+      "x = −2 ou x = −5",
+      "x = 1 ou x = 10",
+      "x = 3 ou x = 4"
+    ],
+    "answer": 0,
+    "explanation": "Dois números com soma 7 e produto 10: 2 e 5. Pela fórmula resolvente: (7 ± 3)/2.",
+    "position": 47
+  },
+  {
+    "id": "mat-equacoes-7",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Quantas soluções reais tem x² + 2x + 5 = 0?",
+    "options": [
+      "Nenhuma",
+      "Uma",
+      "Duas",
+      "Infinitas"
+    ],
+    "answer": 0,
+    "explanation": "O discriminante é Δ = 2² − 4 × 1 × 5 = −16. Com Δ < 0 não há soluções reais.",
+    "position": 48
+  },
+  {
+    "id": "mat-equacoes-8",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve o sistema x + y = 10 e x − y = 4.",
+    "options": [
+      "x = 7 e y = 3",
+      "x = 3 e y = 7",
+      "x = 6 e y = 4",
+      "x = 5 e y = 5"
+    ],
+    "answer": 0,
+    "explanation": "Somando as equações: 2x = 14, logo x = 7; e y = 10 − 7 = 3.",
+    "position": 49
+  },
+  {
+    "id": "mat-equacoes-9",
+    "subject": "matematica",
+    "topic": "equacoes",
+    "level": "medium",
+    "text": "Resolve o sistema 2x + y = 7 e x − y = 2.",
+    "options": [
+      "x = 3 e y = 1",
+      "x = 1 e y = 3",
+      "x = 2 e y = 3",
+      "x = 4 e y = −1"
+    ],
+    "answer": 0,
+    "explanation": "Somando: 3x = 9, logo x = 3; da segunda equação, y = x − 2 = 1.",
+    "position": 50
+  },
+  {
+    "id": "mat-estatistica-1",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "easy",
+    "text": "Qual é a média de 4, 8, 6, 10 e 12?",
+    "options": [
+      "8",
+      "6",
+      "10",
+      "40"
+    ],
+    "answer": 0,
+    "explanation": "Soma: 4 + 8 + 6 + 10 + 12 = 40. Divide-se pelo número de dados: 40/5 = 8.",
+    "position": 105
+  },
+  {
+    "id": "mat-estatistica-10",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Qual é a amplitude dos dados 12, 7, 20, 15, 9?",
+    "options": [
+      "13",
+      "20",
+      "8",
+      "5"
+    ],
+    "answer": 0,
+    "explanation": "Amplitude = maior valor − menor valor = 20 − 7 = 13.",
+    "position": 114
+  },
+  {
+    "id": "mat-estatistica-11",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Numa turma de 40 alunos, 14 preferem futebol. Qual é a frequência relativa?",
+    "options": [
+      "35%",
+      "14%",
+      "40%",
+      "26%"
+    ],
+    "answer": 0,
+    "explanation": "14/40 = 0,35 = 35%.",
+    "position": 115
+  },
+  {
+    "id": "mat-estatistica-12",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Qual é a média das notas 12, 14, 10, 16 e 13?",
+    "options": [
+      "13",
+      "14",
+      "12",
+      "12,5"
+    ],
+    "answer": 0,
+    "explanation": "Soma: 65. Média: 65/5 = 13.",
+    "position": 116
+  },
+  {
+    "id": "mat-estatistica-13",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Qual é a probabilidade de um acontecimento impossível?",
+    "options": [
+      "0",
+      "1",
+      "0,5",
+      "−1"
+    ],
+    "answer": 0,
+    "explanation": "Um acontecimento impossível tem probabilidade 0; um certo tem probabilidade 1.",
+    "position": 117
+  },
+  {
+    "id": "mat-estatistica-14",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Num inquérito a 200 jovens, 60 disseram querer estudar engenharia. Que percentagem é?",
+    "options": [
+      "30%",
+      "60%",
+      "20%",
+      "3%"
+    ],
+    "answer": 0,
+    "explanation": "60/200 = 0,3 = 30%.",
+    "position": 118
+  },
+  {
+    "id": "mat-estatistica-15",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "Lançam-se dois dados. Qual é a probabilidade de a soma ser 7?",
+    "options": [
+      "1/6",
+      "1/12",
+      "7/36",
+      "1/36"
+    ],
+    "answer": 0,
+    "explanation": "Há 36 pares possíveis e 6 dão soma 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). 6/36 = 1/6.",
+    "position": 119
+  },
+  {
+    "id": "mat-estatistica-16",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "De quantas maneiras se podem sentar 4 pessoas em 4 cadeiras em fila?",
+    "options": [
+      "24",
+      "16",
+      "4",
+      "12"
+    ],
+    "answer": 0,
+    "explanation": "São permutações de 4: 4! = 4 × 3 × 2 × 1 = 24.",
+    "position": 120
+  },
+  {
+    "id": "mat-estatistica-17",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "Quantas comissões de 2 pessoas se podem formar com 5 pessoas?",
+    "options": [
+      "10",
+      "20",
+      "25",
+      "5"
+    ],
+    "answer": 0,
+    "explanation": "A ordem não conta: C(5, 2) = (5 × 4)/2 = 10. 20 seria contando a ordem.",
+    "position": 121
+  },
+  {
+    "id": "mat-estatistica-18",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "Lança-se um dado duas vezes. Qual é a probabilidade de nunca sair 6?",
+    "options": [
+      "25/36",
+      "5/6",
+      "1/36",
+      "11/36"
+    ],
+    "answer": 0,
+    "explanation": "Em cada lançamento, a probabilidade de não sair 6 é 5/6; nos dois, 5/6 × 5/6 = 25/36.",
+    "position": 122
+  },
+  {
+    "id": "mat-estatistica-19",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "A média de 4 números é 10. Com um quinto número, a média passa a 11. Qual é o quinto número?",
+    "options": [
+      "15",
+      "11",
+      "14",
+      "21"
+    ],
+    "answer": 0,
+    "explanation": "A soma dos 4 é 40 e a dos 5 é 55; o quinto é 55 − 40 = 15.",
+    "position": 123
+  },
+  {
+    "id": "mat-estatistica-2",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "easy",
+    "text": "Qual é a moda de 3, 5, 5, 7, 8, 5, 2?",
+    "options": [
+      "5",
+      "7",
+      "3",
+      "8"
+    ],
+    "answer": 0,
+    "explanation": "A moda é o valor que aparece mais vezes: o 5 aparece três vezes.",
+    "position": 106
+  },
+  {
+    "id": "mat-estatistica-20",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "Se P(A) = 0,3, qual é a probabilidade do acontecimento contrário de A?",
+    "options": [
+      "0,7",
+      "0,3",
+      "1,3",
+      "0"
+    ],
+    "answer": 0,
+    "explanation": "P(contrário de A) = 1 − P(A) = 1 − 0,3 = 0,7.",
+    "position": 124
+  },
+  {
+    "id": "mat-estatistica-21",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "hard",
+    "text": "Escolhe-se ao acaso um número inteiro de 1 a 20. Qual é a probabilidade de ser múltiplo de 3?",
+    "options": [
+      "3/10",
+      "1/3",
+      "7/20",
+      "1/4"
+    ],
+    "answer": 0,
+    "explanation": "Os múltiplos de 3 são 3, 6, 9, 12, 15 e 18: 6 em 20, ou seja 3/10.",
+    "position": 125
+  },
+  {
+    "id": "mat-estatistica-3",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "easy",
+    "text": "Qual é a mediana de 2, 9, 4, 7, 5?",
+    "options": [
+      "5",
+      "4",
+      "7",
+      "5,4"
+    ],
+    "answer": 0,
+    "explanation": "Ordenando: 2, 4, 5, 7, 9. A mediana é o valor do meio, 5 (5,4 é a média).",
+    "position": 107
+  },
+  {
+    "id": "mat-estatistica-4",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Qual é a mediana de 3, 8, 1, 6?",
+    "options": [
+      "4,5",
+      "3",
+      "6",
+      "7"
+    ],
+    "answer": 0,
+    "explanation": "Ordenando: 1, 3, 6, 8. Com um número par de dados, a mediana é a média dos dois do meio: (3 + 6)/2 = 4,5.",
+    "position": 108
+  },
+  {
+    "id": "mat-estatistica-5",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "easy",
+    "text": "Ao lançar um dado, qual é a probabilidade de sair 4?",
+    "options": [
+      "1/6",
+      "1/4",
+      "4/6",
+      "1/2"
+    ],
+    "answer": 0,
+    "explanation": "Há 6 faces igualmente prováveis e só uma é o 4.",
+    "position": 109
+  },
+  {
+    "id": "mat-estatistica-6",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "easy",
+    "text": "Ao lançar uma moeda, qual é a probabilidade de sair cara?",
+    "options": [
+      "1/2",
+      "1",
+      "1/4",
+      "2"
+    ],
+    "answer": 0,
+    "explanation": "Dois resultados igualmente prováveis, um deles favorável: 1/2. Uma probabilidade nunca passa de 1.",
+    "position": 110
+  },
+  {
+    "id": "mat-estatistica-7",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Ao lançar um dado, qual é a probabilidade de sair um número par?",
+    "options": [
+      "1/2",
+      "1/3",
+      "1/6",
+      "2/3"
+    ],
+    "answer": 0,
+    "explanation": "Os pares são 2, 4 e 6: 3 casos favoráveis em 6, ou seja 1/2.",
+    "position": 111
+  },
+  {
+    "id": "mat-estatistica-8",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Lançam-se duas moedas. Qual é a probabilidade de saírem duas caras?",
+    "options": [
+      "1/4",
+      "1/2",
+      "1/3",
+      "3/4"
+    ],
+    "answer": 0,
+    "explanation": "Os casos possíveis são CC, CE, EC e EE; só um é favorável: 1/4.",
+    "position": 112
+  },
+  {
+    "id": "mat-estatistica-9",
+    "subject": "matematica",
+    "topic": "estatistica",
+    "level": "medium",
+    "text": "Um saco tem 3 bolas vermelhas e 5 azuis. Tirando uma ao acaso, qual é a probabilidade de ser azul?",
+    "options": [
+      "5/8",
+      "3/8",
+      "5/3",
+      "1/2"
+    ],
+    "answer": 0,
+    "explanation": "5 bolas azuis num total de 8: 5/8.",
+    "position": 113
+  },
+  {
+    "id": "mat-funcoes-1",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Sendo f(x) = 2x + 3, quanto é f(4)?",
+    "options": [
+      "11",
+      "9",
+      "14",
+      "8"
+    ],
+    "answer": 0,
+    "explanation": "Substitui-se x por 4: 2 × 4 + 3 = 11.",
+    "position": 21
+  },
+  {
+    "id": "mat-funcoes-10",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Sendo f(x) = 3x − 1 e g(x) = x², quanto é (f ∘ g)(2)?",
+    "options": [
+      "11",
+      "25",
+      "7",
+      "12"
+    ],
+    "answer": 0,
+    "explanation": "(f ∘ g)(2) = f(g(2)) = f(4) = 3 × 4 − 1 = 11. Primeiro aplica-se g, depois f.",
+    "position": 30
+  },
+  {
+    "id": "mat-funcoes-11",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é a função inversa de f(x) = 2x + 6?",
+    "options": [
+      "x/2 − 3",
+      "x/2 + 3",
+      "2x − 6",
+      "1/(2x + 6)"
+    ],
+    "answer": 0,
+    "explanation": "De y = 2x + 6 tira-se x = (y − 6)/2 = y/2 − 3. Trocando as letras, f⁻¹(x) = x/2 − 3.",
+    "position": 31
+  },
+  {
+    "id": "mat-funcoes-12",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "hard",
+    "text": "Sendo f(x) = 2ˣ, quanto é f(3) − f(1)?",
+    "options": [
+      "6",
+      "4",
+      "2",
+      "8"
+    ],
+    "answer": 0,
+    "explanation": "f(3) = 8 e f(1) = 2, logo 8 − 2 = 6.",
+    "position": 32
+  },
+  {
+    "id": "mat-funcoes-13",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "hard",
+    "text": "Qual destas funções é par?",
+    "options": [
+      "f(x) = x²",
+      "f(x) = x³",
+      "f(x) = x + 1",
+      "f(x) = 2x"
+    ],
+    "answer": 0,
+    "explanation": "Uma função é par quando f(−x) = f(x): (−x)² = x². O gráfico é simétrico em relação ao eixo dos y.",
+    "position": 33
+  },
+  {
+    "id": "mat-funcoes-14",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é a função afim cujo gráfico passa por (0, 1) e (2, 5)?",
+    "options": [
+      "y = 2x + 1",
+      "y = 3x + 1",
+      "y = x + 3",
+      "y = 2x + 5"
+    ],
+    "answer": 0,
+    "explanation": "O declive é (5 − 1)/(2 − 0) = 2 e a ordenada na origem é 1: y = 2x + 1.",
+    "position": 34
+  },
+  {
+    "id": "mat-funcoes-15",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "hard",
+    "text": "Qual é o valor máximo de f(x) = −x² + 6x − 5?",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "9"
+    ],
+    "answer": 0,
+    "explanation": "O vértice está em x = −6/(2 × (−1)) = 3, e f(3) = −9 + 18 − 5 = 4.",
+    "position": 35
+  },
+  {
+    "id": "mat-funcoes-16",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Sendo f(x) = x², quanto é f(−3)?",
+    "options": [
+      "9",
+      "−9",
+      "6",
+      "−6"
+    ],
+    "answer": 0,
+    "explanation": "(−3)² = (−3) × (−3) = 9. O quadrado de um número negativo é positivo.",
+    "position": 36
+  },
+  {
+    "id": "mat-funcoes-17",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Sendo f(x) = |x − 2|, quanto é f(−1)?",
+    "options": [
+      "3",
+      "−3",
+      "1",
+      "−1"
+    ],
+    "answer": 0,
+    "explanation": "|−1 − 2| = |−3| = 3. O módulo nunca é negativo.",
+    "position": 37
+  },
+  {
+    "id": "mat-funcoes-18",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "hard",
+    "text": "Para que valores de k a função f(x) = (k − 1)x + 4 é decrescente?",
+    "options": [
+      "k < 1",
+      "k > 1",
+      "k = 1",
+      "k > 4"
+    ],
+    "answer": 0,
+    "explanation": "Uma função afim é decrescente quando o declive é negativo: k − 1 < 0 ⇔ k < 1.",
+    "position": 38
+  },
+  {
+    "id": "mat-funcoes-19",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "hard",
+    "text": "Sendo f(x) = log₃ x, quanto é f(81)?",
+    "options": [
+      "4",
+      "27",
+      "3",
+      "9"
+    ],
+    "answer": 0,
+    "explanation": "3⁴ = 81, logo log₃ 81 = 4.",
+    "position": 39
+  },
+  {
+    "id": "mat-funcoes-2",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Qual é o declive do gráfico de y = −3x + 7?",
+    "options": [
+      "−3",
+      "7",
+      "3",
+      "−7"
+    ],
+    "answer": 0,
+    "explanation": "Na forma y = mx + b, o declive é m, o coeficiente de x: −3.",
+    "position": 22
+  },
+  {
+    "id": "mat-funcoes-20",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é o contradomínio de f(x) = x² + 2?",
+    "options": [
+      "[2, +∞[",
+      "[0, +∞[",
+      "ℝ",
+      "]2, +∞["
+    ],
+    "answer": 0,
+    "explanation": "x² é sempre ≥ 0, logo x² + 2 ≥ 2, e o valor 2 é atingido em x = 0.",
+    "position": 40
+  },
+  {
+    "id": "mat-funcoes-21",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Sendo f(x) = 4 − x, quanto é f(0)?",
+    "options": [
+      "4",
+      "0",
+      "−4",
+      "1"
+    ],
+    "answer": 0,
+    "explanation": "f(0) = 4 − 0 = 4.",
+    "position": 41
+  },
+  {
+    "id": "mat-funcoes-3",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Para que valor de x é f(x) = 2x − 8 igual a zero?",
+    "options": [
+      "4",
+      "−4",
+      "8",
+      "2"
+    ],
+    "answer": 0,
+    "explanation": "2x − 8 = 0 ⇔ 2x = 8 ⇔ x = 4.",
+    "position": 23
+  },
+  {
+    "id": "mat-funcoes-4",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "easy",
+    "text": "Em que ponto o gráfico de y = 5x − 2 corta o eixo das ordenadas (y)?",
+    "options": [
+      "y = −2",
+      "y = 5",
+      "y = 2",
+      "y = 0"
+    ],
+    "answer": 0,
+    "explanation": "Corta o eixo dos y quando x = 0: y = 5 × 0 − 2 = −2 (a ordenada na origem).",
+    "position": 24
+  },
+  {
+    "id": "mat-funcoes-5",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é o vértice da parábola f(x) = x² − 4x + 3?",
+    "options": [
+      "(2, −1)",
+      "(−2, 15)",
+      "(4, 3)",
+      "(2, 1)"
+    ],
+    "answer": 0,
+    "explanation": "O vértice tem abcissa −b/(2a) = 4/2 = 2, e f(2) = 4 − 8 + 3 = −1.",
+    "position": 25
+  },
+  {
+    "id": "mat-funcoes-6",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Quais são os zeros de f(x) = x² − x − 6?",
+    "options": [
+      "−2 e 3",
+      "2 e −3",
+      "1 e 6",
+      "−1 e 6"
+    ],
+    "answer": 0,
+    "explanation": "x² − x − 6 = (x − 3)(x + 2), que se anula em x = 3 e x = −2.",
+    "position": 26
+  },
+  {
+    "id": "mat-funcoes-7",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Como é a concavidade do gráfico de f(x) = −2x² + x?",
+    "options": [
+      "Voltada para baixo",
+      "Voltada para cima",
+      "Não tem: o gráfico é uma reta",
+      "Depende do valor de x"
+    ],
+    "answer": 0,
+    "explanation": "O coeficiente de x² é negativo (−2), por isso a parábola tem a concavidade voltada para baixo.",
+    "position": 27
+  },
+  {
+    "id": "mat-funcoes-8",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é o domínio de f(x) = √(x − 3)?",
+    "options": [
+      "x ≥ 3",
+      "x > 3",
+      "x ≤ 3",
+      "Todos os números reais"
+    ],
+    "answer": 0,
+    "explanation": "Nos reais, a raiz quadrada só existe para valores não negativos: x − 3 ≥ 0 ⇔ x ≥ 3.",
+    "position": 28
+  },
+  {
+    "id": "mat-funcoes-9",
+    "subject": "matematica",
+    "topic": "funcoes",
+    "level": "medium",
+    "text": "Qual é o domínio de f(x) = 1/(x + 2)?",
+    "options": [
+      "ℝ \\ {−2}",
+      "ℝ \\ {2}",
+      "x > −2",
+      "ℝ"
+    ],
+    "answer": 0,
+    "explanation": "O denominador não pode ser zero: x + 2 ≠ 0 ⇔ x ≠ −2.",
+    "position": 29
+  },
+  {
+    "id": "mat-geometria-1",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "easy",
+    "text": "Qual é a área de um quadrado com 7 cm de lado?",
+    "options": [
+      "49 cm²",
+      "28 cm²",
+      "14 cm²",
+      "21 cm²"
+    ],
+    "answer": 0,
+    "explanation": "Área do quadrado = lado × lado = 7 × 7 = 49 cm². 28 cm é o perímetro.",
+    "position": 63
+  },
+  {
+    "id": "mat-geometria-10",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Quanto mede a soma dos ângulos internos de um hexágono?",
+    "options": [
+      "720°",
+      "540°",
+      "360°",
+      "1080°"
+    ],
+    "answer": 0,
+    "explanation": "A soma dos ângulos internos de um polígono de n lados é (n − 2) × 180°: 4 × 180° = 720°.",
+    "position": 72
+  },
+  {
+    "id": "mat-geometria-11",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é o volume de um cubo com 4 cm de aresta?",
+    "options": [
+      "64 cm³",
+      "16 cm³",
+      "48 cm³",
+      "96 cm³"
+    ],
+    "answer": 0,
+    "explanation": "Volume = aresta³ = 4 × 4 × 4 = 64 cm³. 96 cm² seria a área total.",
+    "position": 73
+  },
+  {
+    "id": "mat-geometria-12",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é o volume de um cilindro com raio 2 e altura 5?",
+    "options": [
+      "20π",
+      "10π",
+      "40π",
+      "4π"
+    ],
+    "answer": 0,
+    "explanation": "Volume = πr²h = π × 4 × 5 = 20π.",
+    "position": 74
+  },
+  {
+    "id": "mat-geometria-13",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é a distância entre os pontos A(1, 2) e B(4, 6)?",
+    "options": [
+      "5",
+      "7",
+      "25",
+      "√7"
+    ],
+    "answer": 0,
+    "explanation": "d = √((4 − 1)² + (6 − 2)²) = √(9 + 16) = √25 = 5.",
+    "position": 75
+  },
+  {
+    "id": "mat-geometria-14",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é o ponto médio do segmento de A(2, −4) a B(6, 8)?",
+    "options": [
+      "(4, 2)",
+      "(8, 4)",
+      "(2, 6)",
+      "(4, 6)"
+    ],
+    "answer": 0,
+    "explanation": "Média das coordenadas: ((2 + 6)/2, (−4 + 8)/2) = (4, 2).",
+    "position": 76
+  },
+  {
+    "id": "mat-geometria-15",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é a área de um trapézio com bases 8 e 4 e altura 5?",
+    "options": [
+      "30",
+      "60",
+      "40",
+      "20"
+    ],
+    "answer": 0,
+    "explanation": "Área = (B + b)/2 × h = (8 + 4)/2 × 5 = 6 × 5 = 30.",
+    "position": 77
+  },
+  {
+    "id": "mat-geometria-16",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é a área de um losango com diagonais de 10 e 6?",
+    "options": [
+      "30",
+      "60",
+      "16",
+      "32"
+    ],
+    "answer": 0,
+    "explanation": "Área = (D × d)/2 = (10 × 6)/2 = 30.",
+    "position": 78
+  },
+  {
+    "id": "mat-geometria-17",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "hard",
+    "text": "Um triângulo de lados 3, 4 e 5 é ampliado com razão 2. Qual é a área do novo triângulo?",
+    "options": [
+      "24",
+      "12",
+      "6",
+      "48"
+    ],
+    "answer": 0,
+    "explanation": "A área inicial é (3 × 4)/2 = 6. Numa ampliação de razão k, a área multiplica por k² = 4: 6 × 4 = 24.",
+    "position": 79
+  },
+  {
+    "id": "mat-geometria-18",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "hard",
+    "text": "Qual é a área de um triângulo equilátero com 6 de lado?",
+    "options": [
+      "9√3",
+      "18",
+      "36",
+      "6√3"
+    ],
+    "answer": 0,
+    "explanation": "Área = (√3/4) × lado² = (√3/4) × 36 = 9√3.",
+    "position": 80
+  },
+  {
+    "id": "mat-geometria-19",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "hard",
+    "text": "Quanto mede a diagonal espacial de um cubo com 2 de aresta?",
+    "options": [
+      "2√3",
+      "2√2",
+      "4",
+      "√6"
+    ],
+    "answer": 0,
+    "explanation": "d = aresta × √3 = 2√3, porque d² = 2² + 2² + 2² = 12.",
+    "position": 81
+  },
+  {
+    "id": "mat-geometria-2",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "easy",
+    "text": "Quanto mede a soma dos ângulos internos de um triângulo?",
+    "options": [
+      "180°",
+      "90°",
+      "360°",
+      "270°"
+    ],
+    "answer": 0,
+    "explanation": "Em qualquer triângulo, os três ângulos internos somam 180°.",
+    "position": 64
+  },
+  {
+    "id": "mat-geometria-20",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "hard",
+    "text": "Qual é a equação da circunferência de centro (2, −1) e raio 3?",
+    "options": [
+      "(x − 2)² + (y + 1)² = 9",
+      "(x + 2)² + (y − 1)² = 9",
+      "(x − 2)² + (y + 1)² = 3",
+      "(x − 2)² + (y − 1)² = 9"
+    ],
+    "answer": 0,
+    "explanation": "A circunferência de centro (a, b) e raio r é (x − a)² + (y − b)² = r²: aqui, (x − 2)² + (y + 1)² = 9.",
+    "position": 82
+  },
+  {
+    "id": "mat-geometria-21",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "hard",
+    "text": "Qual é o volume de uma esfera de raio 3?",
+    "options": [
+      "36π",
+      "27π",
+      "12π",
+      "108π"
+    ],
+    "answer": 0,
+    "explanation": "Volume = (4/3)πr³ = (4/3) × π × 27 = 36π.",
+    "position": 83
+  },
+  {
+    "id": "mat-geometria-3",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "easy",
+    "text": "Qual é o perímetro de uma circunferência de raio 5 cm (π ≈ 3,14)?",
+    "options": [
+      "31,4 cm",
+      "78,5 cm",
+      "15,7 cm",
+      "10 cm"
+    ],
+    "answer": 0,
+    "explanation": "Perímetro = 2πr = 2 × 3,14 × 5 = 31,4 cm. 78,5 cm² seria a área do círculo.",
+    "position": 65
+  },
+  {
+    "id": "mat-geometria-4",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "easy",
+    "text": "Qual é a área de um círculo de raio 3?",
+    "options": [
+      "9π",
+      "6π",
+      "3π",
+      "9"
+    ],
+    "answer": 0,
+    "explanation": "Área = πr² = π × 3² = 9π. 6π é o perímetro.",
+    "position": 66
+  },
+  {
+    "id": "mat-geometria-5",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "easy",
+    "text": "Qual é o ângulo suplementar de 65°?",
+    "options": [
+      "115°",
+      "25°",
+      "295°",
+      "135°"
+    ],
+    "answer": 0,
+    "explanation": "Ângulos suplementares somam 180°: 180° − 65° = 115°.",
+    "position": 67
+  },
+  {
+    "id": "mat-geometria-6",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Qual é o ângulo complementar de 38°?",
+    "options": [
+      "52°",
+      "142°",
+      "62°",
+      "48°"
+    ],
+    "answer": 0,
+    "explanation": "Ângulos complementares somam 90°: 90° − 38° = 52°.",
+    "position": 68
+  },
+  {
+    "id": "mat-geometria-7",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Num triângulo, dois ângulos medem 50° e 70°. Quanto mede o terceiro?",
+    "options": [
+      "60°",
+      "120°",
+      "80°",
+      "70°"
+    ],
+    "answer": 0,
+    "explanation": "180° − 50° − 70° = 60°.",
+    "position": 69
+  },
+  {
+    "id": "mat-geometria-8",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Os catetos de um triângulo retângulo medem 6 e 8. Quanto mede a hipotenusa?",
+    "options": [
+      "10",
+      "14",
+      "12",
+      "48"
+    ],
+    "answer": 0,
+    "explanation": "Pelo teorema de Pitágoras: h² = 6² + 8² = 36 + 64 = 100, logo h = 10.",
+    "position": 70
+  },
+  {
+    "id": "mat-geometria-9",
+    "subject": "matematica",
+    "topic": "geometria",
+    "level": "medium",
+    "text": "Num triângulo retângulo, a hipotenusa mede 13 e um cateto 5. Quanto mede o outro cateto?",
+    "options": [
+      "12",
+      "8",
+      "18",
+      "144"
+    ],
+    "answer": 0,
+    "explanation": "c² = 13² − 5² = 169 − 25 = 144, logo c = 12.",
+    "position": 71
+  },
+  {
+    "id": "mat-trigonometria-1",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "easy",
+    "text": "Quanto é sen 30°?",
+    "options": [
+      "1/2",
+      "√3/2",
+      "√2/2",
+      "1"
+    ],
+    "answer": 0,
+    "explanation": "Valor a saber de cor: sen 30° = 1/2 (e cos 30° = √3/2).",
+    "position": 84
+  },
+  {
+    "id": "mat-trigonometria-10",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Quanto é sen 120°?",
+    "options": [
+      "√3/2",
+      "−√3/2",
+      "1/2",
+      "−1/2"
+    ],
+    "answer": 0,
+    "explanation": "sen 120° = sen (180° − 60°) = sen 60° = √3/2. No 2.º quadrante o seno é positivo.",
+    "position": 93
+  },
+  {
+    "id": "mat-trigonometria-11",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Quanto é cos 180°?",
+    "options": [
+      "−1",
+      "0",
+      "1",
+      "−1/2"
+    ],
+    "answer": 0,
+    "explanation": "O ângulo 180° corresponde ao ponto (−1, 0) do círculo trigonométrico.",
+    "position": 94
+  },
+  {
+    "id": "mat-trigonometria-12",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Se sen α = 3/5 e α é agudo, quanto é cos α?",
+    "options": [
+      "4/5",
+      "3/4",
+      "5/4",
+      "2/5"
+    ],
+    "answer": 0,
+    "explanation": "cos²α = 1 − 9/25 = 16/25. Como α é agudo, cos α é positivo: 4/5.",
+    "position": 95
+  },
+  {
+    "id": "mat-trigonometria-13",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "A quanto é igual cos(−x)?",
+    "options": [
+      "cos x",
+      "−cos x",
+      "sen x",
+      "−sen x"
+    ],
+    "answer": 0,
+    "explanation": "O cosseno é uma função par: cos(−x) = cos x.",
+    "position": 96
+  },
+  {
+    "id": "mat-trigonometria-14",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Uma escada de 5 m faz um ângulo de 60° com o chão. A que altura da parede chega?",
+    "options": [
+      "5√3/2 m",
+      "5/2 m",
+      "5√3 m",
+      "10 m"
+    ],
+    "answer": 0,
+    "explanation": "Altura = 5 × sen 60° = 5 × √3/2 = 5√3/2 m (cerca de 4,3 m).",
+    "position": 97
+  },
+  {
+    "id": "mat-trigonometria-15",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "Se sen α = 3/5 e α é agudo, quanto é tg α?",
+    "options": [
+      "3/4",
+      "4/3",
+      "3/5",
+      "5/3"
+    ],
+    "answer": 0,
+    "explanation": "cos α = 4/5, logo tg α = sen α / cos α = (3/5)/(4/5) = 3/4.",
+    "position": 98
+  },
+  {
+    "id": "mat-trigonometria-16",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "Qual é o período da função f(x) = sen x?",
+    "options": [
+      "2π",
+      "π",
+      "π/2",
+      "4π"
+    ],
+    "answer": 0,
+    "explanation": "O seno repete os valores a cada volta completa, 2π.",
+    "position": 99
+  },
+  {
+    "id": "mat-trigonometria-17",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "Qual é o período da função f(x) = sen(2x)?",
+    "options": [
+      "π",
+      "2π",
+      "4π",
+      "π/2"
+    ],
+    "answer": 0,
+    "explanation": "O período de sen(kx) é 2π/k: 2π/2 = π.",
+    "position": 100
+  },
+  {
+    "id": "mat-trigonometria-18",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "Quantas soluções tem sen x = 0 no intervalo [0, 2π]?",
+    "options": [
+      "3",
+      "1",
+      "2",
+      "4"
+    ],
+    "answer": 0,
+    "explanation": "O seno anula-se em 0, π e 2π, e os três estão no intervalo fechado.",
+    "position": 101
+  },
+  {
+    "id": "mat-trigonometria-19",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "A quanto é igual sen(90° − α)?",
+    "options": [
+      "cos α",
+      "sen α",
+      "−cos α",
+      "tg α"
+    ],
+    "answer": 0,
+    "explanation": "O seno de um ângulo é o cosseno do seu complementar.",
+    "position": 102
+  },
+  {
+    "id": "mat-trigonometria-2",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "easy",
+    "text": "Quanto é cos 60°?",
+    "options": [
+      "1/2",
+      "√3/2",
+      "0",
+      "1"
+    ],
+    "answer": 0,
+    "explanation": "cos 60° = sen 30° = 1/2, porque 60° e 30° são complementares.",
+    "position": 85
+  },
+  {
+    "id": "mat-trigonometria-20",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "Num triângulo, o lado a = 10 opõe-se a um ângulo de 30° e o lado b opõe-se a um ângulo de 90°. Quanto mede b?",
+    "options": [
+      "20",
+      "5",
+      "10√3",
+      "10"
+    ],
+    "answer": 0,
+    "explanation": "Lei dos senos: a/sen A = b/sen B ⇔ 10/(1/2) = b/1 ⇔ b = 20.",
+    "position": 103
+  },
+  {
+    "id": "mat-trigonometria-21",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "hard",
+    "text": "A quanto é igual cos²x − sen²x?",
+    "options": [
+      "cos 2x",
+      "sen 2x",
+      "1",
+      "2cos x"
+    ],
+    "answer": 0,
+    "explanation": "É a fórmula do cosseno do ângulo duplo: cos 2x = cos²x − sen²x.",
+    "position": 104
+  },
+  {
+    "id": "mat-trigonometria-3",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "easy",
+    "text": "Quanto é tg 45°?",
+    "options": [
+      "1",
+      "0",
+      "√3",
+      "√2/2"
+    ],
+    "answer": 0,
+    "explanation": "Em 45°, seno e cosseno são iguais (√2/2), logo tg 45° = 1.",
+    "position": 86
+  },
+  {
+    "id": "mat-trigonometria-4",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "easy",
+    "text": "Quanto é cos 0°?",
+    "options": [
+      "1",
+      "0",
+      "−1",
+      "1/2"
+    ],
+    "answer": 0,
+    "explanation": "No círculo trigonométrico, o ângulo 0° corresponde ao ponto (1, 0): cos 0° = 1.",
+    "position": 87
+  },
+  {
+    "id": "mat-trigonometria-5",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "easy",
+    "text": "Qual é o valor máximo de sen x?",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "π"
+    ],
+    "answer": 0,
+    "explanation": "O seno varia entre −1 e 1.",
+    "position": 88
+  },
+  {
+    "id": "mat-trigonometria-6",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Para qualquer ângulo x, quanto é sen²x + cos²x?",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "sen 2x"
+    ],
+    "answer": 0,
+    "explanation": "É a fórmula fundamental da trigonometria: sen²x + cos²x = 1.",
+    "position": 89
+  },
+  {
+    "id": "mat-trigonometria-7",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Num triângulo retângulo, a hipotenusa mede 10 e um ângulo agudo mede 30°. Quanto mede o cateto oposto a esse ângulo?",
+    "options": [
+      "5",
+      "5√3",
+      "10√3",
+      "20"
+    ],
+    "answer": 0,
+    "explanation": "Cateto oposto = hipotenusa × sen 30° = 10 × 1/2 = 5.",
+    "position": 90
+  },
+  {
+    "id": "mat-trigonometria-8",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Quanto é 180° em radianos?",
+    "options": [
+      "π",
+      "2π",
+      "π/2",
+      "180π"
+    ],
+    "answer": 0,
+    "explanation": "Meia volta: 180° = π rad (uma volta inteira, 360°, é 2π).",
+    "position": 91
+  },
+  {
+    "id": "mat-trigonometria-9",
+    "subject": "matematica",
+    "topic": "trigonometria",
+    "level": "medium",
+    "text": "Quanto é π/3 rad em graus?",
+    "options": [
+      "60°",
+      "30°",
+      "90°",
+      "120°"
+    ],
+    "answer": 0,
+    "explanation": "π rad = 180°, logo π/3 = 180°/3 = 60°.",
+    "position": 92
+  },
+  {
+    "id": "por-gramatica-1",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Na frase «O João correu rapidamente», a que classe pertence «rapidamente»?",
+    "options": [
+      "Advérbio",
+      "Adjetivo",
+      "Verbo",
+      "Nome"
+    ],
+    "answer": 0,
+    "explanation": "Modifica o verbo (diz como correu). Muitas palavras terminadas em -mente são advérbios de modo.",
+    "position": 164
+  },
+  {
+    "id": "por-gramatica-10",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o feminino de «genro»?",
+    "options": [
+      "nora",
+      "genra",
+      "sogra",
+      "cunhada"
+    ],
+    "answer": 0,
+    "explanation": "Alguns nomes formam o feminino com uma palavra diferente: genro e nora, como pai e mãe.",
+    "position": 173
+  },
+  {
+    "id": "por-gramatica-11",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Qual é o superlativo absoluto sintético de «difícil»?",
+    "options": [
+      "dificílimo",
+      "muito difícil",
+      "o mais difícil",
+      "dificilão"
+    ],
+    "answer": 0,
+    "explanation": "«Muito difícil» é o superlativo analítico (com advérbio) e «o mais difícil» é o superlativo relativo.",
+    "position": 174
+  },
+  {
+    "id": "por-gramatica-12",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Na frase «Os livros que li eram bons», a palavra «que» é…",
+    "options": [
+      "um pronome relativo",
+      "uma conjunção",
+      "um advérbio",
+      "uma preposição"
+    ],
+    "answer": 0,
+    "explanation": "Retoma «os livros» (os livros que li = li os livros) e introduz uma oração relativa.",
+    "position": 175
+  },
+  {
+    "id": "por-gramatica-13",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Qual é a passiva de «O professor corrigiu os testes»?",
+    "options": [
+      "Os testes foram corrigidos pelo professor.",
+      "Os testes corrigiram o professor.",
+      "O professor foi corrigido pelos testes.",
+      "Os testes eram corrigidos pelo professor."
+    ],
+    "answer": 0,
+    "explanation": "O complemento direto passa a sujeito, o verbo fica com «ser» no mesmo tempo (pretérito perfeito: foram) e o sujeito passa a agente.",
+    "position": 176
+  },
+  {
+    "id": "por-gramatica-14",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Ele disse: «Estou cansado.» Qual é a frase em discurso indireto?",
+    "options": [
+      "Ele disse que estava cansado.",
+      "Ele disse que estou cansado.",
+      "Ele disse que estará cansado.",
+      "Ele disse que esteve cansado."
+    ],
+    "answer": 0,
+    "explanation": "No discurso indireto, o presente («estou») passa a pretérito imperfeito («estava») e a 1.ª pessoa passa à 3.ª.",
+    "position": 177
+  },
+  {
+    "id": "por-gramatica-15",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Qual destas frases tem o pronome bem colocado?",
+    "options": [
+      "Não me disse nada.",
+      "Não disse-me nada.",
+      "Não disseme nada.",
+      "Não disse nada-me."
+    ],
+    "answer": 0,
+    "explanation": "Palavras negativas como «não» atraem o pronome para antes do verbo.",
+    "position": 178
+  },
+  {
+    "id": "por-gramatica-16",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Qual é a forma correta do futuro de «dar» com o pronome «te»?",
+    "options": [
+      "Dar-te-ei o livro amanhã.",
+      "Darei-te o livro amanhã.",
+      "Dar-ei-te o livro amanhã.",
+      "Daretei o livro amanhã."
+    ],
+    "answer": 0,
+    "explanation": "No futuro, sem palavra que atraia o pronome, ele fica no meio do verbo (mesóclise): dar-te-ei.",
+    "position": 179
+  },
+  {
+    "id": "por-gramatica-17",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Completa: «___ muitas pessoas na fila.»",
+    "options": [
+      "Havia",
+      "Haviam",
+      "Houveram",
+      "Haverão"
+    ],
+    "answer": 0,
+    "explanation": "O verbo «haver» com o sentido de existir é impessoal e fica sempre no singular.",
+    "position": 180
+  },
+  {
+    "id": "por-gramatica-18",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Completa: «___ dois anos que terminei o ensino médio.»",
+    "options": [
+      "Faz",
+      "Fazem",
+      "Fizeram",
+      "Façam"
+    ],
+    "answer": 0,
+    "explanation": "O verbo «fazer» a indicar tempo decorrido é impessoal e fica no singular.",
+    "position": 181
+  },
+  {
+    "id": "por-gramatica-19",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Estudei, mas não passei», a oração «mas não passei» é coordenada…",
+    "options": [
+      "adversativa",
+      "copulativa",
+      "conclusiva",
+      "explicativa"
+    ],
+    "answer": 0,
+    "explanation": "«Mas» liga duas ideias opostas: conjunção coordenativa adversativa.",
+    "position": 182
+  },
+  {
+    "id": "por-gramatica-2",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Na frase «Os alunos estudam todos os dias», qual é o sujeito?",
+    "options": [
+      "Os alunos",
+      "estudam",
+      "todos os dias",
+      "Não tem sujeito"
+    ],
+    "answer": 0,
+    "explanation": "Quem estuda? «Os alunos». O verbo concorda com ele no plural.",
+    "position": 165
+  },
+  {
+    "id": "por-gramatica-20",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Embora chovesse, saímos», a oração «Embora chovesse» é subordinada adverbial…",
+    "options": [
+      "concessiva",
+      "causal",
+      "condicional",
+      "temporal"
+    ],
+    "answer": 0,
+    "explanation": "Apresenta um obstáculo que não impede a ação principal: concessiva.",
+    "position": 183
+  },
+  {
+    "id": "por-gramatica-21",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Como estava cansado, deitou-se cedo», a palavra «Como» introduz uma ideia de…",
+    "options": [
+      "causa",
+      "comparação",
+      "condição",
+      "concessão"
+    ],
+    "answer": 0,
+    "explanation": "Deitou-se cedo porque estava cansado: «como» tem aqui valor causal.",
+    "position": 184
+  },
+  {
+    "id": "por-gramatica-22",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Quando chegaste, eu já tinha saído», a oração «Quando chegaste» é…",
+    "options": [
+      "subordinada adverbial temporal",
+      "subordinada adverbial causal",
+      "subordinada adverbial final",
+      "coordenada copulativa"
+    ],
+    "answer": 0,
+    "explanation": "Indica o momento em que algo acontece: temporal.",
+    "position": 185
+  },
+  {
+    "id": "por-gramatica-23",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Em «A criança feliz brinca no quintal», a que classe pertence «feliz»?",
+    "options": [
+      "Adjetivo",
+      "Advérbio",
+      "Nome",
+      "Verbo"
+    ],
+    "answer": 0,
+    "explanation": "Caracteriza o nome «criança»: é um adjetivo.",
+    "position": 186
+  },
+  {
+    "id": "por-gramatica-24",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Ele trabalha muito», a que classe pertence «muito»?",
+    "options": [
+      "Advérbio",
+      "Adjetivo",
+      "Pronome",
+      "Determinante"
+    ],
+    "answer": 0,
+    "explanation": "Modifica o verbo «trabalha», indicando intensidade: advérbio. Em «muito trabalho» seria quantificador.",
+    "position": 187
+  },
+  {
+    "id": "por-gramatica-25",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Esta casa é minha», a palavra «Esta» é…",
+    "options": [
+      "um determinante demonstrativo",
+      "um pronome pessoal",
+      "um artigo definido",
+      "um determinante possessivo"
+    ],
+    "answer": 0,
+    "explanation": "Acompanha o nome «casa» e indica a sua posição perto de quem fala: demonstrativo.",
+    "position": 188
+  },
+  {
+    "id": "por-gramatica-26",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Qual destas frases está correta?",
+    "options": [
+      "Vendem-se casas.",
+      "Vende-se casas.",
+      "Vendem-se casa.",
+      "Vende-se as casas."
+    ],
+    "answer": 0,
+    "explanation": "Com o «se» passivo, o verbo concorda com o sujeito: as casas são vendidas, logo «vendem-se casas».",
+    "position": 189
+  },
+  {
+    "id": "por-gramatica-27",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o pretérito perfeito do verbo «pôr» na 1.ª pessoa do singular?",
+    "options": [
+      "pus",
+      "pôs",
+      "pusi",
+      "ponhei"
+    ],
+    "answer": 0,
+    "explanation": "Eu pus, tu puseste, ele pôs. «Pôs» é a 3.ª pessoa.",
+    "position": 190
+  },
+  {
+    "id": "por-gramatica-28",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o futuro do indicativo do verbo «fazer» na 1.ª pessoa do singular?",
+    "options": [
+      "farei",
+      "fazerei",
+      "fazei",
+      "fará"
+    ],
+    "answer": 0,
+    "explanation": "«Fazer» é irregular no futuro: farei, farás, fará…",
+    "position": 191
+  },
+  {
+    "id": "por-gramatica-29",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Qual é o pretérito perfeito do verbo «trazer» na 3.ª pessoa do plural?",
+    "options": [
+      "trouxeram",
+      "trazeram",
+      "trouxem",
+      "traziram"
+    ],
+    "answer": 0,
+    "explanation": "«Trazer» é irregular: eu trouxe, eles trouxeram.",
+    "position": 192
+  },
+  {
+    "id": "por-gramatica-3",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Na frase «A Maria comprou um livro», qual é o complemento direto?",
+    "options": [
+      "um livro",
+      "A Maria",
+      "comprou",
+      "A Maria comprou"
+    ],
+    "answer": 0,
+    "explanation": "Comprou o quê? «um livro». Pode ser substituído por «o»: «A Maria comprou-o».",
+    "position": 166
+  },
+  {
+    "id": "por-gramatica-30",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Completa: «É importante que tu ___ pontual.»",
+    "options": [
+      "sejas",
+      "és",
+      "seres",
+      "sês"
+    ],
+    "answer": 0,
+    "explanation": "Depois de «é importante que» usa-se o conjuntivo: que eu seja, que tu sejas.",
+    "position": 193
+  },
+  {
+    "id": "por-gramatica-31",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Qual é o sujeito de «Chegámos cedo»?",
+    "options": [
+      "Nulo subentendido (nós)",
+      "Indeterminado",
+      "Inexistente",
+      "«cedo»"
+    ],
+    "answer": 0,
+    "explanation": "O sujeito não está escrito, mas a terminação do verbo mostra que é «nós».",
+    "position": 194
+  },
+  {
+    "id": "por-gramatica-32",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Qual é o sujeito de «Choveu muito ontem»?",
+    "options": [
+      "Inexistente",
+      "Nulo subentendido",
+      "Indeterminado",
+      "«muito»"
+    ],
+    "answer": 0,
+    "explanation": "Os verbos que exprimem fenómenos da natureza não têm sujeito: sujeito inexistente (nulo expletivo).",
+    "position": 195
+  },
+  {
+    "id": "por-gramatica-33",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Em «A Ana parece cansada», que função desempenha «cansada»?",
+    "options": [
+      "Predicativo do sujeito",
+      "Complemento direto",
+      "Modificador",
+      "Sujeito"
+    ],
+    "answer": 0,
+    "explanation": "Depois de um verbo copulativo (ser, estar, parecer…), atribui uma característica ao sujeito.",
+    "position": 196
+  },
+  {
+    "id": "por-gramatica-34",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Como se formou a palavra «guarda-chuva»?",
+    "options": [
+      "Por composição",
+      "Por prefixação",
+      "Por sufixação",
+      "Por parassíntese"
+    ],
+    "answer": 0,
+    "explanation": "Juntam-se duas palavras que já existem, «guarda» e «chuva», para formar uma nova.",
+    "position": 197
+  },
+  {
+    "id": "por-gramatica-35",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "hard",
+    "text": "Como se formou a palavra «entardecer»?",
+    "options": [
+      "Por parassíntese",
+      "Por composição",
+      "Só por prefixação",
+      "Só por sufixação"
+    ],
+    "answer": 0,
+    "explanation": "Juntam-se ao mesmo tempo um prefixo (en-) e um sufixo (-ecer) a «tarde»; não existem «entarde» nem «tardecer».",
+    "position": 198
+  },
+  {
+    "id": "por-gramatica-4",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Na frase «Dei o caderno ao meu irmão», qual é o complemento indireto?",
+    "options": [
+      "ao meu irmão",
+      "o caderno",
+      "Dei",
+      "o caderno ao meu irmão"
+    ],
+    "answer": 0,
+    "explanation": "Dei a quem? «ao meu irmão». Pode ser substituído por «lhe»: «Dei-lhe o caderno».",
+    "position": 167
+  },
+  {
+    "id": "por-gramatica-5",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Em «Amanhã viajarei para o Huambo», em que tempo está o verbo?",
+    "options": [
+      "Futuro do indicativo",
+      "Pretérito perfeito do indicativo",
+      "Presente do conjuntivo",
+      "Condicional"
+    ],
+    "answer": 0,
+    "explanation": "«Viajarei» indica uma ação que ainda vai acontecer: futuro do indicativo.",
+    "position": 168
+  },
+  {
+    "id": "por-gramatica-6",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "medium",
+    "text": "Em «Se eu tivesse tempo, ajudava-te», em que tempo e modo está «tivesse»?",
+    "options": [
+      "Pretérito imperfeito do conjuntivo",
+      "Presente do conjuntivo",
+      "Pretérito mais-que-perfeito do indicativo",
+      "Condicional"
+    ],
+    "answer": 0,
+    "explanation": "Exprime uma condição hipotética: pretérito imperfeito do conjuntivo (que eu tivesse, que tu tivesses…).",
+    "position": 169
+  },
+  {
+    "id": "por-gramatica-7",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o plural de «cidadão»?",
+    "options": [
+      "cidadãos",
+      "cidadões",
+      "cidadães",
+      "cidadans"
+    ],
+    "answer": 0,
+    "explanation": "Cidadão faz o plural em -ãos, como irmão (irmãos) e mão (mãos).",
+    "position": 170
+  },
+  {
+    "id": "por-gramatica-8",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o plural de «pão»?",
+    "options": [
+      "pães",
+      "pãos",
+      "pões",
+      "pãis"
+    ],
+    "answer": 0,
+    "explanation": "Pão faz o plural em -ães, como cão (cães) e capitão (capitães).",
+    "position": 171
+  },
+  {
+    "id": "por-gramatica-9",
+    "subject": "portugues",
+    "topic": "gramatica",
+    "level": "easy",
+    "text": "Qual é o plural de «papel»?",
+    "options": [
+      "papéis",
+      "papels",
+      "papeles",
+      "papéus"
+    ],
+    "answer": 0,
+    "explanation": "Os nomes terminados em -el fazem o plural em -éis: papel, papéis; anel, anéis.",
+    "position": 172
+  },
+  {
+    "id": "por-interpretacao-1",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "O rio Kwanza nasce no planalto do Bié e percorre cerca de mil quilómetros até ao oceano Atlântico, a sul de Luanda. Ao longo do seu curso, as águas regam campos de cultivo, movem as turbinas de barragens e dão sustento a muitas famílias de pescadores. Nos últimos anos, porém, o lixo e a areia retirada sem controlo das margens têm ameaçado o equilíbrio do rio. Proteger o Kwanza é proteger uma parte da própria história de Angola, que dele recebeu o nome da sua moeda.",
+    "text": "Segundo o texto, onde nasce o rio Kwanza?",
+    "options": [
+      "No planalto do Bié",
+      "Em Luanda",
+      "No oceano Atlântico",
+      "Numa barragem"
+    ],
+    "answer": 0,
+    "explanation": "O texto diz logo na primeira frase: «nasce no planalto do Bié». O Atlântico é onde o rio termina.",
+    "position": 126
+  },
+  {
+    "id": "por-interpretacao-10",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Quando a Lueji terminou o ensino médio, enviou dezenas de currículos e não recebeu resposta. Em vez de desistir, decidiu fazer voluntariado numa associação do seu bairro, onde ensinava informática a crianças. Seis meses depois, o pai de uma das crianças, gerente de uma pequena empresa, reparou na paciência e na organização da jovem e ofereceu-lhe um estágio. Hoje, a Lueji diz que aprendeu uma lição: as oportunidades nem sempre chegam pela porta que esperamos.",
+    "text": "Quanto ao tipo, o texto é sobretudo…",
+    "options": [
+      "narrativo",
+      "argumentativo",
+      "instrucional",
+      "poético"
+    ],
+    "answer": 0,
+    "explanation": "Conta acontecimentos de uma personagem ao longo do tempo («Quando…», «Seis meses depois…», «Hoje…»).",
+    "position": 135
+  },
+  {
+    "id": "por-interpretacao-11",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Há quem defenda que os telemóveis devem ser proibidos nas salas de aula, por distraírem os alunos. Contudo, proibir é a solução mais fácil, não a mais inteligente. Um telemóvel pode ser um dicionário, uma calculadora e uma biblioteca no bolso. O desafio está em ensinar os jovens a usá-lo com regras claras: na hora certa e para o fim certo. Uma escola que ignora a tecnologia prepara os alunos para um mundo que já não existe.",
+    "text": "Qual é a posição do autor?",
+    "options": [
+      "É contra a proibição e defende o uso com regras",
+      "Defende a proibição total",
+      "Não tem opinião",
+      "Defende o uso sem qualquer regra"
+    ],
+    "answer": 0,
+    "explanation": "O autor diz que proibir não é a solução mais inteligente e propõe ensinar a usar o telemóvel com regras claras.",
+    "position": 136
+  },
+  {
+    "id": "por-interpretacao-12",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Há quem defenda que os telemóveis devem ser proibidos nas salas de aula, por distraírem os alunos. Contudo, proibir é a solução mais fácil, não a mais inteligente. Um telemóvel pode ser um dicionário, uma calculadora e uma biblioteca no bolso. O desafio está em ensinar os jovens a usá-lo com regras claras: na hora certa e para o fim certo. Uma escola que ignora a tecnologia prepara os alunos para um mundo que já não existe.",
+    "text": "Que argumento usa o autor para defender a sua posição?",
+    "options": [
+      "O telemóvel pode servir de ferramenta de estudo",
+      "Os telemóveis são baratos",
+      "Os professores também usam telemóveis",
+      "Os pais exigem que os filhos o levem"
+    ],
+    "answer": 0,
+    "explanation": "Diz que o telemóvel «pode ser um dicionário, uma calculadora e uma biblioteca no bolso».",
+    "position": 137
+  },
+  {
+    "id": "por-interpretacao-13",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Há quem defenda que os telemóveis devem ser proibidos nas salas de aula, por distraírem os alunos. Contudo, proibir é a solução mais fácil, não a mais inteligente. Um telemóvel pode ser um dicionário, uma calculadora e uma biblioteca no bolso. O desafio está em ensinar os jovens a usá-lo com regras claras: na hora certa e para o fim certo. Uma escola que ignora a tecnologia prepara os alunos para um mundo que já não existe.",
+    "text": "A palavra «Contudo» pode ser substituída, sem mudar o sentido, por…",
+    "options": [
+      "No entanto",
+      "Portanto",
+      "Porque",
+      "Além disso"
+    ],
+    "answer": 0,
+    "explanation": "Ambas exprimem oposição. «Portanto» é conclusivo, «porque» é causal e «além disso» é aditivo.",
+    "position": 138
+  },
+  {
+    "id": "por-interpretacao-14",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Há quem defenda que os telemóveis devem ser proibidos nas salas de aula, por distraírem os alunos. Contudo, proibir é a solução mais fácil, não a mais inteligente. Um telemóvel pode ser um dicionário, uma calculadora e uma biblioteca no bolso. O desafio está em ensinar os jovens a usá-lo com regras claras: na hora certa e para o fim certo. Uma escola que ignora a tecnologia prepara os alunos para um mundo que já não existe.",
+    "text": "Que tipo de texto é este?",
+    "options": [
+      "Argumentativo (de opinião)",
+      "Narrativo",
+      "Descritivo",
+      "Instrucional"
+    ],
+    "answer": 0,
+    "explanation": "O autor apresenta uma tese (proibir não é a melhor solução) e argumentos para a defender.",
+    "position": 139
+  },
+  {
+    "id": "por-interpretacao-15",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "hard",
+    "passage": "Há quem defenda que os telemóveis devem ser proibidos nas salas de aula, por distraírem os alunos. Contudo, proibir é a solução mais fácil, não a mais inteligente. Um telemóvel pode ser um dicionário, uma calculadora e uma biblioteca no bolso. O desafio está em ensinar os jovens a usá-lo com regras claras: na hora certa e para o fim certo. Uma escola que ignora a tecnologia prepara os alunos para um mundo que já não existe.",
+    "text": "Com a última frase, o autor quer dizer que…",
+    "options": [
+      "a escola deve acompanhar as mudanças do mundo",
+      "a escola deve voltar ao passado",
+      "o mundo vai acabar",
+      "a tecnologia não tem futuro"
+    ],
+    "answer": 0,
+    "explanation": "Uma escola que ignora a tecnologia prepara para um mundo antigo, que «já não existe»: deve, pelo contrário, acompanhar o presente.",
+    "position": 140
+  },
+  {
+    "id": "por-interpretacao-16",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Na varanda da avó\no tempo anda devagar:\na panela canta no fogo,\no vento penteia o mar.",
+    "text": "Que recurso expressivo há em «a panela canta no fogo»?",
+    "options": [
+      "Personificação",
+      "Comparação",
+      "Hipérbole",
+      "Antítese"
+    ],
+    "answer": 0,
+    "explanation": "Atribui-se uma ação humana (cantar) a um objeto. Não há «como» (comparação) nem exagero (hipérbole).",
+    "position": 141
+  },
+  {
+    "id": "por-interpretacao-17",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Na varanda da avó\no tempo anda devagar:\na panela canta no fogo,\no vento penteia o mar.",
+    "text": "O verso «o tempo anda devagar» sugere…",
+    "options": [
+      "um ambiente calmo e tranquilo",
+      "que o relógio está avariado",
+      "que a avó é lenta",
+      "pressa e agitação"
+    ],
+    "answer": 0,
+    "explanation": "Na casa da avó tudo parece calmo: a passagem do tempo sente-se mais lenta.",
+    "position": 142
+  },
+  {
+    "id": "por-interpretacao-18",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Na varanda da avó\no tempo anda devagar:\na panela canta no fogo,\no vento penteia o mar.",
+    "text": "Que palavras rimam no poema?",
+    "options": [
+      "devagar e mar",
+      "avó e fogo",
+      "canta e penteia",
+      "varanda e tempo"
+    ],
+    "answer": 0,
+    "explanation": "Rimam o 2.º e o 4.º versos: «devagar» e «mar», com o mesmo som final.",
+    "position": 143
+  },
+  {
+    "id": "por-interpretacao-19",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Na varanda da avó\no tempo anda devagar:\na panela canta no fogo,\no vento penteia o mar.",
+    "text": "Quantos versos tem a estrofe e como se chama?",
+    "options": [
+      "Quatro: uma quadra",
+      "Três: um terceto",
+      "Dois: um dístico",
+      "Cinco: uma quintilha"
+    ],
+    "answer": 0,
+    "explanation": "Cada linha é um verso; quatro versos formam uma quadra.",
+    "position": 144
+  },
+  {
+    "id": "por-interpretacao-2",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "O rio Kwanza nasce no planalto do Bié e percorre cerca de mil quilómetros até ao oceano Atlântico, a sul de Luanda. Ao longo do seu curso, as águas regam campos de cultivo, movem as turbinas de barragens e dão sustento a muitas famílias de pescadores. Nos últimos anos, porém, o lixo e a areia retirada sem controlo das margens têm ameaçado o equilíbrio do rio. Proteger o Kwanza é proteger uma parte da própria história de Angola, que dele recebeu o nome da sua moeda.",
+    "text": "Que ameaças ao rio o texto refere?",
+    "options": [
+      "O lixo e a areia retirada das margens sem controlo",
+      "A pesca e a agricultura",
+      "As barragens e a moeda",
+      "A falta de chuva"
+    ],
+    "answer": 0,
+    "explanation": "A frase com «porém» aponta o lixo e a areia retirada sem controlo. A pesca e a agricultura aparecem como benefícios do rio.",
+    "position": 127
+  },
+  {
+    "id": "por-interpretacao-20",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Em Angola, o acesso às instituições públicas de ensino superior faz-se, em regra, através de um exame. Como o número de candidatos é muito superior ao de vagas, ter a nota mínima não basta: entram os candidatos com as melhores classificações, até se preencherem as vagas de cada curso. Por isso, preparar-se com antecedência, conhecer as disciplinas do exame e treinar com tempo pode fazer a diferença.",
+    "text": "Segundo o texto, porque não basta ter a nota mínima?",
+    "options": [
+      "Porque há mais candidatos do que vagas",
+      "Porque o exame é fácil",
+      "Porque as vagas são ilimitadas",
+      "Porque não há exame"
+    ],
+    "answer": 0,
+    "explanation": "O texto explica: «Como o número de candidatos é muito superior ao de vagas», entram só os mais bem classificados.",
+    "position": 145
+  },
+  {
+    "id": "por-interpretacao-21",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Em Angola, o acesso às instituições públicas de ensino superior faz-se, em regra, através de um exame. Como o número de candidatos é muito superior ao de vagas, ter a nota mínima não basta: entram os candidatos com as melhores classificações, até se preencherem as vagas de cada curso. Por isso, preparar-se com antecedência, conhecer as disciplinas do exame e treinar com tempo pode fazer a diferença.",
+    "text": "No texto, «em regra» significa…",
+    "options": [
+      "normalmente",
+      "nunca",
+      "por obrigação da lei",
+      "raramente"
+    ],
+    "answer": 0,
+    "explanation": "«Em regra» quer dizer «na maior parte dos casos», admitindo exceções.",
+    "position": 146
+  },
+  {
+    "id": "por-interpretacao-22",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Em Angola, o acesso às instituições públicas de ensino superior faz-se, em regra, através de um exame. Como o número de candidatos é muito superior ao de vagas, ter a nota mínima não basta: entram os candidatos com as melhores classificações, até se preencherem as vagas de cada curso. Por isso, preparar-se com antecedência, conhecer as disciplinas do exame e treinar com tempo pode fazer a diferença.",
+    "text": "A expressão «Por isso» introduz…",
+    "options": [
+      "uma conclusão",
+      "uma causa",
+      "uma oposição",
+      "um exemplo"
+    ],
+    "answer": 0,
+    "explanation": "Do que foi dito (há poucas vagas) tira-se uma conclusão: preparar-se com tempo faz a diferença.",
+    "position": 147
+  },
+  {
+    "id": "por-interpretacao-23",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Em Angola, o acesso às instituições públicas de ensino superior faz-se, em regra, através de um exame. Como o número de candidatos é muito superior ao de vagas, ter a nota mínima não basta: entram os candidatos com as melhores classificações, até se preencherem as vagas de cada curso. Por isso, preparar-se com antecedência, conhecer as disciplinas do exame e treinar com tempo pode fazer a diferença.",
+    "text": "Qual é a finalidade principal do texto?",
+    "options": [
+      "Informar e aconselhar os candidatos",
+      "Contar uma história",
+      "Descrever uma paisagem",
+      "Criticar as universidades"
+    ],
+    "answer": 0,
+    "explanation": "Explica como funciona o acesso e termina com um conselho prático.",
+    "position": 148
+  },
+  {
+    "id": "por-interpretacao-24",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "O mercado abre antes do sol. As bancas enchem-se de mandioca, gimboa, peixe seco e fruta da época, e as vozes das zungueiras misturam-se com o ruído dos candongueiros que chegam e partem. Às dez horas, o calor já pesa, mas o movimento não abranda: vende-se, regateia-se, conversa-se. O mercado é, ao mesmo tempo, loja, ponto de encontro e jornal do bairro.",
+    "text": "Que tipo de texto predomina?",
+    "options": [
+      "Descritivo",
+      "Argumentativo",
+      "Instrucional",
+      "Dramático"
+    ],
+    "answer": 0,
+    "explanation": "O texto mostra o mercado através de pormenores: os produtos, os sons, o calor, o movimento.",
+    "position": 149
+  },
+  {
+    "id": "por-interpretacao-25",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "hard",
+    "passage": "O mercado abre antes do sol. As bancas enchem-se de mandioca, gimboa, peixe seco e fruta da época, e as vozes das zungueiras misturam-se com o ruído dos candongueiros que chegam e partem. Às dez horas, o calor já pesa, mas o movimento não abranda: vende-se, regateia-se, conversa-se. O mercado é, ao mesmo tempo, loja, ponto de encontro e jornal do bairro.",
+    "text": "Dizer que o mercado é «jornal do bairro» significa que…",
+    "options": [
+      "é um lugar onde circulam as notícias do bairro",
+      "lá se vendem jornais",
+      "tem uma redação de jornalistas",
+      "é um edifício novo"
+    ],
+    "answer": 0,
+    "explanation": "É uma metáfora: como num jornal, no mercado ficam-se a saber as novidades, porque as pessoas conversam.",
+    "position": 150
+  },
+  {
+    "id": "por-interpretacao-26",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "O mercado abre antes do sol. As bancas enchem-se de mandioca, gimboa, peixe seco e fruta da época, e as vozes das zungueiras misturam-se com o ruído dos candongueiros que chegam e partem. Às dez horas, o calor já pesa, mas o movimento não abranda: vende-se, regateia-se, conversa-se. O mercado é, ao mesmo tempo, loja, ponto de encontro e jornal do bairro.",
+    "text": "No texto, «regateia-se» quer dizer que…",
+    "options": [
+      "se discute o preço",
+      "se foge",
+      "se grita",
+      "se rega"
+    ],
+    "answer": 0,
+    "explanation": "Regatear é discutir o preço para o baixar.",
+    "position": 151
+  },
+  {
+    "id": "por-interpretacao-27",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "O mercado abre antes do sol. As bancas enchem-se de mandioca, gimboa, peixe seco e fruta da época, e as vozes das zungueiras misturam-se com o ruído dos candongueiros que chegam e partem. Às dez horas, o calor já pesa, mas o movimento não abranda: vende-se, regateia-se, conversa-se. O mercado é, ao mesmo tempo, loja, ponto de encontro e jornal do bairro.",
+    "text": "No texto, «o movimento não abranda» quer dizer que o movimento…",
+    "options": [
+      "não diminui",
+      "não começa",
+      "não aumenta",
+      "não muda de lugar"
+    ],
+    "answer": 0,
+    "explanation": "Abrandar é diminuir de intensidade ou de velocidade: apesar do calor, há tanta gente como antes.",
+    "position": 152
+  },
+  {
+    "id": "por-interpretacao-28",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "hard",
+    "passage": "O mercado abre antes do sol. As bancas enchem-se de mandioca, gimboa, peixe seco e fruta da época, e as vozes das zungueiras misturam-se com o ruído dos candongueiros que chegam e partem. Às dez horas, o calor já pesa, mas o movimento não abranda: vende-se, regateia-se, conversa-se. O mercado é, ao mesmo tempo, loja, ponto de encontro e jornal do bairro.",
+    "text": "Que recurso há em «loja, ponto de encontro e jornal do bairro»?",
+    "options": [
+      "Enumeração",
+      "Antítese",
+      "Ironia",
+      "Eufemismo"
+    ],
+    "answer": 0,
+    "explanation": "Enumeram-se, um a seguir ao outro, os vários papéis do mercado.",
+    "position": 153
+  },
+  {
+    "id": "por-interpretacao-29",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "A malária é transmitida pela picada do mosquito Anopheles fêmea, infetado por um parasita. Dormir debaixo de uma rede mosquiteira tratada com inseticida, eliminar as águas paradas perto de casa e procurar um centro de saúde ao primeiro sinal de febre são medidas simples que salvam vidas. O tratamento precoce é decisivo, sobretudo nas crianças.",
+    "text": "Segundo o texto, quem transmite a malária?",
+    "options": [
+      "O mosquito Anopheles fêmea infetado",
+      "A água parada",
+      "Qualquer mosquito macho",
+      "A rede mosquiteira"
+    ],
+    "answer": 0,
+    "explanation": "A primeira frase diz que é a picada do mosquito Anopheles fêmea infetado. A água parada é onde os mosquitos se reproduzem.",
+    "position": 154
+  },
+  {
+    "id": "por-interpretacao-3",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "O rio Kwanza nasce no planalto do Bié e percorre cerca de mil quilómetros até ao oceano Atlântico, a sul de Luanda. Ao longo do seu curso, as águas regam campos de cultivo, movem as turbinas de barragens e dão sustento a muitas famílias de pescadores. Nos últimos anos, porém, o lixo e a areia retirada sem controlo das margens têm ameaçado o equilíbrio do rio. Proteger o Kwanza é proteger uma parte da própria história de Angola, que dele recebeu o nome da sua moeda.",
+    "text": "No texto, «dão sustento a muitas famílias» significa que as águas…",
+    "options": [
+      "garantem o meio de vida dessas famílias",
+      "dão força física às famílias",
+      "seguram as margens do rio",
+      "alimentam os peixes"
+    ],
+    "answer": 0,
+    "explanation": "«Sustento» é aquilo de que alguém vive: aqui, a pesca dá rendimento e comida às famílias.",
+    "position": 128
+  },
+  {
+    "id": "por-interpretacao-30",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "A malária é transmitida pela picada do mosquito Anopheles fêmea, infetado por um parasita. Dormir debaixo de uma rede mosquiteira tratada com inseticida, eliminar as águas paradas perto de casa e procurar um centro de saúde ao primeiro sinal de febre são medidas simples que salvam vidas. O tratamento precoce é decisivo, sobretudo nas crianças.",
+    "text": "Que medida NÃO é referida no texto?",
+    "options": [
+      "Tomar banho de água fria",
+      "Dormir com rede mosquiteira",
+      "Eliminar as águas paradas",
+      "Ir ao centro de saúde quando há febre"
+    ],
+    "answer": 0,
+    "explanation": "O texto refere a rede, as águas paradas e o centro de saúde. O banho não aparece.",
+    "position": 155
+  },
+  {
+    "id": "por-interpretacao-31",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "A malária é transmitida pela picada do mosquito Anopheles fêmea, infetado por um parasita. Dormir debaixo de uma rede mosquiteira tratada com inseticida, eliminar as águas paradas perto de casa e procurar um centro de saúde ao primeiro sinal de febre são medidas simples que salvam vidas. O tratamento precoce é decisivo, sobretudo nas crianças.",
+    "text": "No texto, «tratamento precoce» é um tratamento…",
+    "options": [
+      "feito cedo",
+      "feito tarde",
+      "caro",
+      "doloroso"
+    ],
+    "answer": 0,
+    "explanation": "«Precoce» quer dizer que acontece cedo, logo nos primeiros sinais.",
+    "position": 156
+  },
+  {
+    "id": "por-interpretacao-32",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "A malária é transmitida pela picada do mosquito Anopheles fêmea, infetado por um parasita. Dormir debaixo de uma rede mosquiteira tratada com inseticida, eliminar as águas paradas perto de casa e procurar um centro de saúde ao primeiro sinal de febre são medidas simples que salvam vidas. O tratamento precoce é decisivo, sobretudo nas crianças.",
+    "text": "No texto, «sobretudo» pode ser substituído por…",
+    "options": [
+      "principalmente",
+      "apenas",
+      "nunca",
+      "também não"
+    ],
+    "answer": 0,
+    "explanation": "«Sobretudo» destaca as crianças, sem excluir os outros: «principalmente».",
+    "position": 157
+  },
+  {
+    "id": "por-interpretacao-33",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "— Que pontualidade! — disse o professor, quando o Kiala entrou na sala, quarenta minutos depois do início da aula.",
+    "text": "Que recurso expressivo usa o professor?",
+    "options": [
+      "Ironia",
+      "Comparação",
+      "Aliteração",
+      "Hipérbole"
+    ],
+    "answer": 0,
+    "explanation": "Diz o contrário do que pensa: elogia a pontualidade de quem chegou muito atrasado.",
+    "position": 158
+  },
+  {
+    "id": "por-interpretacao-34",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "— Que pontualidade! — disse o professor, quando o Kiala entrou na sala, quarenta minutos depois do início da aula.",
+    "text": "Com a sua frase, o professor pretende…",
+    "options": [
+      "criticar o atraso do Kiala",
+      "elogiar o Kiala",
+      "saber as horas",
+      "começar a aula"
+    ],
+    "answer": 0,
+    "explanation": "A ironia serve aqui para criticar: o Kiala chegou quarenta minutos atrasado.",
+    "position": 159
+  },
+  {
+    "id": "por-interpretacao-35",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "text": "Que recurso há em «Já te disse isto um milhão de vezes!»?",
+    "options": [
+      "Hipérbole",
+      "Ironia",
+      "Metáfora",
+      "Eufemismo"
+    ],
+    "answer": 0,
+    "explanation": "É um exagero intencional para dar força à ideia: hipérbole.",
+    "position": 160
+  },
+  {
+    "id": "por-interpretacao-36",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "text": "Que recurso há em «Ele partiu desta para melhor», dito de alguém que morreu?",
+    "options": [
+      "Eufemismo",
+      "Hipérbole",
+      "Ironia",
+      "Antítese"
+    ],
+    "answer": 0,
+    "explanation": "Suaviza-se uma ideia dura (a morte) com uma expressão mais leve: eufemismo.",
+    "position": 161
+  },
+  {
+    "id": "por-interpretacao-37",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "text": "Que recurso há em «És forte como um leão»?",
+    "options": [
+      "Comparação",
+      "Metáfora",
+      "Personificação",
+      "Antítese"
+    ],
+    "answer": 0,
+    "explanation": "Há uma palavra que compara («como»). Sem ela («És um leão») seria uma metáfora.",
+    "position": 162
+  },
+  {
+    "id": "por-interpretacao-38",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "text": "Que recurso há em «A vida é um rio»?",
+    "options": [
+      "Metáfora",
+      "Comparação",
+      "Ironia",
+      "Hipérbole"
+    ],
+    "answer": 0,
+    "explanation": "Identifica-se a vida com um rio, sem palavra comparativa: metáfora.",
+    "position": 163
+  },
+  {
+    "id": "por-interpretacao-4",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "O rio Kwanza nasce no planalto do Bié e percorre cerca de mil quilómetros até ao oceano Atlântico, a sul de Luanda. Ao longo do seu curso, as águas regam campos de cultivo, movem as turbinas de barragens e dão sustento a muitas famílias de pescadores. Nos últimos anos, porém, o lixo e a areia retirada sem controlo das margens têm ameaçado o equilíbrio do rio. Proteger o Kwanza é proteger uma parte da própria história de Angola, que dele recebeu o nome da sua moeda.",
+    "text": "Qual é a ideia principal do texto?",
+    "options": [
+      "O Kwanza é muito importante para Angola e precisa de ser protegido",
+      "O Kwanza é o rio mais longo de África",
+      "Os pescadores poluem o rio",
+      "A moeda angolana vai mudar de nome"
+    ],
+    "answer": 0,
+    "explanation": "O texto mostra a importância do rio e termina com o apelo a protegê-lo. As outras opções não estão no texto.",
+    "position": 129
+  },
+  {
+    "id": "por-interpretacao-5",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "O rio Kwanza nasce no planalto do Bié e percorre cerca de mil quilómetros até ao oceano Atlântico, a sul de Luanda. Ao longo do seu curso, as águas regam campos de cultivo, movem as turbinas de barragens e dão sustento a muitas famílias de pescadores. Nos últimos anos, porém, o lixo e a areia retirada sem controlo das margens têm ameaçado o equilíbrio do rio. Proteger o Kwanza é proteger uma parte da própria história de Angola, que dele recebeu o nome da sua moeda.",
+    "text": "A palavra «porém» estabelece entre as frases uma relação de…",
+    "options": [
+      "oposição",
+      "causa",
+      "conclusão",
+      "adição"
+    ],
+    "answer": 0,
+    "explanation": "«Porém» é uma conjunção adversativa: depois dos benefícios do rio, introduz o que se opõe a eles, as ameaças.",
+    "position": 130
+  },
+  {
+    "id": "por-interpretacao-6",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "easy",
+    "passage": "Quando a Lueji terminou o ensino médio, enviou dezenas de currículos e não recebeu resposta. Em vez de desistir, decidiu fazer voluntariado numa associação do seu bairro, onde ensinava informática a crianças. Seis meses depois, o pai de uma das crianças, gerente de uma pequena empresa, reparou na paciência e na organização da jovem e ofereceu-lhe um estágio. Hoje, a Lueji diz que aprendeu uma lição: as oportunidades nem sempre chegam pela porta que esperamos.",
+    "text": "Porque conseguiu a Lueji o estágio?",
+    "options": [
+      "Um pai reparou nas qualidades dela durante o voluntariado",
+      "Respondeu a um anúncio de emprego",
+      "Uma empresa respondeu a um currículo",
+      "A associação contratou-a"
+    ],
+    "answer": 0,
+    "explanation": "O estágio veio do pai de uma das crianças, que reparou na paciência e na organização da jovem. Os currículos não tiveram resposta.",
+    "position": 131
+  },
+  {
+    "id": "por-interpretacao-7",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Quando a Lueji terminou o ensino médio, enviou dezenas de currículos e não recebeu resposta. Em vez de desistir, decidiu fazer voluntariado numa associação do seu bairro, onde ensinava informática a crianças. Seis meses depois, o pai de uma das crianças, gerente de uma pequena empresa, reparou na paciência e na organização da jovem e ofereceu-lhe um estágio. Hoje, a Lueji diz que aprendeu uma lição: as oportunidades nem sempre chegam pela porta que esperamos.",
+    "text": "A expressão «Em vez de desistir» mostra que a Lueji foi…",
+    "options": [
+      "persistente",
+      "impaciente",
+      "desorganizada",
+      "indecisa"
+    ],
+    "answer": 0,
+    "explanation": "Perante a falta de resposta, ela continuou a procurar outro caminho: é sinal de persistência.",
+    "position": 132
+  },
+  {
+    "id": "por-interpretacao-8",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Quando a Lueji terminou o ensino médio, enviou dezenas de currículos e não recebeu resposta. Em vez de desistir, decidiu fazer voluntariado numa associação do seu bairro, onde ensinava informática a crianças. Seis meses depois, o pai de uma das crianças, gerente de uma pequena empresa, reparou na paciência e na organização da jovem e ofereceu-lhe um estágio. Hoje, a Lueji diz que aprendeu uma lição: as oportunidades nem sempre chegam pela porta que esperamos.",
+    "text": "A lição final quer dizer que…",
+    "options": [
+      "as oportunidades podem surgir por caminhos inesperados",
+      "é inútil enviar currículos",
+      "só se arranja emprego por amizade",
+      "o voluntariado é sempre pago"
+    ],
+    "answer": 0,
+    "explanation": "A «porta que esperamos» eram os currículos; a oportunidade veio por outra, o voluntariado.",
+    "position": 133
+  },
+  {
+    "id": "por-interpretacao-9",
+    "subject": "portugues",
+    "topic": "interpretacao",
+    "level": "medium",
+    "passage": "Quando a Lueji terminou o ensino médio, enviou dezenas de currículos e não recebeu resposta. Em vez de desistir, decidiu fazer voluntariado numa associação do seu bairro, onde ensinava informática a crianças. Seis meses depois, o pai de uma das crianças, gerente de uma pequena empresa, reparou na paciência e na organização da jovem e ofereceu-lhe um estágio. Hoje, a Lueji diz que aprendeu uma lição: as oportunidades nem sempre chegam pela porta que esperamos.",
+    "text": "Em «ofereceu-lhe um estágio», o pronome «lhe» refere-se…",
+    "options": [
+      "à Lueji",
+      "ao pai",
+      "à empresa",
+      "às crianças"
+    ],
+    "answer": 0,
+    "explanation": "O estágio foi oferecido à jovem: «lhe» substitui «à Lueji» (complemento indireto).",
+    "position": 134
+  },
+  {
+    "id": "por-ortografia-1",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "excelente",
+      "exelente",
+      "escelente",
+      "excellente"
+    ],
+    "answer": 0,
+    "explanation": "Escreve-se com «xc»: excelente, como exceder.",
+    "position": 199
+  },
+  {
+    "id": "por-ortografia-10",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "hard",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "ascensão",
+      "acensão",
+      "ascenção",
+      "assenção"
+    ],
+    "answer": 0,
+    "explanation": "Ascensão vem de «ascender» (subir): com «sc» e terminação «-são».",
+    "position": 208
+  },
+  {
+    "id": "por-ortografia-11",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "hard",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "obsessão",
+      "obcessão",
+      "obseção",
+      "obsseção"
+    ],
+    "answer": 0,
+    "explanation": "Escreve-se com «bs» e «ss»: obsessão, obsessivo.",
+    "position": 209
+  },
+  {
+    "id": "por-ortografia-12",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "extensão",
+      "extenção",
+      "estensão",
+      "extenssão"
+    ],
+    "answer": 0,
+    "explanation": "Vem de «estender», mas escreve-se com «x»: extensão, extenso.",
+    "position": 210
+  },
+  {
+    "id": "por-ortografia-13",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Completa: «___ dois anos que estudo inglês.»",
+    "options": [
+      "Há",
+      "À",
+      "A",
+      "Ah"
+    ],
+    "answer": 0,
+    "explanation": "«Há» (do verbo haver) indica tempo passado. «À» é a preposição «a» com o artigo «a».",
+    "position": 211
+  },
+  {
+    "id": "por-ortografia-14",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Completa: «Vou ___ escola de manhã.»",
+    "options": [
+      "à",
+      "há",
+      "a",
+      "á"
+    ],
+    "answer": 0,
+    "explanation": "Vou a + a escola = à escola (contração da preposição com o artigo).",
+    "position": 212
+  },
+  {
+    "id": "por-ortografia-15",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Completa: «Ainda vou ___ a mesa para o jantar.»",
+    "options": [
+      "pôr",
+      "por",
+      "pór",
+      "poer"
+    ],
+    "answer": 0,
+    "explanation": "O verbo «pôr» leva acento para se distinguir da preposição «por».",
+    "position": 213
+  },
+  {
+    "id": "por-ortografia-16",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Completa: «Não fui à festa ___ estava doente.»",
+    "options": [
+      "porque",
+      "por que",
+      "porquê",
+      "por quê"
+    ],
+    "answer": 0,
+    "explanation": "Introduz uma causa: «porque», numa só palavra e sem acento.",
+    "position": 214
+  },
+  {
+    "id": "por-ortografia-17",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Completa: «Chegaste tarde. ___?»",
+    "options": [
+      "Porquê",
+      "Porque",
+      "Por que",
+      "Por quê"
+    ],
+    "answer": 0,
+    "explanation": "No fim de uma pergunta, sozinho, escreve-se «porquê», com acento.",
+    "position": 215
+  },
+  {
+    "id": "por-ortografia-18",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Completa: «Queria ir, ___ não tive dinheiro.»",
+    "options": [
+      "mas",
+      "mais",
+      "más",
+      "maz"
+    ],
+    "answer": 0,
+    "explanation": "«Mas» liga ideias opostas. «Mais» indica quantidade e «más» é o feminino plural de «mau».",
+    "position": 216
+  },
+  {
+    "id": "por-ortografia-19",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "saída",
+      "saida",
+      "saìda",
+      "sáida"
+    ],
+    "answer": 0,
+    "explanation": "O «i» tónico depois de vogal, sozinho na sílaba, leva acento: sa-í-da.",
+    "position": 217
+  },
+  {
+    "id": "por-ortografia-2",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "privilégio",
+      "previlégio",
+      "privilégeo",
+      "previlégeo"
+    ],
+    "answer": 0,
+    "explanation": "Pri-vi-lé-gio: com «i» na primeira sílaba e terminação «-gio».",
+    "position": 200
+  },
+  {
+    "id": "por-ortografia-20",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "raízes",
+      "raizes",
+      "ráizes",
+      "raíses"
+    ],
+    "answer": 0,
+    "explanation": "Ra-í-zes: o «i» tónico em hiato leva acento. «Raiz» não leva, porque o «z» fica na mesma sílaba.",
+    "position": 218
+  },
+  {
+    "id": "por-ortografia-21",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Completa: «O meu ___ é Angola.»",
+    "options": [
+      "país",
+      "pais",
+      "paìs",
+      "paiz"
+    ],
+    "answer": 0,
+    "explanation": "«País» (nação) leva acento no «i»; «pais» é o plural de «pai».",
+    "position": 219
+  },
+  {
+    "id": "por-ortografia-22",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "atrás",
+      "atraz",
+      "atráz",
+      "átras"
+    ],
+    "answer": 0,
+    "explanation": "Atrás escreve-se com «s» e acento na última sílaba.",
+    "position": 220
+  },
+  {
+    "id": "por-ortografia-23",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "através",
+      "atravéz",
+      "atravez",
+      "átraves"
+    ],
+    "answer": 0,
+    "explanation": "Através escreve-se com «s» e acento no «e».",
+    "position": 221
+  },
+  {
+    "id": "por-ortografia-24",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "ansioso",
+      "ancioso",
+      "ansiozo",
+      "anssioso"
+    ],
+    "answer": 0,
+    "explanation": "Vem de «ânsia», com «s»: ansioso, ansiedade.",
+    "position": 222
+  },
+  {
+    "id": "por-ortografia-25",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "rigidez",
+      "rigides",
+      "rigideza",
+      "regidez"
+    ],
+    "answer": 0,
+    "explanation": "Os nomes abstratos que vêm de adjetivos terminam em «-ez»: rígido, rigidez.",
+    "position": 223
+  },
+  {
+    "id": "por-ortografia-26",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual destas frases está bem escrita?",
+    "options": [
+      "Eles têm muitos livros.",
+      "Eles tem muitos livros.",
+      "Eles teem muitos livros.",
+      "Eles tẽm muitos livros."
+    ],
+    "answer": 0,
+    "explanation": "Na 3.ª pessoa do plural, «ter» leva acento circunflexo: ele tem, eles têm.",
+    "position": 224
+  },
+  {
+    "id": "por-ortografia-27",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "mexer",
+      "mecher",
+      "mexêr",
+      "mechêr"
+    ],
+    "answer": 0,
+    "explanation": "Mexer escreve-se com «x».",
+    "position": 225
+  },
+  {
+    "id": "por-ortografia-28",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "enxada",
+      "enchada",
+      "inxada",
+      "enxáda"
+    ],
+    "answer": 0,
+    "explanation": "Depois de «en-» escreve-se geralmente «x»: enxada, enxame, enxugar.",
+    "position": 226
+  },
+  {
+    "id": "por-ortografia-29",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "hesitar",
+      "exitar",
+      "ezitar",
+      "hezitar"
+    ],
+    "answer": 0,
+    "explanation": "Hesitar tem «h» inicial e «s».",
+    "position": 227
+  },
+  {
+    "id": "por-ortografia-3",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "cabeleireiro",
+      "cabelereiro",
+      "cabeleleiro",
+      "cabelireiro"
+    ],
+    "answer": 0,
+    "explanation": "Vem de «cabeleira» + «-eiro»: cabeleireiro.",
+    "position": 201
+  },
+  {
+    "id": "por-ortografia-30",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Completa: «Estudo muito ___ entrar na universidade.»",
+    "options": [
+      "a fim de",
+      "afim de",
+      "à fim de",
+      "há fim de"
+    ],
+    "answer": 0,
+    "explanation": "«A fim de» (para) escreve-se separado. «Afim» é um adjetivo que quer dizer semelhante.",
+    "position": 228
+  },
+  {
+    "id": "por-ortografia-4",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "hard",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "beneficente",
+      "beneficiente",
+      "benificente",
+      "beneficênte"
+    ],
+    "answer": 0,
+    "explanation": "Escreve-se beneficente, como beneficência. Não há «i» depois do «c».",
+    "position": 202
+  },
+  {
+    "id": "por-ortografia-5",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "empecilho",
+      "impecilho",
+      "empecílio",
+      "impecílio"
+    ],
+    "answer": 0,
+    "explanation": "Vem do verbo «empecer» (estorvar): empecilho, com «e» inicial e «lh».",
+    "position": 203
+  },
+  {
+    "id": "por-ortografia-6",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "mendigo",
+      "mendingo",
+      "mindigo",
+      "mendíngo"
+    ],
+    "answer": 0,
+    "explanation": "Men-di-go: sem «n» antes do «g».",
+    "position": 204
+  },
+  {
+    "id": "por-ortografia-7",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "medium",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "paralisar",
+      "paralizar",
+      "paralissar",
+      "paralizár"
+    ],
+    "answer": 0,
+    "explanation": "Vem de «paralisia», com «s»: paralisar.",
+    "position": 205
+  },
+  {
+    "id": "por-ortografia-8",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "análise",
+      "análize",
+      "anális",
+      "analíse"
+    ],
+    "answer": 0,
+    "explanation": "Escreve-se com «s», como analisar. A sílaba tónica é «na»: palavra esdrúxula, com acento.",
+    "position": 206
+  },
+  {
+    "id": "por-ortografia-9",
+    "subject": "portugues",
+    "topic": "ortografia",
+    "level": "easy",
+    "text": "Qual palavra está bem escrita?",
+    "options": [
+      "pesquisa",
+      "pesquiza",
+      "pesquissa",
+      "pesqisa"
+    ],
+    "answer": 0,
+    "explanation": "Escreve-se com «s» (som de z entre vogais) e «qu».",
+    "position": 207
+  },
+  {
+    "id": "por-vocabulario-1",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o sinónimo de «efémero»?",
+    "options": [
+      "passageiro",
+      "eterno",
+      "enorme",
+      "alegre"
+    ],
+    "answer": 0,
+    "explanation": "Efémero é o que dura pouco tempo. «Eterno» é o antónimo.",
+    "position": 229
+  },
+  {
+    "id": "por-vocabulario-10",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Completa: «A ___ de cinema começa às 20 horas.»",
+    "options": [
+      "sessão",
+      "cessão",
+      "sesão",
+      "ceção"
+    ],
+    "answer": 0,
+    "explanation": "«Sessão» é o tempo de uma reunião ou espetáculo; «cessão» é o ato de ceder.",
+    "position": 238
+  },
+  {
+    "id": "por-vocabulario-11",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Completa: «Pediu ___ sobre o assunto: não queria que ninguém soubesse.»",
+    "options": [
+      "discrição",
+      "descrição",
+      "discreção",
+      "descripção"
+    ],
+    "answer": 0,
+    "explanation": "«Discrição» é a qualidade de quem é discreto; «descrição» é o ato de descrever.",
+    "position": 239
+  },
+  {
+    "id": "por-vocabulario-12",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Completa: «O ___ de drogas é crime.»",
+    "options": [
+      "tráfico",
+      "tráfego",
+      "trafico",
+      "tráfeco"
+    ],
+    "answer": 0,
+    "explanation": "«Tráfico» é o comércio ilegal; «tráfego» é o movimento de veículos.",
+    "position": 240
+  },
+  {
+    "id": "por-vocabulario-13",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Completa: «Nos anos 90, muitos angolanos ___ para Portugal.»",
+    "options": [
+      "emigraram",
+      "imigraram",
+      "migraram-se",
+      "emergiram"
+    ],
+    "answer": 0,
+    "explanation": "Quem sai do seu país emigra; quem chega a um país imigra. Do ponto de vista de Angola, saíram: emigraram.",
+    "position": 241
+  },
+  {
+    "id": "por-vocabulario-14",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "Qual é o sinónimo de «célere»?",
+    "options": [
+      "rápido",
+      "lento",
+      "famoso",
+      "claro"
+    ],
+    "answer": 0,
+    "explanation": "Célere quer dizer rápido, veloz.",
+    "position": 242
+  },
+  {
+    "id": "por-vocabulario-15",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Qual é o antónimo de «prolixo»?",
+    "options": [
+      "conciso",
+      "extenso",
+      "confuso",
+      "vago"
+    ],
+    "answer": 0,
+    "explanation": "Prolixo é quem diz em muitas palavras o que podia dizer em poucas; o contrário é conciso.",
+    "position": 243
+  },
+  {
+    "id": "por-vocabulario-16",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "O que quer dizer «dar com a língua nos dentes»?",
+    "options": [
+      "Revelar um segredo",
+      "Ter dor de dentes",
+      "Falar baixo",
+      "Comer depressa"
+    ],
+    "answer": 0,
+    "explanation": "É uma expressão popular para quem conta o que devia guardar.",
+    "position": 244
+  },
+  {
+    "id": "por-vocabulario-17",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "O que quer dizer «meter os pés pelas mãos»?",
+    "options": [
+      "Atrapalhar-se",
+      "Correr muito",
+      "Trabalhar com as mãos",
+      "Desistir"
+    ],
+    "answer": 0,
+    "explanation": "Diz-se de quem se confunde e faz ou diz as coisas de forma desajeitada.",
+    "position": 245
+  },
+  {
+    "id": "por-vocabulario-18",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "O que quer dizer «ser a ovelha negra» da família?",
+    "options": [
+      "Ser quem se distingue pela negativa",
+      "Ser o mais velho",
+      "Ser o preferido",
+      "Criar animais"
+    ],
+    "answer": 0,
+    "explanation": "É a pessoa que se comporta de forma diferente (e mal vista) do resto do grupo.",
+    "position": 246
+  },
+  {
+    "id": "por-vocabulario-19",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Uma frase «ambígua» é uma frase…",
+    "options": [
+      "com mais de um sentido",
+      "muito clara",
+      "ambiciosa",
+      "antiga"
+    ],
+    "answer": 0,
+    "explanation": "Ambíguo é o que se pode entender de mais de uma maneira.",
+    "position": 247
+  },
+  {
+    "id": "por-vocabulario-2",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o sinónimo de «perspicaz»?",
+    "options": [
+      "sagaz",
+      "lento",
+      "distraído",
+      "tímido"
+    ],
+    "answer": 0,
+    "explanation": "Perspicaz é quem percebe as coisas depressa e bem: sagaz.",
+    "position": 230
+  },
+  {
+    "id": "por-vocabulario-20",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Qual é o sinónimo de «inócuo»?",
+    "options": [
+      "inofensivo",
+      "perigoso",
+      "invisível",
+      "inútil"
+    ],
+    "answer": 0,
+    "explanation": "Inócuo é o que não faz mal.",
+    "position": 248
+  },
+  {
+    "id": "por-vocabulario-21",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "Qual é o antónimo de «êxito»?",
+    "options": [
+      "fracasso",
+      "sucesso",
+      "saída",
+      "fama"
+    ],
+    "answer": 0,
+    "explanation": "Êxito é sucesso; o contrário é fracasso.",
+    "position": 249
+  },
+  {
+    "id": "por-vocabulario-22",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Qual é o sinónimo de «exíguo»?",
+    "options": [
+      "escasso",
+      "enorme",
+      "exigente",
+      "rápido"
+    ],
+    "answer": 0,
+    "explanation": "Exíguo é o que é pequeno ou insuficiente: escasso.",
+    "position": 250
+  },
+  {
+    "id": "por-vocabulario-23",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Em «Ele logrou terminar o curso em quatro anos», «logrou» quer dizer…",
+    "options": [
+      "conseguiu",
+      "enganou-se",
+      "desistiu de",
+      "recusou-se a"
+    ],
+    "answer": 0,
+    "explanation": "«Lograr» também pode querer dizer enganar, mas aqui, seguido de um verbo, quer dizer conseguir.",
+    "position": 251
+  },
+  {
+    "id": "por-vocabulario-24",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o sinónimo de «obsoleto»?",
+    "options": [
+      "ultrapassado",
+      "moderno",
+      "obstinado",
+      "obscuro"
+    ],
+    "answer": 0,
+    "explanation": "Obsoleto é o que caiu em desuso.",
+    "position": 252
+  },
+  {
+    "id": "por-vocabulario-25",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Qual é o sinónimo de «ufano»?",
+    "options": [
+      "orgulhoso",
+      "triste",
+      "humilde",
+      "cansado"
+    ],
+    "answer": 0,
+    "explanation": "Ufano é quem mostra orgulho ou vaidade.",
+    "position": 253
+  },
+  {
+    "id": "por-vocabulario-26",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o antónimo de «benévolo»?",
+    "options": [
+      "malévolo",
+      "bondoso",
+      "benéfico",
+      "voluntário"
+    ],
+    "answer": 0,
+    "explanation": "Benévolo é quem quer bem; malévolo é quem quer mal.",
+    "position": 254
+  },
+  {
+    "id": "por-vocabulario-27",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "O provérbio «Mais vale um pássaro na mão do que dois a voar» quer dizer que…",
+    "options": [
+      "é melhor ter algo certo do que arriscar por mais",
+      "os pássaros fogem depressa",
+      "é melhor ter dois do que um",
+      "não se deve caçar"
+    ],
+    "answer": 0,
+    "explanation": "Aconselha a valorizar o que já se tem em vez de o perder por algo incerto.",
+    "position": 255
+  },
+  {
+    "id": "por-vocabulario-28",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o sinónimo de «intrépido»?",
+    "options": [
+      "corajoso",
+      "medroso",
+      "intruso",
+      "rápido"
+    ],
+    "answer": 0,
+    "explanation": "Intrépido é quem não tem medo.",
+    "position": 256
+  },
+  {
+    "id": "por-vocabulario-29",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o antónimo de «efémero»?",
+    "options": [
+      "duradouro",
+      "passageiro",
+      "frágil",
+      "breve"
+    ],
+    "answer": 0,
+    "explanation": "Efémero é o que dura pouco; o contrário é duradouro.",
+    "position": 257
+  },
+  {
+    "id": "por-vocabulario-3",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "Qual é o antónimo de «escasso»?",
+    "options": [
+      "abundante",
+      "raro",
+      "pouco",
+      "curto"
+    ],
+    "answer": 0,
+    "explanation": "Escasso é o que existe em pouca quantidade; o contrário é abundante.",
+    "position": 231
+  },
+  {
+    "id": "por-vocabulario-30",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Qual é o sinónimo de «anuir»?",
+    "options": [
+      "concordar",
+      "recusar",
+      "anunciar",
+      "aborrecer"
+    ],
+    "answer": 0,
+    "explanation": "Anuir é dar o seu acordo, consentir.",
+    "position": 258
+  },
+  {
+    "id": "por-vocabulario-31",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual palavra NÃO pertence à família de «terra»?",
+    "options": [
+      "terrível",
+      "terreno",
+      "enterrar",
+      "terráqueo"
+    ],
+    "answer": 0,
+    "explanation": "«Terrível» vem de «terror», não de «terra». As outras partilham o radical terr- de terra.",
+    "position": 259
+  },
+  {
+    "id": "por-vocabulario-4",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "easy",
+    "text": "Qual é o antónimo de «generoso»?",
+    "options": [
+      "avarento",
+      "bondoso",
+      "gentil",
+      "rico"
+    ],
+    "answer": 0,
+    "explanation": "Generoso é quem dá com facilidade; avarento é quem não quer gastar nem dar.",
+    "position": 232
+  },
+  {
+    "id": "por-vocabulario-5",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Qual é o sinónimo de «ímpeto»?",
+    "options": [
+      "impulso",
+      "calma",
+      "medo",
+      "atraso"
+    ],
+    "answer": 0,
+    "explanation": "Ímpeto é um movimento repentino e forte: impulso.",
+    "position": 233
+  },
+  {
+    "id": "por-vocabulario-6",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "O que significa «ratificar» um acordo?",
+    "options": [
+      "Confirmar",
+      "Corrigir",
+      "Rasgar",
+      "Recusar"
+    ],
+    "answer": 0,
+    "explanation": "Ratificar é confirmar oficialmente. Não confundir com «retificar», que é corrigir.",
+    "position": 234
+  },
+  {
+    "id": "por-vocabulario-7",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Completa: «O perigo era ___: podia acontecer a qualquer momento.»",
+    "options": [
+      "iminente",
+      "eminente",
+      "emitente",
+      "imanente"
+    ],
+    "answer": 0,
+    "explanation": "«Iminente» é o que está para acontecer; «eminente» quer dizer ilustre, importante.",
+    "position": 235
+  },
+  {
+    "id": "por-vocabulario-8",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "hard",
+    "text": "Completa: «Foi homenageado um ___ médico angolano, conhecido em todo o mundo.»",
+    "options": [
+      "eminente",
+      "iminente",
+      "imigrante",
+      "emergente"
+    ],
+    "answer": 0,
+    "explanation": "«Eminente» quer dizer ilustre, notável.",
+    "position": 236
+  },
+  {
+    "id": "por-vocabulario-9",
+    "subject": "portugues",
+    "topic": "vocabulario",
+    "level": "medium",
+    "text": "Completa: «O ___ da sala é de seis metros.»",
+    "options": [
+      "comprimento",
+      "cumprimento",
+      "cumprido",
+      "comprido"
+    ],
+    "answer": 0,
+    "explanation": "«Comprimento» é a medida; «cumprimento» é a saudação ou o ato de cumprir.",
+    "position": 237
+  }
+]

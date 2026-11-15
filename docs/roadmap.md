@@ -205,7 +205,7 @@ O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](decisoes/0019-backend-e-migracao-dos-dados.md)); o modelo de dados está em [base-de-dados.md](base-de-dados.md#modelo-completo-adr-0019) e as rotas em [arquitetura.md, secção 6](arquitetura.md#6-api-v1). Um prompt de cada vez, por esta ordem, com os testes e os gates completos (`CLAUDE.md`).
 
 - [x] 0. Decisão e modelo de dados: ADR 0019, tabelas e rotas
-- [ ] 1. Exportar os dados do frontend para JSON de paridade, com `manifest.json`
+- [x] 1. Exportar os dados do frontend para JSON de paridade, com `manifest.json`
 - [ ] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
 - [ ] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
 - [ ] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor

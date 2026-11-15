@@ -95,6 +95,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 | `source_url` | varchar(2048), pode ser vazio | A fonte principal. Obrigatória para a IA escrever (ADR 0019) |
 | `source_checked_at` | date, pode ser vazio | O `checkedAt` do frontend: quando a equipa confirmou os factos |
 | `estimated` | boolean, por omissão `false` | Estimativa da equipa (o `estimated` do frontend; ver `data-to-collect-later`) |
+| `position` | smallint, por omissão `0` | A ordem em que a app mostra a lista (o `position` da exportação) |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | *Soft delete*: o conteúdo apagado recupera-se no painel |
 
 **Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA traduz para en e fr no prompt 8 (`ai_tasks` do tipo `translate`), e cada tradução entra em `revisions` até ser aprovada.
@@ -104,6 +105,10 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 **Listas de textos e fontes.** `sources` é sempre JSON `[{label, url}]` (o `SourceLink[]`); uma `source` única é JSON `{label, url}`. As fotografias (`Photo`) são JSON `{thumb, small, large, alt*, credit}`.
 
 **Tabelas de ligação** (`career_skill`, …) têm só as duas chaves estrangeiras (com `cascadeOnDelete`), a chave primária composta e, quando dito, `position` para manter a ordem do frontend. Não têm as colunas comuns.
+
+**Exportação do frontend.** `npm run export:data` (em `apps/web`, `scripts/export-data.ts`) grava em `apps/api/database/data/<recurso>.<locale>.json` o que as funções de `source.ts` e os módulos lidos diretamente devolvem, ordenado por `slug` (o `id` quando não há), com 2 espaços, e o `manifest.json` (por recurso e língua: ficheiro, registos, SHA-256). Cada registo leva `position`, a ordem da app. Os pormenores que devolvem o próprio item da lista (`getAcademy`, `getCourse`, `getCompany`) não têm ficheiro; `career-details` tem o `Career` completo de cada carreira curada. `src/data/export.test.ts` falha se os ficheiros ou o manifest não corresponderem aos dados: depois de mudar conteúdo, volta a exportar.
+
+**Nomes que mudam do frontend para a base de dados.** Além de camelCase → snake_case: o `areas` das ofertas e das empresas é a coluna `groups`; o `year` das admissões é `academic_year`, o `registration.start`/`end` é `registration_start`/`registration_end` e o `fee` é `fee_aoa`; o `starts`/`ends` dos eventos é `starts_on`/`ends_on`; o `fee` de uma oferta é uma linha de `tuition_fees`; o `unit` de uma pergunta de exame dos Kursos é `kurso_unit_id`; o `lessons` de uma unidade é o `outline`.
 
 **Índices.** Além dos indicados: `status` e `deleted_at` em todas, e um índice em cada chave estrangeira.
 
@@ -116,7 +121,6 @@ As 13 áreas do Mercado (`MarketArea`).
 | Coluna | Tipo | Notas |
 |---|---|---|
 | `name`\* | json | "Saúde" |
-| `position` | smallint | Ordem de `MARKET_AREAS` |
 
 #### `career_groups`
 
@@ -126,7 +130,6 @@ Os grupos de carreiras (`CareerGroup`, `GROUP_AREAS`).
 |---|---|---|
 | `area_id` | fk → `areas` | |
 | `name`\* | json | |
-| `position` | smallint | Ordem de `CAREER_GROUPS` |
 
 #### `careers`
 
@@ -493,7 +496,6 @@ As 42 frases do teste vocacional (`AssessmentQuestion`, ADR 0017).
 | `slug` | | `R1`…`C7`: não mudam, as respostas guardadas continuam válidas |
 | `dimension` | char(1) | `R`, `I`, `A`, `S`, `E`, `C` |
 | `text`\* | json | |
-| `position` | smallint | |
 
 #### `access_exam_questions`
 
@@ -503,7 +505,12 @@ O banco de perguntas originais dos exames de acesso (`data/demo/accessExams.ts`)
 |---|---|---|
 | `subject` | varchar(24), indexado | `EXAM_SUBJECTS` |
 | `topic` | varchar(48), indexado | `EXAM_TOPICS` da disciplina |
-| `question` | json | O resto da `ExamQuestion` (enunciado, 4 opções, índice da resposta, explicação), tal como o frontend o lê. O prompt 1 confirma os campos e, se forem fixos, passam a colunas |
+| `level` | varchar(6), indexado | `easy`, `medium`, `hard` |
+| `passage` | text, pode ser vazio | O texto original sobre o qual é a pergunta (interpretação) |
+| `text` | text | O enunciado |
+| `options` | json | As 4 opções, a certa onde `answer` indica |
+| `answer` | tinyint | Índice em `options` (0–3) |
+| `explanation` | text | |
 
 #### `interview_questions`
 
@@ -513,10 +520,12 @@ As perguntas do treino de entrevistas (`data/demo/interviews.ts`).
 |---|---|---|
 | `area` | varchar(16), pode ser vazio, indexado | Vazio = todas as áreas |
 | `career_id` | fk → `careers`, pode ser vazio | |
-| `question`\* | json | O resto da pergunta (texto, dicas), confirmado no prompt 1 |
-| `position` | smallint | |
+| `text`\* | json | A pergunta |
+| `goal`\* | json | O que o recrutador quer saber |
+| `model`\* | json | Uma resposta modelo curta para um primeiro emprego |
+| `mistakes`\* | json | Os erros habituais |
 
-O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`).
+O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`) a partir das listas de analogias, sinónimos e palavras inventadas, que ficam em `datasets` (`psychotech`).
 
 #### `kursos`
 
@@ -531,7 +540,6 @@ Os Kursos (`Course` de `data/kursos/types.ts`, ADR 0016) e os anunciados "Em bre
 | `goals`\* | json | |
 | `credits` | json | Licenças das fontes |
 | `announced` | boolean | `true` = "Em breve" |
-| `position` | smallint | |
 
 #### `kurso_units`
 
@@ -561,11 +569,11 @@ Os Kursos (`Course` de `data/kursos/types.ts`, ADR 0016) e os anunciados "Em bre
 
 #### `datasets`
 
-Os números agregados do Mercado, um documento por recurso, tal como os scrapers os produzem (`JobMarket`, `EducationStats`, `EmploymentStats`): são lidos sempre inteiros.
+Os números agregados do Mercado, um documento por recurso, tal como os scrapers os produzem (`JobMarket`, `EducationStats`, `EmploymentStats`): são lidos sempre inteiros. Também as listas fixas que não pedem tabela: as listas do psicotécnico (`{analogies, synonyms, nonsenseWords}`) e as 21 províncias (`PROVINCES`, que validam o perfil).
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `slug` | | `jobs`, `education`, `employment` |
+| `slug` | | `jobs`, `education`, `employment`, `psychotech`, `provinces` |
 | `data` | json | O documento inteiro |
 | `computed_at` | timestamp | Quando os scrapers o geraram |
 

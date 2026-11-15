@@ -1,0 +1,239 @@
+[
+  {
+    "id": "exemplo-administrador-de-redes",
+    "careerSlug": "administrador-de-redes",
+    "role": "Administrador de redes num banco",
+    "place": "Luanda",
+    "years": 5,
+    "path": "Fiz Informática no ensino médio e comecei no suporte, a configurar computadores e impressoras. Estudei para a certificação CCNA à noite, com um laboratório no portátil. Com ela passei para a equipa de redes do banco.",
+    "tip": "Uma certificação reconhecida e um laboratório em casa valem mais do que esperar pela vaga perfeita.",
+    "example": true,
+    "position": 7
+  },
+  {
+    "id": "exemplo-contabilista",
+    "careerSlug": "contabilista",
+    "role": "Contabilista numa empresa de construção",
+    "place": "Luanda",
+    "years": 10,
+    "path": "Fiz Contabilidade e Gestão no ensino médio e depois a licenciatura em Contabilidade. Comecei num gabinete de contabilidade a lançar faturas de várias empresas. Inscrevi-me na Ordem e hoje sou responsável pelas contas de uma construtora.",
+    "tip": "O primeiro emprego num gabinete ensina-te mais depressa: vês muitas empresas ao mesmo tempo.",
+    "example": true,
+    "position": 11
+  },
+  {
+    "id": "exemplo-designer-grafico",
+    "careerSlug": "designer-grafico",
+    "role": "Designer gráfica numa agência",
+    "place": "Luanda",
+    "years": 4,
+    "path": "Comecei a fazer cartazes para festas e igrejas, a aprender sozinha com vídeos. Fiz um curso de design gráfico e montei um portefólio no Behance. Foi esse portefólio, não o diploma, que me deu o lugar na agência.",
+    "tip": "Publica o teu trabalho todas as semanas: o portefólio é a tua entrevista.",
+    "example": true,
+    "position": 9
+  },
+  {
+    "id": "exemplo-enfermeiro",
+    "careerSlug": "enfermeiro",
+    "role": "Enfermeira num hospital municipal",
+    "place": "Huambo",
+    "years": 7,
+    "path": "Fiz o curso técnico de Enfermagem no ensino médio e comecei a trabalhar logo a seguir. Mais tarde fiz a licenciatura em regime pós-laboral, sem deixar o hospital. Hoje sou responsável de turno na pediatria.",
+    "tip": "Começa pelo técnico se precisares de trabalhar cedo: a licenciatura pode vir depois.",
+    "example": true,
+    "position": 5
+  },
+  {
+    "id": "exemplo-engenheiro-civil",
+    "careerSlug": "engenheiro-civil",
+    "role": "Engenheira civil numa empresa de construção",
+    "place": "Luanda",
+    "years": 6,
+    "path": "Fiz Engenharia Civil numa universidade pública e estagiei como fiscal de obra. O primeiro emprego foi a medir quantidades e a controlar betão em estaleiro. Hoje sou diretora de obra de um bloco de habitação.",
+    "tip": "Passa tempo no estaleiro: o projeto aprende-se no papel, a obra só se aprende no terreno.",
+    "example": true,
+    "position": 14
+  },
+  {
+    "id": "exemplo-gestor-comercial",
+    "careerSlug": "gestor-comercial",
+    "role": "Gestor comercial numa empresa de bebidas",
+    "place": "Huíla",
+    "years": 8,
+    "path": "Comecei como vendedor de rua, com uma carrinha e uma lista de cantinas. Fui o melhor da equipa dois anos seguidos e passei a supervisor. Enquanto trabalhava, fiz a licenciatura em Gestão; hoje lidero a equipa da província.",
+    "tip": "Conhece os teus clientes pelo nome: no comércio, a confiança vende mais do que o preço.",
+    "example": true,
+    "position": 13
+  },
+  {
+    "id": "exemplo-gestor-de-logistica",
+    "careerSlug": "gestor-de-logistica",
+    "role": "Gestor de logística numa empresa de distribuição",
+    "place": "Luanda",
+    "years": 9,
+    "path": "Comecei como fiel de armazém, a contar caixas e a registar entradas. Aprendi o sistema de gestão de stocks melhor do que ninguém e fiz a licenciatura em Gestão à noite. Hoje planeio as entregas para várias províncias.",
+    "tip": "Aprende bem o sistema de stocks da empresa: quem domina os dados chega a chefe.",
+    "example": true,
+    "position": 19
+  },
+  {
+    "id": "exemplo-gestor-de-marketing-digital",
+    "careerSlug": "gestor-de-marketing-digital",
+    "role": "Gestor de marketing digital numa empresa de distribuição",
+    "place": "Luanda",
+    "years": 5,
+    "path": "Licenciei-me em Gestão e comecei como assistente comercial. Fiz cursos online gratuitos de publicidade digital e ofereci-me para gerir as páginas da empresa. Os resultados das campanhas abriram-me o lugar de gestor.",
+    "tip": "Aprende a medir: quem mostra números de vendas, e não só gostos, é promovido.",
+    "example": true,
+    "position": 10
+  },
+  {
+    "id": "exemplo-gestor-de-redes-sociais",
+    "careerSlug": "gestor-de-redes-sociais",
+    "role": "Gestora de redes sociais freelancer",
+    "place": "Luanda",
+    "years": 3,
+    "path": "Comecei a gerir a página da loja de uma tia e as vendas subiram. Fiz cursos online gratuitos de conteúdos e de anúncios. Hoje trabalho como freelancer para cinco pequenas marcas, com um calendário de publicações para cada uma.",
+    "tip": "Mostra antes e depois: números de seguidores e vendas convencem novos clientes.",
+    "example": true,
+    "position": 18
+  },
+  {
+    "id": "exemplo-jurista",
+    "careerSlug": "jurista",
+    "role": "Jurista numa empresa de telecomunicações",
+    "place": "Luanda",
+    "years": 6,
+    "path": "Licenciei-me em Direito e fiz o estágio da Ordem dos Advogados num escritório pequeno. Lá aprendi contratos e processos laborais. Depois entrei no departamento jurídico de uma empresa, onde reviso contratos com fornecedores.",
+    "tip": "Escreve claro e curto: um bom parecer é aquele que o gestor entende à primeira.",
+    "example": true,
+    "position": 17
+  },
+  {
+    "id": "exemplo-medico-clinica-geral",
+    "careerSlug": "medico-clinica-geral",
+    "role": "Médico de clínica geral num centro de saúde",
+    "place": "Huíla",
+    "years": 6,
+    "path": "Fiz Medicina numa faculdade pública, seis anos com muitas noites de estudo. No internato geral passei por urgência, pediatria e maternidade. Fui colocado num centro de saúde municipal, onde vejo de tudo: malária, hipertensão, grávidas. Estou a preparar o concurso para a especialidade.",
+    "tip": "Faz as rotações do internato com vontade: é aí que descobres a especialidade que te serve.",
+    "example": true,
+    "position": 2
+  },
+  {
+    "id": "exemplo-medico-ginecologista-obstetra",
+    "careerSlug": "medico-ginecologista-obstetra",
+    "role": "Médico ginecologista-obstetra numa maternidade",
+    "place": "Luanda",
+    "years": 11,
+    "path": "Escolhi a especialidade depois de uma rotação na maternidade, no internato. Foram quatro anos de bancos de urgência e muitos partos difíceis. Hoje coordeno o turno da noite e acompanho internos mais novos.",
+    "tip": "Aguenta os bancos de urgência: é lá que ganhas a calma que as grávidas precisam de ver em ti.",
+    "example": true,
+    "position": 4
+  },
+  {
+    "id": "exemplo-medico-pediatra",
+    "careerSlug": "medico-pediatra",
+    "role": "Médica pediatra num hospital provincial",
+    "place": "Benguela",
+    "years": 9,
+    "path": "Depois de Medicina e do internato geral, entrei na especialidade de Pediatria: quatro anos entre enfermaria, neonatologia e urgência. Hoje trabalho num hospital provincial e dou consultas de seguimento a crianças com desnutrição.",
+    "tip": "Aprende a falar com as mães: metade do tratamento é explicar bem o que fazer em casa.",
+    "example": true,
+    "position": 3
+  },
+  {
+    "id": "exemplo-parteira",
+    "careerSlug": "parteira",
+    "role": "Enfermeira parteira num centro materno-infantil",
+    "place": "Bié",
+    "years": 8,
+    "path": "Formei-me em Enfermagem e especializei-me em saúde materno-infantil. Comecei num centro de saúde rural, onde muitas mulheres chegavam tarde. Hoje faço partos, consultas pré-natais e formo as parteiras tradicionais da zona.",
+    "tip": "Respeita as parteiras tradicionais da comunidade: trabalhar com elas salva mais mães.",
+    "example": true,
+    "position": 6
+  },
+  {
+    "id": "exemplo-tecnico-de-ambiente",
+    "careerSlug": "tecnico-de-ambiente",
+    "role": "Técnica de ambiente numa empresa de consultoria",
+    "place": "Luanda",
+    "years": 4,
+    "path": "Licenciei-me em Engenharia do Ambiente e fiz estágio a recolher amostras de água para estudos de impacto ambiental. Hoje escrevo partes desses estudos e acompanho as visitas de campo dos projetos.",
+    "tip": "Aprende a escrever relatórios e a usar mapas no computador: é o que mais te pedem.",
+    "example": true,
+    "position": 20
+  },
+  {
+    "id": "exemplo-tecnico-de-recursos-humanos",
+    "careerSlug": "tecnico-de-recursos-humanos",
+    "role": "Técnica de recursos humanos numa empresa industrial",
+    "place": "Benguela",
+    "years": 4,
+    "path": "Licenciei-me em Psicologia do Trabalho e fiz estágio no departamento de pessoal de uma fábrica. Comecei a tratar de processos, contratos e salários. Hoje faço recrutamento e organizo a formação dos operários.",
+    "tip": "Domina a Lei Geral do Trabalho e o Excel: são as duas coisas que te pedem logo no primeiro dia.",
+    "example": true,
+    "position": 12
+  },
+  {
+    "id": "exemplo-tecnico-de-seguranca-no-trabalho",
+    "careerSlug": "tecnico-de-seguranca-no-trabalho",
+    "role": "Técnico de higiene e segurança numa obra",
+    "place": "Luanda",
+    "years": 5,
+    "path": "Fiz o curso médio de Higiene e Segurança no Trabalho e comecei como assistente numa empresa de construção. Faço inspeções diárias, formação de 15 minutos antes do turno e registo de acidentes. Já evitei quedas graves só por exigir o arnês.",
+    "tip": "Ganha o respeito dos operários: explica o porquê das regras, não só as regras.",
+    "example": true,
+    "position": 16
+  },
+  {
+    "id": "exemplo-tecnico-de-suporte",
+    "careerSlug": "tecnico-de-suporte",
+    "role": "Técnico de suporte numa empresa de serviços",
+    "place": "Luanda",
+    "years": 3,
+    "path": "Sempre fui quem arranjava os computadores da família. Fiz um curso de manutenção de 6 meses e um estágio numa loja de informática. Hoje atendo os utilizadores de uma empresa de 200 pessoas e estou a estudar redes.",
+    "tip": "Anota cada problema que resolves: esse caderno vira a tua experiência no CV.",
+    "example": true,
+    "position": 8
+  },
+  {
+    "id": "exemplo-tecnico-electricista",
+    "careerSlug": "tecnico-electricista",
+    "role": "Técnico electricista por conta própria",
+    "place": "Cuanza Sul",
+    "years": 7,
+    "path": "Fiz um curso de electricidade num centro de formação profissional, de um ano. Trabalhei três anos com um mestre em instalações de casas e lojas. Hoje tenho a minha pequena empresa e instalo também painéis solares.",
+    "tip": "Aprende energia solar: cada vez mais clientes, longe da rede, só pedem isso.",
+    "example": true,
+    "position": 15
+  },
+  {
+    "id": "octavio-neto",
+    "careerSlug": "chefe-de-cozinha",
+    "name": "Octávio Neto",
+    "role": "Chefe de cozinha do Bessangana",
+    "place": "Luanda",
+    "path": "Cresceu em Portugal e queria ser futebolista. Por conselho de uma psicóloga da escola, entrou na Escola de Hotelaria do Estoril. Foi colocado no Hotel Fortaleza do Guincho e despedido no início por queimar uma panela de sopa, o que guarda como lição. Chefia a cozinha do Bessangana, na Ilha de Luanda, desde a abertura.",
+    "tip": "Mesmo sem talento natural, o trabalho duro de todos os dias leva-te ao objetivo.",
+    "source": {
+      "label": "Forbes África Lusófona (2022)",
+      "url": "https://forbesafricalusofona.com/?p=39511"
+    },
+    "position": 0
+  },
+  {
+    "id": "valdemar-txicomba",
+    "careerSlug": "chefe-de-cozinha",
+    "name": "Valdemar Txicomba",
+    "role": "Chefe de cozinha do Xperience",
+    "place": "Luanda",
+    "path": "Nasceu no Cazenga e começou a cozinhar em casa porque a mãe trabalhava. Aos 17 entrou num restaurante como pizzaiolo, só para pagar a carta de condução, e ficou. Aprendeu quase tudo no Hotel de Convenções de Talatona e, aos 25, já chefiava a cozinha do Brasa, com gente muito mais velha.",
+    "tip": "Aproveita os produtos angolanos e transforma-os: a nossa cozinha é rica, mas pouco explorada.",
+    "source": {
+      "label": "Ver Angola (2015)",
+      "url": "https://www.verangola.net/va/pt/062015/Gastronomia/1444/Valdemar-Txicomba-o-chef-que-quer-mostrar-Angola-ao-mundo.htm"
+    },
+    "position": 1
+  }
+]

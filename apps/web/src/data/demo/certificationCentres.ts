@@ -192,23 +192,6 @@ export const CERTIFICATION_CENTRES: Academy[] = [
     ],
   },
   {
-    id: 'centro-de-formacao-maritima-de-angola',
-    name: 'Centro de Formação Marítima de Angola (CFMA)',
-    type: 'centro_formacao',
-    ownership: null,
-    province: 'Cuanza Sul',
-    place: 'Perto do Sumbe, Cuanza Sul',
-    summary:
-      'Criado pela Sonangol e pela sueca Stena e inaugurado em 2014, com ensino marítimo e certificação para até 200 alunos por ano. Confirma se os cursos continuam a abrir.',
-    offers: [offer('Formação marítima e certificação STCW', ['oficial-da-marinha-mercante'])],
-    sources: [
-      {
-        label: 'The Maritime Executive: abertura do CFMA (2014)',
-        url: 'https://maritime-executive.com/corporate/New-Maritime-Training-Facility-Launched-in-Angola-2014-08-29',
-      },
-    ],
-  },
-  {
     id: 'inamet-certificacao',
     name: 'Instituto Nacional de Meteorologia e Geofísica (INAMET)',
     type: 'centro_formacao',

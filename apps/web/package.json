@@ -19,7 +19,8 @@
     "e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run knip && npm run test:coverage",
     "preview": "vite preview",
-    "android": "cap open android"
+    "android": "cap open android",
+    "export:data": "tsx scripts/export-data.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.3",
@@ -54,6 +55,7 @@
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "~7.0.2",
     "vite": "^8.3.4",
     "vite-plugin-pwa": "^2.0.0",

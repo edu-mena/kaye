@@ -1,0 +1,678 @@
+[
+  {
+    "id": "bci-excelencia",
+    "name": "Bolsas de Excelência BCI",
+    "provider": "BCI (Banco de Comércio e Indústria)",
+    "companyId": "bci",
+    "kind": "empresa",
+    "destination": "angola",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "health",
+      "business",
+      "legal",
+      "agriculture"
+    ],
+    "covers": [
+      "propina"
+    ],
+    "minAge": 17,
+    "maxAge": 30,
+    "requirements": [
+      "Medicina (UPRA, Unipiaget), Economia e Direito (UCAN), ULAN",
+      "Média de 17 no médio e 16 na entrada, ou 15 a 17 na universidade",
+      "Concurso interno em cada universidade parceira"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.bci.ao",
+    "sources": [
+      {
+        "label": "Expansão (01/06/2024)",
+        "url": "https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html"
+      },
+      {
+        "label": "Ver Angola (10/2024)",
+        "url": "https://www.verangola.net/va/pt/102024/Educacao/41929/BCI-e-Universidade-Lueji-A'nkonde-juntam-se-para-conceder-bolsas-de-estudo.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 16
+  },
+  {
+    "id": "chevening",
+    "name": "Chevening",
+    "provider": "Governo do Reino Unido (FCDO)",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "propina",
+      "subsidio",
+      "viagem",
+      "alojamento"
+    ],
+    "requirements": [
+      "Licenciatura concluída há 2 anos ou mais",
+      "2 anos de experiência de trabalho (2800 horas)",
+      "Oferta incondicional de um mestrado no Reino Unido",
+      "Voltar a Angola por 2 anos"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.chevening.org/scholarship/angola/",
+    "sources": [
+      {
+        "label": "Chevening em Angola",
+        "url": "https://www.chevening.org/scholarship/angola/"
+      },
+      {
+        "label": "Chevening: elegibilidade",
+        "url": "https://chevening.org/resource-hub/guidance/eligibility/"
+      },
+      {
+        "label": "Chevening: o que cobre",
+        "url": "https://www.chevening.org/faqs/what-does-a-chevening-scholarship-cover/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 14
+  },
+  {
+    "id": "daad-mirempet",
+    "name": "Programa de bolsas do Governo de Angola com o DAAD",
+    "provider": "DAAD e MIREMPET",
+    "kind": "estado",
+    "destination": "exterior",
+    "levels": [
+      "mestrado"
+    ],
+    "areas": [
+      "engineering",
+      "sciences",
+      "oil_mining"
+    ],
+    "covers": [],
+    "requirements": [
+      "Nacionalidade angolana",
+      "Mestrado na Alemanha"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.daad.de/go/en/stipa57588180",
+    "sources": [
+      {
+        "label": "DAAD (10/02/2020)",
+        "url": "https://www2.daad.de/der-daad/daad-aktuell/de/75756-neues-regierungsstipendienprogramm-mit-angola/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 12
+  },
+  {
+    "id": "fulbright",
+    "name": "Fulbright Foreign Student Program",
+    "provider": "Governo dos EUA (Embaixada em Luanda)",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [],
+    "requirements": [
+      "Licenciatura concluída",
+      "Prova de inglês (TOEFL ou teste da embaixada)",
+      "Voltar a Angola"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://ao.usembassy.gov",
+    "sources": [
+      {
+        "label": "Ver Angola (02/2021)",
+        "url": "https://www.verangola.net/va/pt/022021/Educacao/24240/EUA-oferecem-bolsas-de-estudo-a-estudantes-angolanos-Candidaturas-já-abriram.htm"
+      },
+      {
+        "label": "ECA: Fulbright in Angola",
+        "url": "https://2012-2025.eca.state.gov/fulbright/country/angola.html"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 15
+  },
+  {
+    "id": "gulbenkian-mestrado-palop",
+    "name": "Bolsas de mestrado para estudantes dos PALOP",
+    "provider": "Fundação Calouste Gulbenkian",
+    "kind": "fundacao",
+    "destination": "exterior",
+    "levels": [
+      "mestrado"
+    ],
+    "areas": [
+      "sciences"
+    ],
+    "covers": [
+      "subsidio",
+      "propina",
+      "viagem"
+    ],
+    "maxAge": 30,
+    "requirements": [
+      "Licenciatura numa universidade angolana com média de 14 ou mais",
+      "Residência permanente em Angola",
+      "Matemática, Física, Química ou Biologia; mestrado em Portugal"
+    ],
+    "deadline": "2026-06-08",
+    "recurring": true,
+    "url": "https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/",
+    "sources": [
+      {
+        "label": "Fundação Gulbenkian (concurso 2026)",
+        "url": "https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 13
+  },
+  {
+    "id": "inagbe-argelia-ensia",
+    "name": "Licenciatura em Inteligência Artificial e Ciência de Dados (ENSIA)",
+    "provider": "Governo da Argélia, via INAGBE",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "covers": [
+      "propina",
+      "alojamento",
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana",
+      "Inclui curso de língua"
+    ],
+    "deadline": null,
+    "recurring": false,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Expansão (15/08/2026)",
+        "url": "https://expansao.co.ao/universidade/detalhe/portugal-servia-marrocos-e-argelia-disponibilizam-mais-de-600-bolsas-73960.html"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 5
+  },
+  {
+    "id": "inagbe-brasil-pec-g",
+    "name": "PEC-G, licenciatura no Brasil",
+    "provider": "Governo do Brasil, via INAGBE",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "engineering",
+      "technology",
+      "health",
+      "sciences"
+    ],
+    "covers": [],
+    "minAge": 18,
+    "maxAge": 22,
+    "requirements": [
+      "Nacionalidade angolana e residência em Angola",
+      "Ensino médio com média de 14 valores ou mais",
+      "Sem bolsa do INAGBE nos últimos 3 anos"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (07/2025)",
+        "url": "https://www.verangola.net/va/pt/072025/Educacao/45115/INAGBE-anuncia-abertura-de-candidaturas-para-bolsas-de-estudo-externas-para-licenciaturas-no-Brasil.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 6
+  },
+  {
+    "id": "inagbe-china",
+    "name": "Bolsa do Governo Chinês",
+    "provider": "Governo da China, via INAGBE",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [
+      "agriculture",
+      "technology",
+      "health",
+      "sciences",
+      "engineering",
+      "business"
+    ],
+    "covers": [
+      "propina",
+      "alojamento",
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana e residência em Angola",
+      "Média de 14 valores no ciclo anterior",
+      "Em 2021: até 22 anos (licenciatura) ou 35 (mestrado)"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (01/2021)",
+        "url": "https://www.verangola.net/va/pt/012021/Educacao/23619/China-oferece-40-bolsas-de-estudo-a-estudantes-angolanos.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 7
+  },
+  {
+    "id": "inagbe-internas-licenciatura",
+    "name": "Bolsa interna de licenciatura",
+    "provider": "INAGBE",
+    "kind": "estado",
+    "destination": "angola",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [],
+    "covers": [
+      "subsidio"
+    ],
+    "maxAge": 25,
+    "requirements": [
+      "Nacionalidade angolana",
+      "2.º ciclo do secundário concluído",
+      "Matriculado no 1.º ou 2.º ano de uma licenciatura, sem ser repetente",
+      "Até 35 anos no regime de necessidades especiais"
+    ],
+    "deadline": "2026-11-06",
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (23/10/2026)",
+        "url": "https://www.verangola.net/va/pt/102026/Educacao/50458/Candidaturas-às-10500-bolsas-de-estudo-internas-para-ano-lectivo-20262027-abrem-Sexta-feira.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 0
+  },
+  {
+    "id": "inagbe-internas-pos-graduacao",
+    "name": "Bolsa interna de mestrado e doutoramento",
+    "provider": "INAGBE",
+    "kind": "estado",
+    "destination": "angola",
+    "levels": [
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana e residência em Angola",
+      "Inscrito num mestrado ou doutoramento em Angola",
+      "Média de 14 valores ou mais no grau anterior"
+    ],
+    "deadline": "2026-11-06",
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (23/10/2026)",
+        "url": "https://www.verangola.net/va/pt/102026/Educacao/50458/Candidaturas-às-10500-bolsas-de-estudo-internas-para-ano-lectivo-20262027-abrem-Sexta-feira.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 1
+  },
+  {
+    "id": "inagbe-marrocos",
+    "name": "Bolsas para universidades públicas de Marrocos",
+    "provider": "Governo de Marrocos, via INAGBE",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [
+      "health",
+      "technology",
+      "engineering",
+      "sciences",
+      "business",
+      "agriculture"
+    ],
+    "covers": [
+      "propina",
+      "alojamento",
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana",
+      "Inclui curso de língua"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Expansão (15/08/2026)",
+        "url": "https://expansao.co.ao/universidade/detalhe/portugal-servia-marrocos-e-argelia-disponibilizam-mais-de-600-bolsas-73960.html"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 4
+  },
+  {
+    "id": "inagbe-portugal",
+    "name": "Bolsas para universidades públicas em Portugal (regime especial)",
+    "provider": "INAGBE e Camões, I.P.",
+    "kind": "estado",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "propina",
+      "alojamento",
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana",
+      "Prioridade a engenharias, saúde, ciências exactas e naturais e tecnologias"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Expansão (15/08/2026)",
+        "url": "https://expansao.co.ao/universidade/detalhe/portugal-servia-marrocos-e-argelia-disponibilizam-mais-de-600-bolsas-73960.html"
+      },
+      {
+        "label": "Expansão: Camões atribui cinco bolsas",
+        "url": "https://expansao.co.ao/universidade/detalhe/camoes-atribui-cinco-bolsas-de-estudos-para-o-ensino-em-portugal-65901.html"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 2
+  },
+  {
+    "id": "inagbe-servia",
+    "name": "World in Serbia",
+    "provider": "Governo da Sérvia, via INAGBE",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [
+      "sciences",
+      "technology",
+      "engineering"
+    ],
+    "covers": [
+      "propina",
+      "alojamento",
+      "subsidio"
+    ],
+    "requirements": [
+      "Nacionalidade angolana",
+      "Áreas STEAM",
+      "Inclui curso de língua"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.inagbe.gov.ao",
+    "sources": [
+      {
+        "label": "Expansão (15/08/2026)",
+        "url": "https://expansao.co.ao/universidade/detalhe/portugal-servia-marrocos-e-argelia-disponibilizam-mais-de-600-bolsas-73960.html"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 3
+  },
+  {
+    "id": "mca-isptec",
+    "name": "Bolsas de mérito MCA no ISPTEC",
+    "provider": "Grupo MCA",
+    "companyId": "mca",
+    "kind": "empresa",
+    "destination": "angola",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "engineering"
+    ],
+    "covers": [
+      "propina",
+      "subsidio"
+    ],
+    "requirements": [
+      "Aluno de mérito do ISPTEC a passar para o 2.º ano em 2026/27",
+      "Engenharia Civil, Mecânica ou Electrotécnica",
+      "Conta também a situação socioeconómica; prioridade a mulheres"
+    ],
+    "deadline": null,
+    "recurring": false,
+    "url": "https://www.isptec.co.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (05/2026)",
+        "url": "https://www.verangola.net/va/pt/052026/Educacao/48842/Alunos-de-mérito-do-ISPTEC-vão-beneficiar-de-bolsas-de-estudo-e-estágios.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 17
+  },
+  {
+    "id": "mca-uan-engenharia",
+    "name": "Bolsas MCA na Faculdade de Engenharia da UAN",
+    "provider": "Grupo MCA",
+    "companyId": "mca",
+    "kind": "empresa",
+    "destination": "angola",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "engineering"
+    ],
+    "covers": [
+      "propina",
+      "subsidio"
+    ],
+    "requirements": [
+      "Aluno da Faculdade de Engenharia da UAN",
+      "25 bolsas em 2024/25"
+    ],
+    "deadline": null,
+    "recurring": false,
+    "url": "https://www.uan.ao",
+    "sources": [
+      {
+        "label": "Ver Angola (12/2024)",
+        "url": "https://www.verangola.net/va/pt/122024/Educacao/42632/MCA-tem-25-bolsas-para-alunos-da-Faculdade-de-Engenharia-da-UAN-para-ajudar-com-propinas-e-alimentação.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 18
+  },
+  {
+    "id": "mirempet-franca",
+    "name": "Bolsas em institutos franceses (Engenharia e Ciências da Terra)",
+    "provider": "MIREMPET e Embaixada de França",
+    "kind": "estado",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura"
+    ],
+    "areas": [
+      "engineering",
+      "oil_mining"
+    ],
+    "covers": [],
+    "minAge": 18,
+    "maxAge": 21,
+    "requirements": [
+      "Nacionalidade angolana e residência em Angola",
+      "Média de 14 em Matemática, Química, Física e geral",
+      "Prova de Português e Matemática"
+    ],
+    "deadline": "2026-10-31",
+    "recurring": false,
+    "url": "https://bdp.mirempet.gov.ao/concursos",
+    "sources": [
+      {
+        "label": "Ver Angola (23/10/2026)",
+        "url": "https://www.verangola.net/va/pt/102026/Educacao/50527/Abertas-inscrições-para-30-bolsas-de-estudo-em-institutos-franceses-Saiba-como-se-candidatar.htm"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 11
+  },
+  {
+    "id": "russia-quota",
+    "name": "Quota do Governo da Rússia",
+    "provider": "Governo da Rússia",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "propina",
+      "subsidio",
+      "viagem"
+    ],
+    "requirements": [
+      "Candidatura no portal education-in-russia.com",
+      "Escolher uma só área de estudo"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://education-in-russia.com",
+    "sources": [
+      {
+        "label": "Ver Angola: mais de 400 bolsas para 2025/26 (06/2025)",
+        "url": "https://www.verangola.net/va/pt/062025/Politica/44716/Embaixador-russo-em-Angola-diz-que-futuro-de-África-é-juventude-que-deve-ser-educada-“com-base-na-verdade-histórica”.htm"
+      },
+      {
+        "label": "Decreto Presidencial 177/13 (acordo Angola–Rússia)",
+        "url": "https://lex.ao/docs/presidente-da-republica/2013/decreto-presidencial-n-o-177-13-de-05-de-novembro/"
+      },
+      {
+        "label": "NUST MISIS: quota",
+        "url": "https://en.misis.ru/applicants/scholarships/quota/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 8
+  },
+  {
+    "id": "stipendium-hungaricum",
+    "name": "Stipendium Hungaricum",
+    "provider": "Governo da Hungria (Tempus Public Foundation)",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "propina",
+      "subsidio",
+      "alojamento"
+    ],
+    "requirements": [
+      "Nomeação pelo parceiro angolano (Sending Partner)",
+      "Até 50 bolsas por ano para Angola"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://stipendiumhungaricum.hu/apply/",
+    "sources": [
+      {
+        "label": "Stipendium Hungaricum: Apply",
+        "url": "https://stipendiumhungaricum.hu/apply/"
+      },
+      {
+        "label": "Ver Angola (06/2024)",
+        "url": "https://www.verangola.net/va/pt/062024/Educacao/40230/Hungria-vai-disponibilizar-um-m%C3%A1ximo-de-50-bolsas-de-estudos-anuais-a-angolanos.htm"
+      },
+      {
+        "label": "ELTE: Stipendium Hungaricum",
+        "url": "https://www.tok.elte.hu/en/stipendium-hungaricum-scholarship"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 9
+  },
+  {
+    "id": "turkiye-burslari",
+    "name": "Türkiye Bursları",
+    "provider": "Governo da Turquia",
+    "kind": "governo_estrangeiro",
+    "destination": "exterior",
+    "levels": [
+      "licenciatura",
+      "mestrado"
+    ],
+    "areas": [],
+    "covers": [
+      "subsidio",
+      "alojamento",
+      "viagem"
+    ],
+    "requirements": [
+      "Licenciatura: menos de 21 anos",
+      "Inclui curso de turco e seguro de saúde"
+    ],
+    "deadline": null,
+    "recurring": true,
+    "url": "https://www.turkiyeburslari.gov.tr",
+    "sources": [
+      {
+        "label": "Türkiye Bursları",
+        "url": "https://www.turkiyeburslari.gov.tr"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 10
+  }
+]

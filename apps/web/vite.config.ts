@@ -22,6 +22,8 @@ export default defineConfig(({ command, mode }) => {
     server: {
       // In development the API runs on `php artisan serve` (port 8000).
       proxy: { '/api': 'http://127.0.0.1:8000' },
+      // src/data/export.test.ts reads the exported content (public, the same as the app's) next to the API.
+      fs: { allow: ['.', '../api/database/data'] },
     },
     test: {
       environment: 'jsdom',

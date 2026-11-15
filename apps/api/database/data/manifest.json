@@ -1,0 +1,495 @@
+{
+  "careers": {
+    "pt": {
+      "file": "careers.pt.json",
+      "records": 256,
+      "sha256": "be86c084691890fefcda185ced04ff43c901f017afca5ba8bd97265b5d9c239e"
+    },
+    "en": {
+      "file": "careers.en.json",
+      "records": 256,
+      "sha256": "be86c084691890fefcda185ced04ff43c901f017afca5ba8bd97265b5d9c239e"
+    },
+    "fr": {
+      "file": "careers.fr.json",
+      "records": 256,
+      "sha256": "be86c084691890fefcda185ced04ff43c901f017afca5ba8bd97265b5d9c239e"
+    }
+  },
+  "career-details": {
+    "pt": {
+      "file": "career-details.pt.json",
+      "records": 256,
+      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+    },
+    "en": {
+      "file": "career-details.en.json",
+      "records": 256,
+      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+    },
+    "fr": {
+      "file": "career-details.fr.json",
+      "records": 256,
+      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+    }
+  },
+  "career-traits": {
+    "pt": {
+      "file": "career-traits.pt.json",
+      "records": 256,
+      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+    },
+    "en": {
+      "file": "career-traits.en.json",
+      "records": 256,
+      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+    },
+    "fr": {
+      "file": "career-traits.fr.json",
+      "records": 256,
+      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+    }
+  },
+  "skills": {
+    "pt": {
+      "file": "skills.pt.json",
+      "records": 715,
+      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+    },
+    "en": {
+      "file": "skills.en.json",
+      "records": 715,
+      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+    },
+    "fr": {
+      "file": "skills.fr.json",
+      "records": 715,
+      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+    }
+  },
+  "support-programs": {
+    "pt": {
+      "file": "support-programs.pt.json",
+      "records": 11,
+      "sha256": "1d7797acf4e5df25d0bf308d860a374f6164e3986a05ae28ae476cbc45c122fa"
+    },
+    "en": {
+      "file": "support-programs.en.json",
+      "records": 11,
+      "sha256": "1d7797acf4e5df25d0bf308d860a374f6164e3986a05ae28ae476cbc45c122fa"
+    },
+    "fr": {
+      "file": "support-programs.fr.json",
+      "records": 11,
+      "sha256": "1d7797acf4e5df25d0bf308d860a374f6164e3986a05ae28ae476cbc45c122fa"
+    }
+  },
+  "programs": {
+    "pt": {
+      "file": "programs.pt.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "en": {
+      "file": "programs.en.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "fr": {
+      "file": "programs.fr.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "institutions": {
+    "pt": {
+      "file": "institutions.pt.json",
+      "records": 166,
+      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+    },
+    "en": {
+      "file": "institutions.en.json",
+      "records": 166,
+      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+    },
+    "fr": {
+      "file": "institutions.fr.json",
+      "records": 166,
+      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+    }
+  },
+  "courses": {
+    "pt": {
+      "file": "courses.pt.json",
+      "records": 422,
+      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+    },
+    "en": {
+      "file": "courses.en.json",
+      "records": 422,
+      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+    },
+    "fr": {
+      "file": "courses.fr.json",
+      "records": 422,
+      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+    }
+  },
+  "companies": {
+    "pt": {
+      "file": "companies.pt.json",
+      "records": 252,
+      "sha256": "5ce2e5d524d481e34f7c4d10b61bd5896219e116f7f45521abbfdca26ac4866a"
+    },
+    "en": {
+      "file": "companies.en.json",
+      "records": 252,
+      "sha256": "5ce2e5d524d481e34f7c4d10b61bd5896219e116f7f45521abbfdca26ac4866a"
+    },
+    "fr": {
+      "file": "companies.fr.json",
+      "records": 252,
+      "sha256": "5ce2e5d524d481e34f7c4d10b61bd5896219e116f7f45521abbfdca26ac4866a"
+    }
+  },
+  "market-jobs": {
+    "pt": {
+      "file": "market-jobs.pt.json",
+      "records": 1,
+      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+    },
+    "en": {
+      "file": "market-jobs.en.json",
+      "records": 1,
+      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+    },
+    "fr": {
+      "file": "market-jobs.fr.json",
+      "records": 1,
+      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+    }
+  },
+  "market-education": {
+    "pt": {
+      "file": "market-education.pt.json",
+      "records": 1,
+      "sha256": "92bc8cb44d9131abad0af509ee7f426f0d70165ed294a94d5c80fbd8fb4cd832"
+    },
+    "en": {
+      "file": "market-education.en.json",
+      "records": 1,
+      "sha256": "92bc8cb44d9131abad0af509ee7f426f0d70165ed294a94d5c80fbd8fb4cd832"
+    },
+    "fr": {
+      "file": "market-education.fr.json",
+      "records": 1,
+      "sha256": "92bc8cb44d9131abad0af509ee7f426f0d70165ed294a94d5c80fbd8fb4cd832"
+    }
+  },
+  "market-employment": {
+    "pt": {
+      "file": "market-employment.pt.json",
+      "records": 1,
+      "sha256": "e6693ec2b31b03f3b8a5fea3277cb149da6e8f2084eccf97abf2a344756ad362"
+    },
+    "en": {
+      "file": "market-employment.en.json",
+      "records": 1,
+      "sha256": "e6693ec2b31b03f3b8a5fea3277cb149da6e8f2084eccf97abf2a344756ad362"
+    },
+    "fr": {
+      "file": "market-employment.fr.json",
+      "records": 1,
+      "sha256": "e6693ec2b31b03f3b8a5fea3277cb149da6e8f2084eccf97abf2a344756ad362"
+    }
+  },
+  "news": {
+    "pt": {
+      "file": "news.pt.json",
+      "records": 66,
+      "sha256": "657d81c62ba044857174783e0fe18bf88ca0364c1bae4a0ee9b8d0da900c5920"
+    },
+    "en": {
+      "file": "news.en.json",
+      "records": 66,
+      "sha256": "657d81c62ba044857174783e0fe18bf88ca0364c1bae4a0ee9b8d0da900c5920"
+    },
+    "fr": {
+      "file": "news.fr.json",
+      "records": 66,
+      "sha256": "657d81c62ba044857174783e0fe18bf88ca0364c1bae4a0ee9b8d0da900c5920"
+    }
+  },
+  "scholarships": {
+    "pt": {
+      "file": "scholarships.pt.json",
+      "records": 19,
+      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+    },
+    "en": {
+      "file": "scholarships.en.json",
+      "records": 19,
+      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+    },
+    "fr": {
+      "file": "scholarships.fr.json",
+      "records": 19,
+      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+    }
+  },
+  "internships": {
+    "pt": {
+      "file": "internships.pt.json",
+      "records": 13,
+      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+    },
+    "en": {
+      "file": "internships.en.json",
+      "records": 13,
+      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+    },
+    "fr": {
+      "file": "internships.fr.json",
+      "records": 13,
+      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+    }
+  },
+  "free-courses": {
+    "pt": {
+      "file": "free-courses.pt.json",
+      "records": 45,
+      "sha256": "ee1c427a6337d786fcb737816035e225710dd2104a3659561f44c0b042d5a00c"
+    },
+    "en": {
+      "file": "free-courses.en.json",
+      "records": 45,
+      "sha256": "ee1c427a6337d786fcb737816035e225710dd2104a3659561f44c0b042d5a00c"
+    },
+    "fr": {
+      "file": "free-courses.fr.json",
+      "records": 45,
+      "sha256": "ee1c427a6337d786fcb737816035e225710dd2104a3659561f44c0b042d5a00c"
+    }
+  },
+  "admissions": {
+    "pt": {
+      "file": "admissions.pt.json",
+      "records": 14,
+      "sha256": "2957b29ba1f3a5bf4d15a9c9883e653de6c54fcd7138bb44ffc015e841a50e5a"
+    },
+    "en": {
+      "file": "admissions.en.json",
+      "records": 14,
+      "sha256": "2957b29ba1f3a5bf4d15a9c9883e653de6c54fcd7138bb44ffc015e841a50e5a"
+    },
+    "fr": {
+      "file": "admissions.fr.json",
+      "records": 14,
+      "sha256": "2957b29ba1f3a5bf4d15a9c9883e653de6c54fcd7138bb44ffc015e841a50e5a"
+    }
+  },
+  "figures": {
+    "pt": {
+      "file": "figures.pt.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "en": {
+      "file": "figures.en.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "fr": {
+      "file": "figures.fr.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "assessment-questions": {
+    "pt": {
+      "file": "assessment-questions.pt.json",
+      "records": 42,
+      "sha256": "90f91a315e209731cf6d76b95632f9a755719fdbb13471e846ba2980a1fd40a5"
+    },
+    "en": {
+      "file": "assessment-questions.en.json",
+      "records": 42,
+      "sha256": "15307d4389d33112a65f7eddc04ee5545da5f864223f917200e578e7ca741697"
+    },
+    "fr": {
+      "file": "assessment-questions.fr.json",
+      "records": 42,
+      "sha256": "f6a16a268209e5684280ea3796aa829770a63ba6f3c1f10fac49330119a9e4c9"
+    }
+  },
+  "cv-examples": {
+    "pt": {
+      "file": "cv-examples.pt.json",
+      "records": 7,
+      "sha256": "ac8748160aaa1bb0c932971814b727f7d467b9cec84248177af6204941de5ee8"
+    },
+    "en": {
+      "file": "cv-examples.en.json",
+      "records": 7,
+      "sha256": "ac8748160aaa1bb0c932971814b727f7d467b9cec84248177af6204941de5ee8"
+    },
+    "fr": {
+      "file": "cv-examples.fr.json",
+      "records": 7,
+      "sha256": "ac8748160aaa1bb0c932971814b727f7d467b9cec84248177af6204941de5ee8"
+    }
+  },
+  "testimonials": {
+    "pt": {
+      "file": "testimonials.pt.json",
+      "records": 21,
+      "sha256": "25c1b3a470ddd9ba5f556459e298b2e1257bd7aae7496099dc056375ad428d0c"
+    },
+    "en": {
+      "file": "testimonials.en.json",
+      "records": 21,
+      "sha256": "25c1b3a470ddd9ba5f556459e298b2e1257bd7aae7496099dc056375ad428d0c"
+    },
+    "fr": {
+      "file": "testimonials.fr.json",
+      "records": 21,
+      "sha256": "25c1b3a470ddd9ba5f556459e298b2e1257bd7aae7496099dc056375ad428d0c"
+    }
+  },
+  "kursos": {
+    "pt": {
+      "file": "kursos.pt.json",
+      "records": 6,
+      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+    },
+    "en": {
+      "file": "kursos.en.json",
+      "records": 6,
+      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+    },
+    "fr": {
+      "file": "kursos.fr.json",
+      "records": 6,
+      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+    }
+  },
+  "kursos-announced": {
+    "pt": {
+      "file": "kursos-announced.pt.json",
+      "records": 2,
+      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+    },
+    "en": {
+      "file": "kursos-announced.en.json",
+      "records": 2,
+      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+    },
+    "fr": {
+      "file": "kursos-announced.fr.json",
+      "records": 2,
+      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+    }
+  },
+  "access-exam-questions": {
+    "pt": {
+      "file": "access-exam-questions.pt.json",
+      "records": 260,
+      "sha256": "18f18501cafa6408e9d98b2fb46e8b933fbf731a9ac8fbaf8a8c94a74c3b8974"
+    },
+    "en": {
+      "file": "access-exam-questions.en.json",
+      "records": 260,
+      "sha256": "18f18501cafa6408e9d98b2fb46e8b933fbf731a9ac8fbaf8a8c94a74c3b8974"
+    },
+    "fr": {
+      "file": "access-exam-questions.fr.json",
+      "records": 260,
+      "sha256": "18f18501cafa6408e9d98b2fb46e8b933fbf731a9ac8fbaf8a8c94a74c3b8974"
+    }
+  },
+  "interview-questions": {
+    "pt": {
+      "file": "interview-questions.pt.json",
+      "records": 95,
+      "sha256": "3da83b4145afd0ca2bcae03b54c777fe42dc6f4e66e20a6dd78df925b179e754"
+    },
+    "en": {
+      "file": "interview-questions.en.json",
+      "records": 95,
+      "sha256": "3da83b4145afd0ca2bcae03b54c777fe42dc6f4e66e20a6dd78df925b179e754"
+    },
+    "fr": {
+      "file": "interview-questions.fr.json",
+      "records": 95,
+      "sha256": "3da83b4145afd0ca2bcae03b54c777fe42dc6f4e66e20a6dd78df925b179e754"
+    }
+  },
+  "psychotech": {
+    "pt": {
+      "file": "psychotech.pt.json",
+      "records": 1,
+      "sha256": "225f21f348a4f3712a0544903aa4d1639634ea24e9348c28c2a694de21828c68"
+    },
+    "en": {
+      "file": "psychotech.en.json",
+      "records": 1,
+      "sha256": "225f21f348a4f3712a0544903aa4d1639634ea24e9348c28c2a694de21828c68"
+    },
+    "fr": {
+      "file": "psychotech.fr.json",
+      "records": 1,
+      "sha256": "225f21f348a4f3712a0544903aa4d1639634ea24e9348c28c2a694de21828c68"
+    }
+  },
+  "mentors": {
+    "pt": {
+      "file": "mentors.pt.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "en": {
+      "file": "mentors.en.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "fr": {
+      "file": "mentors.fr.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "video-stories": {
+    "pt": {
+      "file": "video-stories.pt.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "en": {
+      "file": "video-stories.en.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "fr": {
+      "file": "video-stories.fr.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "provinces": {
+    "pt": {
+      "file": "provinces.pt.json",
+      "records": 21,
+      "sha256": "bac9c852c97b6c1bd4d198b5b221e8687b52ce8661533daefbe4bc3c465ed39c"
+    },
+    "en": {
+      "file": "provinces.en.json",
+      "records": 21,
+      "sha256": "bac9c852c97b6c1bd4d198b5b221e8687b52ce8661533daefbe4bc3c465ed39c"
+    },
+    "fr": {
+      "file": "provinces.fr.json",
+      "records": 21,
+      "sha256": "bac9c852c97b6c1bd4d198b5b221e8687b52ce8661533daefbe4bc3c465ed39c"
+    }
+  }
+}
