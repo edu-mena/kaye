@@ -8,7 +8,9 @@ import { changeLocale, LOCALE_NAMES, LOCALES } from '../../lib/i18n'
 import { saveFile } from '../../lib/saveFile'
 import { useApiHealth } from '../../lib/useApiHealth'
 import { deviceSavesData, setDataSaver, useDataSaver, useDataSaverChoice } from '../../lib/useDataSaver'
-import { getUser, userActions } from '../../state/userStore'
+import { EXPORT_URL } from '../../data/account'
+import { eraseEverything, signOut, useAccount } from '../../state/accountSync'
+import { getUser } from '../../state/userStore'
 
 // The working parts of the settings (docs/arquitetura.md, 7). Configurações lays them out in
 // compact rows; Perfil (Conta, Privacidade) in its own larger sections.
@@ -62,8 +64,15 @@ export function ServiceStatus() {
   )
 }
 
-/** A JSON copy of everything the app keeps about the person. */
-function downloadMyData() {
+/**
+ * A JSON copy of everything Kayé keeps about the person: with an account, the server's export (the
+ * account, the data and the consents); without one, this device's copy.
+ */
+function downloadMyData(signedIn: boolean) {
+  if (signedIn) {
+    window.location.assign(EXPORT_URL)
+    return
+  }
   saveFile(
     new Blob([JSON.stringify(getUser(), null, 2)], { type: 'application/json' }),
     'kaye-os-meus-dados.json',
@@ -72,18 +81,55 @@ function downloadMyData() {
 
 export function ExportButton() {
   const { t } = useTranslation()
+  const { status } = useAccount()
   return (
-    <Button variant="secondary" size="sm" onClick={downloadMyData}>
+    <Button variant="secondary" size="sm" onClick={() => downloadMyData(status === 'signedIn')}>
       <Icon name="download" className="size-4" />
       {t('profile.export')}
     </Button>
   )
 }
 
+/** Who is signed in, and the button to end the session on this device. Nothing without a session. */
+export function AccountRow() {
+  const { t } = useTranslation()
+  const { status, me } = useAccount()
+  if (status !== 'signedIn' || !me) return null
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3">
+      <div className="min-w-0">
+        <p className="text-sm text-night">{t('settings.account')}</p>
+        <p className="mt-0.5 truncate text-xs font-light text-muted">{me.email}</p>
+      </div>
+      <Button variant="secondary" size="sm" onClick={() => void signOut().catch(() => {})}>
+        {t('settings.signOut')}
+      </Button>
+    </div>
+  )
+}
+
 /** Deletes everything the app keeps, only after the person confirms it. */
 export function EraseButton({ onErased }: { onErased?: () => void }) {
   const { t } = useTranslation()
+  const { status } = useAccount()
   const [confirming, setConfirming] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const [erasing, setErasing] = useState(false)
+
+  async function erase() {
+    setErasing(true)
+    setFailed(false)
+    try {
+      await eraseEverything()
+      setConfirming(false)
+      onErased?.()
+    } catch {
+      // The account could not be deleted (no network): nothing was erased, the person can try again.
+      setFailed(true)
+    } finally {
+      setErasing(false)
+    }
+  }
 
   return (
     <>
@@ -100,20 +146,20 @@ export function EraseButton({ onErased }: { onErased?: () => void }) {
             <Button variant="ghost" onClick={() => setConfirming(false)}>
               {t('common.cancel')}
             </Button>
-            <Button
-              className="bg-coral hover:bg-coral"
-              onClick={() => {
-                userActions.eraseAll()
-                setConfirming(false)
-                onErased?.()
-              }}
-            >
+            <Button className="bg-coral hover:bg-coral" disabled={erasing} onClick={() => void erase()}>
               {t('profile.eraseConfirm')}
             </Button>
           </div>
         }
       >
-        <p className="text-sm font-light text-copy">{t('profile.eraseBody')}</p>
+        <p className="text-sm font-light text-copy">
+          {t(status === 'signedIn' ? 'profile.eraseAccountBody' : 'profile.eraseBody')}
+        </p>
+        {failed && (
+          <p role="alert" className="mt-3 text-sm text-coral">
+            {t('profile.eraseFailed')}
+          </p>
+        )}
       </Dialog>
     </>
   )

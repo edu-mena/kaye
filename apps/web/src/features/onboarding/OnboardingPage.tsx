@@ -5,12 +5,14 @@ import { Navigate, useSearchParams } from 'react-router'
 import { AppLoading } from '../../components/AppLoading'
 import { Icon } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
+import { ACCOUNTS } from '../../data/account'
 import { useCareers } from '../../data/queries'
 import type { EducationLevel } from '../../data/types'
 import { submitSignup } from '../../data/waitlist'
 import { safeNext } from '../../lib/ui'
 import { useVoice } from '../../lib/useVoice'
 import { VOICES } from '../../lib/voices'
+import { beginSignIn } from '../../state/accountSync'
 import { userActions, useUser } from '../../state/userStore'
 import {
   CURRENT_YEAR,
@@ -80,6 +82,13 @@ function ProgressBars({ step, steps }: { step: Step; steps: Step[] }) {
       </div>
     </div>
   )
+}
+
+/** Back from Google's login, the onboarding shows the plan it had prepared. */
+const PLAN = 'plano'
+
+function planPath(next: string | null): string {
+  return `/entrar?${PLAN}=1${next ? `&next=${encodeURIComponent(next)}` : ''}`
 }
 
 /** The first visit: a short conversation that adapts to each answer and ends in the sign-in. */
@@ -178,9 +187,11 @@ export default function OnboardingPage() {
       toDiscovery(draft),
       liked,
     )
+    // With accounts, Google comes back here to show the plan, then to what the person had asked for.
+    if (ACCOUNTS) beginSignIn(planPath(nextPath))
   }
 
-  if (finished) return <PlanScreen next={nextPath} />
+  if (finished || (profile && params.has(PLAN))) return <PlanScreen next={nextPath} />
   if (profile) return <Navigate to={nextPath ?? '/'} replace />
   if (!careers || !step || !copy) return <AppLoading />
 

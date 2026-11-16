@@ -9,6 +9,7 @@ import { Button } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
 import { Chip } from '../../components/ui/Chip'
 import { CheckboxField, SelectField, TextField } from '../../components/ui/Field'
+import { ACCOUNTS } from '../../data/account'
 import { PROVINCES } from '../../data/provinces'
 import { contactProblems } from '../../data/waitlist'
 import { RIASEC_KEYS, type CareerSummary, type MarketArea, type RiasecKey } from '../../data/types'
@@ -498,7 +499,11 @@ function BuildingStep({ next, heading, speaking }: StepProps) {
   )
 }
 
-/** The sign-in closes the conversation: it is simulated until the API exists (docs/decisoes/0012). */
+/**
+ * The sign-in closes the conversation (docs/decisoes/0012). With accounts, the profile is kept on the device and
+ * the browser goes to Google; back in the app, the device's data joins the account (state/accountSync.ts).
+ * Without them (the demo site), it is simulated.
+ */
 function SignupStep({ draft, change, heading, speaking, onFinish }: StepProps) {
   const { t } = useTranslation()
   const minor = needsGuardian(draft, CURRENT_YEAR)
@@ -510,6 +515,8 @@ function SignupStep({ draft, change, heading, speaking, onFinish }: StepProps) {
     setTried(true)
     if (!draft.terms || (minor && !draft.guardian)) return
     setSigningIn(true)
+    // With accounts, finishing goes to Google's login (OnboardingPage).
+    if (ACCOUNTS) return onFinish()
     window.setTimeout(onFinish, SIGN_IN_MS)
   }
 
@@ -557,7 +564,9 @@ function SignupStep({ draft, change, heading, speaking, onFinish }: StepProps) {
           )}
           {signingIn ? t('onboarding.signingIn') : t('onboarding.google')}
         </Button>
-        <p className="text-center text-xs font-light text-muted">{t('onboarding.googleSoon')}</p>
+        {!ACCOUNTS && (
+          <p className="text-center text-xs font-light text-muted">{t('onboarding.googleSoon')}</p>
+        )}
       </div>
     </>
   )

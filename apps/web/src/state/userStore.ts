@@ -201,26 +201,30 @@ function withAllFields(document: CvDocument): CvDocument {
 function load(): UserData {
   try {
     const raw = localStorage.getItem(KEY)
-    const saved = raw ? (JSON.parse(raw) as Partial<UserData> & LegacyCv) : null
-    if (saved?.version !== 1) return INITIAL
-    const { cv, cvBasedOn, ...rest } = saved
-    // CVs saved before a field existed get it empty, so old data keeps working.
-    const cvs = (saved.cvs ?? migrateCvs({ cv, cvBasedOn })).map(withAllFields)
-    return {
-      ...INITIAL,
-      ...rest,
-      cvs,
-      activeCvId: saved.activeCvId ?? cvs[0]?.id ?? null,
-      strengths: withAllStrengths(saved.strengths),
-      // Devices from before academies could be saved have none.
-      savedAcademies: saved.savedAcademies ?? [],
-      savedCompanies: saved.savedCompanies ?? [],
-      // Devices from before "O meu plano" have none.
-      plan: saved.plan ?? null,
-    }
+    return fromSaved(raw ? (JSON.parse(raw) as Partial<UserData> & LegacyCv) : null)
   } catch {
     // Blocked storage or a corrupted value: start fresh rather than break the app.
     return INITIAL
+  }
+}
+
+/** Saved data (this device's, or the account's) with every field the app expects today. */
+function fromSaved(saved: (Partial<UserData> & LegacyCv) | null): UserData {
+  if (saved?.version !== 1) return INITIAL
+  const { cv, cvBasedOn, ...rest } = saved
+  // CVs saved before a field existed get it empty, so old data keeps working.
+  const cvs = (saved.cvs ?? migrateCvs({ cv, cvBasedOn })).map(withAllFields)
+  return {
+    ...INITIAL,
+    ...rest,
+    cvs,
+    activeCvId: saved.activeCvId ?? cvs[0]?.id ?? null,
+    strengths: withAllStrengths(saved.strengths),
+    // Devices from before academies could be saved have none.
+    savedAcademies: saved.savedAcademies ?? [],
+    savedCompanies: saved.savedCompanies ?? [],
+    // Devices from before "O meu plano" have none.
+    plan: saved.plan ?? null,
   }
 }
 
@@ -247,6 +251,38 @@ export function getUser(): UserData {
 
 export function useUser(): UserData {
   return useSyncExternalStore(subscribe, getUser)
+}
+
+/** Calls `listener` after every change (the account sync sends them to the server). */
+export const subscribeUser = subscribe
+
+/** What goes to the account: everything except the photo and the cover, which never leave the device. */
+export function toAccount(user: UserData): Omit<UserData, 'photo' | 'cover'> {
+  const { photo: _photo, cover: _cover, ...rest } = user
+  return rest
+}
+
+/**
+ * The account's copy replaces this device's (after a merge or another device's write). The photo and
+ * the cover stay; the lists the app caps are cut to their size, since a merge joins two of them.
+ */
+export function replaceUser(data: Partial<UserData>) {
+  // A copy from another version of the app is not understood: this device keeps its own.
+  if (data.version !== 1) return
+  update((current) => {
+    const next = fromSaved(data)
+    return {
+      ...next,
+      photo: current.photo,
+      cover: current.cover,
+      compare: next.compare.slice(0, MAX_COMPARE),
+      history: next.history.slice(0, MAX_HISTORY),
+      searches: next.searches.slice(0, MAX_SEARCHES),
+      psychotech: next.psychotech.slice(0, MAX_PSYCHOTECH),
+      accessExams: next.accessExams.slice(0, MAX_ACCESS_EXAMS),
+      interviews: next.interviews.slice(0, MAX_INTERVIEWS),
+    }
+  })
 }
 
 /** Reloads from storage (tests, and after "apagar os meus dados"). */

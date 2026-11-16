@@ -1760,6 +1760,10 @@ export const pt = {
     export: 'Descarregar os meus dados',
     erase: 'Apagar os meus dados',
     eraseTitle: 'Apagar tudo?',
+    eraseAccountBody:
+      'A tua conta e tudo o que o Kayé guarda sobre ti, no servidor e neste aparelho. Não dá para desfazer.',
+    eraseFailed:
+      'Não conseguimos apagar a conta agora. Verifica a ligação e tenta outra vez; nada foi apagado.',
     eraseBody: 'O perfil, o teste, as competências e o CV são apagados deste aparelho. Não dá para desfazer.',
     eraseConfirm: 'Sim, apagar',
     about: 'Sobre o Kayé',
@@ -2271,6 +2275,8 @@ export const pt = {
     unsubscribe: 'Deixar de seguir',
   },
   settings: {
+    account: 'Conta Google',
+    signOut: 'Terminar sessão',
     subtitle: 'O idioma, os teus dados e a privacidade, num só sítio.',
     legalTitle: 'Termos e privacidade',
     erased: 'Pronto: apagámos tudo o que o Kayé guardava neste aparelho.',

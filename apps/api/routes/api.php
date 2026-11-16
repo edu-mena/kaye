@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AdmissionController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\ConsentController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\CvExampleController;
 use App\Http\Controllers\Api\DatasetController;
@@ -14,6 +15,8 @@ use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
 use App\Http\Controllers\Api\InterviewQuestionController;
 use App\Http\Controllers\Api\KursoController;
+use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Api\MeDataController;
 use App\Http\Controllers\Api\MentorController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\OccupationController;
@@ -23,8 +26,11 @@ use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\Api\SupportProgramController;
 use App\Http\Controllers\Api\TestimonialController;
 use App\Http\Controllers\Api\VideoStoryController;
+use App\Http\Controllers\Auth\GoogleTokenController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HealthController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 // Everything here is served under /api/v1 (see bootstrap/app.php). The public reads: docs/arquitetura.md, section 6.
 
@@ -72,3 +78,22 @@ Route::get('/video-stories', [VideoStoryController::class, 'index']);
 Route::get('/kursos', [KursoController::class, 'index']);
 Route::get('/kursos/{slug}/units/{unit}', [KursoController::class, 'unit']);
 Route::get('/kursos/{slug}/exam', [KursoController::class, 'exam']);
+
+// Accounts (docs/arquitetura.md, 5.1 and 6). These routes, and only these, start the web session:
+// the public reads above stay without cookies, so they can be cached.
+Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): void {
+    Route::post('/auth/google', GoogleTokenController::class)->middleware('throttle:login');
+
+    Route::middleware('auth:sanctum')->group(function (): void {
+        Route::post('/auth/logout', LogoutController::class);
+        Route::get('/me', [MeController::class, 'show']);
+        Route::delete('/me', [MeController::class, 'destroy']);
+        Route::get('/me/export', [MeController::class, 'export']);
+        Route::get('/me/data', [MeDataController::class, 'show']);
+        Route::put('/me/data', [MeDataController::class, 'update']);
+        Route::post('/me/data/merge', [MeDataController::class, 'merge']);
+        Route::get('/me/consents', [ConsentController::class, 'index']);
+        Route::post('/me/consents', [ConsentController::class, 'store']);
+        Route::delete('/me/consents/{kind}', [ConsentController::class, 'destroy']);
+    });
+});

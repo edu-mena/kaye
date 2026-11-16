@@ -1789,6 +1789,10 @@ export const fr: Messages = {
     export: 'Télécharger mes données',
     erase: 'Effacer mes données',
     eraseTitle: 'Tout effacer ?',
+    eraseAccountBody:
+      'Ton compte et tout ce que Kayé garde sur toi, sur le serveur et sur cet appareil. Impossible d’annuler.',
+    eraseFailed:
+      'Nous n’avons pas pu supprimer le compte maintenant. Vérifie ta connexion et réessaie ; rien n’a été supprimé.',
     eraseBody:
       'Ton profil, ton test, tes compétences et ton CV sont effacés de cet appareil. C’est irréversible.',
     eraseConfirm: 'Oui, effacer',
@@ -2305,6 +2309,8 @@ export const fr: Messages = {
     unsubscribe: 'Ne plus suivre',
   },
   settings: {
+    account: 'Compte Google',
+    signOut: 'Se déconnecter',
     subtitle: 'La langue, tes données et la confidentialité, au même endroit.',
     legalTitle: 'Conditions et confidentialité',
     erased: 'C’est fait : nous avons effacé tout ce que Kayé gardait sur cet appareil.',

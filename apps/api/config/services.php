@@ -28,6 +28,18 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    /*
+    | Login with Google (docs/arquitetura.md, 5.1). The web uses the OAuth client (Socialite); the
+    | Android app sends an ID token, accepted only when its `aud` is one of `audiences`: the web
+    | client id, which the app uses as its server client id. Empty means nobody signs in.
+    */
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => rtrim((string) env('APP_URL', 'http://localhost'), '/').'/auth/google/callback',
+        'audiences' => array_values(array_filter([(string) env('GOOGLE_CLIENT_ID', '')])),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

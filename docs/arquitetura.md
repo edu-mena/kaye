@@ -234,13 +234,29 @@ erDiagram
 
 ### 5.1 Login com Google
 
-1. A app pede ao Google um *ID token*: na web com o Google Identity Services, no telemóvel com o plugin nativo.
-2. A app envia-o para `POST /api/v1/auth/google`.
-3. A API confirma que a assinatura é do Google, que o token foi emitido para o Kayé e que não expirou.
-4. A API encontra ou cria o utilizador pelo `google_sub` e abre a sessão:
-   - **na web**, uma sessão Sanctum em cookie `HttpOnly`, que o JavaScript não consegue ler;
-   - **no telemóvel**, um token Sanctum válido 30 dias.
-5. No telemóvel, a app guarda o token no armazenamento seguro do sistema e envia-o em cada pedido. Na web, o browser envia o cookie sozinho. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
+**Na web** (OAuth do Google, com o Laravel Socialite):
+
+1. No fim do onboarding, o perfil fica no aparelho e o botão "Continuar com o Google" leva a `/auth/google/redirect?next=/entrar?plano=1&next=…` (o `next` só pode ser um caminho do próprio site). No regresso, a app mostra "O teu plano" e segue para o que a pessoa tinha pedido. Só esta ida marca o aparelho para perguntar `GET /me`: quem nunca entrou não recebe um 401.
+2. O Google mostra a escolha da conta e volta a `/auth/google/callback` com um código; o `state` confirma que é o mesmo browser.
+3. A API troca o código pelos dados da conta (só aceita emails verificados), encontra ou cria a pessoa pelo `google_sub` (uma conta local com o mesmo email, como a do admin, fica ligada) e abre uma sessão do Laravel em cookie `HttpOnly`, `SameSite=Lax`, com um id novo. Volta a `next`.
+4. Daí em diante o browser envia o cookie sozinho, e cada escrita leva o token CSRF (`X-XSRF-TOKEN`, que o cliente `api()` lê do cookie `XSRF-TOKEN`).
+
+**No telemóvel** (Android):
+
+1. A app pede ao Google um *ID token* com o plugin nativo, usando o ID de cliente web como *server client id*.
+2. Envia-o para `POST /api/v1/auth/google` (10 tentativas por minuto).
+3. A API confirma a assinatura (chaves públicas do Google), que o `aud` é o ID de cliente do Kayé, que o emissor é o Google, que não expirou e que o email está verificado (`App\Support\GoogleIdTokenVerifier`).
+4. Encontra ou cria a pessoa como na web e devolve `{token, expiresAt, user}`: um token Sanctum válido 30 dias, que a app guarda no armazenamento seguro do sistema e envia em `Authorization: Bearer`. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
+
+Uma conta apagada no painel (*soft delete*) não volta pelo login. `POST /auth/logout` apaga o token deste aparelho, ou termina a sessão web.
+
+**Os dados da pessoa no servidor** (`state/accountSync.ts`, ADR 0019). A app continua a trabalhar na cópia do aparelho (`userStore`, offline primeiro):
+
+1. **Primeiro login neste aparelho:** a app envia o que tem para `POST /me/data/merge` e o servidor **funde** com o que já existe na conta, sem apagar nada (`App\Support\UserDataMerger`). A app fica com o resultado e regista os consentimentos aceites no onboarding (termos, privacidade e, nos menores, o encarregado de educação).
+2. **Depois:** cada mudança sobe 1,5 s depois, num `PUT /me/data` com a versão em que se baseou. Se outro aparelho escreveu antes, o servidor responde 409 e a app pede a fusão. Sem rede, a mudança fica marcada no aparelho e sobe quando a rede volta. Ao abrir, a app traz o que outro aparelho escreveu entretanto.
+3. **Regras da fusão:** o que está vazio de um lado fica com o valor do outro; as listas juntam-se (nomes uma vez, registos com `id`, como os CVs, uma vez, e os eventos datados, como o percurso e os testes, do mais recente para o mais antigo); os registos juntam-se chave a chave, exceto o perfil, a descoberta, o plano e a página pública, que nunca se misturam; com dois valores diferentes fica o do servidor, exceto o tempo de estudo e as notas dos Kursos e a última abertura das notificações, onde fica o maior.
+4. **A foto e a capa nunca saem do aparelho.** O servidor guarda o resto em `user_data` e copia do perfil o ano de nascimento, a província e a escolaridade para `users`, porque é o ano que decide quem é menor (idade < 18, calculada, nunca guardada; sem ano conta como menor). Passar a ser menor retira os consentimentos de marketing.
+5. Só o build que o Laravel serve (`VITE_DATA_SOURCE=api`) tem contas; o site de teste no Vercel continua a simular o login.
 
 **Primeiro acesso → onboarding** ([ADR-0012](decisoes/0012-conta-obrigatoria-e-onboarding-adaptativo.md)). Uma conversa com o guia que se adapta às respostas: idioma, voz, fase da vida, objetivo, até 3 áreas (ou "Ainda não sei", e o guia sugere-as) e no máximo 3 perguntas por área. Depois, o nome, o ano de nascimento, a província e a escolaridade. O login com o Google vem no fim, com a aceitação dos termos e da política de privacidade. Quem tem menos de 18 anos confirma aí que o encarregado de educação tem conhecimento e fica sem perfil público.
 
@@ -463,8 +479,8 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | GET | `/auth/google/redirect`, `/auth/google/callback` | Login na web (fora de `/api/v1`; cria o cookie) |
 | POST | `/auth/google` | Android: troca o `id_token` Google (assinatura, `aud`, `exp` verificados) por um token Sanctum |
 | POST | `/auth/logout` | Terminar sessão (apaga o token ou o cookie) |
-| GET, PATCH | `/me` | Perfil: nome, ano de nascimento, província, nível de estudo, língua |
-| GET, PUT | `/me/data` | O `UserData` com `version`; uma versão antiga recebe 409 |
+| GET | `/me` | A conta: nome, email, foto do Google, ano de nascimento, província, escolaridade, língua, `minor` e os consentimentos ativos. O perfil muda-se em `/me/data` (o servidor copia-o para `users`); não há `PATCH /me` |
+| GET, PUT | `/me/data` | `{version, data}`: o `UserData` sem a foto e a capa (até 1 MB). Um `PUT` com uma versão antiga recebe 409 com a cópia atual |
 | POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
 | GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
 | DELETE | `/me/consents/{kind}` | Retirar um consentimento |

@@ -40,5 +40,7 @@ class AppServiceProvider extends ServiceProvider
             return Limit::perMinute($reads ? 300 : 60)
                 ->by(($reads ? 'read:' : 'write:').(is_int($who) || is_string($who) ? $who : 'unknown'));
         });
+
+        RateLimiter::for('login', fn (Request $request): Limit => Limit::perMinute(10)->by('login:'.$request->ip()));
     }
 }

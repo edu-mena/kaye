@@ -139,6 +139,9 @@ Basta apontar `current` para a release anterior (`ln -sfn releases/<anterior> cu
 | `ADMIN_EMAILS` | `admin@kaye.test` | os emails da equipa | Vazio = ninguém entra no painel |
 | `CORS_ALLOWED_ORIGINS` | `https://localhost,capacitor://localhost` | igual | As origens das apps nativas |
 | `SANCTUM_TOKEN_EXPIRATION` | `43200` | `43200` | 30 dias |
+| `SANCTUM_STATEFUL_DOMAINS` | não se define | não se define | Os domínios cujo browser usa a sessão com CSRF. Sem ela, só o de `APP_URL`; nunca `localhost` sozinho, que é a origem da app Android |
+| `GOOGLE_CLIENT_ID` | o ID de cliente web de teste | o ID de cliente web | Login Google ([arquitetura.md, 5.1](arquitetura.md#51-login-com-google)). É também o `aud` aceite nos tokens do Android. Vazio = ninguém entra. O URI de redirecionamento a registar no Google Cloud é `APP_URL/auth/google/callback` |
+| `GOOGLE_CLIENT_SECRET` | o segredo de teste | **secreta** | Só para a troca do código do OAuth na web |
 | `SENTRY_LARAVEL_DSN` | vazio | o DSN do projeto | Obrigatório em produção |
 | `SENTRY_TRACES_SAMPLE_RATE` | `0.1` | `0.1` | |
 

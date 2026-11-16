@@ -55,9 +55,20 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 | `locale` | varchar(5), por omissão `pt` | `pt`, `en` ou `fr` (`App\Enums\Locale`) |
 | `role` | varchar(16), por omissão `user`, indexado | `user`, `moderator` ou `admin` (`App\Enums\UserRole`) |
 | `xp` | int | Pontos da gamificação |
+| `last_login_at` | timestamp, pode ser vazio | O último login com o Google |
 | `password` | varchar, pode ser vazio | **Só para o admin local**, até o painel passar para o login Google. Os utilizadores nunca têm senha |
 | `remember_token` | varchar | Sessão do painel |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | |
+
+### Pessoas (login, ADR 0019)
+
+Com o login Google já existem `user_data` (o `UserData` da app, com versão) e `consents` (a prova de cada consentimento), com as colunas descritas no [modelo completo](#pessoas). `consents.waitlist_id` chega com a tabela `waitlist` (prompt 5). Apagar a conta apaga as duas (`cascadeOnDelete`), e a pessoa de vez.
+
+| Peça | Onde | O que faz |
+|---|---|---|
+| Documento | `App\Models\UserData::document()`, `setDocument()` | Guarda e lê o JSON como objetos, para `{}` continuar a ser um registo (e não uma lista) quando volta à app |
+| Fusão | `App\Support\UserDataMerger` | Junta a cópia do aparelho com a do servidor sem perder nada ([arquitetura.md, 5.1](arquitetura.md#51-login-com-google)) |
+| Contas | `App\Support\Accounts` | Login pelo Google, perfil copiado de `user_data` para `users`, exportação e apagamento |
 
 ### Catálogo (ADR 0019)
 
@@ -670,7 +681,7 @@ Prova de cada consentimento (Lei n.º 22/11).
 | `confirmed_at` | timestamp, pode ser vazio | Confirmação dupla do email |
 | `revoked_at` | timestamp, pode ser vazio | |
 
-Índice (`user_id`, `kind`). Um menor não consegue ter `*_marketing` (validado no servidor).
+Índice (`user_id`, `kind`). Um menor não consegue ter `*_marketing` (validado no servidor), nem quem não tem ano de nascimento; quando o ano mostra que a pessoa é menor, os de marketing são retirados.
 
 #### `waitlist`
 

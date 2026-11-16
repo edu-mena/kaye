@@ -1761,6 +1761,10 @@ export const en: Messages = {
     export: 'Download my data',
     erase: 'Delete my data',
     eraseTitle: 'Delete everything?',
+    eraseAccountBody:
+      'Your account and everything Kayé keeps about you, on the server and on this device. This cannot be undone.',
+    eraseFailed:
+      'We could not delete the account right now. Check your connection and try again; nothing was deleted.',
     eraseBody: 'Your profile, test, skills and CV are deleted from this device. This cannot be undone.',
     eraseConfirm: 'Yes, delete',
     about: 'About Kayé',
@@ -2271,6 +2275,8 @@ export const en: Messages = {
     unsubscribe: 'Stop following',
   },
   settings: {
+    account: 'Google account',
+    signOut: 'Sign out',
     subtitle: 'Language, your data and privacy, in one place.',
     legalTitle: 'Terms and privacy',
     erased: 'Done: we deleted everything Kayé kept on this device.',

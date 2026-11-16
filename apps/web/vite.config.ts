@@ -37,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
         // main.tsx and router wiring are covered by the end-to-end tests (e2e/).
         exclude: ['src/main.tsx', 'src/app/App.tsx', 'src/app/router.tsx', 'src/test/**', 'src/**/*.d.ts'],
         // Below the 90/85 of ADR 0001 until prompt 10, rising at each step (ADR 0020): it may only go up.
-        thresholds: { statements: 59, branches: 49, functions: 58, lines: 60 },
+        thresholds: { statements: 60, branches: 51, functions: 59, lines: 61 },
       },
     },
   }
@@ -85,8 +85,9 @@ function pwa(base: string, native: boolean) {
       // source.js (the demo data) is about 1.1 MB.
       maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       navigateFallback: `${base}index.html`,
-      // /api answers itself; /admin is Laravel's panel (Filament).
-      navigateFallbackDenylist: [/^\/api\//, /^\/admin/],
+      // /api answers itself; /admin is Laravel's panel (Filament); /auth is the Google login, which must
+      // reach Laravel and Google, never the app's cached page.
+      navigateFallbackDenylist: [/^\/api\//, /^\/admin/, /^\/auth\//],
       cleanupOutdatedCaches: true,
       runtimeCaching: [
         {

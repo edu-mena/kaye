@@ -1,7 +1,16 @@
 import { describe, expect, it, vi } from 'vitest'
 import { CV_EXAMPLES } from '../data/demo/cvExamples'
 import { seedUser } from '../test/user'
-import { getUser, MAX_COMPARE, MAX_HISTORY, MAX_SEARCHES, reloadUser, userActions } from './userStore'
+import {
+  getUser,
+  MAX_COMPARE,
+  MAX_HISTORY,
+  MAX_SEARCHES,
+  reloadUser,
+  replaceUser,
+  toAccount,
+  userActions,
+} from './userStore'
 
 describe('userStore', () => {
   it('starts empty and saves every action on the device', () => {
@@ -132,6 +141,37 @@ describe('userStore', () => {
     reloadUser()
     expect(getUser().searches).toEqual([])
     expect(getUser().savedCareers).toEqual(['a'])
+  })
+
+  it('takes the account copy, keeping this device photo and cutting the merged lists to size', () => {
+    seedUser({ photo: 'data:photo', cover: 'data:cover', savedCareers: ['a'] })
+    const searches = Array.from({ length: MAX_SEARCHES + 3 }, (_, index) => `s${index}`)
+
+    replaceUser({ version: 1, savedCareers: ['a', 'b'], searches, photo: 'data:other' })
+
+    expect(getUser()).toMatchObject({ savedCareers: ['a', 'b'], photo: 'data:photo', cover: 'data:cover' })
+    expect(getUser().searches).toHaveLength(MAX_SEARCHES)
+    // Fields the copy does not have are filled in, as for old data on the device.
+    expect(getUser().savedAcademies).toEqual([])
+    expect(JSON.parse(localStorage.getItem('kaye.user.v1') ?? '{}').savedCareers).toEqual(['a', 'b'])
+  })
+
+  it('ignores an account copy from another version of the app', () => {
+    seedUser({ savedCareers: ['a'] })
+
+    replaceUser({ version: 2 as unknown as 1, savedCareers: [] })
+
+    expect(getUser().savedCareers).toEqual(['a'])
+  })
+
+  it('sends the account everything except the photo and the cover', () => {
+    seedUser({ photo: 'data:photo', cover: 'data:cover', savedCareers: ['a'] })
+
+    const sent = toAccount(getUser())
+
+    expect(sent).not.toHaveProperty('photo')
+    expect(sent).not.toHaveProperty('cover')
+    expect(sent.savedCareers).toEqual(['a'])
   })
 
   it('erases everything it keeps', () => {

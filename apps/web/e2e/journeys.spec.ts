@@ -57,10 +57,34 @@ test.describe('the first visit', () => {
     await page.getByRole('button', { name: 'Licenciatura' }).click()
     await proceed()
 
+    // Google cannot sign in a test: its page answers as Google does (back to `next` with a session),
+    // and the account routes answer as Laravel does for that session (AndroidLoginTest, WebLoginTest
+    // and UserDataTest test the real ones). On the context, which also sees the service worker's requests.
+    const sent: { path: string; body: unknown }[] = []
+    await page.context().route(/\/auth\/google\/redirect\?/, (route) =>
+      route.fulfill({
+        status: 302,
+        headers: { location: new URL(route.request().url()).searchParams.get('next') ?? '/' },
+      }),
+    )
+    await page.context().route(/\/api\/v1\/me(\/|$)/, (route) => {
+      const path = new URL(route.request().url()).pathname.replace('/api/v1', '')
+      const body: unknown = route.request().postDataJSON()
+      sent.push({ path, body })
+      if (path === '/me') return route.fulfill({ json: { id: 1, email: 'joana@exemplo.ao', consents: [] } })
+      if (path === '/me/data/merge') return route.fulfill({ json: { version: 1, ...(body as object) } })
+      return route.fulfill({ status: 201, json: {} })
+    })
+
     await page.getByLabel(/Aceito os termos/).check()
     await expectAccessible(page)
     await page.getByRole('button', { name: 'Continuar com o Google' }).click()
+    await expect(page).toHaveURL(/\/entrar\?plano=1&next=%2Fteste$/)
     await expect(page.getByRole('heading', { name: 'O teu plano, Joana' })).toBeVisible()
+    // Back from Google, what the device has joins the account, and the accepted texts are recorded.
+    await expect.poll(() => sent.map((call) => call.path)).toContain('/me/consents')
+    const merge = sent.find((call) => call.path === '/me/data/merge')?.body as { data: { profile: unknown } }
+    expect(merge.data.profile).toMatchObject({ name: 'Joana', province: 'Luanda' })
     await expectAccessible(page)
     await page.getByRole('link', { name: /Entrar no Kayé/ }).click()
     await expect(page).toHaveURL(/\/teste$/)

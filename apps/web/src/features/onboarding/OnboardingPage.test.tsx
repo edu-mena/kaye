@@ -6,6 +6,15 @@ import { renderWithApp } from '../../test/render'
 import { seedUser } from '../../test/user'
 import OnboardingPage from './OnboardingPage'
 
+// The build with accounts (VITE_DATA_SOURCE=api) is switched on by a test; the others are the demo site.
+const accounts = vi.hoisted(() => ({ on: false }))
+vi.mock('../../data/account', async (original) => ({
+  ...(await original<typeof import('../../data/account')>()),
+  get ACCOUNTS() {
+    return accounts.on
+  },
+}))
+
 const year = new Date().getFullYear()
 const SLOW = { timeout: 20000 }
 
@@ -58,6 +67,7 @@ const google = () => screen.findByRole('button', { name: 'Continuar com o Google
 const waitlist = vi.fn<() => Promise<Response>>(async () => Response.json({ ok: true }))
 
 beforeEach(() => {
+  accounts.on = false
   vi.stubGlobal('fetch', waitlist)
 })
 
@@ -90,6 +100,34 @@ describe('OnboardingPage', () => {
     })
     expect(getUser().discovery).toMatchObject({ goal: 'course', areas: ['health'] })
     expect(getUser().savedCareers).toHaveLength(1)
+  })
+
+  it('with accounts, keeps the profile on the device and goes to Google', SLOW, async () => {
+    accounts.on = true
+    const assign = vi.fn<(url: string) => void>()
+    vi.stubGlobal('location', { ...window.location, assign })
+    renderWithApp(<OnboardingPage />, { route: '/entrar' })
+    await startConversation()
+    await choose(/^Saúde/)
+    await proceed()
+    await answerArea()
+    await aboutYou(year - 20)
+
+    await google()
+    expect(screen.queryByText(/Simulação: o login/)).not.toBeInTheDocument()
+    await userEvent.click(screen.getByLabelText(/Aceito os termos/))
+    await userEvent.click(await google())
+
+    expect(assign).toHaveBeenCalledWith(`/auth/google/redirect?next=${encodeURIComponent('/entrar?plano=1')}`)
+    expect(getUser().profile).toMatchObject({ name: 'Edson', birthYear: year - 20 })
+  })
+
+  it('back from Google, shows the plan and then goes to what was asked', async () => {
+    seedUser()
+    renderWithApp(<OnboardingPage />, { route: '/entrar?plano=1&next=%2Fteste' })
+
+    expect(await screen.findByRole('heading', { name: 'O teu plano, Joana' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Entrar no Kayé/ })).toHaveAttribute('href', '/teste')
   })
 
   it('asks for a launch contact before anything else, and sends it on', async () => {

@@ -10,6 +10,8 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,22 +26,15 @@ class User extends Authenticatable implements FilamentUser
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    /**
-     * Same defaults as the migration, so new models have them before a reload.
-     *
-     * @var array<string, mixed>
-     */
+    /** Under this age a person is a minor (docs/arquitetura.md, 8). */
+    public const ADULT_AGE = 18;
+
     protected $attributes = [
         'role' => 'user',
         'locale' => 'pt',
         'xp' => 0,
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -48,20 +43,61 @@ class User extends Authenticatable implements FilamentUser
             'locale' => Locale::class,
             'birth_year' => 'integer',
             'xp' => 'integer',
+            'last_login_at' => 'datetime',
         ];
     }
 
-    /**
-     * Two independent checks: the role and the ADMIN_EMAILS allowlist.
-     */
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->role->canAccessAdmin()
             && in_array(Str::lower($this->email), Config::array('kaye.admin_emails'), true);
     }
 
+    /**
+     * @return HasOne<UserData, $this>
+     */
+    public function userData(): HasOne
+    {
+        return $this->hasOne(UserData::class);
+    }
+
+    /**
+     * @return HasMany<Consent, $this>
+     */
+    public function consents(): HasMany
+    {
+        return $this->hasMany(Consent::class);
+    }
+
+    /** Known to be under 18. The age is computed from the birth year, never stored. */
     public function isMinor(): bool
     {
-        return $this->birth_year !== null && (int) now()->year - $this->birth_year < 18;
+        return $this->birth_year !== null && $this->age() < self::ADULT_AGE;
+    }
+
+    /** Known to be 18 or older. Without a birth year a person is not: the rules below fail closed. */
+    public function isAdult(): bool
+    {
+        return $this->birth_year !== null && $this->age() >= self::ADULT_AGE;
+    }
+
+    public function canReceiveMarketing(): bool
+    {
+        return $this->isAdult();
+    }
+
+    public function canHavePublicProfile(): bool
+    {
+        return $this->isAdult();
+    }
+
+    public function canReportSalaries(): bool
+    {
+        return $this->isAdult();
+    }
+
+    private function age(): int
+    {
+        return (int) now()->year - (int) $this->birth_year;
     }
 }

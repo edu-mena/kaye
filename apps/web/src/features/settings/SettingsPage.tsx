@@ -9,6 +9,7 @@ import { Soon } from '../../components/ui/Rows'
 import { useInstall } from '../../lib/install'
 import { stagger } from '../../lib/ui'
 import {
+  AccountRow,
   DataSaverSwitch,
   EraseButton,
   ExportButton,
@@ -94,6 +95,7 @@ export default function SettingsPage() {
               </>
             }
           >
+            <AccountRow />
             <Row title={t('profile.exportTitle')} body={t('profile.exportBody')} action={<ExportButton />} />
             <Row
               title={t('profile.eraseHeading')}

@@ -55,7 +55,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] CI no GitHub Actions: qualidade, testes, container, segurança e pacote de release (corre quando o repositório estiver no GitHub)
 - [x] Repositório privado no GitHub ([edu-mena/kaye](https://github.com/edu-mena/kaye)), com o CI a correr nos PRs
 - [ ] Proteção do `main` (exige GitHub Pro nos repositórios privados: Student Developer Pack)
-- [ ] Login Google de ponta a ponta (web com cookie, Android com token)
+- [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy
 - [ ] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
 - [ ] Sentry: conta, DSN e Sentry na app React
@@ -191,7 +191,7 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 
 O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 
-- [ ] Login Google de ponta a ponta (web com cookie, Android com token)
+- [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [ ] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0)
 - [ ] Notificações push dos prazos e do plano, mesmo com a app fechada
 - [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
@@ -208,7 +208,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 1. Exportar os dados do frontend para JSON de paridade, com `manifest.json`
 - [x] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
 - [x] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
-- [ ] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor
+- [x] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor (16/11/2026; para entrar a sério faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google)
 - [ ] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado
 - [ ] 6. Comunicação: email, WhatsApp e push, só com consentimento (menores sem marketing)
 - [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor

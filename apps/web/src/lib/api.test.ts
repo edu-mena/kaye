@@ -43,6 +43,29 @@ describe('api', () => {
     expect(withoutBody.has('Content-Type')).toBe(false)
   })
 
+  it('sends the CSRF token from the XSRF-TOKEN cookie on writes only, and cookies only to this site', async () => {
+    const fetchMock = mockFetchJson({})
+    document.cookie = 'XSRF-TOKEN=abc%3D%3D; path=/'
+
+    await api('/me/data', { method: 'PUT', body: '{}' })
+    await api('/me')
+
+    const write = fetchMock.mock.calls[0]?.[1]
+    const read = fetchMock.mock.calls[1]?.[1]
+    expect(new Headers(write?.headers).get('X-XSRF-TOKEN')).toBe('abc==')
+    expect(new Headers(read?.headers).has('X-XSRF-TOKEN')).toBe(false)
+    expect(write?.credentials).toBe('same-origin')
+    document.cookie = 'XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'
+  })
+
+  it('sends no CSRF header when there is no cookie (the demo site, the native apps)', async () => {
+    const fetchMock = mockFetchJson({})
+
+    await api('/me/data', { method: 'PUT', body: '{}' })
+
+    expect(new Headers(fetchMock.mock.calls[0]?.[1]?.headers).has('X-XSRF-TOKEN')).toBe(false)
+  })
+
   it('throws an ApiError with the status when the request fails', async () => {
     mockFetchJson({ message: 'Not Found' }, 404)
 

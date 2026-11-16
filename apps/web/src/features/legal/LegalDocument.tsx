@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { Icon } from '../../components/icons'
 import { Card } from '../../components/ui/Card'
 import { PageHeader } from '../../components/ui/PageHeader'
+import { LEGAL_VERSION } from '../../data/legalVersion'
 import type { Locale } from '../../lib/i18n'
 
 // The terms of use and the privacy policy. They are long, so they live here and travel with
@@ -22,8 +23,6 @@ type LegalText = {
 /** The same text in every language the app speaks. */
 export type LegalDoc = Record<Locale, LegalText>
 
-/** Date of the texts in force; the consents will record it (docs/arquitetura.md, `consents`). */
-const LEGAL_VERSION = '2026-11-12'
 const CONTACT_EMAIL = 'ola@kaye.ao'
 
 const PATHS = { terms: '/termos', privacy: '/privacidade' } as const
