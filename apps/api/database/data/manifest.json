@@ -71,34 +71,34 @@
     "pt": {
       "file": "career-traits.pt.json",
       "records": 256,
-      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
     },
     "en": {
       "file": "career-traits.en.json",
       "records": 256,
-      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
     },
     "fr": {
       "file": "career-traits.fr.json",
       "records": 256,
-      "sha256": "ca1175680f9fdc1f9504f32356f63f2177b8be0f2fb60d9d23bd27a1fa1bd663"
+      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
     }
   },
   "skills": {
     "pt": {
       "file": "skills.pt.json",
       "records": 715,
-      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+      "sha256": "f29d81f34634962b7b93fd166c4d28fc1d4d3c64275327d9679fc6fe0ab4f9b6"
     },
     "en": {
       "file": "skills.en.json",
       "records": 715,
-      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+      "sha256": "f29d81f34634962b7b93fd166c4d28fc1d4d3c64275327d9679fc6fe0ab4f9b6"
     },
     "fr": {
       "file": "skills.fr.json",
       "records": 715,
-      "sha256": "773f9eb64e0fa167b761c603e28bb33e2473c91f91266687054cfe0b841be2fe"
+      "sha256": "f29d81f34634962b7b93fd166c4d28fc1d4d3c64275327d9679fc6fe0ab4f9b6"
     }
   },
   "support-programs": {

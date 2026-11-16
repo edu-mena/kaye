@@ -146,7 +146,7 @@ O Kayé tem de ser rápido num telemóvel modesto com dados caros. Regras:
 | Todas as verificações da app | `apps/web` | `npm run check` |
 | Formatar a app | `apps/web` | `npm run format` |
 | Testes da app em modo contínuo | `apps/web` | `npm run test:watch` |
-| End-to-end (compilar primeiro) | `apps/web` | `npm run build && npm run e2e` |
+| End-to-end (compilar primeiro) | `apps/web` | `npm run build && npm run e2e` (o servidor local recria a `kaye_test` e corre `kaye:import`: a app lê o catálogo da API) |
 | Código duplicado | raiz | `npm run duplication` |
 | Stack de produção em containers | raiz | `docker compose up --build --wait` |
 

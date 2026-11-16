@@ -8,6 +8,7 @@ use App\Import\Importer;
 use App\Import\ImportFailed;
 use App\Import\Result;
 use App\Import\Target;
+use App\Support\PublicContent;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 
@@ -45,6 +46,9 @@ class ImportContent extends Command
                 $results[] = $importer->run($resource);
             }
         }
+
+        // The link tables change without model events: the public API's cached answers go here.
+        PublicContent::flush();
 
         $this->table(
             ['Resource', 'Read', 'Created', 'Updated', 'Errors'],

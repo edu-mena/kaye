@@ -87,7 +87,7 @@ final class Catalog
                 'people' => $r->get('people'),
             ] + self::sourced($r), fn (Record $r, Importer $i): Closure => fn (Company $company): bool => self::any(
                 $i->sync($company->careers(), self::ordered($i->ids(Career::class, $r->strings('careers'), "companies {$r->string('id')}"))),
-                $i->sync($company->partners(), $i->ids(Institution::class, $r->strings('partners'), "companies {$r->string('id')} (partners)")),
+                $i->sync($company->partners(), self::ordered($i->ids(Institution::class, $r->strings('partners'), "companies {$r->string('id')} (partners)"))),
             )),
             $catalog->flat('scholarships', Scholarship::class, 'scholarships', fn (Record $r, Importer $i): array => [
                 'name' => $r->t('name'), 'provider' => $r->get('provider'),
@@ -118,7 +118,7 @@ final class Catalog
                 'url' => $r->get('url'),
             ] + self::sourced($r), fn (Record $r, Importer $i): Closure => fn (Admission $admission): bool => $i->sync(
                 $admission->courses(),
-                $i->ids(Course::class, $r->strings('courseIds'), "admissions {$r->string('id')}"),
+                self::ordered($i->ids(Course::class, $r->strings('courseIds'), "admissions {$r->string('id')}")),
             )),
             $catalog->flat('programs', Program::class, 'programs', fn (Record $r, Importer $i): array => [
                 'institution_id' => $i->id(Institution::class, $r->string('institution.id'), "programs {$r->string('id')}"),
@@ -133,8 +133,8 @@ final class Catalog
                 'body' => $r->t('body'), 'image' => $r->get('image'), 'to' => $r->get('to'), 'source' => $r->get('source'),
                 'source_url' => $r->get('source.url'), 'example' => (bool) $r->get('example', false),
             ], fn (Record $r, Importer $i): Closure => fn (News $news): bool => self::any(
-                $i->sync($news->careers(), $i->ids(Career::class, $r->strings('careers'), "news {$r->string('id')}")),
-                $i->sync($news->companies(), $i->ids(Company::class, $r->strings('companies'), "news {$r->string('id')}")),
+                $i->sync($news->careers(), self::ordered($i->ids(Career::class, $r->strings('careers'), "news {$r->string('id')}"))),
+                $i->sync($news->companies(), self::ordered($i->ids(Company::class, $r->strings('companies'), "news {$r->string('id')}"))),
             )),
             $catalog->events(),
             $catalog->flat('figures', Figure::class, 'figures', fn (Record $r): array => [
@@ -221,6 +221,10 @@ final class Catalog
             foreach ($importer->files->records('career-details') as $detail) {
                 $details[$detail->string('slug')] = $detail;
             }
+            $skillNames = [];
+            foreach ($importer->files->records('skills') as $skill) {
+                $skillNames[$skill->string('id')] = $skill->t('name')->stored();
+            }
             foreach ($importer->files->records('careers') as $r) {
                 $slug = $r->string('slug');
                 $d = $details[$slug] ?? null;
@@ -233,12 +237,16 @@ final class Catalog
                     'work_context' => $d?->t('workContext'), 'work_styles' => $d?->t('workStyles'),
                     'employer_asks' => $d?->get('employerAsks'), 'stages' => $d?->t('stages'), 'market' => $d?->t('market'),
                     'cv_guide' => $d?->t('cvGuide'), 'self_employment' => $d?->t('selfEmployment'),
-                ], self::status(false), self::on(Career::class, function (Career $career) use ($importer, $d, $slug): bool {
+                ], self::status(false), self::on(Career::class, function (Career $career) use ($importer, $d, $slug, $skillNames): bool {
                     $skills = [];
                     foreach ($d?->children('skills') ?? [] as $position => $skill) {
                         $id = $importer->id(Skill::class, $skill->string('id'), "careers {$slug}");
+                        $name = $skill->t('name')->stored();
                         if ($id !== null) {
-                            $skills[$id] = ['importance' => $skill->get('importance'), 'position' => $position];
+                            // The career's own name for the skill, only when it is not the skill's name.
+                            $skills[$id] = ['importance' => $skill->get('importance'), 'position' => $position,
+                                'name' => $name === ($skillNames[$skill->string('id')] ?? null) ? null : json_encode($name, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
+                            ];
                         }
                     }
 
@@ -294,19 +302,26 @@ final class Catalog
     private function courseOffers(): Target
     {
         return new Target('course-offers', CourseOffer::class, function (Importer $importer): iterable {
+            $courseNames = [];
+            foreach ($importer->files->records('courses') as $course) {
+                $courseNames[$course->string('id')] = $course->t('name')->stored();
+            }
             foreach ($importer->files->records('institutions') as $institution) {
                 $institutionId = $importer->id(Institution::class, $institution->string('id'), "course-offers of {$institution->string('id')}");
                 foreach ($institution->children('offers') as $position => $o) {
                     $slug = self::offerSlug($institution, $o);
+                    $courseName = $o->t('course.name');
                     yield new Row(['slug' => $slug, 'position' => $position, 'institution_id' => $institutionId,
                         'course_id' => $importer->id(Course::class, $o->string('course.id'), "course-offers {$slug}"),
+                        // Only when the institution names the course differently (null: the course's own name).
+                        'course_name' => $courseName->stored() === ($courseNames[$o->string('course.id')] ?? null) ? null : $courseName,
                         'name' => $o->t('name'), 'level' => $o->get('level'), 'faculty' => $o->get('faculty'),
                         'recognition' => $o->get('recognition'), 'groups' => $o->get('areas', []),
                         'students' => $o->get('students'), 'graduates' => $o->get('graduates'), 'year' => $o->get('year'),
                         'curriculum' => $o->t('curriculum'),
                     ], self::status(false), self::on(CourseOffer::class, fn (CourseOffer $offer): bool => $importer->sync(
                         $offer->careers(),
-                        $importer->ids(Career::class, $o->strings('careers'), "course-offers {$slug}"),
+                        self::ordered($importer->ids(Career::class, $o->strings('careers'), "course-offers {$slug}")),
                     )));
                 }
             }
@@ -445,7 +460,7 @@ final class Catalog
     {
         return fn (Record $r, Importer $i): Closure => fn (FreeCourse|Program|Figure|Mentor $model): bool => $i->sync(
             $model->careers(),
-            $i->ids(Career::class, $r->strings($field), "{$name} {$r->string('id')}"),
+            self::ordered($i->ids(Career::class, $r->strings($field), "{$name} {$r->string('id')}")),
         );
     }
 

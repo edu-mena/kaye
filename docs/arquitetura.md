@@ -399,15 +399,20 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 
 - Prefixo `/api/v1`, respostas em JSON, **sem envelope `data`** (`JsonResource::withoutWrapping()`): uma lista é um array, um detalhe é o objeto. Um detalhe que não existe (ou não está `published`) responde 404, que a app lê como `null`.
 - Idioma por `Accept-Language` (`pt`, `en`, `fr`; o que falta vem em português).
-- As listas vêm inteiras, como hoje (a maior tem algumas centenas de registos, comprimidas com gzip); paginação só se uma lista passar de 1 MB.
-- As leituras públicas respondem com `Cache-Control` e `ETag` e ficam em cache na base de dados (5 minutos, limpa quando o conteúdo muda).
+- As listas vêm inteiras, como hoje (a maior, `/courses`, tem 775 KB, 60 KB com gzip); paginação só se uma lista passar de 1 MB.
+- As leituras públicas respondem com `Cache-Control: public, max-age=300` e `ETag` (quem já tem a versão recebe 304) e ficam em cache na base de dados (5 minutos, por caminho e língua; limpa quando um modelo de conteúdo muda e no fim de cada `kaye:import`). Código: `App\Support\PublicContent`, um controller por recurso em `App\Http\Controllers\Api` e uma `JsonResource` por tipo em `App\Http\Resources`; o que se calcula de várias tabelas (instituições com as ofertas, `CatalogCourse`, `CareerTraits`, `/skills`) está em `App\Support\Catalog`.
+- Só registos `published`, pela `position`; uma ligação a um registo que não está publicado não aparece (a carreira em rascunho sai das `careers` de uma oferta).
+- **Paridade** (`ApiParityTest`): cada ficheiro de `apps/api/database/data`, nas três línguas, importado e pedido à sua rota, é igual ao JSON (só a ordem das chaves e o `position` da exportação ficam de fora). Um campo a mais ou a menos, outro valor ou outra ordem falham.
+- As fotografias e os logótipos vêm como o caminho no código da app (`/src/assets/careers/…`, e `/eventos/…` de `public/`); em modo `api` a app troca-os pelos ficheiros do seu build (`apps/web/src/data/assets.ts`). Quando as fotos passarem para o servidor, a API manda URLs completos e a app deixa-os como estão.
 - Web: sessão em cookie `HttpOnly` com CSRF (ADR 0003). Android: `Authorization: Bearer` com o token Sanctum.
-- Limite de pedidos em todas; mais apertado nas escritas sem conta (lista de espera, críticas, entrevistas, cartões).
+- Limite de pedidos em todas: 300 leituras e 60 escritas por minuto, por conta ou IP ([seguranca.md](seguranca.md)); mais apertado nas escritas sem conta (lista de espera, críticas, entrevistas, cartões).
+- **A app** lê estas rotas com `VITE_DATA_SOURCE=api` (o build que o Laravel serve, `apps/web/.env.production`); sem ela, os dados de demonstração. Por agora mudam de fonte as funções de `source.ts`; os módulos lidos diretamente (Kursos, exames de acesso, entrevistas, mentores, vídeos, psicotécnicos, províncias) já têm rota e passam quando a app os pedir por `source.ts`.
 
 ### Públicas (leitura)
 
 | Método | Caminho | Função de `source.ts` (ou módulo) | Devolve |
 |---|---|---|---|
+| GET | `/areas`, `/career-groups` | (exportação: `areas`, `career-groups`) | As áreas do Mercado e os grupos de carreiras, `{id, name}` e `{id, area, name}`, com os nomes na língua pedida |
 | GET | `/occupations` | `listCareers` | `CareerSummary[]` |
 | GET | `/occupations?fields=traits` | `listCareerTraits` | `CareerTraits[]` |
 | GET | `/occupations/{slug}` | `getCareer` | `Career` (com `selfEmployment` quando existe) |
@@ -429,12 +434,13 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | GET | `/admissions` | `listAdmissions` | `Admission[]` |
 | GET | `/figures` | `listFigures` | `Figure[]` |
 | GET | `/assessment` | `getAssessment` | `AssessmentQuestion[]` na língua pedida |
-| GET | `/access-exams` | `data/demo/accessExams` | Disciplinas, temas e o banco de perguntas |
+| GET | `/access-exams` | `data/demo/accessExams` | O banco de perguntas, cada uma com a sua disciplina e tema |
+| GET | `/psychotech`, `/provinces` | `data/demo/psychotech`, `data/provinces` | As listas dos psicotécnicos e as 21 províncias, como estão |
 | GET | `/interview-questions` | `data/demo/interviews` | As perguntas do treino de entrevistas |
 | GET | `/mentors` | `data/demo/mentors` | `Mentor[]` (só `grupo` quando quem pede é menor) |
 | GET | `/video-stories` | `data/demo/videoStories` | `VideoStory[]` |
-| GET | `/kursos` | `data/kursos` | Os Kursos e os anunciados, sem o conteúdo das unidades |
-| GET | `/kursos/{slug}/units/{unit}` | `Unit.load` | `UnitContent` |
+| GET | `/kursos` | `data/kursos` | `{kursos, announced}`: os Kursos sem o texto das lições nem o exame, e os anunciados `{id, title, body, icon}` |
+| GET | `/kursos/{slug}/units/{unit}` | `Unit.load` | `UnitContent` (404 enquanto a unidade não tem texto) |
 | GET | `/kursos/{slug}/exam` | `Course.loadExam` | `ExamQuestion[]` |
 | GET | `/public-cards/{slug}` | `getPublicCard` | `PublicCard` (404 = desligado) |
 

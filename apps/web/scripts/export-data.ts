@@ -16,7 +16,9 @@ type Export = {
 const web = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const out = resolve(web, '../api/database/data')
 
-// Demo mode: the data must come from the bundled modules, never from a server.
+// Demo mode: the data must come from the bundled modules, never from a server (Vite gives process.env priority
+// over a .env with VITE_DATA_SOURCE=api).
+process.env.VITE_DATA_SOURCE = 'demo'
 globalThis.fetch = () => Promise.reject(new Error('export-data runs without network'))
 // lib/i18n (loaded by some data modules) sets the page language; there is no page here.
 Object.assign(globalThis, { document: { documentElement: {} } })

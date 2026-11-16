@@ -17,6 +17,7 @@ services:
       APP_URL: http://localhost:8080
       ALLOW_EPHEMERAL_APP_KEY: 'true'
       RUN_MIGRATIONS: 'true'
+      RUN_IMPORT: 'true'
       DB_CONNECTION: mysql
       DB_HOST: db
       DB_PORT: '3306'

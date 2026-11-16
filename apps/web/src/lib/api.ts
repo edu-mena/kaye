@@ -15,7 +15,8 @@ export class ApiError extends Error {
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = new Headers(init.headers)
   headers.set('Accept', 'application/json')
-  headers.set('Accept-Language', i18n.language)
+  // The app's language, unless the call asks for one (the test in another language).
+  if (!headers.has('Accept-Language')) headers.set('Accept-Language', i18n.language)
   if (init.body !== undefined && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json')
   }

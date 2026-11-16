@@ -43,7 +43,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 226
+    "position": 143
   },
   {
     "slug": "actuario",
@@ -84,7 +84,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 107
+    "position": 81
   },
   {
     "slug": "administrador-de-base-de-dados",
@@ -149,7 +149,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 75
+    "position": 9
   },
   {
     "slug": "administrador-de-redes",
@@ -207,7 +207,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 77
+    "position": 11
   },
   {
     "slug": "administrador-de-sistemas",
@@ -271,7 +271,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 76
+    "position": 10
   },
   {
     "slug": "advogado",
@@ -338,7 +338,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 175
+    "position": 105
   },
   {
     "slug": "agricultor-e-criador",
@@ -377,7 +377,7 @@
     },
     "provinces": [],
     "online": false,
-    "position": 67
+    "position": 255
   },
   {
     "slug": "analista-de-bi",
@@ -437,7 +437,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 72
+    "position": 6
   },
   {
     "slug": "analista-de-ciberseguranca",
@@ -501,7 +501,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 81
+    "position": 15
   },
   {
     "slug": "analista-de-credito",
@@ -542,7 +542,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 104
+    "position": 78
   },
   {
     "slug": "analista-de-dados",
@@ -608,7 +608,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 1
+    "position": 5
   },
   {
     "slug": "analista-de-estudos-economicos",
@@ -666,7 +666,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 125
+    "position": 99
   },
   {
     "slug": "analista-de-investimentos",
@@ -712,7 +712,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 100
+    "position": 74
   },
   {
     "slug": "analista-de-risco",
@@ -758,7 +758,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 105
+    "position": 79
   },
   {
     "slug": "analista-de-sistemas",
@@ -818,7 +818,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 85
+    "position": 20
   },
   {
     "slug": "analista-financeiro",
@@ -882,7 +882,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 97
+    "position": 71
   },
   {
     "slug": "analista-politico",
@@ -934,7 +934,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 187
+    "position": 117
   },
   {
     "slug": "antropologo",
@@ -980,7 +980,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 197
+    "position": 127
   },
   {
     "slug": "arquitecto",
@@ -1032,7 +1032,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 139
+    "position": 190
   },
   {
     "slug": "arquivista",
@@ -1080,7 +1080,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 201
+    "position": 131
   },
   {
     "slug": "artista-plastico",
@@ -1127,7 +1127,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 228
+    "position": 145
   },
   {
     "slug": "assessor-de-comunicacao",
@@ -1181,7 +1181,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 220
+    "position": 137
   },
   {
     "slug": "assistente-administrativo",
@@ -1233,7 +1233,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 112
+    "position": 86
   },
   {
     "slug": "assistente-social",
@@ -1280,7 +1280,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 196
+    "position": 126
   },
   {
     "slug": "auditor",
@@ -1339,7 +1339,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 94
+    "position": 68
   },
   {
     "slug": "auditor-interno",
@@ -1394,7 +1394,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 95
+    "position": 69
   },
   {
     "slug": "biologo",
@@ -1443,7 +1443,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 203
+    "position": 148
   },
   {
     "slug": "biologo-marinho",
@@ -1490,7 +1490,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 239
+    "position": 225
   },
   {
     "slug": "biotecnologo",
@@ -1536,7 +1536,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 204
+    "position": 149
   },
   {
     "slug": "cabeleireiro",
@@ -1577,7 +1577,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 63
+    "position": 251
   },
   {
     "slug": "canalizador",
@@ -1619,7 +1619,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 54
+    "position": 242
   },
   {
     "slug": "cardiopneumologista",
@@ -1671,7 +1671,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 28
+    "position": 52
   },
   {
     "slug": "carpinteiro",
@@ -1712,7 +1712,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 57
+    "position": 245
   },
   {
     "slug": "chefe-de-cozinha",
@@ -1754,7 +1754,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 254
+    "position": 240
   },
   {
     "slug": "cientista-de-dados",
@@ -1809,7 +1809,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 73
+    "position": 7
   },
   {
     "slug": "cirurgiao-geral",
@@ -1890,7 +1890,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 7
+    "position": 31
   },
   {
     "slug": "comercial-de-ti",
@@ -1944,7 +1944,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 89
+    "position": 24
   },
   {
     "slug": "conservador-dos-registos",
@@ -2006,7 +2006,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 181
+    "position": 111
   },
   {
     "slug": "consultor-de-gestao",
@@ -2063,7 +2063,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 111
+    "position": 85
   },
   {
     "slug": "contabilista",
@@ -2127,7 +2127,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 92
+    "position": 66
   },
   {
     "slug": "controller-de-gestao",
@@ -2173,7 +2173,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 98
+    "position": 72
   },
   {
     "slug": "coordenador-de-projectos",
@@ -2239,7 +2239,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 43
+    "position": 101
   },
   {
     "slug": "costureiro",
@@ -2280,7 +2280,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 62
+    "position": 250
   },
   {
     "slug": "cozinheiro",
@@ -2316,7 +2316,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 65
+    "position": 253
   },
   {
     "slug": "delegado-informacao-medica",
@@ -2367,7 +2367,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 32
+    "position": 56
   },
   {
     "slug": "demografo",
@@ -2413,7 +2413,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 198
+    "position": 128
   },
   {
     "slug": "desenhador-projectista",
@@ -2460,7 +2460,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 141
+    "position": 192
   },
   {
     "slug": "desenvolvedor-backend",
@@ -2529,7 +2529,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 68
+    "position": 1
   },
   {
     "slug": "desenvolvedor-frontend",
@@ -2682,7 +2682,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 69
+    "position": 2
   },
   {
     "slug": "desenvolvedor-mobile",
@@ -2746,7 +2746,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 70
+    "position": 3
   },
   {
     "slug": "designer-de-moda",
@@ -2792,7 +2792,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 229
+    "position": 146
   },
   {
     "slug": "designer-grafico",
@@ -2844,7 +2844,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 84
+    "position": 19
   },
   {
     "slug": "designer-ui-ux",
@@ -2896,7 +2896,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 2
+    "position": 18
   },
   {
     "slug": "despachante-aduaneiro",
@@ -2937,7 +2937,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 245
+    "position": 231
   },
   {
     "slug": "diplomata",
@@ -2993,7 +2993,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 185
+    "position": 115
   },
   {
     "slug": "director-escolar",
@@ -3039,7 +3039,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 167
+    "position": 177
   },
   {
     "slug": "docente-do-ensino-superior",
@@ -3085,7 +3085,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 168
+    "position": 178
   },
   {
     "slug": "economista",
@@ -3143,7 +3143,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 124
+    "position": 98
   },
   {
     "slug": "editor-de-video",
@@ -3189,7 +3189,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 217
+    "position": 134
   },
   {
     "slug": "educador-de-infancia",
@@ -3239,7 +3239,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 151
+    "position": 161
   },
   {
     "slug": "enfermeiro",
@@ -3321,7 +3321,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 20
+    "position": 44
   },
   {
     "slug": "enfermeiro-cuidados-intensivos",
@@ -3408,7 +3408,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 23
+    "position": 47
   },
   {
     "slug": "engenheiro-agroalimentar",
@@ -3455,7 +3455,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 235
+    "position": 221
   },
   {
     "slug": "engenheiro-agronomo",
@@ -3509,7 +3509,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 231
+    "position": 217
   },
   {
     "slug": "engenheiro-civil",
@@ -3568,7 +3568,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 134
+    "position": 185
   },
   {
     "slug": "engenheiro-de-dados",
@@ -3632,7 +3632,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 74
+    "position": 8
   },
   {
     "slug": "engenheiro-de-energias-renovaveis",
@@ -3673,7 +3673,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 150
+    "position": 201
   },
   {
     "slug": "engenheiro-de-manutencao",
@@ -3721,7 +3721,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 143
+    "position": 194
   },
   {
     "slug": "engenheiro-de-minas",
@@ -3774,7 +3774,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 130
+    "position": 206
   },
   {
     "slug": "engenheiro-de-perfuracao",
@@ -3821,7 +3821,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 127
+    "position": 203
   },
   {
     "slug": "engenheiro-de-petroleos",
@@ -3867,7 +3867,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 126
+    "position": 202
   },
   {
     "slug": "engenheiro-de-processos-de-refinacao",
@@ -3914,7 +3914,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 128
+    "position": 204
   },
   {
     "slug": "engenheiro-de-producao-industrial",
@@ -3961,7 +3961,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 144
+    "position": 195
   },
   {
     "slug": "engenheiro-de-qa",
@@ -4025,7 +4025,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 71
+    "position": 4
   },
   {
     "slug": "engenheiro-de-telecomunicacoes",
@@ -4079,7 +4079,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 83
+    "position": 17
   },
   {
     "slug": "engenheiro-de-transportes",
@@ -4121,7 +4121,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 247
+    "position": 233
   },
   {
     "slug": "engenheiro-devops",
@@ -4190,7 +4190,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 78
+    "position": 12
   },
   {
     "slug": "engenheiro-do-ambiente",
@@ -4239,7 +4239,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 241
+    "position": 227
   },
   {
     "slug": "engenheiro-electrotecnico",
@@ -4292,7 +4292,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 148
+    "position": 199
   },
   {
     "slug": "engenheiro-florestal",
@@ -4334,7 +4334,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 233
+    "position": 219
   },
   {
     "slug": "engenheiro-hidraulico",
@@ -4378,7 +4378,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 138
+    "position": 189
   },
   {
     "slug": "engenheiro-mecanico",
@@ -4425,7 +4425,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 142
+    "position": 193
   },
   {
     "slug": "engenheiro-mecatronico",
@@ -4466,7 +4466,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 145
+    "position": 196
   },
   {
     "slug": "engenheiro-metalurgico",
@@ -4513,7 +4513,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 133
+    "position": 209
   },
   {
     "slug": "engenheiro-quimico",
@@ -4554,7 +4554,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 146
+    "position": 197
   },
   {
     "slug": "especialista-de-administracao-da-educacao",
@@ -4600,7 +4600,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 166
+    "position": 176
   },
   {
     "slug": "estatistico",
@@ -4646,7 +4646,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 214
+    "position": 159
   },
   {
     "slug": "esteticista",
@@ -4687,7 +4687,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 64
+    "position": 252
   },
   {
     "slug": "farmaceutico",
@@ -4743,7 +4743,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 30
+    "position": 54
   },
   {
     "slug": "fisico",
@@ -4789,7 +4789,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 212
+    "position": 157
   },
   {
     "slug": "fisioterapeuta",
@@ -4840,7 +4840,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 33
+    "position": 57
   },
   {
     "slug": "formador-de-tic",
@@ -4883,7 +4883,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 90
+    "position": 25
   },
   {
     "slug": "formador-profissional",
@@ -4934,7 +4934,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 169
+    "position": 179
   },
   {
     "slug": "geofisico",
@@ -4980,7 +4980,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 132
+    "position": 208
   },
   {
     "slug": "geologo",
@@ -5033,7 +5033,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 131
+    "position": 207
   },
   {
     "slug": "gestor-comercial",
@@ -5082,7 +5082,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 120
+    "position": 94
   },
   {
     "slug": "gestor-cultural",
@@ -5129,7 +5129,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 230
+    "position": 147
   },
   {
     "slug": "gestor-de-clientes-bancario",
@@ -5175,7 +5175,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 102
+    "position": 76
   },
   {
     "slug": "gestor-de-empresas",
@@ -5232,7 +5232,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 110
+    "position": 84
   },
   {
     "slug": "gestor-de-empresas-agricolas",
@@ -5279,7 +5279,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 234
+    "position": 220
   },
   {
     "slug": "gestor-de-logistica",
@@ -5326,7 +5326,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 243
+    "position": 229
   },
   {
     "slug": "gestor-de-loja",
@@ -5371,7 +5371,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 122
+    "position": 96
   },
   {
     "slug": "gestor-de-marketing",
@@ -5421,7 +5421,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 121
+    "position": 95
   },
   {
     "slug": "gestor-de-marketing-digital",
@@ -5476,7 +5476,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 91
+    "position": 26
   },
   {
     "slug": "gestor-de-programas-e-portfolio",
@@ -5542,7 +5542,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 45
+    "position": 103
   },
   {
     "slug": "gestor-de-projectos",
@@ -5608,7 +5608,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 42
+    "position": 100
   },
   {
     "slug": "gestor-de-projetos-de-ti",
@@ -5667,7 +5667,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 86
+    "position": 21
   },
   {
     "slug": "gestor-de-recursos-humanos",
@@ -5722,7 +5722,7 @@
       "Lunda Sul"
     ],
     "online": false,
-    "position": 116
+    "position": 90
   },
   {
     "slug": "gestor-de-redes-sociais",
@@ -5775,7 +5775,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 219
+    "position": 136
   },
   {
     "slug": "gestor-de-restauracao",
@@ -5825,7 +5825,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 255
+    "position": 241
   },
   {
     "slug": "gestor-de-ti",
@@ -5885,7 +5885,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 88
+    "position": 23
   },
   {
     "slug": "gestor-desportivo",
@@ -5925,7 +5925,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 174
+    "position": 184
   },
   {
     "slug": "gestor-hoteleiro",
@@ -5975,7 +5975,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 250
+    "position": 236
   },
   {
     "slug": "gestor-portuario",
@@ -6021,7 +6021,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 248
+    "position": 234
   },
   {
     "slug": "guia-turistico",
@@ -6063,7 +6063,7 @@
       "Cubango"
     ],
     "online": false,
-    "position": 253
+    "position": 239
   },
   {
     "slug": "historiador",
@@ -6111,7 +6111,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 200
+    "position": 130
   },
   {
     "slug": "inspector-de-aviacao-civil",
@@ -6153,7 +6153,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 249
+    "position": 235
   },
   {
     "slug": "instrumentista-cirurgico",
@@ -6240,7 +6240,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 24
+    "position": 48
   },
   {
     "slug": "interprete",
@@ -6287,7 +6287,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 222
+    "position": 139
   },
   {
     "slug": "investigador-cientifico",
@@ -6337,7 +6337,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 215
+    "position": 160
   },
   {
     "slug": "investigador-criminal",
@@ -6384,7 +6384,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 188
+    "position": 118
   },
   {
     "slug": "investigador-em-ciencias-sociais",
@@ -6437,7 +6437,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 199
+    "position": 129
   },
   {
     "slug": "jornalista",
@@ -6491,7 +6491,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 216
+    "position": 133
   },
   {
     "slug": "juiz",
@@ -6553,7 +6553,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 178
+    "position": 108
   },
   {
     "slug": "jurista",
@@ -6620,7 +6620,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 176
+    "position": 106
   },
   {
     "slug": "linguista",
@@ -6667,7 +6667,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 224
+    "position": 141
   },
   {
     "slug": "matematico",
@@ -6713,7 +6713,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 213
+    "position": 158
   },
   {
     "slug": "mecanico-auto",
@@ -6754,7 +6754,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 60
+    "position": 248
   },
   {
     "slug": "mecanico-de-sonda",
@@ -6806,7 +6806,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 48
+    "position": 211
   },
   {
     "slug": "mediador-de-conflitos",
@@ -6868,7 +6868,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 177
+    "position": 107
   },
   {
     "slug": "mediador-de-seguros",
@@ -6909,7 +6909,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 109
+    "position": 83
   },
   {
     "slug": "medico-anestesista",
@@ -6990,7 +6990,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 11
+    "position": 35
   },
   {
     "slug": "medico-cardiologista",
@@ -7071,7 +7071,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 12
+    "position": 36
   },
   {
     "slug": "medico-clinica-geral",
@@ -7152,7 +7152,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 3
+    "position": 27
   },
   {
     "slug": "medico-dentista",
@@ -7207,7 +7207,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 37
+    "position": 61
   },
   {
     "slug": "medico-dermatologista",
@@ -7288,7 +7288,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 18
+    "position": 42
   },
   {
     "slug": "medico-ginecologista-obstetra",
@@ -7369,7 +7369,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 5
+    "position": 29
   },
   {
     "slug": "medico-intensivista",
@@ -7450,7 +7450,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 8
+    "position": 32
   },
   {
     "slug": "medico-internista",
@@ -7531,7 +7531,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 6
+    "position": 30
   },
   {
     "slug": "medico-neurologista",
@@ -7612,7 +7612,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 15
+    "position": 39
   },
   {
     "slug": "medico-oftalmologista",
@@ -7693,7 +7693,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 13
+    "position": 37
   },
   {
     "slug": "medico-ortopedista",
@@ -7774,7 +7774,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 9
+    "position": 33
   },
   {
     "slug": "medico-otorrinolaringologista",
@@ -7855,7 +7855,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 17
+    "position": 41
   },
   {
     "slug": "medico-pediatra",
@@ -7936,7 +7936,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 4
+    "position": 28
   },
   {
     "slug": "medico-psiquiatra",
@@ -8017,7 +8017,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 14
+    "position": 38
   },
   {
     "slug": "medico-radiologista",
@@ -8098,7 +8098,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 10
+    "position": 34
   },
   {
     "slug": "medico-saude-publica",
@@ -8179,7 +8179,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 19
+    "position": 43
   },
   {
     "slug": "medico-urologista",
@@ -8260,7 +8260,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 16
+    "position": 40
   },
   {
     "slug": "medico-veterinario",
@@ -8301,7 +8301,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 236
+    "position": 222
   },
   {
     "slug": "medidor-orcamentista",
@@ -8355,7 +8355,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 136
+    "position": 187
   },
   {
     "slug": "meteorologista",
@@ -8401,7 +8401,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 206
+    "position": 151
   },
   {
     "slug": "motorista-profissional",
@@ -8435,7 +8435,7 @@
     },
     "provinces": [],
     "online": false,
-    "position": 61
+    "position": 249
   },
   {
     "slug": "musico",
@@ -8481,7 +8481,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 227
+    "position": 144
   },
   {
     "slug": "notario",
@@ -8543,7 +8543,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 182
+    "position": 112
   },
   {
     "slug": "nutricionista",
@@ -8591,7 +8591,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 34
+    "position": 58
   },
   {
     "slug": "oceanografo",
@@ -8637,7 +8637,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 205
+    "position": 150
   },
   {
     "slug": "oficial-da-marinha-mercante",
@@ -8684,7 +8684,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 210
+    "position": 155
   },
   {
     "slug": "oficial-de-justica",
@@ -8746,7 +8746,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 180
+    "position": 110
   },
   {
     "slug": "oficial-de-policia",
@@ -8792,7 +8792,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 189
+    "position": 119
   },
   {
     "slug": "operador-de-caixa-bancario",
@@ -8834,7 +8834,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 103
+    "position": 77
   },
   {
     "slug": "operador-de-maquinas-pesadas",
@@ -8885,7 +8885,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 51
+    "position": 214
   },
   {
     "slug": "operador-de-producao-petrolifera",
@@ -8933,7 +8933,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 129
+    "position": 205
   },
   {
     "slug": "ortoprotesico",
@@ -8979,7 +8979,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 35
+    "position": 59
   },
   {
     "slug": "ortoptista",
@@ -9025,7 +9025,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 36
+    "position": 60
   },
   {
     "slug": "parteira",
@@ -9102,7 +9102,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 22
+    "position": 46
   },
   {
     "slug": "pasteleiro",
@@ -9143,7 +9143,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 66
+    "position": 254
   },
   {
     "slug": "pedagogo",
@@ -9196,7 +9196,7 @@
       "Cubango"
     ],
     "online": false,
-    "position": 165
+    "position": 175
   },
   {
     "slug": "pedreiro",
@@ -9237,7 +9237,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 56
+    "position": 244
   },
   {
     "slug": "perito-criminalista",
@@ -9283,7 +9283,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 190
+    "position": 120
   },
   {
     "slug": "planeador-de-projectos",
@@ -9349,7 +9349,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 44
+    "position": 102
   },
   {
     "slug": "preparador-fisico",
@@ -9389,7 +9389,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 173
+    "position": 183
   },
   {
     "slug": "procurador",
@@ -9451,7 +9451,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 179
+    "position": 109
   },
   {
     "slug": "product-manager",
@@ -9516,7 +9516,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 87
+    "position": 22
   },
   {
     "slug": "professor-de-biologia",
@@ -9576,7 +9576,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 157
+    "position": 167
   },
   {
     "slug": "professor-de-educacao-especial",
@@ -9619,7 +9619,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 153
+    "position": 163
   },
   {
     "slug": "professor-de-educacao-fisica",
@@ -9664,7 +9664,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 171
+    "position": 181
   },
   {
     "slug": "professor-de-filosofia",
@@ -9724,7 +9724,7 @@
       "Cubango"
     ],
     "online": false,
-    "position": 162
+    "position": 172
   },
   {
     "slug": "professor-de-fisica",
@@ -9784,7 +9784,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 159
+    "position": 169
   },
   {
     "slug": "professor-de-geografia",
@@ -9845,7 +9845,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 161
+    "position": 171
   },
   {
     "slug": "professor-de-historia",
@@ -9900,7 +9900,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 160
+    "position": 170
   },
   {
     "slug": "professor-de-informatica",
@@ -9953,7 +9953,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 163
+    "position": 173
   },
   {
     "slug": "professor-de-lingua-portuguesa",
@@ -10014,7 +10014,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 155
+    "position": 165
   },
   {
     "slug": "professor-de-linguas-estrangeiras",
@@ -10073,7 +10073,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 156
+    "position": 166
   },
   {
     "slug": "professor-de-matematica",
@@ -10134,7 +10134,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 154
+    "position": 164
   },
   {
     "slug": "professor-de-quimica",
@@ -10194,7 +10194,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 158
+    "position": 168
   },
   {
     "slug": "professor-do-ensino-primario",
@@ -10254,7 +10254,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 152
+    "position": 162
   },
   {
     "slug": "professor-do-ensino-tecnico",
@@ -10295,7 +10295,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 164
+    "position": 174
   },
   {
     "slug": "psicologo-clinico",
@@ -10354,7 +10354,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 41
+    "position": 65
   },
   {
     "slug": "psicologo-do-trabalho",
@@ -10413,7 +10413,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 191
+    "position": 121
   },
   {
     "slug": "psicologo-escolar",
@@ -10473,7 +10473,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 192
+    "position": 122
   },
   {
     "slug": "psicologo-forense",
@@ -10532,7 +10532,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 193
+    "position": 123
   },
   {
     "slug": "quimico",
@@ -10579,7 +10579,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 211
+    "position": 156
   },
   {
     "slug": "realizador",
@@ -10625,7 +10625,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 225
+    "position": 142
   },
   {
     "slug": "recepcionista-de-hotel",
@@ -10670,7 +10670,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 251
+    "position": 237
   },
   {
     "slug": "revisor-de-textos",
@@ -10727,7 +10727,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 223
+    "position": 140
   },
   {
     "slug": "rigger-e-operador-de-grua",
@@ -10778,7 +10778,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 50
+    "position": 213
   },
   {
     "slug": "scrum-master",
@@ -10849,7 +10849,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 46
+    "position": 104
   },
   {
     "slug": "secretario-executivo",
@@ -10890,7 +10890,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 113
+    "position": 87
   },
   {
     "slug": "serralheiro",
@@ -10931,7 +10931,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 55
+    "position": 243
   },
   {
     "slug": "sociologo",
@@ -10984,7 +10984,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 194
+    "position": 124
   },
   {
     "slug": "soldador-industrial",
@@ -11036,7 +11036,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 49
+    "position": 212
   },
   {
     "slug": "tecnico-agropecuario",
@@ -11086,7 +11086,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 232
+    "position": 218
   },
   {
     "slug": "tecnico-analises-clinicas",
@@ -11153,7 +11153,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 25
+    "position": 49
   },
   {
     "slug": "tecnico-anatomia-patologica",
@@ -11209,7 +11209,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 27
+    "position": 51
   },
   {
     "slug": "tecnico-comercial",
@@ -11260,7 +11260,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 119
+    "position": 93
   },
   {
     "slug": "tecnico-de-ambiente",
@@ -11304,7 +11304,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 242
+    "position": 228
   },
   {
     "slug": "tecnico-de-aquicultura",
@@ -11346,7 +11346,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 238
+    "position": 224
   },
   {
     "slug": "tecnico-de-cobrancas",
@@ -11400,7 +11400,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 101
+    "position": 75
   },
   {
     "slug": "tecnico-de-comercio-internacional",
@@ -11443,7 +11443,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 123
+    "position": 97
   },
   {
     "slug": "tecnico-de-compliance",
@@ -11484,7 +11484,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 106
+    "position": 80
   },
   {
     "slug": "tecnico-de-compras",
@@ -11531,7 +11531,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 114
+    "position": 88
   },
   {
     "slug": "tecnico-de-conservacao-da-natureza",
@@ -11581,7 +11581,7 @@
       "Bié"
     ],
     "online": false,
-    "position": 207
+    "position": 152
   },
   {
     "slug": "tecnico-de-contabilidade",
@@ -11640,7 +11640,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 93
+    "position": 67
   },
   {
     "slug": "tecnico-de-contratacao-publica",
@@ -11690,7 +11690,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 184
+    "position": 114
   },
   {
     "slug": "tecnico-de-cooperacao-internacional",
@@ -11741,7 +11741,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 186
+    "position": 116
   },
   {
     "slug": "tecnico-de-emprego-e-formacao",
@@ -11787,7 +11787,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 170
+    "position": 180
   },
   {
     "slug": "tecnico-de-frio",
@@ -11826,7 +11826,7 @@
     },
     "provinces": [],
     "online": false,
-    "position": 58
+    "position": 246
   },
   {
     "slug": "tecnico-de-hardware",
@@ -11877,7 +11877,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 80
+    "position": 14
   },
   {
     "slug": "tecnico-de-impostos",
@@ -11936,7 +11936,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 96
+    "position": 70
   },
   {
     "slug": "tecnico-de-instrumentacao",
@@ -11993,7 +11993,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 52
+    "position": 215
   },
   {
     "slug": "tecnico-de-logistica",
@@ -12039,7 +12039,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 244
+    "position": 230
   },
   {
     "slug": "tecnico-de-manutencao-mecanica",
@@ -12096,7 +12096,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 47
+    "position": 210
   },
   {
     "slug": "tecnico-de-obras",
@@ -12150,7 +12150,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 135
+    "position": 186
   },
   {
     "slug": "tecnico-de-paineis-solares",
@@ -12189,7 +12189,7 @@
     },
     "provinces": [],
     "online": false,
-    "position": 59
+    "position": 247
   },
   {
     "slug": "tecnico-de-patrimonio-cultural",
@@ -12237,7 +12237,7 @@
       "Cabinda"
     ],
     "online": false,
-    "position": 202
+    "position": 132
   },
   {
     "slug": "tecnico-de-pescas",
@@ -12279,7 +12279,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 240
+    "position": 226
   },
   {
     "slug": "tecnico-de-procurement",
@@ -12336,7 +12336,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 53
+    "position": 216
   },
   {
     "slug": "tecnico-de-qualidade-alimentar",
@@ -12383,7 +12383,7 @@
       "Bengo"
     ],
     "online": false,
-    "position": 208
+    "position": 153
   },
   {
     "slug": "tecnico-de-recrutamento",
@@ -12433,7 +12433,7 @@
       "Lunda Sul"
     ],
     "online": false,
-    "position": 117
+    "position": 91
   },
   {
     "slug": "tecnico-de-recursos-hidricos",
@@ -12479,7 +12479,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 209
+    "position": 154
   },
   {
     "slug": "tecnico-de-recursos-humanos",
@@ -12529,7 +12529,7 @@
       "Lunda Sul"
     ],
     "online": false,
-    "position": 115
+    "position": 89
   },
   {
     "slug": "tecnico-de-relacoes-publicas",
@@ -12582,7 +12582,7 @@
       "Huambo"
     ],
     "online": false,
-    "position": 218
+    "position": 135
   },
   {
     "slug": "tecnico-de-salarios",
@@ -12632,7 +12632,7 @@
       "Lunda Sul"
     ],
     "online": false,
-    "position": 118
+    "position": 92
   },
   {
     "slug": "tecnico-de-salvaguardas-sociais",
@@ -12685,7 +12685,7 @@
       "Cunene"
     ],
     "online": false,
-    "position": 195
+    "position": 125
   },
   {
     "slug": "tecnico-de-seguranca-no-trabalho",
@@ -12729,7 +12729,7 @@
       "Cuanza Sul"
     ],
     "online": false,
-    "position": 147
+    "position": 198
   },
   {
     "slug": "tecnico-de-seguros",
@@ -12770,7 +12770,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 108
+    "position": 82
   },
   {
     "slug": "tecnico-de-suporte",
@@ -12823,7 +12823,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 79
+    "position": 13
   },
   {
     "slug": "tecnico-de-telecomunicacoes",
@@ -12882,7 +12882,7 @@
       "Malanje"
     ],
     "online": false,
-    "position": 82
+    "position": 16
   },
   {
     "slug": "tecnico-de-transportes",
@@ -12923,7 +12923,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 246
+    "position": 232
   },
   {
     "slug": "tecnico-de-turismo",
@@ -12965,7 +12965,7 @@
       "Cubango"
     ],
     "online": false,
-    "position": 252
+    "position": 238
   },
   {
     "slug": "tecnico-electricista",
@@ -13014,7 +13014,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 149
+    "position": 200
   },
   {
     "slug": "tecnico-electromedicina",
@@ -13061,7 +13061,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 29
+    "position": 53
   },
   {
     "slug": "tecnico-estomatologia",
@@ -13109,7 +13109,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 38
+    "position": 62
   },
   {
     "slug": "tecnico-farmacia",
@@ -13162,7 +13162,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 31
+    "position": 55
   },
   {
     "slug": "tecnico-medio-enfermagem",
@@ -13224,7 +13224,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 21
+    "position": 45
   },
   {
     "slug": "tecnico-radiologia",
@@ -13283,7 +13283,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 26
+    "position": 50
   },
   {
     "slug": "tecnico-saude-ambiental",
@@ -13329,7 +13329,7 @@
       "Luanda"
     ],
     "online": false,
-    "position": 39
+    "position": 63
   },
   {
     "slug": "tecnico-saude-publica",
@@ -13380,7 +13380,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 40
+    "position": 64
   },
   {
     "slug": "tecnico-superior-de-administracao-publica",
@@ -13431,7 +13431,7 @@
       "Benguela"
     ],
     "online": false,
-    "position": 183
+    "position": 113
   },
   {
     "slug": "tesoureiro",
@@ -13478,7 +13478,7 @@
       "Uíge"
     ],
     "online": false,
-    "position": 99
+    "position": 73
   },
   {
     "slug": "topografo",
@@ -13522,7 +13522,7 @@
       "Lunda Norte"
     ],
     "online": false,
-    "position": 137
+    "position": 188
   },
   {
     "slug": "tradutor",
@@ -13576,7 +13576,7 @@
       "Cuanza Norte"
     ],
     "online": false,
-    "position": 221
+    "position": 138
   },
   {
     "slug": "treinador-desportivo",
@@ -13616,7 +13616,7 @@
       "Huíla"
     ],
     "online": false,
-    "position": 172
+    "position": 182
   },
   {
     "slug": "urbanista",
@@ -13661,7 +13661,7 @@
       "Namibe"
     ],
     "online": false,
-    "position": 140
+    "position": 191
   },
   {
     "slug": "zootecnico",
@@ -13704,6 +13704,6 @@
       "Benguela"
     ],
     "online": false,
-    "position": 237
+    "position": 223
   }
 ]

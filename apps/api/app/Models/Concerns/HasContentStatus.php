@@ -21,7 +21,7 @@ use Illuminate\Support\Carbon;
  */
 trait HasContentStatus
 {
-    use LogsContentChanges, SoftDeletes;
+    use FlushesPublicContent, LogsContentChanges, SoftDeletes;
 
     public function initializeHasContentStatus(): void
     {

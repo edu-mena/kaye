@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\FlushesPublicContent;
 use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\NewsEventFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class NewsEvent extends Model
 {
     /** @use HasFactory<NewsEventFactory> */
-    use HasFactory, LogsContentChanges;
+    use FlushesPublicContent, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

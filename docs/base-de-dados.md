@@ -162,7 +162,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 
 **Listas de textos e fontes.** `sources` é sempre JSON `[{label, url}]` (o `SourceLink[]`); uma `source` única é JSON `{label, url}`. As fotografias (`Photo`) são JSON `{thumb, small, large, alt*, credit}`.
 
-**Tabelas de ligação** (`career_skill`, …) têm só as duas chaves estrangeiras (com `cascadeOnDelete`), a chave primária composta e, quando dito, `position` para manter a ordem do frontend. Não têm as colunas comuns.
+**Tabelas de ligação** (`career_skill`, …) têm só as duas chaves estrangeiras (com `cascadeOnDelete`), a chave primária composta e `position`, a ordem da lista no frontend (as carreiras de uma oferta, as empresas de uma notícia…), que a API devolve assim. Não têm as colunas comuns. Mudam sem eventos dos modelos: quem as muda limpa a cache da API pública (`App\Support\PublicContent::flush()`; o `kaye:import` fá-lo no fim).
 
 **Exportação do frontend.** `npm run export:data` (em `apps/web`, `scripts/export-data.ts`) grava em `apps/api/database/data/<recurso>.<locale>.json` o que as funções de `source.ts` e os módulos lidos diretamente devolvem, ordenado por `slug` (o `id` quando não há), com 2 espaços, e o `manifest.json` (por recurso e língua: ficheiro, registos, SHA-256). As áreas e os grupos não têm módulo próprio: `areas` e `career-groups` saem de `MARKET_AREAS`, `CAREER_GROUPS` e `GROUP_AREAS`, com os nomes das traduções da app (`market.area_*`, `groups.*`), que já existem nas três línguas. Cada registo leva `position`, a ordem da app. Os pormenores que devolvem o próprio item da lista (`getAcademy`, `getCourse`, `getCompany`) não têm ficheiro; `career-details` tem o `Career` completo de cada carreira curada. `src/data/export.test.ts` falha se os ficheiros ou o manifest não corresponderem aos dados: depois de mudar conteúdo, volta a exportar.
 
@@ -217,7 +217,7 @@ Relações: `skills` (por `career_skill`), `pathways`, `cv_examples`, `testimoni
 | Tabela | Colunas | Notas |
 |---|---|---|
 | `skills` | `name`\* | O `Skill` sem a importância |
-| `career_skill` | `career_id`, `skill_id`, `importance` (`essencial`, `opcional`), `position` | A importância é de cada carreira |
+| `career_skill` | `career_id`, `skill_id`, `importance` (`essencial`, `opcional`), `position`, `name` (json, pode ser vazio) | A importância é de cada carreira. `name` é o nome que a carreira dá à competência (`{"pt": "SQL básico"}`), só quando não é o da competência |
 
 #### `pathways`
 
@@ -332,6 +332,7 @@ Um curso numa instituição (`AcademyOffer`).
 | `course_id` | fk → `courses` | |
 | `slug` | | Gerado: `<instituição>--<curso>--<nível>` |
 | `name`\* | json | O nome na instituição |
+| `course_name`\* | json, pode ser vazio | O nome que a instituição dá ao **curso** (`AcademyOffer.course.name`), só quando não é o do curso ("Técnico de Informática" em `tecnico-informatica`); vazio = o nome do curso |
 | `level` | varchar(24), indexado | `formacao_profissional`, `medio_tecnico`, `licenciatura`, `certificacao`, `mestrado`, `especialidade` |
 | `faculty` | varchar, pode ser vazio | |
 | `recognition` | json, pode ser vazio | O decreto que o criou |

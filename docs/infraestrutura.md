@@ -88,7 +88,7 @@ public_html -> ~/kaye/current/public
 1. Enviar o pacote por SSH e extraí-lo para `releases/<versão>`.
 2. Ligar `shared/.env` e `shared/storage` à release.
 3. Fazer uma cópia de segurança da base de dados (`mysqldump`, cifrada).
-4. `php artisan migrate --force`, depois `config:cache`, `route:cache` e `view:cache`.
+4. `php artisan migrate --force` e `php artisan kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), depois `config:cache`, `route:cache` e `view:cache`.
 5. `php artisan kaye:check-production`: se falhar, **pára aqui**. O site continua na versão anterior.
 6. Trocar `current` para a nova release (`ln -sfn`, uma operação atómica).
 7. `php artisan queue:restart`.
@@ -142,9 +142,11 @@ Basta apontar `current` para a release anterior (`ln -sfn releases/<anterior> cu
 | `SENTRY_LARAVEL_DSN` | vazio | o DSN do projeto | Obrigatório em produção |
 | `SENTRY_TRACES_SAMPLE_RATE` | `0.1` | `0.1` | |
 
-Só nos containers: `ALLOW_EPHEMERAL_APP_KEY` (cria uma `APP_KEY` descartável; nunca em produção) e `RUN_MIGRATIONS` (corre as migrações no arranque).
+Só nos containers: `ALLOW_EPHEMERAL_APP_KEY` (cria uma `APP_KEY` descartável; nunca em produção), `RUN_MIGRATIONS` (corre as migrações no arranque) e `RUN_IMPORT` (corre `kaye:import` a seguir, para o catálogo estar na base; o `compose.yaml` liga-o).
 
-Só na app: `VITE_API_URL`, o endereço completo da API para as apps nativas (`https://<domínio>/api/v1`). A app web usa `/api/v1` no mesmo domínio. `VITE_KAYE_EMAIL`: o email do Kayé para correções ("Ajuda-nos a completar") e para os pedidos de conversa com mentores. `VITE_KAYE_WHATSAPP`: o número de WhatsApp do Kayé, só dígitos com o indicativo (`244…`), para os pedidos de conversa com mentores ([mentores.md](mentores.md)). Sem nenhuma das duas, o botão "Pedir conversa" não aparece; as duas são públicas (vão no código da app), por isso nunca um número ou email pessoal.
+> O `DocumentationTest` também falha se uma variável `VITE_*` de `apps/web/src/env.d.ts` não estiver descrita aqui.
+
+Só na app: `VITE_DATA_SOURCE`, de onde vem o conteúdo: `api` lê `/api/v1` (o Laravel); sem ela, ou com `demo`, a app usa os dados de demonstração que traz dentro ([ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md)). O `apps/web/.env.production` põe `api` no build que o Laravel serve (Docker, CI, Hostinger); o site de teste no Vercel (`--mode static`) e a app Android (`--mode native`) continuam com `demo` até à mudança. Em modo `api`, se a API falhar a app mostra o erro, nunca os dados de demonstração. `VITE_API_URL`, o endereço completo da API para as apps nativas (`https://<domínio>/api/v1`). A app web usa `/api/v1` no mesmo domínio. `VITE_KAYE_EMAIL`: o email do Kayé para correções ("Ajuda-nos a completar") e para os pedidos de conversa com mentores. `VITE_KAYE_WHATSAPP`: o número de WhatsApp do Kayé, só dígitos com o indicativo (`244…`), para os pedidos de conversa com mentores ([mentores.md](mentores.md)). Sem nenhuma das duas, o botão "Pedir conversa" não aparece; as duas são públicas (vão no código da app), por isso nunca um número ou email pessoal.
 
 Só no site de teste (Vercel): `KV_REST_API_URL` e `KV_REST_API_TOKEN`, criadas ao ligar a base Upstash Redis ao projeto, para as páginas públicas ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md)). `WAITLIST_EXPORT_TOKEN`: a senha para descarregar a lista de espera e as críticas em CSV (ver o README).
 

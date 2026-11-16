@@ -58,7 +58,7 @@ class Company extends Model
      */
     public function partners(): BelongsToMany
     {
-        return $this->belongsToMany(Institution::class);
+        return $this->belongsToMany(Institution::class)->withPivot('position')->orderByPivot('position');
     }
 
     /**

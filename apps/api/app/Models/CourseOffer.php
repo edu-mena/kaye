@@ -27,7 +27,7 @@ class CourseOffer extends Model
      *
      * @var list<string>
      */
-    public array $translatable = ['name', 'curriculum'];
+    public array $translatable = ['name', 'course_name', 'curriculum'];
 
     /**
      * @return array<string, string>

@@ -3,13 +3,13 @@
     "id": "acabamentos-madeira",
     "name": "Acabamentos: lixar, envernizar, pintar",
     "importance": "essencial",
-    "position": 229
+    "position": 686
   },
   {
     "id": "acabamentos-roupa",
     "name": "Acabamentos e arranjos",
     "importance": "opcional",
-    "position": 243
+    "position": 700
   },
   {
     "id": "acessibilidade",
@@ -21,181 +21,181 @@
     "id": "acompanhamento-casos",
     "name": "Acompanhamento de casos",
     "importance": "essencial",
-    "position": 565
+    "position": 395
   },
   {
     "id": "acordo-ortografico",
     "name": "Regras ortográficas e gramática",
     "importance": "essencial",
-    "position": 632
+    "position": 436
   },
   {
     "id": "active-directory",
     "name": "Active Directory",
     "importance": "opcional",
-    "position": 298
+    "position": 54
   },
   {
     "id": "acuidade-visual",
     "name": "Medição da acuidade visual",
     "importance": "essencial",
-    "position": 157
+    "position": 243
   },
   {
     "id": "adaptacao-curricular",
     "name": "Adaptação de aulas",
     "importance": "essencial",
-    "position": 465
+    "position": 495
   },
   {
     "id": "administracao-medicacao",
     "name": "Preparação e administração de medicamentos",
     "importance": "essencial",
-    "position": 93
+    "position": 185
   },
   {
     "id": "agenda",
     "name": "Gestão de agendas",
     "importance": "essencial",
-    "position": 381
+    "position": 303
   },
   {
     "id": "alfabetizacao",
     "name": "Ensino da leitura e da escrita",
     "importance": "essencial",
-    "position": 460
+    "position": 490
   },
   {
     "id": "alimentacao-peixe",
     "name": "Alimentação de peixes",
     "importance": "essencial",
-    "position": 674
+    "position": 633
   },
   {
     "id": "alinhamento-eixos",
     "name": "Alinhamento de eixos",
     "importance": "essencial",
-    "position": 197
+    "position": 594
   },
   {
     "id": "alvenaria",
     "name": "Alvenaria de blocos",
     "importance": "essencial",
-    "position": 226
+    "position": 683
   },
   {
     "id": "amostragem",
     "name": "Amostragem e inquéritos",
     "importance": "essencial",
-    "position": 609
+    "position": 487
   },
   {
     "id": "analise-credito",
     "name": "Análise de crédito",
     "importance": "essencial",
-    "position": 364
+    "position": 286
   },
   {
     "id": "analise-dados",
     "name": "Análise de dados",
     "importance": "essencial",
-    "position": 328
+    "position": 93
   },
   {
     "id": "analise-dados-saude",
     "name": "Análise de dados de saúde",
     "importance": "essencial",
-    "position": 174
+    "position": 260
   },
   {
     "id": "analise-financeira",
     "name": "Análise de demonstrações financeiras",
     "importance": "essencial",
-    "position": 367
+    "position": 289
   },
   {
     "id": "analise-investimentos",
     "name": "Análise de investimentos",
     "importance": "essencial",
-    "position": 192
+    "position": 332
   },
   {
     "id": "analise-linguistica",
     "name": "Análise linguística",
     "importance": "essencial",
-    "position": 634
+    "position": 438
   },
   {
     "id": "analise-metricas",
     "name": "Análise de resultados",
     "importance": "essencial",
-    "position": 624
+    "position": 427
   },
   {
     "id": "analise-politica",
     "name": "Análise política",
     "importance": "essencial",
-    "position": 538
+    "position": 367
   },
   {
     "id": "analise-problemas",
     "name": "Análise de problemas",
     "importance": "essencial",
-    "position": 377
+    "position": 299
   },
   {
     "id": "analise-risco-clientes",
     "name": "Análise de clientes",
     "importance": "essencial",
-    "position": 369
+    "position": 291
   },
   {
     "id": "analises-microbiologicas",
     "name": "Análises microbiológicas",
     "importance": "essencial",
-    "position": 597
+    "position": 475
   },
   {
     "id": "analitica-web",
     "name": "Google Analytics",
     "importance": "essencial",
-    "position": 340
+    "position": 109
   },
   {
     "id": "android-kotlin",
     "name": "Android com Kotlin",
     "importance": "opcional",
-    "position": 266
+    "position": 16
   },
   {
     "id": "anestesia-geral",
     "name": "Anestesia geral",
     "importance": "essencial",
-    "position": 57
+    "position": 149
   },
   {
     "id": "anestesia-regional",
     "name": "Anestesia regional e da coluna",
     "importance": "essencial",
-    "position": 58
+    "position": 150
   },
   {
     "id": "antenas",
     "name": "Antenas e rádio",
     "importance": "essencial",
-    "position": 308
+    "position": 66
   },
   {
     "id": "anuncios-online",
     "name": "Anúncios online",
     "importance": "essencial",
-    "position": 339
+    "position": 108
   },
   {
     "id": "anuncios-pagos",
     "name": "Anúncios pagos",
     "importance": "essencial",
-    "position": 623
+    "position": 426
   },
   {
     "id": "apis-rest",
@@ -207,805 +207,805 @@
     "id": "apresentacao",
     "name": "Comunicação e apresentação",
     "importance": "essencial",
-    "position": 138
+    "position": 105
   },
   {
     "id": "apresentacoes",
     "name": "Apresentações",
     "importance": "essencial",
-    "position": 378
+    "position": 300
   },
   {
     "id": "argumentacao",
     "name": "Argumentação",
     "importance": "essencial",
-    "position": 481
+    "position": 510
   },
   {
     "id": "armazem-dados",
     "name": "Armazéns de dados",
     "importance": "essencial",
-    "position": 276
+    "position": 32
   },
   {
     "id": "arquivo",
     "name": "Organização de documentos",
     "importance": "essencial",
-    "position": 380
+    "position": 302
   },
   {
     "id": "artroscopia",
     "name": "Artroscopia",
     "importance": "opcional",
-    "position": 52
+    "position": 144
   },
   {
     "id": "assepsia",
     "name": "Assepsia e segurança no bloco",
     "importance": "essencial",
-    "position": 44
+    "position": 136
   },
   {
     "id": "assistencia-dentaria",
     "name": "Assistência ao dentista",
     "importance": "essencial",
-    "position": 168
+    "position": 254
   },
   {
     "id": "assistencia-parto",
     "name": "Assistência ao parto",
     "importance": "essencial",
-    "position": 35
+    "position": 127
   },
   {
     "id": "atendimento",
     "name": "Atendimento às pessoas",
     "importance": "essencial",
-    "position": 297
+    "position": 53
   },
   {
     "id": "atendimento-cliente",
     "name": "Atendimento ao cliente",
-    "importance": "essencial",
-    "position": 247
+    "importance": "opcional",
+    "position": 664
   },
   {
     "id": "atendimento-publico",
     "name": "Atendimento ao público",
     "importance": "essencial",
-    "position": 135
+    "position": 225
   },
   {
     "id": "audiologia",
     "name": "Avaliação da audição",
     "importance": "essencial",
-    "position": 82
+    "position": 174
   },
   {
     "id": "auditoria-aviacao",
     "name": "Auditoria de segurança aérea",
     "importance": "essencial",
-    "position": 700
+    "position": 659
   },
   {
     "id": "aulas-oficina",
     "name": "Aulas de oficina",
     "importance": "essencial",
-    "position": 484
+    "position": 514
   },
   {
     "id": "aulas-praticas",
     "name": "Aulas práticas e laboratório",
     "importance": "opcional",
-    "position": 474
+    "position": 503
   },
   {
     "id": "autocad",
     "name": "AutoCAD",
     "importance": "essencial",
-    "position": 427
+    "position": 537
   },
   {
     "id": "autocad-sig",
     "name": "AutoCAD e SIG",
     "importance": "essencial",
-    "position": 695
+    "position": 654
   },
   {
     "id": "automacao-plc",
     "name": "Automação e PLC",
     "importance": "opcional",
-    "position": 215
+    "position": 559
   },
   {
     "id": "autorizacao-trabalho",
     "name": "Autorização de trabalho (permit to work)",
     "importance": "essencial",
-    "position": 200
+    "position": 580
   },
   {
     "id": "avaliacao-alunos",
     "name": "Avaliação dos alunos",
     "importance": "essencial",
-    "position": 463
+    "position": 493
   },
   {
     "id": "avaliacao-aprendizagem",
     "name": "Avaliação da aprendizagem",
     "importance": "essencial",
-    "position": 557
+    "position": 386
   },
   {
     "id": "avaliacao-empresas",
     "name": "Avaliação de empresas",
     "importance": "essencial",
-    "position": 358
+    "position": 280
   },
   {
     "id": "avaliacao-estrabismo",
     "name": "Avaliação do estrabismo",
     "importance": "essencial",
-    "position": 158
+    "position": 244
   },
   {
     "id": "avaliacao-fisica",
     "name": "Avaliação física",
     "importance": "essencial",
-    "position": 503
+    "position": 531
   },
   {
     "id": "avaliacao-funcional",
     "name": "Avaliação funcional",
     "importance": "essencial",
-    "position": 142
+    "position": 228
   },
   {
     "id": "avaliacao-nutricional",
     "name": "Avaliação do estado nutricional",
     "importance": "essencial",
-    "position": 147
+    "position": 233
   },
   {
     "id": "avaliacao-pescas",
     "name": "Avaliação de recursos pesqueiros",
     "importance": "essencial",
-    "position": 587
+    "position": 465
   },
   {
     "id": "avaliacao-propostas",
     "name": "Avaliação de propostas",
     "importance": "essencial",
-    "position": 531
+    "position": 360
   },
   {
     "id": "avaliacao-psicologica",
     "name": "Avaliação psicológica",
     "importance": "essencial",
-    "position": 177
+    "position": 263
   },
   {
     "id": "avaliacao-riscos",
     "name": "Avaliação de riscos",
     "importance": "essencial",
-    "position": 450
+    "position": 562
   },
   {
     "id": "avarias",
     "name": "Diagnóstico de avarias",
     "importance": "essencial",
-    "position": 454
+    "position": 566
   },
   {
     "id": "avc",
     "name": "AVC agudo",
     "importance": "essencial",
-    "position": 74
+    "position": 166
   },
   {
     "id": "balancos-massa-energia",
     "name": "Balanços de massa e energia",
     "importance": "essencial",
-    "position": 408
+    "position": 576
   },
   {
     "id": "balistica",
     "name": "Balística",
     "importance": "essencial",
-    "position": 550
+    "position": 379
   },
   {
     "id": "bim",
     "name": "BIM (Revit ou semelhante)",
     "importance": "opcional",
-    "position": 428
+    "position": 538
   },
   {
     "id": "bioestatistica",
     "name": "Bioestatística",
     "importance": "essencial",
-    "position": 89
+    "position": 181
   },
   {
     "id": "biologia",
     "name": "Biologia",
     "importance": "essencial",
-    "position": 473
+    "position": 502
   },
   {
     "id": "biologia-peixes",
     "name": "Biologia de peixes",
     "importance": "essencial",
-    "position": 675
+    "position": 634
   },
   {
     "id": "biomecanica",
     "name": "Biomecânica da marcha",
     "importance": "essencial",
-    "position": 155
+    "position": 241
   },
   {
     "id": "biopsia-pele",
     "name": "Biópsia e pequena cirurgia da pele",
     "importance": "essencial",
-    "position": 85
+    "position": 177
   },
   {
     "id": "biosseguranca",
     "name": "Biossegurança",
     "importance": "essencial",
-    "position": 113
+    "position": 205
   },
   {
     "id": "cadeia-abastecimento",
     "name": "Gestão da cadeia de abastecimento",
     "importance": "essencial",
-    "position": 683
+    "position": 642
   },
   {
     "id": "caixa",
     "name": "Operação de caixa",
     "importance": "essencial",
-    "position": 706
+    "position": 666
   },
   {
     "id": "calculo-doses",
     "name": "Cálculo de doses",
     "importance": "essencial",
-    "position": 136
+    "position": 226
   },
   {
     "id": "calculo-topografico",
     "name": "Cálculo topográfico",
     "importance": "essencial",
-    "position": 433
+    "position": 543
   },
   {
     "id": "calibracao-instrumentos",
     "name": "Calibração de instrumentos",
     "importance": "essencial",
-    "position": 212
+    "position": 607
   },
   {
     "id": "camara-luz",
     "name": "Câmara e luz",
     "importance": "essencial",
-    "position": 614
+    "position": 417
   },
   {
     "id": "cambio",
     "name": "Pagamentos ao estrangeiro",
     "importance": "essencial",
-    "position": 396
+    "position": 318
   },
   {
     "id": "canva",
     "name": "Canva",
     "importance": "opcional",
-    "position": 319
+    "position": 81
   },
   {
     "id": "canva-design",
     "name": "Design simples, como o Canva",
     "importance": "essencial",
-    "position": 622
+    "position": 425
   },
   {
     "id": "carta-conducao",
     "name": "Carta de condução",
     "importance": "opcional",
-    "position": 141
+    "position": 70
   },
   {
     "id": "carteira-clientes",
     "name": "Gestão de uma carteira de clientes",
     "importance": "essencial",
-    "position": 140
+    "position": 100
   },
   {
     "id": "cartografia-geologica",
     "name": "Cartografia geológica",
     "importance": "essencial",
-    "position": 416
+    "position": 585
   },
   {
     "id": "casos-teste",
     "name": "Escrever casos de teste",
     "importance": "essencial",
-    "position": 269
+    "position": 19
   },
   {
     "id": "cateterismo",
     "name": "Cateterismo cardíaco",
     "importance": "opcional",
-    "position": 64
+    "position": 156
   },
   {
     "id": "cesariana",
     "name": "Cesariana e cirurgia ginecológica",
     "importance": "essencial",
-    "position": 36
+    "position": 128
   },
   {
     "id": "choque-sepsis",
     "name": "Tratamento do choque e da sépsis",
     "importance": "essencial",
-    "position": 47
+    "position": 139
   },
   {
     "id": "ci-cd",
     "name": "Integração contínua (CI/CD)",
     "importance": "essencial",
-    "position": 291
+    "position": 47
   },
   {
     "id": "circuitos-frio",
     "name": "Circuitos de frio e gases refrigerantes",
     "importance": "essencial",
-    "position": 231
+    "position": 688
   },
   {
     "id": "cirurgia-catarata",
     "name": "Cirurgia de catarata",
     "importance": "essencial",
-    "position": 66
+    "position": 158
   },
   {
     "id": "cirurgia-oral",
     "name": "Cirurgia oral e extracções",
     "importance": "essencial",
-    "position": 163
+    "position": 249
   },
   {
     "id": "cirurgia-orl",
     "name": "Cirurgia do ouvido, nariz e garganta",
     "importance": "essencial",
-    "position": 81
+    "position": 173
   },
   {
     "id": "cirurgia-ortopedica",
     "name": "Cirurgia ortopédica",
     "importance": "essencial",
-    "position": 51
+    "position": 143
   },
   {
     "id": "cirurgia-urgencia",
     "name": "Cirurgia de urgência e trauma",
     "importance": "essencial",
-    "position": 43
+    "position": 135
   },
   {
     "id": "cirurgia-urologica",
     "name": "Cirurgia urológica",
     "importance": "essencial",
-    "position": 77
+    "position": 169
   },
   {
     "id": "citologia",
     "name": "Técnicas de citologia",
     "importance": "essencial",
-    "position": 120
+    "position": 212
   },
   {
     "id": "classificacao-documentos",
     "name": "Classificação de documentos",
     "importance": "essencial",
-    "position": 575
+    "position": 406
   },
   {
     "id": "clinica-veterinaria",
     "name": "Clínica veterinária",
     "importance": "essencial",
-    "position": 667
+    "position": 626
   },
   {
     "id": "cloud",
     "name": "Cloud (AWS ou Azure)",
     "importance": "essencial",
-    "position": 264
+    "position": 14
   },
   {
     "id": "codigo-estrada",
     "name": "Código da Estrada",
     "importance": "essencial",
-    "position": 239
+    "position": 696
   },
   {
     "id": "colheita-amostras",
     "name": "Colheita de sangue e de amostras",
     "importance": "essencial",
-    "position": 109
+    "position": 201
   },
   {
     "id": "coloracoes",
     "name": "Colorações",
     "importance": "essencial",
-    "position": 119
+    "position": 211
   },
   {
     "id": "comando-equipas",
     "name": "Comando de equipas",
     "importance": "essencial",
-    "position": 545
+    "position": 374
   },
   {
     "id": "compensacao",
     "name": "Salários e benefícios",
     "importance": "essencial",
-    "position": 386
+    "position": 308
   },
   {
     "id": "compliance",
     "name": "Conformidade legal (compliance)",
     "importance": "opcional",
-    "position": 513
+    "position": 342
   },
   {
     "id": "comunicacao",
     "name": "Comunicação com as pessoas",
     "importance": "essencial",
-    "position": 361
+    "position": 283
   },
   {
     "id": "comunicacao-clinica",
     "name": "Comunicar com doentes e famílias",
     "importance": "essencial",
-    "position": 24
+    "position": 116
   },
   {
     "id": "comunicacao-conflito",
     "name": "Comunicação em conflito",
     "importance": "essencial",
-    "position": 515
+    "position": 344
   },
   {
     "id": "comunicacao-dados",
     "name": "Apresentar resultados",
     "importance": "opcional",
-    "position": 16
+    "position": 28
   },
   {
     "id": "concursos-propostas",
     "name": "Concursos e análise de propostas",
     "importance": "essencial",
-    "position": 216
+    "position": 610
   },
   {
     "id": "conducao-defensiva",
     "name": "Condução defensiva",
     "importance": "essencial",
-    "position": 238
+    "position": 695
   },
   {
     "id": "conducao-grupos",
     "name": "Condução de grupos",
     "importance": "essencial",
-    "position": 710
+    "position": 670
   },
   {
     "id": "conhecimento-tecnico",
     "name": "Conhecimento dos produtos de tecnologia",
     "importance": "essencial",
-    "position": 333
+    "position": 101
   },
   {
     "id": "conhecimento-tic",
     "name": "A tecnologia que ensina",
     "importance": "essencial",
-    "position": 335
+    "position": 103
   },
   {
     "id": "conservacao-papel",
     "name": "Conservação de papel",
     "importance": "opcional",
-    "position": 578
+    "position": 409
   },
   {
     "id": "conservacao-preventiva",
     "name": "Conservação preventiva",
     "importance": "essencial",
-    "position": 580
+    "position": 411
   },
   {
     "id": "consulta-comunidades",
     "name": "Consulta às comunidades",
     "importance": "essencial",
-    "position": 563
+    "position": 393
   },
   {
     "id": "consulta-enfermagem",
     "name": "Consulta de enfermagem",
     "importance": "essencial",
-    "position": 98
+    "position": 190
   },
   {
     "id": "consultas-pre-natais",
     "name": "Consultas pré-natais",
     "importance": "essencial",
-    "position": 101
+    "position": 193
   },
   {
     "id": "contabilidade-geral",
     "name": "Contabilidade geral",
     "importance": "essencial",
-    "position": 343
+    "position": 265
   },
   {
     "id": "contabilidade-gestao",
     "name": "Contabilidade de gestão",
     "importance": "essencial",
-    "position": 353
+    "position": 275
   },
   {
     "id": "contagem-cirurgica",
     "name": "Contagem de compressas e instrumentos",
     "importance": "essencial",
-    "position": 108
+    "position": 200
   },
   {
     "id": "contas-negocio",
     "name": "Contas do negócio",
     "importance": "opcional",
-    "position": 260
+    "position": 714
   },
   {
     "id": "conteudo-local",
     "name": "Regras do conteúdo local",
     "importance": "essencial",
-    "position": 217
+    "position": 611
   },
   {
     "id": "conteudo-redes",
     "name": "Criação de conteúdos",
     "importance": "essencial",
-    "position": 621
+    "position": 424
   },
   {
     "id": "contratos-publicos",
     "name": "Lei dos Contratos Públicos",
     "importance": "essencial",
-    "position": 529
+    "position": 358
   },
   {
     "id": "controlo-infeccao",
     "name": "Prevenção e controlo de infecções",
     "importance": "essencial",
-    "position": 95
+    "position": 187
   },
   {
     "id": "controlo-interno",
     "name": "Controlo interno",
     "importance": "essencial",
-    "position": 349
+    "position": 271
   },
   {
     "id": "controlo-poco",
     "name": "Controlo de poços (well control)",
     "importance": "essencial",
-    "position": 405
+    "position": 574
   },
   {
     "id": "controlo-processos",
     "name": "Controlo de processos",
     "importance": "essencial",
-    "position": 666
+    "position": 625
   },
   {
     "id": "controlo-qualidade",
     "name": "Controlo de qualidade",
     "importance": "essencial",
-    "position": 114
+    "position": 206
   },
   {
     "id": "controlo-vectores",
     "name": "Controlo de mosquitos e outros vectores",
     "importance": "essencial",
-    "position": 172
+    "position": 258
   },
   {
     "id": "copias-seguranca",
     "name": "Cópias de segurança e recuperação",
     "importance": "essencial",
-    "position": 279
+    "position": 35
   },
   {
     "id": "corrosao",
     "name": "Corrosão",
     "importance": "opcional",
-    "position": 423
+    "position": 592
   },
   {
     "id": "corte-cabelo",
     "name": "Corte de cabelo",
     "importance": "essencial",
-    "position": 244
+    "position": 701
   },
   {
     "id": "corte-costura",
     "name": "Corte e costura",
     "importance": "essencial",
-    "position": 241
+    "position": 698
   },
   {
     "id": "corte-dobragem-metal",
     "name": "Corte e dobragem de metal",
     "importance": "essencial",
-    "position": 224
+    "position": 681
   },
   {
     "id": "corte-madeira",
     "name": "Corte e montagem de madeira",
     "importance": "essencial",
-    "position": 228
+    "position": 685
   },
   {
     "id": "cozinha-angolana",
     "name": "Cozinha angolana e internacional",
     "importance": "opcional",
-    "position": 253
+    "position": 708
   },
   {
     "id": "crescimento",
     "name": "Avaliação do crescimento e da nutrição",
     "importance": "essencial",
-    "position": 32
+    "position": 124
   },
   {
     "id": "criacao-animais",
     "name": "Criação de animais",
     "importance": "essencial",
-    "position": 258
+    "position": 713
   },
   {
     "id": "critica-fontes",
     "name": "Análise crítica de fontes",
     "importance": "essencial",
-    "position": 573
+    "position": 404
   },
   {
     "id": "crm",
     "name": "CRM",
     "importance": "opcional",
-    "position": 334
+    "position": 102
   },
   {
     "id": "cuidados-pele",
     "name": "Cuidados de pele",
     "importance": "essencial",
-    "position": 248
+    "position": 704
   },
   {
     "id": "custos-ementa",
     "name": "Custos de ementa",
     "importance": "essencial",
-    "position": 712
+    "position": 673
   },
   {
     "id": "custos-orcamentos",
     "name": "Custos e orçamentos",
     "importance": "essencial",
-    "position": 664
+    "position": 623
   },
   {
     "id": "custos-receitas",
     "name": "Custo de cada receita",
     "importance": "opcional",
-    "position": 256
+    "position": 711
   },
   {
     "id": "custos-transporte",
     "name": "Custos de transporte",
     "importance": "essencial",
-    "position": 692
+    "position": 651
   },
   {
     "id": "decisao-clinica",
     "name": "Diagnóstico e decisão clínica",
     "importance": "essencial",
-    "position": 21
+    "position": 113
   },
   {
     "id": "demografia",
     "name": "Análise demográfica",
     "importance": "essencial",
-    "position": 570
+    "position": 400
   },
   {
     "id": "demonstracoes-financeiras",
     "name": "Demonstrações financeiras",
     "importance": "essencial",
-    "position": 345
+    "position": 267
   },
   {
     "id": "dentisteria",
     "name": "Dentisteria e restaurações",
     "importance": "essencial",
-    "position": 162
+    "position": 248
   },
   {
     "id": "deontologia",
     "name": "Ética e deontologia",
     "importance": "essencial",
-    "position": 509
+    "position": 338
   },
   {
     "id": "dermatologia-estetica",
     "name": "Dermatologia estética",
     "importance": "opcional",
-    "position": 87
+    "position": 179
   },
   {
     "id": "dermatoscopia",
     "name": "Dermatoscopia",
     "importance": "essencial",
-    "position": 84
+    "position": 176
   },
   {
     "id": "dermatoses-tropicais",
     "name": "Doenças da pele tropicais",
     "importance": "essencial",
-    "position": 86
+    "position": 178
   },
   {
     "id": "descoberta-produto",
     "name": "Falar com utilizadores",
     "importance": "essencial",
-    "position": 326
+    "position": 91
   },
   {
     "id": "desenho-computador",
     "name": "Desenho por computador",
     "importance": "opcional",
-    "position": 156
+    "position": 242
   },
   {
     "id": "desenho-mecanico",
     "name": "Desenho mecânico (CAD)",
     "importance": "essencial",
-    "position": 442
+    "position": 553
   },
   {
     "id": "desenho-moda",
     "name": "Desenho de moda",
     "importance": "essencial",
-    "position": 650
+    "position": 454
   },
   {
     "id": "desenho-pintura",
     "name": "Desenho e pintura",
     "importance": "essencial",
-    "position": 647
+    "position": 451
   },
   {
     "id": "desenho-tecnico",
     "name": "Desenho técnico",
     "importance": "essencial",
-    "position": 440
+    "position": 551
   },
   {
     "id": "desenvolvimento-infantil",
-    "name": "Desenvolvimento da criança e do adolescente",
+    "name": "Desenvolvimento infantil",
     "importance": "essencial",
-    "position": 457
+    "position": 388
   },
   {
     "id": "design-responsivo",
@@ -1017,625 +1017,625 @@
     "id": "design-visual",
     "name": "Design visual e tipografia",
     "importance": "essencial",
-    "position": 19
+    "position": 75
   },
   {
     "id": "desmonte-explosivos",
     "name": "Perfuração e desmonte",
     "importance": "essencial",
-    "position": 413
+    "position": 582
   },
   {
     "id": "desnutricao-infantil",
     "name": "Tratamento da desnutrição infantil",
     "importance": "essencial",
-    "position": 149
+    "position": 235
   },
   {
     "id": "deteccao-fugas",
     "name": "Detecção de fugas",
     "importance": "essencial",
-    "position": 220
+    "position": 677
   },
   {
     "id": "dhis2",
     "name": "DHIS2 e sistemas de informação de saúde",
     "importance": "opcional",
-    "position": 175
+    "position": 261
   },
   {
     "id": "diagnostico-auto",
     "name": "Diagnóstico por computador",
     "importance": "opcional",
-    "position": 237
+    "position": 694
   },
   {
     "id": "diagnostico-avarias",
     "name": "Diagnóstico de avarias",
     "importance": "essencial",
-    "position": 128
+    "position": 57
   },
   {
     "id": "dialogo-comunidades",
     "name": "Diálogo com comunidades",
     "importance": "essencial",
-    "position": 594
+    "position": 472
   },
   {
     "id": "didactica",
     "name": "Didáctica e planificação de aulas",
     "importance": "essencial",
-    "position": 458
+    "position": 488
   },
   {
     "id": "dietoterapia",
     "name": "Dietas para doentes",
     "importance": "essencial",
-    "position": 148
+    "position": 234
   },
   {
     "id": "digitalizacao",
     "name": "Digitalização",
     "importance": "essencial",
-    "position": 576
+    "position": 407
   },
   {
     "id": "dimensionamento-solar",
     "name": "Dimensionamento de sistemas solares",
     "importance": "essencial",
-    "position": 233
+    "position": 690
   },
   {
     "id": "direccao-actores",
     "name": "Direcção de actores",
     "importance": "essencial",
-    "position": 636
+    "position": 440
   },
   {
     "id": "direito-administrativo",
     "name": "Direito administrativo",
     "importance": "essencial",
-    "position": 524
+    "position": 353
   },
   {
     "id": "direito-civil",
     "name": "Direito civil e da família",
     "importance": "essencial",
-    "position": 522
+    "position": 351
   },
   {
     "id": "direito-comercial",
     "name": "Direito comercial e dos contratos",
     "importance": "essencial",
-    "position": 511
+    "position": 340
   },
   {
     "id": "direito-internacional",
     "name": "Direito internacional",
     "importance": "essencial",
-    "position": 533
+    "position": 362
   },
   {
     "id": "direito-penal",
     "name": "Direito penal e processual penal",
     "importance": "essencial",
-    "position": 516
+    "position": 345
   },
   {
     "id": "direito-registral",
     "name": "Direito dos registos e do notariado",
     "importance": "essencial",
-    "position": 521
+    "position": 350
   },
   {
     "id": "direito-trabalho",
     "name": "Direito do trabalho",
     "importance": "essencial",
-    "position": 512
+    "position": 341
   },
   {
     "id": "direitos-humanos",
     "name": "Direitos humanos",
     "importance": "essencial",
-    "position": 547
+    "position": 376
   },
   {
     "id": "dispensa-medicamentos",
     "name": "Dispensa e aconselhamento",
     "importance": "essencial",
-    "position": 130
+    "position": 220
   },
   {
     "id": "divulgacao-propria",
     "name": "Divulgar o próprio trabalho",
     "importance": "essencial",
-    "position": 642
+    "position": 446
   },
   {
     "id": "docker",
     "name": "Docker",
     "importance": "essencial",
-    "position": 263
+    "position": 13
   },
   {
     "id": "documentos-aduaneiros",
     "name": "Documentos aduaneiros",
     "importance": "essencial",
-    "position": 395
+    "position": 317
   },
   {
     "id": "documentoscopia",
     "name": "Análise de documentos",
     "importance": "essencial",
-    "position": 549
+    "position": 378
   },
   {
     "id": "doencas-cronicas",
     "name": "Seguimento de doenças crónicas",
     "importance": "essencial",
-    "position": 27
+    "position": 119
   },
   {
     "id": "doencas-infecciosas",
     "name": "VIH, tuberculose e outras infecções",
     "importance": "essencial",
-    "position": 40
+    "position": 132
   },
   {
     "id": "doencas-prostata",
     "name": "Doenças da próstata",
     "importance": "essencial",
-    "position": 79
+    "position": 171
   },
   {
     "id": "doencas-tropicais",
     "name": "Malária e doenças tropicais",
     "importance": "essencial",
-    "position": 25
+    "position": 117
   },
   {
     "id": "doente-critico",
     "name": "Monitorização do doente crítico",
     "importance": "essencial",
-    "position": 103
+    "position": 195
   },
   {
     "id": "ecocardiografia",
     "name": "Ecocardiografia",
     "importance": "opcional",
-    "position": 62
+    "position": 154
   },
   {
     "id": "ecografia",
     "name": "Ecografia",
     "importance": "opcional",
-    "position": 54
+    "position": 146
   },
   {
     "id": "ecografia-clinica",
     "name": "Ecografia à cabeceira do doente",
     "importance": "opcional",
-    "position": 41
+    "position": 133
   },
   {
     "id": "ecografia-obstetrica",
     "name": "Ecografia obstétrica",
     "importance": "essencial",
-    "position": 37
+    "position": 129
   },
   {
     "id": "econometria",
     "name": "Econometria",
     "importance": "opcional",
-    "position": 398
+    "position": 320
   },
   {
     "id": "edicao-video",
     "name": "Edição de vídeo",
     "importance": "opcional",
-    "position": 317
+    "position": 79
   },
   {
     "id": "educacao-alimentar",
     "name": "Educação alimentar",
     "importance": "essencial",
-    "position": 150
+    "position": 236
   },
   {
     "id": "educacao-fisica",
     "name": "Educação física",
     "importance": "essencial",
-    "position": 496
+    "position": 524
   },
   {
     "id": "educacao-inclusiva",
     "name": "Educação inclusiva",
     "importance": "essencial",
-    "position": 464
+    "position": 494
   },
   {
     "id": "educacao-sanitaria",
     "name": "Educação sanitária",
     "importance": "essencial",
-    "position": 173
+    "position": 259
   },
   {
     "id": "educacao-saude",
     "name": "Educação para a saúde",
     "importance": "essencial",
-    "position": 99
+    "position": 191
   },
   {
     "id": "educacao-saude-oral",
     "name": "Educação para a saúde oral",
     "importance": "essencial",
-    "position": 169
+    "position": 255
   },
   {
     "id": "electricidade",
     "name": "Instalações eléctricas",
     "importance": "essencial",
-    "position": 309
+    "position": 67
   },
   {
     "id": "electricidade-basica",
     "name": "Electricidade básica",
     "importance": "essencial",
-    "position": 232
+    "position": 689
   },
   {
     "id": "electricidade-industrial",
     "name": "Electricidade industrial",
     "importance": "essencial",
-    "position": 214
+    "position": 609
   },
   {
     "id": "electrocardiograma",
     "name": "Electrocardiograma",
     "importance": "essencial",
-    "position": 61
+    "position": 153
   },
   {
     "id": "electroencefalograma",
     "name": "Electroencefalograma",
     "importance": "opcional",
-    "position": 76
+    "position": 168
   },
   {
     "id": "electronica",
     "name": "Electrónica",
     "importance": "essencial",
-    "position": 125
+    "position": 217
   },
   {
     "id": "electronica-basica",
     "name": "Electrónica básica",
     "importance": "opcional",
-    "position": 302
+    "position": 60
   },
   {
     "id": "emergencia-pediatrica",
     "name": "Emergência pediátrica",
     "importance": "essencial",
-    "position": 34
+    "position": 126
   },
   {
     "id": "empilhador",
     "name": "Condução de empilhador",
     "importance": "opcional",
-    "position": 687
+    "position": 646
   },
   {
     "id": "endoscopia-nasal",
     "name": "Endoscopia nasal",
     "importance": "opcional",
-    "position": 83
+    "position": 175
   },
   {
     "id": "endoscopia-urologica",
     "name": "Endoscopia urológica",
     "importance": "essencial",
-    "position": 78
+    "position": 170
   },
   {
     "id": "energia-solar",
     "name": "Energia solar",
     "importance": "essencial",
-    "position": 455
+    "position": 567
   },
   {
     "id": "engenharia-reservatorios",
     "name": "Engenharia de reservatórios",
     "importance": "essencial",
-    "position": 400
+    "position": 569
   },
   {
     "id": "ensaios-materiais",
     "name": "Ensaios de materiais",
     "importance": "essencial",
-    "position": 422
+    "position": 591
   },
   {
     "id": "ensino-linguas",
     "name": "Ensino de línguas",
     "importance": "essencial",
-    "position": 472
+    "position": 501
   },
   {
     "id": "entrevista",
     "name": "Entrevista e recolha de informação",
     "importance": "essencial",
-    "position": 543
+    "position": 372
   },
   {
     "id": "entrevista-clinica",
     "name": "Entrevista clínica",
     "importance": "essencial",
-    "position": 176
+    "position": 262
   },
   {
     "id": "entrevista-psiquiatrica",
     "name": "Entrevista psiquiátrica",
     "importance": "essencial",
-    "position": 69
+    "position": 161
   },
   {
     "id": "entrevistas",
     "name": "Entrevistas",
     "importance": "essencial",
-    "position": 387
+    "position": 309
   },
   {
     "id": "entrevistas-campo",
     "name": "Entrevistas e trabalho de campo",
     "importance": "essencial",
-    "position": 560
+    "position": 390
   },
   {
     "id": "epidemiologia",
     "name": "Epidemiologia e vigilância",
     "importance": "essencial",
-    "position": 88
+    "position": 180
   },
   {
     "id": "epilepsia",
     "name": "Epilepsia",
     "importance": "essencial",
-    "position": 75
+    "position": 167
   },
   {
     "id": "erp",
     "name": "Sistemas de gestão (ERP)",
     "importance": "essencial",
-    "position": 322
+    "position": 84
   },
   {
     "id": "erp-compras",
     "name": "Sistemas de compras (ERP)",
     "importance": "opcional",
-    "position": 218
+    "position": 612
   },
   {
     "id": "escrita",
     "name": "Escrita clara",
     "importance": "essencial",
-    "position": 341
+    "position": 110
   },
   {
     "id": "escrita-academica",
     "name": "Escrita académica",
     "importance": "essencial",
-    "position": 492
+    "position": 402
   },
   {
     "id": "escuta-activa",
     "name": "Escuta e entrevista",
     "importance": "essencial",
-    "position": 555
+    "position": 384
   },
   {
     "id": "especialidade-tecnica",
     "name": "Domínio da especialidade",
     "importance": "essencial",
-    "position": 483
+    "position": 513
   },
   {
     "id": "espirometria",
     "name": "Provas de função respiratória",
     "importance": "essencial",
-    "position": 124
+    "position": 216
   },
   {
     "id": "esquemas-electricos",
     "name": "Leitura de esquemas",
     "importance": "essencial",
-    "position": 453
+    "position": 565
   },
   {
     "id": "estacao-total",
     "name": "Estação total e GPS",
     "importance": "essencial",
-    "position": 432
+    "position": 542
   },
   {
     "id": "estatistica",
     "name": "Estatística",
     "importance": "essencial",
-    "position": 13
+    "position": 25
   },
   {
     "id": "estatistica-basica",
     "name": "Estatística aplicada",
     "importance": "essencial",
-    "position": 540
+    "position": 369
   },
   {
     "id": "esterilizacao",
     "name": "Esterilização de material",
     "importance": "essencial",
-    "position": 107
+    "position": 199
   },
   {
     "id": "estrategia",
     "name": "Estratégia",
     "importance": "essencial",
-    "position": 376
+    "position": 298
   },
   {
     "id": "estruturas",
     "name": "Cálculo de estruturas",
     "importance": "essencial",
-    "position": 424
+    "position": 534
   },
   {
     "id": "estudos-energeticos",
     "name": "Estudos de energia",
     "importance": "essencial",
-    "position": 456
+    "position": 568
   },
   {
     "id": "estudos-mercado",
     "name": "Estudos de mercado",
     "importance": "essencial",
-    "position": 392
+    "position": 314
   },
   {
     "id": "etica-jornalistica",
     "name": "Ética jornalística",
     "importance": "essencial",
-    "position": 610
+    "position": 413
   },
   {
     "id": "etica-profissional",
     "name": "Ética e sigilo",
     "importance": "essencial",
-    "position": 556
+    "position": 385
   },
   {
     "id": "etica-publica",
     "name": "Ética e integridade",
     "importance": "essencial",
-    "position": 528
+    "position": 357
   },
   {
     "id": "etl",
     "name": "Processos de dados (ETL)",
     "importance": "essencial",
-    "position": 275
+    "position": 31
   },
   {
     "id": "etnografia",
     "name": "Etnografia",
     "importance": "essencial",
-    "position": 568
+    "position": 398
   },
   {
     "id": "exame-neurologico",
     "name": "Exame neurológico",
     "importance": "essencial",
-    "position": 73
+    "position": 165
   },
   {
     "id": "exame-oftalmologico",
     "name": "Exame oftalmológico",
     "importance": "essencial",
-    "position": 65
+    "position": 157
   },
   {
     "id": "exame-orl",
     "name": "Exame do ouvido, nariz e garganta",
     "importance": "essencial",
-    "position": 80
+    "position": 172
   },
   {
     "id": "exames-oftalmicos",
     "name": "Exames de oftalmologia",
     "importance": "essencial",
-    "position": 159
+    "position": 245
   },
   {
     "id": "excel",
-    "name": "Excel e relatórios",
+    "name": "Excel avançado",
     "importance": "essencial",
-    "position": 10
+    "position": 23
   },
   {
     "id": "excel-avancado",
     "name": "Excel avançado",
     "importance": "essencial",
-    "position": 188
+    "position": 328
   },
   {
     "id": "excel-relatorios",
     "name": "Excel e relatórios",
     "importance": "essencial",
-    "position": 527
+    "position": 356
   },
   {
     "id": "exercicio-terapeutico",
     "name": "Exercício terapêutico",
     "importance": "essencial",
-    "position": 143
+    "position": 229
   },
   {
     "id": "extensao-rural",
     "name": "Extensão rural",
     "importance": "essencial",
-    "position": 660
+    "position": 619
   },
   {
     "id": "fabrico-ortoteses",
     "name": "Fabrico de ortóteses",
     "importance": "essencial",
-    "position": 154
+    "position": 240
   },
   {
     "id": "fabrico-proteses",
     "name": "Fabrico de próteses",
     "importance": "essencial",
-    "position": 153
+    "position": 239
   },
   {
     "id": "facilitacao",
     "name": "Facilitação de reuniões",
     "importance": "essencial",
-    "position": 195
+    "position": 334
   },
   {
     "id": "facturacao",
     "name": "Facturação",
     "importance": "essencial",
-    "position": 346
+    "position": 268
   },
   {
     "id": "farmacologia",
     "name": "Farmacologia",
     "importance": "essencial",
-    "position": 131
+    "position": 221
   },
   {
     "id": "farmacovigilancia",
     "name": "Farmacovigilância",
     "importance": "essencial",
-    "position": 133
+    "position": 223
   },
   {
     "id": "ferramentas-digitais",
     "name": "Ferramentas digitais",
     "importance": "opcional",
-    "position": 468
+    "position": 497
   },
   {
     "id": "ferramentas-traducao",
     "name": "Ferramentas de tradução",
     "importance": "essencial",
-    "position": 629
+    "position": 432
   },
   {
     "id": "fibra-optica",
     "name": "Transmissão e fibra óptica",
     "importance": "essencial",
-    "position": 307
+    "position": 65
   },
   {
     "id": "figma",
@@ -1647,355 +1647,355 @@
     "id": "filosofia",
     "name": "Filosofia",
     "importance": "essencial",
-    "position": 480
+    "position": 509
   },
   {
     "id": "financas-gestao",
     "name": "Finanças para gestores",
     "importance": "essencial",
-    "position": 375
+    "position": 297
   },
   {
     "id": "financiamento-cultural",
     "name": "Financiamento e patrocínios",
     "importance": "essencial",
-    "position": 654
+    "position": 458
   },
   {
     "id": "firewalls",
     "name": "Firewalls",
     "importance": "essencial",
-    "position": 288
+    "position": 44
   },
   {
     "id": "fiscalidade-angola",
     "name": "Fiscalidade angolana",
     "importance": "essencial",
-    "position": 344
+    "position": 266
   },
   {
     "id": "fiscalizacao-ambiental",
     "name": "Fiscalização ambiental",
     "importance": "essencial",
-    "position": 591
+    "position": 469
   },
   {
     "id": "fisica",
     "name": "Física",
     "importance": "essencial",
-    "position": 476
+    "position": 505
   },
   {
     "id": "fisica-aplicada",
     "name": "Física aplicada",
     "importance": "essencial",
-    "position": 607
+    "position": 485
   },
   {
     "id": "fisiologia-exercicio",
     "name": "Fisiologia do exercício",
     "importance": "essencial",
-    "position": 501
+    "position": 529
   },
   {
     "id": "fisioterapia-desportiva",
     "name": "Fisioterapia desportiva",
     "importance": "opcional",
-    "position": 146
+    "position": 232
   },
   {
     "id": "fluidos-perfuracao",
     "name": "Fluidos de perfuração",
     "importance": "essencial",
-    "position": 406
+    "position": 575
   },
   {
     "id": "flutter-react-native",
     "name": "Flutter ou React Native",
     "importance": "essencial",
-    "position": 265
+    "position": 15
   },
   {
     "id": "formacao-adultos",
     "name": "Formação de adultos",
     "importance": "essencial",
-    "position": 493
+    "position": 521
   },
   {
     "id": "formacao-pessoas",
     "name": "Formação de pessoas",
     "importance": "essencial",
-    "position": 554
+    "position": 383
   },
   {
     "id": "fracturas",
     "name": "Tratamento de fracturas",
     "importance": "essencial",
-    "position": 49
+    "position": 141
   },
   {
     "id": "frances",
     "name": "Francês",
     "importance": "opcional",
-    "position": 535
+    "position": 364
   },
   {
     "id": "geografia",
     "name": "Geografia",
     "importance": "essencial",
-    "position": 478
+    "position": 507
   },
   {
     "id": "geologia",
     "name": "Geologia",
     "importance": "essencial",
-    "position": 414
+    "position": 583
   },
   {
     "id": "gestao-agricola",
     "name": "Gestão agrícola",
     "importance": "essencial",
-    "position": 663
+    "position": 622
   },
   {
     "id": "gestao-ambito",
     "name": "Gestão do âmbito",
     "importance": "essencial",
-    "position": 180
+    "position": 323
   },
   {
     "id": "gestao-armazem",
     "name": "Gestão de armazém",
     "importance": "essencial",
-    "position": 685
+    "position": 644
   },
   {
     "id": "gestao-carga",
     "name": "Gestão de carga",
     "importance": "essencial",
-    "position": 605
+    "position": 483
   },
   {
     "id": "gestao-carreira",
     "name": "Gestão de contratos e direitos de autor",
     "importance": "opcional",
-    "position": 643
+    "position": 447
   },
   {
     "id": "gestao-contratos",
-    "name": "Gestão de contratos",
+    "name": "Gestão de contratos e fornecedores",
     "importance": "essencial",
-    "position": 187
+    "position": 327
   },
   {
     "id": "gestao-cozinha",
     "name": "Gestão de uma cozinha",
     "importance": "essencial",
-    "position": 713
+    "position": 674
   },
   {
     "id": "gestao-crise",
     "name": "Gestão de crises",
     "importance": "essencial",
-    "position": 625
+    "position": 428
   },
   {
     "id": "gestao-custos-projecto",
     "name": "Gestão de custos e orçamento",
     "importance": "essencial",
-    "position": 181
+    "position": 324
   },
   {
     "id": "gestao-desempenho",
     "name": "Gestão do desempenho",
     "importance": "essencial",
-    "position": 385
+    "position": 307
   },
   {
     "id": "gestao-documental",
     "name": "Gestão documental",
     "importance": "essencial",
-    "position": 577
+    "position": 408
   },
   {
     "id": "gestao-educacao",
     "name": "Gestão da educação",
     "importance": "essencial",
-    "position": 486
+    "position": 516
   },
   {
     "id": "gestao-efectivos",
     "name": "Gestão de efectivos",
     "importance": "essencial",
-    "position": 672
+    "position": 631
   },
   {
     "id": "gestao-equipa",
     "name": "Gestão de uma equipa",
     "importance": "essencial",
-    "position": 523
+    "position": 352
   },
   {
     "id": "gestao-equipas",
     "name": "Gestão de equipas",
     "importance": "essencial",
-    "position": 374
+    "position": 296
   },
   {
     "id": "gestao-escolar",
     "name": "Gestão escolar",
     "importance": "essencial",
-    "position": 488
+    "position": 518
   },
   {
     "id": "gestao-eventos",
     "name": "Gestão de eventos",
     "importance": "essencial",
-    "position": 504
+    "position": 532
   },
   {
     "id": "gestao-fornecedores",
     "name": "Gestão de fornecedores",
     "importance": "essencial",
-    "position": 325
+    "position": 89
   },
   {
     "id": "gestao-frota",
     "name": "Gestão de frotas",
     "importance": "essencial",
-    "position": 690
+    "position": 649
   },
   {
     "id": "gestao-grupos",
     "name": "Gestão de grupos",
     "importance": "essencial",
-    "position": 500
+    "position": 528
   },
   {
     "id": "gestao-hoteleira",
     "name": "Gestão hoteleira",
     "importance": "essencial",
-    "position": 703
+    "position": 662
   },
   {
     "id": "gestao-manutencao",
     "name": "Sistemas de gestão da manutenção",
     "importance": "essencial",
-    "position": 444
+    "position": 555
   },
   {
     "id": "gestao-marca",
     "name": "Gestão de uma marca",
     "importance": "essencial",
-    "position": 653
+    "position": 457
   },
   {
     "id": "gestao-orcamento",
-    "name": "Gestão de orçamentos",
+    "name": "Gestão do orçamento",
     "importance": "essencial",
-    "position": 490
+    "position": 459
   },
   {
     "id": "gestao-partes-interessadas",
     "name": "Comunicação com as partes interessadas",
     "importance": "essencial",
-    "position": 183
+    "position": 325
   },
   {
     "id": "gestao-pessoas",
     "name": "Gestão de pessoas",
     "importance": "essencial",
-    "position": 489
+    "position": 519
   },
   {
     "id": "gestao-processos",
     "name": "Gestão de processos e arquivo",
     "importance": "essencial",
-    "position": 519
+    "position": 348
   },
   {
     "id": "gestao-producao",
     "name": "Gestão da produção",
     "importance": "essencial",
-    "position": 657
+    "position": 616
   },
   {
     "id": "gestao-projectos-cooperacao",
     "name": "Gestão de projectos de cooperação",
     "importance": "essencial",
-    "position": 536
+    "position": 365
   },
   {
     "id": "gestao-projetos",
     "name": "Gestão de projectos",
     "importance": "essencial",
-    "position": 323
+    "position": 86
   },
   {
     "id": "gestao-publica",
     "name": "Gestão e finanças públicas",
     "importance": "essencial",
-    "position": 526
+    "position": 355
   },
   {
     "id": "gestao-residuos",
     "name": "Gestão de resíduos",
     "importance": "essencial",
-    "position": 681
+    "position": 640
   },
   {
     "id": "gestao-restaurante",
     "name": "Gestão de restaurantes",
     "importance": "essencial",
-    "position": 714
+    "position": 675
   },
   {
     "id": "gestao-riscos",
     "name": "Gestão de riscos",
     "importance": "essencial",
-    "position": 350
+    "position": 272
   },
   {
     "id": "gestao-riscos-projecto",
     "name": "Gestão de riscos",
     "importance": "essencial",
-    "position": 182
+    "position": 88
   },
   {
     "id": "gestao-sala-aula",
     "name": "Gestão da sala de aula",
     "importance": "essencial",
-    "position": 462
+    "position": 492
   },
   {
     "id": "gestao-saude",
     "name": "Planeamento e gestão em saúde",
     "importance": "opcional",
-    "position": 91
+    "position": 183
   },
   {
     "id": "gestao-sinistros",
     "name": "Gestão de sinistros",
     "importance": "essencial",
-    "position": 372
+    "position": 294
   },
   {
     "id": "gestao-stock",
     "name": "Gestão de stock",
     "importance": "essencial",
-    "position": 132
+    "position": 222
   },
   {
     "id": "gestao-stocks",
     "name": "Gestão de stocks",
     "importance": "essencial",
-    "position": 684
+    "position": 643
   },
   {
     "id": "gestao-terminais",
     "name": "Gestão de terminais",
     "importance": "essencial",
-    "position": 697
+    "position": 656
   },
   {
     "id": "git",
@@ -2007,121 +2007,121 @@
     "id": "glaucoma",
     "name": "Glaucoma",
     "importance": "essencial",
-    "position": 67
+    "position": 159
   },
   {
     "id": "governacao-projectos",
     "name": "Governação de projectos e PMO",
     "importance": "essencial",
-    "position": 191
+    "position": 331
   },
   {
     "id": "gps-mapas",
     "name": "GPS e mapas",
     "importance": "essencial",
-    "position": 592
+    "position": 470
   },
   {
     "id": "gramatica-portuguesa",
     "name": "Gramática e escrita",
     "importance": "essencial",
-    "position": 469
+    "position": 498
   },
   {
     "id": "gravacao",
     "name": "Gravação em casa ou estúdio",
     "importance": "opcional",
-    "position": 646
+    "position": 450
   },
   {
     "id": "guiao",
     "name": "Guião",
     "importance": "essencial",
-    "position": 638
+    "position": 442
   },
   {
     "id": "haccp",
     "name": "HACCP (controlo de riscos nos alimentos)",
     "importance": "essencial",
-    "position": 595
+    "position": 473
   },
   {
     "id": "hardware-basico",
     "name": "Hardware básico",
     "importance": "essencial",
-    "position": 295
+    "position": 51
   },
   {
     "id": "hematologia-bioquimica",
     "name": "Hematologia e bioquímica",
     "importance": "essencial",
-    "position": 111
+    "position": 203
   },
   {
     "id": "hidraulica",
     "name": "Hidráulica",
     "importance": "essencial",
-    "position": 203
+    "position": 544
   },
   {
     "id": "hidrogeologia",
     "name": "Hidrogeologia",
     "importance": "essencial",
-    "position": 599
+    "position": 477
   },
   {
     "id": "hidrologia",
     "name": "Hidrologia",
     "importance": "essencial",
-    "position": 598
+    "position": 476
   },
   {
     "id": "higiene-alimentar",
     "name": "Higiene e segurança alimentar",
     "importance": "opcional",
-    "position": 252
+    "position": 707
   },
   {
     "id": "higiene-ferramentas",
     "name": "Higiene e desinfecção",
     "importance": "opcional",
-    "position": 246
+    "position": 703
   },
   {
     "id": "higiene-oral",
     "name": "Higiene oral e prevenção",
     "importance": "essencial",
-    "position": 167
+    "position": 253
   },
   {
     "id": "historia",
     "name": "História de Angola e de África",
     "importance": "essencial",
-    "position": 477
+    "position": 506
   },
   {
     "id": "historia-angola",
     "name": "História e cultura de Angola",
     "importance": "essencial",
-    "position": 574
+    "position": 405
   },
   {
     "id": "historia-clinica",
     "name": "História clínica e exame físico",
     "importance": "essencial",
-    "position": 20
+    "position": 112
   },
   {
     "id": "holter-mapa",
     "name": "Holter e MAPA",
     "importance": "essencial",
-    "position": 122
+    "position": 214
   },
   {
     "id": "horticultura",
     "name": "Horticultura",
     "importance": "essencial",
-    "position": 257
+    "position": 712
   },
   {
     "id": "html-css",
@@ -2133,277 +2133,277 @@
     "id": "identificacao-especies",
     "name": "Identificação de espécies",
     "importance": "essencial",
-    "position": 582
+    "position": 460
   },
   {
     "id": "ifrs",
     "name": "Normas IFRS",
     "importance": "essencial",
-    "position": 348
+    "position": 270
   },
   {
     "id": "illustrator",
     "name": "Illustrator",
     "importance": "essencial",
-    "position": 315
+    "position": 77
   },
   {
     "id": "impacto-ambiental",
     "name": "Estudos de impacto ambiental",
     "importance": "essencial",
-    "position": 584
+    "position": 462
   },
   {
     "id": "impacto-social",
     "name": "Avaliação de impacto social",
     "importance": "essencial",
-    "position": 562
+    "position": 392
   },
   {
     "id": "impressoras",
     "name": "Impressoras",
     "importance": "opcional",
-    "position": 301
+    "position": 59
   },
   {
     "id": "imuno-histoquimica",
     "name": "Imuno-histoquímica",
     "importance": "opcional",
-    "position": 121
+    "position": 213
   },
   {
     "id": "incoterms",
     "name": "Incoterms e comércio internacional",
     "importance": "essencial",
-    "position": 394
+    "position": 316
   },
   {
     "id": "indesign",
     "name": "InDesign",
     "importance": "opcional",
-    "position": 316
+    "position": 78
   },
   {
     "id": "indicadores",
     "name": "Indicadores de gestão",
     "importance": "essencial",
-    "position": 354
+    "position": 276
   },
   {
     "id": "informatica-basica",
     "name": "Informática",
     "importance": "essencial",
-    "position": 482
+    "position": 511
   },
   {
     "id": "informatica-escritorio",
     "name": "Informática na óptica do utilizador",
     "importance": "essencial",
-    "position": 520
+    "position": 349
   },
   {
     "id": "ingles",
     "name": "Inglês",
     "importance": "opcional",
-    "position": 620
+    "position": 423
   },
   {
     "id": "ingles-aviacao",
     "name": "Inglês de aviação",
     "importance": "essencial",
-    "position": 702
+    "position": 661
   },
   {
     "id": "ingles-basico",
     "name": "Inglês de atendimento",
     "importance": "essencial",
-    "position": 707
+    "position": 667
   },
   {
     "id": "ingles-cientifico",
     "name": "Inglês científico",
     "importance": "opcional",
-    "position": 29
+    "position": 121
   },
   {
     "id": "ingles-frances",
     "name": "Inglês ou francês avançado",
     "importance": "essencial",
-    "position": 628
+    "position": 431
   },
   {
     "id": "ingles-juridico",
     "name": "Inglês jurídico",
     "importance": "opcional",
-    "position": 510
+    "position": 339
   },
   {
     "id": "ingles-maritimo",
     "name": "Inglês marítimo",
     "importance": "essencial",
-    "position": 604
+    "position": 482
   },
   {
     "id": "ingles-negocios",
     "name": "Inglês de trabalho",
     "importance": "opcional",
-    "position": 185
+    "position": 90
   },
   {
     "id": "ingles-tecnico",
     "name": "Inglês técnico",
-    "importance": "opcional",
-    "position": 129
+    "importance": "essencial",
+    "position": 55
   },
   {
     "id": "ingles-trabalho",
     "name": "Inglês de trabalho",
     "importance": "opcional",
-    "position": 534
+    "position": 363
   },
   {
     "id": "inspeccao-alimentos",
     "name": "Inspecção de alimentos",
     "importance": "essencial",
-    "position": 669
+    "position": 628
   },
   {
     "id": "instalacao-ar-condicionado",
     "name": "Instalação de ar condicionado",
     "importance": "essencial",
-    "position": 230
+    "position": 687
   },
   {
     "id": "instalacao-canalizacao",
     "name": "Instalação de redes de água e esgoto",
     "importance": "essencial",
-    "position": 219
+    "position": 676
   },
   {
     "id": "instrumentacao",
     "name": "Instrumentação cirúrgica",
     "importance": "essencial",
-    "position": 106
+    "position": 198
   },
   {
     "id": "instrumento-voz",
     "name": "Instrumento ou voz",
     "importance": "essencial",
-    "position": 644
+    "position": 448
   },
   {
     "id": "insuficiencia-cardiaca",
     "name": "Hipertensão e insuficiência cardíaca",
     "importance": "essencial",
-    "position": 63
+    "position": 155
   },
   {
     "id": "interpretacao",
     "name": "Interpretação",
     "importance": "essencial",
-    "position": 640
+    "position": 444
   },
   {
     "id": "interpretacao-exames",
     "name": "Interpretação de análises e exames de imagem",
     "importance": "essencial",
-    "position": 39
+    "position": 131
   },
   {
     "id": "interpretacao-simultanea",
     "name": "Interpretação simultânea",
     "importance": "essencial",
-    "position": 631
+    "position": 434
   },
   {
     "id": "intervencao-crise",
     "name": "Intervenção em crise",
     "importance": "essencial",
-    "position": 71
+    "position": 163
   },
   {
     "id": "inventario-florestal",
     "name": "Inventário florestal",
     "importance": "essencial",
-    "position": 661
+    "position": 620
   },
   {
     "id": "inventario-patrimonio",
     "name": "Inventário do património",
     "importance": "essencial",
-    "position": 579
+    "position": 410
   },
   {
     "id": "inventarios",
     "name": "Inventários",
     "importance": "essencial",
-    "position": 686
+    "position": 645
   },
   {
     "id": "investigacao",
     "name": "Investigação científica",
     "importance": "essencial",
-    "position": 491
+    "position": 520
   },
   {
     "id": "investigacao-acidentes",
     "name": "Investigação de acidentes",
     "importance": "essencial",
-    "position": 451
+    "position": 563
   },
   {
     "id": "investigacao-clinica",
     "name": "Investigação clínica",
     "importance": "opcional",
-    "position": 30
+    "position": 122
   },
   {
     "id": "investigacao-criminal",
     "name": "Direcção da investigação criminal",
     "importance": "essencial",
-    "position": 517
+    "position": 346
   },
   {
     "id": "investigacao-surtos",
     "name": "Investigação de surtos",
     "importance": "essencial",
-    "position": 90
+    "position": 182
   },
   {
     "id": "ios-swift",
     "name": "iOS com Swift",
     "importance": "opcional",
-    "position": 267
+    "position": 17
   },
   {
     "id": "iso-14001",
     "name": "ISO 14001 (gestão ambiental)",
     "importance": "essencial",
-    "position": 680
+    "position": 639
   },
   {
     "id": "iso-22000",
     "name": "ISO 22000 (segurança alimentar)",
     "importance": "essencial",
-    "position": 596
+    "position": 474
   },
   {
     "id": "iso-27001",
     "name": "ISO 27001",
     "importance": "opcional",
-    "position": 306
+    "position": 64
   },
   {
     "id": "itil",
     "name": "ITIL",
     "importance": "opcional",
-    "position": 331
+    "position": 97
   },
   {
     "id": "iva",
     "name": "IVA",
     "importance": "essencial",
-    "position": 351
+    "position": 273
   },
   {
     "id": "javascript",
@@ -2413,1071 +2413,1071 @@
   },
   {
     "id": "jira",
-    "name": "Jira ou MS Project",
+    "name": "Jira ou Trello",
     "importance": "essencial",
-    "position": 194
+    "position": 85
   },
   {
     "id": "jogos-educativos",
     "name": "Jogos educativos",
     "importance": "essencial",
-    "position": 459
+    "position": 489
   },
   {
     "id": "kubernetes",
     "name": "Kubernetes",
     "importance": "opcional",
-    "position": 292
+    "position": 48
   },
   {
     "id": "laboratorio",
     "name": "Análises de laboratório",
     "importance": "essencial",
-    "position": 449
+    "position": 561
   },
   {
     "id": "laparoscopia",
     "name": "Cirurgia laparoscópica",
     "importance": "opcional",
-    "position": 45
+    "position": 137
   },
   {
     "id": "laser-oftalmologico",
     "name": "Laser oftalmológico",
     "importance": "opcional",
-    "position": 68
+    "position": 160
   },
   {
     "id": "lean",
     "name": "Melhoria contínua (Lean)",
     "importance": "essencial",
-    "position": 446
+    "position": 557
   },
   {
     "id": "legislacao-aduaneira",
     "name": "Legislação aduaneira",
     "importance": "essencial",
-    "position": 689
+    "position": 648
   },
   {
     "id": "legislacao-educacao",
     "name": "Regras do sector",
     "importance": "essencial",
-    "position": 487
+    "position": 517
   },
   {
     "id": "legislacao-farmaceutica",
     "name": "Legislação farmacêutica",
     "importance": "essencial",
-    "position": 134
+    "position": 224
   },
   {
     "id": "legislacao-urbanistica",
     "name": "Regras de urbanismo",
     "importance": "essencial",
-    "position": 437
+    "position": 548
   },
   {
     "id": "lei-trabalho",
     "name": "Lei Geral do Trabalho",
     "importance": "essencial",
-    "position": 383
+    "position": 305
   },
   {
     "id": "leitura-desenho-tecnico",
     "name": "Leitura de desenho técnico",
     "importance": "essencial",
-    "position": 198
+    "position": 595
   },
   {
     "id": "leitura-imagem-ossea",
     "name": "Leitura de radiografias e TAC",
     "importance": "essencial",
-    "position": 50
+    "position": 142
   },
   {
     "id": "leitura-mapas",
     "name": "Leitura de mapas",
     "importance": "essencial",
-    "position": 479
+    "position": 508
   },
   {
     "id": "leitura-plantas",
     "name": "Leitura de plantas",
     "importance": "opcional",
-    "position": 221
+    "position": 678
   },
   {
     "id": "leitura-projectos",
     "name": "Leitura de projectos",
     "importance": "essencial",
-    "position": 425
+    "position": 535
   },
   {
     "id": "lentes-contacto",
     "name": "Adaptação de lentes de contacto",
     "importance": "opcional",
-    "position": 161
+    "position": 247
   },
   {
     "id": "licenciamento-ambiental",
     "name": "Licenciamento ambiental",
     "importance": "essencial",
-    "position": 678
+    "position": 637
   },
   {
     "id": "lideranca-equipas",
     "name": "Liderança de equipas",
     "importance": "essencial",
-    "position": 184
+    "position": 94
   },
   {
     "id": "lingua-estrangeira",
     "name": "Inglês ou francês fluente",
     "importance": "essencial",
-    "position": 471
+    "position": 500
   },
   {
     "id": "lingua-gestual",
-    "name": "Língua gestual angolana",
+    "name": "Língua gestual ou braille",
     "importance": "opcional",
-    "position": 466
+    "position": 435
   },
   {
     "id": "linguagem-cinema",
     "name": "Linguagem de cinema",
     "importance": "essencial",
-    "position": 637
+    "position": 441
   },
   {
     "id": "linguas-estrangeiras",
     "name": "Línguas estrangeiras",
     "importance": "essencial",
-    "position": 711
+    "position": 671
   },
   {
     "id": "linguas-nacionais",
     "name": "Línguas nacionais",
     "importance": "essencial",
-    "position": 569
+    "position": 399
   },
   {
     "id": "linux",
     "name": "Linux",
     "importance": "essencial",
-    "position": 281
+    "position": 37
   },
   {
     "id": "literatura",
     "name": "Literatura",
     "importance": "essencial",
-    "position": 470
+    "position": 499
   },
   {
     "id": "lofoscopia",
     "name": "Lofoscopia (impressões digitais)",
     "importance": "essencial",
-    "position": 548
+    "position": 377
   },
   {
     "id": "machine-learning",
     "name": "Aprendizagem automática",
     "importance": "essencial",
-    "position": 274
+    "position": 30
   },
   {
     "id": "macroeconomia",
     "name": "Macroeconomia",
     "importance": "essencial",
-    "position": 397
+    "position": 319
   },
   {
     "id": "mamografia",
     "name": "Mamografia",
     "importance": "opcional",
-    "position": 116
+    "position": 208
   },
   {
     "id": "mandarim",
     "name": "Mandarim",
     "importance": "opcional",
-    "position": 627
+    "position": 430
   },
   {
     "id": "manicure-pedicure",
     "name": "Manicure e pedicure",
     "importance": "opcional",
-    "position": 250
+    "position": 706
   },
   {
     "id": "manuseamento-numerario",
     "name": "Manuseamento de dinheiro",
     "importance": "essencial",
-    "position": 366
+    "position": 288
   },
   {
     "id": "manutencao-bombas-compressores",
     "name": "Bombas e compressores",
     "importance": "essencial",
-    "position": 196
+    "position": 593
   },
   {
     "id": "manutencao-industrial",
     "name": "Manutenção industrial",
     "importance": "essencial",
-    "position": 443
+    "position": 554
   },
   {
     "id": "manutencao-preventiva",
     "name": "Manutenção preventiva",
     "importance": "essencial",
-    "position": 126
+    "position": 218
   },
   {
     "id": "manutencao-veiculo",
     "name": "Verificação diária do veículo",
     "importance": "opcional",
-    "position": 240
+    "position": 697
   },
   {
     "id": "mapas-sig",
     "name": "Mapas e sistemas de informação geográfica",
     "importance": "opcional",
-    "position": 418
+    "position": 587
   },
   {
     "id": "maquilhagem",
     "name": "Maquilhagem",
     "importance": "essencial",
-    "position": 249
+    "position": 705
   },
   {
     "id": "marketing-digital",
     "name": "Marketing digital",
     "importance": "essencial",
-    "position": 393
+    "position": 315
   },
   {
     "id": "matematica",
     "name": "Matemática",
     "importance": "essencial",
-    "position": 467
+    "position": 496
   },
   {
     "id": "matematica-actuarial",
     "name": "Matemática actuarial",
     "importance": "essencial",
-    "position": 370
+    "position": 292
   },
   {
     "id": "matematica-basica",
     "name": "Ensino da matemática básica",
     "importance": "essencial",
-    "position": 461
+    "position": 491
   },
   {
     "id": "materiais-construcao",
     "name": "Materiais de construção",
     "importance": "essencial",
-    "position": 430
+    "position": 540
   },
   {
     "id": "materiais-tecnicas",
     "name": "Materiais e técnicas",
     "importance": "essencial",
-    "position": 648
+    "position": 452
   },
   {
     "id": "mecanica-maquinas",
     "name": "Mecânica e máquinas",
     "importance": "essencial",
-    "position": 441
+    "position": 552
   },
   {
     "id": "mediacao-familiar",
     "name": "Mediação familiar",
     "importance": "essencial",
-    "position": 567
+    "position": 397
   },
   {
     "id": "medicao-vaos",
     "name": "Medição e desenho de peças",
     "importance": "opcional",
-    "position": 225
+    "position": 682
   },
   {
     "id": "medicoes",
     "name": "Medições",
     "importance": "essencial",
-    "position": 310
+    "position": 68
   },
   {
     "id": "mercado-trabalho",
     "name": "Conhecimento do mercado de trabalho",
     "importance": "essencial",
-    "position": 495
+    "position": 523
   },
   {
     "id": "mercados",
     "name": "Mercados financeiros",
     "importance": "essencial",
-    "position": 359
+    "position": 281
   },
   {
     "id": "meteorologia-aeronautica",
     "name": "Meteorologia aeronáutica",
     "importance": "opcional",
-    "position": 589
+    "position": 467
   },
   {
     "id": "metodos-ageis",
     "name": "Métodos ágeis",
     "importance": "essencial",
-    "position": 324
+    "position": 87
   },
   {
     "id": "metodos-investigacao",
     "name": "Métodos de investigação",
     "importance": "essencial",
-    "position": 539
+    "position": 368
   },
   {
     "id": "microbiologia",
     "name": "Microbiologia",
     "importance": "essencial",
-    "position": 112
+    "position": 204
   },
   {
     "id": "microscopia",
     "name": "Microscopia",
     "importance": "essencial",
-    "position": 110
+    "position": 202
   },
   {
     "id": "microtomia",
     "name": "Corte ao micrótomo",
     "importance": "essencial",
-    "position": 118
+    "position": 210
   },
   {
     "id": "modalidades",
     "name": "Várias modalidades",
     "importance": "essencial",
-    "position": 497
+    "position": 525
   },
   {
     "id": "modelacao",
     "name": "Modelação matemática",
     "importance": "essencial",
-    "position": 608
+    "position": 486
   },
   {
     "id": "modelacao-3d",
     "name": "Modelação 3D",
     "importance": "essencial",
-    "position": 436
+    "position": 547
   },
   {
     "id": "modelacao-dados",
     "name": "Modelação de dados",
     "importance": "essencial",
-    "position": 273
+    "position": 29
   },
   {
     "id": "modelacao-processos",
     "name": "Modelação de processos",
     "importance": "essencial",
-    "position": 321
+    "position": 83
   },
   {
     "id": "modelagem-costura",
     "name": "Modelagem e costura",
     "importance": "essencial",
-    "position": 651
+    "position": 455
   },
   {
     "id": "modelos-financeiros",
     "name": "Modelos financeiros",
     "importance": "essencial",
-    "position": 352
+    "position": 274
   },
   {
     "id": "moldes",
     "name": "Fazer moldes",
     "importance": "essencial",
-    "position": 242
+    "position": 699
   },
   {
     "id": "moldes-medidas",
     "name": "Moldes e medidas",
     "importance": "essencial",
-    "position": 152
+    "position": 238
   },
   {
     "id": "monitoria-avaliacao",
     "name": "Monitoria e avaliação",
     "importance": "essencial",
-    "position": 537
+    "position": 366
   },
   {
     "id": "monitorizacao-ambiental",
     "name": "Monitorização ambiental",
     "importance": "essencial",
-    "position": 682
+    "position": 641
   },
   {
     "id": "monitorizacao-fauna",
     "name": "Monitorização de fauna",
     "importance": "essencial",
-    "position": 590
+    "position": 468
   },
   {
     "id": "montagem-pc",
     "name": "Montagem e reparação de computadores",
     "importance": "essencial",
-    "position": 299
+    "position": 56
   },
   {
     "id": "montagem-video",
     "name": "Montagem de vídeo",
     "importance": "essencial",
-    "position": 612
+    "position": 415
   },
   {
     "id": "motion-graphics",
     "name": "Grafismo animado",
     "importance": "opcional",
-    "position": 616
+    "position": 419
   },
   {
     "id": "motores-diesel",
     "name": "Motores diesel",
     "importance": "essencial",
-    "position": 202
+    "position": 598
   },
   {
     "id": "motores-gasolina-diesel",
     "name": "Motores a gasolina e diesel",
     "importance": "essencial",
-    "position": 235
+    "position": 692
   },
   {
     "id": "ms-project-primavera",
     "name": "MS Project ou Primavera P6",
     "importance": "opcional",
-    "position": 186
+    "position": 326
   },
   {
     "id": "museologia",
     "name": "Museologia",
     "importance": "essencial",
-    "position": 581
+    "position": 412
   },
   {
     "id": "navegacao",
     "name": "Navegação",
     "importance": "essencial",
-    "position": 601
+    "position": 479
   },
   {
     "id": "negociacao",
     "name": "Negociação",
     "importance": "essencial",
-    "position": 139
+    "position": 99
   },
   {
     "id": "negociacao-dividas",
     "name": "Negociação de dívidas",
     "importance": "essencial",
-    "position": 360
+    "position": 282
   },
   {
     "id": "nocoes-direito-penal",
     "name": "Noções de direito penal",
     "importance": "essencial",
-    "position": 559
+    "position": 389
   },
   {
     "id": "norma-portuguesa",
     "name": "Domínio do português escrito",
     "importance": "essencial",
-    "position": 630
+    "position": 433
   },
   {
     "id": "normas-auditoria",
     "name": "Normas de auditoria",
     "importance": "essencial",
-    "position": 347
+    "position": 269
   },
   {
     "id": "nutricao-animal",
     "name": "Nutrição animal",
     "importance": "essencial",
-    "position": 670
+    "position": 629
   },
   {
     "id": "oceanografia",
     "name": "Oceanografia",
     "importance": "essencial",
-    "position": 586
+    "position": 464
   },
   {
     "id": "office",
     "name": "Word e Excel",
     "importance": "essencial",
-    "position": 379
+    "position": 301
   },
   {
     "id": "operacao-empilhador",
     "name": "Empilhador de grande porte",
     "importance": "essencial",
-    "position": 210
+    "position": 605
   },
   {
     "id": "operacao-escavadora",
     "name": "Escavadora e retroescavadora",
     "importance": "essencial",
-    "position": 209
+    "position": 604
   },
   {
     "id": "operacao-grua",
     "name": "Operação de grua",
     "importance": "essencial",
-    "position": 208
+    "position": 603
   },
   {
     "id": "operacao-producao",
     "name": "Operação de separadores e bombas",
     "importance": "essencial",
-    "position": 410
+    "position": 578
   },
   {
     "id": "operacoes-portuarias",
     "name": "Operações portuárias",
     "importance": "essencial",
-    "position": 696
+    "position": 655
   },
   {
     "id": "optimizacao",
     "name": "Optimização",
     "importance": "essencial",
-    "position": 280
+    "position": 36
   },
   {
     "id": "oracle-sql-server",
     "name": "Oracle, SQL Server, MySQL ou PostgreSQL",
     "importance": "essencial",
-    "position": 278
+    "position": 34
   },
   {
     "id": "orcamentacao",
     "name": "Orçamentação",
     "importance": "essencial",
-    "position": 431
+    "position": 541
   },
   {
     "id": "orcamentos",
     "name": "Orçamentos",
     "importance": "essencial",
-    "position": 329
+    "position": 95
   },
   {
     "id": "orcamentos-servicos",
     "name": "Fazer orçamentos",
     "importance": "opcional",
-    "position": 222
+    "position": 679
   },
   {
     "id": "ordem-publica",
     "name": "Ordem pública e policiamento",
     "importance": "essencial",
-    "position": 546
+    "position": 375
   },
   {
     "id": "organizacao-eventos",
     "name": "Organização de eventos",
     "importance": "essencial",
-    "position": 617
+    "position": 420
   },
   {
     "id": "organizacao-judiciaria",
     "name": "Organização judiciária",
     "importance": "essencial",
-    "position": 518
+    "position": 347
   },
   {
     "id": "orientacao-profissional",
     "name": "Orientação profissional",
     "importance": "essencial",
-    "position": 494
+    "position": 522
   },
   {
     "id": "orientacao-vocacional",
     "name": "Orientação vocacional",
     "importance": "essencial",
-    "position": 558
+    "position": 387
   },
   {
     "id": "ortodontia",
     "name": "Ortodontia",
     "importance": "opcional",
-    "position": 166
+    "position": 252
   },
   {
     "id": "panificacao",
     "name": "Panificação",
     "importance": "essencial",
-    "position": 254
+    "position": 709
   },
   {
     "id": "pastelaria-decoracao",
     "name": "Pastelaria e decoração de bolos",
     "importance": "essencial",
-    "position": 255
+    "position": 710
   },
   {
     "id": "patrocinios",
     "name": "Patrocínios e marketing",
     "importance": "essencial",
-    "position": 505
+    "position": 533
   },
   {
     "id": "pauta-aduaneira",
     "name": "Pauta aduaneira e classificação",
     "importance": "essencial",
-    "position": 688
+    "position": 647
   },
   {
     "id": "pecas-procedimento",
     "name": "Preparação de cadernos de encargos",
     "importance": "essencial",
-    "position": 530
+    "position": 359
   },
   {
     "id": "pedagogia",
     "name": "Pedagogia",
     "importance": "essencial",
-    "position": 336
+    "position": 104
   },
   {
     "id": "pequena-cirurgia",
     "name": "Pequena cirurgia",
     "importance": "opcional",
-    "position": 28
+    "position": 120
   },
   {
     "id": "perfusoes",
     "name": "Bombas e perfusões de medicamentos",
     "importance": "essencial",
-    "position": 104
+    "position": 196
   },
   {
     "id": "periodontologia",
     "name": "Tratamento das gengivas",
     "importance": "essencial",
-    "position": 164
+    "position": 250
   },
   {
     "id": "pesquisa-arquivo",
     "name": "Pesquisa em arquivos",
     "importance": "essencial",
-    "position": 572
+    "position": 403
   },
   {
     "id": "pesquisa-juridica",
     "name": "Pesquisa de leis e de decisões",
     "importance": "essencial",
-    "position": 507
+    "position": 336
   },
   {
     "id": "pesquisa-utilizadores",
     "name": "Pesquisa com utilizadores",
     "importance": "essencial",
-    "position": 17
+    "position": 73
   },
   {
     "id": "photoshop",
     "name": "Photoshop",
     "importance": "essencial",
-    "position": 314
+    "position": 76
   },
   {
     "id": "planeamento-cronogramas",
     "name": "Planeamento e cronogramas",
     "importance": "essencial",
-    "position": 179
+    "position": 322
   },
   {
     "id": "planeamento-elevacoes",
     "name": "Planeamento de elevações",
     "importance": "essencial",
-    "position": 206
+    "position": 601
   },
   {
     "id": "planeamento-familiar",
     "name": "Planeamento familiar",
     "importance": "opcional",
-    "position": 38
+    "position": 130
   },
   {
     "id": "planeamento-mineiro",
     "name": "Planeamento de minas",
     "importance": "essencial",
-    "position": 412
+    "position": 581
   },
   {
     "id": "planeamento-obra",
     "name": "Planeamento e controlo de custos",
     "importance": "essencial",
-    "position": 426
+    "position": 536
   },
   {
     "id": "planeamento-producao",
     "name": "Planeamento da produção",
     "importance": "essencial",
-    "position": 445
+    "position": 556
   },
   {
     "id": "planeamento-rede",
     "name": "Planeamento de redes",
     "importance": "essencial",
-    "position": 313
+    "position": 72
   },
   {
     "id": "planeamento-rotas",
     "name": "Planeamento de rotas",
     "importance": "essencial",
-    "position": 691
+    "position": 650
   },
   {
     "id": "planeamento-transportes",
     "name": "Planeamento de transportes",
     "importance": "essencial",
-    "position": 693
+    "position": 652
   },
   {
     "id": "planeamento-urbano",
     "name": "Planeamento urbano",
     "importance": "essencial",
-    "position": 438
+    "position": 549
   },
   {
     "id": "plano-comunicacao",
     "name": "Planos de comunicação",
     "importance": "essencial",
-    "position": 618
+    "position": 421
   },
   {
     "id": "plano-marketing",
     "name": "Plano de marketing",
     "importance": "essencial",
-    "position": 391
+    "position": 313
   },
   {
     "id": "plataformas-ensino",
     "name": "Plataformas de ensino online",
     "importance": "opcional",
-    "position": 337
+    "position": 106
   },
   {
     "id": "politicas-sociais",
     "name": "Políticas sociais",
     "importance": "essencial",
-    "position": 566
+    "position": 396
   },
   {
     "id": "portefolio-arte",
     "name": "Portefólio",
     "importance": "essencial",
-    "position": 649
+    "position": 453
   },
   {
     "id": "posicionamento",
     "name": "Posicionamento do doente",
     "importance": "essencial",
-    "position": 115
+    "position": 207
   },
   {
     "id": "power-bi",
     "name": "Power BI ou Tableau",
     "importance": "essencial",
-    "position": 12
+    "position": 24
   },
   {
     "id": "premiere-davinci",
     "name": "Programas como Premiere ou DaVinci Resolve",
     "importance": "essencial",
-    "position": 613
+    "position": 416
   },
   {
     "id": "prescricao",
     "name": "Prescrição segura de medicamentos",
     "importance": "essencial",
-    "position": 22
+    "position": 114
   },
   {
     "id": "prevencao-branqueamento",
     "name": "Prevenção do branqueamento de capitais",
     "importance": "essencial",
-    "position": 365
+    "position": 287
   },
   {
     "id": "previsao",
     "name": "Previsões",
     "importance": "essencial",
-    "position": 399
+    "position": 321
   },
   {
     "id": "previsao-caixa",
     "name": "Previsões de caixa",
     "importance": "essencial",
-    "position": 356
+    "position": 278
   },
   {
     "id": "previsao-tempo",
     "name": "Previsão do tempo",
     "importance": "essencial",
-    "position": 588
+    "position": 466
   },
   {
     "id": "previsao-vendas",
     "name": "Previsões de vendas",
     "importance": "essencial",
-    "position": 390
+    "position": 312
   },
   {
     "id": "primavera-p6",
     "name": "Primavera P6",
     "importance": "essencial",
-    "position": 189
+    "position": 329
   },
   {
     "id": "primeiros-socorros",
     "name": "Primeiros socorros",
     "importance": "opcional",
-    "position": 100
+    "position": 192
   },
   {
     "id": "prioritizacao",
     "name": "Definir prioridades",
     "importance": "essencial",
-    "position": 327
+    "position": 92
   },
   {
     "id": "procedimentos-invasivos",
     "name": "Cateteres e entubação",
     "importance": "essencial",
-    "position": 48
+    "position": 140
   },
   {
     "id": "processamento-salarios",
     "name": "Processamento de salários",
     "importance": "essencial",
-    "position": 389
+    "position": 311
   },
   {
     "id": "processamento-tecidos",
     "name": "Processamento e inclusão de tecidos",
     "importance": "essencial",
-    "position": 117
+    "position": 209
   },
   {
     "id": "processo-judicial",
     "name": "Processo civil e penal",
     "importance": "essencial",
-    "position": 508
+    "position": 337
   },
   {
     "id": "processos-pessoal",
     "name": "Processos de pessoal",
     "importance": "essencial",
-    "position": 384
+    "position": 306
   },
   {
     "id": "processos-quimicos",
     "name": "Processos químicos",
     "importance": "essencial",
-    "position": 407
+    "position": 560
   },
   {
     "id": "producao-orcamento",
     "name": "Produção e orçamento",
     "importance": "essencial",
-    "position": 639
+    "position": 443
   },
   {
     "id": "producao-peixe",
     "name": "Produção de peixe",
     "importance": "essencial",
-    "position": 673
+    "position": 632
   },
   {
     "id": "producao-petroleo",
     "name": "Engenharia de produção",
     "importance": "essencial",
-    "position": 401
+    "position": 570
   },
   {
     "id": "produtos-bancarios",
     "name": "Produtos bancários",
     "importance": "essencial",
-    "position": 363
+    "position": 285
   },
   {
     "id": "produtos-seguros",
     "name": "Produtos de seguros",
     "importance": "essencial",
-    "position": 371
+    "position": 293
   },
   {
     "id": "produtos-turisticos",
     "name": "Criação de produtos turísticos",
     "importance": "essencial",
-    "position": 708
+    "position": 668
   },
   {
     "id": "programa-poco",
     "name": "Desenho de poços",
     "importance": "essencial",
-    "position": 404
+    "position": 573
   },
   {
     "id": "programacao",
     "name": "Programação",
     "importance": "opcional",
-    "position": 448
+    "position": 512
   },
   {
     "id": "programacao-backend",
     "name": "Uma linguagem de servidor (PHP, Node.js, Java ou Python)",
     "importance": "essencial",
-    "position": 261
+    "position": 10
   },
   {
     "id": "programacao-cientifica",
     "name": "Programação científica",
     "importance": "opcional",
-    "position": 420
+    "position": 589
   },
   {
     "id": "projecto-arquitectura",
     "name": "Projecto de arquitectura",
     "importance": "essencial",
-    "position": 435
+    "position": 546
   },
   {
     "id": "projecto-vias",
     "name": "Projecto de vias",
     "importance": "essencial",
-    "position": 694
+    "position": 653
   },
   {
     "id": "protecao-culturas",
     "name": "Protecção das culturas",
     "importance": "essencial",
-    "position": 656
+    "position": 614
   },
   {
     "id": "proteccao-radiologica",
     "name": "Protecção contra radiações",
     "importance": "essencial",
-    "position": 56
+    "position": 148
   },
   {
     "id": "prototipagem",
     "name": "Prototipagem",
     "importance": "essencial",
-    "position": 18
+    "position": 74
   },
   {
     "id": "provas-esforco",
     "name": "Provas de esforço",
     "importance": "essencial",
-    "position": 123
+    "position": 215
   },
   {
     "id": "psicofarmacos",
     "name": "Psicofármacos",
     "importance": "essencial",
-    "position": 70
+    "position": 162
   },
   {
     "id": "psicoterapia",
     "name": "Psicoterapia",
     "importance": "essencial",
-    "position": 72
+    "position": 164
   },
   {
     "id": "publicar-apps",
     "name": "Publicar nas lojas de apps",
     "importance": "essencial",
-    "position": 268
+    "position": 18
   },
   {
     "id": "python",
     "name": "Python ou R",
     "importance": "opcional",
-    "position": 15
+    "position": 27
   },
   {
     "id": "qualidade",
     "name": "Gestão da qualidade",
     "importance": "essencial",
-    "position": 447
+    "position": 558
   },
   {
     "id": "qualidade-agua",
     "name": "Qualidade da água",
     "importance": "essencial",
-    "position": 170
+    "position": 256
   },
   {
     "id": "quimica",
     "name": "Química",
     "importance": "essencial",
-    "position": 475
+    "position": 504
   },
   {
     "id": "quimica-analitica",
     "name": "Química analítica",
     "importance": "essencial",
-    "position": 606
+    "position": 484
   },
   {
     "id": "r-python-dados",
     "name": "Programas de análise de dados, como R ou Python",
     "importance": "essencial",
-    "position": 571
+    "position": 401
   },
   {
     "id": "radio",
     "name": "Redes de rádio (4G e 5G)",
     "importance": "essencial",
-    "position": 312
+    "position": 71
   },
   {
     "id": "radiologia-convencional",
     "name": "Radiologia convencional",
     "importance": "essencial",
-    "position": 53
+    "position": 145
   },
   {
     "id": "radiologia-dentaria",
     "name": "Radiologia dentária",
     "importance": "opcional",
-    "position": 165
+    "position": 251
   },
   {
     "id": "rastreio-visual",
     "name": "Rastreio visual",
     "importance": "essencial",
-    "position": 160
+    "position": 246
   },
   {
     "id": "reabilitacao-neurologica",
     "name": "Reabilitação neurológica",
     "importance": "essencial",
-    "position": 145
+    "position": 231
   },
   {
     "id": "react",
@@ -3489,463 +3489,463 @@
     "id": "reanimacao-neonatal",
     "name": "Reanimação neonatal",
     "importance": "essencial",
-    "position": 102
+    "position": 194
   },
   {
     "id": "reassentamento",
     "name": "Reassentamento e compensação",
     "importance": "essencial",
-    "position": 564
+    "position": 394
   },
   {
     "id": "rebocos-pavimentos",
     "name": "Rebocos e pavimentos",
     "importance": "essencial",
-    "position": 227
+    "position": 684
   },
   {
     "id": "receitas-precos",
     "name": "Preços e receitas",
     "importance": "essencial",
-    "position": 704
+    "position": 663
   },
   {
     "id": "recem-nascido",
     "name": "Cuidados ao recém-nascido",
     "importance": "essencial",
-    "position": 31
+    "position": 123
   },
   {
     "id": "recolha-dados",
     "name": "Recolha de dados",
     "importance": "essencial",
-    "position": 635
+    "position": 439
   },
   {
     "id": "recolha-prova",
     "name": "Recolha e preservação de provas",
     "importance": "essencial",
-    "position": 542
+    "position": 371
   },
   {
     "id": "recrutamento-seleccao",
     "name": "Recrutamento e selecção",
     "importance": "essencial",
-    "position": 552
+    "position": 381
   },
   {
     "id": "redaccao",
     "name": "Redacção",
     "importance": "essencial",
-    "position": 382
+    "position": 304
   },
   {
     "id": "redaccao-administrativa",
     "name": "Redacção de pareceres e relatórios",
     "importance": "essencial",
-    "position": 525
+    "position": 354
   },
   {
     "id": "redaccao-juridica",
     "name": "Redacção jurídica",
     "importance": "essencial",
-    "position": 506
+    "position": 335
   },
   {
     "id": "redes",
     "name": "Redes",
     "importance": "essencial",
-    "position": 283
+    "position": 39
   },
   {
     "id": "redes-basicas",
     "name": "Redes básicas",
     "importance": "essencial",
-    "position": 296
+    "position": 52
   },
   {
     "id": "redes-electricas",
     "name": "Redes de energia",
     "importance": "essencial",
-    "position": 452
+    "position": 564
   },
   {
     "id": "redes-sociais",
     "name": "Gestão de redes sociais",
     "importance": "essencial",
-    "position": 338
+    "position": 107
   },
   {
     "id": "redes-tcp-ip",
     "name": "Redes IP",
     "importance": "essencial",
-    "position": 286
+    "position": 42
   },
   {
     "id": "rega",
-    "name": "Rega",
-    "importance": "essencial",
-    "position": 259
+    "name": "Rega e gestão da água",
+    "importance": "opcional",
+    "position": 615
   },
   {
     "id": "registo-erros",
     "name": "Registar erros (Jira ou semelhante)",
     "importance": "essencial",
-    "position": 270
+    "position": 20
   },
   {
     "id": "registos",
     "name": "Registo de contactos",
     "importance": "essencial",
-    "position": 362
+    "position": 284
   },
   {
     "id": "registos-enfermagem",
     "name": "Registos de enfermagem",
     "importance": "essencial",
-    "position": 97
+    "position": 189
   },
   {
     "id": "regras-pesca",
     "name": "Regras da pesca",
     "importance": "essencial",
-    "position": 677
+    "position": 636
   },
   {
     "id": "regulacao-bancaria",
     "name": "Regras do BNA",
     "importance": "essencial",
-    "position": 368
+    "position": 290
   },
   {
     "id": "regulamento-abalroamentos",
     "name": "Regras internacionais do mar",
     "importance": "essencial",
-    "position": 603
+    "position": 481
   },
   {
     "id": "regulamentos-icao",
     "name": "Normas da ICAO",
     "importance": "essencial",
-    "position": 699
+    "position": 658
   },
   {
     "id": "relacao-bancos",
     "name": "Relação com os bancos",
     "importance": "essencial",
-    "position": 357
+    "position": 279
   },
   {
     "id": "relacao-imprensa",
     "name": "Relação com a imprensa",
     "importance": "essencial",
-    "position": 619
+    "position": 422
   },
   {
     "id": "relacoes-internacionais",
     "name": "Relações internacionais",
     "importance": "essencial",
-    "position": 532
+    "position": 361
   },
   {
     "id": "relatorios-periciais",
     "name": "Relatórios periciais",
     "importance": "essencial",
-    "position": 551
+    "position": 380
   },
   {
     "id": "relatorios-tecnicos",
     "name": "Relatórios técnicos",
     "importance": "essencial",
-    "position": 561
+    "position": 391
   },
   {
     "id": "reproducao-animal",
     "name": "Reprodução animal",
     "importance": "essencial",
-    "position": 671
+    "position": 630
   },
   {
     "id": "requisitos",
     "name": "Levantamento de requisitos",
     "importance": "essencial",
-    "position": 320
+    "position": 82
   },
   {
     "id": "reservas-voos",
     "name": "Reservas de voos",
     "importance": "essencial",
-    "position": 709
+    "position": 669
   },
   {
     "id": "residuos-aguas",
     "name": "Resíduos e águas",
     "importance": "essencial",
-    "position": 679
+    "position": 638
   },
   {
     "id": "resposta-incidentes",
     "name": "Resposta a incidentes",
     "importance": "essencial",
-    "position": 304
+    "position": 62
   },
   {
     "id": "revisao-digital",
     "name": "Revisão em computador",
     "importance": "essencial",
-    "position": 633
+    "position": 437
   },
   {
     "id": "routing-switching",
     "name": "Routing e switching",
     "importance": "essencial",
-    "position": 287
+    "position": 43
   },
   {
     "id": "sala-controlo",
     "name": "Sistemas da sala de controlo",
     "importance": "essencial",
-    "position": 411
+    "position": 579
   },
   {
     "id": "saneamento",
     "name": "Saneamento e redes de água",
     "importance": "essencial",
-    "position": 434
+    "position": 545
   },
   {
     "id": "saude-animal-basica",
     "name": "Saúde animal básica",
     "importance": "essencial",
-    "position": 659
+    "position": 618
   },
   {
     "id": "saude-materno-infantil",
     "name": "Saúde materno-infantil",
     "importance": "essencial",
-    "position": 26
+    "position": 118
   },
   {
     "id": "saude-mental-infantil",
     "name": "Saúde mental infantil",
     "importance": "opcional",
-    "position": 178
+    "position": 264
   },
   {
     "id": "saude-publica-veterinaria",
     "name": "Saúde pública veterinária",
     "importance": "essencial",
-    "position": 668
+    "position": 627
   },
   {
     "id": "scripts",
     "name": "Scripts",
     "importance": "essencial",
-    "position": 285
+    "position": 41
   },
   {
     "id": "scrum-kanban",
     "name": "Scrum e Kanban",
     "importance": "essencial",
-    "position": 193
+    "position": 333
   },
   {
     "id": "seguranca-alimentar",
     "name": "Higiene e segurança alimentar",
     "importance": "essencial",
-    "position": 151
+    "position": 237
   },
   {
     "id": "seguranca-electrica",
     "name": "Segurança eléctrica de equipamentos médicos",
     "importance": "essencial",
-    "position": 127
+    "position": 219
   },
   {
     "id": "seguranca-industrial",
     "name": "Segurança industrial e gestão de riscos",
     "importance": "essencial",
-    "position": 403
+    "position": 572
   },
   {
     "id": "seguranca-informacao",
     "name": "Segurança da informação",
     "importance": "essencial",
-    "position": 330
+    "position": 96
   },
   {
     "id": "seguranca-laboratorio",
     "name": "Segurança no laboratório",
     "importance": "essencial",
-    "position": 585
+    "position": 463
   },
   {
     "id": "seguranca-mar",
     "name": "Segurança no mar",
     "importance": "essencial",
-    "position": 602
+    "position": 480
   },
   {
     "id": "seguranca-offshore",
     "name": "Segurança offshore e resposta a emergências",
     "importance": "essencial",
-    "position": 201
+    "position": 597
   },
   {
     "id": "seguranca-portuaria",
     "name": "Segurança portuária",
     "importance": "essencial",
-    "position": 698
+    "position": 657
   },
   {
     "id": "seguranca-trabalho",
     "name": "Segurança no trabalho",
     "importance": "essencial",
-    "position": 429
+    "position": 539
   },
   {
     "id": "seguranca-web",
     "name": "Segurança de aplicações web",
     "importance": "essencial",
-    "position": 262
+    "position": 12
   },
   {
     "id": "selecao",
     "name": "Selecção de candidatos",
     "importance": "essencial",
-    "position": 388
+    "position": 310
   },
   {
     "id": "seo",
     "name": "SEO",
     "importance": "opcional",
-    "position": 342
+    "position": 111
   },
   {
     "id": "siem",
     "name": "Ferramentas de vigilância (SIEM)",
     "importance": "essencial",
-    "position": 303
+    "position": 61
   },
   {
     "id": "sig",
     "name": "Sistemas de informação geográfica",
     "importance": "essencial",
-    "position": 439
+    "position": 550
   },
   {
     "id": "sig-mapas",
     "name": "Sistemas de informação geográfica",
     "importance": "essencial",
-    "position": 600
+    "position": 478
   },
   {
     "id": "silvicultura",
     "name": "Silvicultura",
     "importance": "essencial",
-    "position": 662
+    "position": 621
   },
   {
     "id": "simulacao-processos",
     "name": "Simulação de processos",
     "importance": "opcional",
-    "position": 409
+    "position": 577
   },
   {
     "id": "simulacao-reservatorios",
     "name": "Simulação de reservatórios",
     "importance": "opcional",
-    "position": 402
+    "position": 571
   },
   {
     "id": "sinais-grua",
     "name": "Sinais para o operador de grua",
     "importance": "essencial",
-    "position": 207
+    "position": 602
   },
   {
     "id": "sinais-vitais",
     "name": "Avaliação dos sinais vitais",
     "importance": "essencial",
-    "position": 92
+    "position": 184
   },
   {
     "id": "sismica",
     "name": "Processamento e interpretação sísmica",
     "importance": "essencial",
-    "position": 419
+    "position": 588
   },
   {
     "id": "sistema-manutencao",
     "name": "Sistemas de gestão da manutenção",
     "importance": "opcional",
-    "position": 199
+    "position": 596
   },
   {
     "id": "sistemas-farmacia",
     "name": "Sistemas informáticos de farmácia",
     "importance": "opcional",
-    "position": 137
+    "position": 227
   },
   {
     "id": "sistemas-operativos",
     "name": "Instalar sistemas operativos",
     "importance": "essencial",
-    "position": 300
+    "position": 58
   },
   {
     "id": "sistemas-reservas",
     "name": "Sistemas de reservas",
     "importance": "essencial",
-    "position": 705
+    "position": 665
   },
   {
     "id": "sobrevivencia-campo",
     "name": "Trabalho no mato",
     "importance": "essencial",
-    "position": 593
+    "position": 471
   },
   {
     "id": "software-mineiro",
     "name": "Programas mineiros, como o Micromine",
     "importance": "opcional",
-    "position": 415
+    "position": 584
   },
   {
     "id": "soldadura-electrodo",
     "name": "Soldadura por eléctrodo",
     "importance": "essencial",
-    "position": 223
+    "position": 680
   },
   {
     "id": "soldadura-tig-mig",
     "name": "Soldadura por eléctrodo, MIG/MAG e TIG",
     "importance": "essencial",
-    "position": 204
+    "position": 599
   },
   {
     "id": "solos-fertilizacao",
     "name": "Solos e fertilização",
     "importance": "essencial",
-    "position": 655
+    "position": 613
   },
   {
     "id": "som",
     "name": "Tratamento de som",
     "importance": "essencial",
-    "position": 615
+    "position": 418
   },
   {
     "id": "sondagens",
     "name": "Descrição de sondagens",
     "importance": "essencial",
-    "position": 417
+    "position": 586
   },
   {
     "id": "spark",
     "name": "Spark",
     "importance": "opcional",
-    "position": 277
+    "position": 33
   },
   {
     "id": "sql",
@@ -3957,127 +3957,127 @@
     "id": "supervisao-pedagogica",
     "name": "Supervisão pedagógica",
     "importance": "essencial",
-    "position": 485
+    "position": 515
   },
   {
     "id": "suporte-avancado-vida",
     "name": "Suporte avançado de vida",
     "importance": "essencial",
-    "position": 105
+    "position": 197
   },
   {
     "id": "suporte-basico-vida",
     "name": "Suporte básico de vida",
     "importance": "essencial",
-    "position": 96
+    "position": 188
   },
   {
     "id": "suporte-vida",
     "name": "Suporte básico e avançado de vida",
     "importance": "essencial",
-    "position": 23
+    "position": 115
   },
   {
     "id": "tac-rm",
     "name": "TAC e ressonância magnética",
     "importance": "essencial",
-    "position": 55
+    "position": 147
   },
   {
     "id": "tactica",
     "name": "Técnica e táctica",
     "importance": "essencial",
-    "position": 499
+    "position": 527
   },
   {
     "id": "tecidos",
     "name": "Conhecimento de tecidos",
     "importance": "essencial",
-    "position": 652
+    "position": 456
   },
   {
     "id": "tecnica-aeronautica",
     "name": "Conhecimento técnico de aviação",
     "importance": "essencial",
-    "position": 701
+    "position": 660
   },
   {
     "id": "tecnica-cirurgica",
     "name": "Técnica cirúrgica e suturas",
     "importance": "essencial",
-    "position": 42
+    "position": 134
   },
   {
     "id": "tecnicas-cozinha",
     "name": "Técnicas de cozinha",
     "importance": "essencial",
-    "position": 251
+    "position": 672
   },
   {
     "id": "tecnicas-culturais",
     "name": "Técnicas de produção",
     "importance": "essencial",
-    "position": 658
+    "position": 617
   },
   {
     "id": "tecnicas-investigacao",
     "name": "Técnicas de investigação criminal",
     "importance": "essencial",
-    "position": 541
+    "position": 370
   },
   {
     "id": "tecnicas-laboratorio",
     "name": "Técnicas de laboratório",
     "importance": "essencial",
-    "position": 583
+    "position": 461
   },
   {
     "id": "tecnicas-mediacao",
     "name": "Técnicas de mediação e conciliação",
     "importance": "essencial",
-    "position": 514
+    "position": 343
   },
   {
     "id": "tecnologia-alimentos",
     "name": "Tecnologia dos alimentos",
     "importance": "essencial",
-    "position": 665
+    "position": 624
   },
   {
     "id": "tecnologia-pescado",
     "name": "Tecnologia do pescado",
     "importance": "essencial",
-    "position": 676
+    "position": 635
   },
   {
     "id": "teoria-musical",
     "name": "Teoria musical",
     "importance": "essencial",
-    "position": 645
+    "position": 449
   },
   {
     "id": "terapia-manual",
     "name": "Terapia manual",
     "importance": "essencial",
-    "position": 144
+    "position": 230
   },
   {
     "id": "terraform",
     "name": "Terraform",
     "importance": "opcional",
-    "position": 293
+    "position": 49
   },
   {
     "id": "tesouraria",
     "name": "Gestão de tesouraria",
     "importance": "essencial",
-    "position": 355
+    "position": 277
   },
   {
     "id": "testes-api",
     "name": "Testar APIs (Postman)",
     "importance": "essencial",
-    "position": 271
+    "position": 21
   },
   {
     "id": "testes-automaticos",
@@ -4089,97 +4089,97 @@
     "id": "testes-carga",
     "name": "Testes de carga",
     "importance": "opcional",
-    "position": 272
+    "position": 22
   },
   {
     "id": "testes-intrusao",
     "name": "Testes de intrusão",
     "importance": "opcional",
-    "position": 305
+    "position": 63
   },
   {
     "id": "testes-psicologicos",
     "name": "Testes psicológicos",
     "importance": "essencial",
-    "position": 553
+    "position": 382
   },
   {
     "id": "tipografia",
     "name": "Tipografia e cor",
     "importance": "essencial",
-    "position": 318
+    "position": 80
   },
   {
     "id": "tiro-defesa",
     "name": "Armamento e defesa pessoal",
     "importance": "essencial",
-    "position": 544
+    "position": 373
   },
   {
     "id": "trabalho-altura",
     "name": "Trabalho em altura",
     "importance": "opcional",
-    "position": 311
+    "position": 69
   },
   {
     "id": "trabalho-em-altura",
     "name": "Trabalho em altura com segurança",
     "importance": "opcional",
-    "position": 234
+    "position": 691
   },
   {
     "id": "traducao-tecnica",
     "name": "Tradução técnica",
     "importance": "essencial",
-    "position": 626
+    "position": 429
   },
   {
     "id": "trancas-extensoes",
     "name": "Tranças e extensões",
     "importance": "essencial",
-    "position": 245
+    "position": 702
   },
   {
     "id": "tratamento-dor",
     "name": "Tratamento da dor",
     "importance": "opcional",
-    "position": 60
+    "position": 152
   },
   {
     "id": "tratamento-feridas",
     "name": "Pensos e tratamento de feridas",
     "importance": "essencial",
-    "position": 94
+    "position": 186
   },
   {
     "id": "tratamento-minerios",
     "name": "Tratamento de minérios",
     "importance": "essencial",
-    "position": 421
+    "position": 590
   },
   {
     "id": "travoes-suspensao",
     "name": "Travões e suspensão",
     "importance": "essencial",
-    "position": 236
+    "position": 693
   },
   {
     "id": "treino-desportivo",
     "name": "Planeamento do treino",
     "importance": "essencial",
-    "position": 498
+    "position": 526
   },
   {
     "id": "treino-forca",
     "name": "Treino de força",
     "importance": "essencial",
-    "position": 502
+    "position": 530
   },
   {
     "id": "tubagem",
     "name": "Montagem de tubagem",
     "importance": "essencial",
-    "position": 205
+    "position": 600
   },
   {
     "id": "typescript",
@@ -4191,102 +4191,102 @@
     "id": "vacinacao",
     "name": "Calendário de vacinas",
     "importance": "essencial",
-    "position": 33
+    "position": 125
   },
   {
     "id": "valor-ganho",
     "name": "Valor ganho (EVM)",
     "importance": "essencial",
-    "position": 190
+    "position": 330
   },
   {
     "id": "valvulas-controlo",
     "name": "Válvulas de controlo",
     "importance": "essencial",
-    "position": 213
+    "position": 608
   },
   {
     "id": "vendas",
     "name": "Vendas",
     "importance": "essencial",
-    "position": 373
+    "position": 295
   },
   {
     "id": "vendas-b2b",
     "name": "Vendas a empresas",
     "importance": "essencial",
-    "position": 332
+    "position": 98
   },
   {
     "id": "ventilacao",
     "name": "Ventilação mecânica",
     "importance": "essencial",
-    "position": 46
+    "position": 138
   },
   {
     "id": "verificacao-maquinas",
     "name": "Verificação diária da máquina",
     "importance": "essencial",
-    "position": 211
+    "position": 606
   },
   {
     "id": "via-aerea",
     "name": "Via aérea e entubação",
     "importance": "essencial",
-    "position": 59
+    "position": 151
   },
   {
     "id": "vigilancia-sanitaria",
     "name": "Inspecção e vigilância sanitária",
     "importance": "essencial",
-    "position": 171
+    "position": 257
   },
   {
     "id": "virtualizacao",
     "name": "Virtualização",
     "importance": "essencial",
-    "position": 284
+    "position": 40
   },
   {
     "id": "visualizacao",
     "name": "Visualização de dados",
     "importance": "essencial",
-    "position": 14
+    "position": 26
   },
   {
     "id": "voz-camara",
     "name": "Voz e presença em câmara",
     "importance": "opcional",
-    "position": 611
+    "position": 414
   },
   {
     "id": "voz-corpo",
     "name": "Voz e corpo",
     "importance": "essencial",
-    "position": 641
+    "position": 445
   },
   {
     "id": "vpn",
     "name": "VPN",
     "importance": "essencial",
-    "position": 290
+    "position": 46
   },
   {
     "id": "wifi",
     "name": "Wi-Fi",
     "importance": "essencial",
-    "position": 289
+    "position": 45
   },
   {
     "id": "windows",
     "name": "Windows e Office",
     "importance": "essencial",
-    "position": 294
+    "position": 50
   },
   {
     "id": "windows-server",
     "name": "Windows Server",
     "importance": "essencial",
-    "position": 282
+    "position": 38
   }
 ]

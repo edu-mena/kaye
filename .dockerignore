@@ -5,6 +5,8 @@
 **/.env
 **/.env.*
 !apps/api/.env.example
+# Public build settings of the web app (VITE_DATA_SOURCE=api): no secrets.
+!apps/web/.env.production
 docs
 scrapers
 

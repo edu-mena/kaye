@@ -17,6 +17,9 @@ export default defineConfig({
   forbidOnly: isCI,
   retries: isCI ? 1 : 0,
   reporter: isCI ? [['github'], ['html', { open: 'never' }]] : 'list',
+  // The pages read the catalogue from the API (VITE_DATA_SOURCE=api); locally PHP's built-in server answers one
+  // request at a time for all the parallel tests, so the first answers (before the cache) can take a few seconds.
+  expect: { timeout: 15_000 },
   use: {
     baseURL: externalBaseUrl ?? `http://127.0.0.1:${PORT}`,
     trace: 'retain-on-failure',
@@ -39,7 +42,8 @@ export default defineConfig({
         // PHP's built-in server with Laravel's router script. Not `artisan serve`:
         // it drops environment variables, and these must reach the app.
         // Laravel's server.php behind e2e/server.php, which adds the service worker's header (no .htaccess here).
-        command: `php -S 127.0.0.1:${PORT} ../../web/e2e/server.php`,
+        // First the test database gets the whole catalogue (the build reads it from /api/v1, VITE_DATA_SOURCE=api).
+        command: `php ../artisan migrate:fresh --force --no-interaction && php ../artisan kaye:import --no-interaction && php -S 127.0.0.1:${PORT} ../../web/e2e/server.php`,
         cwd: '../api/public',
         url: `http://127.0.0.1:${PORT}/up`,
         // Production mode (no debug pages, no dev tools injecting scripts), on the test database.
@@ -51,6 +55,7 @@ export default defineConfig({
         reuseExistingServer: !isCI,
         // The PHP server logs every request to stderr.
         stderr: 'ignore',
-        timeout: 60_000,
+        // The import of the catalogue takes about a minute.
+        timeout: 240_000,
       },
 })

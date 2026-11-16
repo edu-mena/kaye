@@ -15,6 +15,6 @@ trait LinksToCareers
      */
     public function careers(): BelongsToMany
     {
-        return $this->belongsToMany(Career::class);
+        return $this->belongsToMany(Career::class)->withPivot('position')->orderByPivot('position');
     }
 }

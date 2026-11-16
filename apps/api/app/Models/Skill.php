@@ -31,6 +31,6 @@ class Skill extends Model
      */
     public function careers(): BelongsToMany
     {
-        return $this->belongsToMany(Career::class)->withPivot('importance', 'position');
+        return $this->belongsToMany(Career::class)->withPivot('importance', 'position', 'name');
     }
 }

@@ -18,7 +18,7 @@ O Kayé guarda dados de jovens a partir dos 14 anos. A segurança é tratada com
 | Roubo de sessão | Um script lê o token | Web: cookie `HttpOnly` (o JavaScript não o lê). Android: token no armazenamento seguro. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md) | Desenho feito; implementação com o login | Teste do login (Fase 0.1) |
 | Clickjacking | O Kayé dentro de um iframe de outro site | `X-Frame-Options: DENY` + `frame-ancestors 'none'` | Feito | `SecurityHeadersTest` |
 | Pedidos de outros sites (CORS/CSRF) | Um site chama a API com a sessão do utilizador | CORS só para as apps nativas, sem credenciais; cookie `SameSite=Lax` + token CSRF | CORS feito; CSRF com o login | `CorsTest` |
-| Força bruta e abuso | Milhares de pedidos | Limite de pedidos: API 60/min por conta ou IP; login 10/min; contribuições 20/dia | API feito; o resto com cada funcionalidade | `ApiRateLimitTest` |
+| Força bruta e abuso | Milhares de pedidos | Limite de pedidos: API 300 leituras e 60 escritas por minuto, por conta ou IP, contadas à parte (as leituras públicas vêm da cache, cada página faz várias e muitos telemóveis partilham o IP da operadora, CGNAT); login 10/min; contribuições 20/dia | API feito; o resto com cada funcionalidade | `ApiRateLimitTest` |
 | Acesso indevido ao painel | Um utilizador muda o seu papel | Papel `admin`/`moderator` **e** email em `ADMIN_EMAILS`; lista vazia = ninguém | Feito | `AdminAccessTest` |
 | Injeção SQL | `' OR 1=1` | Só Eloquent e *query builder*, com parâmetros; o Semgrep procura SQL cru | Feito | Semgrep no CI |
 | Fuga de ficheiros | Pedir `/.env` | Raiz do site = `public/`; caminhos com ponto dão 404; o `.env` nunca entra na imagem | Feito | `SpaTest`, `scripts/smoke-test.sh` |

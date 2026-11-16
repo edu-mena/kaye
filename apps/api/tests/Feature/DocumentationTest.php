@@ -39,6 +39,17 @@ class DocumentationTest extends TestCase
         }
     }
 
+    public function test_every_variable_of_the_web_app_is_documented(): void
+    {
+        $doc = $this->doc('infraestrutura.md');
+        preg_match_all('/readonly (VITE_[A-Z0-9_]+)\??:/', File::get(base_path('../web/src/env.d.ts')), $matches);
+
+        $this->assertContains('VITE_DATA_SOURCE', $matches[1]);
+        foreach ($matches[1] as $variable) {
+            $this->assertStringContainsString("`{$variable}`", $doc, "{$variable} is missing from docs/infraestrutura.md");
+        }
+    }
+
     public function test_every_decision_record_is_in_the_index(): void
     {
         $index = $this->doc('decisoes/README.md');

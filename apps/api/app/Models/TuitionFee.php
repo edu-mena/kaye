@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\BelongsToInstitution;
+use App\Models\Concerns\FlushesPublicContent;
 use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\TuitionFeeFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TuitionFee extends Model
 {
     /** @use HasFactory<TuitionFeeFactory> */
-    use BelongsToInstitution, HasFactory, LogsContentChanges;
+    use BelongsToInstitution, FlushesPublicContent, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

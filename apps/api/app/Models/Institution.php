@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -56,6 +57,16 @@ class Institution extends Model
     public function tuitionFees(): HasMany
     {
         return $this->hasMany(TuitionFee::class);
+    }
+
+    /**
+     * The average fee of the institution's licenciaturas, stored once without an offer (docs/base-de-dados.md).
+     *
+     * @return HasOne<TuitionFee, $this>
+     */
+    public function averageFee(): HasOne
+    {
+        return $this->hasOne(TuitionFee::class)->whereNull('course_offer_id');
     }
 
     /**

@@ -22,6 +22,15 @@ describe('api', () => {
     expect(headers.get('Accept-Language')).toBe('fr')
   })
 
+  it('keeps the language a call asks for', async () => {
+    const fetchMock = mockFetchJson({})
+    await changeLocale('fr')
+
+    await api('/assessment', { headers: { 'Accept-Language': 'en' } })
+
+    expect(new Headers(fetchMock.mock.calls[0]?.[1]?.headers).get('Accept-Language')).toBe('en')
+  })
+
   it('sends a JSON content type only when there is a body', async () => {
     const fetchMock = mockFetchJson({})
 
