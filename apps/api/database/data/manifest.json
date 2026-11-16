@@ -1,4 +1,38 @@
 {
+  "areas": {
+    "pt": {
+      "file": "areas.pt.json",
+      "records": 13,
+      "sha256": "32326f9d44be539bacfbe20e6b4e25aa38ee9321a23af0aba9ecc3e53be58f3f"
+    },
+    "en": {
+      "file": "areas.en.json",
+      "records": 13,
+      "sha256": "69a20b40a8066fcaa3df06f14018de5162e4871be45cc57e6dba54cfaebd676d"
+    },
+    "fr": {
+      "file": "areas.fr.json",
+      "records": 13,
+      "sha256": "6bb07a09a294ce891685e0d0e943f69f76a1f795e0173a947877ea77b828460b"
+    }
+  },
+  "career-groups": {
+    "pt": {
+      "file": "career-groups.pt.json",
+      "records": 58,
+      "sha256": "73fd467a8a401ca9b6f3df5666eae51b72a996a81857bc8949dc574fc7276785"
+    },
+    "en": {
+      "file": "career-groups.en.json",
+      "records": 58,
+      "sha256": "ecbbe9aab67728f2f25bdc285ae43f0af45292a827c8dc55ad41b5d04c0022bc"
+    },
+    "fr": {
+      "file": "career-groups.fr.json",
+      "records": 58,
+      "sha256": "47d080d0589909792d2619de126b6be02117ca1fcb6b1bf732664b54f5b5487a"
+    }
+  },
   "careers": {
     "pt": {
       "file": "careers.pt.json",

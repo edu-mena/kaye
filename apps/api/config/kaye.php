@@ -17,4 +17,16 @@ return [
         explode(',', (string) env('ADMIN_EMAILS', '')),
     ))),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Content export
+    |--------------------------------------------------------------------------
+    |
+    | Where `php artisan kaye:import` reads the frontend's export (manifest.json
+    | and <resource>.<locale>.json). Written by `npm run export:data`.
+    |
+    */
+
+    'data_path' => database_path('data'),
+
 ];

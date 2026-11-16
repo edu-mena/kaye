@@ -206,7 +206,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 
 - [x] 0. Decisão e modelo de dados: ADR 0019, tabelas e rotas
 - [x] 1. Exportar os dados do frontend para JSON de paridade, com `manifest.json`
-- [ ] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
+- [x] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
 - [ ] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
 - [ ] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor
 - [ ] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado

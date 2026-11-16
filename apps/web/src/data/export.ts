@@ -5,8 +5,12 @@ import { MENTORS } from './demo/mentors'
 import { ANALOGIES, NONSENSE_WORDS, SYNONYMS } from './demo/psychotech'
 import { VIDEO_STORIES } from './demo/videoStories'
 import { ANNOUNCED, KURSOS } from './kursos'
+import { en } from '../locales/en'
+import { fr } from '../locales/fr'
+import { pt } from '../locales/pt'
 import { PROVINCES } from './provinces'
 import * as source from './source'
+import { CAREER_GROUPS, GROUP_AREAS, MARKET_AREAS } from './types'
 
 // The frontend's content as the backend will import it (ADR 0019): every list and detail of source.ts, and the
 // modules the app reads directly, per locale. scripts/export-data.ts writes it to apps/api/database/data and
@@ -17,6 +21,17 @@ import * as source from './source'
 const LOCALES: readonly Locale[] = ['pt', 'en', 'fr']
 
 type Data = readonly unknown[] | Record<string, unknown>
+
+const MESSAGES = { pt, en, fr }
+
+/** The areas and groups have no module of their own: their names are the app's labels (Mercado, Carreiras). */
+function taxonomy(locale: Locale) {
+  const { market, groups } = MESSAGES[locale]
+  return {
+    areas: MARKET_AREAS.map((id) => ({ id, name: market[`area_${id}`] })),
+    'career-groups': CAREER_GROUPS.map((id) => ({ id, area: GROUP_AREAS[id], name: groups[id] })),
+  }
+}
 
 /** The detail endpoints that return the list item as it is: the list file already holds them. */
 async function sameAsList<T extends { id: string }>(
@@ -57,6 +72,7 @@ async function resources(locale: Locale): Promise<Record<string, Data>> {
   )
 
   return {
+    ...taxonomy(locale),
     careers: careers,
     'career-details': details.filter((career) => career !== null),
     'career-traits': await source.listCareerTraits(),

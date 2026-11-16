@@ -59,6 +59,43 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 | `remember_token` | varchar | Sessão do painel |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | |
 
+### Catálogo (ADR 0019)
+
+As tabelas de conteúdo do [modelo completo](#modelo-completo-adr-0019) já existem, com as colunas descritas lá: `areas`, `career_groups`, `careers`, `skills`, `career_skill`, `pathways`, `cv_examples`, `testimonials`, `video_stories`, `mentors`, `career_mentor`, `institutions`, `courses`, `course_offers`, `career_course_offer`, `tuition_fees`, `admissions`, `admission_course`, `programs`, `career_program`, `free_courses`, `career_free_course`, `companies`, `career_company`, `company_institution`, `scholarships`, `internships`, `support_programs`, `news`, `career_news`, `company_news`, `events`, `figures`, `career_figure`, `assessment_questions`, `access_exam_questions`, `interview_questions`, `kursos`, `kurso_units`, `kurso_exam_questions` e `datasets`. O histórico de cada alteração fica em `activity_log` (`spatie/laravel-activitylog`).
+
+No código:
+
+| Peça | Onde | O que faz |
+|---|---|---|
+| Colunas comuns | `App\Support\ContentSchema::columns()` | `slug`, `status`, `source_url`, `source_checked_at`, `estimated`, `position`, datas e *soft delete*, iguais em todas as migrações. `ContentSchema::pivot()` cria as tabelas de ligação |
+| Estado e histórico | `App\Models\Concerns\HasContentStatus` | O `status` como `App\Enums\ContentStatus`, o *soft delete*, o histórico e o *scope* `published()` (o único que a API vai usar) |
+| Traduções | `Spatie\Translatable\HasTranslations` | A lista `$translatable` de cada modelo são as colunas marcadas com \* abaixo |
+| Relações repetidas | `BelongsToCareer`, `BelongsToInstitution`, `BelongsToCourse`, `BelongsToCompany`, `BelongsToKurso`, `LinksToCareers` (em `App\Models\Concerns`) | Uma só definição para as relações que vários modelos têm |
+
+O que a implementação ajustou ao contrato abaixo:
+
+- O `slug` é `varchar(191)`, não 120: os das ofertas (`<instituição>--<curso>--<nível>`) chegam a 141 caracteres.
+- `logo`, `banner`, `photo` e `thumbnail` são `text`: a exportação traz os logótipos pequenos embutidos (`data:image/svg+xml,…`), maiores do que um `varchar`.
+- Em `careers`, as colunas do guia (`description`, `day_to_day`, `work_context`, `work_styles`, `stages`, `market`, `cv_guide`, `self_employment`) podem ser vazias: uma carreira com `detailed = false` não tem guia. Hoje as 256 têm.
+- `free_courses.hours` é `decimal(6,2)` (há cursos de 12,75 horas).
+- Em `kursos`, `audience`, `level`, `lang`, `tone`, `goals` e `credits` podem ser vazios: os anunciados "Em breve" só têm título, texto e ícone.
+- `tuition_fees`: a exportação repete a propina média (`basis = average`) em cada licenciatura sem propina própria; guarda-se **uma** linha por instituição, sem oferta. O importador recusa uma instituição cujas médias não sejam iguais.
+
+### Importação (`kaye:import`)
+
+`php artisan kaye:import` lê `database/data` (o caminho está em `config/kaye.php`, `data_path`) e escreve o catálogo. O `DatabaseSeeder` chama-o, por isso `php artisan migrate --seed` deixa a base de dados cheia.
+
+1. **Valida o `manifest.json` primeiro.** Cada ficheiro de cada língua tem de ter o SHA-256 e o número de registos do manifest; se um falhar, não se importa nada e o comando diz quais.
+2. **Um recurso de cada vez, cada um numa transação.** A ordem é a das ligações (áreas → grupos → competências → carreiras → caminhos → instituições → cursos → ofertas → propinas → empresas → …; a lista está em `App\Import\Catalog`). Um recurso com problemas é desfeito por inteiro; os anteriores ficam.
+3. **Por `slug`** (por `career_id` + `slug` nos caminhos, `kurso_id` + `slug` nas unidades e perguntas dos Kursos, `news_id` nos eventos). O que é novo cria-se, o que mudou atualiza-se, o que é igual fica como está: **correr duas vezes não muda nada** (nem o `updated_at` nem o histórico).
+4. **As três línguas vão para o mesmo registo.** Uma língua que só repete o português não se guarda: a app cai para o português, e a tradução (prompt 8) preenche-a.
+5. **As ligações vão por slug** e as tabelas de ligação sincronizam-se. Um slug que não existe falha com a lista de todos os casos (`career-groups medicina: areas 'medicine' does not exist`); um slug repetido também falha.
+6. **O `status` só se escreve ao criar:** `published`, ou `draft` nos dados de exemplo (`example`). Depois, publicar é decisão do painel e o importador não lhe toca.
+7. **Nunca apaga.** Um registo que saiu da exportação fica na base de dados; um apagado no painel (*soft delete*) não volta a ser criado.
+8. No fim, imprime uma tabela recurso → lidos, criados, atualizados, erros. `--only=careers,pathways` importa só esses.
+
+`career-traits` não se importa: a API calcula-o a partir das carreiras.
+
 ### Do Laravel (infraestrutura)
 
 | Tabela | Para quê | Dados pessoais |
@@ -77,7 +114,28 @@ A tabela `password_reset_tokens`, que vem com o Laravel, foi retirada: não há 
 erDiagram
   USERS ||--o{ PERSONAL_ACCESS_TOKENS : "tem (app Android)"
   USERS ||--o{ SESSIONS : "tem (web e painel)"
+  AREAS ||--|{ CAREER_GROUPS : "agrupa"
+  CAREER_GROUPS ||--|{ CAREERS : "agrupa"
+  CAREERS }o--o{ SKILLS : "career_skill"
+  CAREERS ||--o{ PATHWAYS : "entra-se por"
+  PATHWAYS ||--o{ CV_EXAMPLES : "CV modelo"
+  CAREERS ||--o{ TESTIMONIALS : "como cheguei aqui"
+  INSTITUTIONS ||--o{ COURSE_OFFERS : "oferece"
+  COURSES ||--o{ COURSE_OFFERS : "é oferecido"
+  COURSE_OFFERS }o--o{ CAREERS : "prepara para"
+  INSTITUTIONS ||--o{ TUITION_FEES : "propinas"
+  INSTITUTIONS ||--o{ ADMISSIONS : "exame de acesso"
+  COMPANIES }o--o{ CAREERS : "contrata"
+  COMPANIES }o--o{ INSTITUTIONS : "parceiras"
+  COMPANIES ||--o{ SCHOLARSHIPS : "oferece"
+  COMPANIES ||--o{ INTERNSHIPS : "oferece"
+  NEWS ||--o| EVENTS : "evento"
+  NEWS }o--o{ CAREERS : "sobre"
+  KURSOS ||--|{ KURSO_UNITS : "unidades"
+  KURSO_UNITS ||--o{ KURSO_EXAM_QUESTIONS : "exame"
 ```
+
+As restantes tabelas do catálogo (`video_stories`, `mentors`, `programs`, `free_courses`, `support_programs`, `figures`, as perguntas e `datasets`) e as ligações delas estão no [diagrama do modelo completo](#diagrama-do-modelo-completo).
 
 ## Modelo completo (ADR 0019)
 
@@ -90,7 +148,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 | Coluna | Tipo | Notas |
 |---|---|---|
 | `id` | bigint | Só interno; nunca sai na API |
-| `slug` | varchar(120), único | O `id` de `types.ts` (`enfermeiro`, `uan`…). É a chave do `kaye:import` |
+| `slug` | varchar(191), único | O `id` de `types.ts` (`enfermeiro`, `uan`…). É a chave do `kaye:import` |
 | `status` | varchar(10), indexado, por omissão `draft` | `draft`, `review`, `published` (`App\Enums\ContentStatus`). A API só mostra `published` |
 | `source_url` | varchar(2048), pode ser vazio | A fonte principal. Obrigatória para a IA escrever (ADR 0019) |
 | `source_checked_at` | date, pode ser vazio | O `checkedAt` do frontend: quando a equipa confirmou os factos |
@@ -106,7 +164,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 
 **Tabelas de ligação** (`career_skill`, …) têm só as duas chaves estrangeiras (com `cascadeOnDelete`), a chave primária composta e, quando dito, `position` para manter a ordem do frontend. Não têm as colunas comuns.
 
-**Exportação do frontend.** `npm run export:data` (em `apps/web`, `scripts/export-data.ts`) grava em `apps/api/database/data/<recurso>.<locale>.json` o que as funções de `source.ts` e os módulos lidos diretamente devolvem, ordenado por `slug` (o `id` quando não há), com 2 espaços, e o `manifest.json` (por recurso e língua: ficheiro, registos, SHA-256). Cada registo leva `position`, a ordem da app. Os pormenores que devolvem o próprio item da lista (`getAcademy`, `getCourse`, `getCompany`) não têm ficheiro; `career-details` tem o `Career` completo de cada carreira curada. `src/data/export.test.ts` falha se os ficheiros ou o manifest não corresponderem aos dados: depois de mudar conteúdo, volta a exportar.
+**Exportação do frontend.** `npm run export:data` (em `apps/web`, `scripts/export-data.ts`) grava em `apps/api/database/data/<recurso>.<locale>.json` o que as funções de `source.ts` e os módulos lidos diretamente devolvem, ordenado por `slug` (o `id` quando não há), com 2 espaços, e o `manifest.json` (por recurso e língua: ficheiro, registos, SHA-256). As áreas e os grupos não têm módulo próprio: `areas` e `career-groups` saem de `MARKET_AREAS`, `CAREER_GROUPS` e `GROUP_AREAS`, com os nomes das traduções da app (`market.area_*`, `groups.*`), que já existem nas três línguas. Cada registo leva `position`, a ordem da app. Os pormenores que devolvem o próprio item da lista (`getAcademy`, `getCourse`, `getCompany`) não têm ficheiro; `career-details` tem o `Career` completo de cada carreira curada. `src/data/export.test.ts` falha se os ficheiros ou o manifest não corresponderem aos dados: depois de mudar conteúdo, volta a exportar.
 
 **Nomes que mudam do frontend para a base de dados.** Além de camelCase → snake_case: o `areas` das ofertas e das empresas é a coluna `groups`; o `year` das admissões é `academic_year`, o `registration.start`/`end` é `registration_start`/`registration_end` e o `fee` é `fee_aoa`; o `starts`/`ends` dos eventos é `starts_on`/`ends_on`; o `fee` de uma oferta é uma linha de `tuition_fees`; o `unit` de uma pergunta de exame dos Kursos é `kurso_unit_id`; o `lessons` de uma unidade é o `outline`.
 
