@@ -19,6 +19,9 @@ vi.mock('../../data/source', async (importOriginal) => {
   }
 })
 
+// What "dados" finds in the catalogue today: 7 careers, 1 scholarship, 2 companies and 2 pages of the app.
+const ALL_DADOS = '12 resultados para «dados»'
+
 const field = () => screen.getByRole('searchbox', { name: 'Pesquisar no Kayé' })
 const count = () => screen.getByText(/resultados? para/)
 
@@ -32,15 +35,22 @@ describe('SearchPage', () => {
       within(explore)
         .getAllByRole('link')
         .map((link) => link.getAttribute('href')),
-    ).toEqual(['/carreiras', '/cursos', '/academias', '/empresas'])
+    ).toEqual([
+      '/carreiras',
+      '/cursos',
+      '/academias',
+      '/oportunidades?tab=bolsas',
+      '/oportunidades?tab=estagios',
+      '/empresas',
+    ])
     expect(screen.queryByRole('region', { name: 'Pesquisas recentes' })).not.toBeInTheDocument()
   })
 
-  it('finds careers, courses and companies at once, a few of each, with the words marked', async () => {
+  it('finds careers, scholarships and companies at once, a few of each, with the words marked', async () => {
     renderWithApp(<SearchPage />, { route: '/pesquisa' })
     await userEvent.type(field(), 'dados')
 
-    expect(await screen.findByText('10 resultados para «dados»')).toBeInTheDocument()
+    expect(await screen.findByText(ALL_DADOS)).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('/pesquisa?q=dados')
     const careers = screen.getByRole('region', { name: /^Carreiras/ })
     expect(within(careers).getAllByRole('link')).toHaveLength(4)
@@ -49,7 +59,7 @@ describe('SearchPage', () => {
       '/carreiras/analista-de-dados',
     )
     expect(within(careers).getAllByText('Dados', { selector: 'mark' }).length).toBeGreaterThan(0)
-    expect(screen.getByRole('region', { name: /^Cursos/ })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: /^Empresas/ })).toBeInTheDocument()
     expect(screen.queryByRole('region', { name: /^Academias/ })).not.toBeInTheDocument()
     // A type with no results is not offered as a filter.
     expect(screen.queryByRole('button', { name: /^Academias/ })).not.toBeInTheDocument()
@@ -65,11 +75,11 @@ describe('SearchPage', () => {
   it('narrows to one type and back to all of them', async () => {
     renderWithApp(<SearchPage />, { route: '/pesquisa?q=dados' })
 
-    await userEvent.click(await screen.findByRole('button', { name: 'Cursos · 2' }))
+    await userEvent.click(await screen.findByRole('button', { name: 'Empresas · 2' }))
     expect(count()).toHaveTextContent('2 resultados para «dados»')
-    expect(screen.getByRole('button', { name: 'Cursos · 2' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: 'Empresas · 2' })).toHaveAttribute('aria-pressed', 'true')
 
-    await userEvent.click(screen.getByRole('button', { name: 'Tudo · 10' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Tudo · 12' }))
     expect(screen.getByTestId('location')).toHaveTextContent(/^\/pesquisa\?q=dados$/)
   })
 
@@ -122,7 +132,7 @@ describe('SearchPage', () => {
 
     await userEvent.click(within(recent).getByRole('button', { name: 'dados' }))
     expect(field()).toHaveValue('dados')
-    expect(await screen.findByText('10 resultados para «dados»')).toBeInTheDocument()
+    expect(await screen.findByText(ALL_DADOS)).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: 'Limpar a pesquisa' }))
     expect(field()).toHaveValue('')
@@ -155,6 +165,6 @@ describe('SearchPage', () => {
     const retry = await screen.findByRole('button', { name: 'Tentar outra vez' })
     failing.companies = false
     await userEvent.click(retry)
-    expect(await screen.findByText('10 resultados para «dados»')).toBeInTheDocument()
+    expect(await screen.findByText(ALL_DADOS)).toBeInTheDocument()
   })
 })

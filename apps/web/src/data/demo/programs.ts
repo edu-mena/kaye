@@ -67,7 +67,8 @@ export const COURSES = {
   design: 'Design',
 } satisfies Record<string, string>
 
-type Row = [
+/** One program: id, institution, name, level, months, schedule, total cost, recognised, rating, careers, course. */
+export type ProgramRow = [
   id: string,
   institution: keyof typeof INSTITUTIONS,
   name: string,
@@ -81,25 +82,29 @@ type Row = [
   course: keyof typeof COURSES,
 ]
 
-const ROWS: Row[] = []
+/** Builds the programs from their rows: also how the tests bring back the old demo ranking (test/programs.ts). */
+export function buildPrograms(rows: ProgramRow[]): Program[] {
+  return rows.map(
+    ([id, institution, name, level, months, schedule, cost, recognized, rating, careers, course]) => {
+      const program: Program = {
+        id,
+        institution: INSTITUTIONS[institution],
+        course: { id: course, name: COURSES[course] } satisfies Course,
+        name,
+        level,
+        durationMonths: months,
+        schedule,
+        totalCost: cost,
+        recognized,
+        rating: rating ? { average: rating[0], count: rating[1] } : null,
+        careers,
+      }
+      const image = PROGRAM_IMAGES[id]
+      if (image) program.image = image
+      return program
+    },
+  )
+}
 
-export const PROGRAMS: Program[] = ROWS.map(
-  ([id, institution, name, level, months, schedule, cost, recognized, rating, careers, course]) => {
-    const program: Program = {
-      id,
-      institution: INSTITUTIONS[institution],
-      course: { id: course, name: COURSES[course] } satisfies Course,
-      name,
-      level,
-      durationMonths: months,
-      schedule,
-      totalCost: cost,
-      recognized,
-      rating: rating ? { average: rating[0], count: rating[1] } : null,
-      careers,
-    }
-    const image = PROGRAM_IMAGES[id]
-    if (image) program.image = image
-    return program
-  },
-)
+/** The made-up ranking was emptied: the catalogue only shows real offers (ADR 0015). */
+export const PROGRAMS: Program[] = buildPrograms([])

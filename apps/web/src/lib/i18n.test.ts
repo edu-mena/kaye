@@ -17,8 +17,15 @@ describe('i18n', () => {
     for (const messages of [en, fr]) {
       expect(keysOf(messages).toSorted()).toEqual(reference)
     }
+    // Each leaf, not the JSON text: a message that ends in a quotation ("…") is not empty.
     for (const messages of [pt, en, fr]) {
-      expect(JSON.stringify(messages)).not.toContain('""')
+      const empty = keysOf(messages).filter(
+        (key) =>
+          key
+            .split('.')
+            .reduce<unknown>((value, part) => (value as Record<string, unknown>)[part], messages) === '',
+      )
+      expect(empty).toEqual([])
     }
   })
 

@@ -20,8 +20,9 @@ const openExample = (id: string) =>
 describe('CvPage', () => {
   it('invites to start and lists the model CVs by career', async () => {
     renderWithApp(<CvPage />)
-    expect(screen.getByText('Ainda não começaste o teu CV.')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Começar do zero' })).toHaveAttribute('href', '/cv/editar')
+    expect(screen.getByText('Um CV que abre portas')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Continuar a editar' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Criar novo CV' })).toBeInTheDocument()
     const [dataModel] = await screen.findAllByRole('button', { name: /^Analista de Dados.*Júnior · Europeu/ })
     await userEvent.click(dataModel!)
     expect(screen.getByRole('dialog', { name: /^Analista de Dados · / })).toBeInTheDocument()
@@ -30,8 +31,9 @@ describe('CvPage', () => {
   it('shows how complete the CV is', () => {
     seedUser({ cvs: [savedCv({ name: 'Joana', headline: 'Frontend' })] })
     renderWithApp(<CvPage />)
-    expect(screen.getByText('Completo a 29%')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Editar o meu CV' })).toBeInTheDocument()
+    expect(screen.getAllByText('Completo a 29%').length).toBeGreaterThan(0)
+    expect(screen.getByRole('button', { name: 'Continuar a editar' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Editar: O meu CV' })).toBeInTheDocument()
   })
 })
 
@@ -67,6 +69,9 @@ describe('CvEditorPage', () => {
   it('saves every change on the device and shows it in the preview', async () => {
     seedUser()
     renderWithApp(<CvEditorPage />)
+    // A new CV starts with the profile's name.
+    expect(screen.getByLabelText('Nome')).toHaveValue('Joana')
+    await userEvent.clear(screen.getByLabelText('Nome'))
     await userEvent.type(screen.getByLabelText('Nome'), 'Joana Manuel')
     await userEvent.type(screen.getByRole('textbox', { name: 'Competências' }), 'React, Git,')
 
@@ -92,6 +97,7 @@ describe('CvEditorPage', () => {
   it('fills every field, and the CV becomes complete', async () => {
     seedUser()
     renderWithApp(<CvEditorPage />)
+    await userEvent.clear(screen.getByLabelText('Nome'))
     await fill(screen.getByLabelText('Nome'), 'Ana Kiala')
     await fill(screen.getByLabelText('Título profissional'), 'Designer UI/UX')
     await fill(screen.getByLabelText('Contacto'), 'ana@exemplo.ao')
@@ -145,7 +151,8 @@ describe('CvEditorPage', () => {
     const form = screen.getByRole('form', { name: 'Editar o meu CV' })
     await userEvent.click(screen.getByRole('button', { name: 'Pré-visualização' }))
     expect(form).toHaveClass('hidden')
-    await userEvent.click(screen.getByRole('button', { name: 'Editar' }))
+    // The switch shows twice (top bar and bottom of the phone screen).
+    await userEvent.click(screen.getAllByRole('button', { name: 'Editar' })[0] as HTMLElement)
     expect(form).not.toHaveClass('hidden')
   })
 })

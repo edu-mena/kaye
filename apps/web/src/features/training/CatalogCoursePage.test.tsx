@@ -7,14 +7,17 @@ const open = (route: string) => renderWithApp(<CatalogCoursePage />, { route, pa
 
 describe('CatalogCoursePage', () => {
   it('shows where to study the course, the institution it was opened from first, and the careers', async () => {
-    open('/cursos/curso/enfermagem?academia=uan')
+    open('/cursos/curso/enfermagem?academia=uan&secao=ofertas')
     expect(await screen.findByRole('heading', { level: 1, name: 'Enfermagem' })).toBeInTheDocument()
 
-    const where = screen.getByRole('region', { name: 'Onde estudar' })
+    const where = screen.getByRole('region', { name: 'Academias e ofertas' })
     const first = within(where).getAllByRole('article')[0]
     expect(first).toHaveAccessibleName('Universidade Agostinho Neto')
     expect(first).toHaveTextContent('A ver')
-    expect(within(first ?? where).getByRole('link')).toHaveAttribute('href', '/academias/uan')
+    expect(within(first ?? where).getByRole('link')).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^\/academias\/uan\?curso=enfermagem&nivel=/),
+    )
 
     expect(await screen.findByRole('link', { name: 'Enfermeiro' })).toHaveAttribute(
       'href',

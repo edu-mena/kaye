@@ -35,7 +35,7 @@ describe('TermsPage', () => {
     renderWithApp(<TermsPage />)
 
     expect(screen.getByRole('heading', { level: 1, name: 'Termos de uso' })).toBeInTheDocument()
-    expect(screen.getByText('Versão de 27 de outubro de 2026')).toBeInTheDocument()
+    expect(screen.getByText('Versão de 12 de novembro de 2026')).toBeInTheDocument()
     expect(screen.getByText(/Versão provisória/)).toBeInTheDocument()
     const summary = screen.getByRole('region', { name: 'Em poucas palavras' })
     expect(within(summary).getAllByRole('listitem')).toHaveLength(TERMS.pt.summary.length)
@@ -75,7 +75,7 @@ describe('TermsPage', () => {
     renderWithApp(<TermsPage />)
 
     expect(screen.getByRole('heading', { level: 1, name: 'Terms of use' })).toBeInTheDocument()
-    expect(screen.getByText('Version of October 27, 2026')).toBeInTheDocument()
+    expect(screen.getByText('Version of November 12, 2026')).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: '1. What Kayé is' })).toBeInTheDocument()
   })
 })

@@ -1,6 +1,6 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { getUser } from '../../state/userStore'
 import { renderWithApp } from '../../test/render'
 import { seedUser } from '../../test/user'
@@ -12,9 +12,17 @@ const SLOW = { timeout: 20000 }
 const choose = async (name: string | RegExp) => userEvent.click(await screen.findByRole('button', { name }))
 const proceed = () => userEvent.click(screen.getByRole('button', { name: 'Continuar' }))
 
+/** The launch contact, asked right after the welcome: an email and the consent to keep it. */
+async function leaveContact() {
+  await userEvent.type(await screen.findByLabelText('Email'), 'edson@exemplo.ao')
+  await userEvent.click(screen.getByLabelText(/Aceito que o Kayé guarde este contacto/))
+  await proceed()
+}
+
 /** From the welcome to the first area, as someone looking for work. */
 async function startConversation(situation = 'Procuro trabalho') {
   await choose('Vamos lá')
+  await leaveContact()
   await screen.findByRole('heading', { name: 'Como queres que eu soe?' })
   await proceed()
   await choose(situation)
@@ -46,6 +54,13 @@ async function aboutYou(birthYear: number) {
 
 const google = () => screen.findByRole('button', { name: 'Continuar com o Google' }, { timeout: 6000 })
 
+/** The waiting list (apps/web/api/waitlist): answered as the server does. */
+const waitlist = vi.fn<() => Promise<Response>>(async () => Response.json({ ok: true }))
+
+beforeEach(() => {
+  vi.stubGlobal('fetch', waitlist)
+})
+
 describe('OnboardingPage', () => {
   it('goes from the welcome to the plan, saving what the person said', SLOW, async () => {
     renderWithApp(<OnboardingPage />, { route: '/entrar' })
@@ -75,6 +90,21 @@ describe('OnboardingPage', () => {
     })
     expect(getUser().discovery).toMatchObject({ goal: 'course', areas: ['health'] })
     expect(getUser().savedCareers).toHaveLength(1)
+  })
+
+  it('asks for a launch contact before anything else, and sends it on', async () => {
+    renderWithApp(<OnboardingPage />, { route: '/entrar' })
+    await choose('Vamos lá')
+    expect(
+      await screen.findByRole('heading', { name: 'Antes de começarmos, como te avisamos do lançamento?' }),
+    ).toBeInTheDocument()
+    await userEvent.type(screen.getByLabelText('Email'), 'edson@exemplo.ao')
+    expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled()
+
+    await userEvent.click(screen.getByLabelText(/Aceito que o Kayé guarde este contacto/))
+    await proceed()
+    expect(await screen.findByRole('heading', { name: 'Como queres que eu soe?' })).toBeInTheDocument()
+    expect(waitlist).toHaveBeenCalledOnce()
   })
 
   it('suggests the areas to who does not know which to choose', SLOW, async () => {

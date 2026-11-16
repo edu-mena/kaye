@@ -1,4 +1,4 @@
-import { render, waitFor, within } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { CV_EXAMPLES } from '../../data/demo/cvExamples'
 import type { CvData, CvTemplate } from '../../data/types'
@@ -26,19 +26,23 @@ const LABELS: CvLabels = {
   links: 'Links',
 }
 
+// The sheet is drawn in SVG from the same layout as the PDF: its words are the <text> elements.
+const words = (container: HTMLElement) =>
+  [...container.querySelectorAll('text')].map((text) => text.textContent ?? '')
+
 describe('CV layouts', () => {
   it.each(TEMPLATES)('the %s sheet shows every filled section, and skips empty ones', (template) => {
     const { container } = render(<ScaledSheet cv={FULL} template={template} fit="content" />)
-    const sheet = within(container)
-    expect(sheet.getByText(FULL.name)).toBeInTheDocument()
+    const full = words(container)
+    expect(full).toContain(FULL.name)
     for (const label of ['Experiência', 'Formação', 'Competências', 'Línguas', 'Certificações']) {
-      expect(sheet.getByRole('heading', { name: label })).toBeInTheDocument()
+      expect(full).toContain(label.toUpperCase())
     }
-    expect(sheet.getByText('Power BI Data Analyst')).toBeInTheDocument()
+    expect(full).toContain('Power BI Data Analyst')
 
     const { container: empty } = render(<ScaledSheet cv={{ ...EMPTY_CV, name: 'Ana' }} template={template} />)
-    expect(within(empty).queryByRole('heading', { name: 'Experiência' })).not.toBeInTheDocument()
-    expect(within(empty).getByText('Ainda vazio')).toBeInTheDocument()
+    expect(words(empty)).not.toContain('EXPERIÊNCIA')
+    expect(words(empty)).toContain('Ainda vazio')
   })
 
   it.each(TEMPLATES)('the %s PDF is a real PDF file, named after the person', async (template) => {

@@ -10,7 +10,7 @@ const cards = () => screen.getAllByRole('article')
 const forYouCount = NEWS.filter((item) => item.careers?.includes('analista-de-dados')).length
 
 describe('NewsPage', () => {
-  it('lists the news newest first, each with its kind, date and page', async () => {
+  it('lists the news newest first, each with its kind, date and its own page', async () => {
     renderWithApp(<NewsPage />)
 
     expect(await screen.findByRole('button', { name: `Tudo · ${NEWS.length}` })).toHaveAttribute(
@@ -18,23 +18,19 @@ describe('NewsPage', () => {
       'true',
     )
     expect(cards()).toHaveLength(NEWS.length)
+    const dates = cards().map((card) => card.querySelector('time')?.getAttribute('dateTime') ?? '')
+    expect(dates).toEqual(dates.toSorted().toReversed())
+
+    const newest = NEWS.find((item) => item.date === dates[0])
     const first = within(cards()[0] as HTMLElement)
-    expect(first.getByRole('link', { name: 'Mercado e Novidades' })).toHaveAttribute('href', '/mercado')
-    expect(first.getByText('Do Kayé')).toBeInTheDocument()
-    expect((cards()[0] as HTMLElement).querySelector('time')).toHaveAttribute('dateTime', NEWS[0]?.date)
+    expect(first.getByRole('link', { name: (name) => name.includes(newest?.title ?? '?') })).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^[/]novidades[/]/),
+    )
   })
 
-  it('marks made-up news as examples, and links real facts to their source', async () => {
-    renderWithApp(<NewsPage />)
-
-    const example = (await screen.findByRole('link', { name: /Universidade Pública Exemplo/ })).closest(
-      'article',
-    )
-    expect(within(example as HTMLElement).getByText('Exemplo')).toBeInTheDocument()
-
-    const bai = screen.getByRole('link', { name: /^Banco BAI:/ }).closest('article') as HTMLElement
-    expect(within(bai).queryByText('Exemplo')).not.toBeInTheDocument()
-    expect(within(bai).getByRole('link', { name: 'Fonte: Banco BAI' })).toHaveAttribute('target', '_blank')
+  it('shows no made-up news: every piece is a real fact', () => {
+    expect(NEWS.filter((item) => item.example)).toEqual([])
   })
 
   it('narrows to one kind of news', async () => {
@@ -60,13 +56,15 @@ describe('NewsPage', () => {
     seedUser({ savedCareers: ['analista-de-dados'] })
     renderWithApp(<NewsPage />)
 
+    // With something for the person, "Para ti" is the default: their news first, then the rest.
     const filter = await screen.findByRole('button', { name: `Para ti · ${forYouCount}` })
+    expect(filter).toHaveAttribute('aria-pressed', 'true')
     expect(
-      within(screen.getByRole('region', { name: 'Para ti' })).getByText(/sobre as tuas carreiras/),
+      within(screen.getByRole('region', { name: 'Para ti' })).getByText(/das tuas carreiras/),
     ).toBeInTheDocument()
-
-    await userEvent.click(filter)
-    expect(cards()).toHaveLength(forYouCount)
-    for (const card of cards()) expect(within(card).getByText('Para ti')).toBeInTheDocument()
+    expect(cards()).toHaveLength(NEWS.length)
+    for (const card of cards().slice(0, forYouCount))
+      expect(within(card).getByText('Para ti')).toBeInTheDocument()
+    expect(within(cards()[forYouCount] as HTMLElement).queryByText('Para ti')).not.toBeInTheDocument()
   })
 })

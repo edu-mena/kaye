@@ -12,22 +12,20 @@ import {
   listCvExamples,
   listPrograms,
 } from './source'
-import { GROUP_AREAS, RIASEC_KEYS } from './types'
+import { GROUP_AREAS, MARKET_AREAS, RIASEC_KEYS } from './types'
 
 describe('demo data source', () => {
-  it('lists the careers area by area (27 of technology, 39 of health) and marks the curated ones: all of health', async () => {
+  it('lists the careers of every area (27 of technology, 39 of health), each with its full guide (ADR 0015)', async () => {
     const careers = await listCareers()
     const areas = careers.map((career) => GROUP_AREAS[career.group])
     expect(areas.filter((area) => area === 'technology')).toHaveLength(27)
     expect(areas.filter((area) => area === 'health')).toHaveLength(39)
-    expect(careers.filter((career) => career.detailed).map((career) => career.slug)).toEqual([
-      'desenvolvedor-frontend',
-      'analista-de-dados',
-      'designer-ui-ux',
-      ...HEALTH_CAREERS.map((career) => career.slug),
-      ...PROJECT_CAREERS.map((career) => career.slug),
-      ...OFFSHORE_CAREERS.map((career) => career.slug),
-    ])
+    expect(new Set(areas)).toEqual(new Set(MARKET_AREAS))
+    expect(careers.filter((career) => !career.detailed)).toEqual([])
+    const slugs = careers.map((career) => career.slug)
+    for (const career of [...HEALTH_CAREERS, ...PROJECT_CAREERS, ...OFFSHORE_CAREERS]) {
+      expect(slugs).toContain(career.slug)
+    }
   })
 
   it('lists real academies: each with a source, none sharing a name with the fictional ranking', async () => {
@@ -56,11 +54,10 @@ describe('demo data source', () => {
     expect((await getCareer('analista-de-dados'))?.name).toBe('Analista de Dados')
   })
 
-  it('filters courses and model CVs by career', async () => {
-    expect((await listPrograms('designer-ui-ux')).every((p) => p.careers.includes('designer-ui-ux'))).toBe(
-      true,
-    )
-    expect((await listPrograms()).length).toBeGreaterThan((await listPrograms('designer-ui-ux')).length)
+  it('has no made-up programs any more, and filters model CVs by career', async () => {
+    // The fictional "Exemplo" ranking was emptied: the catalogue only shows real offers.
+    expect(await listPrograms()).toEqual([])
+    expect(await listPrograms('designer-ui-ux')).toEqual([])
     expect((await listCvExamples('analista-de-dados')).map((cv) => cv.id)).toEqual([
       'dados-junior',
       'dados-reconversao',

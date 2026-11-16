@@ -1,9 +1,11 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
-import { CAREER_SUMMARIES, CAREERS } from '../../data/demo/careers'
+import { CAREER_SUMMARIES } from '../../data/demo/careers'
+import { listCareers } from '../../data/source'
+import { clearFilter, pickFilter } from '../../test/filters'
 import { renderWithApp } from '../../test/render'
-import { seedTested } from '../../test/user'
+import { seedTested, seedUser } from '../../test/user'
 import CareersPage from './CareersPage'
 
 const ALL = `${CAREER_SUMMARIES.length} profissões`
@@ -38,31 +40,22 @@ describe('CareersPage', () => {
 
   it('shows the groups of one area at a time, and the area of a group chosen in the filter', async () => {
     renderWithApp(<CareersPage />)
-    const areas = await screen.findByRole('group', { name: 'Explora por área' })
-    expect(within(areas).getByRole('button', { name: 'Tecnologia e telecomunicações' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
+    // Without the test, the first area: technology.
+    expect(await screen.findByText('Tecnologia e telecomunicações')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^Design/ })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /^Medicina/ })).not.toBeInTheDocument()
 
-    await userEvent.click(within(areas).getByRole('button', { name: 'Saúde' }))
+    await clearFilter('Explore mais')
+    await pickFilter('Explore mais', 'Saúde')
     expect(screen.getByRole('button', { name: /^Medicina/ })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /^Design/ })).not.toBeInTheDocument()
 
-    // Phones choose the area in a select.
-    const select = screen.getByRole('combobox', { name: 'Explora por área' })
-    expect(select).toHaveValue('health')
-    await userEvent.selectOptions(select, 'education')
-    expect(screen.getByRole('button', { name: /^Desporto e educação física/ })).toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: /^Medicina/ })).not.toBeInTheDocument()
-
-    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'turismo')
-    expect(within(areas).getByRole('button', { name: 'Turismo e hotelaria' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
+    // A group chosen in the list's filter brings its area into view.
+    await pickFilter('Área', 'Turismo e hotelaria')
+    const explore = screen.getByRole('region', { name: 'Explore mais' })
+    expect(within(explore).getByText(/^Explore mais:/).parentElement).toHaveTextContent('Turismo e hotelaria')
     expect(
-      screen.getByRole('button', { name: /^Turismo e hotelaria.*profiss/, pressed: true }),
+      within(explore).getByRole('button', { name: /^Turismo e hotelaria.*profiss/, pressed: true }),
     ).toBeInTheDocument()
   })
 
@@ -86,13 +79,15 @@ describe('CareersPage', () => {
     expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
 
     await userEvent.click(within(pages).getByRole('button', { name: 'Página seguinte' }))
-    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'design')
+    await pickFilter('Área', 'Design')
     expect(screen.getByTestId('location')).toHaveTextContent('area=design')
     expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
     expect(screen.queryByRole('navigation', { name: 'Páginas de profissões' })).not.toBeInTheDocument()
   })
 
   it('filters by demand, salary and guide, and clears them all', async () => {
+    // Salaries show to adults only: the seeded profile is 19.
+    seedUser()
     renderWithApp(<CareersPage />)
     await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'Salário mediano' }), 'mais500')
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Procura' }), 'alta')
@@ -101,10 +96,12 @@ describe('CareersPage', () => {
     expect(count).toBeGreaterThan(0)
     expect(count).toBeLessThan(CAREER_SUMMARIES.length)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    // The phone row repeats the button (hidden there by CSS): the first one is the desktop row's.
+    await userEvent.click(screen.getAllByRole('button', { name: 'Limpar filtros' })[0] as HTMLElement)
     expect(screen.getByText(ALL, { selector: 'output' })).toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Página' }), 'guia')
-    expect(screen.getByText(`${CAREERS.length} profissões`, { selector: 'output' })).toBeInTheDocument()
+    const guides = (await listCareers()).filter((career) => career.detailed).length
+    expect(screen.getByText(`${guides} profissões`, { selector: 'output' })).toBeInTheDocument()
   })
 
   it('says so when nothing matches', async () => {

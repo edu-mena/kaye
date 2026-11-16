@@ -1,12 +1,18 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { createMemoryRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { Layout } from '../../app/Layout'
 import { renderWithApp } from '../../test/render'
 import { answersFor, seedTested, seedUser } from '../../test/user'
 import HomePage from './HomePage'
+
+// The layout registers the service worker (vite-plugin-pwa's virtual module): jsdom has none, and on Windows
+// the virtual module does not even load. Here nothing is waiting to update.
+vi.mock('virtual:pwa-register/react', () => ({
+  useRegisterSW: () => ({ needRefresh: [false, () => {}], updateServiceWorker: async () => {} }),
+}))
 
 describe('HomePage', () => {
   it('welcomes people without a profile', () => {
@@ -29,7 +35,13 @@ describe('HomePage', () => {
     seedTested()
     renderWithApp(<HomePage />)
     expect(await screen.findByText('IAC')).toBeInTheDocument()
-    expect(await screen.findAllByRole('link', { name: /Combina com o teu lado/ })).toHaveLength(3)
+    // After the test, "Carreiras para ti" are the six best matches, and "Ver tudo" opens the result.
+    const tile = screen.getByRole('region', { name: 'Carreiras para ti' })
+    expect(within(tile).getByRole('link', { name: 'Ver tudo' })).toHaveAttribute('href', '/teste/resultado')
+    const careers = within(tile)
+      .getAllByRole('link')
+      .filter((link) => link.getAttribute('href')?.startsWith('/carreiras/'))
+    expect(careers).toHaveLength(6)
   })
 
   it('follows the destination: steps left and the next one', async () => {
@@ -52,6 +64,8 @@ describe('HomePage', () => {
 
 describe('Layout', () => {
   it('has a skip link, the logo and both navigations, and no demo notice over the screen', async () => {
+    // Without a profile the layout is the bare one of the onboarding.
+    seedUser()
     // ScrollRestoration needs a data router, like the real app's.
     const router = createMemoryRouter([
       { path: '/', Component: Layout, children: [{ index: true, element: <p>ecrã</p> }] },

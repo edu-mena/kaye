@@ -1,7 +1,9 @@
 import { fireEvent, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
+import { achievements } from '../../domain/achievements'
 import { getUser } from '../../state/userStore'
+import { PROGRAM } from '../../test/programs'
 import { mockFetchJson, renderWithApp } from '../../test/render'
 import { seedTested, seedUser } from '../../test/user'
 import ProfilePage from './ProfilePage'
@@ -23,6 +25,12 @@ vi.mock('../../components/ImageCropper', () => ({
       </button>
     ) : null,
 }))
+
+// The real catalogue has no programs any more: the comparison is tested with a made-up one.
+vi.mock('../../data/source', async (importOriginal) => {
+  const real = await importOriginal<typeof import('../../data/source')>()
+  return { ...real, listPrograms: async () => [PROGRAM] }
+})
 
 const picture = new File(['x'], 'eu.png', { type: 'image/png' })
 const choose = (container: HTMLElement, name: 'photo' | 'cover', file = picture) => {
@@ -52,7 +60,7 @@ describe('ProfilePage', () => {
     expect(screen.getByText('Joana')).toBeInTheDocument()
     expect(await screen.findByRole('link', { name: 'IAC' })).toHaveAttribute('href', '/teste/resultado')
     expect(screen.getByText('Ainda não escolheste uma profissão como destino.')).toBeInTheDocument()
-    const saved = screen.getByRole('region', { name: 'Carreiras guardadas' })
+    const saved = screen.getByRole('region', { name: 'Guardados' })
     expect(await within(saved).findByRole('link', { name: /Designer UI\/UX/ })).toBeInTheDocument()
     expect(within(saved).getByRole('link', { name: /Analista de Dados/ })).toBeInTheDocument()
   })
@@ -122,11 +130,12 @@ describe('ProfilePage', () => {
     mockFetchJson({ status: 'ok' })
     seedTested()
     renderWithApp(<ProfilePage />)
-    const achievements = screen.getByRole('region', { name: 'Conquistas' })
-    expect(within(achievements).getByText('250 XP')).toBeInTheDocument()
-    expect(within(achievements).getByText(/vale pontos \(XP\).*nunca te comparam/)).toBeInTheDocument()
-    expect(within(achievements).getByText('Autoconhecimento')).toBeInTheDocument()
-    expect(within(achievements).getAllByText('Por conquistar')).toHaveLength(4)
+    const panel = screen.getByRole('region', { name: 'Conquistas' })
+    expect(within(panel).getByText('250 XP')).toBeInTheDocument()
+    expect(within(panel).getByText(/vale pontos \(XP\).*nunca te comparam/)).toBeInTheDocument()
+    expect(within(panel).getByText('Autoconhecimento')).toBeInTheDocument()
+    const locked = achievements(getUser()).filter((achievement) => !achievement.earned)
+    expect(within(panel).getAllByText('Por conquistar')).toHaveLength(locked.length)
   })
 
   it('lists the history newest first, each step linked back', async () => {

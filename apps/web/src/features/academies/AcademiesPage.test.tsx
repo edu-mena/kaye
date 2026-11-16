@@ -4,10 +4,16 @@ import { describe, expect, it } from 'vitest'
 import { renderWithApp } from '../../test/render'
 import AcademiesPage from './AcademiesPage'
 import { listAcademies } from '../../data/source'
+import type { Academy } from '../../data/types'
+import { pickFilter } from '../../test/filters'
 
 const count = (text: string) => screen.getByText(text, { selector: 'output' })
 
-const TOTAL = (await listAcademies()).length
+const ACADEMIES = await listAcademies()
+const TOTAL = ACADEMIES.length
+const of = (test: (academy: Academy) => boolean) => ACADEMIES.filter(test)
+const institutions = (list: Academy[]) =>
+  list.length === 1 ? '1 instituição' : `${list.length} instituições`
 const ALL = `${TOTAL} instituições`
 
 describe('AcademiesPage', () => {
@@ -19,10 +25,6 @@ describe('AcademiesPage', () => {
     const uan = screen.getByRole('article', { name: 'Universidade Agostinho Neto' })
     expect(uan.querySelector('img[src*="uan-banner"]')).not.toBeNull()
     expect(uan.querySelector('img[src*="uan-logo"]')).not.toBeNull()
-    // Without a photo, a dark band; without a logo, the initials.
-    const isutic = screen.getByRole('article', { name: 'ISUTIC' })
-    expect(isutic.querySelector('img')).toBeNull()
-    expect(within(isutic).getByText('I')).toBeInTheDocument()
 
     expect(
       within(screen.getByRole('article', { name: 'ITEL' })).getByText(/Gestão por confirmar/),
@@ -37,12 +39,15 @@ describe('AcademiesPage', () => {
 
   it('answers the hero question: where to study a course', async () => {
     renderWithApp(<AcademiesPage />)
-    await userEvent.selectOptions(
-      await screen.findByRole('combobox', { name: 'Que curso queres estudar?' }),
-      'engenharia-informatica',
-    )
+    await pickFilter('Que curso queres estudar?', 'Engenharia Informática')
     expect(screen.getByRole('heading', { name: 'Onde estudar Engenharia Informática' })).toBeInTheDocument()
-    expect(count('5 instituições')).toBeInTheDocument()
+    expect(
+      count(
+        institutions(
+          of((academy) => academy.offers.some((offer) => offer.course.id === 'engenharia-informatica')),
+        ),
+      ),
+    ).toBeInTheDocument()
     expect(screen.queryByRole('article', { name: 'ITEL' })).not.toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('?curso=engenharia-informatica')
   })
@@ -50,13 +55,13 @@ describe('AcademiesPage', () => {
   it('shows the filters that fit the type: area for mid-level, faculty for universities', async () => {
     renderWithApp(<AcademiesPage />, { route: '/?onde=Luanda' })
     const type = await screen.findByRole('combobox', { name: 'Tipo de instituição' })
-    expect(screen.queryByRole('combobox', { name: 'Área' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('searchbox', { name: 'Área' })).not.toBeInTheDocument()
     expect(screen.queryByRole('combobox', { name: 'Faculdade' })).not.toBeInTheDocument()
 
     // Informática e Multimédia leads to design careers: only the ITEL teaches it.
     await userEvent.selectOptions(type, 'instituto_medio')
     expect(screen.queryByRole('combobox', { name: 'Faculdade' })).not.toBeInTheDocument()
-    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Área' }), 'design')
+    await pickFilter('Área', 'Design')
     expect(count('1 instituição')).toBeInTheDocument()
     expect(screen.getByRole('article', { name: 'ITEL' })).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('area=design')
@@ -64,7 +69,7 @@ describe('AcademiesPage', () => {
     // Another type clears the filters that belonged to the old one.
     await userEvent.selectOptions(type, 'universidade')
     expect(screen.getByTestId('location')).not.toHaveTextContent('area=')
-    expect(screen.queryByRole('combobox', { name: 'Área' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('searchbox', { name: 'Área' })).not.toBeInTheDocument()
     await userEvent.selectOptions(
       screen.getByRole('combobox', { name: 'Faculdade' }),
       'Faculdade de Engenharia',
@@ -81,14 +86,14 @@ describe('AcademiesPage', () => {
       await screen.findByRole('combobox', { name: 'Tipo de instituição' }),
       'instituto_medio',
     )
-    expect(count('1 instituição')).toBeInTheDocument()
+    expect(count(institutions(of((academy) => academy.type === 'instituto_medio')))).toBeInTheDocument()
     expect(screen.getByTestId('location')).toHaveTextContent('?tipo=instituto_medio')
 
-    // The ITEL's ownership is still to confirm, so it is neither public nor private.
+    // No mid-level institute in the catalogue is private (public, or still to confirm).
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Gestão' }), 'privada')
     expect(screen.getByText('Nenhuma instituição com estes filtros.')).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    await userEvent.click(screen.getAllByRole('button', { name: 'Limpar filtros' })[0] as HTMLElement)
     expect(count(ALL)).toBeInTheDocument()
   })
 

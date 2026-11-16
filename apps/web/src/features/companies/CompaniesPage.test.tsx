@@ -4,12 +4,17 @@ import { describe, expect, it } from 'vitest'
 import { renderWithApp } from '../../test/render'
 import CompaniesPage from './CompaniesPage'
 import { listCompanies } from '../../data/source'
+import type { Company } from '../../data/types'
+import { clearFilter, pickFilter } from '../../test/filters'
 
 const count = (text: string) => screen.getByText(text, { selector: 'output' })
 
 const COMPANIES = await listCompanies()
 const TOTAL = COMPANIES.length
-const BANKS = COMPANIES.filter((company) => company.sector === 'banca').length
+const of = (test: (company: Company) => boolean) => COMPANIES.filter(test)
+const BANKS = of((company) => company.sector === 'banca')
+const CYBER = 'analista-de-ciberseguranca'
+const companies = (list: Company[]) => (list.length === 1 ? '1 empresa' : `${list.length} empresas`)
 const ALL = `${TOTAL} empresas`
 
 describe('CompaniesPage', () => {
@@ -29,45 +34,42 @@ describe('CompaniesPage', () => {
 
   it('answers the hero question: who hires for a career', async () => {
     renderWithApp(<CompaniesPage />)
-    await userEvent.selectOptions(
-      await screen.findByRole('combobox', { name: 'Que profissão procuras?' }),
-      'analista-de-ciberseguranca',
-    )
+    await pickFilter('Que profissão procuras?', 'Analista de Cibersegurança')
     expect(
       await screen.findByRole('heading', { name: 'Empresas que contratam Analista de Cibersegurança' }),
     ).toBeInTheDocument()
-    expect(count('7 empresas')).toBeInTheDocument()
-    expect(screen.getByTestId('location')).toHaveTextContent('?profissao=analista-de-ciberseguranca')
+    expect(count(companies(of((company) => company.careers.includes(CYBER))))).toBeInTheDocument()
+    expect(screen.getByTestId('location')).toHaveTextContent(`?profissao=${CYBER}`)
   })
 
   it('shows the filters that fit the sector and clears them when the sector changes', async () => {
     renderWithApp(<CompaniesPage />)
-    const sector = await screen.findByRole('combobox', { name: 'Setor' })
-    await userEvent.selectOptions(sector, 'banca')
-    expect(count(`${BANKS} empresas`)).toBeInTheDocument()
+    await pickFilter('Setor', 'Banca')
+    expect(count(companies(BANKS))).toBeInTheDocument()
 
-    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Programas para jovens' }), 'sim')
-    expect(count('1 empresa')).toBeInTheDocument()
+    await pickFilter('Programas para jovens', 'Com programas para jovens')
+    expect(count(companies(BANKS.filter((company) => company.programs.length > 0)))).toBeInTheDocument()
     expect(screen.getByRole('article', { name: 'Banco BAI' })).toBeInTheDocument()
 
     // No TV company has a youth programme: the filter goes, and so does its value.
-    await userEvent.selectOptions(sector, 'televisao')
+    await clearFilter('Setor')
+    await pickFilter('Setor', 'Televisão')
     expect(screen.queryByRole('combobox', { name: 'Programas para jovens' })).not.toBeInTheDocument()
     expect(screen.getByTestId('location')).not.toHaveTextContent('programas=')
-    expect(count('2 empresas')).toBeInTheDocument()
+    expect(count(companies(of((company) => company.sector === 'televisao')))).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    // The phone row repeats the button (hidden there by CSS): the first one is the desktop row's.
+    await userEvent.click(screen.getAllByRole('button', { name: 'Limpar filtros' })[0] as HTMLElement)
     expect(count(ALL)).toBeInTheDocument()
   })
 
   it('filters by area and says when nothing matches', async () => {
     renderWithApp(<CompaniesPage />, { route: '/?setor=banca' })
-    await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'Área' }), 'seguranca')
-    expect(count('5 empresas')).toBeInTheDocument()
-    await userEvent.selectOptions(
-      screen.getByRole('combobox', { name: 'Que profissão procuras?' }),
-      'tecnico-de-telecomunicacoes',
-    )
+    await pickFilter('Área', 'Segurança')
+    expect(
+      count(companies(BANKS.filter((company) => company.areas.includes('seguranca')))),
+    ).toBeInTheDocument()
+    await pickFilter('Que profissão procuras?', 'Técnico de Telecomunicações')
     expect(screen.getByText('Nenhuma empresa com estes filtros.')).toBeInTheDocument()
   })
 
@@ -89,8 +91,9 @@ describe('CompaniesPage', () => {
     )
     expect(screen.getByTestId('location')).toHaveTextContent('pagina=2')
 
-    await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Setor' }), 'banca')
+    await pickFilter('Setor', 'Banca')
     expect(screen.getByTestId('location')).not.toHaveTextContent('pagina')
-    expect(screen.queryByRole('navigation', { name: 'Páginas de empresas' })).not.toBeInTheDocument()
+    // One page of banks has no page navigation; more than one keeps it.
+    expect(screen.queryByRole('navigation', { name: 'Páginas de empresas' }) !== null).toBe(BANKS.length > 12)
   })
 })

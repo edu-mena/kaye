@@ -1,11 +1,22 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { getUser } from '../../state/userStore'
 import { renderWithApp } from '../../test/render'
 import { seedUser } from '../../test/user'
 import ComparePage from './ComparePage'
 import TrainingPage from './TrainingPage'
+import { pickFilter } from '../../test/filters'
+import { DEMO_PROGRAMS } from '../../test/programs'
+// The real catalogue has no made-up programs any more: the ranking is tested with the old demo ones.
+vi.mock('../../data/source', async (importOriginal) => {
+  const real = await importOriginal<typeof import('../../data/source')>()
+  return {
+    ...real,
+    listPrograms: async (career?: string) =>
+      DEMO_PROGRAMS.filter((program) => !career || program.careers.includes(career)),
+  }
+})
 
 const rankedNames = () =>
   within(screen.getByRole('list', { name: 'Cursos classificados' }))
@@ -15,8 +26,7 @@ const rankedNames = () =>
 describe('TrainingPage', () => {
   it('lists the real courses one area at a time, with a search, each opening its page', async () => {
     renderWithApp(<TrainingPage />)
-    const areas = await screen.findByRole('group', { name: 'Explora os cursos por área' })
-    await userEvent.click(within(areas).getByRole('button', { name: 'Saúde' }))
+    await pickFilter('Explorar', 'Saúde')
     expect(screen.getByTestId('location')).toHaveTextContent('area=health')
     const catalogue = screen.getByRole('list', { name: 'Catálogo de cursos' })
     expect(within(catalogue).getByRole('link', { name: 'Enfermagem' })).toHaveAttribute(
@@ -83,7 +93,7 @@ describe('TrainingPage', () => {
     expect(screen.getByTestId('location')).toHaveTextContent('duracao=longa&gestao=publica')
     expect(screen.getByText('4 cursos classificados', { selector: 'output' })).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }))
+    await userEvent.click(screen.getAllByRole('button', { name: 'Limpar filtros' })[0] as HTMLElement)
     expect(screen.getByText('12 cursos classificados', { selector: 'output' })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Limpar filtros' })).not.toBeInTheDocument()
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Custo total' }), 'ate200')

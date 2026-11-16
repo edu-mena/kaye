@@ -26,6 +26,8 @@ Element.prototype.scrollIntoView = () => {}
 // jsdom reports an en-US device; every test starts in Portuguese, with no saved data.
 beforeEach(async () => {
   localStorage.clear()
+  // The onboarding keeps its draft here: one test must not start where the last one stopped.
+  sessionStorage.clear()
   reloadUser()
   await i18n.changeLanguage('pt')
 })

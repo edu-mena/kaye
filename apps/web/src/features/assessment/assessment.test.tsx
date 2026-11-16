@@ -1,11 +1,16 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
+import { getAssessment } from '../../data/source'
 import { getUser } from '../../state/userStore'
 import { renderWithApp } from '../../test/render'
 import { answersFor, seedTested, seedUser } from '../../test/user'
 import AssessmentPage from './AssessmentPage'
 import ResultPage from './ResultPage'
+
+const QUESTIONS = await getAssessment('pt')
+/** The question as the page asks it: the statement completes "Quanto gostas de…". */
+const asked = (id: string) => `${QUESTIONS.find((question) => question.id === id)?.text ?? id}?`
 
 describe('AssessmentPage', () => {
   it('records each answer, moves on, and lets the person go back', async () => {
@@ -14,10 +19,11 @@ describe('AssessmentPage', () => {
     await userEvent.click(await screen.findByRole('button', { name: 'Começar' }))
 
     expect(screen.getByText('Pergunta 1 de 42')).toBeInTheDocument()
-    expect(screen.getByRole('group', { name: /montar ou reparar computadores/ })).toBeInTheDocument()
+    const first = QUESTIONS[0]?.id ?? ''
+    expect(screen.getByRole('group', { name: (name) => name.includes(asked(first)) })).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: /Bastante/ }))
 
-    expect(getUser().answers).toEqual({ R1: 4 })
+    expect(getUser().answers).toEqual({ [first]: 4 })
     expect(screen.getByText('Pergunta 2 de 42')).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: /Anterior/ }))
@@ -30,10 +36,10 @@ describe('AssessmentPage', () => {
     seedUser({ answers })
     renderWithApp(<AssessmentPage />)
     await userEvent.click(await screen.findByRole('button', { name: 'Continuar o teste' }))
-    expect(screen.getByRole('group', { name: /analisar números para encontrar padrões/ })).toBeInTheDocument()
+    expect(screen.getByRole('group', { name: (name) => name.includes(asked('I3')) })).toBeInTheDocument()
   })
 
-  it('finishes on the last question and opens the result', async () => {
+  it('finishes on the last question and goes on to part 2, the strengths', async () => {
     const answers = answersFor()
     delete answers.C7
     seedUser({ answers })
@@ -46,7 +52,7 @@ describe('AssessmentPage', () => {
     await userEvent.click(screen.getByRole('button', { name: /Ver o resultado/ }))
 
     expect(getUser().assessmentCompletedAt).not.toBeNull()
-    expect(screen.getByTestId('location')).toHaveTextContent('/teste/resultado')
+    expect(screen.getByTestId('location')).toHaveTextContent('/teste/valencias')
   })
 
   it('offers the result or a fresh start once finished', async () => {
@@ -63,7 +69,7 @@ describe('AssessmentPage', () => {
 })
 
 describe('ResultPage', () => {
-  it('shows the code, the three strongest interests and 5 careers with reasons', async () => {
+  it('shows the code, the three strongest interests and 6 careers with reasons', async () => {
     seedTested()
     renderWithApp(<ResultPage />)
 
@@ -72,7 +78,7 @@ describe('ResultPage', () => {
     expect(within(scores).getAllByRole('listitem')[0]).toHaveTextContent('Investigativo100')
 
     const careers = await screen.findAllByRole('link', { name: /Combina com o teu lado/ })
-    expect(careers).toHaveLength(5)
+    expect(careers).toHaveLength(6)
   })
 
   it('sends people who have not finished the test back to it', () => {

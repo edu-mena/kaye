@@ -1,7 +1,17 @@
 import { screen, within } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { renderWithApp } from '../../test/render'
 import CoursePage from './CoursePage'
+import { DEMO_PROGRAMS } from '../../test/programs'
+// The real catalogue has no made-up programs any more: the ranking is tested with the old demo ones.
+vi.mock('../../data/source', async (importOriginal) => {
+  const real = await importOriginal<typeof import('../../data/source')>()
+  return {
+    ...real,
+    listPrograms: async (career?: string) =>
+      DEMO_PROGRAMS.filter((program) => !career || program.careers.includes(career)),
+  }
+})
 
 const open = (route: string) => renderWithApp(<CoursePage />, { route, path: '/cursos/:id' })
 
