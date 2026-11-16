@@ -4,4 +4,5 @@ import type { NewsItem } from '../../data/types'
 export const newsHref = (item: NewsItem) => `/novidades/${item.id}`
 
 /** An organiser's poster carries the information: shown whole, never cropped. */
-export const isPoster = (item: NewsItem) => Boolean(item.event && item.image?.thumb.startsWith('/eventos/'))
+export const isPoster = (item: NewsItem) =>
+  Boolean(item.event && item.image?.thumb.startsWith(`${import.meta.env.BASE_URL}eventos/`))

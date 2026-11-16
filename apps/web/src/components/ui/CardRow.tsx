@@ -53,7 +53,10 @@ export function CardRow({ label, children }: CardRowProps) {
         ref={row}
         aria-label={label}
         onScroll={measure}
-        className="-mx-3 no-scrollbar flex snap-x snap-mandatory scroll-px-3 gap-3 overflow-x-auto px-3 pt-1 pb-3 sm:mx-0 sm:scroll-px-0 sm:px-0"
+        // Focusable, so the keyboard can slide it even when the cards hold no link (the landing's screens).
+        // oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- a scrollable region must take focus (WCAG 2.1.1, axe scrollable-region-focusable)
+        tabIndex={0}
+        className="-mx-3 no-scrollbar flex snap-x snap-mandatory scroll-px-3 gap-3 overflow-x-auto rounded-2xl px-3 pt-1 pb-3 focus-visible:outline-2 focus-visible:outline-night sm:mx-0 sm:scroll-px-0 sm:px-0"
       >
         {children}
       </ol>

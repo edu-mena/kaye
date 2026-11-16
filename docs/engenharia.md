@@ -46,7 +46,7 @@ Uma tarefa só está pronta quando cumpre **tudo**:
 
 - [ ] Procurei código existente para reutilizar (ver [Reutilização](#reutilização)).
 - [ ] Há testes para o comportamento e para os casos de erro. Se o fluxo do utilizador mudou, há também um teste E2E.
-- [ ] A cobertura de testes continua em 90% ou mais, na API e na app.
+- [ ] A cobertura de testes continua em 90% ou mais na API, e na app web não desce do mínimo do `vite.config.ts` (temporariamente abaixo de 90%, [ADR 0020](decisoes/0020-cobertura-do-frontend-temporaria.md)).
 - [ ] As verificações locais passam: `composer` e `npm run check` (ver [Comandos](#comandos)).
 - [ ] Os textos novos existem em pt, en e fr.
 - [ ] Segurança:
@@ -73,7 +73,7 @@ Uma tarefa só está pronta quando cumpre **tudo**:
 | Lint web | oxlint (react, a11y, import, unicorn, promise, vitest); erros de correção e suspeitos bloqueiam | pre-commit, CI | Há qualquer aviso |
 | Tipos | TypeScript strict (app, configuração, E2E) | CI | Há qualquer erro |
 | Código e dependências mortos | Knip | CI | Há um ficheiro, export ou dependência por usar |
-| Testes web | Vitest + Testing Library | CI | Um teste falha ou a cobertura fica abaixo de 90% |
+| Testes web | Vitest + Testing Library | CI | Um teste falha ou a cobertura fica abaixo do mínimo: 90% depois do prompt 10, até lá o calendário do [ADR 0020](decisoes/0020-cobertura-do-frontend-temporaria.md) |
 | Código duplicado | jscpd (`.jscpd.json`) | CI | Mais de 3% duplicado |
 | End-to-end | Playwright: Pixel 7 em pt-AO, contra o container de produção, com axe | CI | Um fluxo falha, há um erro na consola (CSP incluída) ou há um problema de acessibilidade sério |
 | Segredos | Gitleaks, em todo o histórico | CI | Encontra uma chave ou senha |

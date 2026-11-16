@@ -8,7 +8,8 @@ import type { NewsEvent, NewsItem, Photo, SourceLink } from '../types'
 const REACHED = '2026-11-12'
 
 function poster(file: string, title: string, author: string, url: string): Photo {
-  const src = `/eventos/${file}.webp`
+  // From the site's root in development, from /spa/ in the Laravel build: like the other public files.
+  const src = `${import.meta.env.BASE_URL}eventos/${file}.webp`
   return {
     thumb: src,
     small: src,

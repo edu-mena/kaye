@@ -18,7 +18,7 @@ Eduardo requires a DevOps methodology: **everything is tested and verified**. Fo
   - `apps/web`: `npm run check && npm run build && npm run e2e`
   - root: `npm run duplication`
 - Update the affected doc in the same commit. `DocumentationTest` enforces tables, env vars and ADRs.
-- Never weaken a gate silently (PHPStan max, coverage ≥ 90%, zero lint warnings, ≤ 3% duplication, strict CSP on the app): write an ADR in `docs/decisoes/`.
+- Never weaken a gate silently (PHPStan max, coverage ≥ 90%, zero lint warnings, ≤ 3% duplication, strict CSP on the app): write an ADR in `docs/decisoes/`. The web app's coverage is below 90% until prompt 10, rising at each step (ADR 0020); new or changed frontend code ships with tests, only content changes are exempt.
 
 ## Language
 

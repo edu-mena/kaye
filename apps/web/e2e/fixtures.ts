@@ -6,6 +6,11 @@ type Fixtures = {
   consoleErrors: string[]
   /** The app asks for an account: tests start with one, unless they turn this off. */
   signedIn: boolean
+  /**
+   * A first visit with an account starts the guided tour, which takes the person to its pages. Tests are
+   * returning users (tour done), unless they turn this off to test the tour itself.
+   */
+  tourDone: boolean
 }
 
 const PROFILE = {
@@ -21,14 +26,19 @@ const PROFILE = {
 
 export const test = base.extend<Fixtures>({
   signedIn: [true, { option: true }],
-  page: async ({ page, signedIn }, provide) => {
+  tourDone: [true, { option: true }],
+  page: async ({ page, signedIn, tourDone }, provide) => {
     if (signedIn) {
       // Only once per tab, so erasing the data is not undone by the next page load.
-      await page.addInitScript((user) => {
-        if (sessionStorage.getItem('e2e.seeded')) return
-        sessionStorage.setItem('e2e.seeded', '1')
-        localStorage.setItem('kaye.user.v1', user)
-      }, JSON.stringify(PROFILE))
+      await page.addInitScript(
+        ({ user, tour }) => {
+          if (sessionStorage.getItem('e2e.seeded')) return
+          sessionStorage.setItem('e2e.seeded', '1')
+          localStorage.setItem('kaye.user.v1', user)
+          if (tour) localStorage.setItem('kaye.tour.done', '1')
+        },
+        { user: JSON.stringify(PROFILE), tour: tourDone },
+      )
     }
     await provide(page)
   },
@@ -51,9 +61,11 @@ export { expect }
 export async function expectAccessible(page: Page) {
   // Measure the settled page: text mid-entrance is still fading in, so its contrast
   // is not the real one. Endless animations (the "Estás aqui" pulse) are ignored.
+  // Scroll-driven animations (the landing's reveals) follow the scroll, not the clock: they never end.
   await page.waitForFunction(() =>
     document
       .getAnimations()
+      .filter((animation) => animation.timeline instanceof DocumentTimeline)
       .filter((animation) => animation.effect?.getTiming().iterations !== Infinity)
       .every((animation) => animation.playState !== 'running'),
   )

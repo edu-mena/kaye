@@ -10,12 +10,30 @@ test.describe('the first visit', () => {
     test.slow()
     const proceed = () => page.getByRole('button', { name: 'Continuar', exact: true }).click()
 
+    // The waiting list still lives in the Vercel functions (apps/web/api); Laravel gets it in prompt 5 of
+    // the backend plan. Until then, answered here as those functions answer.
+    let signups = 0
+    await page.route('**/api/v1/waitlist', (route) => {
+      signups++
+      return route.fulfill({ json: { ok: true } })
+    })
+
+    // Without an account, the landing page; its call to action opens the conversation.
     await page.goto('/teste')
+    await expect(page).toHaveURL(/\/\?next=%2Fteste$/)
+    await page.getByRole('link', { name: 'Entrar e ver' }).click()
     await expect(page).toHaveURL(/\/entrar\?next=%2Fteste$/)
     await expectAccessible(page)
     await page.getByRole('button', { name: 'Vamos lá' }).click()
 
+    // The launch contact comes first.
+    await page.getByLabel('Email').fill('joana@exemplo.ao')
+    await page.getByLabel(/Aceito que o Kayé guarde este contacto/).check()
+    await expectAccessible(page)
+    await proceed()
+
     await expect(page.getByRole('heading', { name: 'Como queres que eu soe?' })).toBeVisible()
+    expect(signups).toBe(1)
     await proceed()
     await page.getByRole('button', { name: 'Procuro trabalho' }).click()
     await proceed()
@@ -63,12 +81,18 @@ test.describe('journeys', () => {
     }
     await page.getByRole('button', { name: /Ver o resultado/ }).click()
 
+    // Part 2, the strengths, comes next; the interests' result is already there.
+    await expect(page).toHaveURL(/\/teste\/valencias$/)
+    await expectAccessible(page)
+    await page.goto('/teste/resultado')
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(/^O teu perfil: I/)
     await expectAccessible(page)
 
-    // Only some demo careers have a full page; this answer pattern (strong I and A) puts
-    // Designer Gráfico in the top recommendations.
-    await page.getByRole('link', { name: /^Designer Gráfico/ }).click()
+    await page
+      .getByRole('link', { name: /Combina com o teu lado/ })
+      .first()
+      .click()
+    await expect(page).toHaveURL(/\/carreiras\//)
     const fit = page.getByRole('region', { name: 'O meu encaixe' })
     await expect(fit.getByText(/^Combina (muito|em parte|pouco)$/)).toBeVisible()
     await expectAccessible(page)
@@ -121,9 +145,14 @@ test.describe('journeys', () => {
       .getByRole('dialog', { name: 'Apagar tudo?' })
       .getByRole('button', { name: 'Sim, apagar' })
       .click()
-    await expect(page).toHaveURL(/\/entrar/)
+    // Nothing is left: the person is back on the landing page, also after a reload.
+    const landing = page.getByRole('heading', {
+      level: 1,
+      name: 'Todo o jovem merece saber o próximo passo.',
+    })
+    await expect(landing).toBeVisible()
     await page.reload()
-    await expect(page).toHaveURL(/\/entrar/)
+    await expect(landing).toBeVisible()
     expect(consoleErrors).toEqual([])
   })
 
@@ -159,7 +188,7 @@ test.describe('journeys', () => {
     await expectAccessible(page)
 
     await page.keyboard.type('dados')
-    await expect(page.getByText('10 resultados para «dados»')).toBeVisible()
+    await expect(page.getByText('12 resultados para «dados»')).toBeVisible()
     await expectAccessible(page)
     await page.getByRole('link', { name: /Analista de Dados/ }).click()
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Analista de Dados')
@@ -203,7 +232,11 @@ test.describe('journeys', () => {
     await expectAccessible(page)
     await page.getByRole('button', { name: /^Empresas/ }).click()
     await expect(page).toHaveURL(/tipo=empresas/)
-    await expect(page.getByRole('link', { name: /^Fonte:/ }).first()).toBeVisible()
+    // A piece opens on its own page, with its source.
+    await page.getByRole('article').first().getByRole('link').first().click()
+    await expect(page).toHaveURL(/\/novidades\/[a-z0-9-]+$/)
+    await expect(page.getByRole('link', { name: /^Fonte:/ })).toBeVisible()
+    await expectAccessible(page)
     expect(consoleErrors).toEqual([])
   })
 })

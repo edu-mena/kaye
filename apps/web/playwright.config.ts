@@ -38,7 +38,8 @@ export default defineConfig({
     : {
         // PHP's built-in server with Laravel's router script. Not `artisan serve`:
         // it drops environment variables, and these must reach the app.
-        command: `php -S 127.0.0.1:${PORT} ../vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php`,
+        // Laravel's server.php behind e2e/server.php, which adds the service worker's header (no .htaccess here).
+        command: `php -S 127.0.0.1:${PORT} ../../web/e2e/server.php`,
         cwd: '../api/public',
         url: `http://127.0.0.1:${PORT}/up`,
         // Production mode (no debug pages, no dev tools injecting scripts), on the test database.

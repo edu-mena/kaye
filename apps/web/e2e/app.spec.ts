@@ -14,9 +14,13 @@ test.describe('without an account', () => {
     expect(consoleErrors).toEqual([])
   })
 
-  test('the catalogue asks for an account first', async ({ page }) => {
+  test('the catalogue asks for an account first, on the landing page', async ({ page }) => {
     await page.goto('/cursos')
-    await expect(page).toHaveURL(/\/entrar\?next=%2Fcursos$/)
+    await expect(page).toHaveURL(/\/\?next=%2Fcursos$/)
+    await expect(page.getByRole('link', { name: 'Entrar e ver' })).toHaveAttribute(
+      'href',
+      '/entrar?next=%2Fcursos',
+    )
   })
 
   test('the terms and the policy stay open to everyone', async ({ page }) => {
@@ -65,7 +69,9 @@ test.describe('app shell', () => {
     const page = await context.newPage()
     await page.goto('/')
 
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Welcome to Kayé')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+      'Every young person deserves to know the next step.',
+    )
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
     await context.close()
   })

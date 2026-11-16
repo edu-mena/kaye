@@ -1,3 +1,11 @@
+# The web app's service worker lives in /spa/ but controls the whole site (vite.config.ts, pwa()):
+# the browser only allows that scope with this header.
+<IfModule mod_headers.c>
+    <Files "sw.js">
+        Header set Service-Worker-Allowed "/"
+    </Files>
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
