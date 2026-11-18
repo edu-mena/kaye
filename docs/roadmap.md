@@ -209,7 +209,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
 - [x] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
 - [x] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor (16/11/2026; para entrar a sério faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google)
-- [ ] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado
+- [x] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado (18/11/2026; o comando `kaye:migrate-redis` está pronto, falta corrê-lo com as credenciais do Upstash)
 - [ ] 6. Comunicação: email, WhatsApp e push, só com consentimento (menores sem marketing)
 - [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
 - [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos

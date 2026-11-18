@@ -40,6 +40,15 @@ return [
         'audiences' => array_values(array_filter([(string) env('GOOGLE_CLIENT_ID', '')])),
     ],
 
+    /*
+    | The Upstash Redis the Vercel functions used, read once by `php artisan kaye:migrate-redis`. On Vercel the
+    | integration names them KV_REST_API_URL and KV_REST_API_TOKEN; either name works.
+    */
+    'upstash' => [
+        'url' => env('UPSTASH_REDIS_REST_URL', env('KV_REST_API_URL')),
+        'token' => env('UPSTASH_REDIS_REST_TOKEN', env('KV_REST_API_TOKEN')),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

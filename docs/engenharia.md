@@ -125,6 +125,9 @@ Antes de criar alguma coisa, procura se já existe:
 | A lista de idiomas no PHP | `App\Enums\Locale` |
 | Papéis de utilizador | `App\Enums\UserRole` |
 | Um utilizador de teste | `User::factory()`, com os estados `admin()` e `minor()` |
+| Validar um email ou um WhatsApp no PHP (os mesmos padrões da app) | `App\Support\Contact` |
+| Uma escrita sem conta: corpo JSON com limite, campo-isco, resposta `no-store` | `App\Support\Submission` |
+| Um limite de pedidos por hora para uma rota sem conta | `AppServiceProvider::HOURLY_WRITES` e `throttle:<nome>` |
 
 **Regra dos três:** a primeira vez escreve-se, a segunda copia-se com cuidado e a terceira extrai-se para uma peça partilhada. Antes disso, duplicar sai mais barato do que acertar na abstração errada. O jscpd vigia o total e o Knip apanha o que ficou por usar.
 

@@ -9,10 +9,12 @@ use App\Http\Controllers\Api\ConsentController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\CvExampleController;
 use App\Http\Controllers\Api\DatasetController;
+use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\FigureController;
 use App\Http\Controllers\Api\FreeCourseController;
 use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
+use App\Http\Controllers\Api\InterviewController;
 use App\Http\Controllers\Api\InterviewQuestionController;
 use App\Http\Controllers\Api\KursoController;
 use App\Http\Controllers\Api\MeController;
@@ -21,11 +23,13 @@ use App\Http\Controllers\Api\MentorController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\OccupationController;
 use App\Http\Controllers\Api\ProgramController;
+use App\Http\Controllers\Api\PublicCardController;
 use App\Http\Controllers\Api\ScholarshipController;
 use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\Api\SupportProgramController;
 use App\Http\Controllers\Api\TestimonialController;
 use App\Http\Controllers\Api\VideoStoryController;
+use App\Http\Controllers\Api\WaitlistController;
 use App\Http\Controllers\Auth\GoogleTokenController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HealthController;
@@ -78,6 +82,17 @@ Route::get('/video-stories', [VideoStoryController::class, 'index']);
 Route::get('/kursos', [KursoController::class, 'index']);
 Route::get('/kursos/{slug}/units/{unit}', [KursoController::class, 'unit']);
 Route::get('/kursos/{slug}/exam', [KursoController::class, 'exam']);
+
+// Writes without an account, moved from the Vercel functions with the same answers (docs/arquitetura.md, 6).
+// Each has its own hourly limit per IP (docs/seguranca.md), on top of the general one.
+Route::post('/waitlist', [WaitlistController::class, 'store'])->middleware('throttle:waitlist');
+Route::get('/waitlist/export', [WaitlistController::class, 'export']);
+Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('throttle:feedback');
+Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
+Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
+Route::get('/public-cards/{slug}', [PublicCardController::class, 'show']);
+Route::put('/public-cards/{slug}', [PublicCardController::class, 'update'])->middleware('throttle:public-cards');
+Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy']);
 
 // Accounts (docs/arquitetura.md, 5.1 and 6). These routes, and only these, start the web session:
 // the public reads above stay without cookies, so they can be cached.

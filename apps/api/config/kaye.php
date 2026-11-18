@@ -29,4 +29,16 @@ return [
 
     'data_path' => database_path('data'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Waiting list export
+    |--------------------------------------------------------------------------
+    |
+    | The password for GET /api/v1/waitlist/export (the waiting list and the
+    | feedback as CSV). Shorter than 16 characters, or empty, locks it.
+    |
+    */
+
+    'waitlist_export_token' => (string) env('WAITLIST_EXPORT_TOKEN', ''),
+
 ];

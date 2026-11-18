@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * `consents`: proof of each consent (Lei n.º 22/11). See docs/base-de-dados.md.
- * The waiting list's `waitlist_id` comes with that table (prompt 5).
+ * The waiting list's `waitlist_id` comes with the messages (prompt 6).
  */
 return new class extends Migration
 {

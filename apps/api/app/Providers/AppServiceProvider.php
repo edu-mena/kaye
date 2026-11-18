@@ -2,13 +2,27 @@
 
 namespace App\Providers;
 
+use App\Support\Submission;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    /**
+     * Writes without an account allowed per IP and per hour (docs/seguranca.md).
+     *
+     * @var array<string, int>
+     */
+    public const HOURLY_WRITES = [
+        'waitlist' => 10,
+        'feedback' => 10,
+        'interviews' => 6,
+        'public-cards' => 30,
+    ];
+
     /**
      * Register any application services.
      */
@@ -42,5 +56,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         RateLimiter::for('login', fn (Request $request): Limit => Limit::perMinute(10)->by('login:'.$request->ip()));
+
+        // The writes without an account, per IP and per hour, as on the Vercel functions. Creating and changing a
+        // public card share one count. The answer is the one the app knows: {"error": "too_many"}.
+        foreach (self::HOURLY_WRITES as $name => $perHour) {
+            RateLimiter::for($name, fn (Request $request): Limit => Limit::perHour($perHour)
+                ->by("{$name}:".$request->ip())
+                ->response(fn (Request $request, array $headers): JsonResponse => Submission::json(['error' => 'too_many'], 429)->withHeaders($headers)));
+        }
     }
 }

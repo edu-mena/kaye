@@ -62,13 +62,24 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 
 ### Pessoas (login, ADR 0019)
 
-Com o login Google já existem `user_data` (o `UserData` da app, com versão) e `consents` (a prova de cada consentimento), com as colunas descritas no [modelo completo](#pessoas). `consents.waitlist_id` chega com a tabela `waitlist` (prompt 5). Apagar a conta apaga as duas (`cascadeOnDelete`), e a pessoa de vez.
+Com o login Google já existem `user_data` (o `UserData` da app, com versão) e `consents` (a prova de cada consentimento), com as colunas descritas no [modelo completo](#pessoas). `consents.waitlist_id` chega com a comunicação (prompt 6), quando a lista de espera passar a receber mensagens; até lá, a prova do consentimento de quem está na lista é `waitlist.consent_at`. Apagar a conta apaga as duas (`cascadeOnDelete`), e a pessoa de vez.
 
 | Peça | Onde | O que faz |
 |---|---|---|
 | Documento | `App\Models\UserData::document()`, `setDocument()` | Guarda e lê o JSON como objetos, para `{}` continuar a ser um registo (e não uma lista) quando volta à app |
 | Fusão | `App\Support\UserDataMerger` | Junta a cópia do aparelho com a do servidor sem perder nada ([arquitetura.md, 5.1](arquitetura.md#51-login-com-google)) |
 | Contas | `App\Support\Accounts` | Login pelo Google, perfil copiado de `user_data` para `users`, exportação e apagamento |
+
+### Escritas sem conta (ADR 0019)
+
+`waitlist`, `feedback`, `interviews` e `public_cards` já existem, com as colunas descritas no [modelo completo](#pessoas), e recebem as escritas que eram das funções do Vercel (as mesmas rotas e respostas, [arquitetura.md, secção 6](arquitetura.md#6-api-v1)). `php artisan kaye:migrate-redis` copia uma vez o que estava no Upstash Redis (ver o README).
+
+| Peça | Onde | O que faz |
+|---|---|---|
+| Leitura do pedido | `App\Support\Submission` | Corpo JSON com tamanho máximo, campo-isco `website`, respostas `no-store` e `noindex` |
+| Contactos | `App\Support\Contact` | Os mesmos padrões de email e telefone da app; `normalisePhone` põe +244 num número angolano |
+| CSV | `App\Support\ListExport` | A lista de espera e as críticas em CSV (rota com token e painel) |
+| Migração | `App\Console\Commands\MigrateRedis` | Lê o Upstash, grava sem duplicar, conta antes e depois |
 
 ### Catálogo (ADR 0019)
 
@@ -693,7 +704,7 @@ A lista de espera, migrada do Upstash.
 | `email` | varchar, pode ser vazio, único | |
 | `whatsapp` | varchar(20), pode ser vazio, único | E.164 |
 | `source` | varchar(12) | `landing`, `onboarding` |
-| `locale` | varchar(5) | |
+| `locale` | varchar(5) | O `lang` da app |
 | `consent_at` | timestamp | |
 | `confirmed_at`, `unsubscribed_at` | timestamp, podem ser vazios | |
 | `created_at`, `updated_at` | timestamp | |
@@ -710,6 +721,7 @@ Críticas, ideias e erros (`Feedback`).
 | `kind` | varchar(10) | `critique`, `idea`, `bug` |
 | `message` | text | |
 | `page` | varchar(10) | `landing`, `support` |
+| `locale` | varchar(5) | O `lang` da app |
 | `status` | varchar(10) | `new`, `read`, `done` |
 | `created_at`, `updated_at` | timestamp | |
 
@@ -719,19 +731,19 @@ As entrevistas enviadas para revisão (`InterviewSubmission`).
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `uuid` | char(36), único | O `id` devolvido à app |
+| `public_id` | varchar(16), único | O `id` devolvido à app (12 caracteres, como no Vercel, para os ids migrados continuarem válidos) |
 | `user_id` | fk → `users`, pode ser vazio | |
-| `area` | varchar(16), indexado | |
-| `career_id` | fk → `careers`, pode ser vazio | |
+| `area` | varchar(30), indexado | |
+| `career_slug`, `career_name` | varchar(120), podem ser vazios | A profissão como a pessoa a viu (fica mesmo que a carreira mude de nome ou saia do catálogo) |
 | `locale` | varchar(5) | |
 | `started_at` | timestamp | |
 | `candidate` | text, cifrado (`encrypted:array`) | Nome, ano de nascimento, contacto, encarregado informado |
 | `answers` | json | `InterviewAnswer[]` |
-| `status` | varchar(10) | `received`, `reviewed`, `contacted` |
+| `status` | varchar(10) | `received`, `reviewed`, `contacted` (as `pending` do Redis entram como `received`) |
 | `reviewed_by`, `reviewed_at` | fk → `users`, timestamp, podem ser vazios | |
 | `created_at`, `updated_at` | timestamp | |
 
-**Retenção:** 12 meses. Uma tarefa diária (02:00) apaga as entrevistas com mais de 12 meses, com as respostas e os contactos.
+**Retenção:** 12 meses. Uma tarefa diária (02:00, `model:prune` com `App\Models\Interview`) apaga as entrevistas com mais de 12 meses, com as respostas e os contactos.
 
 #### `public_cards`
 

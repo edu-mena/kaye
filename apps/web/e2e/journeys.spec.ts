@@ -10,14 +10,6 @@ test.describe('the first visit', () => {
     test.slow()
     const proceed = () => page.getByRole('button', { name: 'Continuar', exact: true }).click()
 
-    // The waiting list still lives in the Vercel functions (apps/web/api); Laravel gets it in prompt 5 of
-    // the backend plan. Until then, answered here as those functions answer.
-    let signups = 0
-    await page.route('**/api/v1/waitlist', (route) => {
-      signups++
-      return route.fulfill({ json: { ok: true } })
-    })
-
     // Without an account, the landing page; its call to action opens the conversation.
     await page.goto('/teste')
     await expect(page).toHaveURL(/\/\?next=%2Fteste$/)
@@ -30,10 +22,14 @@ test.describe('the first visit', () => {
     await page.getByLabel('Email').fill('joana@exemplo.ao')
     await page.getByLabel(/Aceito que o Kayé guarde este contacto/).check()
     await expectAccessible(page)
+    // The contact goes to Laravel's waiting list (201, or 200 when this email is there from an earlier run).
+    const signup = page.waitForResponse(
+      (response) => response.url().endsWith('/api/v1/waitlist') && response.request().method() === 'POST',
+    )
     await proceed()
 
     await expect(page.getByRole('heading', { name: 'Como queres que eu soe?' })).toBeVisible()
-    expect(signups).toBe(1)
+    expect((await signup).ok()).toBe(true)
     await proceed()
     await page.getByRole('button', { name: 'Procuro trabalho' }).click()
     await proceed()

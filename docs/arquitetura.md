@@ -470,6 +470,9 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | POST | `/waitlist` | `data/waitlist.ts` | Campo-isco `website`; consentimento obrigatório |
 | GET | `/waitlist/confirm/{token}` | | Confirmação dupla do email (URL assinada) |
 | POST | `/feedback` | `data/waitlist.ts` | Campo-isco `website` |
+| GET | `/waitlist/export?kind=waitlist\|feedback` | | CSV para a equipa; token `WAITLIST_EXPORT_TOKEN` (`X-Export-Token`, `Bearer` ou `?token=`) |
+
+Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos).
 | GET, POST | `/unsubscribe/{token}` | | "Deixar de receber" de cada mensagem (URL assinada), sem conta |
 
 ### Com conta

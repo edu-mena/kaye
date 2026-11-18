@@ -118,6 +118,17 @@ No site de teste (Vercel), a landing guarda a lista de espera e as críticas no 
 
 O token também pode ir no header `X-Export-Token` ou `Authorization: Bearer <token>` (não fica no histórico do navegador).
 
+No Laravel, as mesmas rotas guardam em MySQL (`waitlist`, `feedback`, `interviews`, `public_cards`). O CSV descarrega-se no painel (Lista de espera e Críticas e ideias, botão "Descarregar CSV") ou em `/api/v1/waitlist/export` com `WAITLIST_EXPORT_TOKEN` no `.env`.
+
+**Passar os dados do Redis para o MySQL (uma vez, antes de mudar o site):** põe no `apps/api/.env` o `UPSTASH_REDIS_REST_URL` e o `UPSTASH_REDIS_REST_TOKEN` (no Vercel: Storage → a base Upstash → REST API) e corre em `apps/api`:
+
+```bash
+php artisan kaye:migrate-redis --dry-run   # só conta, não grava
+php artisan kaye:migrate-redis             # grava
+```
+
+A tabela mostra, para cada tabela, quantas linhas há no Redis, no MySQL antes e depois, as criadas e as que já lá estavam. Pode correr-se de novo sem duplicar. O Redis só é lido, nunca alterado. Se uma linha não se conseguir ler, o comando diz qual e termina com erro; as outras ficam gravadas.
+
 ## Segurança
 
 Para reportar uma vulnerabilidade, vê [SECURITY.md](SECURITY.md).
