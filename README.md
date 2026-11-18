@@ -127,6 +127,8 @@ php artisan kaye:migrate-redis --dry-run   # só conta, não grava
 php artisan kaye:migrate-redis             # grava
 ```
 
+No Windows, se aparecer `cURL error 60` (o PHP não tem a lista de certificados), descarrega https://curl.se/ca/cacert.pem para `C:\php\extras\ssl\cacert.pem` e põe no `php.ini` `curl.cainfo` e `openssl.cafile` com esse caminho (com barras `/`). Nunca desligues a verificação. Antes, `php artisan migrate` cria as tabelas na base local.
+
 A tabela mostra, para cada tabela, quantas linhas há no Redis, no MySQL antes e depois, as criadas e as que já lá estavam. Pode correr-se de novo sem duplicar. O Redis só é lido, nunca alterado. Se uma linha não se conseguir ler, o comando diz qual e termina com erro; as outras ficam gravadas.
 
 ## Segurança

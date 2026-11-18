@@ -161,6 +161,8 @@ class MigrateRedisTest extends TestCase
 
         $this->assertMatchesRegularExpression('/interviews\s*\|\s*2\s*\|\s*0\s*\|\s*2\s*\|\s*0\s*\|\s*0\s*\|\s*2/', $output);
         $this->assertStringContainsString('Dry run: nothing was written.', $output);
+        $this->assertStringContainsString('Every row in Redis can be copied.', $output);
+        $this->assertStringNotContainsString('is in MySQL', $output);
         $this->assertSame(0, Interview::query()->count() + WaitlistEntry::query()->count());
     }
 

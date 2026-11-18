@@ -99,7 +99,7 @@ class MigrateRedis extends Command
 
             return self::FAILURE;
         }
-        $this->info('Every row in Redis is in MySQL.');
+        $this->info($this->option('dry-run') === true ? 'Every row in Redis can be copied.' : 'Every row in Redis is in MySQL.');
 
         return self::SUCCESS;
     }
