@@ -2,11 +2,13 @@ import { render, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { CV_EXAMPLES } from '../../data/demo/cvExamples'
 import type { CvData, CvTemplate } from '../../data/types'
+import { CV_TEMPLATES } from '../../domain/cvStyle'
 import { EMPTY_CV } from '../../state/userStore'
 import { ScaledSheet } from './CvSheet'
 import { downloadCvPdf, type CvLabels } from './cvPdf'
 
-const TEMPLATES: CvTemplate[] = ['classico', 'moderno', 'europeu']
+// Every model the gallery offers.
+const TEMPLATES: CvTemplate[] = CV_TEMPLATES
 
 // A CV with every section filled, so each layout draws all of its parts.
 const FULL: CvData = {
@@ -33,15 +35,16 @@ const words = (container: HTMLElement) =>
 describe('CV layouts', () => {
   it.each(TEMPLATES)('the %s sheet shows every filled section, and skips empty ones', (template) => {
     const { container } = render(<ScaledSheet cv={FULL} template={template} fit="content" />)
-    const full = words(container)
-    expect(full).toContain(FULL.name)
+    // Some models write the section titles in capitals, others as they are.
+    const full = words(container).map((word) => word.toLowerCase())
+    expect(full).toContain(FULL.name.toLowerCase())
     for (const label of ['Experiência', 'Formação', 'Competências', 'Línguas', 'Certificações']) {
-      expect(full).toContain(label.toUpperCase())
+      expect(full).toContain(label.toLowerCase())
     }
-    expect(full).toContain('Power BI Data Analyst')
+    expect(full).toContain('power bi data analyst')
 
     const { container: empty } = render(<ScaledSheet cv={{ ...EMPTY_CV, name: 'Ana' }} template={template} />)
-    expect(words(empty)).not.toContain('EXPERIÊNCIA')
+    expect(words(empty).map((word) => word.toLowerCase())).not.toContain('experiência')
     expect(words(empty)).toContain('Ainda vazio')
   })
 
