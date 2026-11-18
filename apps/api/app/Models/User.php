@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\Locale;
 use App\Enums\UserRole;
+use App\Models\Contracts\ReceivesNotices;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -18,13 +19,14 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use NotificationChannels\WebPush\HasPushSubscriptions;
 
 #[Fillable(['name', 'email', 'avatar_url', 'birth_year', 'province', 'current_education_level', 'locale'])]
 #[Hidden(['google_sub', 'apple_sub', 'password', 'remember_token'])]
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, ReceivesNotices
 {
     /** @use HasFactory<UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, HasPushSubscriptions, Notifiable, SoftDeletes;
 
     /** Under this age a person is a minor (docs/arquitetura.md, 8). */
     public const ADULT_AGE = 18;
@@ -69,6 +71,14 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Consent::class);
     }
 
+    /**
+     * @return HasMany<MessageDelivery, $this>
+     */
+    public function deliveries(): HasMany
+    {
+        return $this->hasMany(MessageDelivery::class);
+    }
+
     /** Known to be under 18. The age is computed from the birth year, never stored. */
     public function isMinor(): bool
     {
@@ -94,6 +104,21 @@ class User extends Authenticatable implements FilamentUser
     public function canReportSalaries(): bool
     {
         return $this->isAdult();
+    }
+
+    public function noticeRecipient(): string
+    {
+        return 'user:'.$this->id;
+    }
+
+    public function noticeEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function noticeLocale(): string
+    {
+        return $this->locale->value;
     }
 
     private function age(): int

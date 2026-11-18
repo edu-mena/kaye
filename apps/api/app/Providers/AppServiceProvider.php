@@ -57,6 +57,9 @@ class AppServiceProvider extends ServiceProvider
 
         RateLimiter::for('login', fn (Request $request): Limit => Limit::perMinute(10)->by('login:'.$request->ip()));
 
+        // The links in the emails: a person clicks a few; guessing signatures takes many.
+        RateLimiter::for('notice-links', fn (Request $request): Limit => Limit::perMinute(20)->by('notice-links:'.$request->ip()));
+
         // The writes without an account, per IP and per hour, as on the Vercel functions. Creating and changing a
         // public card share one count. The answer is the one the app knows: {"error": "too_many"}.
         foreach (self::HOURLY_WRITES as $name => $perHour) {

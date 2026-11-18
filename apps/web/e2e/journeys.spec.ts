@@ -179,6 +179,10 @@ test.describe('journeys', () => {
   test('settings lead to the privacy policy and the terms', async ({ page, consoleErrors }) => {
     await page.goto('/configuracoes')
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Configurações')
+    // The notices are consents on the account: without a session the group says so, with no switches.
+    await expect(
+      page.getByText('Entra com a tua conta para receberes avisos por email ou no browser.'),
+    ).toBeVisible()
     await expectAccessible(page)
 
     await page.getByRole('link', { name: 'Política de privacidade' }).click()
@@ -258,5 +262,27 @@ test.describe('journeys', () => {
     await expect(page.getByRole('link', { name: /^Fonte:/ })).toBeVisible()
     await expectAccessible(page)
     expect(consoleErrors).toEqual([])
+  })
+})
+
+test.describe('the links in the emails', () => {
+  test.use({ signedIn: false })
+
+  test('a link that was changed opens the server page, styled under the CSP', async ({ page }) => {
+    const csp: string[] = []
+    page.on('console', (message) => {
+      if (message.text().includes('Content Security Policy')) csp.push(message.text())
+    })
+
+    // No signature: refused before anything else (docs/seguranca.md, "Avisos").
+    const response = await page.goto('/unsubscribe/user-1?kind=email_marketing')
+
+    expect(response?.status()).toBe(403)
+    expect(response?.headers()['x-robots-tag']).toBe('noindex, nofollow')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Este link não é válido')
+    // public/notices.css loaded: the page has the site's paper colour, not the browser's white.
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(247, 244, 238)')
+    await expectAccessible(page)
+    expect(csp).toEqual([])
   })
 })

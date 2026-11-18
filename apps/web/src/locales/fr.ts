@@ -2375,6 +2375,19 @@ export const fr: Messages = {
     reload: 'Mettre à jour',
     offline: 'Pas de connexion : tu vois la version enregistrée.',
   },
+  notices: {
+    email_service: 'Délais que tu as gardés, par email',
+    email_marketing: 'Nouveautés de la semaine, par email',
+    push_service: 'Délais que tu as gardés, dans le navigateur',
+    push_marketing: 'Nouveautés de la semaine, dans le navigateur',
+    signIn: 'Connecte-toi à ton compte pour recevoir des avis par email ou dans le navigateur.',
+    note: 'Tu peux les désactiver quand tu veux, ici ou avec le lien de chaque email.',
+    minorNote:
+      'Tu reçois seulement les avis des délais que tu as gardés. Les nouveautés sont pour les 18 ans et plus.',
+    denied:
+      'Le navigateur a bloqué les notifications. Autorise-les dans les réglages du navigateur et réessaie.',
+    failed: 'Impossible d’enregistrer pour le moment. Réessaie.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Économiser les données',

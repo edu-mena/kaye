@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\OccupationController;
 use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\PublicCardController;
+use App\Http\Controllers\Api\PushSubscriptionController;
 use App\Http\Controllers\Api\ScholarshipController;
 use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\Api\SupportProgramController;
@@ -91,6 +92,9 @@ Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('thro
 Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
 Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
 Route::get('/public-cards/{slug}', [PublicCardController::class, 'show']);
+
+// The public VAPID key for Web Push (null while push is off).
+Route::get('/push/key', [PushSubscriptionController::class, 'key']);
 Route::put('/public-cards/{slug}', [PublicCardController::class, 'update'])->middleware('throttle:public-cards');
 Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy']);
 
@@ -110,5 +114,7 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
         Route::get('/me/consents', [ConsentController::class, 'index']);
         Route::post('/me/consents', [ConsentController::class, 'store']);
         Route::delete('/me/consents/{kind}', [ConsentController::class, 'destroy']);
+        Route::post('/me/push-subscriptions', [PushSubscriptionController::class, 'store']);
+        Route::delete('/me/push-subscriptions', [PushSubscriptionController::class, 'destroy']);
     });
 });

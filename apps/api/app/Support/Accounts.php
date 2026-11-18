@@ -4,11 +4,13 @@ namespace App\Support;
 
 use App\Http\Resources\MeResource;
 use App\Models\Consent;
+use App\Models\MessageDelivery;
 use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use NotificationChannels\WebPush\PushSubscription;
 use stdClass;
 
 /**
@@ -102,7 +104,19 @@ class Accounts
                 'kind' => $consent->kind->value,
                 'version' => $consent->version,
                 'grantedAt' => $consent->granted_at->toIso8601String(),
+                'source' => $consent->source,
+                'ipPrefix' => $consent->ip_prefix,
                 'revokedAt' => $consent->revoked_at?->toIso8601String(),
+            ])->all(),
+            'pushSubscriptions' => $user->pushSubscriptions()->oldest('id')->get()->map(fn (PushSubscription $subscription): array => [
+                'endpoint' => $subscription->endpoint,
+                'createdAt' => $subscription->created_at?->toIso8601String(),
+            ])->all(),
+            'deliveries' => $user->deliveries()->with('message')->oldest('id')->get()->map(fn (MessageDelivery $delivery): array => [
+                'channel' => $delivery->channel->value,
+                'subject' => $delivery->message->text('subject', $user->noticeLocale()),
+                'status' => $delivery->status->value,
+                'sentAt' => $delivery->sent_at?->toIso8601String(),
             ])->all(),
             'devices' => $user->tokens()->oldest('id')->get()->map(fn ($token): array => [
                 'name' => $token->name,
@@ -124,6 +138,8 @@ class Accounts
             DB::table('sessions')->where('user_id', $user->getKey())->delete();
             $user->userData()->delete();
             $user->consents()->delete();
+            // A morph relation: no foreign key deletes them by itself.
+            $user->pushSubscriptions()->delete();
             $user->forceDelete();
         });
     }

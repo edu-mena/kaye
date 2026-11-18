@@ -41,4 +41,37 @@ return [
 
     'waitlist_export_token' => (string) env('WAITLIST_EXPORT_TOKEN', ''),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Legal texts
+    |--------------------------------------------------------------------------
+    |
+    | The version of the terms and the privacy policy in force, recorded with
+    | the consents given outside the app (the waiting list). The app sends its
+    | own (apps/web/src/data/legalVersion.ts); keep both the same.
+    |
+    */
+
+    'legal_version' => '2026-11-12',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Notices: email and Web Push
+    |--------------------------------------------------------------------------
+    |
+    | How many messages each channel sends per hour (the SMTP of the shared
+    | hosting has a limit), and how many days before a saved deadline its
+    | reminder goes out. docs/infraestrutura.md explains each variable.
+    |
+    */
+
+    'notices' => [
+        'hourly_limit' => [
+            'email' => (int) env('MAIL_HOURLY_LIMIT', 80),
+            'push' => (int) env('PUSH_HOURLY_LIMIT', 1000),
+        ],
+        'reminder_days' => 3,
+        'confirmation_days' => 7,
+    ],
+
 ];

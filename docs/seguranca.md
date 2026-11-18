@@ -84,16 +84,34 @@ A app web regista um service worker (`vite-plugin-pwa`, Workbox) para se instala
 - Recolhe-se o mínimo: o **ano** de nascimento, a **província** e o telefone opcional.
 - Os consentimentos ficam registados com a versão e a data (tabela `consents`): no primeiro login, a app regista os termos, a privacidade e, nos menores, a confirmação do encarregado de educação. Retirar guarda a prova (`revoked_at`). Um menor, ou quem não tem ano de nascimento, não consegue dar um consentimento de marketing (422).
 - **Menores (14–17):** sem perfil público, sem relatos de salário e com uma confirmação de que o encarregado de educação tem conhecimento.
-- **Apagar a conta** (`DELETE /api/v1/me`) apaga a pessoa de vez (não é *soft delete*), com `user_data`, `consents`, os tokens e as sessões web. **Exportar os dados** (`GET /api/v1/me/export`) devolve tudo o que temos sobre a pessoa num JSON: a conta, os dados da app, os consentimentos e os aparelhos com sessão.
+- **Apagar a conta** (`DELETE /api/v1/me`) apaga a pessoa de vez (não é *soft delete*), com `user_data`, `consents`, as subscrições push, as entregas de mensagens, os tokens e as sessões web. **Exportar os dados** (`GET /api/v1/me/export`) devolve tudo o que temos sobre a pessoa num JSON: a conta, os dados da app, os consentimentos (com a origem e o IP truncado), as subscrições push, as mensagens recebidas e os aparelhos com sessão.
 - **A foto e a capa do perfil nunca saem do aparelho:** a app não as envia e o servidor tira-as se chegarem.
 - **Logs:** não registam emails, nomes nem tokens. Ficam guardados 14 dias.
 - Nada sai para terceiros: as instituições e os anunciantes só veem números agregados de 5 ou mais pessoas.
+
+## Avisos: email e Web Push
+
+Os avisos saem por email ou por Web Push (o browser e a PWA). O WhatsApp é mandado à mão a partir do CSV da lista de espera; o push nativo do Android fica para depois (a app Android é uma WebView, onde o Web Push não funciona, e por isso nem mostra a opção).
+
+| Controlo | Como | Teste |
+|---|---|---|
+| Nada sai sem consentimento | Um consentimento por canal e tipo: `email_service`, `email_marketing`, `push_service`, `push_marketing` (e `whatsapp_marketing`, para o envio à mão). Cada um guarda a versão do texto, a data, a origem (`app`, `landing`, `onboarding`) e o IP truncado (IPv4 sem o último byte, IPv6 com 48 bits). O consentimento é verificado ao montar o lote **e outra vez** no momento do envio (`App\Support\Consents::allows`) | `MessageSendingTest` |
+| Um menor nunca recebe novidades | Um menor, ou quem não tem ano de nascimento, não consegue dar `*_marketing` (422), perde-o quando o ano mostra que é menor, e o envio filtra outra vez por idade ≥ 18. A lista de espera não tem idade: só recebe avisos de serviço. Os lembretes dos prazos são serviço e chegam aos menores | `NoticeConsentTest`, `MessageSendingTest` |
+| Confirmação dupla do email da lista de espera | Ao inscrever-se, sai um email com um link assinado (`GET /waitlist/confirm/{token}`, válido 7 dias). Até lá o consentimento do email fica sem `confirmed_at` e nada mais chega a esse endereço | `NoticeLinksTest` |
+| Deixar de receber sem conta | Todos os emails trazem um link assinado (`GET` e `POST /unsubscribe/{token}?kind=…`, sem prazo) e os cabeçalhos `List-Unsubscribe` e `List-Unsubscribe-Post` (RFC 8058: o botão do Gmail funciona com um clique). O `POST` não tem token CSRF (`bootstrap/app.php`); a assinatura é a prova. O link retira só o consentimento desse tipo de email | `NoticeLinksTest` |
+| Links adulterados recusados | A assinatura (HMAC com a `APP_KEY`) cobre a pessoa (`user-7`, `waitlist-3`) e o tipo: mudar qualquer um dá 403 e não muda nada. Limite de 20 pedidos por minuto e por IP. Desligar a verificação faz falhar `test_a_changed_unsubscribe_link_withdraws_nothing` (verificado a 18/11/2026) | `NoticeLinksTest` |
+| Nunca a mesma mensagem duas vezes | `message_deliveries` tem uma chave única (`message_id`, `recipient`); o trabalho da fila tenta uma só vez e não envia uma entrega que já não esteja `queued` | `MessageSendingTest` |
+| Limite por hora | `MAIL_HOURLY_LIMIT` e `PUSH_HOURLY_LIMIT`: o SMTP da Hostinger recusa acima do limite do plano | `MessageSendingTest` |
+| Subscrições push | Só se guardam com um consentimento push; retirar o último apaga-as. Uma subscrição morta (404/410) é apagada no envio. O endpoint tem de ser HTTPS. O service worker só abre caminhos do próprio site | `NoticeConsentTest`, `MessageSendingTest`, `pushWorker.test.ts` |
+| Sem dados pessoais nos erros | Uma entrega falhada guarda só a classe da exceção, nunca a mensagem (pode trazer o endereço) | `MessageSendingTest` |
+
+As páginas dos links são do Laravel (`resources/views/notices/page.blade.php`), com a CSP da app (o estilo vem de `public/notices.css`, nada inline) e `noindex`. O service worker não as apanha (`navigateFallbackDenylist`).
 
 ## Segredos
 
 | Segredo | Onde vive | Nunca em |
 |---|---|---|
-| `APP_KEY`, senha da base de dados, DSN do Sentry, credenciais Google | `.env` no servidor; GitHub Secrets para o CI/CD | Código, imagem Docker, logs, conversas |
+| `APP_KEY`, senha da base de dados, DSN do Sentry, credenciais Google, senha do SMTP, `VAPID_PRIVATE_KEY` | `.env` no servidor; GitHub Secrets para o CI/CD | Código, imagem Docker, logs, conversas |
 | Chave SSH do deploy | GitHub Secrets (ambiente `production`) | PCs partilhados |
 
 - O `.dockerignore` exclui todos os `.env`, e a imagem apaga qualquer `.env` que lá chegue.

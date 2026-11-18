@@ -2,6 +2,8 @@
 
 namespace App\Support;
 
+use App\Enums\ConsentKind;
+use App\Models\Consent;
 use App\Models\Feedback;
 use App\Models\WaitlistEntry;
 use Illuminate\Support\Carbon;
@@ -76,13 +78,20 @@ final class ListExport
     private static function waitlistRows(): array
     {
         $rows = [];
-        foreach (WaitlistEntry::query()->lazyById() as $entry) {
+        // Only the contacts whose consent is in force: the messages sent by hand respect who left (prompt 6).
+        foreach (WaitlistEntry::query()->with(['consents' => fn ($query) => $query->active()])->lazyById() as $entry) {
+            $kinds = $entry->consents->map(fn (Consent $consent): string => $consent->kind->value)->all();
+            $email = in_array(ConsentKind::EmailService->value, $kinds, true) ? $entry->email : null;
+            $whatsapp = in_array(ConsentKind::WhatsappMarketing->value, $kinds, true) ? $entry->whatsapp : null;
+            if ($email === null && $whatsapp === null) {
+                continue;
+            }
             $rows[] = [
                 self::isoDate($entry->created_at),
                 $entry->source,
                 $entry->name,
-                $entry->email ?? '',
-                $entry->whatsapp ?? '',
+                $email ?? '',
+                $whatsapp ?? '',
                 $entry->locale,
             ];
         }

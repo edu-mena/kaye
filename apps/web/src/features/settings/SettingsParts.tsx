@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { Icon, type IconName } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
 import { Dialog } from '../../components/ui/Dialog'
+import { Switch } from '../../components/ui/Switch'
 import { changeLocale, LOCALE_NAMES, LOCALES } from '../../lib/i18n'
 import { saveFile } from '../../lib/saveFile'
 import { useApiHealth } from '../../lib/useApiHealth'
@@ -202,19 +203,11 @@ export function DataSaverSwitch() {
   const fromPhone = choice === 'auto' && deviceSavesData()
   return (
     <div className="space-y-1">
-      <button
-        type="button"
-        role="switch"
-        aria-checked={on}
-        aria-label={t('dataSaver.title')}
-        onClick={() => setDataSaver(on ? 'off' : 'on')}
-        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition ${on ? 'bg-blue' : 'bg-line'}`}
-      >
-        <span
-          aria-hidden="true"
-          className={`inline-block size-5 rounded-full bg-white shadow-card transition ${on ? 'translate-x-6' : 'translate-x-1'}`}
-        />
-      </button>
+      <Switch
+        checked={on}
+        label={t('dataSaver.title')}
+        onChange={(next) => setDataSaver(next ? 'on' : 'off')}
+      />
       {fromPhone && <p className="text-xs font-light text-muted">{t('dataSaver.fromPhone')}</p>}
     </div>
   )

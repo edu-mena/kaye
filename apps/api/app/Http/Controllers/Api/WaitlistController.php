@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\WaitlistConfirmation;
 use App\Models\WaitlistEntry;
+use App\Support\Consents;
 use App\Support\Contact;
 use App\Support\ListExport;
 use App\Support\Submission;
@@ -11,6 +13,7 @@ use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -41,10 +44,15 @@ class WaitlistController extends Controller
         }
 
         try {
-            WaitlistEntry::query()->create([...$signup, 'consent_at' => now()]);
+            $entry = WaitlistEntry::query()->create([...$signup, 'consent_at' => now()]);
         } catch (UniqueConstraintViolationException) {
             // The same contact sent twice at once: the other request kept it.
             return Submission::json(['ok' => true, 'already' => true]);
+        }
+        Consents::forWaitlist($entry, $request->ip());
+        if ($entry->email !== null) {
+            // The double opt-in: nothing else reaches this address until the link in this email is opened.
+            Mail::to($entry->email)->queue(new WaitlistConfirmation($entry));
         }
 
         return Submission::json(['ok' => true], 201);

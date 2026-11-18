@@ -4,7 +4,10 @@ namespace App\Filament\Resources\Feedback;
 
 use App\Filament\Resources\Feedback\Pages\ListFeedback;
 use App\Models\Feedback;
+use App\Support\FeedbackReplies;
 use BackedEnum;
+use Filament\Actions\Action;
+use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
@@ -38,6 +41,16 @@ class FeedbackResource extends Resource
                 TextColumn::make('message')->label('Mensagem')->wrap()->searchable(),
                 TextColumn::make('page')->label('Página'),
                 TextColumn::make('locale')->label('Língua'),
+                TextColumn::make('status')->label('Estado')->badge(),
+            ])
+            ->recordActions([
+                // Only to someone signed in who accepts service emails (App\Support\FeedbackReplies).
+                Action::make('reply')->label('Responder')->icon(Heroicon::Envelope)
+                    ->visible(fn (Feedback $record): bool => FeedbackReplies::canReply($record))
+                    ->schema([Textarea::make('reply')->label('Resposta')->required()->rows(6)->maxLength(4000)])
+                    ->action(function (Feedback $record, array $data): void {
+                        FeedbackReplies::send($record, is_string($data['reply'] ?? null) ? $data['reply'] : '');
+                    }),
             ]);
     }
 

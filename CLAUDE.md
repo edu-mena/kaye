@@ -40,6 +40,7 @@ Eduardo requires a DevOps methodology: **everything is tested and verified**. Fo
 - `php -` (script from stdin) does not work here: write the script to a file and run it.
 - The old folder `C:\Projects\___Kayé` has an accent and breaks the Android build (Gradle); the code lives in `C:\Projects\kaye`.
 - `php artisan serve` drops environment variables; the E2E server uses `php -S` with Laravel's `server.php` instead.
+- PHP creates EC keys (Web Push and its tests) only with `OPENSSL_CONF=C:\php\extras\ssl\openssl.cnf` in the environment before PHP starts; without it those tests fail with "Unable to create the key". Prefix the test command with it.
 - `npm` install scripts are blocked (`.npmrc`); after `npm ci` at the root, run `npm run hooks:install`.
 
 ## Agent-session pitfalls

@@ -131,6 +131,18 @@ No Windows, se aparecer `cURL error 60` (o PHP não tem a lista de certificados)
 
 A tabela mostra, para cada tabela, quantas linhas há no Redis, no MySQL antes e depois, as criadas e as que já lá estavam. Pode correr-se de novo sem duplicar. O Redis só é lido, nunca alterado. Se uma linha não se conseguir ler, o comando diz qual e termina com erro; as outras ficam gravadas.
 
+### Avisos: email e Web Push
+
+Os emails e as notificações saem pela fila; em produção o cron corre `php artisan schedule:run` a cada minuto, e o agendador processa a fila, envia os lotes das campanhas (`kaye:send-messages`) e, às 08:00, os lembretes dos prazos guardados (`kaye:deadline-reminders`). Localmente, `MAIL_MAILER=log` escreve os emails em `storage/logs`.
+
+```bash
+php artisan webpush:vapid --show   # gera o par VAPID; cola-o no .env (VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY)
+php artisan queue:work --stop-when-empty
+php artisan kaye:send-messages
+```
+
+No Windows, o PHP só cria chaves EC (precisas para o Web Push e para os seus testes) com a variável `OPENSSL_CONF` a apontar para o `openssl.cnf` do PHP. Uma vez, no PowerShell: `[Environment]::SetEnvironmentVariable('OPENSSL_CONF', 'C:\php\extras\ssl\openssl.cnf', 'User')`, e abre um terminal novo. No Linux (CI, Hostinger) não é preciso.
+
 ## Segurança
 
 Para reportar uma vulnerabilidade, vê [SECURITY.md](SECURITY.md).

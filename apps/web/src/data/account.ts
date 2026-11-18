@@ -26,7 +26,10 @@ export type Me = {
 /** The account's copy of the data and its version; `data` is null before the first write. */
 export type Remote<T> = { version: number; data: T | null }
 
-export type ConsentKind = 'terms' | 'privacy' | 'guardian_informed'
+export type ConsentKind = 'terms' | 'privacy' | 'guardian_informed' | NoticeConsent
+
+/** The notices, one consent per channel and purpose: service (saved deadlines) or marketing (the news). */
+export type NoticeConsent = 'email_service' | 'email_marketing' | 'push_service' | 'push_marketing'
 
 const json = (body: unknown): RequestInit => ({ body: JSON.stringify(body) })
 
@@ -52,6 +55,24 @@ export const mergeData = <T>(data: unknown) =>
 
 export const giveConsent = (kind: ConsentKind, version: string) =>
   api<unknown>('/me/consents', { method: 'POST', ...json({ kind, version }) })
+
+export const revokeConsent = (kind: ConsentKind) => api<void>(`/me/consents/${kind}`, { method: 'DELETE' })
+
+/** The public VAPID key for Web Push; null while the server has push off. */
+export const getPushKey = () => api<{ key: string | null }>('/push/key').then((answer) => answer.key)
+
+export type PushSubscriptionBody = {
+  endpoint: string
+  keys: { p256dh: string; auth: string }
+  contentEncoding: 'aes128gcm'
+}
+
+/** Keeps this browser's subscription; the server refuses it without a push consent. */
+export const savePushSubscription = (subscription: PushSubscriptionBody) =>
+  api<unknown>('/me/push-subscriptions', { method: 'POST', ...json(subscription) })
+
+export const deletePushSubscription = (endpoint: string) =>
+  api<void>('/me/push-subscriptions', { method: 'DELETE', ...json({ endpoint }) })
 
 export const logout = () => api<void>('/auth/logout', { method: 'POST' })
 

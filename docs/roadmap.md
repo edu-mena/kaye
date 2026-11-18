@@ -193,7 +193,7 @@ O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [ ] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0)
-- [ ] Notificações push dos prazos e do plano, mesmo com a app fechada
+- [ ] Notificações push dos prazos e do plano, mesmo com a app fechada: os prazos guardados com "Lembrar-me" já têm lembrete por email e Web Push (18/11/2026, 3 dias antes); faltam os lembretes semanais do plano e o push nativo no Android (FCM)
 - [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
 - [ ] Painel B2B só com dados agregados, para escolas, INEFOP e programas de responsabilidade social
 - [ ] Páginas geridas pelas próprias instituições (preços e dados), sempre marcadas e fora das recomendações
@@ -210,7 +210,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
 - [x] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor (16/11/2026; para entrar a sério faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google)
 - [x] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado (18/11/2026; o comando `kaye:migrate-redis` está pronto, falta corrê-lo com as credenciais do Upstash)
-- [ ] 6. Comunicação: email, WhatsApp e push, só com consentimento (menores sem marketing)
+- [x] 6. Comunicação: email e Web Push, só com consentimento (menores sem marketing), feito a 18/11/2026: confirmação dupla e "deixar de receber" assinados, campanhas em lotes no painel, lembretes dos prazos guardados, preferências nas Definições. Sem WhatsApp (o Eduardo manda à mão a partir do CSV) nem push nativo no Android (FCM), que ficam para depois
 - [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
 - [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos
 - [ ] 9. Painel de administração completo, com o design do site

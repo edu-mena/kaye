@@ -2337,6 +2337,17 @@ export const en: Messages = {
     reload: 'Update',
     offline: 'No connection: you are seeing the saved version.',
   },
+  notices: {
+    email_service: 'Deadlines you saved, by email',
+    email_marketing: 'News of the week, by email',
+    push_service: 'Deadlines you saved, in the browser',
+    push_marketing: 'News of the week, in the browser',
+    signIn: 'Sign in with your account to get notices by email or in the browser.',
+    note: 'You can turn them off whenever you like, here or with the link in each email.',
+    minorNote: 'You only get notices about the deadlines you saved. The news is for people aged 18 or over.',
+    denied: 'The browser blocked notifications. Allow them in the browser settings and try again.',
+    failed: 'We could not save this now. Try again.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Save data',

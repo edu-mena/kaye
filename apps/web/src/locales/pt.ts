@@ -2337,6 +2337,17 @@ export const pt = {
     reload: 'Atualizar',
     offline: 'Sem ligação: estás a ver a versão guardada.',
   },
+  notices: {
+    email_service: 'Prazos que guardaste, por email',
+    email_marketing: 'Novidades da semana, por email',
+    push_service: 'Prazos que guardaste, no browser',
+    push_marketing: 'Novidades da semana, no browser',
+    signIn: 'Entra com a tua conta para receberes avisos por email ou no browser.',
+    note: 'Podes desligar quando quiseres, aqui ou no link de cada email.',
+    minorNote: 'Só recebes os avisos dos prazos que guardaste. As novidades são para maiores de 18 anos.',
+    denied: 'O browser bloqueou as notificações. Permite-as nas definições do browser e tenta de novo.',
+    failed: 'Não conseguimos guardar agora. Tenta de novo.',
+  },
   dataSaver: {
     group: 'Internet',
     title: 'Poupar dados',

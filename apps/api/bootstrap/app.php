@@ -22,6 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->prepend(AssignRequestId::class);
         $middleware->append(SecurityHeaders::class);
 
+        // The one-click unsubscribe of the mail apps (RFC 8058) cannot carry a CSRF token; its URL is signed.
+        $middleware->validateCsrfTokens(except: ['unsubscribe/*']);
+
         $middleware->throttleApi();
         $middleware->api(append: [
             SetLocaleFromRequest::class,

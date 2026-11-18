@@ -468,12 +468,13 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | PUT, DELETE | `/public-cards/{slug}` | `updatePublicCard`, `deletePublicCard` | `Authorization: Bearer <secret>` |
 | POST | `/interviews` | `sendInterview` | Devolve `{id}` |
 | POST | `/waitlist` | `data/waitlist.ts` | Campo-isco `website`; consentimento obrigatório |
-| GET | `/waitlist/confirm/{token}` | | Confirmação dupla do email (URL assinada) |
+| GET | `/waitlist/confirm/{token}` | | Confirmação dupla do email (URL assinada, 7 dias). Fora de `/api/v1`, como o seguinte: são links dos emails |
+| GET, POST | `/unsubscribe/{token}?kind=…` | | "Deixar de receber" de cada email (URL assinada), sem conta; o `POST` é o botão de um clique do Gmail (`List-Unsubscribe-Post`) |
+| GET | `/push/key` | `data/account.ts` | A chave pública VAPID do Web Push (`null`: push desligado) |
 | POST | `/feedback` | `data/waitlist.ts` | Campo-isco `website` |
 | GET | `/waitlist/export?kind=waitlist\|feedback` | | CSV para a equipa; token `WAITLIST_EXPORT_TOKEN` (`X-Export-Token`, `Bearer` ou `?token=`) |
 
-Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos).
-| GET, POST | `/unsubscribe/{token}` | | "Deixar de receber" de cada mensagem (URL assinada), sem conta |
+Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos). Os links dos emails: 20 por minuto.
 
 ### Com conta
 
@@ -487,7 +488,7 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 | POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
 | GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
 | DELETE | `/me/consents/{kind}` | Retirar um consentimento |
-| POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o push neste aparelho |
+| POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o Web Push neste browser (só com um consentimento push) |
 | GET | `/me/export` | Os meus dados em JSON (Lei n.º 22/11) |
 | DELETE | `/me` | Apagar a conta e tudo o que é da pessoa |
 
@@ -496,7 +497,7 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 | Método | Caminho | Para quê | Autenticação |
 |---|---|---|---|
 | POST | `/ingest/jobs` | Entrada dos scrapers | Assinatura HMAC |
-| GET, POST | `/webhooks/whatsapp` | Estado das entregas e "PARAR" (WhatsApp Cloud API) | `X-Hub-Signature-256` da Meta |
+| GET, POST | `/webhooks/whatsapp` | Estado das entregas e "PARAR" (WhatsApp Cloud API, mais tarde: por agora o WhatsApp vai à mão) | `X-Hub-Signature-256` da Meta |
 | — | `/mcp` | Servidor MCP para a IA: lê o conteúdo público, escreve só em `revisions` | Token Sanctum de um editor, com a permissão `ai` |
 | — | `/admin` | Painel Filament | Sessão, papéis `admin`, `editor`, `revisor` |
 

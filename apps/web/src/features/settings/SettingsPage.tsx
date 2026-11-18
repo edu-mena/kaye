@@ -5,9 +5,9 @@ import { InstallButton } from '../../components/InstallApp'
 import { startTour } from '../../lib/tourRestart'
 import { Button } from '../../components/ui/Button'
 import { PageHeader } from '../../components/ui/PageHeader'
-import { Soon } from '../../components/ui/Rows'
 import { useInstall } from '../../lib/install'
 import { stagger } from '../../lib/ui'
+import { NoticePreferences } from './NoticePreferences'
 import {
   AccountRow,
   DataSaverSwitch,
@@ -110,9 +110,7 @@ export default function SettingsPage() {
             <LegalLinks />
           </Group>
           <Group id="notifications" icon="bell" title={t('profile.notificationsTitle')} index={4}>
-            <Row title={t('profile.notifyInstitutions')} action={<Soon />} />
-            <Row title={t('profile.notifyDeadlines')} action={<Soon />} />
-            <Row title={t('profile.notifyTips')} action={<Soon />} />
+            <NoticePreferences />
           </Group>
           <Group id="about" icon="info" title={t('profile.about')} index={5}>
             {installMethod && (

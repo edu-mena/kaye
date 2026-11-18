@@ -62,7 +62,21 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 
 ### Pessoas (login, ADR 0019)
 
-Com o login Google já existem `user_data` (o `UserData` da app, com versão) e `consents` (a prova de cada consentimento), com as colunas descritas no [modelo completo](#pessoas). `consents.waitlist_id` chega com a comunicação (prompt 6), quando a lista de espera passar a receber mensagens; até lá, a prova do consentimento de quem está na lista é `waitlist.consent_at`. Apagar a conta apaga as duas (`cascadeOnDelete`), e a pessoa de vez.
+Com o login Google já existem `user_data` (o `UserData` da app, com versão) e `consents` (a prova de cada consentimento), com as colunas descritas no [modelo completo](#pessoas). Desde a comunicação (prompt 6) `consents` também guarda os da lista de espera (`waitlist_id`), a origem e o IP truncado; a migração copiou para lá os consentimentos de quem já estava na lista. Apagar a conta apaga as duas (`cascadeOnDelete`), e a pessoa de vez.
+
+### Avisos (prompt 6)
+
+`push_subscriptions`, `messages` e `message_deliveries` existem, com as colunas descritas no [modelo completo](#messages-e-message_deliveries). As regras estão em [seguranca.md](seguranca.md#avisos-email-e-web-push).
+
+| Peça | Onde | O que faz |
+|---|---|---|
+| Consentimentos | `App\Support\Consents` | Dar, retirar e verificar; o IP truncado; os da lista de espera (`forWaitlist`) |
+| Links assinados | `App\Support\NoticeLinks`, `App\Http\Controllers\NoticeLinkController` | Confirmação dupla e "deixar de receber" |
+| Emails | `App\Mail\*` (base `NoticeMail`), `resources/views/mail`, tema `mail/kaye.css`, textos em `lang/<língua>/notices.php` | Confirmação, boas-vindas, prazo a chegar, novidades, aviso, resposta a crítica |
+| Push | `App\Notifications\PushNotice`, `PushSubscriptionController` | Web Push com VAPID (`laravel-notification-channels/webpush`) |
+| Público e envio | `App\Messaging\Audience`, `Sender`, `App\Jobs\SendDelivery` | Quem recebe; lotes dentro do limite por hora (`kaye:send-messages`, cada minuto); um envio por entrega |
+| Lembretes | `App\Messaging\DeadlineReminders` | Os prazos guardados (`remindedDeadlines`) 3 dias antes (`kaye:deadline-reminders`, 08:00) |
+| Painel | `MessageResource`, ação "Responder" nas críticas | Escrever, enviar e ver o relatório das entregas |
 
 | Peça | Onde | O que faz |
 |---|---|---|
@@ -685,14 +699,16 @@ Prova de cada consentimento (Lei n.º 22/11).
 | Coluna | Tipo | Notas |
 |---|---|---|
 | `user_id` | fk → `users`, pode ser vazio | Vazio para quem está só na lista de espera |
-| `waitlist_id` | fk → `waitlist`, pode ser vazio | |
-| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `whatsapp_marketing`, `push` |
+| `waitlist_id` | fk → `waitlist`, pode ser vazio, `cascadeOnDelete` | |
+| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `push_service`, `push_marketing`, `whatsapp_marketing` (o antigo `push` passou a `push_service`) |
 | `version` | varchar(16) | Versão do texto aceite |
+| `source` | varchar(16), pode ser vazio | Onde foi dado: `app`, `landing`, `onboarding` |
+| `ip_prefix` | varchar(45), pode ser vazio | O IP truncado: IPv4 sem o último byte, IPv6 com 48 bits |
 | `granted_at` | timestamp | |
-| `confirmed_at` | timestamp, pode ser vazio | Confirmação dupla do email |
+| `confirmed_at` | timestamp, pode ser vazio | Confirmação dupla do email da lista de espera |
 | `revoked_at` | timestamp, pode ser vazio | |
 
-Índice (`user_id`, `kind`). Um menor não consegue ter `*_marketing` (validado no servidor), nem quem não tem ano de nascimento; quando o ano mostra que a pessoa é menor, os de marketing são retirados.
+Índices (`user_id`, `kind`) e (`waitlist_id`, `kind`). Um menor não consegue ter `*_marketing` (validado no servidor), nem quem não tem ano de nascimento; quando o ano mostra que a pessoa é menor, os de marketing são retirados.
 
 #### `waitlist`
 
@@ -761,16 +777,16 @@ Apagar é definitivo (sem *soft delete*): o link deixa de funcionar logo.
 
 #### `messages` e `message_deliveries`
 
-Avisos e novidades por email, WhatsApp ou push.
+Avisos e novidades por email ou push (o WhatsApp vai à mão, a partir do CSV da lista de espera).
 
 | Tabela | Colunas | Notas |
 |---|---|---|
-| `messages` | `channel` (`email`, `whatsapp`, `push`), `purpose` (`service`, `marketing`), `template`, `subject`\*, `body`\*, `audience` (json: áreas, tipos de novidade, província), `status` (`draft`, `scheduled`, `sending`, `sent`), `scheduled_at`, `sent_at`, `created_by` (fk → `users`), timestamps | `marketing` exclui sempre os menores e quem não consentiu nesse canal |
-| `message_deliveries` | `message_id`, `user_id` ou `waitlist_id`, `channel`, `status` (`queued`, `sent`, `delivered`, `read`, `failed`), `provider_id`, `cost_usd` decimal(8,4), `error`, `sent_at`, timestamps | Único (`message_id`, `user_id`, `waitlist_id`): ninguém recebe a mesma mensagem duas vezes. Índice em `status` e `provider_id` (respostas do webhook da Meta) |
+| `messages` | `key` (varchar, único, pode ser vazio), `channel` (`email`, `push`), `purpose` (`service`, `marketing`), `template` (`notice`, `digest`, `deadline`), `subject`, `body` (json por língua), `url` (a página da app que abre), `audience` (json: `provinces`, `areas`, `waitlist`, `users`), `status` (`draft`, `sending`, `sent`), `sent_at`, `created_by` (fk → `users`), timestamps | `marketing` exclui sempre os menores, quem não tem idade e quem não consentiu nesse canal. `key` identifica os lembretes (`deadline:<id>:<dia>:<canal>`), feitos pelo agendador |
+| `message_deliveries` | `message_id`, `recipient` (`user:7`, `waitlist:3`), `user_id` ou `waitlist_id`, `channel`, `status` (`queued`, `sent`, `failed`, `skipped`), `error`, `sent_at`, timestamps | Único (`message_id`, `recipient`): ninguém recebe a mesma mensagem duas vezes (o `recipient` nunca é vazio, porque num índice único do MySQL um NULL não conta). Índices em `status` e `sent_at`. `skipped`: quando chegou a vez, a pessoa já não tinha o consentimento. O WhatsApp Cloud API trará `provider_id` e `cost_usd` |
 
 #### `push_subscriptions`
 
-Do pacote `laravel-notification-channels/webpush`: `subscribable_type`, `subscribable_id`, `endpoint` (único), `public_key`, `auth_token`, `content_encoding`, timestamps. Só se cria com o consentimento `push`.
+Do pacote `laravel-notification-channels/webpush`: `subscribable_type`, `subscribable_id`, `endpoint` (varchar(500) ASCII, único), `public_key`, `auth_token`, `content_encoding`, timestamps. Só se cria com um consentimento push (`push_service` ou `push_marketing`); retirar o último apaga-as, e uma subscrição morta (404/410) é apagada no envio. Apagar a conta apaga-as (é uma relação *morph*, sem chave estrangeira).
 
 ### Painel e IA
 

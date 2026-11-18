@@ -1,4 +1,4 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "ignore": ["scripts/voice/sentences.ts", "api/**"]
+  "ignore": ["scripts/voice/sentences.ts", "api/**", "public/push-sw.js"]
 }

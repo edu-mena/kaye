@@ -15,7 +15,8 @@ describe('SettingsPage', () => {
     expect(screen.getByRole('group', { name: 'Idioma' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Os teus dados' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Notificações' })).toBeInTheDocument()
-    expect(screen.getAllByText('Em breve')).toHaveLength(3)
+    // The notices need an account: without one the group says so (features/settings/NoticePreferences.test.tsx).
+    expect(screen.getByText(/Entra com a tua conta para receberes avisos/)).toBeInTheDocument()
     expect(await screen.findByText('Ligado ao servidor')).toBeInTheDocument()
   })
 

@@ -6,6 +6,7 @@ use App\Models\Feedback;
 use App\Models\Interview;
 use App\Models\PublicCard;
 use App\Models\WaitlistEntry;
+use App\Support\Consents;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -214,7 +215,7 @@ class MigrateRedis extends Command
         }
         $date = self::date($item, 'date');
 
-        return WaitlistEntry::query()->create([
+        $entry = WaitlistEntry::query()->create([
             'name' => self::string($item, 'name', allowEmpty: true),
             'email' => $email,
             'whatsapp' => $whatsapp,
@@ -224,6 +225,10 @@ class MigrateRedis extends Command
             'created_at' => $date,
             'updated_at' => $date,
         ]);
+        // Redis kept no IP. The email still waits for its double opt-in, like any signup.
+        Consents::forWaitlist($entry, null);
+
+        return $entry;
     }
 
     /**
