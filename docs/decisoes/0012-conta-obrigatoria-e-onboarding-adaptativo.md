@@ -1,6 +1,6 @@
 ﻿# 0012. Conta obrigatória e onboarding adaptativo com guia e voz
 
-Estado: Aceite (2026-11-02). A parte da voz foi substituída pela [0013](0013-voz-do-guia-em-audio-pre-gerado.md).
+Estado: Aceite (2026-11-02). A parte da voz foi substituída pela [0013](0013-voz-do-guia-em-audio-pre-gerado.md) e a conta obrigatória pela [0021](0021-explorar-sem-conta.md).
 
 ## Contexto
 

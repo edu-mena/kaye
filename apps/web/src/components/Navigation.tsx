@@ -8,6 +8,7 @@ import { useUser } from '../state/userStore'
 import { Icon, type IconName } from './icons'
 import { MENTORS } from '../data/demo/mentors'
 import { Dialog } from './ui/Dialog'
+import { SignInButton } from './SignInButton'
 
 type NavKey =
   | 'home'
@@ -239,7 +240,7 @@ const ROUND_BUTTON = 'grid size-10 place-items-center rounded-full bg-ash-100 te
  */
 export function TopBar() {
   const { t } = useTranslation()
-  const { photo } = useUser()
+  const { photo, profile } = useUser()
   const unseen = useUnseenNotifications()
   const [menuOpen, setMenuOpen] = useState(false)
   // On Pesquisa the page has its own field: a second one up here would only repeat it.
@@ -278,6 +279,7 @@ export function TopBar() {
         </Link>
       )}
       <div className="ml-auto flex items-center gap-2">
+        {!profile && <SignInButton />}
         <Link to="/notificacoes" className={`relative ${ROUND_BUTTON}`}>
           <Icon name="bell" className="size-5" />
           <span className="sr-only">

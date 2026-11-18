@@ -96,6 +96,14 @@ docker compose down
 
 O detalhe está em [infraestrutura.md](docs/infraestrutura.md).
 
+## Deploy (Hostinger)
+
+Cada push no `main` corre o workflow `Deploy` (`.github/workflows/deploy.yml`): constrói a app web e o `vendor` do Laravel (`scripts/package-release.sh`), publica o resultado no ramo `deploy` (`scripts/publish-deploy.sh`) e a Hostinger puxa-o pelo webhook do Git do hPanel. Depois, por SSH, o `scripts/post-deploy.sh` corre as migrações, o `kaye:import`, o `optimize` e o teste de fumo. Sem domínio, o endereço é o temporário e sai todo de `APP_URL`. A primeira vez (chave SSH, base de dados, `.env`, Google, Git, cron, segredos) está em [infraestrutura.md](docs/infraestrutura.md#pôr-no-ar-pela-primeira-vez).
+
+```bash
+SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh https://steady-darkgoldenrod-goshawk-92.hostingersite.com   # confirma o site no ar
+```
+
 ## Compilar
 
 | Comando (em `apps/web`) | Resultado |

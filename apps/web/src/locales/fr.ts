@@ -177,6 +177,13 @@ export const fr: Messages = {
     feedbackDone: "Bien reçu, merci ! L'équipe Kayé lit tous les messages.",
     feedbackAnother: 'En envoyer un autre',
   },
+  accountPrompt: {
+    title: 'Garde-le dans Kayé',
+    body: "Pour le garder et le retrouver sur un autre téléphone, il te faut un compte. Un seul clic avec Google, et tu continues d'ici.",
+    haveAccount: "J'ai un compte : me connecter avec Google",
+    create: 'Créer mon profil',
+    later: 'Pas maintenant, je veux juste regarder',
+  },
   landing: {
     builtBy: 'Kayé est développé par Eduardo Mena.',
     partnerships: "Partenariats et contrats : contacte-moi par l'un des moyens ci-dessous.",
@@ -185,6 +192,7 @@ export const fr: Messages = {
       "Découvre ce qui te correspond, le chemin pour y arriver et ce que l'Angola recherche. Gratuitement.",
     start: 'Commencer mon chemin',
     signIn: 'Se connecter',
+    explore: 'Je veux juste regarder',
     language: 'Langue',
     sceneCvReady: 'CV prêt',
     stepHere: 'Tu es ici',

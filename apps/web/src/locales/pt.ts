@@ -177,6 +177,13 @@ export const pt = {
     feedbackDone: 'Recebido, obrigado! A equipa do Kayé lê todas as mensagens.',
     feedbackAnother: 'Enviar outra',
   },
+  accountPrompt: {
+    title: 'Guarda no Kayé',
+    body: 'Para guardares isto e o encontrares noutro telemóvel, precisas de uma conta. É só um toque com o Google, e continuas daqui.',
+    haveAccount: 'Já tenho conta: entrar com o Google',
+    create: 'Criar o meu perfil',
+    later: 'Agora não, só quero ver',
+  },
   landing: {
     builtBy: 'O Kayé está a ser desenvolvido por Eduardo Mena.',
     partnerships: 'Parcerias e contratos: fala comigo por um dos contactos abaixo.',
@@ -184,6 +191,7 @@ export const pt = {
     subtitle: 'Descobre o que combina contigo, o caminho até lá e o que Angola procura. De graça.',
     start: 'Começar o meu caminho',
     signIn: 'Entrar',
+    explore: 'Só quero ver',
     language: 'Idioma',
     sceneCvReady: 'CV pronto',
     stepHere: 'Estás aqui',

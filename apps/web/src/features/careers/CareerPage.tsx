@@ -40,6 +40,7 @@ import { rankPrograms, scorePrograms } from '../../domain/ranking'
 import { rankDimensions } from '../../domain/riasec'
 import { useDuration } from '../../lib/useFormat'
 import { useUrlFilters } from '../../lib/useUrlFilters'
+import { needsAccount } from '../../state/accountGate'
 import { userActions, useUser } from '../../state/userStore'
 import { ModelCvGrid } from '../cv/ModelCvGrid'
 import { InternshipsForArea } from '../internships/InternshipLinks'
@@ -156,7 +157,7 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
           <Button
             size="sm"
             aria-pressed={isTarget}
-            onClick={() => userActions.setTarget(isTarget ? null : career.slug)}
+            onClick={needsAccount(() => userActions.setTarget(isTarget ? null : career.slug))}
           >
             <Icon name={isTarget ? 'check' : 'target'} className="size-4" />
             {isTarget ? t('career.isTarget') : t('career.setTarget')}
@@ -176,7 +177,7 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
             variant="ghost"
             size="sm"
             aria-pressed={saved}
-            onClick={() => userActions.toggleSaved(career.slug)}
+            onClick={needsAccount(() => userActions.toggleSaved(career.slug))}
             className="text-white ring-1 ring-white/40 hover:bg-white/10"
           >
             <Icon name="bookmark" className={`size-4 ${saved ? 'fill-white' : ''}`} />

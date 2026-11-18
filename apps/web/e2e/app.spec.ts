@@ -14,13 +14,27 @@ test.describe('without an account', () => {
     expect(consoleErrors).toEqual([])
   })
 
-  test('the catalogue asks for an account first, on the landing page', async ({ page }) => {
+  test('the catalogue opens without an account, with an Entrar button instead of a sign-up wall', async ({
+    page,
+    consoleErrors,
+  }) => {
     await page.goto('/cursos')
-    await expect(page).toHaveURL(/\/\?next=%2Fcursos$/)
-    await expect(page.getByRole('link', { name: 'Entrar e ver' })).toHaveAttribute(
-      'href',
-      '/entrar?next=%2Fcursos',
-    )
+    await expect(page).toHaveURL(/\/cursos$/)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Cursos')
+    await expect(page.getByRole('banner').getByRole('button', { name: 'Entrar' })).toBeVisible()
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('saving asks for the account, and "Só quero ver" on the landing page opens the catalogue', async ({
+    page,
+  }) => {
+    await page.goto('/')
+    await page.getByRole('link', { name: 'Só quero ver' }).click()
+    await expect(page).toHaveURL(/\/carreiras$/)
+
+    await page.goto('/carreiras/analista-de-dados')
+    await page.getByRole('button', { name: 'Guardar', exact: true }).click()
+    await expect(page.getByRole('dialog', { name: 'Guarda no Kayé' })).toBeVisible()
   })
 
   test('the terms and the policy stay open to everyone', async ({ page }) => {

@@ -177,6 +177,13 @@ export const en: Messages = {
     feedbackDone: 'Received, thank you! The Kayé team reads every message.',
     feedbackAnother: 'Send another',
   },
+  accountPrompt: {
+    title: 'Save it in Kayé',
+    body: 'To save this and find it on another phone you need an account. One tap with Google, and you carry on from here.',
+    haveAccount: 'I have an account: sign in with Google',
+    create: 'Create my profile',
+    later: 'Not now, I just want to look',
+  },
   landing: {
     builtBy: 'Kayé is being developed by Eduardo Mena.',
     partnerships: 'Partnerships and contracts: reach me through one of the contacts below.',
@@ -184,6 +191,7 @@ export const en: Messages = {
     subtitle: 'Discover what suits you, the way there and what Angola is looking for. For free.',
     start: 'Start my path',
     signIn: 'Sign in',
+    explore: 'Just let me look',
     language: 'Language',
     sceneCvReady: 'CV ready',
     stepHere: 'You are here',

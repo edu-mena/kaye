@@ -56,8 +56,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Repositório privado no GitHub ([edu-mena/kaye](https://github.com/edu-mena/kaye)), com o CI a correr nos PRs
 - [ ] Proteção do `main` (exige GitHub Pro nos repositórios privados: Student Developer Pack)
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
-- [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy
-- [ ] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
+- [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy: o workflow `deploy.yml`, o ramo `deploy`, o `post-deploy.sh` e o teste de fumo estão feitos (18/11/2026, endereço temporário); falta ligar o Git do hPanel, o `.env`, o cron e os segredos ([primeira vez](infraestrutura.md#pôr-no-ar-pela-primeira-vez)), e depois staging, domínio e Cloudflare
+- [x] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
 - [ ] Sentry: conta, DSN e Sentry na app React
 - [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
 
@@ -113,7 +113,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 
 | # | Bloco | Inclui |
 |---|---|---|
-| 1.1 | Entrada | Conta obrigatória (ADR 0012); login Google; onboarding com consentimentos; fluxo para menores |
+| 1.1 | Entrada | Explorar sem conta, registo ao guardar (ADR 0021); login Google; onboarding com consentimentos; fluxo para menores |
 | 1.2 | Teste vocacional | Duas partes, para todas as áreas ([ADR 0017](decisoes/0017-teste-vocacional-geral-com-valencias.md)). **1. O que gostas:** 42 frases RIASEC do dia a dia, em pt/en/fr, com progresso guardado. **2. O que já sabes** (opcional, 7 passos que se podem saltar): línguas, competências digitais, ofícios da área, competências transversais, o que já fez, como gosta de trabalhar e condições. Resultado: perfil nas 6 dimensões, 6 profissões de todas as áreas com razões (interesses, competências que já tem, caminho possível; pelo menos uma sem ensino superior), resumo das valências e "Leva para o teu CV". |
 | 1.3 | Carreiras | A página completa de cada profissão ([arquitetura, 7](arquitetura.md#página-de-uma-carreira)): o que faz, características profissionais, o que os empregadores pedem em Angola, percurso académico, formação profissional, etapas da carreira, custo, mercado e salários com fonte. Rankings "mais procuradas" e "mais bem pagas". Guardar carreiras. |
 | 1.4 | Encaixe | Em cada carreira: interesses (teste), formação (o que falta) e competências (a pessoa marca o que sabe). Mostra o que falta como próximos passos |

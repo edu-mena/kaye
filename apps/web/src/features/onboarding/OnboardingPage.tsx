@@ -12,7 +12,7 @@ import { submitSignup } from '../../data/waitlist'
 import { safeNext } from '../../lib/ui'
 import { useVoice } from '../../lib/useVoice'
 import { VOICES } from '../../lib/voices'
-import { beginSignIn } from '../../state/accountSync'
+import { beginSignIn, getAccount } from '../../state/accountSync'
 import { userActions, useUser } from '../../state/userStore'
 import {
   CURRENT_YEAR,
@@ -188,7 +188,8 @@ export default function OnboardingPage() {
       liked,
     )
     // With accounts, Google comes back here to show the plan, then to what the person had asked for.
-    if (ACCOUNTS) beginSignIn(planPath(nextPath))
+    // Someone who already signed in (a new account that came through "Entrar") has no need to go again.
+    if (ACCOUNTS && getAccount().status !== 'signedIn') beginSignIn(planPath(nextPath))
   }
 
   if (finished || (profile && params.has(PLAN))) return <PlanScreen next={nextPath} />

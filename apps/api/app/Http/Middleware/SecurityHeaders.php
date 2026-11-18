@@ -27,11 +27,11 @@ class SecurityHeaders
     ];
 
     /**
-     * React app: only our own files, no inline code.
+     * React app: only our own files, no inline code. The service worker and the manifest are ours too (the PWA).
      */
     private const CSP_APP = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
-        ."font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; "
-        ."frame-ancestors 'none'";
+        ."font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; "
+        ."base-uri 'self'; form-action 'self'; frame-ancestors 'none'";
 
     /**
      * Admin panel: Livewire and Alpine need inline scripts and eval. Accepted

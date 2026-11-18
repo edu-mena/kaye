@@ -159,6 +159,7 @@ describe('CareerPage', () => {
   })
 
   it('saves the career and makes it the destination', async () => {
+    seedUser()
     open('analista-de-dados')
     await userEvent.click(await screen.findByRole('button', { name: 'Guardar' }))
     await userEvent.click(screen.getByRole('button', { name: 'Escolher como destino' }))
@@ -169,6 +170,12 @@ describe('CareerPage', () => {
     expect(screen.getByRole('button', { name: 'Guardada' })).toHaveAttribute('aria-pressed', 'true')
     await userEvent.click(screen.getByRole('button', { name: 'O teu destino' }))
     expect(getUser().targetCareer).toBeNull()
+  })
+
+  it('does not save for someone without a profile: it asks for the account first', async () => {
+    open('analista-de-dados')
+    await userEvent.click(await screen.findByRole('button', { name: 'Guardar' }))
+    expect(getUser().savedCareers).toEqual([])
   })
 
   it('draws the path with what is done, where the person is, and what is ahead', async () => {

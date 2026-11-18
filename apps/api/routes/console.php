@@ -1,9 +1,14 @@
 <?php
 
 use App\Models\Interview;
+use App\Support\CronHeartbeat;
 use Illuminate\Support\Facades\Schedule;
 
 // Times are Angola time (app.schedule_timezone). Cron runs `php artisan schedule:run` every minute.
+
+// The beat of the cron: /api/v1/health says whether it is running (a dead cron stops the emails, the push and the news
+// without any error).
+Schedule::call(fn () => CronHeartbeat::beat())->name('cron-heartbeat')->everyMinute();
 
 Schedule::command('sanctum:prune-expired --hours=24')->dailyAt('02:00');
 

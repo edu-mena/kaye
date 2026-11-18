@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import logo from '../../assets/kaye-logo.png'
 import { Icon, type IconName } from '../../components/icons'
 import { ButtonLink } from '../../components/ui/Button'
+import { SignInButton } from '../../components/SignInButton'
 import { Card } from '../../components/ui/Card'
 import { useCareers } from '../../data/queries'
 import { areaCounts } from '../../domain/discovery'
@@ -78,9 +79,7 @@ export function LandingPage() {
         <img src={logo} alt="Kayé" className="h-9 w-auto" />
         <div className="flex items-center gap-2">
           <LanguagePicker />
-          <ButtonLink to={signIn} size="sm" variant="secondary">
-            {t('landing.signIn')}
-          </ButtonLink>
+          <SignInButton next={next ?? '/'} />
         </div>
       </header>
 
@@ -115,10 +114,15 @@ export function LandingPage() {
               {t('landing.title')}
             </h1>
             <p className="mt-5 max-w-lg rise text-lg font-light text-copy">{t('landing.subtitle')}</p>
-            <ButtonLink to={signIn} size="lg" className="mt-8 rise">
-              {t('landing.start')}
-              <Icon name="arrowRight" className="size-5" />
-            </ButtonLink>
+            <div className="mt-8 flex rise flex-wrap items-center gap-3">
+              <ButtonLink to={signIn} size="lg">
+                {t('landing.start')}
+                <Icon name="arrowRight" className="size-5" />
+              </ButtonLink>
+              <ButtonLink to="/carreiras" size="lg" variant="secondary">
+                {t('landing.explore')}
+              </ButtonLink>
+            </div>
           </div>
           <div className="rise">
             <HeroScene careers={careers} />

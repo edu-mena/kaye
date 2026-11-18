@@ -12,8 +12,12 @@ type PageModule = { default: ComponentType }
 const publicPage = (load: () => Promise<PageModule>) => () =>
   load().then((module) => ({ Component: module.default }))
 
-/** The app is for signed-in people (docs/decisoes/0012): the rest go to /entrar first. */
+/** Exploring needs no account (docs/decisoes/0021): these screens open for everyone. */
 const page = (load: () => Promise<PageModule>) => () =>
+  load().then((module) => ({ Component: module.default }))
+
+/** What belongs to a person (plan, deadlines, notices, settings, the CV editor): without a profile, to the landing page. */
+const personalPage = (load: () => Promise<PageModule>) => () =>
   load().then(({ default: Screen }) => ({
     Component: () => (
       <RequireProfile>
@@ -126,18 +130,21 @@ export const router = createBrowserRouter([
       { path: 'bolsas', Component: () => <KeepQuery to="bolsas" /> },
       { path: 'sem-universidade', lazy: page(() => import('../features/noDegree/NoDegreePage')) },
       { path: 'mentores', lazy: page(() => import('../features/mentors/MentorsPage')) },
-      { path: 'plano', lazy: page(() => import('../features/plan/PlanPage')) },
-      { path: 'prazos', lazy: page(() => import('../features/deadlines/DeadlinesPage')) },
+      { path: 'plano', lazy: personalPage(() => import('../features/plan/PlanPage')) },
+      { path: 'prazos', lazy: personalPage(() => import('../features/deadlines/DeadlinesPage')) },
       { path: 'estagios', Component: () => <KeepQuery to="estagios" /> },
-      { path: 'notificacoes', lazy: page(() => import('../features/notifications/NotificationsPage')) },
+      {
+        path: 'notificacoes',
+        lazy: personalPage(() => import('../features/notifications/NotificationsPage')),
+      },
       { path: 'suporte', lazy: page(() => import('../features/support/SupportPage')) },
-      { path: 'configuracoes', lazy: page(() => import('../features/settings/SettingsPage')) },
+      { path: 'configuracoes', lazy: personalPage(() => import('../features/settings/SettingsPage')) },
       { path: 'termos', lazy: publicPage(() => import('../features/legal/TermsPage')) },
       { path: 'privacidade', lazy: publicPage(() => import('../features/legal/PrivacyPage')) },
       { path: 'cv', lazy: page(() => import('../features/cv/CvPage')) },
       { path: 'cv/modelos/:id', lazy: page(() => import('../features/cv/CvExamplePage')) },
-      { path: 'cv/editar', lazy: page(() => import('../features/cv/CvEditorPage')) },
-      { path: 'cv/cartao', lazy: page(() => import('../features/cv/CvCardPage')) },
+      { path: 'cv/editar', lazy: personalPage(() => import('../features/cv/CvEditorPage')) },
+      { path: 'cv/cartao', lazy: personalPage(() => import('../features/cv/CvCardPage')) },
       {
         path: 'perfil',
         handle: { wide: true } satisfies RouteHandle,

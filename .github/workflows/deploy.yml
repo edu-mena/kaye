@@ -1,0 +1,85 @@
+# Builds the release and publishes it to the `deploy` branch. The Hostinger Git link pulls that branch (webhook),
+# then this workflow finishes the job over SSH: migrations, catalogue, caches and the smoke test.
+# One-time setup on GitHub and in the hPanel: docs/infraestrutura.md ("Pôr no ar pela primeira vez").
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Two releases never publish at the same time, and a newer one does not cancel one in the middle of publishing.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build and publish to the deploy branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: deploy
+          path: deploy-tree
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          extensions: intl, pdo_mysql, mbstring, zip, gd, sodium
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Build the release (web app + Laravel with production dependencies)
+        run: scripts/package-release.sh "$GITHUB_SHA"
+      - name: Put it in the deploy branch
+        run: |
+          tar -xzf "build/kaye-$GITHUB_SHA.tar.gz" -C build
+          scripts/publish-deploy.sh "build/kaye-$GITHUB_SHA" deploy-tree "$GITHUB_SHA"
+      - name: Push
+        working-directory: deploy-tree
+        run: git push origin HEAD:deploy
+
+  finish:
+    name: Finish on the server (SSH)
+    needs: publish
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+      SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+      SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+      SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+      SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
+      SITE_DIR: ${{ secrets.HOSTINGER_SITE_DIR }}
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Wait for the server to pull the release, then finish
+        run: |
+          if [ -z "$SSH_KEY" ] || [ -z "$SSH_HOST" ]; then
+            echo "::notice::No SSH secrets yet: the release is in the deploy branch; run scripts/post-deploy.sh on the server by hand."
+            exit 0
+          fi
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh_run() { ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes "$SSH_USER@$SSH_HOST" "$@"; }
+          # The webhook pulls within a minute or two; RELEASE holds the commit that was pulled.
+          for attempt in $(seq 1 30); do
+            [ "$(ssh_run "cat '$SITE_DIR/RELEASE' 2>/dev/null" || true)" = "$GITHUB_SHA" ] && break
+            [ "$attempt" = 30 ] && { echo "::error::The server did not pull $GITHUB_SHA in 5 minutes (hPanel > Git: webhook and branch)."; exit 1; }
+            sleep 10
+          done
+          ssh_run "cd '$SITE_DIR' && scripts/post-deploy.sh"
+      - name: Smoke test from outside
+        run: |
+          [ -n "$SITE_URL" ] || { echo "::notice::SITE_URL is not set; skipping the outside test."; exit 0; }
+          SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh "$SITE_URL"

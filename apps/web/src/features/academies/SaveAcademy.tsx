@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SaveBookmark } from '../../components/SaveBookmark'
+import { needsAccount } from '../../state/accountGate'
 import { userActions, useUser } from '../../state/userStore'
 
 type SaveAcademyProps = {
@@ -15,7 +16,7 @@ export function SaveAcademy({ id, name, compact = false }: SaveAcademyProps) {
   return (
     <SaveBookmark
       saved={savedAcademies.includes(id)}
-      onToggle={() => userActions.toggleSavedAcademy(id)}
+      onToggle={needsAccount(() => userActions.toggleSavedAcademy(id))}
       label={t('academies.saveNamed', { name })}
       compact={compact}
     />

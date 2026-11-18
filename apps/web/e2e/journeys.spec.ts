@@ -10,11 +10,8 @@ test.describe('the first visit', () => {
     test.slow()
     const proceed = () => page.getByRole('button', { name: 'Continuar', exact: true }).click()
 
-    // Without an account, the landing page; its call to action opens the conversation.
-    await page.goto('/teste')
-    await expect(page).toHaveURL(/\/\?next=%2Fteste$/)
-    await page.getByRole('link', { name: 'Entrar e ver' }).click()
-    await expect(page).toHaveURL(/\/entrar\?next=%2Fteste$/)
+    // A shared link to the test, opened by someone without an account: the conversation, then straight back.
+    await page.goto('/entrar?next=%2Fteste')
     await expectAccessible(page)
     await page.getByRole('button', { name: 'Vamos lá' }).click()
 

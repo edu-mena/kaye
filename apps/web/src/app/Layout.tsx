@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Outlet, ScrollRestoration, useMatches } from 'react-router'
+import { AccountPrompt } from '../components/AccountPrompt'
 import { BottomNav, Sidebar, TopBar } from '../components/Navigation'
 import { TourHost } from '../components/Tour'
 import { useFocusMode } from '../lib/focusMode'
@@ -27,8 +28,9 @@ export function Layout() {
   const reader = handles.some((handle) => handle?.reader)
   const focus = useFocusMode() || reader
 
-  // Without an account there is nowhere to navigate to: only the public screens get here.
-  if (!profile) {
+  // The landing page brings its own page. Everything else, with or without an account, has the app's bars:
+  // exploring needs no account (docs/decisoes/0021).
+  if (!profile && bare) {
     return (
       <>
         {bare ? (
@@ -70,7 +72,9 @@ export function Layout() {
         </main>
       </div>
       {!focus && <BottomNav />}
-      <TourHost />
+      {/* The guided tour is for people with a profile: it moves the page around. */}
+      {profile && <TourHost />}
+      <AccountPrompt />
       <AppStatus />
       {/* New screens start at the top; going back restores where you were. */}
       <ScrollRestoration />

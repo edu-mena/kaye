@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import type { CalendarEvent } from '../domain/ics'
 import { addToCalendar } from '../lib/calendar'
+import { needsAccount } from '../state/accountGate'
 import { userActions, useUser } from '../state/userStore'
 import { Icon } from './icons'
 
@@ -53,7 +54,7 @@ export function RemindStar({ id, title }: { id: string; title: string }) {
       aria-pressed={on}
       aria-label={t('share.remind', { name: title })}
       title={on ? t('share.reminded') : t('share.remindShort')}
-      onClick={() => userActions.toggleReminder(id)}
+      onClick={needsAccount(() => userActions.toggleReminder(id))}
       className={`${ROUND} ${on ? 'text-gold-ink' : ''}`}
     >
       <Icon name="star" className={`size-4 ${on ? 'fill-current' : ''}`} />
