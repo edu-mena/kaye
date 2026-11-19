@@ -57,7 +57,8 @@ if curl -sf -o /dev/null "$base/spa/sw.js"; then
   sw_headers="$(headers /spa/sw.js)"
   echo "$sw_headers" | grep -qi '^cache-control:.*no-cache' && pass "sw.js is never cached" || fail "sw.js is never cached"
   echo "$sw_headers" | grep -qi '^service-worker-allowed: /' && pass "sw.js may control the whole site" || fail "sw.js may control the whole site"
-  headers /spa/manifest.webmanifest | grep -qi '^cache-control:.*no-cache' && pass "manifest is never cached" || fail "manifest is never cached"
+  manifest_headers="$(headers /spa/manifest.webmanifest)"
+  echo "$manifest_headers" | grep -qi '^cache-control:.*no-cache' && pass "manifest is never cached" || fail "manifest is never cached"
 else
   fail "the service worker is served (/spa/sw.js)"
 fi
