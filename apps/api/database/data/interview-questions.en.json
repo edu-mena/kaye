@@ -1,0 +1,1237 @@
+[
+  {
+    "id": "g-conflict",
+    "text": "O que fazes se não concordares com o teu chefe?",
+    "goal": "Se sabes discordar com respeito e respeitar a decisão final.",
+    "model": "Peço para falar com ele em privado, explico o meu ponto de vista com factos e ouço o dele. Se a decisão se mantiver, cumpro-a e faço o meu melhor.",
+    "mistakes": [
+      "\"Faço o que me mandam e calo-me.\"",
+      "Discutir à frente dos outros.",
+      "Ignorar a decisão."
+    ],
+    "area": null,
+    "position": 13
+  },
+  {
+    "id": "g-five-years",
+    "text": "Onde te vês daqui a cinco anos?",
+    "goal": "Se tens ambição realista e se pensas ficar algum tempo.",
+    "model": "Quero ter aprendido bem o trabalho e ser alguém em quem a equipa confia. Gostava de ter mais responsabilidade, talvez coordenar uma pequena equipa, e de ter feito uma formação na área.",
+    "mistakes": [
+      "\"No teu lugar.\"",
+      "\"Não sei.\"",
+      "Dizer que queres ir para o estrangeiro ou mudar de área logo."
+    ],
+    "area": null,
+    "position": 6
+  },
+  {
+    "id": "g-intro",
+    "text": "Fala-me um pouco de ti.",
+    "goal": "Se sabes apresentar-te em pouco tempo, com o que importa para esta vaga.",
+    "model": "Chamo-me Ana, tenho 22 anos e terminei a licenciatura em Gestão no ISCED de Luanda. No último ano fiz um estágio de três meses numa farmácia, onde organizei o controlo de stock em Excel. Gosto de pôr ordem nas coisas e procuro agora o primeiro emprego numa área administrativa, onde possa aprender e crescer.",
+    "mistakes": [
+      "Contar a vida desde a infância.",
+      "Repetir o CV linha a linha.",
+      "Terminar sem dizer o que procuras."
+    ],
+    "area": null,
+    "position": 0
+  },
+  {
+    "id": "g-learning",
+    "text": "O que aprendeste recentemente por tua conta?",
+    "goal": "Se tens curiosidade e aprendes sem que te mandem.",
+    "model": "Fiz um curso gratuito online de Excel avançado e usei o que aprendi para organizar as despesas da casa. Agora estou a aprender inglês com uma aplicação, vinte minutos por dia.",
+    "mistakes": [
+      "\"Nada.\"",
+      "Falar só do curso da faculdade.",
+      "Um exemplo que não consegues explicar."
+    ],
+    "area": null,
+    "position": 12
+  },
+  {
+    "id": "g-mistake",
+    "text": "Fala-me de um erro que cometeste.",
+    "goal": "Se assumes os erros e aprendes com eles.",
+    "model": "No estágio enviei uma tabela com valores errados porque não a revi. Avisei logo a minha chefe, corrigi no mesmo dia e desde então revejo sempre os números antes de enviar.",
+    "mistakes": [
+      "\"Nunca errei.\"",
+      "Culpar outra pessoa.",
+      "Um erro sem aprendizagem."
+    ],
+    "area": null,
+    "position": 10
+  },
+  {
+    "id": "g-no-experience",
+    "text": "Não tens experiência. Porque te devíamos escolher?",
+    "goal": "Se mostras o que tens no lugar da experiência: vontade, estágios, projetos.",
+    "model": "É verdade que é o meu primeiro emprego. Mas fiz um estágio, participei em projetos do curso e aprendo depressa. Venho sem vícios e com muita vontade, e estou disposta a fazer as formações que forem precisas.",
+    "mistakes": [
+      "Pedir desculpa por não ter experiência.",
+      "Ficar calado.",
+      "Prometer o que não sabes fazer."
+    ],
+    "area": null,
+    "position": 7
+  },
+  {
+    "id": "g-pressure",
+    "text": "Como lidas com pressão e prazos curtos?",
+    "goal": "Se te organizas quando o tempo aperta.",
+    "model": "Faço uma lista do que é urgente, começo pelo mais importante e aviso cedo se vejo que não chego a tempo. Na época de exames, com o estágio ao mesmo tempo, foi assim que consegui as duas coisas.",
+    "mistakes": [
+      "\"Trabalho melhor sob pressão\" sem exemplo.",
+      "Dizer que nunca tens stress.",
+      "Uma resposta sem método."
+    ],
+    "area": null,
+    "position": 9
+  },
+  {
+    "id": "g-problem",
+    "text": "Fala-me de um problema que resolveste.",
+    "goal": "Como pensas e ages perante uma dificuldade real, mesmo fora do trabalho.",
+    "model": "Num trabalho de grupo da faculdade, a duas semanas da entrega, metade do grupo deixou de aparecer (situação). Eu tinha de garantir que entregávamos (tarefa). Dividi o que faltava em partes pequenas, falei com cada colega e marquei um ponto de situação de dois em dois dias (ação). Entregámos a tempo e tivemos 16 valores (resultado).",
+    "mistakes": [
+      "Um problema sem solução clara.",
+      "Dizer \"nós\" o tempo todo sem mostrar o que tu fizeste.",
+      "Esquecer o resultado."
+    ],
+    "area": null,
+    "position": 3
+  },
+  {
+    "id": "g-questions",
+    "text": "Tens alguma pergunta para nós?",
+    "goal": "Se tens interesse real e preparaste a entrevista.",
+    "model": "Tenho, sim. Como é um dia normal nesta função? E que formação dão a quem começa? Também gostava de saber quais são os próximos passos do processo.",
+    "mistakes": [
+      "\"Não, está tudo claro.\"",
+      "Perguntar logo pelas férias e pelo salário.",
+      "Perguntar o que está no anúncio."
+    ],
+    "area": null,
+    "position": 14
+  },
+  {
+    "id": "g-salary",
+    "text": "Quanto esperas ganhar?",
+    "goal": "Se conheces o mercado e se as tuas expectativas cabem na vaga.",
+    "model": "Pelo que pesquisei, para um primeiro emprego nesta função os salários andam entre X e Y kwanzas. Estou aberta a conversar, e dou muito valor à formação e à possibilidade de crescer aqui.",
+    "mistakes": [
+      "Um valor ao acaso, muito alto ou muito baixo.",
+      "\"O que me quiserem dar.\"",
+      "Pôr o salário à frente de tudo."
+    ],
+    "area": null,
+    "position": 11
+  },
+  {
+    "id": "g-strengths",
+    "text": "Quais são os teus pontos fortes?",
+    "goal": "Se te conheces e se consegues provar o que dizes.",
+    "model": "Sou organizada e cumpro prazos. Durante o curso trabalhei ao fim de semana na loja da família e mesmo assim não falhei uma entrega. Também aprendo depressa: aprendi Excel sozinha com vídeos para ajudar no stock.",
+    "mistakes": [
+      "Uma lista de adjetivos sem exemplos.",
+      "Pontos fortes que nada têm a ver com a vaga.",
+      "Falsa modéstia."
+    ],
+    "area": null,
+    "position": 4
+  },
+  {
+    "id": "g-team",
+    "text": "Fala-me de uma vez em que trabalhaste em equipa.",
+    "goal": "Como colaboras, ouves os outros e resolves desacordos.",
+    "model": "No grupo de jovens da igreja organizámos uma recolha de livros para uma escola no Cazenga. Eu fiquei com a lista e a contagem. Quando dois colegas discordaram sobre o dia da entrega, propus uma votação rápida. Entregámos mais de 300 livros.",
+    "mistakes": [
+      "Pôr a culpa nos colegas.",
+      "Dizer que preferes trabalhar sozinho, sem explicar.",
+      "Não dizer o teu papel."
+    ],
+    "area": null,
+    "position": 8
+  },
+  {
+    "id": "g-weakness",
+    "text": "Qual é o teu ponto fraco?",
+    "goal": "Se és honesto e se fazes alguma coisa para melhorar.",
+    "model": "Tenho dificuldade em falar em público. Para melhorar, ofereci-me para apresentar os trabalhos do grupo no último ano e hoje já estou mais à vontade, embora ainda prepare muito antes.",
+    "mistakes": [
+      "\"Sou perfeccionista\" ou \"trabalho demasiado\".",
+      "Um defeito grave para a vaga.",
+      "Não dizer o que fazes para melhorar."
+    ],
+    "area": null,
+    "position": 5
+  },
+  {
+    "id": "g-why-area",
+    "text": "Porque escolheste esta área?",
+    "goal": "Se a escolha é tua e pensada, ou se estás aqui por acaso.",
+    "model": "Desde o ensino médio que gosto de perceber como as coisas funcionam. Quando ajudei o meu tio a organizar as contas da loja, percebi que gostava de trabalhar com números e de ver o resultado. Foi isso que me levou a esta área.",
+    "mistakes": [
+      "\"Porque dá dinheiro\" e mais nada.",
+      "\"Foi o curso onde entrei.\"",
+      "Uma resposta que serve para qualquer área."
+    ],
+    "area": null,
+    "position": 1
+  },
+  {
+    "id": "g-why-us",
+    "text": "Porque queres trabalhar aqui?",
+    "goal": "Se pesquisaste a organização e se a escolheste a ela, não a qualquer uma.",
+    "model": "Li sobre o vosso trabalho nas províncias e sobre o programa de formação para recém-formados. Quero começar num sítio onde se aprende com quem já faz bem, e o que vi da vossa equipa encaixa no que procuro.",
+    "mistakes": [
+      "Não saber o que a organização faz.",
+      "Falar só do salário.",
+      "Elogios vagos (\"é uma grande empresa\")."
+    ],
+    "area": null,
+    "position": 2
+  },
+  {
+    "id": "agro-farmers",
+    "text": "Como explicas uma técnica nova a agricultores com muita experiência?",
+    "goal": "Se respeitas o saber local e comunicas bem.",
+    "model": "Começo por ouvir como fazem e porquê. Depois mostro a técnica num pequeno campo, para eles verem o resultado com os próprios olhos.",
+    "mistakes": [
+      "Achar que eles não sabem nada.",
+      "Usar só termos técnicos.",
+      "Não mostrar na prática."
+    ],
+    "area": "agriculture",
+    "position": 74
+  },
+  {
+    "id": "agro-field",
+    "text": "Estás disposto a viver e trabalhar no interior?",
+    "goal": "Se aceitas as condições do trabalho.",
+    "model": "Sim. Sei que o trabalho está nas fazendas e nas províncias, e já fiz o estágio numa fazenda no Cuanza Sul.",
+    "mistakes": [
+      "Dizer que sim sem pensar.",
+      "Exigir ficar em Luanda.",
+      "Não conhecer as províncias agrícolas."
+    ],
+    "area": "agriculture",
+    "position": 72
+  },
+  {
+    "id": "agro-pest",
+    "text": "A cultura está com uma praga. Como atuas?",
+    "goal": "Se tens método técnico.",
+    "model": "Identifico a praga e o grau de ataque, vejo as opções de controlo, começando pelas menos agressivas, e aplico com proteção e nas doses certas. Depois acompanho para ver se resultou.",
+    "mistakes": [
+      "Aplicar químicos sem identificar a praga.",
+      "Ignorar a segurança.",
+      "Não acompanhar."
+    ],
+    "area": "agriculture",
+    "position": 73
+  },
+  {
+    "id": "agro-records",
+    "text": "Porque é importante registar o que se faz na exploração?",
+    "goal": "Se pensas em gestão, não só em produção.",
+    "model": "Para saber o que gastámos, o que colhemos e o que funcionou. Com registos simples consigo comparar safras e tomar melhores decisões.",
+    "mistakes": [
+      "Não ver a utilidade.",
+      "Não falar de custos.",
+      "Uma resposta vaga."
+    ],
+    "area": "agriculture",
+    "position": 75
+  },
+  {
+    "id": "agro-water",
+    "text": "Como poupas água na rega?",
+    "goal": "Se conheces práticas sustentáveis.",
+    "model": "Rego de manhã cedo ou ao fim da tarde, uso gota-a-gota quando possível e cubro o solo com palha para guardar a humidade.",
+    "mistakes": [
+      "Não conhecer a rega gota-a-gota.",
+      "Regar sempre muito.",
+      "Não falar do solo."
+    ],
+    "area": "agriculture",
+    "position": 76
+  },
+  {
+    "id": "agro-why",
+    "text": "Porque escolheste a agricultura?",
+    "goal": "Se a ligação ao campo é real.",
+    "model": "Cresci a ajudar o meu avô na lavra no Uíge. Quero ajudar os agricultores a produzir mais com técnicas que aprendi no curso.",
+    "mistakes": [
+      "Escolha por falta de alternativa.",
+      "Não conhecer o trabalho no campo.",
+      "Falar só de teoria."
+    ],
+    "area": "agriculture",
+    "position": 71
+  },
+  {
+    "id": "biz-client",
+    "text": "Como lidas com um cliente insatisfeito?",
+    "goal": "Se resolves problemas sem perder o cliente.",
+    "model": "Ouço até ao fim sem interromper, peço desculpa pelo incómodo e digo o que posso fazer e quando. Depois confirmo que ficou resolvido.",
+    "mistakes": [
+      "Discutir com o cliente.",
+      "Passar o problema a outro.",
+      "Prometer o que não podes cumprir."
+    ],
+    "area": "business",
+    "position": 48
+  },
+  {
+    "id": "biz-excel",
+    "text": "Que nível tens em Excel?",
+    "goal": "Se consegues fazer o trabalho de todos os dias com dados.",
+    "model": "Uso fórmulas como SOMA.SE e PROCV, faço tabelas dinâmicas e gráficos. No estágio fiz um mapa mensal das vendas que o gerente passou a usar nas reuniões.",
+    "mistakes": [
+      "\"Avançado\" sem exemplos.",
+      "Não saber o que é uma tabela dinâmica.",
+      "Dizer que sabes e falhar no teste prático."
+    ],
+    "area": "business",
+    "position": 47
+  },
+  {
+    "id": "biz-honesty",
+    "text": "Descobres que um colega está a desviar dinheiro. O que fazes?",
+    "goal": "Se tens ética e sabes o canal certo.",
+    "model": "Não o acuso à frente de ninguém. Junto o que vi e reporto ao meu superior ou ao canal de denúncia da empresa, com discrição.",
+    "mistakes": [
+      "Ignorar porque não é contigo.",
+      "Confrontar à frente dos outros.",
+      "Pedir parte do dinheiro (nem a brincar)."
+    ],
+    "area": "business",
+    "position": 50
+  },
+  {
+    "id": "biz-numbers",
+    "text": "As vendas desceram 20% este mês. O que farias para perceber porquê?",
+    "goal": "Se pensas com dados antes de tirar conclusões.",
+    "model": "Comparava com o mesmo mês do ano passado, via que produtos e que lojas desceram mais e falava com a equipa de vendas. Só depois propunha medidas.",
+    "mistakes": [
+      "Culpar logo a crise.",
+      "Propor soluções sem análise.",
+      "Não falar em números."
+    ],
+    "area": "business",
+    "position": 49
+  },
+  {
+    "id": "biz-priorities",
+    "text": "Tens três tarefas urgentes ao mesmo tempo. Como decides?",
+    "goal": "Se te organizas e comunicas prioridades.",
+    "model": "Vejo o prazo e o impacto de cada uma. Faço primeiro a que tem mais consequências e, se não chego a todas, pergunto ao responsável qual prefere que fique para depois.",
+    "mistakes": [
+      "Fazer a mais fácil primeiro.",
+      "Não avisar ninguém.",
+      "Ficar paralisado."
+    ],
+    "area": "business",
+    "position": 51
+  },
+  {
+    "id": "biz-sell",
+    "text": "Vende-me esta caneta.",
+    "goal": "Se ouves antes de vender e se tens à-vontade.",
+    "model": "Antes de vender, pergunto: o que costuma escrever, e quando? Assinaturas de contratos? Então esta caneta não falha e dá boa imagem na hora de fechar um negócio. Quer experimentar?",
+    "mistakes": [
+      "Listar características sem perguntar nada.",
+      "Ficar nervoso e calado.",
+      "Falar demasiado."
+    ],
+    "area": "business",
+    "position": 52
+  },
+  {
+    "id": "comm-audience",
+    "text": "Como adaptas uma mensagem a públicos diferentes?",
+    "goal": "Se pensas no público antes de escrever.",
+    "model": "Primeiro pergunto quem vai ler e onde. Para jovens no TikTok, curto e visual; para uma empresa num email, mais formal e com dados. A mensagem é a mesma, a forma muda.",
+    "mistakes": [
+      "A mesma mensagem para todos.",
+      "Só falar de redes sociais.",
+      "Não dar exemplo."
+    ],
+    "area": "communication",
+    "position": 66
+  },
+  {
+    "id": "comm-crisis",
+    "text": "Uma publicação da empresa gera críticas nas redes. O que fazes?",
+    "goal": "Se reages com calma e com a equipa.",
+    "model": "Não apago nem respondo a quente. Aviso o responsável, percebo a razão das críticas e preparamos juntos uma resposta honesta e rápida.",
+    "mistakes": [
+      "Apagar tudo.",
+      "Discutir com os comentários.",
+      "Ignorar."
+    ],
+    "area": "communication",
+    "position": 67
+  },
+  {
+    "id": "comm-feedback",
+    "text": "O cliente rejeita o teu trabalho. Como reages?",
+    "goal": "Se aceitas críticas e melhoras.",
+    "model": "Pergunto o que não funcionou e o que espera, com exemplos. Não levo para o lado pessoal e apresento uma nova versão no prazo combinado.",
+    "mistakes": [
+      "Defender o trabalho a todo o custo.",
+      "Ficar ofendido.",
+      "Fazer tudo de novo sem perguntar."
+    ],
+    "area": "communication",
+    "position": 69
+  },
+  {
+    "id": "comm-metrics",
+    "text": "Como sabes se uma campanha funcionou?",
+    "goal": "Se medes resultados, não só gostos.",
+    "model": "Defino o objetivo antes: vendas, inscrições ou visitas. Depois olho para os números que contam para esse objetivo, não só para os gostos, e comparo com campanhas anteriores.",
+    "mistakes": [
+      "Só falar de gostos.",
+      "Não ter objetivo antes.",
+      "Não saber o que é alcance."
+    ],
+    "area": "communication",
+    "position": 68
+  },
+  {
+    "id": "comm-portfolio",
+    "text": "Mostra-me um trabalho teu e explica-o.",
+    "goal": "O que sabes fazer e como pensas.",
+    "model": "Esta é uma campanha que fiz para a feira de empreendedorismo da faculdade: cartazes e publicações no Instagram. O objetivo era trazer estudantes e tivemos o dobro dos visitantes do ano anterior.",
+    "mistakes": [
+      "Não ter portefólio.",
+      "Mostrar sem explicar o objetivo.",
+      "Não saber o resultado."
+    ],
+    "area": "communication",
+    "position": 65
+  },
+  {
+    "id": "comm-write",
+    "text": "Escreve agora um título para esta notícia.",
+    "goal": "Se escreves depressa e bem, sob pressão.",
+    "model": "Leio a notícia, encontro o facto principal e escrevo um título curto, com verbo e sem exageros. Por exemplo: \"Luanda abre 500 vagas de estágio para jovens\".",
+    "mistakes": [
+      "Título longo.",
+      "Exagerar ou enganar.",
+      "Pedir mais tempo."
+    ],
+    "area": "communication",
+    "position": 70
+  },
+  {
+    "id": "edu-big-class",
+    "text": "Como dás aula a uma turma de 60 alunos?",
+    "goal": "Se tens estratégias para a realidade das escolas angolanas.",
+    "model": "Defino regras claras no primeiro dia, uso trabalho em pequenos grupos com um chefe de grupo e faço perguntas rápidas a vários alunos para ver quem está a perceber.",
+    "mistakes": [
+      "Dizer que é impossível.",
+      "Só falar de aulas expositivas.",
+      "Não pensar nos alunos que ficam para trás."
+    ],
+    "area": "education",
+    "position": 42
+  },
+  {
+    "id": "edu-difficulty",
+    "text": "Como ajudas um aluno com dificuldades?",
+    "goal": "Se acompanhas cada aluno, não só a turma.",
+    "model": "Tento perceber onde está a dificuldade, com um exercício simples. Explico de outra maneira, junto-o a um colega que já percebeu e dou-lhe exercícios curtos para casa.",
+    "mistakes": [
+      "Dizer que não há tempo.",
+      "Culpar o aluno ou a família.",
+      "Não ter um exemplo."
+    ],
+    "area": "education",
+    "position": 45
+  },
+  {
+    "id": "edu-discipline",
+    "text": "Um aluno perturba sempre a aula. O que fazes?",
+    "goal": "Como geres a disciplina com respeito.",
+    "model": "Falo com ele a sós para perceber o que se passa. Dou-lhe uma responsabilidade na aula. Se continuar, falo com o diretor de turma e com a família.",
+    "mistakes": [
+      "Humilhar o aluno.",
+      "Expulsar sempre da sala.",
+      "Castigos físicos."
+    ],
+    "area": "education",
+    "position": 43
+  },
+  {
+    "id": "edu-parents",
+    "text": "Como falas com os encarregados de educação?",
+    "goal": "Se comunicas com as famílias de forma respeitosa e útil.",
+    "model": "Começo pelo que o aluno faz bem, depois falo da dificuldade com factos e proponho o que podemos fazer juntos em casa e na escola.",
+    "mistakes": [
+      "Só chamar a família quando há problemas.",
+      "Ser acusador.",
+      "Usar termos que a família não percebe."
+    ],
+    "area": "education",
+    "position": 46
+  },
+  {
+    "id": "edu-plan",
+    "text": "Como preparas uma aula?",
+    "goal": "Se planeias com objetivos e avalias o que os alunos aprenderam.",
+    "model": "Parto do programa e defino o que os alunos devem saber no fim. Penso num exemplo do dia a dia deles, num exercício e numa pergunta final para ver se perceberam.",
+    "mistakes": [
+      "Só seguir o livro.",
+      "Não falar de avaliação.",
+      "Não adaptar aos alunos."
+    ],
+    "area": "education",
+    "position": 44
+  },
+  {
+    "id": "edu-why",
+    "text": "Porque queres ser professor?",
+    "goal": "Se a vocação é real e se sabes como é a sala de aula.",
+    "model": "Dei explicações a vizinhos durante o curso e gostei muito de ver um aluno passar a perceber matemática. É isso que me faz querer ensinar, mesmo com turmas grandes.",
+    "mistakes": [
+      "\"Foi o que apareceu.\"",
+      "Só falar das férias.",
+      "Não ter experiência nenhuma com alunos."
+    ],
+    "area": "education",
+    "position": 41
+  },
+  {
+    "id": "eng-budget",
+    "text": "O material está a acabar e o orçamento também. Como decides?",
+    "goal": "Se pensas em custo, prazo e qualidade ao mesmo tempo.",
+    "model": "Vejo o que é crítico para a obra não parar e para a segurança, e isso fica primeiro. Procuro alternativas com o fornecedor e informo o responsável com números antes de decidir.",
+    "mistakes": [
+      "Cortar na segurança.",
+      "Decidir sem falar com ninguém.",
+      "Não falar em números."
+    ],
+    "area": "engineering",
+    "position": 27
+  },
+  {
+    "id": "eng-error",
+    "text": "Encontras um erro num desenho já aprovado. O que fazes?",
+    "goal": "Se tens coragem de apontar erros e o fazes pelo canal certo.",
+    "model": "Confirmo o erro com cuidado, falo com o meu superior e mostro onde está e o que pode causar. Proponho uma correção, mas a decisão é de quem aprovou.",
+    "mistakes": [
+      "Corrigir sozinho sem avisar.",
+      "Ficar calado porque já foi aprovado.",
+      "Expor o colega que errou."
+    ],
+    "area": "engineering",
+    "position": 24
+  },
+  {
+    "id": "eng-field",
+    "text": "Estás disposto a trabalhar no terreno, fora de Luanda?",
+    "goal": "Se aceitas as condições reais do trabalho.",
+    "model": "Sim. Sei que muitas obras são nas províncias e vejo isso como uma forma de aprender depressa. Já fiz o estágio no Huambo e adaptei-me bem.",
+    "mistakes": [
+      "Dizer que sim sem pensar e desistir depois.",
+      "Pôr muitas condições logo na primeira entrevista.",
+      "Mentir sobre a disponibilidade."
+    ],
+    "area": "engineering",
+    "position": 25
+  },
+  {
+    "id": "eng-project",
+    "text": "Fala-me de um projeto do curso.",
+    "goal": "O que sabes fazer na prática e qual foi o teu papel.",
+    "model": "No projeto final dimensionei a instalação elétrica de uma escola de dois pisos, com o AutoCAD. Fiz os cálculos de carga e a lista de material. O professor usou o meu orçamento como exemplo na turma.",
+    "mistakes": [
+      "Só teoria.",
+      "Não saber os números do projeto.",
+      "Não dizer o que tu fizeste."
+    ],
+    "area": "engineering",
+    "position": 23
+  },
+  {
+    "id": "eng-safety",
+    "text": "O que significa para ti segurança em obra ou fábrica?",
+    "goal": "Se pões a segurança primeiro, mesmo com pressa.",
+    "model": "Significa que ninguém trabalha sem o equipamento de proteção e que, se vejo um risco, paro e aviso. No estágio de obra vi um andaime mal fixo, avisei o encarregado e só se voltou a subir depois de corrigido.",
+    "mistakes": [
+      "Falar só do capacete.",
+      "Dizer que às vezes se pode facilitar.",
+      "Não ter um exemplo."
+    ],
+    "area": "engineering",
+    "position": 22
+  },
+  {
+    "id": "eng-tools",
+    "text": "Que ferramentas e programas dominas?",
+    "goal": "Se o que sabes serve para o trabalho do dia a dia.",
+    "model": "Uso AutoCAD com à-vontade e já fiz modelos simples em Revit. Para cálculos uso Excel. Sei ler projetos e já usei nível e estação total no estágio de topografia.",
+    "mistakes": [
+      "Dizer que dominas tudo.",
+      "Listar programas que só abriste uma vez.",
+      "Esquecer o trabalho prático."
+    ],
+    "area": "engineering",
+    "position": 26
+  },
+  {
+    "id": "health-confidential",
+    "text": "Um vizinho pergunta-te o que tem um doente que conhece. O que dizes?",
+    "goal": "Se respeitas o sigilo profissional.",
+    "model": "Digo com educação que não posso falar sobre os doentes, e que ele deve falar diretamente com a família ou com o próprio doente.",
+    "mistakes": [
+      "Contar \"só um bocadinho\".",
+      "Achar que entre conhecidos não faz mal.",
+      "Ser rude."
+    ],
+    "area": "health",
+    "position": 39
+  },
+  {
+    "id": "health-difficult",
+    "text": "Como lidas com um doente ou familiar agressivo?",
+    "goal": "Se manténs a calma e a segurança.",
+    "model": "Mantenho a calma, falo baixo e ouço o que o preocupa. Explico o que posso fazer. Se houver risco, chamo o colega ou a segurança. Depois registo o que aconteceu.",
+    "mistakes": [
+      "Responder no mesmo tom.",
+      "Ignorar a pessoa.",
+      "Não pensar na tua segurança."
+    ],
+    "area": "health",
+    "position": 35
+  },
+  {
+    "id": "health-error",
+    "text": "Percebes que deste a medicação errada. O que fazes?",
+    "goal": "Se pões o doente à frente do medo de errar.",
+    "model": "Avalio logo o doente e aviso de imediato o médico ou o enfermeiro responsável. Registo o que aconteceu e participo no que for preciso para não se repetir.",
+    "mistakes": [
+      "Esconder o erro.",
+      "Esperar para ver se acontece alguma coisa.",
+      "Culpar a farmácia."
+    ],
+    "area": "health",
+    "position": 36
+  },
+  {
+    "id": "health-hygiene",
+    "text": "Que cuidados tens para evitar infeções?",
+    "goal": "Se conheces as regras básicas de biossegurança.",
+    "model": "Lavo ou desinfeto as mãos antes e depois de cada doente, uso luvas e máscara quando é preciso e deito as agulhas no contentor próprio. No estágio do hospital fazia-o mesmo com pressa.",
+    "mistakes": [
+      "Falar só das luvas.",
+      "Dizer que às vezes não dá tempo.",
+      "Não saber o que é o contentor de cortantes."
+    ],
+    "area": "health",
+    "position": 37
+  },
+  {
+    "id": "health-shifts",
+    "text": "Estás disponível para turnos noturnos e fins de semana?",
+    "goal": "Se aceitas a realidade dos serviços de saúde.",
+    "model": "Sim. Sei que a saúde não para e já fiz noites no estágio. Organizo o descanso para estar bem no turno.",
+    "mistakes": [
+      "Dizer que sim e depois pôr condições.",
+      "Mostrar surpresa.",
+      "Mentir."
+    ],
+    "area": "health",
+    "position": 38
+  },
+  {
+    "id": "health-team",
+    "text": "Como trabalhas com médicos, enfermeiros e outros técnicos?",
+    "goal": "Se sabes o teu papel numa equipa com hierarquia.",
+    "model": "Cada um tem o seu papel e o doente ganha quando comunicamos bem. Passo o turno por escrito e de viva voz, e se tenho dúvidas sobre uma prescrição pergunto antes de agir.",
+    "mistakes": [
+      "Achar que só o médico decide tudo.",
+      "Não fazer perguntas.",
+      "Falar mal de outras profissões."
+    ],
+    "area": "health",
+    "position": 40
+  },
+  {
+    "id": "health-why",
+    "text": "Porque escolheste uma profissão de saúde?",
+    "goal": "Se a motivação aguenta o cansaço e o contacto com o sofrimento.",
+    "model": "Quando a minha avó esteve internada vi como uma enfermeira a tratou com paciência e respeito. Percebi que queria fazer o mesmo pelas pessoas, mesmo sabendo que o trabalho é duro.",
+    "mistakes": [
+      "\"Porque dá emprego.\"",
+      "Uma história sem ligação à profissão.",
+      "Não falar do lado difícil."
+    ],
+    "area": "health",
+    "position": 34
+  },
+  {
+    "id": "hosp-guest",
+    "text": "Um hóspede reclama do quarto. O que fazes?",
+    "goal": "Se resolves com simpatia e rapidez.",
+    "model": "Ouço, peço desculpa e resolvo logo: mudo de quarto ou chamo a manutenção. Depois volto a falar com ele para confirmar que está tudo bem.",
+    "mistakes": [
+      "Dizer que não é contigo.",
+      "Discutir.",
+      "Prometer e não voltar."
+    ],
+    "area": "hospitality",
+    "position": 77
+  },
+  {
+    "id": "hosp-hours",
+    "text": "Estás disponível para trabalhar à noite, fins de semana e feriados?",
+    "goal": "Se aceitas os horários do setor.",
+    "model": "Sim. Sei que na hotelaria se trabalha quando os outros descansam. No estágio fiz vários fins de semana.",
+    "mistakes": [
+      "Mostrar surpresa.",
+      "Muitas condições.",
+      "Mentir."
+    ],
+    "area": "hospitality",
+    "position": 79
+  },
+  {
+    "id": "hosp-hygiene",
+    "text": "Que regras de higiene segues a trabalhar com alimentos?",
+    "goal": "Se conheces as normas básicas.",
+    "model": "Lavo as mãos com frequência, uso touca e farda limpa, separo crus de cozinhados e verifico as temperaturas e as datas de validade.",
+    "mistakes": [
+      "Esquecer as mãos.",
+      "Não conhecer a contaminação cruzada.",
+      "Achar que não é importante."
+    ],
+    "area": "hospitality",
+    "position": 80
+  },
+  {
+    "id": "hosp-languages",
+    "text": "Que línguas falas?",
+    "goal": "Se consegues atender clientes estrangeiros.",
+    "model": "Português como língua materna, inglês para atender clientes e um pouco de francês. Estou a melhorar o inglês com um curso.",
+    "mistakes": [
+      "Exagerar o nível.",
+      "Não falar de nenhuma.",
+      "Não ter plano para melhorar."
+    ],
+    "area": "hospitality",
+    "position": 78
+  },
+  {
+    "id": "hosp-presentation",
+    "text": "Porque é importante a apresentação pessoal neste trabalho?",
+    "goal": "Se percebes que és a imagem da casa.",
+    "model": "Porque o cliente vê-me antes de ver o serviço. Farda limpa, unhas cuidadas e um sorriso são a primeira impressão do hotel.",
+    "mistakes": [
+      "Desvalorizar.",
+      "Responder só \"porque sim\".",
+      "Não ter cuidado com a própria imagem na entrevista."
+    ],
+    "area": "hospitality",
+    "position": 82
+  },
+  {
+    "id": "hosp-team",
+    "text": "O restaurante está cheio e falta um colega. O que fazes?",
+    "goal": "Se colaboras em momentos de pressão.",
+    "model": "Falo com o chefe de sala para redistribuir as mesas, ajudo onde é preciso e mantenho a calma com os clientes, avisando se houver espera.",
+    "mistakes": [
+      "Reclamar.",
+      "Só fazer a tua parte.",
+      "Esconder a espera aos clientes."
+    ],
+    "area": "hospitality",
+    "position": 81
+  },
+  {
+    "id": "legal-client",
+    "text": "Como explicas a um cliente uma decisão que ele não queria?",
+    "goal": "Se comunicas com clareza e empatia.",
+    "model": "Explico em palavras simples o que foi decidido e porquê, digo que opções ainda tem e quanto tempo há para decidir.",
+    "mistakes": [
+      "Usar só termos técnicos.",
+      "Prometer recursos sem fundamento.",
+      "Evitar a conversa."
+    ],
+    "area": "legal",
+    "position": 58
+  },
+  {
+    "id": "legal-ethics",
+    "text": "Um cliente pede-te para esconder um documento. O que fazes?",
+    "goal": "Se conheces os limites da ética profissional.",
+    "model": "Explico que não posso fazer isso e quais são as consequências. Se ele insistir, informo o advogado responsável.",
+    "mistakes": [
+      "Fazer o que o cliente quer.",
+      "Hesitar.",
+      "Não conhecer o código deontológico."
+    ],
+    "area": "legal",
+    "position": 55
+  },
+  {
+    "id": "legal-pressure",
+    "text": "Como lidas com vários prazos processuais ao mesmo tempo?",
+    "goal": "Se és organizado, porque falhar um prazo tem consequências graves.",
+    "model": "Tenho uma agenda com todos os prazos e alertas uns dias antes. Trabalho primeiro no que acaba mais cedo e aviso logo se vejo que não chego.",
+    "mistakes": [
+      "Confiar na memória.",
+      "Não falar em agenda.",
+      "Dizer que nunca falhaste nada."
+    ],
+    "area": "legal",
+    "position": 57
+  },
+  {
+    "id": "legal-research",
+    "text": "Como procuras a resposta para uma questão jurídica que não conheces?",
+    "goal": "Se tens método de pesquisa.",
+    "model": "Começo pela lei aplicável, a Constituição e o código certo, depois procuro jurisprudência e doutrina. Anoto as fontes e, se tenho dúvidas, peço a um colega mais experiente que reveja.",
+    "mistakes": [
+      "Só pesquisar na internet.",
+      "Não citar fontes.",
+      "Responder de cabeça."
+    ],
+    "area": "legal",
+    "position": 54
+  },
+  {
+    "id": "legal-why",
+    "text": "Porque escolheste o Direito?",
+    "goal": "Se a motivação é sólida e realista.",
+    "model": "Interessa-me perceber como as regras protegem as pessoas. Fiz voluntariado num centro de apoio jurídico gratuito e vi quantas pessoas não conhecem os seus direitos.",
+    "mistakes": [
+      "\"Para ganhar bem.\"",
+      "Só falar de filmes de tribunal.",
+      "Não conhecer o dia a dia de um jurista."
+    ],
+    "area": "legal",
+    "position": 53
+  },
+  {
+    "id": "legal-writing",
+    "text": "Fala-me de um texto jurídico que escreveste.",
+    "goal": "Se escreves com clareza e rigor.",
+    "model": "No estágio redigi uma minuta de contrato de arrendamento. Usei o modelo do escritório, adaptei as cláusulas ao caso e a advogada só pediu duas correções.",
+    "mistakes": [
+      "Dizer que nunca escreveste nada.",
+      "Não saber a estrutura do documento.",
+      "Só falar da tese."
+    ],
+    "area": "legal",
+    "position": 56
+  },
+  {
+    "id": "log-delay",
+    "text": "Um camião com a carga urgente está atrasado. O que fazes?",
+    "goal": "Se resolves e comunicas.",
+    "model": "Ligo ao motorista para saber onde está e quanto demora, aviso logo o cliente com uma nova hora e vejo se há alternativa para a parte mais urgente.",
+    "mistakes": [
+      "Esperar sem fazer nada.",
+      "Não avisar o cliente.",
+      "Culpar o motorista."
+    ],
+    "area": "logistics",
+    "position": 84
+  },
+  {
+    "id": "log-difference",
+    "text": "A contagem não bate com o sistema. Como investigas?",
+    "goal": "Se és rigoroso.",
+    "model": "Volto a contar, vejo as últimas entradas e saídas e os documentos. Se a diferença se mantiver, informo o responsável com o que encontrei.",
+    "mistakes": [
+      "Ajustar o sistema sem explicação.",
+      "Ignorar pequenas diferenças.",
+      "Acusar um colega."
+    ],
+    "area": "logistics",
+    "position": 85
+  },
+  {
+    "id": "log-excel",
+    "text": "Que ferramentas usas para organizar a logística?",
+    "goal": "Se sabes trabalhar com dados.",
+    "model": "Uso Excel para mapas de stock e rotas e conheço um sistema de gestão do estágio. Aprendo depressa outros sistemas.",
+    "mistakes": [
+      "Nenhuma.",
+      "Exagerar.",
+      "Não falar de dados."
+    ],
+    "area": "logistics",
+    "position": 88
+  },
+  {
+    "id": "log-route",
+    "text": "Tens cinco entregas em Luanda. Como planeias o percurso?",
+    "goal": "Se pensas em tempo, custo e trânsito.",
+    "model": "Agrupo as entregas por zona, começo pelas que têm hora marcada, evito as horas de ponta nas vias mais cheias e confirmo com os clientes antes de sair.",
+    "mistakes": [
+      "Ir por ordem de chegada.",
+      "Ignorar o trânsito.",
+      "Não confirmar com os clientes."
+    ],
+    "area": "logistics",
+    "position": 87
+  },
+  {
+    "id": "log-safety",
+    "text": "Que regras de segurança conheces num armazém?",
+    "goal": "Se trabalhas sem pôr ninguém em risco.",
+    "model": "Corredores livres, carga pesada em baixo, equipamento de proteção e só usar o empilhador quem tem formação.",
+    "mistakes": [
+      "Não falar de EPI.",
+      "Dizer que conduzes empilhador sem formação.",
+      "Não ter exemplo."
+    ],
+    "area": "logistics",
+    "position": 86
+  },
+  {
+    "id": "log-stock",
+    "text": "Como controlas um armazém para que nada falte nem sobre?",
+    "goal": "Se conheces as bases da gestão de stock.",
+    "model": "Registo todas as entradas e saídas, faço contagens regulares e defino um mínimo para cada produto. Quando chega ao mínimo, peço reposição. Uso o FIFO, o primeiro a entrar é o primeiro a sair.",
+    "mistakes": [
+      "Confiar na memória.",
+      "Não conhecer o FIFO.",
+      "Não falar de registos."
+    ],
+    "area": "logistics",
+    "position": 83
+  },
+  {
+    "id": "oil-emergency",
+    "text": "O que fazes se ouvires o alarme geral?",
+    "goal": "Se conheces as regras de emergência.",
+    "model": "Paro o que estou a fazer, deixo o equipamento em segurança se for rápido, e sigo para o ponto de encontro pelo caminho indicado, sem voltar atrás. Lá apresento-me ao responsável para a contagem.",
+    "mistakes": [
+      "Ir buscar as coisas pessoais.",
+      "Ficar a ver o que se passa.",
+      "Não falar no ponto de encontro."
+    ],
+    "area": "oil_mining",
+    "position": 33
+  },
+  {
+    "id": "oil-english",
+    "text": "Como está o teu inglês?",
+    "goal": "Se consegues ler procedimentos e falar com equipas internacionais.",
+    "model": "Leio manuais técnicos sem dificuldade e consigo manter uma conversa simples. Estou a fazer um curso para melhorar a parte falada.",
+    "mistakes": [
+      "Exagerar o nível.",
+      "Responder só \"mais ou menos\".",
+      "Não ter plano para melhorar."
+    ],
+    "area": "oil_mining",
+    "position": 32
+  },
+  {
+    "id": "oil-hse",
+    "text": "O que é para ti a cultura de segurança (HSE)?",
+    "goal": "Se percebes que a segurança é responsabilidade de todos e todos os dias.",
+    "model": "É cada um parar o trabalho se vir um risco, sem medo. É usar o equipamento sempre, seguir os procedimentos e reportar quase-acidentes, porque é com eles que se evitam os acidentes.",
+    "mistakes": [
+      "Achar que é só papel.",
+      "Não conhecer o \"stop work\".",
+      "Uma resposta decorada sem exemplo."
+    ],
+    "area": "oil_mining",
+    "position": 28
+  },
+  {
+    "id": "oil-procedure",
+    "text": "Um colega mais velho diz-te para saltares um passo do procedimento. O que fazes?",
+    "goal": "Se respeitas os procedimentos mesmo sob pressão.",
+    "model": "Explico com respeito que não posso saltar o passo e, se ele insistir, falo com o supervisor. Prefiro atrasar do que pôr alguém em risco.",
+    "mistakes": [
+      "Fazer o que o colega diz.",
+      "Discutir à frente da equipa.",
+      "Ficar calado e não avisar."
+    ],
+    "area": "oil_mining",
+    "position": 30
+  },
+  {
+    "id": "oil-rotation",
+    "text": "Como lidas com turnos longos e tempo fora de casa?",
+    "goal": "Se aguentas o regime de rotação offshore ou na mina.",
+    "model": "Falei com a minha família e estamos preparados. Durante o curso técnico fiz turnos de 12 horas no estágio e organizei-me bem com sono e alimentação.",
+    "mistakes": [
+      "Dizer que não vai custar nada.",
+      "Não ter falado com a família.",
+      "Desistir da ideia a meio da conversa."
+    ],
+    "area": "oil_mining",
+    "position": 29
+  },
+  {
+    "id": "oil-technical",
+    "text": "Explica uma parte técnica do teu curso que conheças bem.",
+    "goal": "Se tens bases técnicas sólidas.",
+    "model": "No curso de instrumentação aprendi a calibrar transmissores de pressão. Verifico o zero e o span com o calibrador, registo os valores e comparo com a tolerância.",
+    "mistakes": [
+      "Ficar pelo vago.",
+      "Inventar o que não sabes.",
+      "Não saber o vocabulário básico."
+    ],
+    "area": "oil_mining",
+    "position": 31
+  },
+  {
+    "id": "public-citizen",
+    "text": "Um cidadão chega irritado porque esperou horas. O que fazes?",
+    "goal": "Se atendes com respeito e resolves.",
+    "model": "Peço desculpa pela espera, ouço-o e vejo o que posso resolver já. Se não for comigo, encaminho-o para a pessoa certa e explico quanto tempo deve demorar.",
+    "mistakes": [
+      "Responder mal.",
+      "Mandá-lo voltar outro dia sem explicação.",
+      "Culpar os colegas."
+    ],
+    "area": "public",
+    "position": 60
+  },
+  {
+    "id": "public-gift",
+    "text": "Alguém te oferece um \"agradecimento\" para acelerar um processo. O que fazes?",
+    "goal": "Se recusas a corrupção sem hesitar.",
+    "model": "Recuso com educação e digo que o processo segue a ordem normal. Se insistir, informo o meu superior.",
+    "mistakes": [
+      "Aceitar \"só desta vez\".",
+      "Rir e não dizer nada.",
+      "Hesitar."
+    ],
+    "area": "public",
+    "position": 61
+  },
+  {
+    "id": "public-law",
+    "text": "Que leis ou regras conheces que se aplicam a este serviço?",
+    "goal": "Se te preparaste para a função.",
+    "model": "Li a lei orgânica do ministério e as regras do concurso. Conheço também as normas de atendimento ao público e de proteção de dados.",
+    "mistakes": [
+      "Não ter lido nada.",
+      "Inventar nomes de leis.",
+      "Dizer que vais aprender depois."
+    ],
+    "area": "public",
+    "position": 62
+  },
+  {
+    "id": "public-routine",
+    "text": "Como te manténs motivado num trabalho com muita rotina?",
+    "goal": "Se és constante e procuras melhorar o serviço.",
+    "model": "Fixo pequenos objetivos, como reduzir os erros ou o tempo de atendimento, e proponho melhorias quando vejo que algo se pode simplificar.",
+    "mistakes": [
+      "Admitir que te aborreces depressa.",
+      "Dizer que só precisas do salário.",
+      "Não ter exemplo."
+    ],
+    "area": "public",
+    "position": 63
+  },
+  {
+    "id": "public-team",
+    "text": "Como trabalhas com colegas mais velhos e com mais experiência?",
+    "goal": "Se és humilde e respeitas a hierarquia, sem perder a iniciativa.",
+    "model": "Ouço e aprendo com a experiência deles. Quando tenho uma ideia, proponho-a com respeito e com dados, e aceito a decisão.",
+    "mistakes": [
+      "Querer mudar tudo no primeiro dia.",
+      "Achar que eles estão ultrapassados.",
+      "Não ter opinião nenhuma."
+    ],
+    "area": "public",
+    "position": 64
+  },
+  {
+    "id": "public-why",
+    "text": "Porque queres trabalhar na função pública?",
+    "goal": "Se queres servir o público, não só a estabilidade.",
+    "model": "Quero contribuir para que os serviços funcionem melhor para as pessoas do meu município. Vi a minha mãe perder dias numa fila por um documento e acho que se pode fazer melhor.",
+    "mistakes": [
+      "\"Pela estabilidade\" e mais nada.",
+      "Não saber o que o organismo faz.",
+      "Falar mal da função pública."
+    ],
+    "area": "public",
+    "position": 59
+  },
+  {
+    "id": "sci-data",
+    "text": "Como tratas e apresentas os teus dados?",
+    "goal": "Se sabes analisar e mostrar resultados.",
+    "model": "Organizo os dados em Excel ou R, faço a estatística básica e mostro o essencial num gráfico simples, com a conclusão escrita por baixo.",
+    "mistakes": [
+      "Não usar nenhuma ferramenta.",
+      "Gráficos confusos.",
+      "Não tirar conclusões."
+    ],
+    "area": "sciences",
+    "position": 93
+  },
+  {
+    "id": "sci-explain",
+    "text": "Explica o teu trabalho de fim de curso a quem não é da área.",
+    "goal": "Se comunicas ciência de forma simples.",
+    "model": "Estudei a qualidade da água de três poços no Cazenga. Medi se tinha bactérias e descobri que dois não eram seguros para beber sem ferver. Isto ajuda a decidir onde pôr filtros.",
+    "mistakes": [
+      "Usar jargão.",
+      "Não dizer para que serve.",
+      "Explicação demasiado longa."
+    ],
+    "area": "sciences",
+    "position": 92
+  },
+  {
+    "id": "sci-lab",
+    "text": "Que técnicas de laboratório dominas?",
+    "goal": "Se tens prática, não só teoria.",
+    "model": "No curso fiz titulações, preparação de soluções e análises por espectrofotometria. No estágio no laboratório de águas fazia as análises de rotina e registava os resultados.",
+    "mistakes": [
+      "Só teoria.",
+      "Listar técnicas que só viste.",
+      "Não falar de registos."
+    ],
+    "area": "sciences",
+    "position": 89
+  },
+  {
+    "id": "sci-method",
+    "text": "Um resultado sai muito diferente do esperado. O que fazes?",
+    "goal": "Se tens rigor científico.",
+    "model": "Não o deito fora nem o corrijo. Verifico o equipamento, os reagentes e os cálculos e repito a análise. Se continuar, registo e falo com o responsável.",
+    "mistakes": [
+      "Apagar o resultado.",
+      "Inventar uma explicação.",
+      "Ignorar."
+    ],
+    "area": "sciences",
+    "position": 90
+  },
+  {
+    "id": "sci-safety",
+    "text": "Que regras de segurança segues no laboratório?",
+    "goal": "Se conheces as regras básicas.",
+    "model": "Bata, óculos e luvas sempre, nunca pipeto com a boca, leio a ficha de segurança dos reagentes e deito os resíduos no sítio certo.",
+    "mistakes": [
+      "Esquecer os resíduos.",
+      "Achar que é exagero.",
+      "Não saber o que é a ficha de segurança."
+    ],
+    "area": "sciences",
+    "position": 91
+  },
+  {
+    "id": "sci-teaching",
+    "text": "Estarias aberto a ensinar ou trabalhar fora do laboratório?",
+    "goal": "Se és flexível, porque as saídas em ciências são variadas.",
+    "model": "Sim. Gosto de investigar, mas também dei explicações de química e gostei. Vejo o ensino e a indústria como boas formas de usar o que aprendi.",
+    "mistakes": [
+      "Recusar qualquer outra coisa.",
+      "Mostrar desinteresse.",
+      "Não conhecer as saídas da área."
+    ],
+    "area": "sciences",
+    "position": 94
+  },
+  {
+    "id": "tech-bug",
+    "text": "Como fazes quando o código não funciona e não sabes porquê?",
+    "goal": "Se tens método para procurar erros e se pedes ajuda na hora certa.",
+    "model": "Primeiro leio a mensagem de erro e tento repetir o problema. Depois isolo a parte que falha, com prints ou o debugger. Se ao fim de uma hora não avanço, procuro na documentação e pergunto a um colega, dizendo o que já tentei.",
+    "mistakes": [
+      "\"Pergunto logo ao chefe.\"",
+      "\"Copio do ChatGPT até funcionar.\"",
+      "Não falar em testar a correção."
+    ],
+    "area": "technology",
+    "position": 16
+  },
+  {
+    "id": "tech-deadline",
+    "text": "O prazo é amanhã e a funcionalidade não está pronta. O que fazes?",
+    "goal": "Se comunicas cedo e sabes priorizar.",
+    "model": "Aviso logo o responsável, digo o que já está feito e o que falta, e proponho entregar a parte essencial a funcionar, deixando o resto para a versão seguinte.",
+    "mistakes": [
+      "Ficar calado até ao último momento.",
+      "Entregar sem testar.",
+      "Prometer que fica pronto sem saber."
+    ],
+    "area": "technology",
+    "position": 20
+  },
+  {
+    "id": "tech-explain",
+    "text": "Explica a alguém sem formação técnica o que é uma base de dados.",
+    "goal": "Se sabes comunicar com clientes e colegas de outras áreas.",
+    "model": "É como um caderno muito bem organizado onde a empresa guarda a informação, por exemplo os clientes e as compras. Em vez de folhear, o computador encontra o que pedimos em segundos.",
+    "mistakes": [
+      "Usar jargão.",
+      "Uma explicação longa e confusa.",
+      "Ser condescendente."
+    ],
+    "area": "technology",
+    "position": 18
+  },
+  {
+    "id": "tech-git",
+    "text": "Já trabalhaste com Git? Como?",
+    "goal": "Se sabes trabalhar em equipa num mesmo código.",
+    "model": "Uso Git em todos os projetos do curso. Crio um ramo para cada tarefa, faço commits pequenos com mensagens claras e peço a um colega para rever antes de juntar ao principal.",
+    "mistakes": [
+      "\"Só sei fazer upload no GitHub.\"",
+      "Dizer que sim sem saber explicar.",
+      "Nunca ter resolvido um conflito."
+    ],
+    "area": "technology",
+    "position": 21
+  },
+  {
+    "id": "tech-learn",
+    "text": "Como aprendes uma tecnologia nova?",
+    "goal": "Se consegues acompanhar uma área que muda depressa.",
+    "model": "Começo pela documentação oficial e por um tutorial curto, e logo a seguir faço um pequeno projeto meu. Foi assim que aprendi React: fiz uma lista de tarefas e depois um site para a associação de estudantes.",
+    "mistakes": [
+      "Só ver vídeos sem praticar.",
+      "Não dar um exemplo concreto.",
+      "Dizer que já sabes tudo."
+    ],
+    "area": "technology",
+    "position": 17
+  },
+  {
+    "id": "tech-project",
+    "text": "Fala-me de um projeto técnico de que te orgulhes.",
+    "goal": "O que já construíste e o que fizeste tu, ao certo.",
+    "model": "No último ano fiz com dois colegas uma aplicação web para marcar consultas numa clínica do bairro. Eu fiz a base de dados e o login, em PHP e MySQL. A clínica usou-a três meses e deixou de ter filas à porta.",
+    "mistakes": [
+      "Descrever a tecnologia sem dizer o problema que resolvia.",
+      "Não saber explicar a parte que fizeste.",
+      "Não ter o código no GitHub para mostrar."
+    ],
+    "area": "technology",
+    "position": 15
+  },
+  {
+    "id": "tech-security",
+    "text": "O que fazes se encontrares uma falha de segurança no sistema?",
+    "goal": "Se és responsável com dados e sistemas.",
+    "model": "Não a exploro nem a espalho. Aviso de imediato o responsável, por escrito, com os passos para a repetir, e ajudo a corrigir se me pedirem.",
+    "mistakes": [
+      "Dizer que testarias até onde vai.",
+      "Contar a colegas antes de avisar.",
+      "Ignorar porque \"não é comigo\"."
+    ],
+    "area": "technology",
+    "position": 19
+  }
+]

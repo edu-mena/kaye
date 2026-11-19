@@ -1,0 +1,49 @@
+import type { ButtonHTMLAttributes } from 'react'
+import { Link, type LinkProps } from 'react-router'
+
+type Variant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'onDark' | 'onDarkOutline'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
+
+type Style = { variant?: Variant; size?: Size; className?: string }
+
+const VARIANTS: Record<Variant, string> = {
+  primary: 'bg-blue text-white hover:bg-blue-dark',
+  secondary: 'border border-line bg-surface text-night hover:border-ash-300 hover:bg-ash-100',
+  ghost: 'text-night hover:bg-ash-100',
+  // Removing or deleting: a ghost button in coral. A text colour passed in `className` would lose to the variant's.
+  danger: 'text-coral hover:bg-coral/10',
+  // On dark surfaces (coal, night, photos): white, never gold or blue (docs/design.md, Cores).
+  onDark: 'bg-white text-night hover:bg-ash-100',
+  // The second action next to an onDark button: still white, only the outline.
+  onDarkOutline: 'border border-white/30 text-white hover:bg-white/10',
+}
+
+const SIZES: Record<Size, string> = {
+  xs: 'h-9 gap-1 px-2.5 text-xs',
+  sm: 'h-9 gap-2 px-4 text-sm',
+  md: 'h-11 gap-2 px-5 text-sm',
+  lg: 'h-13 gap-2 px-6 text-base',
+}
+
+function buttonClasses({ variant = 'primary', size = 'md', className = '' }: Style = {}) {
+  return [
+    'inline-flex shrink-0 items-center justify-center rounded-full font-semibold whitespace-nowrap',
+    'transition-[background-color,border-color,transform] duration-200 active:scale-[0.98]',
+    'disabled:pointer-events-none disabled:opacity-45',
+    VARIANTS[variant],
+    SIZES[size],
+    className,
+  ].join(' ')
+}
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Style
+
+export function Button({ variant, size, className, type = 'button', ...props }: ButtonProps) {
+  return <button type={type} className={buttonClasses({ variant, size, className })} {...props} />
+}
+
+type ButtonLinkProps = LinkProps & Style
+
+export function ButtonLink({ variant, size, className, ...props }: ButtonLinkProps) {
+  return <Link className={buttonClasses({ variant, size, className })} {...props} />
+}

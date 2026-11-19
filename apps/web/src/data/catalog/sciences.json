@@ -1,0 +1,638 @@
+{
+ "year": "2023/24",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  }
+ },
+ "institutions": [
+  {
+   "name": "Escola Superior Politécnica de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Comércio Internacional",
+     "students": 23,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior Técnica de Ciências do Desporto",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Biotecnologia",
+     "students": 65,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Católico do Lubango",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Ciências da Comunicação",
+     "students": 69,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Língua Portuguesa e Comunicação",
+     "students": 168,
+     "graduates": 2
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 102,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Católico do Huambo",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Língua Inglesa",
+     "students": 56,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Gregório Semedo",
+   "nature": "privada",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 310,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Independente",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Ciências da Comunicação",
+     "students": 201,
+     "graduates": 25
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Internacional de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Social e Imagem",
+     "students": 185,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Metropolitano",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Jornalismo",
+     "students": 312,
+     "graduates": 0
+    },
+    {
+     "name": "Cinema e Televisão",
+     "students": 119,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Ndunduma",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Ciências Biológicas",
+     "students": 59,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado de Menongue",
+   "nature": "privada",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 190,
+     "graduates": 12
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Kilamba",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 78,
+     "graduates": 3
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Uíge",
+   "nature": "privada",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 86,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tocoísta",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Estatística",
+     "students": 22,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tundavala",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 26,
+     "graduates": 2
+    },
+    {
+     "name": "Design",
+     "students": 17,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Ciências da Comunicação",
+     "students": 273,
+     "graduates": 39
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 452,
+     "graduates": 144
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuito",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 41,
+     "graduates": 7
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Soyo",
+   "nature": "publica",
+   "province": "Zaire",
+   "courses": [
+    {
+     "name": "Sistemas de Informação",
+     "students": 153,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Técnico de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 324,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 245,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências de Educação de Cabinda",
+   "nature": "publica",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Biologia",
+     "students": 245,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Língua e Literaturas em Lingua Portuguesa",
+     "students": 604,
+     "graduates": 92
+    },
+    {
+     "name": "Matemática",
+     "students": 470,
+     "graduates": 20
+    },
+    {
+     "name": "Língua e Literaturas em Lingua Inglesa",
+     "students": 382,
+     "graduates": 74
+    },
+    {
+     "name": "Biologia",
+     "students": 282,
+     "graduates": 17
+    },
+    {
+     "name": "Comunicação Social",
+     "students": 276,
+     "graduates": 94
+    },
+    {
+     "name": "Física",
+     "students": 272,
+     "graduates": 17
+    },
+    {
+     "name": "Língua e Literaturas Africanas",
+     "students": 238,
+     "graduates": 0
+    },
+    {
+     "name": "Língua e Literaturas em Lingua Francesa",
+     "students": 197,
+     "graduates": 10
+    },
+    {
+     "name": "Química",
+     "students": 132,
+     "graduates": 11
+    },
+    {
+     "name": "Metereologia",
+     "students": 43,
+     "graduates": 0
+    },
+    {
+     "name": "Línguas e Literaturas Africanas",
+     "students": 0,
+     "graduates": 56
+    }
+   ]
+  },
+  {
+   "name": "Universidade Católica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Línguas e Administração",
+     "students": 0,
+     "graduates": 13
+    }
+   ]
+  },
+  {
+   "name": "Universidade Gregório Semedo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Empresarial e Línguas",
+     "students": 0,
+     "graduates": 9
+    }
+   ]
+  },
+  {
+   "name": "Universidade Independente de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências da Comunicação",
+     "students": 0,
+     "graduates": 196
+    }
+   ]
+  },
+  {
+   "name": "Universidade Mandume Ya Ndemufayo",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Biologia",
+     "students": 325,
+     "graduates": 60
+    },
+    {
+     "name": "Desenho",
+     "students": 138,
+     "graduates": 25
+    },
+    {
+     "name": "Hidráulica",
+     "students": 109,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Metodista de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Biologia",
+     "students": 0,
+     "graduates": 24
+    },
+    {
+     "name": "Língua Portuguesa e Comunicação",
+     "students": 0,
+     "graduates": 76
+    }
+   ]
+  },
+  {
+   "name": "Universidade Privada de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "students": 0,
+     "graduates": 22
+    }
+   ]
+  },
+  {
+   "name": "Universidade Rainha Njinga a Mbande",
+   "nature": "publica",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Ciência dos Alimentos",
+     "students": 23,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Técnica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Língua Inglesa",
+     "students": 0,
+     "graduates": 5
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Luanda",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Artes Visuais",
+     "students": 131,
+     "graduates": 1
+    },
+    {
+     "name": "Design e Moda",
+     "students": 119,
+     "graduates": 0
+    },
+    {
+     "name": "Teatro",
+     "students": 104,
+     "graduates": 3
+    },
+    {
+     "name": "Música",
+     "students": 102,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Universidade do Namibe",
+   "nature": "publica",
+   "province": "Namibe",
+   "courses": [
+    {
+     "name": "Oceanografia",
+     "students": 171,
+     "graduates": 0
+    },
+    {
+     "name": "Navegação",
+     "students": 104,
+     "graduates": 0
+    }
+   ]
+  }
+ ],
+ "training": [
+  {
+   "name": "Centro de Formação de Jornalistas (CEFOJOR)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "O centro de formação de jornalistas do Estado, desde 2002: mais de 50 cursos curtos de jornalismo, multimédia, cinema, relações públicas e publicidade, em Luanda e no Huambo.",
+   "source": {
+    "label": "CEFOJOR, Sobre nós",
+    "url": "https://cefojor.ao/sobre-nos/"
+   }
+  }
+ ],
+ "employers": [
+  {
+   "name": "Televisão Pública de Angola (TPA)",
+   "sector": "comunicacao",
+   "kind": "televisao",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://tpa.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Rádio Nacional de Angola (RNA)",
+   "sector": "comunicacao",
+   "kind": "radio",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.rna.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Agência Angola Press (ANGOP)",
+   "sector": "comunicacao",
+   "kind": "agencia",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.angop.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Jornal de Angola (Edições Novembro)",
+   "sector": "comunicacao",
+   "kind": "jornal",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.jornaldeangola.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Entidade Reguladora da Comunicação Social de Angola (ERCA)",
+   "sector": "estado",
+   "kind": "regulador",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://erca.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Ministério das Telecomunicações, Tecnologias de Informação e Comunicação Social (MINTTICS)",
+   "sector": "estado",
+   "kind": "comunicacao_social",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://minttics.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Ministério da Cultura",
+   "sector": "estado",
+   "kind": "cultura",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://mincult.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Ministério do Ensino Superior, Ciência, Tecnologia e Inovação (MESCTI)",
+   "sector": "estado",
+   "kind": "ciencia",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://mescti.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Centro Nacional de Investigação Científica (CNIC)",
+   "sector": "estado",
+   "kind": "investigacao_cientifica",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://cnic.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Gabinete de Gestão do Programa Espacial Nacional (GGPEN)",
+   "sector": "estado",
+   "kind": "espacial",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.ggpen.gov.ao"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional da Biodiversidade e Áreas de Conservação (INBAC)",
+   "sector": "estado",
+   "kind": "biodiversidade",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.inbac.gov.ao"
+   },
+   "province": "Luanda"
+  }
+ ]
+}

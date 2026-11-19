@@ -21,17 +21,17 @@ class SecurityHeaders
         'X-Content-Type-Options' => 'nosniff',
         'X-Frame-Options' => 'DENY',
         'Referrer-Policy' => 'strict-origin-when-cross-origin',
-        'Permissions-Policy' => 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+        'Permissions-Policy' => 'camera=(), microphone=(self), geolocation=(), payment=(), usb=(), interest-cohort=()',
         // Allows the Google sign-in popup to talk back to the page.
         'Cross-Origin-Opener-Policy' => 'same-origin-allow-popups',
     ];
 
     /**
-     * React app: only our own files, no inline code.
+     * React app: only our own files, no inline code. The service worker and the manifest are ours too (the PWA).
      */
     private const CSP_APP = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
-        ."font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; "
-        ."frame-ancestors 'none'";
+        ."font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; "
+        ."base-uri 'self'; form-action 'self'; frame-ancestors 'none'";
 
     /**
      * Admin panel: Livewire and Alpine need inline scripts and eval. Accepted

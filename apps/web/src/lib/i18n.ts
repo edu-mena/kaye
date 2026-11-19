@@ -1,7 +1,5 @@
 import { createInstance } from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { en } from '../locales/en'
-import { fr } from '../locales/fr'
 import { pt, type Messages } from '../locales/pt'
 
 export const LOCALES = ['pt', 'en', 'fr'] as const
@@ -40,13 +38,39 @@ function initialLocale(): Locale {
   return isLocale(device) ? device : 'pt'
 }
 
-export function changeLocale(locale: Locale) {
-  void i18n.changeLanguage(locale)
+// Portuguese ships with the app; English and French are fetched only by those who pick them.
+const LOADERS: Record<Exclude<Locale, 'pt'>, () => Promise<Messages>> = {
+  en: () => import('../locales/en').then((module) => module.en),
+  fr: () => import('../locales/fr').then((module) => module.fr),
+}
+
+async function load(locale: Locale) {
+  if (locale === 'pt' || i18n.hasResourceBundle(locale, 'translation')) return
+  i18n.addResourceBundle(locale, 'translation', await LOADERS[locale]())
+}
+
+export async function changeLocale(locale: Locale) {
   try {
     localStorage.setItem(STORAGE_KEY, locale)
   } catch {
     // Not critical: the choice just won't survive a reload.
   }
+  await load(locale)
+  await i18n.changeLanguage(locale)
+}
+
+/**
+ * A shared page in the sender's language (/familia), unless whoever opens it already chose one. Not saved:
+ * the next visit to the app starts as before.
+ */
+export async function followLocale(locale: Locale) {
+  try {
+    if (isLocale(localStorage.getItem(STORAGE_KEY))) return
+  } catch {
+    // Storage blocked: follow the link.
+  }
+  await load(locale)
+  await i18n.changeLanguage(locale)
 }
 
 i18n.on('languageChanged', (lng) => {
@@ -54,12 +78,20 @@ i18n.on('languageChanged', (lng) => {
 })
 
 void i18n.use(initReactI18next).init({
-  resources: {
-    pt: { translation: pt },
-    en: { translation: en },
-    fr: { translation: fr },
-  },
-  lng: initialLocale(),
+  resources: { pt: { translation: pt } },
+  lng: 'pt',
   fallbackLng: 'pt',
   interpolation: { escapeValue: false },
 })
+
+/** Resolves once the person's language is loaded; the app waits for it before its first paint. */
+export const i18nReady: Promise<void> = (async () => {
+  const first = initialLocale()
+  if (first === 'pt') return
+  try {
+    await load(first)
+    await i18n.changeLanguage(first)
+  } catch {
+    // Offline before the language arrived: Portuguese until the next load.
+  }
+})()

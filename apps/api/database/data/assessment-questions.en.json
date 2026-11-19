@@ -1,0 +1,254 @@
+[
+  {
+    "id": "A1",
+    "dimension": "A",
+    "text": "drawing, painting or making crafts",
+    "position": 2
+  },
+  {
+    "id": "A2",
+    "dimension": "A",
+    "text": "singing, dancing or playing an instrument",
+    "position": 8
+  },
+  {
+    "id": "A3",
+    "dimension": "A",
+    "text": "writing stories, poems or song lyrics",
+    "position": 14
+  },
+  {
+    "id": "A4",
+    "dimension": "A",
+    "text": "taking photos or making videos that tell a story",
+    "position": 20
+  },
+  {
+    "id": "A5",
+    "dimension": "A",
+    "text": "designing clothes, hairstyles or make-up",
+    "position": 26
+  },
+  {
+    "id": "A6",
+    "dimension": "A",
+    "text": "decorating a room, a shop window or a party",
+    "position": 32
+  },
+  {
+    "id": "A7",
+    "dimension": "A",
+    "text": "imagining what an app screen should look like",
+    "position": 38
+  },
+  {
+    "id": "C1",
+    "dimension": "C",
+    "text": "keeping the accounts of a business",
+    "position": 5
+  },
+  {
+    "id": "C2",
+    "dimension": "C",
+    "text": "organising documents and records",
+    "position": 11
+  },
+  {
+    "id": "C3",
+    "dimension": "C",
+    "text": "recording what comes in and goes out of a warehouse",
+    "position": 17
+  },
+  {
+    "id": "C4",
+    "dimension": "C",
+    "text": "filling in forms and following the rules carefully",
+    "position": 23
+  },
+  {
+    "id": "C5",
+    "dimension": "C",
+    "text": "checking a piece of work until there are no mistakes",
+    "position": 29
+  },
+  {
+    "id": "C6",
+    "dimension": "C",
+    "text": "planning timetables, shifts or a trip in detail",
+    "position": 35
+  },
+  {
+    "id": "C7",
+    "dimension": "C",
+    "text": "organising data in an Excel sheet",
+    "position": 41
+  },
+  {
+    "id": "E1",
+    "dimension": "E",
+    "text": "selling at the market or online",
+    "position": 4
+  },
+  {
+    "id": "E2",
+    "dimension": "E",
+    "text": "leading a group and making decisions",
+    "position": 10
+  },
+  {
+    "id": "E3",
+    "dimension": "E",
+    "text": "starting and growing your own business",
+    "position": 16
+  },
+  {
+    "id": "E4",
+    "dimension": "E",
+    "text": "persuading someone to back one of your ideas",
+    "position": 22
+  },
+  {
+    "id": "E5",
+    "dimension": "E",
+    "text": "negotiating a price or a deal",
+    "position": 28
+  },
+  {
+    "id": "E6",
+    "dimension": "E",
+    "text": "standing up for someone in an argument or in court",
+    "position": 34
+  },
+  {
+    "id": "E7",
+    "dimension": "E",
+    "text": "speaking in public, on the radio or at an event",
+    "position": 40
+  },
+  {
+    "id": "I1",
+    "dimension": "I",
+    "text": "finding out why someone fell ill",
+    "position": 1
+  },
+  {
+    "id": "I2",
+    "dimension": "I",
+    "text": "doing experiments in a lab",
+    "position": 7
+  },
+  {
+    "id": "I3",
+    "dimension": "I",
+    "text": "working out why a harvest went wrong",
+    "position": 13
+  },
+  {
+    "id": "I4",
+    "dimension": "I",
+    "text": "looking at numbers to understand what is going on",
+    "position": 19
+  },
+  {
+    "id": "I5",
+    "dimension": "I",
+    "text": "investigating a case until you find the truth",
+    "position": 25
+  },
+  {
+    "id": "I6",
+    "dimension": "I",
+    "text": "researching the history of Angola and other peoples",
+    "position": 31
+  },
+  {
+    "id": "I7",
+    "dimension": "I",
+    "text": "solving a logic or coding puzzle",
+    "position": 37
+  },
+  {
+    "id": "R1",
+    "dimension": "R",
+    "text": "looking after plants, a vegetable garden or animals",
+    "position": 0
+  },
+  {
+    "id": "R2",
+    "dimension": "R",
+    "text": "fixing a motorbike, a generator or a water pump",
+    "position": 6
+  },
+  {
+    "id": "R3",
+    "dimension": "R",
+    "text": "building things with your hands, like a piece of furniture or a wall",
+    "position": 12
+  },
+  {
+    "id": "R4",
+    "dimension": "R",
+    "text": "wiring a house or fitting the plumbing",
+    "position": 18
+  },
+  {
+    "id": "R5",
+    "dimension": "R",
+    "text": "driving, loading and delivering goods",
+    "position": 24
+  },
+  {
+    "id": "R6",
+    "dimension": "R",
+    "text": "cooking for many people in a real kitchen",
+    "position": 30
+  },
+  {
+    "id": "R7",
+    "dimension": "R",
+    "text": "putting together or fixing a computer or a phone",
+    "position": 36
+  },
+  {
+    "id": "S1",
+    "dimension": "S",
+    "text": "caring for someone who is ill",
+    "position": 3
+  },
+  {
+    "id": "S2",
+    "dimension": "S",
+    "text": "helping a classmate study",
+    "position": 9
+  },
+  {
+    "id": "S3",
+    "dimension": "S",
+    "text": "listening to a friend’s problems and giving advice",
+    "position": 15
+  },
+  {
+    "id": "S4",
+    "dimension": "S",
+    "text": "teaching children",
+    "position": 21
+  },
+  {
+    "id": "S5",
+    "dimension": "S",
+    "text": "organising activities in your neighbourhood, church or club",
+    "position": 27
+  },
+  {
+    "id": "S6",
+    "dimension": "S",
+    "text": "welcoming and guiding the people who come to a service",
+    "position": 33
+  },
+  {
+    "id": "S7",
+    "dimension": "S",
+    "text": "showing someone how to use a phone or a computer",
+    "position": 39
+  }
+]

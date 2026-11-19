@@ -1,0 +1,790 @@
+import type { Career, CareerSummary, PathwayStep } from '../types'
+import { riasec, summary } from './careerSummary'
+import { BUSINESS_CAREERS } from './businessCareers'
+import { BUSINESS_GUIDES } from './businessGuides'
+import { COMMUNICATION_GUIDES } from './communicationGuides'
+import { EDUCATION_GUIDES } from './educationGuides'
+import { LAST_AREAS_GUIDES } from './lastAreasGuides'
+import { LEGAL_GUIDES } from './legalGuides'
+import { PUBLIC_GUIDES } from './publicGuides'
+import { SCIENCES_GUIDES } from './sciencesGuides'
+import { ENGINEERING_GUIDES } from './engineeringGuides'
+import { HEALTH_CAREERS } from './healthCareers'
+import { HUMANITIES_CAREERS } from './humanitiesCareers'
+import { MEDICINE_GUIDES } from './medicineGuides'
+import { NURSING_GUIDES } from './nursingGuides'
+import { OFFSHORE_CAREERS, OFFSHORE_GUIDES } from './offshoreTrades'
+import { OIL_MINING_GUIDES } from './oilMiningGuides'
+import { PROJECT_CAREERS, PROJECT_GUIDES } from './projectManagement'
+import { DIAGNOSIS_GUIDES } from './diagnosisGuides'
+import { PHARMACY_GUIDES } from './pharmacyGuides'
+import { REHABILITATION_GUIDES } from './rehabilitationGuides'
+import { ORAL_HEALTH_GUIDES } from './oralHealthGuides'
+import { PUBLIC_HEALTH_GUIDES } from './publicHealthGuides'
+import { MENTAL_HEALTH_GUIDES } from './mentalHealthGuides'
+import { SCIENCES_CAREERS } from './sciencesCareers'
+import { market, SALARY, TECH_GUIDES } from './technologyGuides'
+import { EDUCATION_CAREERS } from './educationCareers'
+import { ENGINEERING_CAREERS } from './engineeringCareers'
+import { OIL_MINING_CAREERS } from './oilMiningCareers'
+import { AGRICULTURE_CAREERS } from './agricultureCareers'
+import { LOGISTICS_CAREERS } from './logisticsCareers'
+import { HOSPITALITY_CAREERS } from './hospitalityCareers'
+import { TRADE_CAREERS, TRADE_GUIDES } from './tradeCareers'
+
+// Profiles approximate O*NET interest profiles. Demand reads the job ads; the salaries are in the guides
+// (technologyGuides.ts).
+
+const TECH_CAREERS: CareerSummary[] = [
+  summary(
+    'desenvolvedor-frontend',
+    'Desenvolvedor Frontend',
+    'desenvolvimento',
+    'Constrói os ecrãs de sites e apps: o que as pessoas veem e tocam.',
+    riasec(0.3, 0.75, 0.55, 0.25, 0.3, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'desenvolvedor-backend',
+    'Desenvolvedor Backend',
+    'desenvolvimento',
+    'Programa o que corre nos servidores: dados, regras e segurança.',
+    riasec(0.4, 0.85, 0.25, 0.2, 0.25, 0.6),
+    'baixa',
+    null,
+  ),
+  summary(
+    'desenvolvedor-full-stack',
+    'Desenvolvedor Full-stack',
+    'desenvolvimento',
+    'Faz o frontend e o backend de um produto, de ponta a ponta.',
+    riasec(0.35, 0.8, 0.4, 0.2, 0.3, 0.55),
+    'media',
+    null,
+  ),
+  summary(
+    'desenvolvedor-mobile',
+    'Desenvolvedor Mobile',
+    'desenvolvimento',
+    'Cria apps para Android e iPhone.',
+    riasec(0.35, 0.8, 0.5, 0.2, 0.3, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'engenheiro-de-qa',
+    'Engenheiro de QA e Testes',
+    'desenvolvimento',
+    'Encontra os erros antes dos utilizadores e automatiza testes.',
+    riasec(0.35, 0.7, 0.15, 0.3, 0.2, 0.8),
+    'baixa',
+    null,
+  ),
+  summary(
+    'analista-de-dados',
+    'Analista de Dados',
+    'dados',
+    'Transforma números em respostas para quem decide.',
+    riasec(0.2, 0.85, 0.2, 0.3, 0.35, 0.75),
+    'media',
+    null,
+  ),
+  summary(
+    'analista-de-bi',
+    'Analista de BI',
+    'dados',
+    'Cria painéis e relatórios que mostram como vai o negócio.',
+    riasec(0.2, 0.7, 0.25, 0.3, 0.5, 0.75),
+    'baixa',
+    null,
+  ),
+  summary(
+    'cientista-de-dados',
+    'Cientista de Dados',
+    'dados',
+    'Usa estatística e modelos para prever e explicar.',
+    riasec(0.3, 0.95, 0.35, 0.2, 0.3, 0.55),
+    'baixa',
+    null,
+  ),
+  summary(
+    'engenheiro-de-dados',
+    'Engenheiro de Dados',
+    'dados',
+    'Constrói os sistemas que recolhem e organizam os dados.',
+    riasec(0.5, 0.8, 0.2, 0.15, 0.25, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'administrador-de-base-de-dados',
+    'Administrador de Base de Dados',
+    'dados',
+    'Mantém as bases de dados rápidas, seguras e sem perdas.',
+    riasec(0.45, 0.65, 0.1, 0.15, 0.2, 0.85),
+    'media',
+    null,
+  ),
+  summary(
+    'administrador-de-sistemas',
+    'Administrador de Sistemas',
+    'infraestrutura',
+    'Mantém servidores e sistemas a funcionar todos os dias.',
+    riasec(0.7, 0.65, 0.1, 0.25, 0.2, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'administrador-de-redes',
+    'Administrador de Redes',
+    'infraestrutura',
+    'Liga computadores, escritórios e pessoas à rede.',
+    riasec(0.75, 0.65, 0.1, 0.25, 0.2, 0.65),
+    'alta',
+    null,
+  ),
+  summary(
+    'engenheiro-devops',
+    'Engenheiro DevOps e Cloud',
+    'infraestrutura',
+    'Automatiza a forma como o software é testado e publicado.',
+    riasec(0.65, 0.75, 0.15, 0.2, 0.3, 0.6),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-suporte',
+    'Técnico de Suporte',
+    'infraestrutura',
+    'Resolve os problemas técnicos das pessoas, ao vivo.',
+    riasec(0.7, 0.5, 0.1, 0.65, 0.25, 0.6),
+    'alta',
+    null,
+  ),
+  summary(
+    'tecnico-de-hardware',
+    'Técnico de Manutenção de Hardware',
+    'infraestrutura',
+    'Monta, repara e mantém computadores e equipamentos.',
+    riasec(0.9, 0.5, 0.15, 0.3, 0.2, 0.5),
+    'media',
+    null,
+  ),
+  summary(
+    'analista-de-ciberseguranca',
+    'Analista de Cibersegurança',
+    'seguranca',
+    'Protege sistemas e dados contra ataques.',
+    riasec(0.5, 0.85, 0.15, 0.2, 0.3, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-telecomunicacoes',
+    'Técnico de Telecomunicações',
+    'telecomunicacoes',
+    'Instala e mantém antenas, fibra e equipamentos de rede.',
+    riasec(0.85, 0.55, 0.1, 0.25, 0.2, 0.55),
+    'baixa',
+    null,
+  ),
+  summary(
+    'engenheiro-de-telecomunicacoes',
+    'Engenheiro de Telecomunicações',
+    'telecomunicacoes',
+    'Desenha as redes que levam voz e internet ao país.',
+    riasec(0.7, 0.8, 0.15, 0.2, 0.35, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'designer-ui-ux',
+    'Designer UI/UX',
+    'design',
+    'Desenha apps fáceis de usar, a partir do que as pessoas precisam.',
+    riasec(0.15, 0.6, 0.85, 0.5, 0.35, 0.3),
+    'baixa',
+    null,
+  ),
+  summary(
+    'designer-grafico',
+    'Designer Gráfico e Multimédia',
+    'design',
+    'Cria imagens, vídeos e marcas que comunicam.',
+    riasec(0.3, 0.3, 0.95, 0.3, 0.4, 0.2),
+    'alta',
+    null,
+  ),
+  summary(
+    'analista-de-sistemas',
+    'Analista de Sistemas e Negócio',
+    'gestao',
+    'Traduz o que o negócio precisa em sistemas que funcionam.',
+    riasec(0.2, 0.7, 0.2, 0.5, 0.6, 0.6),
+    'media',
+    null,
+  ),
+  summary(
+    'gestor-de-projetos-de-ti',
+    'Gestor de Projetos de TI',
+    'gestao',
+    'Organiza pessoas, prazos e orçamentos para entregar projetos.',
+    riasec(0.15, 0.45, 0.2, 0.6, 0.85, 0.65),
+    'baixa',
+    null,
+  ),
+  summary(
+    'product-manager',
+    'Product Manager',
+    'gestao',
+    'Decide o que um produto digital deve fazer e porquê.',
+    riasec(0.1, 0.6, 0.45, 0.55, 0.85, 0.4),
+    'baixa',
+    null,
+  ),
+  summary(
+    'gestor-de-ti',
+    'Gestor de TI',
+    'gestao',
+    'Dirige a tecnologia de uma empresa e a sua equipa.',
+    riasec(0.2, 0.5, 0.15, 0.45, 0.85, 0.6),
+    'baixa',
+    null,
+  ),
+  summary(
+    'comercial-de-ti',
+    'Comercial de TI',
+    'gestao',
+    'Vende soluções de tecnologia e acompanha os clientes.',
+    riasec(0.1, 0.35, 0.2, 0.65, 0.9, 0.4),
+    'baixa',
+    null,
+  ),
+  summary(
+    'formador-de-tic',
+    'Formador de TIC',
+    'educacao',
+    'Ensina tecnologia a jovens e adultos.',
+    riasec(0.25, 0.55, 0.45, 0.9, 0.4, 0.35),
+    'baixa',
+    null,
+  ),
+  summary(
+    'gestor-de-marketing-digital',
+    'Gestor de Marketing Digital',
+    'digital',
+    'Faz marcas crescerem nas redes sociais e na internet.',
+    riasec(0.1, 0.4, 0.7, 0.55, 0.8, 0.4),
+    'alta',
+    null,
+  ),
+]
+
+/** Every career of the catalogue, area by area. */
+export const CAREER_SUMMARIES: CareerSummary[] = [
+  ...TECH_CAREERS,
+  ...HEALTH_CAREERS,
+  ...BUSINESS_CAREERS,
+  ...PROJECT_CAREERS,
+  ...HUMANITIES_CAREERS,
+  ...SCIENCES_CAREERS,
+  ...EDUCATION_CAREERS,
+  ...ENGINEERING_CAREERS,
+  ...OIL_MINING_CAREERS,
+  ...OFFSHORE_CAREERS,
+  ...AGRICULTURE_CAREERS,
+  ...LOGISTICS_CAREERS,
+  ...HOSPITALITY_CAREERS,
+  ...TRADE_CAREERS,
+]
+
+function base(slug: string): CareerSummary {
+  const found = CAREER_SUMMARIES.find((career) => career.slug === slug)
+  if (!found) throw new Error(`Unknown demo career ${slug}`)
+  return { ...found, detailed: true }
+}
+
+const portfolio = (description: string): PathwayStep => ({
+  kind: 'portfolio',
+  title: '3 projetos publicados',
+  need: 'essencial',
+  description,
+  months: { min: 3, max: 6 },
+})
+
+const secondary: PathwayStep = {
+  kind: 'academico',
+  level: 'ii_ciclo',
+  title: 'Ensino médio concluído',
+  need: 'essencial',
+  description: '12.ª classe. Ciências Físicas e Biológicas ou Económicas e Jurídicas abrem mais portas.',
+  months: null,
+}
+
+export const CAREERS: Career[] = [
+  {
+    ...base('desenvolvedor-frontend'),
+    description:
+      'Transforma o desenho de um ecrã em código que funciona em qualquer browser e telemóvel. Trabalha com designers, que dizem como deve parecer, e com programadores backend, que tratam dos dados. Em Angola trabalha em bancos, operadoras, agências digitais e startups, muitas vezes em equipas pequenas onde também faz um pouco de backend.',
+    dayToDay: [
+      'Transformar desenhos do Figma em ecrãs com HTML, CSS e JavaScript',
+      'Ligar os ecrãs à API para mostrar dados reais',
+      'Corrigir erros que só aparecem em certos telemóveis',
+      'Rever o código dos colegas e aprender com as revisões ao seu',
+      'Tornar a app mais leve para quem tem dados móveis caros',
+    ],
+    workContext: [
+      { label: 'Ambiente', value: 'Escritório ou remoto' },
+      { label: 'Horário', value: 'Normal, com picos antes de lançamentos' },
+      { label: 'Equipa', value: 'Design, backend e produto' },
+      { label: 'Viagens', value: 'Raras' },
+    ],
+    workStyles: [
+      'Atenção ao detalhe',
+      'Vontade de aprender sempre',
+      'Paciência com problemas difíceis',
+      'Explicar a quem não é técnico',
+      'Sentido estético',
+    ],
+    cvGuide: {
+      template: 'classico',
+      include: [
+        'Links do GitHub e de projetos publicados, logo no topo',
+        'Cada experiência com função, empresa, duração e o que fizeste, com um resultado',
+        'Projetos ligados à área, com a tecnologia usada e onde se veem',
+        'Só competências que consegues mostrar numa entrevista',
+      ],
+      avoid: [
+        'Foto e elementos que distraem: ícones, barras de nível, cores fortes',
+        'Experiências sem ligação à área, sem dizer o que transita',
+        'Listas de tecnologias que nunca usaste num projeto',
+      ],
+    },
+    skills: [
+      { id: 'html-css', name: 'HTML e CSS', importance: 'essencial' },
+      { id: 'javascript', name: 'JavaScript', importance: 'essencial' },
+      { id: 'react', name: 'React', importance: 'essencial' },
+      { id: 'git', name: 'Git', importance: 'essencial' },
+      { id: 'apis-rest', name: 'Consumir APIs REST', importance: 'essencial' },
+      { id: 'design-responsivo', name: 'Design responsivo', importance: 'essencial' },
+      { id: 'typescript', name: 'TypeScript', importance: 'opcional' },
+      { id: 'testes-automaticos', name: 'Testes automáticos', importance: 'opcional' },
+      { id: 'acessibilidade', name: 'Acessibilidade', importance: 'opcional' },
+      { id: 'figma', name: 'Figma', importance: 'opcional' },
+    ],
+    employerAsks: null,
+    pathways: [
+      {
+        id: 'universitaria',
+        name: 'Via universitária',
+        summary: 'A mais pedida pelas empresas grandes. Mais longa e mais cara.',
+        steps: [
+          secondary,
+          {
+            kind: 'academico',
+            level: 'licenciatura',
+            title: 'Licenciatura em Engenharia Informática',
+            need: 'recomendado',
+            description: 'Ou Ciências da Computação. Dá a base de programação, algoritmos e bases de dados.',
+            months: { min: 48, max: 60 },
+          },
+          portfolio('Um site pessoal, uma app que usa uma API e um contributo num projeto de equipa.'),
+          {
+            kind: 'experiencia',
+            title: 'Estágio profissional',
+            need: 'recomendado',
+            description: 'Muitas empresas contratam os estagiários que correm bem.',
+            months: { min: 3, max: 6 },
+          },
+        ],
+        totalCost: null,
+      },
+      {
+        id: 'tecnica',
+        name: 'Via técnica',
+        summary: 'Mais rápida e mais barata: entras no mercado mais cedo.',
+        steps: [
+          {
+            kind: 'academico',
+            level: 'i_ciclo',
+            title: '9.ª classe concluída',
+            need: 'essencial',
+            description: 'É o que pede a entrada no ensino médio técnico.',
+            months: null,
+          },
+          {
+            kind: 'academico',
+            level: 'medio_tecnico',
+            title: 'Ensino médio técnico em Informática',
+            need: 'essencial',
+            description: 'Num instituto médio politécnico. Termina na 13.ª classe, com estágio.',
+            months: { min: 48, max: 48 },
+          },
+          {
+            kind: 'formacao',
+            title: 'Curso profissional de desenvolvimento web',
+            need: 'opcional',
+            selfTaught: true,
+            certificate: 'opcional',
+            description: 'Num centro de formação reconhecido, com React e projetos reais.',
+            months: { min: 4, max: 6 },
+          },
+          portfolio('Três ecrãs completos, publicados e com o código no GitHub.'),
+          {
+            kind: 'experiencia',
+            title: 'Primeiro emprego júnior ou trabalhos freelance',
+            need: 'recomendado',
+            description: 'Pequenos sites para negócios locais contam como experiência.',
+            months: { min: 6, max: 12 },
+          },
+        ],
+        totalCost: null,
+      },
+      {
+        id: 'autodidata',
+        name: 'Via autodidata',
+        summary:
+          'Aprendes sozinho, com cursos online e muita prática. O que conta é saber fazer e mostrar um bom portfólio.',
+        steps: [
+          {
+            ...secondary,
+            need: 'recomendado',
+            description:
+              'A maioria das empresas pede a 12.ª classe, mas um portfólio forte abre portas mesmo sem ela.',
+          },
+          {
+            kind: 'formacao',
+            title: 'Aprender HTML, CSS, JavaScript e React',
+            need: 'essencial',
+            selfTaught: true,
+            certificate: 'opcional',
+            description:
+              'Com cursos online gratuitos, vídeos e a documentação oficial, ou num centro de formação se preferires ter um professor.',
+            months: { min: 6, max: 12 },
+          },
+          portfolio(
+            'Três projetos reais e publicados, com o código no GitHub: é o que decide numa entrevista.',
+          ),
+          {
+            kind: 'experiencia',
+            title: 'Trabalhos freelance ou estágio',
+            need: 'recomendado',
+            description: 'Sites para negócios locais ou associações contam como experiência.',
+            months: { min: 3, max: 9 },
+          },
+        ],
+        totalCost: null,
+      },
+    ],
+    stages: [
+      {
+        level: 'estagio',
+        title: 'Estagiário',
+        years: { min: 0, max: 1 },
+        responsibilities: ['Corrige pequenos erros', 'Faz ecrãs simples com ajuda'],
+      },
+      {
+        level: 'junior',
+        title: 'Frontend Júnior',
+        years: { min: 0, max: 2 },
+        responsibilities: ['Constrói ecrãs completos', 'Pede revisão de tudo o que faz'],
+      },
+      {
+        level: 'pleno',
+        title: 'Frontend Pleno',
+        years: { min: 2, max: 5 },
+        responsibilities: ['Organiza o código de uma funcionalidade inteira', 'Ajuda os júniores'],
+      },
+      {
+        level: 'senior',
+        title: 'Frontend Sénior',
+        years: { min: 5, max: null },
+        responsibilities: ['Define a arquitetura do frontend', 'Responde pela qualidade e pela velocidade'],
+      },
+      {
+        level: 'lideranca',
+        title: 'Líder técnico',
+        years: { min: 8, max: null },
+        responsibilities: ['Orienta a equipa', 'Escolhe tecnologias com o negócio'],
+      },
+    ],
+    market: market(1, SALARY.software, ['Banca', 'Telecomunicações', 'Agências digitais', 'Startups']),
+  },
+  {
+    ...base('analista-de-dados'),
+    description:
+      'Junta dados de vendas, clientes ou operações, limpa-os e procura respostas: o que está a crescer, o que está a falhar, onde investir. Mostra o resultado em gráficos e relatórios que um diretor percebe em dois minutos. Em Angola é muito pedido na banca, nos seguros, nas telecomunicações e no retalho.',
+    dayToDay: [
+      'Escrever consultas em SQL para tirar os dados certos',
+      'Limpar folhas de cálculo com erros e duplicados',
+      'Criar painéis no Power BI para as equipas acompanharem resultados',
+      'Explicar a um gestor o que os números querem dizer',
+      'Verificar se uma mudança no negócio funcionou mesmo',
+    ],
+    workContext: [
+      { label: 'Ambiente', value: 'Escritório, cada vez mais híbrido' },
+      { label: 'Horário', value: 'Normal, com fechos de mês exigentes' },
+      { label: 'Equipa', value: 'Negócio, finanças e TI' },
+      { label: 'Viagens', value: 'Raras' },
+    ],
+    workStyles: [
+      'Rigor com os números',
+      'Curiosidade',
+      'Pensamento crítico',
+      'Contar uma história com dados',
+      'Organização',
+    ],
+    cvGuide: {
+      template: 'europeu',
+      include: [
+        'As ferramentas (SQL, Power BI, Excel) com um exemplo de uso cada',
+        'Resultados com números: quem usou a análise e o que mudou',
+        'Um projeto com dados públicos angolanos (INE, BNA)',
+        'Certificações, se as tiveres: ajudam, mas não são obrigatórias',
+      ],
+      avoid: [
+        'Gráficos e barras de nível dentro do próprio CV',
+        'Jargão estatístico sem explicar o resultado',
+        'Foto, a não ser que a vaga a peça',
+      ],
+    },
+    skills: [
+      { id: 'excel', name: 'Excel avançado', importance: 'essencial' },
+      { id: 'sql', name: 'SQL', importance: 'essencial' },
+      { id: 'power-bi', name: 'Power BI', importance: 'essencial' },
+      { id: 'estatistica', name: 'Estatística básica', importance: 'essencial' },
+      { id: 'visualizacao', name: 'Visualização de dados', importance: 'essencial' },
+      { id: 'python', name: 'Python', importance: 'opcional' },
+      { id: 'comunicacao-dados', name: 'Apresentar resultados', importance: 'opcional' },
+    ],
+    employerAsks: null,
+    pathways: [
+      {
+        id: 'universitaria',
+        name: 'Via universitária',
+        summary: 'Licenciatura em Estatística, Economia, Gestão ou Informática.',
+        steps: [
+          secondary,
+          {
+            kind: 'academico',
+            level: 'licenciatura',
+            title: 'Licenciatura numa área de números',
+            need: 'recomendado',
+            description: 'Estatística, Economia, Gestão ou Engenharia Informática.',
+            months: { min: 48, max: 60 },
+          },
+          {
+            kind: 'formacao',
+            title: 'Curso de SQL e Power BI',
+            need: 'recomendado',
+            selfTaught: true,
+            certificate: 'opcional',
+            description: 'A maioria das licenciaturas não ensina estas ferramentas: aprende-se à parte.',
+            months: { min: 2, max: 4 },
+          },
+          portfolio('Três análises com dados públicos (INE, BNA), com painel e conclusões.'),
+        ],
+        totalCost: null,
+      },
+      {
+        id: 'reconversao',
+        name: 'Via de reconversão',
+        summary: 'Para quem já trabalha com folhas de cálculo e quer mudar de área.',
+        steps: [
+          secondary,
+          {
+            kind: 'formacao',
+            title: 'Curso de análise de dados',
+            need: 'essencial',
+            selfTaught: true,
+            certificate: 'opcional',
+            description: 'Excel, SQL e Power BI num centro de formação reconhecido.',
+            months: { min: 4, max: 6 },
+          },
+          {
+            kind: 'certificacao',
+            title: 'Certificação Power BI',
+            need: 'opcional',
+            certificate: 'opcional',
+            description: 'Pedida em 18% das vagas de exemplo. Ajuda quem não tem licenciatura na área.',
+            months: { min: 1, max: 2 },
+          },
+          portfolio('Três análises com dados públicos, explicadas como se fosse para um diretor.'),
+        ],
+        totalCost: null,
+      },
+    ],
+    stages: [
+      {
+        level: 'estagio',
+        title: 'Estagiário de dados',
+        years: { min: 0, max: 1 },
+        responsibilities: ['Prepara folhas de cálculo', 'Atualiza relatórios existentes'],
+      },
+      {
+        level: 'junior',
+        title: 'Analista de Dados Júnior',
+        years: { min: 0, max: 2 },
+        responsibilities: ['Responde a perguntas com SQL', 'Cria painéis simples'],
+      },
+      {
+        level: 'pleno',
+        title: 'Analista de Dados',
+        years: { min: 2, max: 5 },
+        responsibilities: ['Escolhe as métricas certas', 'Apresenta conclusões à direção'],
+      },
+      {
+        level: 'senior',
+        title: 'Analista de Dados Sénior',
+        years: { min: 5, max: null },
+        responsibilities: ['Define como a empresa mede o sucesso', 'Forma outros analistas'],
+      },
+    ],
+    market: market(6, SALARY.closestData, ['Banca', 'Seguros', 'Telecomunicações', 'Retalho']),
+  },
+  {
+    ...base('designer-ui-ux'),
+    description:
+      'Descobre o que as pessoas precisam, desenha o caminho mais simples para o conseguirem e testa-o com utilizadores reais antes de alguém programar. UI é o aspeto (cores, botões, letras); UX é a experiência (se é fácil e se faz sentido). Em Angola trabalha em bancos digitais, agências e startups.',
+    dayToDay: [
+      'Conversar com utilizadores para perceber as suas dificuldades',
+      'Desenhar ecrãs e protótipos no Figma',
+      'Testar um protótipo com cinco pessoas e corrigir o que confunde',
+      'Explicar as decisões de design aos programadores',
+      'Manter uma biblioteca de componentes coerente',
+    ],
+    workContext: [
+      { label: 'Ambiente', value: 'Escritório ou remoto' },
+      { label: 'Horário', value: 'Normal' },
+      { label: 'Equipa', value: 'Produto, programadores e clientes' },
+      { label: 'Viagens', value: 'Às vezes, para conhecer utilizadores' },
+    ],
+    workStyles: [
+      'Empatia',
+      'Criatividade',
+      'Saber ouvir críticas',
+      'Atenção ao detalhe',
+      'Explicar visualmente',
+    ],
+    cvGuide: {
+      template: 'moderno',
+      include: [
+        'O link do portfólio em destaque, e a funcionar',
+        'Casos com o problema, o processo e o resultado',
+        'Ferramentas e métodos: Figma, pesquisa, testes com pessoas',
+      ],
+      avoid: [
+        'Um CV cheio de efeitos: o bom design é limpo e legível',
+        'Projetos sem contexto nem resultado',
+        'Copiar um modelo pronto sem o adaptar',
+      ],
+    },
+    skills: [
+      { id: 'figma', name: 'Figma', importance: 'essencial' },
+      { id: 'pesquisa-utilizadores', name: 'Pesquisa com utilizadores', importance: 'essencial' },
+      { id: 'prototipagem', name: 'Prototipagem', importance: 'essencial' },
+      { id: 'design-visual', name: 'Design visual e tipografia', importance: 'essencial' },
+      { id: 'acessibilidade', name: 'Acessibilidade', importance: 'opcional' },
+      { id: 'html-css', name: 'HTML e CSS', importance: 'opcional' },
+    ],
+    employerAsks: null,
+    pathways: [
+      {
+        id: 'portfolio',
+        name: 'Via do portfólio',
+        summary: 'Aqui o portfólio pesa mais do que o diploma.',
+        steps: [
+          secondary,
+          {
+            kind: 'formacao',
+            title: 'Curso de Design UI/UX',
+            need: 'recomendado',
+            selfTaught: true,
+            certificate: 'opcional',
+            description: 'Com Figma, pesquisa com utilizadores e projeto final.',
+            months: { min: 3, max: 6 },
+          },
+          portfolio(
+            'Três casos completos: o problema, a pesquisa, os desenhos e o que mudou depois dos testes.',
+          ),
+          portfolio('Três casos de estudo: o problema, o processo e o resultado, cada um numa página.'),
+          {
+            kind: 'experiencia',
+            title: 'Estágio ou projetos para associações',
+            need: 'recomendado',
+            description: 'Redesenhar a app de uma associação local conta como experiência real.',
+            months: { min: 3, max: 6 },
+          },
+        ],
+        totalCost: null,
+      },
+      {
+        id: 'universitaria',
+        name: 'Via universitária',
+        summary: 'Licenciatura em Design, com especialização digital à parte.',
+        steps: [
+          secondary,
+          {
+            kind: 'academico',
+            level: 'licenciatura',
+            title: 'Licenciatura em Design',
+            need: 'recomendado',
+            description: 'Dá uma base visual forte; o lado digital aprende-se em projetos.',
+            months: { min: 48, max: 48 },
+          },
+          portfolio('Três casos completos, do problema ao teste com utilizadores.'),
+        ],
+        totalCost: null,
+      },
+    ],
+    stages: [
+      {
+        level: 'junior',
+        title: 'Designer Júnior',
+        years: { min: 0, max: 2 },
+        responsibilities: ['Desenha ecrãs a partir de orientações', 'Prepara protótipos para testes'],
+      },
+      {
+        level: 'pleno',
+        title: 'Designer de Produto',
+        years: { min: 2, max: 5 },
+        responsibilities: ['Conduz pesquisa com utilizadores', 'Decide fluxos completos'],
+      },
+      {
+        level: 'senior',
+        title: 'Designer Sénior',
+        years: { min: 5, max: null },
+        responsibilities: ['Define o sistema de design', 'Orienta outros designers'],
+      },
+      {
+        level: 'lideranca',
+        title: 'Head of Design',
+        years: { min: 8, max: null },
+        responsibilities: ['Lidera a equipa de design', 'Representa o utilizador na direção'],
+      },
+    ],
+    market: market(0, SALARY.design, ['Banca digital', 'Agências', 'Startups']),
+  },
+  ...MEDICINE_GUIDES,
+  ...NURSING_GUIDES,
+  ...DIAGNOSIS_GUIDES,
+  ...PHARMACY_GUIDES,
+  ...REHABILITATION_GUIDES,
+  ...ORAL_HEALTH_GUIDES,
+  ...PUBLIC_HEALTH_GUIDES,
+  ...MENTAL_HEALTH_GUIDES,
+  ...PROJECT_GUIDES,
+  ...OFFSHORE_GUIDES,
+  ...TRADE_GUIDES,
+  ...TECH_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...BUSINESS_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...OIL_MINING_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...ENGINEERING_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...EDUCATION_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...LEGAL_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...PUBLIC_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...SCIENCES_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...COMMUNICATION_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+  ...LAST_AREAS_GUIDES.map((guide) => Object.assign(base(guide.slug), guide)),
+]

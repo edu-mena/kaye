@@ -2,10 +2,33 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
 import { i18n } from '../lib/i18n'
+import { reloadUser } from '../state/userStore'
 
-// jsdom reports an en-US device; every test starts in Portuguese, without a saved choice.
+// jsdom has no modal <dialog> nor scrolling: minimal stand-ins with the same contract.
+function showModal(this: HTMLDialogElement) {
+  this.open = true
+}
+function close(this: HTMLDialogElement) {
+  this.open = false
+  this.dispatchEvent(new Event('close'))
+}
+if (!HTMLDialogElement.prototype.showModal) {
+  HTMLDialogElement.prototype.showModal = showModal
+  HTMLDialogElement.prototype.close = close
+}
+window.scrollTo = () => {}
+window.matchMedia = () => ({ matches: false }) as MediaQueryList
+HTMLMediaElement.prototype.play = () => Promise.resolve()
+HTMLMediaElement.prototype.pause = () => {}
+Element.prototype.scrollTo = () => {}
+Element.prototype.scrollIntoView = () => {}
+
+// jsdom reports an en-US device; every test starts in Portuguese, with no saved data.
 beforeEach(async () => {
   localStorage.clear()
+  // The onboarding keeps its draft here: one test must not start where the last one stopped.
+  sessionStorage.clear()
+  reloadUser()
   await i18n.changeLanguage('pt')
 })
 

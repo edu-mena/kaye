@@ -1,0 +1,1267 @@
+{
+ "area": "technology",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 261,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Atlântida",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 150,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 119,
+      "graduates": 14
+     },
+     {
+      "name": "Engenharia de Telecomunicações e Eletrónica",
+      "area": "technology",
+      "students": 24,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 114,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Gregório Semedo",
+    "nature": "privada",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 340,
+      "graduates": 0
+     },
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 66,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Independente",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Informática e Gestão de Empresas",
+      "area": "technology",
+      "students": 633,
+      "graduates": 54
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 410,
+      "graduates": 56
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 339,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Electrotecnia e Telecomunicações",
+      "area": "technology",
+      "students": 285,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 139,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia de Informática de Gestão",
+      "area": "technology",
+      "students": 62,
+      "graduates": 4
+     },
+     {
+      "name": "Engenharia Informática de Gestão",
+      "area": "technology",
+      "students": 36,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kalandula de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 338,
+      "graduates": 35
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 140,
+      "graduates": 3
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kangonjo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 192,
+      "graduates": 25
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 116,
+      "graduates": 5
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Katangojo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 61,
+      "graduates": 16
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Informática",
+      "area": "technology",
+      "students": 167,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 32,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Informática",
+      "area": "technology",
+      "students": 81,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Maravilha",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 213,
+      "graduates": 8
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Metropolitano",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electrónica e Telecomunicações",
+      "area": "technology",
+      "students": 422,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 356,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 81,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privada do Zaire",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 83,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 52,
+      "graduates": 0
+     },
+     {
+      "name": "Engenhario Electronica e Potência",
+      "area": "technology",
+      "students": 31,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 44,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado de Menongue",
+    "nature": "privada",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 99,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 92,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Luena",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 82,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Engenharia de Sistemas Electricos e telecomunicações",
+      "area": "technology",
+      "students": 258,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 193,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tocoísta",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 433,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico da Caála",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 317,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 579,
+      "graduates": 21
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 298,
+      "graduates": 39
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Ndalatando",
+    "nature": "publica",
+    "province": "Cuanza Norte",
+    "courses": [
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 257,
+      "graduates": 68
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Porto Amboim",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Engenharia Electrónica",
+      "area": "technology",
+      "students": 65,
+      "graduates": 7
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 50,
+      "graduates": 10
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 12,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Tecnologias e Ciências",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 554,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bita",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electrónica",
+      "area": "technology",
+      "students": 180,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 235,
+      "graduates": 54
+     },
+     {
+      "name": "Engenharia de Informática de Gestão",
+      "area": "technology",
+      "students": 85,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cazenga",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 160,
+      "graduates": 3
+     },
+     {
+      "name": "Engenharia de Electrotecnia e Telecomunicação",
+      "area": "technology",
+      "students": 138,
+      "graduates": 0
+     },
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 74,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Electrónica e Telecomunicações",
+      "area": "technology",
+      "students": 0,
+      "graduates": 1
+     },
+     {
+      "name": "Engenharia Electrotécnica e Telecomunicações",
+      "area": "technology",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuito",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 23,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 13,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Moxico",
+    "nature": "publica",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 183,
+      "graduates": 14
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Soyo",
+    "nature": "publica",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 385,
+      "graduates": 71
+     },
+     {
+      "name": "Redes e Administração de Sistemas",
+      "area": "technology",
+      "students": 89,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Zango",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 63,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Kiaxi",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 155,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Nzenzu Estrela",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 151,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico Militar",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 86
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Administração e Finanças",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Informática de Gestão Financeira",
+      "area": "technology",
+      "students": 306,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 348,
+      "graduates": 6
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 212,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Nimi Ya Lukeni",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 233,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 91,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Electrónica e Telecomunicações",
+      "area": "technology",
+      "students": 80,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Redes e Telecomunicações",
+      "area": "technology",
+      "students": 670,
+      "graduates": 8
+     },
+     {
+      "name": "Engenharia Informática e Sistemas de Informação",
+      "area": "technology",
+      "students": 469,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Intituto Superior Politécnico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 225,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 217,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Electrónica",
+      "area": "technology",
+      "students": 217,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 584,
+      "graduates": 31
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 252,
+      "graduates": 15
+     },
+     {
+      "name": "Engenharia Electrónica e Telecomunicações",
+      "area": "technology",
+      "students": 210,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Universidade Católica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 0,
+      "graduates": 34
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 3
+     }
+    ]
+   },
+   {
+    "name": "Universidade Cuito Cuanavale",
+    "nature": "publica",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Informática para Gestão",
+      "area": "technology",
+      "students": 371,
+      "graduates": 0
+     },
+     {
+      "name": "Engenharia Informática para Gestão",
+      "area": "technology",
+      "students": 0,
+      "graduates": 49
+     }
+    ]
+   },
+   {
+    "name": "Universidade Gregório Semedo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 18
+     },
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Electrotécnica e Telecomunicações",
+      "area": "technology",
+      "students": 0,
+      "graduates": 68
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 42
+     },
+     {
+      "name": "Informática de Gestão de Empresas",
+      "area": "technology",
+      "students": 0,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 643,
+      "graduates": 13
+     },
+     {
+      "name": "Engenharia Electrónica e Telecomunicações",
+      "area": "technology",
+      "students": 604,
+      "graduates": 28
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 394,
+      "graduates": 26
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 605,
+      "graduates": 50
+     }
+    ]
+   },
+   {
+    "name": "Universidade Lueji A´Nkonde",
+    "nature": "publica",
+    "province": "Lunda Norte",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 136,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Informática",
+      "area": "technology",
+      "students": 778,
+      "graduates": 25
+     },
+     {
+      "name": "Ciências da Computação",
+      "area": "technology",
+      "students": 171,
+      "graduates": 26
+     },
+     {
+      "name": "Informática para Gestão",
+      "area": "technology",
+      "students": 0,
+      "graduates": 31
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 141
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Universidade Técnica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Telecomunicações e Electrónica",
+      "area": "technology",
+      "students": 0,
+      "graduates": 8
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 44
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Belas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 638,
+      "graduates": 11
+     },
+     {
+      "name": "Engenharia de Telecomunicações",
+      "area": "technology",
+      "students": 501,
+      "graduates": 17
+     },
+     {
+      "name": "Informática de Gestão",
+      "area": "technology",
+      "students": 210,
+      "graduates": 8
+     },
+     {
+      "name": "Informática",
+      "area": "technology",
+      "students": 84,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade do Namibe",
+    "nature": "publica",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Engenharia de Electrotecnia e Electrónica Industrial",
+      "area": "technology",
+      "students": 206,
+      "graduates": 3
+     }
+    ]
+   },
+   {
+    "name": "Universidade Óscar Ribas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia Informática e Comunicações",
+      "area": "technology",
+      "students": 0,
+      "graduates": 78
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Engenharia de Informática de Gestão",
+      "area": "technology",
+      "students": 0,
+      "graduates": 36
+     },
+     {
+      "name": "Engenharia Informática",
+      "area": "technology",
+      "students": 0,
+      "graduates": 19
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Engenharia Informática",
+    "students": 9301,
+    "graduates": 850,
+    "institutions": 47
+   },
+   {
+    "name": "Ciências da Computação",
+    "students": 2160,
+    "graduates": 110,
+    "institutions": 7
+   },
+   {
+    "name": "Engenharia Electrónica e Telecomunicações",
+    "students": 1316,
+    "graduates": 36,
+    "institutions": 5
+   },
+   {
+    "name": "Engenharia de Telecomunicações",
+    "students": 1263,
+    "graduates": 69,
+    "institutions": 9
+   },
+   {
+    "name": "Informática",
+    "students": 1110,
+    "graduates": 43,
+    "institutions": 4
+   },
+   {
+    "name": "Informática de Gestão",
+    "students": 790,
+    "graduates": 82,
+    "institutions": 7
+   },
+   {
+    "name": "Engenharia de Redes e Telecomunicações",
+    "students": 670,
+    "graduates": 8,
+    "institutions": 1
+   },
+   {
+    "name": "Informática e Gestão de Empresas",
+    "students": 633,
+    "graduates": 54,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Informática e Sistemas de Informação",
+    "students": 469,
+    "graduates": 13,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Electrónica",
+    "students": 462,
+    "graduates": 7,
+    "institutions": 3
+   },
+   {
+    "name": "Informática para Gestão",
+    "students": 371,
+    "graduates": 31,
+    "institutions": 2
+   },
+   {
+    "name": "Informática de Gestão Financeira",
+    "students": 306,
+    "graduates": 6,
+    "institutions": 1
+   },
+   {
+    "name": "Electrotecnia e Telecomunicações",
+    "students": 285,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Sistemas Electricos e telecomunicações",
+    "students": 258,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Electrotecnia e Electrónica Industrial",
+    "students": 206,
+    "graduates": 3,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Informática de Gestão",
+    "students": 147,
+    "graduates": 40,
+    "institutions": 3
+   },
+   {
+    "name": "Engenharia de Electrotecnia e Telecomunicação",
+    "students": 138,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Redes e Administração de Sistemas",
+    "students": 89,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Informática de Gestão",
+    "students": 36,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenhario Electronica e Potência",
+    "students": 31,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Telecomunicações e Eletrónica",
+    "students": 24,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Electrotécnica e Telecomunicações",
+    "students": 0,
+    "graduates": 69,
+    "institutions": 2
+   },
+   {
+    "name": "Engenharia Informática para Gestão",
+    "students": 0,
+    "graduates": 49,
+    "institutions": 1
+   },
+   {
+    "name": "Informática de Gestão de Empresas",
+    "students": 0,
+    "graduates": 12,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia de Telecomunicações e Electrónica",
+    "students": 0,
+    "graduates": 8,
+    "institutions": 1
+   },
+   {
+    "name": "Engenharia Informática e Comunicações",
+    "students": 0,
+    "graduates": 78,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [],
+ "salaries": null,
+ "employers": {
+  "named": [],
+  "jobAds": []
+ }
+}

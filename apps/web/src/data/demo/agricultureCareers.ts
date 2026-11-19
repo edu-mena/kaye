@@ -1,0 +1,118 @@
+import type { CareerSummary } from '../types'
+import { riasec, summary } from './careerSummary'
+
+// Agriculture, fisheries and the environment, the ninth area of the catalogue (scrapers/catalog/agriculture.json): the
+// professions behind the agronomy, forestry, veterinary, fisheries and environment degrees (MESCTI yearbook 2023-2024)
+// and the employers (the ministries, the agrarian and forestry institutes, the agro-industry). Interest profiles
+// approximate O*NET's. Demand reads the job ads. No salaries: no State table names these careers.
+
+export const AGRICULTURE_CAREERS: CareerSummary[] = [
+  summary(
+    'engenheiro-agronomo',
+    'Engenheiro Agrónomo',
+    'agricultura',
+    'Planeia as culturas, escolhe sementes e adubos e combate as pragas para que a terra produza mais. Trabalha em fazendas, empresas agrícolas e no Instituto de Desenvolvimento Agrário.',
+    riasec(0.8, 0.75, 0.15, 0.35, 0.45, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-agropecuario',
+    'Técnico Agropecuário',
+    'agricultura',
+    'Acompanha no campo as culturas e os animais e ensina os agricultores a produzir melhor. Trabalha em fazendas, cooperativas e na extensão rural.',
+    riasec(0.9, 0.5, 0.1, 0.5, 0.35, 0.45),
+    'media',
+    null,
+  ),
+  summary(
+    'engenheiro-florestal',
+    'Engenheiro Florestal',
+    'agricultura',
+    'Gere as florestas: planeia o corte e a replantação e protege-as das queimadas. Trabalha no Instituto de Desenvolvimento Florestal, em madeireiras e em projectos ambientais.',
+    riasec(0.8, 0.7, 0.15, 0.25, 0.4, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'gestor-de-empresas-agricolas',
+    'Gestor Agrícola',
+    'agricultura',
+    'Gere uma fazenda ou empresa agrícola: as compras, as vendas, as equipas e as contas. Trabalha em fazendas, agro-indústrias e cooperativas.',
+    riasec(0.45, 0.45, 0.1, 0.4, 0.85, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'engenheiro-agroalimentar',
+    'Engenheiro Agro-Alimentar',
+    'agricultura',
+    'Transforma os produtos do campo em alimentos e bebidas e controla a sua qualidade. Trabalha em fábricas de alimentos, de bebidas e de farinha.',
+    riasec(0.65, 0.8, 0.15, 0.2, 0.4, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'medico-veterinario',
+    'Médico Veterinário',
+    'pecuaria',
+    'Trata e previne as doenças dos animais, de estimação e de criação, e inspecciona os alimentos de origem animal. Trabalha em clínicas, fazendas e nos serviços veterinários do Estado.',
+    riasec(0.75, 0.85, 0.1, 0.6, 0.35, 0.45),
+    'media',
+    null,
+  ),
+  summary(
+    'zootecnico',
+    'Zootécnico',
+    'pecuaria',
+    'Planeia a criação de gado, galinhas e porcos: a alimentação, a reprodução e a saúde dos animais. Trabalha em fazendas, aviários e fábricas de rações.',
+    riasec(0.85, 0.7, 0.1, 0.3, 0.45, 0.55),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-aquicultura',
+    'Técnico de Aquicultura',
+    'pescas',
+    'Cria peixe e marisco em tanques e viveiros, da reprodução à venda. Trabalha em aquiculturas e em projectos do Ministério das Pescas.',
+    riasec(0.85, 0.65, 0.1, 0.25, 0.4, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'biologo-marinho',
+    'Biólogo Marinho',
+    'pescas',
+    'Estuda os peixes e a vida do mar para dizer quanto se pode pescar sem esgotar. Trabalha na investigação pesqueira, no Ministério das Pescas e no ambiente.',
+    riasec(0.6, 0.9, 0.2, 0.2, 0.25, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-pescas',
+    'Técnico de Pescas',
+    'pescas',
+    'Acompanha a pesca e a transformação do pescado e inspecciona a sua qualidade, do barco à fábrica. Trabalha em empresas de pesca, fábricas de conservas e na fiscalização.',
+    riasec(0.85, 0.5, 0.05, 0.3, 0.4, 0.65),
+    'baixa',
+    null,
+  ),
+  summary(
+    'engenheiro-do-ambiente',
+    'Engenheiro do Ambiente',
+    'ambiente',
+    'Estuda o impacto das obras e das fábricas no ambiente e projecta o tratamento de resíduos e de águas. Trabalha em consultoras, petrolíferas, construtoras e no Estado.',
+    riasec(0.6, 0.85, 0.2, 0.35, 0.45, 0.6),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-ambiente',
+    'Técnico de Ambiente',
+    'ambiente',
+    'Controla os resíduos, as descargas e as licenças ambientais de uma empresa. Trabalha nas equipas de ambiente e segurança de petrolíferas, minas e fábricas.',
+    riasec(0.7, 0.6, 0.1, 0.35, 0.35, 0.75),
+    'alta',
+    null,
+  ),
+]

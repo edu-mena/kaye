@@ -1,0 +1,67 @@
+[
+  {
+    "id": "agriculture",
+    "name": "Agriculture et environnement",
+    "position": 9
+  },
+  {
+    "id": "business",
+    "name": "Gestion, finance et commerce",
+    "position": 5
+  },
+  {
+    "id": "communication",
+    "name": "Communication et arts",
+    "position": 8
+  },
+  {
+    "id": "education",
+    "name": "Éducation",
+    "position": 4
+  },
+  {
+    "id": "engineering",
+    "name": "Ingénierie et construction",
+    "position": 1
+  },
+  {
+    "id": "health",
+    "name": "Santé",
+    "position": 3
+  },
+  {
+    "id": "hospitality",
+    "name": "Tourisme et hôtellerie",
+    "position": 10
+  },
+  {
+    "id": "legal",
+    "name": "Droit",
+    "position": 6
+  },
+  {
+    "id": "logistics",
+    "name": "Logistique et transports",
+    "position": 11
+  },
+  {
+    "id": "oil_mining",
+    "name": "Pétrole, gaz et mines",
+    "position": 2
+  },
+  {
+    "id": "public",
+    "name": "Administration publique et sécurité",
+    "position": 7
+  },
+  {
+    "id": "sciences",
+    "name": "Sciences et humanités",
+    "position": 12
+  },
+  {
+    "id": "technology",
+    "name": "Technologie et télécoms",
+    "position": 0
+  }
+]

@@ -1,6 +1,6 @@
 # Kayé
 
-Career guidance platform for young people in Angola (14–30). MVP: "Kayé Tech" (Luanda, tech careers only, everything free).
+Career guidance platform for young people in Angola (14–30). MVP: the catalogue covers every area, Luanda first, everything free; depth grows with what users ask for (ADR 0015).
 Built by Eduardo (founder) and Claude only.
 
 - `docs/` is the source of truth (index: `docs/README.md`). When a roadmap task is done, tick its checkbox.
@@ -18,7 +18,7 @@ Eduardo requires a DevOps methodology: **everything is tested and verified**. Fo
   - `apps/web`: `npm run check && npm run build && npm run e2e`
   - root: `npm run duplication`
 - Update the affected doc in the same commit. `DocumentationTest` enforces tables, env vars and ADRs.
-- Never weaken a gate silently (PHPStan max, coverage ≥ 90%, zero lint warnings, ≤ 3% duplication, strict CSP on the app): write an ADR in `docs/decisoes/`.
+- Never weaken a gate silently (PHPStan max, coverage ≥ 90%, zero lint warnings, ≤ 3% duplication, strict CSP on the app): write an ADR in `docs/decisoes/`. The web app's coverage is below 90% until prompt 10, rising at each step (ADR 0020); new or changed frontend code ships with tests, only content changes are exempt.
 
 ## Language
 
@@ -40,6 +40,7 @@ Eduardo requires a DevOps methodology: **everything is tested and verified**. Fo
 - `php -` (script from stdin) does not work here: write the script to a file and run it.
 - The old folder `C:\Projects\___Kayé` has an accent and breaks the Android build (Gradle); the code lives in `C:\Projects\kaye`.
 - `php artisan serve` drops environment variables; the E2E server uses `php -S` with Laravel's `server.php` instead.
+- PHP creates EC keys (Web Push and its tests) only with `OPENSSL_CONF=C:\php\extras\ssl\openssl.cnf` in the environment before PHP starts; without it those tests fail with "Unable to create the key". Prefix the test command with it.
 - `npm` install scripts are blocked (`.npmrc`); after `npm ci` at the root, run `npm run hooks:install`.
 
 ## Agent-session pitfalls

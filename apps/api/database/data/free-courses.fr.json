@@ -1,0 +1,1457 @@
+[
+  {
+    "id": "aws-cloud-practitioner-essentials",
+    "name": "AWS Cloud Practitioner Essentials",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 12.75,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/",
+    "provider": "AWS Skill Builder",
+    "sources": [
+      {
+        "label": "AWS",
+        "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/"
+      },
+      {
+        "label": "AWS: formação grátis",
+        "url": "https://aws.amazon.com/blogs/training-and-certification/make-the-most-of-free-training-from-aws-training-and-certification"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 34
+  },
+  {
+    "id": "aws-exame-cloud-practitioner",
+    "name": "Exame AWS Certified Cloud Practitioner",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti",
+      "administrador-de-redes",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificação AWS (nível Foundational), 90 minutos",
+    "priceUsd": 100,
+    "level": "iniciante",
+    "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+    "provider": "AWS",
+    "sources": [
+      {
+        "label": "AWS",
+        "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/"
+      },
+      {
+        "label": "AWS: preços dos exames",
+        "url": "https://aws.amazon.com/certification/policies/before-testing/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 35
+  },
+  {
+    "id": "aws-exame-devops-professional",
+    "name": "Exame AWS Certified DevOps Engineer – Professional",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificação AWS (nível Professional); pede 2+ anos de experiência em AWS",
+    "priceUsd": 300,
+    "level": "avancado",
+    "url": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+    "provider": "AWS",
+    "sources": [
+      {
+        "label": "AWS",
+        "url": "https://aws.amazon.com/certification/certified-devops-engineer-professional/"
+      },
+      {
+        "label": "AWS: preços dos exames",
+        "url": "https://aws.amazon.com/certification/policies/before-testing/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 37
+  },
+  {
+    "id": "aws-exame-solutions-architect-associate",
+    "name": "Exame AWS Certified Solutions Architect – Associate",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti",
+      "desenvolvedor-backend",
+      "engenheiro-de-dados"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificação AWS (nível Associate)",
+    "priceUsd": 150,
+    "level": "intermedio",
+    "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+    "provider": "AWS",
+    "sources": [
+      {
+        "label": "AWS: preços dos exames",
+        "url": "https://aws.amazon.com/certification/policies/before-testing/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 36
+  },
+  {
+    "id": "cisco-computer-hardware-basics",
+    "name": "Computer Hardware Basics",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "tecnico-de-suporte",
+      "tecnico-de-hardware"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 6,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/computer-hardware-basics",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/courses/computer-hardware-basics"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 21
+  },
+  {
+    "id": "cisco-data-analytics-essentials",
+    "name": "Data Analytics Essentials",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 30,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/data-analytics-essentials",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/courses/data-analytics-essentials"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 19
+  },
+  {
+    "id": "cisco-intro-ciberseguranca",
+    "name": "Introdução à Cibersegurança",
+    "languages": [
+      "pt",
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-ciberseguranca",
+      "administrador-de-redes",
+      "tecnico-de-telecomunicacoes",
+      "engenheiro-de-telecomunicacoes",
+      "administrador-de-sistemas",
+      "tecnico-de-suporte"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 6,
+    "certificate": "gratis",
+    "credential": "badge digital da Cisco (Credly)",
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad (pt)",
+        "url": "https://www.netacad.com/trainings/introduction-to-cybersecurity?courseLang=pt-BR"
+      },
+      {
+        "label": "Credly: badges da Cisco",
+        "url": "https://www.credly.com/org/cisco"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 15
+  },
+  {
+    "id": "cisco-intro-data-science",
+    "name": "Introduction to Data Science",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "cientista-de-dados",
+      "analista-de-dados"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 6,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/introduction-data-science",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/courses/introduction-data-science"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 20
+  },
+  {
+    "id": "cisco-linux-unhatched",
+    "name": "Linux Unhatched",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "administrador-de-sistemas",
+      "engenheiro-devops",
+      "analista-de-ciberseguranca"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 8,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/linux-unhatched",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/courses/linux-unhatched"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 17
+  },
+  {
+    "id": "cisco-networking-basics",
+    "name": "Networking Basics",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "administrador-de-redes",
+      "tecnico-de-telecomunicacoes",
+      "engenheiro-de-telecomunicacoes",
+      "tecnico-de-suporte",
+      "tecnico-de-hardware",
+      "analista-de-ciberseguranca"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 22,
+    "certificate": "gratis",
+    "credential": "badge digital da Cisco (Credly), com 70% no exame final",
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/networking-basics",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/courses/networking-basics"
+      },
+      {
+        "label": "Credly: badges da Cisco",
+        "url": "https://www.credly.com/org/cisco"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 16
+  },
+  {
+    "id": "cisco-python-essentials-1",
+    "name": "Python Essentials 1",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "desenvolvedor-backend",
+      "engenheiro-de-qa"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 30,
+    "certificate": null,
+    "level": "iniciante",
+    "url": "https://www.netacad.com/courses/python-essentials-1",
+    "provider": "Cisco Networking Academy",
+    "sources": [
+      {
+        "label": "Cisco NetAcad",
+        "url": "https://www.netacad.com/learning-collections/python"
+      },
+      {
+        "label": "Python Institute",
+        "url": "https://pythoninstitute.org/netacad"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 18
+  },
+  {
+    "id": "fcc-backend-javascript",
+    "name": "Backend JavaScript",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-backend",
+      "desenvolvedor-full-stack"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "intermedio",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 29
+  },
+  {
+    "id": "fcc-frontend-libraries",
+    "name": "Frontend Libraries",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "desenvolvedor-mobile"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "intermedio",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 26
+  },
+  {
+    "id": "fcc-full-stack",
+    "name": "Certified Full Stack Developer",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-full-stack",
+      "desenvolvedor-frontend",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "intermedio",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 30
+  },
+  {
+    "id": "fcc-javascript",
+    "name": "JavaScript",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "desenvolvedor-mobile",
+      "engenheiro-de-qa"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "iniciante",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 25
+  },
+  {
+    "id": "fcc-python",
+    "name": "Python",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "iniciante",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 27
+  },
+  {
+    "id": "fcc-relational-databases",
+    "name": "Relational Databases",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "administrador-de-base-de-dados",
+      "desenvolvedor-backend",
+      "desenvolvedor-full-stack",
+      "engenheiro-de-dados"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "intermedio",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 28
+  },
+  {
+    "id": "fcc-responsive-web-design",
+    "name": "Responsive Web Design",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "designer-ui-ux"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação verificada do freeCodeCamp",
+    "level": "iniciante",
+    "url": "https://www.freecodecamp.org/learn",
+    "provider": "freeCodeCamp",
+    "sources": [
+      {
+        "label": "freeCodeCamp (2025)",
+        "url": "https://www.freecodecamp.org/news/freecodecamps-new-responsive-web-design-certification-is-now-live/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 24
+  },
+  {
+    "id": "google-ads-certificacao",
+    "name": "Certificação Google Ads",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "gestor-de-marketing-digital",
+      "gestor-de-marketing",
+      "gestor-de-redes-sociais",
+      "tecnico-comercial"
+    ],
+    "areas": [
+      "technology",
+      "business",
+      "communication"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação de produto do Google, válida 1 ano",
+    "level": "iniciante",
+    "url": "https://skillshop.withgoogle.com/",
+    "provider": "Google Skillshop",
+    "sources": [
+      {
+        "label": "Google Skillshop",
+        "url": "https://skillshop.withgoogle.com/intl/pt-BR_ALL/"
+      },
+      {
+        "label": "Reliablesoft: Skillshop",
+        "url": "https://www.reliablesoft.net/google-skillshop-review/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 22
+  },
+  {
+    "id": "google-analytics-certificacao",
+    "name": "Certificação Google Analytics",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "gestor-de-marketing-digital",
+      "gestor-de-marketing",
+      "gestor-de-redes-sociais",
+      "analista-de-dados"
+    ],
+    "areas": [
+      "technology",
+      "business",
+      "communication"
+    ],
+    "certificate": "gratis",
+    "credential": "certificação de produto do Google",
+    "level": "iniciante",
+    "url": "https://skillshop.withgoogle.com/",
+    "provider": "Google Skillshop",
+    "sources": [
+      {
+        "label": "Google Skillshop",
+        "url": "https://skillshop.withgoogle.com/intl/pt-BR_ALL/"
+      },
+      {
+        "label": "Reliablesoft: Skillshop",
+        "url": "https://www.reliablesoft.net/google-skillshop-review/"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 23
+  },
+  {
+    "id": "google-exame-associate-cloud-engineer",
+    "name": "Exame Google Associate Cloud Engineer",
+    "languages": [
+      "pt",
+      "en"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificação Google Cloud, válida 3 anos; recomenda 6+ meses de prática",
+    "priceUsd": 125,
+    "level": "intermedio",
+    "url": "https://cloud.google.com/learn/certification/cloud-engineer",
+    "provider": "Google Cloud",
+    "sources": [
+      {
+        "label": "Google Cloud",
+        "url": "https://cloud.google.com/learn/certification/cloud-engineer"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 39
+  },
+  {
+    "id": "khan-biologia",
+    "name": "Biologia",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "enfermeiro",
+      "tecnico-medio-enfermagem",
+      "parteira",
+      "enfermeiro-cuidados-intensivos",
+      "instrumentista-cirurgico",
+      "medico-clinica-geral",
+      "tecnico-analises-clinicas",
+      "biologo",
+      "professor-de-biologia"
+    ],
+    "areas": [
+      "health",
+      "sciences",
+      "education"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/science/biology",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 11
+  },
+  {
+    "id": "khan-economia",
+    "name": "Economia e finanças",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "economista",
+      "analista-financeiro",
+      "contabilista",
+      "analista-de-credito",
+      "gestor-de-empresas"
+    ],
+    "areas": [
+      "business"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/economics-finance-domain",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 10
+  },
+  {
+    "id": "khan-estatistica",
+    "name": "Estatística e probabilidade",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "estatistico",
+      "actuario",
+      "analista-de-risco"
+    ],
+    "areas": [
+      "technology",
+      "business",
+      "sciences"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/math/statistics-probability",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 9
+  },
+  {
+    "id": "khan-fisica",
+    "name": "Física",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-electrotecnico",
+      "engenheiro-mecanico",
+      "fisico",
+      "tecnico-radiologia",
+      "professor-de-fisica"
+    ],
+    "areas": [
+      "engineering",
+      "sciences",
+      "health"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/science/physics",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 13
+  },
+  {
+    "id": "khan-programacao",
+    "name": "Programação de computadores",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "formador-de-tic",
+      "professor-de-informatica"
+    ],
+    "areas": [
+      "technology",
+      "education"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/computing/computer-programming",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 8
+  },
+  {
+    "id": "khan-quimica",
+    "name": "Química",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "farmaceutico",
+      "tecnico-farmacia",
+      "quimico",
+      "engenheiro-quimico",
+      "professor-de-quimica"
+    ],
+    "areas": [
+      "health",
+      "sciences",
+      "engineering"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/science/chemistry",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 12
+  },
+  {
+    "id": "khan-saude-medicina",
+    "name": "Saúde e medicina",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "enfermeiro",
+      "tecnico-medio-enfermagem",
+      "parteira",
+      "enfermeiro-cuidados-intensivos",
+      "instrumentista-cirurgico",
+      "medico-clinica-geral",
+      "fisioterapeuta",
+      "nutricionista",
+      "farmaceutico"
+    ],
+    "areas": [
+      "health"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://pt.khanacademy.org/science/health-and-medicine",
+    "provider": "Khan Academy",
+    "sources": [
+      {
+        "label": "Khan Academy (sobre)",
+        "url": "https://pt.khanacademy.org/about"
+      },
+      {
+        "label": "Khan Academy (ajuda)",
+        "url": "https://support.khanacademy.org/hc/de/community/posts/360018979011/comments/360002024411"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 14
+  },
+  {
+    "id": "ms-azure-data-fundamentals-explore-core-data-concepts",
+    "name": "Conceitos básicos de dados (DP-900)",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "administrador-de-base-de-dados"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/azure-data-fundamentals-explore-core-data-concepts/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 5
+  },
+  {
+    "id": "ms-azure-fundamentals-describe-azure-architecture-services",
+    "name": "Azure (AZ-900) 2: arquitetura e serviços",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 1
+  },
+  {
+    "id": "ms-describe-azure-management-governance",
+    "name": "Azure (AZ-900) 3: gestão e governação",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/describe-azure-management-governance/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 2
+  },
+  {
+    "id": "ms-describe-concepts-of-security-compliance-identity",
+    "name": "Segurança, conformidade e identidade (SC-900)",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "analista-de-ciberseguranca",
+      "administrador-de-sistemas"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/describe-concepts-of-security-compliance-identity/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 3
+  },
+  {
+    "id": "ms-exame-az-900",
+    "name": "Exame AZ-900: Microsoft Azure Fundamentals",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "Microsoft Certified: Azure Fundamentals; preço varia por país (99 USD nos EUA)",
+    "priceUsd": 99,
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/credentials/certifications/azure-fundamentals/",
+    "provider": "Microsoft",
+    "sources": [
+      {
+        "label": "Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/"
+      },
+      {
+        "label": "MSCertQuiz (2026)",
+        "url": "https://mscertquiz.com/blog/is-az-900-worth-it"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 38
+  },
+  {
+    "id": "ms-get-started-ai-apps-agents",
+    "name": "Aplicações e agentes de IA no Azure",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/get-started-ai-apps-agents/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 4
+  },
+  {
+    "id": "ms-microsoft-azure-fundamentals-describe-cloud-concepts",
+    "name": "Azure (AZ-900) 1: conceitos de nuvem",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "credential": "troféu no perfil do Microsoft Learn",
+    "level": "iniciante",
+    "url": "https://learn.microsoft.com/pt-pt/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+    "provider": "Microsoft Learn",
+    "sources": [
+      {
+        "label": "Microsoft Learn (FAQ)",
+        "url": "https://learn.microsoft.com/pt-pt/training/support/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 0
+  },
+  {
+    "id": "nau-higiene-das-maos",
+    "name": "Higiene das Mãos na Prevenção de Infeções (DGS)",
+    "languages": [
+      "pt"
+    ],
+    "careerSlugs": [
+      "enfermeiro",
+      "tecnico-medio-enfermagem",
+      "parteira",
+      "enfermeiro-cuidados-intensivos",
+      "instrumentista-cirurgico",
+      "medico-clinica-geral",
+      "medico-saude-publica",
+      "tecnico-saude-publica",
+      "tecnico-saude-ambiental"
+    ],
+    "areas": [
+      "health"
+    ],
+    "hours": 3,
+    "certificate": "gratis",
+    "credential": "certificado de participação, com 50% de nota mínima",
+    "level": "iniciante",
+    "url": "https://www.nau.edu.pt/curso/higiene-das-maos-na-prevencao-de-infecoes",
+    "provider": "NAU (Portugal)",
+    "sources": [
+      {
+        "label": "NAU",
+        "url": "https://www.nau.edu.pt/curso/higiene-das-maos-na-prevencao-de-infecoes"
+      },
+      {
+        "label": "NAU: política de certificação",
+        "url": "https://www.nau.edu.pt/pt/legal/politica-de-certificacao"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 6
+  },
+  {
+    "id": "nau-introducao-programacao",
+    "name": "Introdução à Programação: conceitos fundamentais (IPT)",
+    "languages": [
+      "pt"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "desenvolvedor-backend",
+      "engenheiro-de-qa"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "hours": 60,
+    "certificate": null,
+    "level": "intermedio",
+    "url": "https://www.nau.edu.pt/pt/curso/introducao-a-programacao-conceitos-fundamentais",
+    "provider": "NAU (Portugal)",
+    "sources": [
+      {
+        "label": "NAU",
+        "url": "https://www.nau.edu.pt/pt/curso/introducao-a-programacao-conceitos-fundamentais"
+      },
+      {
+        "label": "NAU: política de certificação",
+        "url": "https://www.nau.edu.pt/pt/legal/politica-de-certificacao"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 7
+  },
+  {
+    "id": "odin-foundations",
+    "name": "Foundations",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://www.theodinproject.com/paths/foundations",
+    "provider": "The Odin Project",
+    "sources": [
+      {
+        "label": "The Odin Project (FAQ)",
+        "url": "https://www.theodinproject.com/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 32
+  },
+  {
+    "id": "odin-full-stack-javascript",
+    "name": "Full Stack JavaScript",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-full-stack",
+      "desenvolvedor-backend",
+      "desenvolvedor-frontend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "nenhum",
+    "level": "intermedio",
+    "url": "https://www.theodinproject.com/paths/full-stack-javascript",
+    "provider": "The Odin Project",
+    "sources": [
+      {
+        "label": "The Odin Project (FAQ)",
+        "url": "https://www.theodinproject.com/faq"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 33
+  },
+  {
+    "id": "openwho-recursos",
+    "name": "Formação da OMS para emergências de saúde",
+    "languages": [
+      "pt",
+      "en",
+      "fr"
+    ],
+    "careerSlugs": [
+      "enfermeiro",
+      "tecnico-medio-enfermagem",
+      "parteira",
+      "enfermeiro-cuidados-intensivos",
+      "instrumentista-cirurgico",
+      "medico-clinica-geral",
+      "medico-saude-publica",
+      "tecnico-saude-publica",
+      "tecnico-saude-ambiental",
+      "tecnico-analises-clinicas"
+    ],
+    "areas": [
+      "health"
+    ],
+    "certificate": "nenhum",
+    "level": "iniciante",
+    "url": "https://openwho.org/",
+    "provider": "OpenWHO (Organização Mundial da Saúde)",
+    "sources": [
+      {
+        "label": "OpenWHO (FAQ)",
+        "url": "https://openwho.org/faq"
+      },
+      {
+        "label": "OMS (05/2023)",
+        "url": "https://www.who.int/news/item/24-05-2023-strengthening-influenza-preparedness-through-an-openwho-online-course"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 31
+  },
+  {
+    "id": "python-institute-pcep",
+    "name": "Exame PCEP: Certified Entry-Level Python Programmer",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "desenvolvedor-backend",
+      "engenheiro-de-qa"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificação PCEP, 50 minutos; continua o Python Essentials 1 da Cisco",
+    "priceUsd": 59,
+    "level": "iniciante",
+    "url": "https://pythoninstitute.org/pcep",
+    "provider": "Python Institute (OpenEDG)",
+    "sources": [
+      {
+        "label": "Python Institute",
+        "url": "https://pythoninstitute.org/pcep"
+      },
+      {
+        "label": "Open Exam Prep (2026)",
+        "url": "https://open-exam-prep.com/blog/openedg-pcep-certified-entry-level-python-programmer-exam-guide-2026"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 40
+  },
+  {
+    "id": "udemy-100-days-of-code",
+    "name": "100 Days of Code: The Complete Python Pro Bootcamp (Angela Yu)",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "cientista-de-dados",
+      "engenheiro-de-dados",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificado de conclusão da Udemy (não é acreditado)",
+    "level": "iniciante",
+    "url": "https://www.udemy.com/course/100-days-of-code/",
+    "provider": "Udemy",
+    "sources": [
+      {
+        "label": "Udemy: preços",
+        "url": "https://support.udemy.com/hc/en-us/articles/229606248-Udemy-Course-Pricing-Learner-FAQ"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 42
+  },
+  {
+    "id": "udemy-aws-cloud-practitioner",
+    "name": "Ultimate AWS Certified Cloud Practitioner CLF-C02 (Stephane Maarek)",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "engenheiro-devops",
+      "administrador-de-sistemas",
+      "gestor-de-ti"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificado de conclusão da Udemy; prepara o exame da AWS (pago à parte)",
+    "level": "iniciante",
+    "url": "https://www.udemy.com/course/aws-certified-cloud-practitioner-new/",
+    "provider": "Udemy",
+    "sources": [
+      {
+        "label": "Class Central",
+        "url": "https://www.classcentral.com/course/udemy-aws-certified-cloud-practitioner-new-26063"
+      },
+      {
+        "label": "Udemy: preços",
+        "url": "https://support.udemy.com/hc/en-us/articles/229606248-Udemy-Course-Pricing-Learner-FAQ"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 43
+  },
+  {
+    "id": "udemy-complete-sql-bootcamp",
+    "name": "The Complete SQL Bootcamp (Jose Portilla)",
+    "languages": [
+      "en"
+    ],
+    "careerSlugs": [
+      "analista-de-dados",
+      "analista-de-bi",
+      "administrador-de-base-de-dados",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificado de conclusão da Udemy (não é acreditado)",
+    "level": "iniciante",
+    "url": "https://www.udemy.com/the-complete-sql-bootcamp/",
+    "provider": "Udemy",
+    "sources": [
+      {
+        "label": "Udemy: preços",
+        "url": "https://support.udemy.com/hc/en-us/articles/229606248-Udemy-Course-Pricing-Learner-FAQ"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 44
+  },
+  {
+    "id": "udemy-curso-web-moderno",
+    "name": "Curso Web Moderno Completo com JavaScript + Projetos (Cod3r)",
+    "languages": [
+      "pt"
+    ],
+    "careerSlugs": [
+      "desenvolvedor-frontend",
+      "desenvolvedor-full-stack",
+      "desenvolvedor-backend"
+    ],
+    "areas": [
+      "technology"
+    ],
+    "certificate": "pago",
+    "credential": "certificado de conclusão da Udemy (não é acreditado)",
+    "level": "iniciante",
+    "url": "https://www.udemy.com/course/curso-web/",
+    "provider": "Udemy",
+    "sources": [
+      {
+        "label": "GitHub: curso Cod3r",
+        "url": "https://github.com/Merieli/cod3r-webModernoComJavascript"
+      },
+      {
+        "label": "Udemy: preços",
+        "url": "https://support.udemy.com/hc/en-us/articles/229606248-Udemy-Course-Pricing-Learner-FAQ"
+      }
+    ],
+    "checkedAt": "2026-11-05",
+    "position": 41
+  }
+]

@@ -1,0 +1,363 @@
+import type { UnitContent } from '../types'
+
+// Unit 2: a business's digital presence. Adapted from Wikipedia (Digital marketing, Social media
+// marketing; CC BY-SA 4.0), written from scratch in Portuguese. Platform features are described
+// in general terms, because menus change; the businesses are invented and the amounts in Kz only
+// illustrate (docs/decisoes/0016, note of 13/11 on Marketing Digital).
+
+const unit: UnitContent = {
+  lessons: [
+    {
+      id: 'l1',
+      title: 'O perfil de negócio',
+      estimatedMinutes: 15,
+      blocks: [
+        {
+          type: 'text',
+          title: 'A montra que está sempre aberta',
+          body: [
+            'Hoje, antes de ir a uma loja ou marcar um serviço, muita gente procura o negócio no telemóvel. O perfil nas redes sociais e no WhatsApp funciona como uma montra: se estiver vazio ou confuso, o cliente passa à frente.',
+            'Presença digital (digital presence) é o conjunto de lugares onde o teu negócio aparece na internet. Para um pequeno negócio em Angola, os mais comuns são o WhatsApp, o Instagram e o Facebook. Não precisas de estar em todos: escolhe onde estão os teus clientes.',
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Regra',
+          body: 'Usa uma conta de negócio, separada da tua conta pessoal. As três plataformas têm uma versão ou um tipo de conta para empresas, com campos para descrição, contactos, horário e catálogo. Os menus mudam com frequência: procura nas definições da app a opção de conta profissional ou de empresa.',
+        },
+        {
+          type: 'table',
+          caption: 'O que um perfil de negócio deve ter',
+          head: ['Campo', 'Para que serve', 'Conselho'],
+          rows: [
+            ['Nome', 'Encontrarem-te e lembrarem-se de ti', 'O mesmo nome em todas as plataformas'],
+            [
+              'Foto de perfil',
+              'Reconhecerem-te à primeira vista',
+              'Logótipo ou foto nítida; a mesma em todo o lado',
+            ],
+            ['Descrição', 'Saberem o que fazes', 'O quê, para quem, onde, como encomendar'],
+            [
+              'Contacto e localização',
+              'Chegarem até ti',
+              'Número de WhatsApp e bairro ou ponto de referência',
+            ],
+            ['Horário', 'Saberem quando respondes', 'Real; atualiza nos feriados'],
+            ['Catálogo', 'Verem o que vendes e os preços', 'Fotos reais, nome, preço e uma frase'],
+          ],
+        },
+        {
+          type: 'case',
+          title: 'O salão da Graça',
+          body: [
+            'A Graça faz tranças em Viana. Atendia pelo WhatsApp pessoal, misturado com a família, e as clientes não sabiam o horário nem os preços. Perguntavam tudo, uma a uma.',
+            'Criou um perfil de negócio no WhatsApp e no Instagram com o mesmo nome, “Tranças da Graça”, e a mesma foto. Na descrição pôs: “Tranças e penteados em Viana e ao domicílio. Marcações pelo WhatsApp.” Juntou o horário (terça a sábado, 8h às 18h) e um catálogo com fotos dos penteados que ela própria fez.',
+            'As perguntas repetidas diminuíram e as clientes chegavam já a saber o que queriam.',
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l1-a',
+          kind: 'choice',
+          instruction: 'Escolhe a melhor opção.',
+          items: [
+            {
+              prompt: 'Para vender pelo WhatsApp, a Graça deve usar…',
+              options: ['a conta pessoal', 'uma conta de negócio', 'a conta da irmã'],
+              answer: 1,
+            },
+            {
+              prompt: 'O nome do negócio nas várias plataformas deve ser…',
+              options: ['diferente em cada uma', 'o mesmo em todas', 'só um número'],
+              answer: 1,
+            },
+            {
+              prompt: 'Em que plataformas deves estar?',
+              options: ['Em todas as que existem', 'Onde estão os teus clientes', 'Só na mais recente'],
+              answer: 1,
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l1-b',
+          kind: 'match',
+          instruction: 'Liga cada campo ao que serve.',
+          items: [
+            { left: 'Foto de perfil', right: 'reconhecerem-te à primeira vista' },
+            { left: 'Horário', right: 'saberem quando respondes' },
+            { left: 'Catálogo', right: 'verem o que vendes e os preços' },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'Presença digital: onde o negócio aparece na internet.',
+            'Conta de negócio, separada da pessoal.',
+            'Nome, foto, descrição, contacto, horário e catálogo.',
+            'O mesmo nome e a mesma foto em todas as plataformas.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'l2',
+      title: 'A descrição e o catálogo',
+      estimatedMinutes: 20,
+      blocks: [
+        {
+          type: 'text',
+          title: 'Poucas palavras, muita informação',
+          body: [
+            'A descrição (bio) é das primeiras coisas que o cliente lê. Tem pouco espaço, por isso cada palavra conta. Deve responder, de seguida, a quatro perguntas: o que fazes, para quem, onde e como se encomenda.',
+            'O catálogo (catalogue) mostra os produtos ou serviços, um a um. Evita a pergunta mais repetida de todas: “quanto custa?”.',
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'A descrição em quatro partes',
+          body: 'O quê + para quem + onde + como encomendar. Exemplo: “Roupa de segunda mão para mulher, escolhida peça a peça. Entregas no Kilamba e em Talatona. Encomendas por mensagem.” Sem promessas que não podes cumprir e sem “o melhor de Angola”.',
+        },
+        {
+          type: 'table',
+          caption: 'Cada produto no catálogo',
+          head: ['Elemento', 'Bom', 'Mau'],
+          rows: [
+            ['Foto', 'Real, com boa luz, fundo simples', 'Foto tirada da internet'],
+            ['Nome', '“Vestido azul, tamanho M”', '“Artigo 23”'],
+            ['Preço', 'Sempre visível', '“Preço por mensagem”'],
+            ['Descrição', 'Estado, tamanho, material', 'Vazia'],
+          ],
+        },
+        {
+          type: 'case',
+          title: 'A roupa da Teresa',
+          body: [
+            'A Teresa vende roupa de segunda mão pelo Instagram. Publicava fotos de roupa tiradas de outros sites, e as clientes queixavam-se de que as peças eram diferentes.',
+            'Passou a fotografar cada peça à luz da janela, numa parede branca. No catálogo pôs o nome com o tamanho, o estado (“como nova”, “pouco uso”) e o preço; imagina 5 000 Kz por uma blusa (valor só para ilustrar).',
+            'As clientes deixaram de perguntar o preço uma a uma, e as devoluções baixaram, porque o que recebiam era o que tinham visto.',
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l2-a',
+          kind: 'choice',
+          instruction: 'Qual é a melhor descrição?',
+          items: [
+            {
+              prompt: 'Para explicações de Matemática:',
+              options: [
+                'O melhor explicador de Angola!!!',
+                'Explicações de Matemática para a 10.ª à 12.ª classe, no Cazenga, ao sábado. Inscrições por mensagem.',
+                'Aulas.',
+              ],
+              answer: 1,
+            },
+            {
+              prompt: 'Para um produto do catálogo:',
+              options: [
+                '“Artigo 23”, sem preço',
+                '“Calças de ganga, tamanho 40, pouco uso, 6 000 Kz”',
+                'Uma foto tirada da internet',
+              ],
+              answer: 1,
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l2-b',
+          kind: 'order',
+          instruction: 'Ordena as quatro partes de uma boa descrição.',
+          items: [
+            {
+              words: ['onde', 'o quê', 'como encomendar', 'para quem'],
+              answer: 'o quê para quem onde como encomendar',
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l2-c',
+          kind: 'gap',
+          instruction: 'Completa com uma palavra.',
+          items: [
+            { prompt: 'No catálogo, o ___ deve estar sempre visível.', answers: ['preço'] },
+            {
+              prompt: 'As fotos dos produtos devem ser ___, não tiradas da internet.',
+              answers: ['reais', 'tuas'],
+            },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'Descrição: o quê, para quem, onde, como encomendar.',
+            'Catálogo: foto real, nome claro, preço visível, estado ou detalhes.',
+            'Mostrar o que o cliente vai mesmo receber evita queixas e devoluções.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'l3',
+      title: 'Horário, respostas e confiança',
+      estimatedMinutes: 15,
+      blocks: [
+        {
+          type: 'text',
+          title: 'Responder também é marketing',
+          body: [
+            'Um perfil bonito não chega se as mensagens ficam dias sem resposta. Para muitos clientes, a forma como respondes é a primeira experiência com o teu negócio.',
+            'As contas de negócio costumam ter ferramentas para ajudar: mensagem de boas-vindas, mensagem de ausência fora do horário e respostas rápidas para as perguntas mais comuns. O nome e o lugar destas opções mudam de app para app e de versão para versão.',
+          ],
+        },
+        {
+          type: 'rule',
+          title: 'Regra',
+          body: 'Diz quando respondes e cumpre. Fora do horário, uma mensagem automática educada (“Obrigada pela mensagem! Respondemos de terça a sábado, das 8h às 18h.”) é melhor do que silêncio. Nunca prometas resultados que não controlas, como “passas de certeza no exame” ou “vais ganhar dinheiro”.',
+        },
+        {
+          type: 'examples',
+          title: 'Respostas rápidas (exemplos)',
+          items: [
+            {
+              text: '“Os preços estão no catálogo. Qual é a peça que te interessa?”',
+              note: 'Para a pergunta “quanto custa?”.',
+            },
+            {
+              text: '“Entregamos no Kilamba e em Talatona, às quartas e sábados.”',
+              note: 'Para a pergunta “fazem entregas?”.',
+            },
+            {
+              text: '“As inscrições para as explicações abrem no início de cada mês.”',
+              note: 'Para a pergunta “ainda há vagas?”.',
+            },
+          ],
+        },
+        {
+          type: 'case',
+          title: 'A confiança nas explicações da Marta',
+          body: [
+            'A Marta recebe muitas mensagens de pais à noite. Configurou uma mensagem de ausência com o horário em que responde e três respostas rápidas: preço, horário das aulas e como inscrever.',
+            'Os pais perguntavam: “o meu filho vai passar?”. A Marta deixou de prometer isso e passou a explicar o que faz: um teste por semana e um relatório mensal para os pais. É uma promessa que ela cumpre, e os pais confiam mais nela por isso.',
+            'Quando uma mãe deixou uma opinião positiva, a Marta pediu autorização antes de a partilhar no estado do WhatsApp, sem o nome do aluno.',
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l3-a',
+          kind: 'choice',
+          instruction: 'Escolhe a melhor opção.',
+          items: [
+            {
+              prompt: 'Chega uma mensagem às 23h, fora do horário. O melhor é…',
+              options: [
+                'não responder nunca',
+                'ter uma mensagem de ausência com o horário',
+                'responder “estou a dormir”',
+              ],
+              answer: 1,
+            },
+            {
+              prompt: 'Qual destas promessas é aceitável?',
+              options: [
+                '“Passas de certeza no exame.”',
+                '“Fazemos um teste por semana e enviamos um relatório mensal.”',
+                '“Vais ganhar muito dinheiro.”',
+              ],
+              answer: 1,
+            },
+            {
+              prompt: 'Antes de partilhar a opinião de uma cliente, deves…',
+              options: ['pedir autorização', 'mudar o texto', 'acrescentar o número dela'],
+              answer: 0,
+            },
+          ],
+        },
+        {
+          type: 'exercise',
+          id: 'md-u2l3-b',
+          kind: 'match',
+          instruction: 'Liga cada ferramenta ao que faz.',
+          items: [
+            { left: 'Mensagem de ausência', right: 'responde fora do horário' },
+            { left: 'Resposta rápida', right: 'responde a perguntas repetidas' },
+            { left: 'Mensagem de boas-vindas', right: 'saúda quem escreve pela primeira vez' },
+          ],
+        },
+        {
+          type: 'summary',
+          points: [
+            'A forma como respondes faz parte do marketing.',
+            'Mensagem de ausência, boas-vindas e respostas rápidas poupam tempo.',
+            'Nada de promessas de resultados ou de ganhos.',
+            'Pede autorização antes de partilhar a opinião de um cliente.',
+          ],
+        },
+      ],
+    },
+  ],
+  review: [
+    {
+      type: 'exercise',
+      id: 'md-u2r-a',
+      kind: 'choice',
+      instruction: 'Escolhe a resposta certa.',
+      items: [
+        {
+          prompt: 'O que é presença digital?',
+          options: [
+            'Os lugares onde o negócio aparece na internet',
+            'Ter muitos seguidores',
+            'Pagar anúncios',
+          ],
+          answer: 0,
+        },
+        {
+          prompt: 'Porque é que se usa uma conta de negócio?',
+          options: [
+            'Para separar do pessoal e ter descrição, horário e catálogo',
+            'Porque é obrigatório por lei',
+            'Para esconder o preço',
+          ],
+          answer: 0,
+        },
+        {
+          prompt: 'Qual é a melhor foto para o catálogo?',
+          options: ['Uma foto da internet', 'Uma foto real, com boa luz', 'Nenhuma foto'],
+          answer: 1,
+        },
+        {
+          prompt: 'Os menus das plataformas…',
+          options: ['nunca mudam', 'mudam com frequência', 'são iguais em todas as apps'],
+          answer: 1,
+        },
+      ],
+    },
+    {
+      type: 'exercise',
+      id: 'md-u2r-b',
+      kind: 'gap',
+      instruction: 'Completa com uma palavra.',
+      items: [
+        { prompt: 'A descrição diz o quê, para quem, onde e como ___.', answers: ['encomendar'] },
+        { prompt: 'Fora do horário, usa uma mensagem de ___.', answers: ['ausência'] },
+        { prompt: 'O nome do negócio deve ser o ___ em todas as plataformas.', answers: ['mesmo'] },
+      ],
+    },
+    {
+      type: 'exercise',
+      id: 'md-u2r-c',
+      kind: 'match',
+      instruction: 'Liga cada problema à solução.',
+      items: [
+        { left: 'Todos perguntam o preço', right: 'Preço visível no catálogo' },
+        { left: 'Clientes recebem peças diferentes', right: 'Fotos reais de cada peça' },
+        { left: 'Mensagens à noite sem resposta', right: 'Mensagem de ausência com o horário' },
+      ],
+    },
+  ],
+}
+
+export default unit

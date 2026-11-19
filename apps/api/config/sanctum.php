@@ -18,12 +18,9 @@ return [
     |
     */
 
-    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
-        '%s%s',
-        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
-        Sanctum::currentApplicationUrlWithPort(),
-        // Sanctum::currentRequestHost(),
-    ))),
+    // Only the app's own domain (APP_URL). Never plain "localhost": the Android app's origin is
+    // https://localhost, and it must use its token, not a session with CSRF (docs/seguranca.md).
+    'stateful' => array_values(array_filter(explode(',', (string) env('SANCTUM_STATEFUL_DOMAINS', Sanctum::currentApplicationUrlWithPort())))),
 
     /*
     |--------------------------------------------------------------------------

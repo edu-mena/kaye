@@ -22,6 +22,10 @@ RUN npx tsc -b && npx vite build --outDir /spa --emptyOutDir
 # 2. PHP runtime with the extensions Laravel and Filament need
 # ---------------------------------------------------------------------------
 FROM php:${PHP_VERSION}-apache AS base
+# Debian security fixes newer than the base image (the Trivy scan in CI fails on HIGH and CRITICAL).
+RUN apt-get update \
+    && apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 COPY --from=mlocati/php-extension-installer:2 /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions pdo_mysql intl zip opcache \
     && a2enmod rewrite headers \

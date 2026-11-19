@@ -1,0 +1,610 @@
+[
+  {
+    "id": "isced-luanda-2026-27",
+    "academyId": "instituto-superior-de-ciencias-de-educacao-de-luanda",
+    "courseIds": [
+      "educacao-de-infancia",
+      "ensino-primario",
+      "ensino-da-lingua-portuguesa",
+      "ensino-do-portugues",
+      "ensino-da-lingua-e-literaturas-africanas",
+      "ensino-das-linguas-e-literaturas-africanas"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-08-19"
+    },
+    "examDates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "Matemática",
+      "Línguas e Literaturas Africanas"
+    ],
+    "vacancies": 225,
+    "requirements": [
+      "Certificado do II ciclo do ensino secundário (original e cópia)",
+      "Cópia do BI actualizado",
+      "Comprovativo de pagamento",
+      "Ensino da Língua Portuguesa: também prova oral"
+    ],
+    "url": "https://isced.edu.ao/2026/07/31/informacoes-sobre-o-processo-de-candidatura-para-o-ano-academico-2026-2027/",
+    "sources": [
+      {
+        "label": "ISCED Luanda: processo de acesso 2026/2027",
+        "url": "https://isced.edu.ao/2026/07/31/informacoes-sobre-o-processo-de-candidatura-para-o-ano-academico-2026-2027/"
+      },
+      {
+        "label": "ISCED Luanda: vagas (30/07/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/08/VAGAS-DISPONIVEIS.pdf"
+      },
+      {
+        "label": "ISCED Luanda: prorrogação das inscrições (17/08/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/08/COMUNICADO-SOBRE-PRORROGACAO-DAS-INSCRICOES.pdf"
+      },
+      {
+        "label": "MESCTI, DNES: calendário dos exames nacionais de formação de professores (24/07/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/08/CALENDARIO-DAS-PROVAS-DOS-EXAMES-DE-ACESSO-2026-2027.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 8
+  },
+  {
+    "id": "isced-luanda-excepcional-2026-27",
+    "academyId": "instituto-superior-de-ciencias-de-educacao-de-luanda",
+    "courseIds": [
+      "ensino-da-matematica",
+      "ensino-da-historia",
+      "ensino-da-lingua-inglesa",
+      "ensino-do-ingles",
+      "ensino-da-lingua-francesa",
+      "ensino-do-frances"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-09-30",
+      "end": "2026-10-07"
+    },
+    "examDates": [
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "Matemática",
+      "História",
+      "Língua Inglesa",
+      "Língua Francesa"
+    ],
+    "requirements": [
+      "Certificado do II ciclo do ensino secundário (original e cópia)",
+      "Cópia do BI actualizado",
+      "Comprovativo de pagamento"
+    ],
+    "url": "https://isced.edu.ao/2026/10/01/exames-nacionais-excepcionais-de-acesso-aos-cursos-de-formacao-de-educadores-de-infancia-e-de-professores-ano-academico-2026-2027/",
+    "sources": [
+      {
+        "label": "ISCED Luanda: exames nacionais excepcionais 2026/2027",
+        "url": "https://isced.edu.ao/2026/10/01/exames-nacionais-excepcionais-de-acesso-aos-cursos-de-formacao-de-educadores-de-infancia-e-de-professores-ano-academico-2026-2027/"
+      },
+      {
+        "label": "ISCED Luanda: período e local das inscrições (30/09/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/10/PERIODO-E-LOCAL-DAS-INSCRICOES.pdf"
+      },
+      {
+        "label": "MESCTI, DNES: calendário excepcional (30/09/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/10/CALENDARIO-EXCEPCIONAL-DE-EXAMES-NACIONAIS-DE-ACESSO-1-a-CHAMADA.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 9
+  },
+  {
+    "id": "isptec-cabinda-2026-27",
+    "academyId": "isptec",
+    "courseIds": [
+      "engenharia-mecanica",
+      "engenharia-de-petroleos"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-10-14",
+      "end": "2026-10-21"
+    },
+    "examDates": [
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-24"
+    ],
+    "subjects": [
+      "Matemática",
+      "Física"
+    ],
+    "vacancies": 200,
+    "fee": 5000,
+    "requirements": [
+      "Pólo de Cabinda",
+      "Pré-inscrição em isptec.co.ao, validação no pólo",
+      "Fotocópia do BI",
+      "Certificado do II ciclo com notas de todas as disciplinas"
+    ],
+    "url": "https://isptec.co.ao/public/assets/uploads/docs/edital-exame-acesso-2026-2027-polo-cabinda.pdf",
+    "sources": [
+      {
+        "label": "ISPTEC: Edital do Exame de Acesso 2026/2027, Pólo de Cabinda (08/10/2026)",
+        "url": "https://isptec.co.ao/public/assets/uploads/docs/edital-exame-acesso-2026-2027-polo-cabinda.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 7
+  },
+  {
+    "id": "mescti-2026-27",
+    "academyId": null,
+    "year": "2026/27",
+    "registration": {
+      "start": null,
+      "end": null
+    },
+    "examDates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "subjects": [],
+    "vacancies": 283500,
+    "requirements": [
+      "Instituições públicas: exames de 24 a 28 de agosto",
+      "Instituições privadas: exames de 14 a 18 de setembro",
+      "Cada instituição marca as inscrições"
+    ],
+    "url": "https://angolex.com/paginas/decreto-executivo/calendario-do-ano-academico-2026a2027a-das-instituicoes-de-ensino-superior-135a-26a.html",
+    "sources": [
+      {
+        "label": "Decreto Executivo 135/26 (calendário 2026/27)",
+        "url": "https://angolex.com/paginas/decreto-executivo/calendario-do-ano-academico-2026a2027a-das-instituicoes-de-ensino-superior-135a-26a.html"
+      },
+      {
+        "label": "Forbes África Lusófona (11/09/2026)",
+        "url": "https://forbesafricalusofona.com/ensino-superior-reduz-50-mil-vagas-em-angola-no-proximo-ano-academico/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 0
+  },
+  {
+    "id": "mescti-formacao-de-professores-2026-27",
+    "academyId": null,
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-08-14"
+    },
+    "examDates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-21",
+      "2026-09-22"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "História",
+      "Matemática",
+      "Biologia",
+      "Física",
+      "Química",
+      "Geografia",
+      "Língua Inglesa",
+      "Língua Francesa",
+      "Línguas Africanas",
+      "Educação Física (prova prática)"
+    ],
+    "requirements": [
+      "Exame nacional para os cursos de educadores de infância e de professores",
+      "2.ª chamada em setembro"
+    ],
+    "url": "https://isced.edu.ao/wp-content/uploads/2026/08/CALENDARIO-DAS-PROVAS-DOS-EXAMES-DE-ACESSO-2026-2027.pdf",
+    "sources": [
+      {
+        "label": "MESCTI, DNES: calendário dos exames nacionais de formação de professores (24/07/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/08/CALENDARIO-DAS-PROVAS-DOS-EXAMES-DE-ACESSO-2026-2027.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 1
+  },
+  {
+    "id": "mescti-formacao-de-professores-excepcional-2026-27",
+    "academyId": null,
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-09-30",
+      "end": "2026-10-07"
+    },
+    "examDates": [
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "História",
+      "Matemática",
+      "Biologia",
+      "Física",
+      "Química",
+      "Geografia",
+      "Língua Inglesa",
+      "Língua Francesa",
+      "Línguas Africanas",
+      "Educação Física (prova prática)"
+    ],
+    "requirements": [
+      "Chamada excepcional para os cursos de educadores de infância e de professores"
+    ],
+    "url": "https://isced.edu.ao/wp-content/uploads/2026/10/CALENDARIO-EXCEPCIONAL-DE-EXAMES-NACIONAIS-DE-ACESSO-1-a-CHAMADA.pdf",
+    "sources": [
+      {
+        "label": "MESCTI, DNES: calendário excepcional (30/09/2026)",
+        "url": "https://isced.edu.ao/wp-content/uploads/2026/10/CALENDARIO-EXCEPCIONAL-DE-EXAMES-NACIONAIS-DE-ACESSO-1-a-CHAMADA.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 2
+  },
+  {
+    "academyId": "uan",
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-08-17"
+    },
+    "examDates": [
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28"
+    ],
+    "fee": 5000,
+    "requirements": [
+      "Inscrição só online",
+      "Certificado ou declaração do ensino secundário (PDF)",
+      "Fotografia tipo passe",
+      "Duas opções de curso: 10 000 Kz",
+      "No dia: BI original e ficha de inscrição impressa"
+    ],
+    "url": "https://examedeacesso.uan.co.ao",
+    "sources": [
+      {
+        "label": "UAN: Exame de Acesso 2026 (13/08/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/exame-de-acesso-2026"
+      },
+      {
+        "label": "UAN: cursos disponíveis (27/07/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/cursos-disponiveis-para-os-exames-de-acesso-2026"
+      },
+      {
+        "label": "UAN: tópicos do exame de acesso 2026",
+        "url": "https://uan.ao/sobre-uan/admissao"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "id": "uan-exactas-2026-27",
+    "courseIds": [
+      "arquitectura",
+      "engenharia-civil",
+      "engenharia-de-minas",
+      "engenharia-electrotecnica",
+      "engenharia-electronica-e-telecomunicacoes",
+      "engenharia-de-petroleos",
+      "engenharia-de-petroleo",
+      "engenharia-informatica",
+      "engenharia-mecanica",
+      "engenharia-quimica",
+      "geologia"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "Biologia",
+      "Matemática",
+      "Física",
+      "Química",
+      "Desenho"
+    ],
+    "position": 3
+  },
+  {
+    "academyId": "uan",
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-08-17"
+    },
+    "examDates": [
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28"
+    ],
+    "fee": 5000,
+    "requirements": [
+      "Inscrição só online",
+      "Certificado ou declaração do ensino secundário (PDF)",
+      "Fotografia tipo passe",
+      "Duas opções de curso: 10 000 Kz",
+      "No dia: BI original e ficha de inscrição impressa"
+    ],
+    "url": "https://examedeacesso.uan.co.ao",
+    "sources": [
+      {
+        "label": "UAN: Exame de Acesso 2026 (13/08/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/exame-de-acesso-2026"
+      },
+      {
+        "label": "UAN: cursos disponíveis (27/07/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/cursos-disponiveis-para-os-exames-de-acesso-2026"
+      },
+      {
+        "label": "UAN: tópicos do exame de acesso 2026",
+        "url": "https://uan.ao/sobre-uan/admissao"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "id": "uan-saude-2026-27",
+    "courseIds": [
+      "medicina",
+      "enfermagem",
+      "analises-clinicas-e-saude-publica",
+      "ciencias-farmaceuticas"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "Biologia",
+      "Matemática",
+      "Química"
+    ],
+    "position": 4
+  },
+  {
+    "academyId": "uan",
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-08-17"
+    },
+    "examDates": [
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28"
+    ],
+    "fee": 5000,
+    "requirements": [
+      "Inscrição só online",
+      "Certificado ou declaração do ensino secundário (PDF)",
+      "Fotografia tipo passe",
+      "Duas opções de curso: 10 000 Kz",
+      "No dia: BI original e ficha de inscrição impressa"
+    ],
+    "url": "https://examedeacesso.uan.co.ao",
+    "sources": [
+      {
+        "label": "UAN: Exame de Acesso 2026 (13/08/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/exame-de-acesso-2026"
+      },
+      {
+        "label": "UAN: cursos disponíveis (27/07/2026)",
+        "url": "https://www.uan.ao/detalhes/noticia/cursos-disponiveis-para-os-exames-de-acesso-2026"
+      },
+      {
+        "label": "UAN: tópicos do exame de acesso 2026",
+        "url": "https://uan.ao/sobre-uan/admissao"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "id": "uan-sociais-2026-27",
+    "courseIds": [
+      "antropologia",
+      "gestao-e-administracao-publica",
+      "geodemografia",
+      "comunicacao-social",
+      "direito",
+      "economia",
+      "educacao-fisica-e-desporto",
+      "filosofia",
+      "lingua-e-literaturas-africanas",
+      "linguas-e-literaturas-africanas",
+      "lingua-e-literaturas-em-lingua-francesa",
+      "psicologia-clinica",
+      "psicologia-escolar"
+    ],
+    "subjects": [
+      "Língua Portuguesa",
+      "História",
+      "Matemática",
+      "Cultura Geral"
+    ],
+    "position": 5
+  },
+  {
+    "id": "ucan-economia-2026-27",
+    "academyId": "ucan",
+    "courseIds": [
+      "contabilidade-e-administracao",
+      "economia-e-gestao"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": null,
+      "end": null
+    },
+    "examDates": [],
+    "subjects": [
+      "Língua Portuguesa",
+      "Matemática"
+    ],
+    "requirements": [],
+    "url": "https://www.ucan.co.ao/topicos-para-os-exames-de-acesso/",
+    "sources": [
+      {
+        "label": "UCAN: tópicos para os exames de acesso 2026",
+        "url": "https://www.ucan.co.ao/topicos-para-os-exames-de-acesso/"
+      },
+      {
+        "label": "UCAN: tópicos de Economia e Gestão",
+        "url": "https://www.ucan.co.ao/wp-content/uploads/2026/08/Economia-e-Gestao.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 11
+  },
+  {
+    "id": "ucan-informatica-2026-27",
+    "academyId": "ucan",
+    "courseIds": [
+      "engenharia-informatica",
+      "engenharia-de-telecomunicacoes"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": null,
+      "end": null
+    },
+    "examDates": [],
+    "subjects": [
+      "Matemática",
+      "Física"
+    ],
+    "requirements": [],
+    "url": "https://www.ucan.co.ao/topicos-para-os-exames-de-acesso/",
+    "sources": [
+      {
+        "label": "UCAN: tópicos para os exames de acesso 2026",
+        "url": "https://www.ucan.co.ao/topicos-para-os-exames-de-acesso/"
+      },
+      {
+        "label": "UCAN: tópicos de Informática e Telecomunicações",
+        "url": "https://www.ucan.co.ao/wp-content/uploads/2026/08/Informatica-e-Telecomunicacoes.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 10
+  },
+  {
+    "id": "unia-2026-27",
+    "academyId": "universidade-independente-de-angola",
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-09-11"
+    },
+    "examDates": [
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "subjects": [],
+    "requirements": [
+      "Candidatura online em secretaria.unia.ao"
+    ],
+    "url": "https://unia.ao/inscricoes/",
+    "sources": [
+      {
+        "label": "UnIA: Calendário Académico 2026/2027 (25/06/2026)",
+        "url": "https://unia.ao/wp-content/uploads/2026/08/Calendario-Academico-2026-2027.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 12
+  },
+  {
+    "id": "uniluanda-instic-2026-27",
+    "academyId": "universidade-de-luanda",
+    "courseIds": [
+      "engenharia-informatica",
+      "engenharia-de-telecomunicacoes",
+      "informatica-de-gestao",
+      "informatica"
+    ],
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-04",
+      "end": "2026-08-15"
+    },
+    "examDates": [
+      "2026-08-26"
+    ],
+    "subjects": [],
+    "fee": 5000,
+    "requirements": [
+      "Cópia do BI",
+      "Fotografia tipo passe",
+      "Cópia do certificado de habilitações",
+      "Pagamento por RUPE",
+      "Duas opções de curso: 10 000 Kz"
+    ],
+    "url": "https://instic.uniluanda.ao/exame-de-acesso-2/",
+    "sources": [
+      {
+        "label": "INSTIC (UniLuanda): Exame de Acesso 2026-27",
+        "url": "https://instic.uniluanda.ao/exame-de-acesso-2/"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 6
+  },
+  {
+    "id": "unipiaget-2026-27",
+    "academyId": "universidades-jean-piaget",
+    "year": "2026/27",
+    "registration": {
+      "start": "2026-08-03",
+      "end": "2026-09-05"
+    },
+    "examDates": [
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16"
+    ],
+    "subjects": [],
+    "requirements": [
+      "Formação de professores (Português e Línguas Nacionais): exame nacional, inscrições até 21 de agosto"
+    ],
+    "url": "https://www.unipiaget-angola.org/?inscricoes=",
+    "sources": [
+      {
+        "label": "Universidade Jean Piaget: Calendário do Ano Académico 2026/2027",
+        "url": "https://www.unipiaget-angola.org/upload/formularios/calendario/CALENDA%CC%81RIO%20_DO_ANO_ACADE%CC%81MICO_2026-2027.pdf"
+      }
+    ],
+    "checkedAt": "2026-11-03",
+    "position": 13
+  }
+]

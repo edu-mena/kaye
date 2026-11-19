@@ -1,0 +1,79 @@
+# Weekly data for the Mercado: the job sites, the Jobartis post pages and the Diário da República's dispatches.
+# The collected facts (scrapers/data) live in an artifact kept 90 days and carried from run to run; only the
+# counts reach the repository, through a pull request. Why here and not on the hosting: docs/arquitetura.md.
+name: Market data
+
+on:
+  schedule:
+    - cron: '0 21 * * 6' # Saturday 22:00 in Luanda
+  workflow_dispatch:
+
+permissions:
+  actions: read # last week's artifact
+  contents: write # the branch with the new counts
+  pull-requests: write
+
+concurrency:
+  group: market-data
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    name: Collect and count
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    defaults:
+      run:
+        working-directory: scrapers
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Without last week's facts (the first run, or 90 days without one) everything is read again.
+      - name: Last week's facts
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run=$(gh run list --workflow market-data.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          if [ -n "$run" ] && gh run download "$run" --name market-data --dir data; then
+            echo "since=$(date -u -d '14 days ago' +%F)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Job sites
+        env:
+          SINCE: ${{ steps.previous.outputs.since }}
+        run: python3 -m jobs.collect ${SINCE:+--since "$SINCE"}
+
+      - name: Jobartis post pages (last 60 days)
+        run: python3 -m jobs.details
+
+      - name: Diário da República dispatches
+        run: python3 -m jobs.official
+
+      - name: Count
+        run: python3 -m jobs.summarize
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: market-data
+          path: scrapers/data/*.jsonl
+          retention-days: 90
+
+      - name: Pull request with the new counts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- ../apps/web/src/data/market; then
+            echo "The counts did not change."
+            exit 0
+          fi
+          branch=data/market-weekly
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -C "$branch"
+          git add ../apps/web/src/data/market
+          git commit -m "chore(data): weekly market counts ($(date -u +%F))"
+          git push --force origin "$branch"
+          gh pr view "$branch" > /dev/null 2>&1 || gh pr create --head "$branch" \
+            --title 'chore(data): weekly market counts' \
+            --body 'Counts from the weekly collection (job sites, Jobartis post pages, Diário da República dispatches). Only aggregates: the facts stay in the run artifact.'

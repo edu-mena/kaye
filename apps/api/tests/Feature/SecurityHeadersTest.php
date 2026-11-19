@@ -43,6 +43,9 @@ class SecurityHeadersTest extends TestCase
 
         $this->assertIsString($csp);
         $this->assertStringContainsString("script-src 'self';", $csp);
+        // The PWA: the service worker and the manifest are our own files, and nothing else may register a worker.
+        $this->assertStringContainsString("worker-src 'self';", $csp);
+        $this->assertStringContainsString("manifest-src 'self';", $csp);
         $this->assertStringContainsString("frame-ancestors 'none'", $csp);
         $this->assertStringNotContainsString('unsafe-inline', $csp);
         $this->assertStringNotContainsString('unsafe-eval', $csp);

@@ -1,0 +1,46 @@
+{
+ "year": 2025,
+ "source": {
+  "label": "INE, Inquérito sobre o Emprego em Angola 2025 (anuário de abril de 2026)",
+  "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639118346133135279.pdf"
+ },
+ "unemployment": 0.283,
+ "ages": [
+  {
+   "from": 15,
+   "to": 24,
+   "rate": 0.518
+  },
+  {
+   "from": 25,
+   "to": 34,
+   "rate": 0.228
+  },
+  {
+   "from": 35,
+   "to": 44,
+   "rate": 0.125
+  },
+  {
+   "from": 45,
+   "to": 54,
+   "rate": 0.106
+  },
+  {
+   "from": 55,
+   "to": 64,
+   "rate": 0.13
+  },
+  {
+   "from": 65,
+   "to": null,
+   "rate": 0.134
+  }
+ ],
+ "youth": {
+  "unemployment": 0.518,
+  "urban": 0.662,
+  "rural": 0.242,
+  "neitherWorkNorStudy": 0.272
+ }
+}

@@ -1,0 +1,96 @@
+// Verbal items of the psychotechnical practice (value offer, point 2.1): written by us, in
+// Portuguese, never copied from a test battery. The generator picks from these lists with a seed.
+
+export type Analogy = { a: string; b: string; c: string; answer: string; wrong: [string, string, string] }
+export type Synonym = { word: string; answer: string; wrong: [string, string, string] }
+export type VerbalLevel = 'easy' | 'medium' | 'hard'
+
+export const ANALOGIES: Record<VerbalLevel, Analogy[]> = {
+  easy: [
+    { a: 'pássaro', b: 'ninho', c: 'abelha', answer: 'colmeia', wrong: ['flor', 'mel', 'ferrão'] },
+    { a: 'médico', b: 'hospital', c: 'professor', answer: 'escola', wrong: ['aluno', 'livro', 'aula'] },
+    { a: 'dia', b: 'noite', c: 'quente', answer: 'frio', wrong: ['sol', 'calor', 'verão'] },
+    { a: 'pé', b: 'sapato', c: 'mão', answer: 'luva', wrong: ['dedo', 'braço', 'anel'] },
+    { a: 'peixe', b: 'água', c: 'pássaro', answer: 'ar', wrong: ['asa', 'pena', 'árvore'] },
+    { a: 'Luanda', b: 'Angola', c: 'Lisboa', answer: 'Portugal', wrong: ['Europa', 'Porto', 'Brasil'] },
+    { a: 'caneta', b: 'escrever', c: 'tesoura', answer: 'cortar', wrong: ['papel', 'afiar', 'colar'] },
+  ],
+  medium: [
+    { a: 'semente', b: 'árvore', c: 'ovo', answer: 'galinha', wrong: ['gema', 'ninho', 'casca'] },
+    { a: 'pintor', b: 'pincel', c: 'carpinteiro', answer: 'serrote', wrong: ['madeira', 'mesa', 'oficina'] },
+    { a: 'livro', b: 'capítulo', c: 'casa', answer: 'divisão', wrong: ['rua', 'tijolo', 'telhado'] },
+    {
+      a: 'termómetro',
+      b: 'temperatura',
+      c: 'balança',
+      answer: 'peso',
+      wrong: ['altura', 'mercado', 'prato'],
+    },
+    { a: 'fome', b: 'comer', c: 'sono', answer: 'dormir', wrong: ['cama', 'noite', 'cansaço'] },
+    { a: 'rio', b: 'margem', c: 'estrada', answer: 'berma', wrong: ['carro', 'ponte', 'asfalto'] },
+    { a: 'ler', b: 'leitor', c: 'ouvir', answer: 'ouvinte', wrong: ['orelha', 'música', 'som'] },
+  ],
+  hard: [
+    {
+      a: 'eloquente',
+      b: 'fala',
+      c: 'perspicaz',
+      answer: 'raciocínio',
+      wrong: ['visão', 'pressa', 'memória'],
+    },
+    { a: 'efémero', b: 'duradouro', c: 'escasso', answer: 'abundante', wrong: ['raro', 'pequeno', 'breve'] },
+    {
+      a: 'arquipélago',
+      b: 'ilha',
+      c: 'constelação',
+      answer: 'estrela',
+      wrong: ['galáxia', 'céu', 'planeta'],
+    },
+    { a: 'prólogo', b: 'epílogo', c: 'nascente', answer: 'foz', wrong: ['rio', 'fonte', 'margem'] },
+    {
+      a: 'herbívoro',
+      b: 'plantas',
+      c: 'insetívoro',
+      answer: 'insetos',
+      wrong: ['carne', 'aves', 'sementes'],
+    },
+    {
+      a: 'cronómetro',
+      b: 'tempo',
+      c: 'odómetro',
+      answer: 'distância',
+      wrong: ['velocidade', 'pressão', 'altura'],
+    },
+    { a: 'gota', b: 'oceano', c: 'grão', answer: 'deserto', wrong: ['areia', 'pedra', 'praia'] },
+  ],
+}
+
+export const SYNONYMS: Record<VerbalLevel, Synonym[]> = {
+  easy: [
+    { word: 'começar', answer: 'iniciar', wrong: ['acabar', 'parar', 'correr'] },
+    { word: 'rápido', answer: 'veloz', wrong: ['lento', 'forte', 'leve'] },
+    { word: 'contente', answer: 'alegre', wrong: ['triste', 'cansado', 'calmo'] },
+    { word: 'oferecer', answer: 'dar', wrong: ['receber', 'pedir', 'guardar'] },
+    { word: 'bonito', answer: 'belo', wrong: ['feio', 'grande', 'novo'] },
+    { word: 'casa', answer: 'lar', wrong: ['rua', 'bairro', 'porta'] },
+  ],
+  medium: [
+    { word: 'adquirir', answer: 'obter', wrong: ['perder', 'vender', 'esquecer'] },
+    { word: 'frágil', answer: 'delicado', wrong: ['robusto', 'pesado', 'seco'] },
+    { word: 'escasso', answer: 'raro', wrong: ['abundante', 'barato', 'cheio'] },
+    { word: 'contemplar', answer: 'observar', wrong: ['ignorar', 'falar', 'tocar'] },
+    { word: 'êxito', answer: 'sucesso', wrong: ['saída', 'fracasso', 'esforço'] },
+    { word: 'ríspido', answer: 'áspero', wrong: ['suave', 'rápido', 'rico'] },
+  ],
+  hard: [
+    { word: 'efémero', answer: 'passageiro', wrong: ['eterno', 'festivo', 'confuso'] },
+    { word: 'perspicaz', answer: 'sagaz', wrong: ['distraído', 'lento', 'teimoso'] },
+    { word: 'inócuo', answer: 'inofensivo', wrong: ['perigoso', 'inútil', 'invisível'] },
+    { word: 'altivo', answer: 'arrogante', wrong: ['humilde', 'alto', 'ativo'] },
+    { word: 'profícuo', answer: 'proveitoso', wrong: ['prejudicial', 'profundo', 'proibido'] },
+    { word: 'lacónico', answer: 'conciso', wrong: ['prolixo', 'triste', 'vago'] },
+  ],
+}
+
+/** Made-up words for the syllogisms: the logic is checked, never knowledge of the world. */
+export const NONSENSE_WORDS = ['blins', 'cratos', 'zufos', 'melpos', 'tarins', 'gorvas', 'vulmos', 'drumes']

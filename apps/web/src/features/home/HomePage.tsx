@@ -1,43 +1,527 @@
 import { useTranslation } from 'react-i18next'
-import { useApiHealth } from './useApiHealth'
+import { Link } from 'react-router'
+import { Icon, type IconName } from '../../components/icons'
+import { InstallCard } from '../../components/InstallApp'
+import { PathMark } from '../../components/PathMark'
+import { PhotoImg } from '../../components/PhotoImg'
+import { ButtonLink } from '../../components/ui/Button'
+import { Card } from '../../components/ui/Card'
+import { Chip } from '../../components/ui/Chip'
+import { Hexagon } from '../../components/ui/Hexagon'
+import { SectionHeading } from '../../components/ui/PageHeader'
+import { ProgressBar } from '../../components/ui/ProgressBar'
+import { useAcademies, useCareer, useCareers, useCompanies, useCourses } from '../../data/queries'
+import { MARKET_AREAS } from '../../data/types'
+import { achievements, totalXp } from '../../domain/achievements'
+import { cvCompleteness } from '../../domain/cv'
+import { quickestPathway } from '../../domain/education'
+import { riasecCode } from '../../domain/riasec'
+import { stagger } from '../../lib/ui'
+import { useRiasecProfile } from '../../state/useRiasecProfile'
+import { strengthsDone } from '../../domain/strengths'
+import { activeCv, useUser } from '../../state/userStore'
+import { DeadlineRow } from '../deadlines/DeadlineRow'
+import { PlanCard } from '../plan/PlanCard'
+import { NoDegreeCard } from '../noDegree/NoDegreeCard'
+import { NewStories } from '../videos/VideoStories'
+import { useDeadlines } from '../../state/useDeadlines'
+import { BentoGrid, Tile } from './Bento'
+import {
+  CareersTile,
+  EventsTile,
+  HeroTile,
+  KursosTile,
+  MarketTile,
+  NewsTile,
+  OpportunitiesTile,
+  TrainingTile,
+} from './HomeTiles'
+
+const LINK = 'text-sm font-normal text-blue underline-offset-4 hover:underline'
+
+/** A small card title with its icon in a circle of the main blue. */
+function CardTitle({ icon, id, children }: { icon: IconName; id?: string; children: string }) {
+  return (
+    <h2 id={id} className="flex items-center gap-3 text-base font-semibold text-night">
+      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-blue text-white">
+        <Icon name={icon} className="size-4" />
+      </span>
+      {children}
+    </h2>
+  )
+}
 
 export default function HomePage() {
-  const { t } = useTranslation()
+  const user = useUser()
+
+  if (!user.profile) return <Welcome />
 
   return (
-    <div className="space-y-5 py-4">
-      <section>
-        <h1 className="text-2xl font-bold text-navy">{t('home.greeting')}</h1>
-        <p className="mt-2 text-muted">{t('home.intro')}</p>
-      </section>
-
-      <section className="rounded-2xl bg-navy p-5 text-white">
-        <h2 className="text-lg font-semibold">{t('home.testTitle')}</h2>
-        <p className="mt-1 text-sm text-white/80">{t('home.testBody')}</p>
-        <span className="mt-4 inline-block rounded-full bg-gold px-3 py-1 text-sm font-semibold text-navy">
-          {t('comingSoon')}
-        </span>
-      </section>
-
-      <ApiStatus />
+    <div className="space-y-4">
+      <InstallCard />
+      <PlanCard />
+      <NoDegreeCard />
+      <NewStories />
+      {/* A bento: the first tile always says what to do next; then a bit of everything. */}
+      <BentoGrid>
+        <HeroTile aside={<TargetCard />} />
+        <Tile size="square" tone="plain" labelledBy="home-test" index={1} data-tour="test">
+          <TestCard headingId="home-test" />
+        </Tile>
+        <Tile size="square" tone="plain" labelledBy="home-cv" index={2} data-tour="cv">
+          <CvCard headingId="home-cv" />
+        </Tile>
+        <NewsTile index={3} />
+        <EventsTile index={4} />
+        <Tile size="tall" tone="plain" labelledBy="home-deadlines" index={5}>
+          <UpcomingDeadlines headingId="home-deadlines" />
+        </Tile>
+        <CareersTile index={6} />
+        <KursosTile index={7} />
+        <TrainingTile index={8} />
+        <MarketTile index={9} />
+        <OpportunitiesTile index={10} />
+        <Tile size="wide" tone="plain" labelledBy="home-progress" index={11}>
+          <Progress headingId="home-progress" />
+        </Tile>
+      </BentoGrid>
     </div>
   )
 }
 
-function ApiStatus() {
-  const { t } = useTranslation()
-  const { isPending, isError } = useApiHealth()
+function Welcome() {
+  return (
+    <div className="space-y-10">
+      <Hero />
+      <HowItWorks />
+      <ValueGrid />
+      <Coverage />
+      <FinalCta />
+    </div>
+  )
+}
 
-  const [label, dot] = isPending
-    ? [t('status.checking'), 'bg-slate-300']
-    : isError
-      ? [t('status.offline'), 'bg-red-500']
-      : [t('status.online'), 'bg-emerald-500']
+function Hero() {
+  const { t } = useTranslation()
+  return (
+    <Card tone="coal" className="relative rise overflow-hidden p-6 sm:p-10">
+      <PathMark className="pointer-events-none absolute -right-10 -bottom-12 w-56 opacity-40 sm:-right-12 sm:-bottom-10 sm:w-80 sm:opacity-50 lg:w-[28rem]" />
+      <div className="relative">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 px-3 py-1 text-xs font-semibold whitespace-nowrap text-gold">
+          <Icon name="check" className="size-3.5" />
+          {t('home.freeBadge')}
+        </span>
+        <h1 className="mt-4 max-w-xl text-3xl leading-tight font-extrabold sm:text-5xl">
+          {t('home.greetingGuest')}
+        </h1>
+        <p className="mt-4 max-w-md text-sm font-light text-white/80">{t('home.intro')}</p>
+        <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+          <ButtonLink to="/entrar" variant="onDark" size="lg" className="w-full sm:w-auto">
+            {t('home.startCta')}
+          </ButtonLink>
+          <ButtonLink to="/carreiras" variant="onDarkOutline" size="lg" className="w-full sm:w-auto">
+            {t('home.explore')}
+          </ButtonLink>
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+const HOW_STEPS = [
+  { icon: 'compass', title: 'home.howStep1Title', body: 'home.howStep1Body' },
+  { icon: 'briefcase', title: 'home.howStep2Title', body: 'home.howStep2Body' },
+  { icon: 'cap', title: 'home.howStep3Title', body: 'home.howStep3Body' },
+  { icon: 'building', title: 'home.howStep4Title', body: 'home.howStep4Body' },
+] as const satisfies { icon: IconName; title: string; body: string }[]
+
+function HowItWorks() {
+  const { t } = useTranslation()
+  return (
+    <section aria-labelledby="how">
+      <SectionHeading id="how" title={t('home.howTitle')} icon="compass" />
+      <ol className="relative grid gap-8 sm:grid-cols-4 sm:gap-6">
+        <div aria-hidden="true" className="absolute top-6 right-6 left-6 hidden h-0.5 bg-ash-300 sm:block" />
+        {HOW_STEPS.map((step, index) => (
+          <li key={step.title} className="relative rise" style={stagger(index + 1)}>
+            <span className="relative grid size-12 place-items-center rounded-full bg-blue text-white ring-4 ring-paper">
+              <Icon name={step.icon} className="size-5" />
+            </span>
+            <h3 className="mt-4 text-base font-semibold text-night">{t(step.title)}</h3>
+            <p className="mt-1 text-sm font-light text-copy">{t(step.body)}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}
+
+const VALUES = [
+  {
+    to: '/teste',
+    icon: 'compass',
+    title: 'home.valueTestTitle',
+    body: 'home.valueTestBody',
+    photoSlug: null,
+  },
+  {
+    to: '/carreiras',
+    icon: 'briefcase',
+    title: 'home.valueCareersTitle',
+    body: 'home.valueCareersBody',
+    photoSlug: 'desenvolvedor-frontend',
+  },
+  {
+    to: '/cursos',
+    icon: 'cap',
+    title: 'home.valueTrainingTitle',
+    body: 'home.valueTrainingBody',
+    photoSlug: 'formador-de-tic',
+  },
+  {
+    to: '/oportunidades?tab=bolsas',
+    icon: 'award',
+    title: 'home.valueScholarshipsTitle',
+    body: 'home.valueScholarshipsBody',
+    photoSlug: 'engenheiro-civil',
+  },
+  {
+    to: '/oportunidades?tab=estagios',
+    icon: 'briefcase',
+    title: 'home.valueInternshipsTitle',
+    body: 'home.valueInternshipsBody',
+    photoSlug: 'engenheiro-de-petroleos',
+  },
+  {
+    to: '/prazos',
+    icon: 'calendar',
+    title: 'home.valueDeadlinesTitle',
+    body: 'home.valueDeadlinesBody',
+    photoSlug: null,
+  },
+  {
+    to: '/empresas',
+    icon: 'building',
+    title: 'home.valueCompaniesTitle',
+    body: 'home.valueCompaniesBody',
+    photoSlug: 'product-manager',
+  },
+  {
+    to: '/mercado',
+    icon: 'wallet',
+    title: 'home.valueMarketTitle',
+    body: 'home.valueMarketBody',
+    photoSlug: 'analista-financeiro',
+  },
+  {
+    to: '/cv',
+    icon: 'document',
+    title: 'home.valueCvTitle',
+    body: 'home.valueCvBody',
+    photoSlug: 'secretario-executivo',
+  },
+  {
+    to: '/cursos',
+    icon: 'scale',
+    title: 'home.valueCostTitle',
+    body: 'home.valueCostBody',
+    photoSlug: 'contabilista',
+  },
+  {
+    to: '/carreiras',
+    icon: 'path',
+    title: 'home.valueStoriesTitle',
+    body: 'home.valueStoriesBody',
+    photoSlug: 'enfermeiro',
+  },
+  {
+    to: '/cursos',
+    icon: 'landmark',
+    title: 'home.valueRecognisedTitle',
+    body: 'home.valueRecognisedBody',
+    photoSlug: 'engenheiro-de-petroleos',
+  },
+] as const satisfies { to: string; icon: IconName; title: string; body: string; photoSlug: string | null }[]
+
+function ValueGrid() {
+  const { t } = useTranslation()
+  const { data: careers } = useCareers()
 
   return (
-    <output className="flex items-center gap-2 text-sm text-muted">
-      <span className={`size-2 rounded-full ${dot}`} />
-      {label}
-    </output>
+    <section aria-labelledby="values">
+      <SectionHeading id="values" title={t('home.valuesTitle')} icon="panel" />
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {VALUES.map((value, index) => {
+          const photo = value.photoSlug
+            ? careers?.find((career) => career.slug === value.photoSlug)?.image
+            : undefined
+          return (
+            <li key={value.title} className="rise" style={stagger(index + 1)}>
+              <Link
+                to={value.to}
+                className="group flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-lift"
+              >
+                <span className="relative block h-32 shrink-0 bg-night sm:h-36">
+                  {photo ? (
+                    <PhotoImg
+                      photo={photo}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="size-full object-cover"
+                    />
+                  ) : (
+                    <span className="grid size-full place-items-center bg-gradient-to-br from-blue to-night">
+                      <Icon name={value.icon} className="size-10 text-gold" />
+                    </span>
+                  )}
+                  <span className="absolute bottom-3 left-3 grid size-9 place-items-center rounded-full bg-coal text-gold">
+                    <Icon name={value.icon} className="size-4" />
+                  </span>
+                </span>
+                <span className="flex flex-1 flex-col p-4 sm:p-5">
+                  <span className="flex items-center justify-between gap-2">
+                    <span className="text-base font-semibold text-night">{t(value.title)}</span>
+                    <Icon
+                      name="chevronRight"
+                      className="size-4 shrink-0 text-muted transition-transform group-hover:translate-x-0.5"
+                    />
+                  </span>
+                  <span className="mt-1 block text-sm font-light text-copy">{t(value.body)}</span>
+                </span>
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
+  )
+}
+
+function Coverage() {
+  const { t } = useTranslation()
+  const { data: careers } = useCareers()
+  const { data: courses } = useCourses()
+  const { data: academies } = useAcademies()
+  const { data: companies } = useCompanies()
+
+  const stats: { value: number; label: string }[] = [
+    { value: careers?.length ?? 0, label: t('home.statsCareers') },
+    { value: courses?.length ?? 0, label: t('home.statsCourses') },
+    { value: academies?.length ?? 0, label: t('home.statsAcademies') },
+    { value: companies?.length ?? 0, label: t('home.statsCompanies') },
+  ]
+
+  return (
+    <section aria-labelledby="coverage">
+      <SectionHeading id="coverage" title={t('home.statsTitle')} icon="globe" />
+      <Card className="p-6 sm:p-8">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <p className="font-display text-3xl font-extrabold text-gold-ink sm:text-4xl">{stat.value}</p>
+              <p className="mt-1 text-sm font-light text-copy">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-6">
+          {MARKET_AREAS.map((area) => (
+            <Chip key={area}>{t(`market.area_${area}`)}</Chip>
+          ))}
+        </div>
+      </Card>
+    </section>
+  )
+}
+
+function FinalCta() {
+  const { t } = useTranslation()
+  return (
+    <Card
+      tone="notice"
+      className="flex rise flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+    >
+      <div>
+        <CardTitle icon="target">{t('home.startTitle')}</CardTitle>
+        <p className="mt-2 pl-11 text-sm font-light text-copy">{t('home.startBody')}</p>
+      </div>
+      <ButtonLink to="/entrar" size="lg" className="w-full shrink-0 sm:w-auto">
+        {t('home.startCtaFinal')}
+      </ButtonLink>
+    </Card>
+  )
+}
+
+type HeadingProps = { headingId: string }
+
+function TestCard({ headingId }: HeadingProps) {
+  const { t } = useTranslation()
+  const { profile, answered, total, completed } = useRiasecProfile()
+  const { strengths } = useUser()
+
+  if (completed && profile) {
+    return (
+      <Card className="flex h-full items-center gap-4 p-6">
+        <Hexagon>{riasecCode(profile)}</Hexagon>
+        <div className="min-w-0 flex-1">
+          <h2 id={headingId} className="text-xs font-light text-muted">
+            {t('home.profileCode')}
+          </h2>
+          <Link
+            to="/teste/resultado"
+            className="mt-1 block text-base font-semibold text-night underline-offset-4 hover:underline"
+          >
+            {t('home.seeResult')}
+          </Link>
+          {!strengthsDone(strengths) && (
+            <Link to="/teste/valencias" className="mt-1 block text-sm font-normal text-blue hover:underline">
+              {t('assessment.completeStrengths')}
+            </Link>
+          )}
+        </div>
+        <Icon name="chevronRight" className="size-5 shrink-0 text-muted" />
+      </Card>
+    )
+  }
+
+  return (
+    <Card tone="coal" className="flex h-full flex-col items-start p-6">
+      <h2 id={headingId} className="text-xl font-extrabold">
+        {t('home.testTitle')}
+      </h2>
+      <p className="mt-2 max-w-prose text-sm font-light text-white/80">{t('home.testBody')}</p>
+      {answered > 0 && (
+        <ProgressBar
+          value={answered / Math.max(total, 1)}
+          label={t('home.testTitle')}
+          tone="gold"
+          track="bg-white/15"
+          className="mt-6 w-full"
+        />
+      )}
+      <ButtonLink to="/teste" variant="onDark" className="mt-6">
+        {answered > 0 ? t('home.testContinue', { answered, total }) : t('home.testCta')}
+        <Icon name="arrowRight" className="size-4" />
+      </ButtonLink>
+    </Card>
+  )
+}
+
+function CvCard({ headingId }: HeadingProps) {
+  const { t } = useTranslation()
+  const user = useUser()
+  const document = activeCv(user)
+
+  return (
+    <Card tone="notice" className="flex h-full flex-col items-start p-6">
+      <CardTitle icon="document" id={headingId}>
+        {t('home.cvTitle')}
+      </CardTitle>
+      {document ? (
+        <>
+          <p className="mt-2 text-sm font-light text-copy">{t('home.cvSome', { count: user.cvs.length })}</p>
+          <ProgressBar
+            value={cvCompleteness(document.cv)}
+            label={t('home.cvTitle')}
+            className="mt-4 w-full"
+          />
+        </>
+      ) : (
+        <p className="mt-2 text-sm font-light text-copy">{t('home.cvBody')}</p>
+      )}
+      <ButtonLink to="/cv" variant="secondary" className="mt-6">
+        {document ? t('home.cvOpen') : t('home.cvCta')}
+        <Icon name="arrowRight" className="size-4" />
+      </ButtonLink>
+    </Card>
+  )
+}
+
+function TargetCard() {
+  const { t } = useTranslation()
+  const user = useUser()
+  const { data: career } = useCareer(user.targetCareer ?? '')
+
+  if (!user.targetCareer || !career) {
+    return (
+      <Card className="p-6">
+        <CardTitle icon="target">{t('home.targetTitle')}</CardTitle>
+        <p className="mt-2 text-sm font-light text-copy">{t('home.targetEmpty')}</p>
+        <ButtonLink to="/carreiras" variant="secondary" size="sm" className="mt-4">
+          {t('home.explore')}
+        </ButtonLink>
+      </Card>
+    )
+  }
+
+  const quickest = quickestPathway(career, user.profile?.education ?? null)
+  const next = quickest?.steps[0]
+  return (
+    <Card tone="notice" className="p-6">
+      <p className="text-xs font-light text-muted">{t('home.targetTitle')}</p>
+      <Link
+        to={`/carreiras/${career.slug}?secao=path`}
+        className="mt-1 block text-lg font-semibold text-night underline-offset-4 hover:underline"
+      >
+        {career.name}
+      </Link>
+      {quickest && (
+        <p className="mt-1 text-sm font-light text-copy">
+          {t('home.targetSteps', { count: quickest.steps.length })}
+        </p>
+      )}
+      {next && (
+        <div className="mt-4 rounded-2xl bg-ash-100 p-4">
+          <p className="text-xs font-light text-muted">{t('home.nextStep')}</p>
+          <p className="mt-1 text-sm font-normal text-night">{next.title}</p>
+        </div>
+      )}
+    </Card>
+  )
+}
+
+/** Próximos prazos: the person's three nearest deadlines (or anyone's, when none is theirs). */
+function UpcomingDeadlines({ headingId }: HeadingProps) {
+  const { t } = useTranslation()
+  const deadlines = useDeadlines()
+  const shown = (deadlines.mine.length > 0 ? deadlines.mine : deadlines.all).slice(0, 3)
+
+  return (
+    <Card className="p-6">
+      <CardTitle icon="calendar" id={headingId}>
+        {t('deadlines.homeTitle')}
+      </CardTitle>
+      {shown.length === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.deadlinesEmpty')}</p>}
+      <ul className="mt-4 space-y-2">
+        {shown.map((item) => (
+          <li key={item.id}>
+            <DeadlineRow item={item} today={deadlines.today} compact />
+          </li>
+        ))}
+      </ul>
+      <Link to="/prazos" className={`mt-4 inline-block ${LINK}`}>
+        {t('common.seeAll')}
+      </Link>
+    </Card>
+  )
+}
+
+function Progress({ headingId }: HeadingProps) {
+  const { t } = useTranslation()
+  const list = achievements(useUser())
+  const earned = list.filter((achievement) => achievement.earned).length
+
+  return (
+    <Card className="p-6">
+      <div className="flex items-center justify-between gap-4">
+        <CardTitle icon="award" id={headingId}>
+          {t('home.progressTitle')}
+        </CardTitle>
+        <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
+      </div>
+      {earned === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.progressEmpty')}</p>}
+      <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="mt-4" />
+      <Link to="/perfil" className={`mt-4 inline-block ${LINK}`}>
+        {t('profile.achievements')} · {earned}/{list.length}
+      </Link>
+    </Card>
   )
 }

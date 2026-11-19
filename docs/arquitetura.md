@@ -136,6 +136,8 @@ Python 3 com `httpx` e `selectolax` (ou BeautifulSoup). Playwright só para site
 
 ## 4. Modelo de dados
 
+> O modelo que o backend constrói, tabela a tabela, está em [base-de-dados.md](base-de-dados.md#modelo-completo-adr-0019) (ADR 0019). Esta secção é a visão de longo prazo (vagas, estatísticas semanais, XP).
+
 A base de dados é **relacional (MySQL)**. O Kayé é uma rede de ligações (profissão ↔ competência ↔ curso ↔ instituição ↔ vaga), e as bases relacionais existem para isso. Onde a informação é um documento lido sempre inteiro (o CV, os resultados do teste), usamos uma coluna JSON dentro do MySQL.
 
 Nomes de tabelas e colunas em inglês (convenção do Laravel); tudo o que o utilizador vê está em pt/en/fr. Os campos marcados com `*` são traduzíveis.
@@ -188,10 +190,13 @@ erDiagram
 | `programs` | id, institution_id, name, level (formacao_profissional, medio_tecnico, licenciatura, mestrado, certificacao, curso_livre), duration_months, schedule (diurno, pós-laboral, online), enrollment_fee, tuition_amount, tuition_period (mensal, anual, total), other_costs_estimate, admission_requirements*, has_entrance_exam, description*, source_url, last_verified_at | Valores em Kz. |
 | `occupation_program` | occupation_id, program_id, relevance (direta, relacionada) | Que cursos levam a que profissão. |
 | `pathways` | id, occupation_id, name*, summary* | Ex.: "Via universitária", "Via técnica rápida". |
-| `pathway_steps` | pathway_id, position, kind (formação, certificação, experiência, portfólio), level, description*, typical_months | Um passo aponta para um nível, não para um curso concreto. A app mostra os cursos desse nível que levam à profissão. Os passos cobrem o **percurso académico**, a **formação profissional** e a experiência. |
+| `pathway_steps` | pathway_id, position, kind (académico, formação, certificação, portfólio, experiência), need (essencial, recomendado, opcional), self_taught, certificate (exigido, opcional), level, description*, typical_months | Um passo aponta para um nível, não para um curso concreto. A app mostra os cursos desse nível que levam à profissão. Os passos cobrem o **percurso académico**, a **formação** e a experiência. **Formação não é certificado:** aprender pode ser autodidata (cursos online, vídeos), e o certificado é muitas vezes opcional. Em várias carreiras (ex.: Frontend) o que decide é o **portfólio**. Os passos opcionais não contam para a duração nem para "faltam N passos". |
 | `program_scores` | program_id, is_recognized, rating_avg, rating_n, total_cost_aoa, duration_months, score, criteria (JSON), computed_at | Calculada todas as semanas. É a base das "melhores instituições para este curso" (5.7). |
+| `education_stats` | id, country_code, year, level (licenciatura, medio_tecnico, formacao_profissional), field (área de estudo), course_name, province, enrolled, graduates, source (INE, MESCTI), source_url | Planeada: dados oficiais de educação para o Mercado (diplomados por curso e área). Só números agregados, com a fonte e o ano. |
 
 **Custo total do caminho.** Para cada passo de formação, soma-se inscrição + propina × duração + outros custos, para o curso mais barato e para o curso mediano disponíveis na província do utilizador. Mostra-se sempre como faixa ("entre X e Y Kz"), nunca como um número único.
+
+**Duração típica por nível (estimada).** Enquanto as instituições não publicam a duração de cada curso, a app usa meses de propina por nível (10 propinas por ano letivo): formação profissional 9, certificação 3, médio técnico 40, licenciatura 40, mestrado 20, especialidade 30 (`TYPICAL_MONTHS` em `apps/web/src/domain/fees.ts`). O custo do estudo é a propina estimada × estes meses, do curso mais barato ao mais caro; o ensino público aparece como "grátis". As páginas da carreira e do curso mostram-no ao lado do salário, com "recuperas o investimento em ~N meses" (custo máximo ÷ salário), sempre com a etiqueta "Estimativa".
 
 ### 4.3 Mercado de trabalho
 
@@ -229,19 +234,35 @@ erDiagram
 
 ### 5.1 Login com Google
 
-1. A app pede ao Google um *ID token*: na web com o Google Identity Services, no telemóvel com o plugin nativo.
-2. A app envia-o para `POST /api/v1/auth/google`.
-3. A API confirma que a assinatura é do Google, que o token foi emitido para o Kayé e que não expirou.
-4. A API encontra ou cria o utilizador pelo `google_sub` e abre a sessão:
-   - **na web**, uma sessão Sanctum em cookie `HttpOnly`, que o JavaScript não consegue ler;
-   - **no telemóvel**, um token Sanctum válido 30 dias.
-5. No telemóvel, a app guarda o token no armazenamento seguro do sistema e envia-o em cada pedido. Na web, o browser envia o cookie sozinho. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
+**Na web** (OAuth do Google, com o Laravel Socialite):
 
-**Primeiro acesso → onboarding.** O utilizador escolhe o idioma, indica o ano de nascimento, a província e a escolaridade atual, e aceita os termos e a política de privacidade. Quem tem menos de 18 anos vê um ecrã extra (confirma que o encarregado de educação tem conhecimento) e fica sem perfil público.
+1. No fim do onboarding, o perfil fica no aparelho e o botão "Continuar com o Google" leva a `/auth/google/redirect?next=/entrar?plano=1&next=…` (o `next` só pode ser um caminho do próprio site). No regresso, a app mostra "O teu plano" e segue para o que a pessoa tinha pedido. Só esta ida marca o aparelho para perguntar `GET /me`: quem nunca entrou não recebe um 401.
+2. O Google mostra a escolha da conta e volta a `/auth/google/callback` com um código; o `state` confirma que é o mesmo browser.
+3. A API troca o código pelos dados da conta (só aceita emails verificados), encontra ou cria a pessoa pelo `google_sub` (uma conta local com o mesmo email, como a do admin, fica ligada) e abre uma sessão do Laravel em cookie `HttpOnly`, `SameSite=Lax`, com um id novo. Volta a `next`.
+4. Daí em diante o browser envia o cookie sozinho, e cada escrita leva o token CSRF (`X-XSRF-TOKEN`, que o cliente `api()` lê do cookie `XSRF-TOKEN`).
+
+**No telemóvel** (Android):
+
+1. A app pede ao Google um *ID token* com o plugin nativo, usando o ID de cliente web como *server client id*.
+2. Envia-o para `POST /api/v1/auth/google` (10 tentativas por minuto).
+3. A API confirma a assinatura (chaves públicas do Google), que o `aud` é o ID de cliente do Kayé, que o emissor é o Google, que não expirou e que o email está verificado (`App\Support\GoogleIdTokenVerifier`).
+4. Encontra ou cria a pessoa como na web e devolve `{token, expiresAt, user}`: um token Sanctum válido 30 dias, que a app guarda no armazenamento seguro do sistema e envia em `Authorization: Bearer`. Ver [ADR-0003](decisoes/0003-sessao-web-em-cookie.md).
+
+Uma conta apagada no painel (*soft delete*) não volta pelo login. `POST /auth/logout` apaga o token deste aparelho, ou termina a sessão web.
+
+**Os dados da pessoa no servidor** (`state/accountSync.ts`, ADR 0019). A app continua a trabalhar na cópia do aparelho (`userStore`, offline primeiro):
+
+1. **Primeiro login neste aparelho:** a app envia o que tem para `POST /me/data/merge` e o servidor **funde** com o que já existe na conta, sem apagar nada (`App\Support\UserDataMerger`). A app fica com o resultado e regista os consentimentos aceites no onboarding (termos, privacidade e, nos menores, o encarregado de educação).
+2. **Depois:** cada mudança sobe 1,5 s depois, num `PUT /me/data` com a versão em que se baseou. Se outro aparelho escreveu antes, o servidor responde 409 e a app pede a fusão. Sem rede, a mudança fica marcada no aparelho e sobe quando a rede volta. Ao abrir, a app traz o que outro aparelho escreveu entretanto.
+3. **Regras da fusão:** o que está vazio de um lado fica com o valor do outro; as listas juntam-se (nomes uma vez, registos com `id`, como os CVs, uma vez, e os eventos datados, como o percurso e os testes, do mais recente para o mais antigo); os registos juntam-se chave a chave, exceto o perfil, a descoberta, o plano e a página pública, que nunca se misturam; com dois valores diferentes fica o do servidor, exceto o tempo de estudo e as notas dos Kursos e a última abertura das notificações, onde fica o maior.
+4. **A foto e a capa nunca saem do aparelho.** O servidor guarda o resto em `user_data` e copia do perfil o ano de nascimento, a província e a escolaridade para `users`, porque é o ano que decide quem é menor (idade < 18, calculada, nunca guardada; sem ano conta como menor). Passar a ser menor retira os consentimentos de marketing.
+5. Só o build que o Laravel serve (`VITE_DATA_SOURCE=api`) tem contas; o site de teste no Vercel continua a simular o login.
+
+**Primeiro acesso → onboarding** ([ADR-0012](decisoes/0012-conta-obrigatoria-e-onboarding-adaptativo.md); sem conta explora-se à vontade e o registo só aparece ao guardar, [ADR-0021](decisoes/0021-explorar-sem-conta.md); quem já tem conta usa "Entrar" e salta a conversa). Uma conversa com o guia que se adapta às respostas: idioma, voz, fase da vida, objetivo, até 3 áreas (ou "Ainda não sei", e o guia sugere-as) e no máximo 3 perguntas por área. Depois, o nome, o ano de nascimento, a província e a escolaridade. O login com o Google vem no fim, com a aceitação dos termos e da política de privacidade. Quem tem menos de 18 anos confirma aí que o encarregado de educação tem conhecimento e fica sem perfil público.
 
 **iOS (Fase 2).** A Apple obriga a oferecer "Iniciar sessão com a Apple" sempre que há login social (regra 4.8). O fluxo é o mesmo, com `apple_sub`.
 
-**Sem conta** pode-se explorar carreiras, cursos e instituições. **Com conta** faz-se o teste vocacional e o CV, guarda-se e contribui-se.
+**Sem conta** vê-se só a página de entrada, os termos e a política de privacidade. Tudo o resto pede conta.
 
 ### 5.2 Recolha e tratamento de vagas
 
@@ -289,7 +310,9 @@ Há uma tarefa semanal (domingo de madrugada, depois dos scrapers) que calcula, 
 
 ### 5.4 Teste vocacional e recomendações
 
-**Teste.** Modelo RIASEC (Holland), com 6 dimensões: Realista, Investigativo, Artístico, Social, Empreendedor e Convencional. São 42 afirmações (7 por dimensão) numa escala de 1 a 5, cerca de 8 minutos, com o progresso guardado.
+**Teste.** Modelo RIASEC (Holland), com 6 dimensões: Realista, Investigativo, Artístico, Social, Empreendedor e Convencional. São 42 afirmações (7 por dimensão) numa escala de 1 a 5, cerca de 7 minutos, com o progresso guardado. As frases cobrem todas as áreas do catálogo, com no máximo uma de tecnologia por dimensão, e chegam na língua do ecrã ([ADR 0017](decisoes/0017-teste-vocacional-geral-com-valencias.md)).
+
+**Valências (parte 2, opcional).** Sete passos que se podem saltar, guardados em `userStore.strengths` à medida que se responde: línguas e nível, competências digitais, ofícios e competências técnicas das áreas da pessoa (as do catálogo das carreiras, guardadas em `user_skills`), competências transversais (privadas), o que já fez (trabalho, voluntariado, estágio, curso), como gosta de trabalhar e condições (até onde quer estudar, se pode estudar fora da província, se precisa de trabalhar já). Nunca pergunta religião, etnia, rendimento, morada, saúde nem data de nascimento.
 
 **Perfil das profissões.** Cada profissão tem também 6 valores RIASEC, definidos na curadoria com a base O*NET (pública, licença aberta) como referência.
 
@@ -298,8 +321,13 @@ Há uma tarefa semanal (domingo de madrugada, depois dos scrapers) que calcula, 
 ```
 pontuação = 0,60 × compatibilidade   perfil do utilizador vs perfil da profissão
           + 0,25 × mercado           procura e salário em Angola (pesados pela confiança dos dados)
-          + 0,15 × viabilidade       formação na província, custo, escolaridade atual
+          + 0,15 × viabilidade       nível de estudo, formação na província, precisa de trabalhar já
+          + 0,05 × estilo            como gosta de trabalhar vs estilos de trabalho da profissão
 ```
+
+- **Viabilidade** (`domain/recommend.ts`, `FEASIBILITY`): média das condições respondidas. Nível: cada nível acima do que a pessoa quer estudar (formação curta < médio técnico < licenciatura) tira 0,4, medido pelo caminho da profissão que pede menos escolaridade. Precisa de trabalhar já: formação curta e médio técnico valem 1, licenciatura 0,35. Não pode estudar fora: 1 se há formação na sua província ou online, 0,3 se só noutras, 0,6 se não se sabe. Sem respostas, 0,5.
+- **Estilo:** parte das preferências que os estilos de trabalho da profissão mostram; "rendimento depressa" conta como um caminho sem licenciatura. Sem respostas, 0,5.
+- A lista inclui pelo menos uma profissão sem ensino superior, quando há uma que combina.
 
 - Os pesos ficam em configuração e ajustam-se sem mexer no código.
 - A compatibilidade mede a semelhança entre os dois perfis (cosseno entre vetores centrados).
@@ -333,7 +361,14 @@ O que falta passa a ser os próximos passos sugeridos e, na Fase 2, "O meu plano
 
 ### 5.5 CV
 
-- **Cada modelo existe uma só vez, no servidor** (Blade). O mesmo modelo gera a pré-visualização (HTML) e o PDF (dompdf), por isso o que se vê é o que se descarrega.
+- **Por agora, o PDF gera-se no aparelho** (jsPDF, [ADR 0006](decisoes/0006-pdf-do-cv-gerado-no-aparelho.md)). Os 8 modelos visuais (Clássico, Moderno, Europeu, Retrato, Duas Colunas, Minimalista, Criativo e Destaque) são desenhados uma só vez, em milímetros, por `cvLayout.ts`: a pré-visualização pinta o resultado em SVG e o PDF em jsPDF, com as mesmas quebras de linha e de página. As fontes são TTF (só latinas) em `public/fonts/cv/`, o mesmo ficheiro para o ecrã e para o PDF. Quando o download for pago, o PDF do CV pessoal passa para o servidor, como descrito abaixo.
+- **As regras do CV mudam por profissão** (`cvGuide`): o que incluir, o que evitar e o modelo visual recomendado. Por exemplo, um programador não põe foto e põe os links do GitHub e dos projetos; um DevOps destaca as certificações.
+- **Um CV ideal por caminho.** No separador "CVs modelo" da carreira há uma miniatura por caminho do roteiro. Tocar abre um popup, sem sair da carreira, com o CV à esquerda e, à direita, porque funciona, as regras e as ações: descarregar, comparar (com outro modelo ou com o meu CV) e começar a partir do modelo.
+- **Vários CVs.** Cada pessoa pode ter vários CVs, cada um com conteúdo, modelo e estilo próprios; "começar a partir deste modelo" cria um CV novo em vez de substituir. O estilo guarda só o que a pessoa mudou, e `domain/cvStyle.ts` completa-o com o do modelo e aplica os limites (margens, tamanhos, espaços, contraste das cores), por isso "repor modelo" nunca toca no conteúdo. Trocar de modelo mantém o conteúdo e o que a pessoa ajustou. Os modelos com foto (Retrato e Criativo) usam a foto do perfil, ou as iniciais se não houver, e a foto pode ser desligada; os CVs modelo nunca a mostram.
+- **Conselhos por área e destino.** A pessoa diz para onde vai enviar o CV (área, profissão e tipo de destino) e vê sugestões de estrutura, cores, foto e comprimento, com um modelo sugerido que só se aplica se ela aceitar. As regras estão em `domain/cvAdvice.ts`, por área, com exceções por grupo e profissão; uma área nova obriga a acrescentar uma linha. São opiniões da equipa apresentadas como conselhos, sem números nem estatísticas.
+- **Preenchimento a partir do que já sabemos.** O editor propõe nome, título, objetivo, localização, formação e competências, a partir do perfil, do guia, da carreira de interesse e da verificação de encaixe (`domain/cvFill.ts`). A pessoa vê cada item, escolhe e aplica: campos vazios vêm marcados e o que substituiria texto dela vem desmarcado e assinalado. Não se pedem dados novos e, nos menores, não se propõe a localização.
+- **Cartão de visita.** Parte dos dados de um CV à escolha, em 10 modelos, frente e verso, com 85 × 55 mm (`cardLayout.ts`), com o mesmo motor do CV. Dados e aspeto editam-se no cartão sem alterar o CV. Exporta em PDF e PNG, no aparelho.
+- **Página pública.** Opcional e só para adultos, em `/c/:slug`, com QR no cartão ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md)).
 - **O editor é feito em React**, por secções. Guarda o JSON automaticamente, com um pequeno atraso para não enviar a cada tecla.
 - **Pré-visualização:** `GET /api/v1/cv/preview?template=x` devolve HTML com a marca d'água "Pré-visualização", mostrado dentro da app.
 - **Download:** `POST /api/v1/cv/export` devolve o PDF.
@@ -376,57 +411,134 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 
 ## 6. API v1
 
-- Prefixo `/api/v1`, respostas em JSON.
-- Autenticação com `Authorization: Bearer`; idioma por `Accept-Language`; paginação com `?page=`.
-- As leituras públicas respondem com `Cache-Control` e `ETag`, para que a CDN e a app guardem cópia.
+A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a uma função de `apps/web/src/data/source.ts` (ou a um módulo que a app lê diretamente) e devolve **exatamente a mesma forma** de `apps/web/src/data/types.ts`: o frontend troca de fonte sem mudar tipos, e o teste de paridade compara cada rota com o JSON exportado.
 
-| Método | Caminho | Para quê | Conta |
+- Prefixo `/api/v1`, respostas em JSON, **sem envelope `data`** (`JsonResource::withoutWrapping()`): uma lista é um array, um detalhe é o objeto. Um detalhe que não existe (ou não está `published`) responde 404, que a app lê como `null`.
+- Idioma por `Accept-Language` (`pt`, `en`, `fr`; o que falta vem em português).
+- As listas vêm inteiras, como hoje (a maior, `/courses`, tem 775 KB, 60 KB com gzip); paginação só se uma lista passar de 1 MB.
+- As leituras públicas respondem com `Cache-Control: public, max-age=300` e `ETag` (quem já tem a versão recebe 304) e ficam em cache na base de dados (5 minutos, por caminho e língua; limpa quando um modelo de conteúdo muda e no fim de cada `kaye:import`). Código: `App\Support\PublicContent`, um controller por recurso em `App\Http\Controllers\Api` e uma `JsonResource` por tipo em `App\Http\Resources`; o que se calcula de várias tabelas (instituições com as ofertas, `CatalogCourse`, `CareerTraits`, `/skills`) está em `App\Support\Catalog`.
+- Só registos `published`, pela `position`; uma ligação a um registo que não está publicado não aparece (a carreira em rascunho sai das `careers` de uma oferta).
+- **Paridade** (`ApiParityTest`): cada ficheiro de `apps/api/database/data`, nas três línguas, importado e pedido à sua rota, é igual ao JSON (só a ordem das chaves e o `position` da exportação ficam de fora). Um campo a mais ou a menos, outro valor ou outra ordem falham.
+- As fotografias e os logótipos vêm como o caminho no código da app (`/src/assets/careers/…`, e `/eventos/…` de `public/`); em modo `api` a app troca-os pelos ficheiros do seu build (`apps/web/src/data/assets.ts`). Quando as fotos passarem para o servidor, a API manda URLs completos e a app deixa-os como estão.
+- Web: sessão em cookie `HttpOnly` com CSRF (ADR 0003). Android: `Authorization: Bearer` com o token Sanctum.
+- Limite de pedidos em todas: 300 leituras e 60 escritas por minuto, por conta ou IP ([seguranca.md](seguranca.md)); mais apertado nas escritas sem conta (lista de espera, críticas, entrevistas, cartões).
+- **A app** lê estas rotas com `VITE_DATA_SOURCE=api` (o build que o Laravel serve, `apps/web/.env.production`); sem ela, os dados de demonstração. Por agora mudam de fonte as funções de `source.ts`; os módulos lidos diretamente (Kursos, exames de acesso, entrevistas, mentores, vídeos, psicotécnicos, províncias) já têm rota e passam quando a app os pedir por `source.ts`.
+
+### Públicas (leitura)
+
+| Método | Caminho | Função de `source.ts` (ou módulo) | Devolve |
 |---|---|---|---|
-| POST | `/auth/google` | Trocar o ID token Google por um token Kayé | — |
-| POST | `/auth/logout` | Terminar sessão | sim |
-| GET, PATCH | `/me` | Perfil, preferências, onboarding | sim |
-| POST | `/me/consents` | Registar consentimentos | sim |
-| GET | `/me/export` | Descarregar os meus dados | sim |
-| DELETE | `/me` | Apagar a conta | sim |
-| GET | `/assessment` | Perguntas da versão atual | sim |
-| POST | `/assessment/attempts` | Começar o teste | sim |
-| PUT | `/assessment/attempts/{id}/answers` | Guardar respostas (pode ser parcial) | sim |
-| POST | `/assessment/attempts/{id}/complete` | Calcular perfil e recomendações | sim |
-| GET | `/recommendations` | Últimas recomendações | sim |
-| GET | `/occupations` | Lista, pesquisa e rankings (`?sort=demand` ou `salary`) | — |
-| GET | `/occupations/{slug}` | Página de carreira completa | — |
-| GET | `/occupations/{slug}/pathways` | Caminhos e custo estimado (`?province=`) | — |
-| GET | `/occupations/{slug}/stages` | Histórico profissional: etapas da carreira | — |
-| GET | `/occupations/{slug}/market` | O que os empregadores pedem, procura e salários (só agregados) | — |
-| GET | `/occupations/{slug}/cv-examples` | CVs modelo da profissão | — |
-| GET | `/occupations/{slug}/fit` | O meu encaixe com a profissão | sim |
-| GET, PUT | `/me/skills` | As competências que sei | sim |
-| GET | `/institutions`, `/institutions/{slug}` | Instituições | — |
-| GET | `/programs` | Cursos (`?occupation=&level=&province=`) | — |
-| GET | `/programs/ranking` | As melhores instituições para os cursos de uma profissão (`?occupation=&province=&sort=`) | — |
-| GET | `/programs/compare?ids=` | Comparar até 3 cursos | — |
-| GET, PUT | `/cv` | Dados do CV | sim |
-| GET | `/cv/preview` | Pré-visualização em HTML | sim |
-| POST | `/cv/export` | PDF | sim |
-| POST | `/contributions/jobs` | Partilhar uma vaga (entra só nas estatísticas) | sim |
-| POST | `/contributions/salaries` | Partilhar salário (anónimo) | sim |
-| POST | `/reports` | Reportar um erro | sim |
-| POST | `/testimonials` | Escrever um testemunho | sim |
-| GET | `/me/progress` | XP, badges, progresso | sim |
-| POST | `/events` | Eventos de produto (em lote) | opcional |
-| POST | `/ingest/jobs` | Entrada dos scrapers (assinatura HMAC) | máquina |
+| GET | `/areas`, `/career-groups` | (exportação: `areas`, `career-groups`) | As áreas do Mercado e os grupos de carreiras, `{id, name}` e `{id, area, name}`, com os nomes na língua pedida |
+| GET | `/occupations` | `listCareers` | `CareerSummary[]` |
+| GET | `/occupations?fields=traits` | `listCareerTraits` | `CareerTraits[]` |
+| GET | `/occupations/{slug}` | `getCareer` | `Career` (com `selfEmployment` quando existe) |
+| GET | `/occupations/{slug}/cv-examples`, `/cv-examples` | `listCvExamples` | `CvExample[]` |
+| GET | `/occupations/{slug}/testimonials`, `/testimonials` | `listTestimonials` | `Testimonial[]` |
+| GET | `/skills` | `listSkills` | `Skill[]` |
+| GET | `/support-programs` | `listSupportPrograms` | `SupportProgram[]` |
+| GET | `/programs?occupation=` | `listPrograms` | `Program[]` |
+| GET | `/institutions`, `/institutions/{slug}` | `listAcademies`, `getAcademy` | `Academy[]`, `Academy` |
+| GET | `/courses`, `/courses/{slug}` | `listCourses`, `getCourse` | `CatalogCourse[]`, `CatalogCourse` |
+| GET | `/companies`, `/companies/{slug}` | `listCompanies`, `getCompany` | `Company[]`, `Company` |
+| GET | `/market/jobs` | `getJobMarket` | `JobMarket` |
+| GET | `/market/education` | `getEducation` | `EducationStats` |
+| GET | `/market/employment` | `getEmployment` | `EmploymentStats` |
+| GET | `/news` | `listNews` | `NewsItem[]`, mais recentes primeiro |
+| GET | `/scholarships` | `listScholarships` | `Scholarship[]` |
+| GET | `/internships` | `listInternships` | `Internship[]` |
+| GET | `/free-courses?occupation=` | `listFreeCourses` | `FreeCourse[]` |
+| GET | `/admissions` | `listAdmissions` | `Admission[]` |
+| GET | `/figures` | `listFigures` | `Figure[]` |
+| GET | `/assessment` | `getAssessment` | `AssessmentQuestion[]` na língua pedida |
+| GET | `/access-exams` | `data/demo/accessExams` | O banco de perguntas, cada uma com a sua disciplina e tema |
+| GET | `/psychotech`, `/provinces` | `data/demo/psychotech`, `data/provinces` | As listas dos psicotécnicos e as 21 províncias, como estão |
+| GET | `/interview-questions` | `data/demo/interviews` | As perguntas do treino de entrevistas |
+| GET | `/mentors` | `data/demo/mentors` | `Mentor[]` (só `grupo` quando quem pede é menor) |
+| GET | `/video-stories` | `data/demo/videoStories` | `VideoStory[]` |
+| GET | `/kursos` | `data/kursos` | `{kursos, announced}`: os Kursos sem o texto das lições nem o exame, e os anunciados `{id, title, body, icon}` |
+| GET | `/kursos/{slug}/units/{unit}` | `Unit.load` | `UnitContent` (404 enquanto a unidade não tem texto) |
+| GET | `/kursos/{slug}/exam` | `Course.loadExam` | `ExamQuestion[]` |
+| GET | `/public-cards/{slug}` | `getPublicCard` | `PublicCard` (404 = desligado) |
+
+### Escritas sem conta
+
+| Método | Caminho | Função | Notas |
+|---|---|---|---|
+| POST | `/public-cards` | `createPublicCard` | Devolve `{slug, secret}` uma só vez |
+| PUT, DELETE | `/public-cards/{slug}` | `updatePublicCard`, `deletePublicCard` | `Authorization: Bearer <secret>` |
+| POST | `/interviews` | `sendInterview` | Devolve `{id}` |
+| POST | `/waitlist` | `data/waitlist.ts` | Campo-isco `website`; consentimento obrigatório |
+| GET | `/waitlist/confirm/{token}` | | Confirmação dupla do email (URL assinada, 7 dias). Fora de `/api/v1`, como o seguinte: são links dos emails |
+| GET, POST | `/unsubscribe/{token}?kind=…` | | "Deixar de receber" de cada email (URL assinada), sem conta; o `POST` é o botão de um clique do Gmail (`List-Unsubscribe-Post`) |
+| GET | `/push/key` | `data/account.ts` | A chave pública VAPID do Web Push (`null`: push desligado) |
+| POST | `/feedback` | `data/waitlist.ts` | Campo-isco `website` |
+| GET | `/waitlist/export?kind=waitlist\|feedback` | | CSV para a equipa; token `WAITLIST_EXPORT_TOKEN` (`X-Export-Token`, `Bearer` ou `?token=`) |
+
+Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos). Os links dos emails: 20 por minuto.
+
+### Com conta
+
+| Método | Caminho | Para quê |
+|---|---|---|
+| GET | `/auth/google/redirect`, `/auth/google/callback` | Login na web (fora de `/api/v1`; cria o cookie) |
+| POST | `/auth/google` | Android: troca o `id_token` Google (assinatura, `aud`, `exp` verificados) por um token Sanctum |
+| POST | `/auth/logout` | Terminar sessão (apaga o token ou o cookie) |
+| GET | `/me` | A conta: nome, email, foto do Google, ano de nascimento, província, escolaridade, língua, `minor` e os consentimentos ativos. O perfil muda-se em `/me/data` (o servidor copia-o para `users`); não há `PATCH /me` |
+| GET, PUT | `/me/data` | `{version, data}`: o `UserData` sem a foto e a capa (até 1 MB). Um `PUT` com uma versão antiga recebe 409 com a cópia atual |
+| POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
+| GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
+| DELETE | `/me/consents/{kind}` | Retirar um consentimento |
+| POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o Web Push neste browser (só com um consentimento push) |
+| GET | `/me/export` | Os meus dados em JSON (Lei n.º 22/11) |
+| DELETE | `/me` | Apagar a conta e tudo o que é da pessoa |
+
+### Máquinas e painel
+
+| Método | Caminho | Para quê | Autenticação |
+|---|---|---|---|
+| POST | `/ingest/jobs` | Entrada dos scrapers | Assinatura HMAC |
+| GET, POST | `/webhooks/whatsapp` | Estado das entregas e "PARAR" (WhatsApp Cloud API, mais tarde: por agora o WhatsApp vai à mão) | `X-Hub-Signature-256` da Meta |
+| — | `/mcp` | Servidor MCP para a IA: lê o conteúdo público, escreve só em `revisions` | Token Sanctum de um editor, com a permissão `ai` |
+| — | `/admin` | Painel Filament | Sessão, papéis `admin`, `editor`, `revisor` |
+
+### Planeadas depois do fecho
+
+Ficam no aparelho por agora e só passam a rotas quando forem precisas no servidor: tentativas do teste e recomendações no servidor, `/occupations/{slug}/fit`, `/me/skills` à parte de `user_data`, CV e PDF no servidor (ADR 0006), contribuições de vagas e salários, `/reports`, testemunhos escritos por utilizadores, `/me/progress` e `/events`.
 
 ## 7. App (frontend)
 
-### Navegação (barra inferior com 5 separadores)
+### Navegação
 
-| Separador | Conteúdo |
-|---|---|
-| Início | Teste vocacional, recomendações, progresso, próxima ação sugerida |
-| Carreiras | Todas as profissões e a página de cada uma: o que faz, características, o que os empregadores pedem, como lá chegar, o meu encaixe, CVs modelo |
-| Formação | Instituições e cursos, as melhores para cada curso, comparar, custos |
-| CV | Editor, modelos visuais e CVs modelo por área |
-| Perfil | Conta, resultado do teste, as minhas competências, guardados, idioma, privacidade |
+- **Computador:** uma barra lateral preta flutuante, que se minimiza só com ícones. Tem dois grupos e, em baixo, Suporte e Configurações.
+- **Telemóvel:** uma barra de baixo com os 5 destinos mais usados. Na barra de cima ficam o sino das notificações e o menu (hamburger), que tem o resto.
+
+| Grupo | Secção | Conteúdo | Telemóvel |
+|---|---|---|---|
+| Explorar | Início | Teste vocacional, recomendações, progresso, próxima ação | Barra de baixo |
+| | Pesquisa | Carreiras (também os ofícios), cursos, academias, bolsas, estágios, empresas, as pessoas das empresas (só nome e cargo) e as páginas da app ("plano", "exames de acesso"…) num só sítio | Barra de baixo |
+| | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
+| | Testes (`/testes`) | Todos os testes num só sítio, com o estado de cada um: teste vocacional (`/teste`), psicotécnicos (`/treino`), simulação de entrevistas (`/entrevistas`), treino para os exames de acesso (`/exames-de-acesso`: disciplinas e datas do exame de cada curso, treino por disciplina e simulação com tempo) e exames dos Kursos. O item fica ativo também nessas páginas | Menu |
+| | Cursos | O que estudar: cursos classificados por carreira, comparar, custos | Barra de baixo |
+| | Kursos (`/kursos`) | Cursos curtos grátis do Kayé, com lições, exame e certificado sem validade (ADR 0016) | Menu |
+| | Academias | Universidades e centros de formação profissional. Publicam no Kayé cursos novos e promoções | Menu |
+| | Oportunidades (`/oportunidades`) | Bolsas e estágios reais, em dois separadores (`?tab=bolsas` ou `?tab=estagios`), cada um com os seus filtros na URL | Menu |
+| | Prazos (`/prazos`) | Os prazos com data publicada (bolsas, candidaturas e exames de acesso, estágios; os concursos públicos entram quando tiverem data de fecho), por mês, com o filtro "Só para mim" (estado local) e "Adicionar ao calendário" (um `.ics` com alarme 3 dias antes, feito no telemóvel). Os da pessoa a ≤ 14 dias aparecem nas Notificações e os a ≤ 7 dias contam no sino | Menu |
+| | Sem universidade (`/sem-universidade`) | Ofícios, onde aprendê-los (centros do INEFOP), trabalhar por conta própria e passar do informal ao formal, em separadores (`?secao=`) | Menu |
+| | Mentores (`/mentores`) | Mentores aprovados à mão, por área e carreira; "Pedir conversa" abre uma mensagem de WhatsApp ou email para o Kayé, sem guardar nada. Os menores só veem sessões em grupo. O item do menu e o link na carreira só aparecem quando houver mentores (`docs/mentores.md`) | Menu |
+| | Empresas | As empresas líderes de cada setor, com as pessoas (nome e cargo), as publicações e as profissões que contratam | Menu |
+| | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |
+| | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
+| Para ti | O meu plano (`/plano`) | Uma carreira e um caminho, com passos, progresso e prazos; guardado só no telemóvel | Menu |
+| | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
+| | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província); em cima, os prazos da pessoa a ≤ 14 dias | Sino |
+| | Perfil | Conta, resultado do teste, competências, guardados | Menu |
+| Em baixo | Suporte, Configurações | Ajuda; idioma, privacidade e dados | Menu |
+
+**Fora do menu:** `/entrar` (entrada e onboarding), `/c/:slug` (a página pública do cartão, ADR 0014), `/familia` (o link da família, com os dados no `#`, ADR 0018), `/termos` e `/privacidade` são públicas. Os endereços antigos `/bolsas` e `/estagios` só redirecionam para os separadores de `/oportunidades`, mantendo os filtros. Cada ecrã descarrega o seu código na primeira visita (`lazy` em `app/router.tsx`). Os vídeos "O meu dia como…" (na carreira, e "Histórias novas" no Início e nas Novidades) são só links externos, sem iframes; com a lista vazia, os blocos não aparecem (`docs/videos.md`).
+
+**Tutorial** (`domain/tour.ts`): até 6 passos escolhidos pelo objetivo da pessoa, cada um num elemento `data-tour` da sua página: teste, recomendações, plano, psicotécnicos, cursos, exames de acesso (`/exames-de-acesso`), comparar, estágios, entrevistas, CV, cartão, sem universidade, cursos grátis e conta própria; no fim, Novidades e Prazos.
+
+**Recrutamento no Mercado:** só título, fonte, data e ligação para o original, e só de fontes que o permitem ([fontes-de-vagas.md](fontes-de-vagas.md)). Quando a fonte não o permite, entra só como dado agregado. O Kayé continua a não ser um site de emprego.
 
 ### Página de uma carreira
 
@@ -449,12 +561,17 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 ```
 apps/web/src/
   app/          router, providers, layout
-  features/     auth, onboarding, assessment, careers, fit, training,
-                cv, profile, contributions, gamification
-  components/   peças de interface partilhadas
-  lib/          cliente da API, i18n, eventos
-  locales/      pt/ en/ fr/
+  features/     home, onboarding, assessment, careers, training, cv, profile
+                (mais tarde: contributions)
+  components/   ui/ (peças base) e peças do produto partilhadas
+  data/         tipos (contrato com a API), source.ts (a única porta), queries
+  domain/       regras em funções puras: RIASEC, encaixe, recomendações, ranking
+  state/        o que a pessoa fez (hoje no aparelho; depois na API)
+  lib/          cliente da API, i18n, ajudas
+  locales/      pt.ts, en.ts, fr.ts
 ```
+
+Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O aspeto visual está em [design.md](design.md). Enquanto a API não tem conteúdos, a app usa dados de demonstração ([ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md)).
 
 ### Pensado para Angola
 
@@ -486,14 +603,15 @@ apps/web/src/
 
 - **Recolher só o necessário:** ano de nascimento (não a data), província (não a morada), telefone opcional.
 - **Consentimentos** guardados com versão e data.
-- **Menores (14–17):** linguagem adaptada, confirmação de que o encarregado de educação tem conhecimento, perfil público desligado e sem contribuições de salário.
+- **Menores (14–17):** linguagem adaptada, confirmação de que o encarregado de educação tem conhecimento, perfil público desligado e sem contribuições de salário. Não veem salários em lado nenhum da app (cartões, carreira, cursos, empresas, entrevistas, link da família): `useShowsSalaries()`; sem ano de nascimento conhecido, contam como menores.
 - **Direitos do utilizador:** exportar os dados e apagar a conta dentro da app (também exigido pela Apple e pela Google).
 - **Nenhum dado individual** sai para instituições ou anunciantes: só estatísticas agregadas de 5 ou mais pessoas.
 - **Sem trackers de publicidade.**
 - **Pendente antes do lançamento público.** Validar com um advogado:
   1. se é preciso notificar a APD (Agência de Protecção de Dados);
   2. as regras para guardar dados em servidores fora de Angola (a Hostinger não tem servidores em Angola);
-  3. os termos de cada site de vagas de onde recolhemos dados.
+  3. os termos de cada site de vagas de onde recolhemos dados;
+  4. os Termos de uso e a Política de privacidade da app (`/termos` e `/privacidade`, hoje marcados como versão provisória), incluindo quem é o responsável pelo tratamento e o e-mail de contacto.
 
 ## 9. Infraestrutura e deploy
 
@@ -510,6 +628,7 @@ kaye/
   docs/          arquitetura, roadmap, decisões
   .github/workflows/
     ci.yml       testes e verificação de tipos em cada push
+    market-data.yml  recolha semanal dos dados do Mercado (sábado, 22:00)
     deploy.yml   build e envio para a Hostinger
     scrape.yml   recolha semanal de vagas
 ```

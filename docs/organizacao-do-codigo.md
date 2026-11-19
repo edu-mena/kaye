@@ -44,16 +44,29 @@ Quando a lógica de negócio crescer (por exemplo, a fórmula das recomendaçõe
 
 | Pasta | O que vai lá |
 |---|---|
-| `src/app` | Arranque: `App` (providers), `router`, `Layout` |
-| `src/features/<área>` | Um ecrã e o que só ele usa (hooks, componentes). Áreas: `home`, `careers`, `training`, `cv`, `profile` e outras novas (`fit`, `assessment`…) |
-| `src/components` | Peças usadas por mais de uma área (`BottomNav`, `PagePlaceholder`, `AppLoading`, `icons`) |
-| `src/lib` | Código sem interface: cliente da API (`api.ts`) e idiomas (`i18n.ts`) |
-| `src/locales` | Textos em `pt.ts` (a fonte), `en.ts` e `fr.ts` |
-| `src/test` | Preparação e ajudas dos testes (`setup.ts`, `render.tsx`) |
-| `e2e` | Testes end-to-end com o Playwright |
+| `src/app` | Arranque: `App` (providers), `router` (rotas com `lazy` e `withProfile`), `Layout` |
+| `src/features/<área>` | Um ecrã e o que só ele usa. Áreas: `home`, `onboarding`, `assessment`, `careers`, `training` (a secção Cursos), `cv`, `profile`, `settings` (Configurações; as suas peças também servem o Perfil), `legal` (Termos e Política de privacidade), `search` (Pesquisa), `market` (Mercado), `news` (Novidades), `notifications` (Notificações), `support` (Suporte) |
+| `src/components/ui` | Peças base sem regras de negócio: `Button`, `Card`, `Chip`, `Dialog`, `Field`… Ver [design.md](design.md#peças-base-srccomponentsui) |
+| `src/components` | Peças do produto usadas por mais de uma área: `CareerCard`, `AreaPicker` (uma área de cada vez, nas Carreiras e nos Cursos), `Navigation`, `QueryState`, `RequireProfile`, `icons` |
+| `src/data` | De onde vêm os conteúdos: `types.ts` (o contrato com a API), `source.ts` (a única porta), `queries.ts` (hooks do TanStack Query), `demo/` (dados fictícios e o catálogo por áreas: `areaCatalog.ts`, o construtor comum; `healthCareers.ts` e `healthCatalog.ts`; `businessCareers.ts` e `businessCatalog.ts`; `humanitiesCareers.ts` e `humanitiesCatalog.ts`; `sciencesCareers.ts` e `sciencesCatalog.ts`; `educationCareers.ts` e `educationCatalog.ts`; e os de engenharia, petróleo e minas, agricultura, logística e turismo (`engineering`, `oilMining`, `agriculture`, `logistics` e `hospitality`, cada um com `Careers.ts` e `Catalog.ts`; e os guias completos de cada grupo, a gestão de projectos (`projectManagement.ts`) e a mecânica e operações offshore (`offshoreTrades.ts`); os cursos criados por decreto, com o plano de estudos (`courseDecrees.ts` e `healthCourseDecrees.ts`, ADR 0011); um ficheiro por grupo da saúde, de `medicineGuides.ts` a `mentalHealthGuides.ts`, com as peças comuns em `healthGuideParts.ts` e a carreira de diagnóstico e terapêutica em `diagnosisTherapyCareer.ts`, ADR 0010)), `market/` (os dados reais do Mercado, gerados em `scrapers/`: `jobs.json`, `education.json`, `employment.json`), `catalog/` (o que a app mostra de cada área, gerado em `scrapers/catalog/`: `health.json`, `business.json`, `humanities.json`, `sciences.json`, `education.json`, `engineering.json`, `oil_mining.json`, `agriculture.json`, `logistics.json`, `hospitality.json`). Ver [ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md) |
+| `src/domain` | As regras do Kayé em funções puras: teste RIASEC, encaixe, recomendações, ranking de cursos, o catálogo de cursos reais (`courses.ts`), pesquisa, mercado, CV, conquistas, o caminho e as notificações (`path.ts`), formatos |
+| `src/state` | O que a pessoa fez: `userStore.ts` (perfil, respostas, competências, CV, pesquisas recentes, quando viu as notificações), `useRiasecProfile` e `useUnseenNotifications` (o ponto do sino) |
+| `src/lib` | Ajudas para os ecrãs: API (`api.ts`), idiomas (`i18n.ts`), `useUrlFilters` e `useUrlText` (filtros e campos de texto no URL), `useFormat`, `useRecommendations`, `useApiHealth`, `usePersistentFlag` (preferências no aparelho), `ui.ts` (`stagger`, `safeNext`) |
+| `src/locales` | Textos em `pt.ts` (a fonte), `en.ts` e `fr.ts`. Exceção: os textos longos dos Termos e da Política de privacidade ficam em `features/legal` (`terms.ts`, `privacy.ts`, com as três línguas), para viajarem com a sua página e não pesarem no arranque. Um teste confirma que as três línguas têm as mesmas secções |
+| `src/test` | Preparação e ajudas dos testes (`setup.ts`, `render.tsx`, `user.ts`) |
+| `e2e` | Testes end-to-end com o Playwright: `app.spec.ts` (a casca) e `journeys.spec.ts` (os percursos) |
 | `android` | Projeto Android gerado pelo Capacitor; não se edita à mão |
 
-Regra das dependências: `features` pode usar `components` e `lib`, mas `components` e `lib` nunca importam de `features`. O `import/no-cycle` do oxlint impede ciclos.
+Regra das dependências (o oxlint verifica-a com `no-restricted-imports`, e o `import/no-cycle` impede ciclos):
+
+```
+features                ->  tudo o resto
+components, lib, state  ->  entre si, domain e data; nunca features
+data                    ->  lib (o cliente da API, quando ligar); nunca state nem interface
+domain                  ->  só data/types; nada de React, estado ou interface
+```
+
+O `domain` sem React quer dizer que as regras se testam sem ecrãs e que, quando a API existir, os mesmos casos de teste servem de especificação para o servidor.
 
 ## Nomes
 
@@ -64,9 +77,9 @@ Regra das dependências: `features` pode usar `components` e `lib`, mas `compone
 | Textos para o utilizador | Chaves em inglês, textos em pt, en e fr | `t('nav.jobs')` |
 | Classes PHP | PascalCase, uma por ficheiro | `CheckProductionConfig` |
 | Casos de enum | TitleCase | `UserRole::Moderator` |
-| Componentes React | PascalCase, ficheiro com o mesmo nome | `BottomNav.tsx` |
-| Hooks | `use` + o que devolvem | `useApiHealth` |
-| Testes web | Ao lado do ficheiro, `.test.ts(x)` | `BottomNav.test.tsx` |
+| Componentes React | PascalCase, ficheiro com o mesmo nome | `CareerCard.tsx` |
+| Hooks | `use` + o que devolvem | `useApiHealth`, `useUrlFilters` |
+| Testes web | Ao lado do ficheiro, `.test.ts(x)`; um ficheiro pode cobrir a área inteira | `riasec.test.ts`, `cv.test.tsx` |
 | Testes PHP | `tests/Feature/<Assunto>Test.php`, métodos `test_frase_em_ingles` | `test_empty_allowlist_locks_everyone_out` |
 | Comandos Artisan | `kaye:<ação>` | `kaye:check-production` |
 
@@ -82,10 +95,11 @@ Regra das dependências: `features` pode usar `components` e `lib`, mas `compone
 
 ### Novo ecrã
 
-1. Cria `src/features/<área>/<Nome>Page.tsx` com `export default`.
-2. Regista-o em `src/app/router.tsx` com `lazy`, para só descarregar quando é aberto.
-3. Põe os textos em `pt.ts`. O TypeScript obriga a pô-los também em `en.ts` e `fr.ts`.
-4. Escreve o teste com `renderWithApp` e, se for um fluxo novo, um teste em `e2e/`.
+1. Cria `src/features/<área>/<Nome>Page.tsx` com `export default`. Usa as peças de `components/ui` e os padrões de [design.md](design.md#padrões) antes de criar novas.
+2. Regista-o em `src/app/router.tsx` com `page()` (carrega só quando é aberto) ou `withProfile()` (se precisar de perfil).
+3. Dados novos: o tipo em `data/types.ts`, a função em `data/source.ts` (com o endpoint no comentário) e o hook em `data/queries.ts`. As regras vão para `domain/`, com testes.
+4. Põe os textos em `pt.ts`. O TypeScript obriga a pô-los também em `en.ts` e `fr.ts`.
+5. Escreve o teste com `renderWithApp` (e `seedUser` para começar com dados) e, se for um percurso novo, um teste em `e2e/journeys.spec.ts`.
 
 ### Nova tabela
 

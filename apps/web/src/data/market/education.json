@@ -1,0 +1,1676 @@
+{
+ "year": "2023/24",
+ "total": 31503,
+ "access": {
+  "enrolled": 340533,
+  "firstTime": 95623,
+  "candidates": 197463,
+  "places": 231932
+ },
+ "source": {
+  "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+  "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+ },
+ "areas": [
+  {
+   "area": "technology",
+   "graduates": 1568,
+   "enrolled": 24904,
+   "candidates": 15295,
+   "admitted": 8457,
+   "courses": [
+    {
+     "name": "Engenharia Informática",
+     "graduates": 850,
+     "enrolled": 11761
+    },
+    {
+     "name": "Ciências da Computação",
+     "graduates": 110,
+     "enrolled": 2160
+    },
+    {
+     "name": "Informática de Gestão",
+     "graduates": 82,
+     "enrolled": 1345
+    },
+    {
+     "name": "Engenharia Informática e Comunicações",
+     "graduates": 78,
+     "enrolled": 758
+    },
+    {
+     "name": "Engenharia de Telecomunicações",
+     "graduates": 69,
+     "enrolled": 1618
+    },
+    {
+     "name": "Engenharia Electrotécnica e Telecomunicações",
+     "graduates": 69,
+     "enrolled": 0
+    },
+    {
+     "name": "Informática E Gestão De Empresas",
+     "graduates": 54,
+     "enrolled": 633
+    },
+    {
+     "name": "Engenharia Informática para Gestão",
+     "graduates": 49,
+     "enrolled": 0
+    },
+    {
+     "name": "Informática",
+     "graduates": 43,
+     "enrolled": 1110
+    },
+    {
+     "name": "Engenharia de Informática de Gestão",
+     "graduates": 40,
+     "enrolled": 147
+    },
+    {
+     "name": "Engenharia Electrónica e Telecomunicações",
+     "graduates": 36,
+     "enrolled": 1316
+    },
+    {
+     "name": "Informática para Gestão",
+     "graduates": 31,
+     "enrolled": 371
+    },
+    {
+     "name": "Engenharia Informática e Sistemas de Informação",
+     "graduates": 13,
+     "enrolled": 469
+    },
+    {
+     "name": "Informática de Gestão de Empresas",
+     "graduates": 12,
+     "enrolled": 155
+    },
+    {
+     "name": "Engenharia de Redes e Telecomunicações",
+     "graduates": 8,
+     "enrolled": 670
+    },
+    {
+     "name": "Engenharia de Telecomunicações e Electrónica",
+     "graduates": 8,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia Electrónica",
+     "graduates": 7,
+     "enrolled": 462
+    },
+    {
+     "name": "Informática de Gestão Financeira",
+     "graduates": 6,
+     "enrolled": 306
+    },
+    {
+     "name": "Engenharia de Electrotecnia e Electrónica Industrial",
+     "graduates": 3,
+     "enrolled": 206
+    },
+    {
+     "name": "Redes e Administração de Sistemas",
+     "graduates": 0,
+     "enrolled": 89
+    },
+    {
+     "name": "Electrotecnia e Telecomunicações",
+     "graduates": 0,
+     "enrolled": 285
+    },
+    {
+     "name": "Engenharia de Electrotecnia e Telecomunicação",
+     "graduates": 0,
+     "enrolled": 138
+    },
+    {
+     "name": "Engenharia de Sistemas Electricos e telecomunicações",
+     "graduates": 0,
+     "enrolled": 258
+    },
+    {
+     "name": "Engenharia de Telecomunicações e Eletrónica",
+     "graduates": 0,
+     "enrolled": 170
+    },
+    {
+     "name": "Engenharia Electrónica de Telecomunicações",
+     "graduates": 0,
+     "enrolled": 410
+    },
+    {
+     "name": "Engenharia Informática de Gestão",
+     "graduates": 0,
+     "enrolled": 36
+    },
+    {
+     "name": "Engenhario Electrónica e Potência",
+     "graduates": 0,
+     "enrolled": 31
+    }
+   ]
+  },
+  {
+   "area": "engineering",
+   "graduates": 1477,
+   "enrolled": 17982,
+   "candidates": 11173,
+   "admitted": 6584,
+   "courses": [
+    {
+     "name": "Arquitectura e Urbanismo",
+     "graduates": 214,
+     "enrolled": 1376
+    },
+    {
+     "name": "Engenharia Mecânica",
+     "graduates": 212,
+     "enrolled": 1998
+    },
+    {
+     "name": "Engenharia Civil",
+     "graduates": 164,
+     "enrolled": 2697
+    },
+    {
+     "name": "Engenharia Electrotécnica",
+     "graduates": 107,
+     "enrolled": 1220
+    },
+    {
+     "name": "Engenharia Industrial e Sistemas Eléctricos",
+     "graduates": 88,
+     "enrolled": 617
+    },
+    {
+     "name": "Engenharia em Recursos Hídricos",
+     "graduates": 82,
+     "enrolled": 183
+    },
+    {
+     "name": "Engenharia Química",
+     "graduates": 80,
+     "enrolled": 944
+    },
+    {
+     "name": "Engenharia Eléctrica",
+     "graduates": 61,
+     "enrolled": 1410
+    },
+    {
+     "name": "Engenharia Mecatrónica",
+     "graduates": 54,
+     "enrolled": 763
+    },
+    {
+     "name": "Arquitectura",
+     "graduates": 49,
+     "enrolled": 1071
+    },
+    {
+     "name": "Engenharia de Construção Civil",
+     "graduates": 49,
+     "enrolled": 601
+    },
+    {
+     "name": "Engenharia de Construções e Fortificações",
+     "graduates": 46,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia Hidráulica",
+     "graduates": 43,
+     "enrolled": 157
+    },
+    {
+     "name": "Electromecânica",
+     "graduates": 43,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia Electromecânica",
+     "graduates": 40,
+     "enrolled": 1846
+    },
+    {
+     "name": "Engenharia Metalúrgica e Materiais",
+     "graduates": 32,
+     "enrolled": 0
+    },
+    {
+     "name": "Construção Civil",
+     "graduates": 27,
+     "enrolled": 247
+    },
+    {
+     "name": "Engenharia de Organização e Manutenção Industrial",
+     "graduates": 26,
+     "enrolled": 247
+    },
+    {
+     "name": "Engenharia em Tecnologia Agro-Alimentar",
+     "graduates": 23,
+     "enrolled": 300
+    },
+    {
+     "name": "Engenharia Geográfica",
+     "graduates": 19,
+     "enrolled": 130
+    },
+    {
+     "name": "Engenharia de Técnicas de Processamento de Pescado",
+     "graduates": 8,
+     "enrolled": 105
+    },
+    {
+     "name": "Engenharia e Gestão Industrial",
+     "graduates": 7,
+     "enrolled": 291
+    },
+    {
+     "name": "Engenharia Energética",
+     "graduates": 2,
+     "enrolled": 121
+    },
+    {
+     "name": "Engenharia de Gestão Industrial",
+     "graduates": 1,
+     "enrolled": 176
+    },
+    {
+     "name": "Engenharia de Gestão logística e dos Transporte",
+     "graduates": 0,
+     "enrolled": 142
+    },
+    {
+     "name": "Engenharia de Mecânica Naval",
+     "graduates": 0,
+     "enrolled": 105
+    },
+    {
+     "name": "Engenharia dos Transportes",
+     "graduates": 0,
+     "enrolled": 133
+    },
+    {
+     "name": "Engenharia Hidráulica e Saneamento das Águas",
+     "graduates": 0,
+     "enrolled": 197
+    },
+    {
+     "name": "Arquitectura, Urbanismo e Construção",
+     "graduates": 0,
+     "enrolled": 324
+    },
+    {
+     "name": "Engenharia de Arquitectura e Urbanismo",
+     "graduates": 0,
+     "enrolled": 11
+    },
+    {
+     "name": "Engenharia de Construção Civil e Ordenamento do território",
+     "graduates": 0,
+     "enrolled": 142
+    },
+    {
+     "name": "Engenharia de Produção Industrial",
+     "graduates": 0,
+     "enrolled": 289
+    },
+    {
+     "name": "Engenharia Industrial",
+     "graduates": 0,
+     "enrolled": 96
+    },
+    {
+     "name": "Planeamento Regional e Urbano",
+     "graduates": 0,
+     "enrolled": 43
+    }
+   ]
+  },
+  {
+   "area": "oil_mining",
+   "graduates": 353,
+   "enrolled": 4433,
+   "candidates": 2146,
+   "admitted": 1184,
+   "courses": [
+    {
+     "name": "Engenharia de Minas",
+     "graduates": 104,
+     "enrolled": 732
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleo",
+     "graduates": 78,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia de Petróleo",
+     "graduates": 62,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia em Geologia",
+     "graduates": 60,
+     "enrolled": 552
+    },
+    {
+     "name": "Geologia",
+     "graduates": 30,
+     "enrolled": 427
+    },
+    {
+     "name": "Geofísica",
+     "graduates": 12,
+     "enrolled": 326
+    },
+    {
+     "name": "Engenharia de Refinação de Petróleos",
+     "graduates": 6,
+     "enrolled": 188
+    },
+    {
+     "name": "Refinação de Petróleos",
+     "graduates": 1,
+     "enrolled": 0
+    },
+    {
+     "name": "Engenharia de Geologia",
+     "graduates": 0,
+     "enrolled": 31
+    },
+    {
+     "name": "Engenharia de Metalurgia e Materiais",
+     "graduates": 0,
+     "enrolled": 349
+    },
+    {
+     "name": "Engenharia de Petróleos",
+     "graduates": 0,
+     "enrolled": 1254
+    },
+    {
+     "name": "Engenharia de Geologia e Minas",
+     "graduates": 0,
+     "enrolled": 381
+    },
+    {
+     "name": "Engenharia de Pesquisa e Produção de Petróleos",
+     "graduates": 0,
+     "enrolled": 184
+    },
+    {
+     "name": "Engenharia Geológica",
+     "graduates": 0,
+     "enrolled": 9
+    }
+   ]
+  },
+  {
+   "area": "health",
+   "graduates": 5014,
+   "enrolled": 82428,
+   "candidates": 66354,
+   "admitted": 26559,
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "graduates": 2477,
+     "enrolled": 36060
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "graduates": 614,
+     "enrolled": 8104
+    },
+    {
+     "name": "Medicina",
+     "graduates": 550,
+     "enrolled": 5022
+    },
+    {
+     "name": "Análises Clínicas",
+     "graduates": 293,
+     "enrolled": 7454
+    },
+    {
+     "name": "Fisioterapia",
+     "graduates": 227,
+     "enrolled": 4945
+    },
+    {
+     "name": "Cardiopneumologia",
+     "graduates": 164,
+     "enrolled": 2853
+    },
+    {
+     "name": "Psicologia Clínica",
+     "graduates": 149,
+     "enrolled": 3936
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "graduates": 102,
+     "enrolled": 2775
+    },
+    {
+     "name": "Medicina Dentária",
+     "graduates": 91,
+     "enrolled": 4294
+    },
+    {
+     "name": "Farmácia",
+     "graduates": 89,
+     "enrolled": 1654
+    },
+    {
+     "name": "Odontologia",
+     "graduates": 62,
+     "enrolled": 1003
+    },
+    {
+     "name": "Enfermagem e Obstetrícia",
+     "graduates": 62,
+     "enrolled": 1680
+    },
+    {
+     "name": "Laboratório Clínico",
+     "graduates": 39,
+     "enrolled": 296
+    },
+    {
+     "name": "Radiologia",
+     "graduates": 29,
+     "enrolled": 295
+    },
+    {
+     "name": "Análises Clínicas e Laboratório",
+     "graduates": 26,
+     "enrolled": 0
+    },
+    {
+     "name": "Electromedicina",
+     "graduates": 22,
+     "enrolled": 160
+    },
+    {
+     "name": "Radiologia e Imagiologia",
+     "graduates": 11,
+     "enrolled": 256
+    },
+    {
+     "name": "Nutrição",
+     "graduates": 7,
+     "enrolled": 192
+    },
+    {
+     "name": "Gestão Hospitalar",
+     "graduates": 0,
+     "enrolled": 450
+    },
+    {
+     "name": "Nutrição e Dietética",
+     "graduates": 0,
+     "enrolled": 404
+    },
+    {
+     "name": "Nutrição Humana",
+     "graduates": 0,
+     "enrolled": 595
+    }
+   ]
+  },
+  {
+   "area": "education",
+   "graduates": 9216,
+   "enrolled": 60513,
+   "candidates": 24512,
+   "admitted": 10000,
+   "courses": [
+    {
+     "name": "Ensino Primário",
+     "graduates": 1084,
+     "enrolled": 16172
+    },
+    {
+     "name": "Ensino da Biologia",
+     "graduates": 787,
+     "enrolled": 3426
+    },
+    {
+     "name": "Ensino da História",
+     "graduates": 755,
+     "enrolled": 4150
+    },
+    {
+     "name": "Ensino da Matemática",
+     "graduates": 694,
+     "enrolled": 3940
+    },
+    {
+     "name": "Ensino da Pedagogia",
+     "graduates": 544,
+     "enrolled": 766
+    },
+    {
+     "name": "Ensino da Psicologia",
+     "graduates": 543,
+     "enrolled": 540
+    },
+    {
+     "name": "Pedagogia",
+     "graduates": 516,
+     "enrolled": 1121
+    },
+    {
+     "name": "Formação de Professores",
+     "graduates": 483,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino da Geografia",
+     "graduates": 438,
+     "enrolled": 3862
+    },
+    {
+     "name": "Ensino da Linguística Portuguesa",
+     "graduates": 397,
+     "enrolled": 565
+    },
+    {
+     "name": "Ensino da Química",
+     "graduates": 336,
+     "enrolled": 2115
+    },
+    {
+     "name": "Ciências da Educação",
+     "graduates": 301,
+     "enrolled": 3673
+    },
+    {
+     "name": "Ensino da Física",
+     "graduates": 265,
+     "enrolled": 1450
+    },
+    {
+     "name": "Psicologia e Didáctica",
+     "graduates": 247,
+     "enrolled": 822
+    },
+    {
+     "name": "Ensino da Língua Portuguesa",
+     "graduates": 182,
+     "enrolled": 4593
+    },
+    {
+     "name": "Educação Física e Desporto",
+     "graduates": 182,
+     "enrolled": 1331
+    },
+    {
+     "name": "Ensino da Linguística Inglesa",
+     "graduates": 152,
+     "enrolled": 186
+    },
+    {
+     "name": "Educação Especial",
+     "graduates": 120,
+     "enrolled": 158
+    },
+    {
+     "name": "Educação Primária",
+     "graduates": 108,
+     "enrolled": 108
+    },
+    {
+     "name": "Didáctica de Ensino da Língua Portuguesa",
+     "graduates": 108,
+     "enrolled": 745
+    },
+    {
+     "name": "Educação de Infância",
+     "graduates": 98,
+     "enrolled": 1533
+    },
+    {
+     "name": "Psicologia da Educação",
+     "graduates": 90,
+     "enrolled": 141
+    },
+    {
+     "name": "História e Didáctica",
+     "graduates": 82,
+     "enrolled": 501
+    },
+    {
+     "name": "Ensino da Linguística Francesa",
+     "graduates": 73,
+     "enrolled": 94
+    },
+    {
+     "name": "Ensino da Língua Inglesa",
+     "graduates": 69,
+     "enrolled": 1522
+    },
+    {
+     "name": "Instrução Primária",
+     "graduates": 63,
+     "enrolled": 1721
+    },
+    {
+     "name": "Ensino da Filosofia",
+     "graduates": 62,
+     "enrolled": 460
+    },
+    {
+     "name": "Ensino do Francês",
+     "graduates": 50,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino da Sociologia",
+     "graduates": 49,
+     "enrolled": 319
+    },
+    {
+     "name": "Ensino Pré-escolar",
+     "graduates": 46,
+     "enrolled": 1923
+    },
+    {
+     "name": "Ciências do Desporto e Educação Física",
+     "graduates": 45,
+     "enrolled": 25
+    },
+    {
+     "name": "Ensino Especial",
+     "graduates": 41,
+     "enrolled": 130
+    },
+    {
+     "name": "Ensino do Português",
+     "graduates": 32,
+     "enrolled": 0
+    },
+    {
+     "name": "Magistério Primário",
+     "graduates": 30,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino do Português e Línguas Nacionais",
+     "graduates": 29,
+     "enrolled": 211
+    },
+    {
+     "name": "Informática Educativa",
+     "graduates": 28,
+     "enrolled": 228
+    },
+    {
+     "name": "Ensino da Língua Portuguesa e Línguas Nacionais",
+     "graduates": 19,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino do Inglês",
+     "graduates": 17,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino das Línguas e Literaturas Africanas",
+     "graduates": 15,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino da Língua Francesa",
+     "graduates": 13,
+     "enrolled": 712
+    },
+    {
+     "name": "Educação Moral e Cívica",
+     "graduates": 7,
+     "enrolled": 67
+    },
+    {
+     "name": "Ciências de Educação Física, Desporto e Motricidade Humana",
+     "graduates": 6,
+     "enrolled": 132
+    },
+    {
+     "name": "Psicologa da Educação",
+     "graduates": 5,
+     "enrolled": 0
+    },
+    {
+     "name": "Ensino da Informática",
+     "graduates": 5,
+     "enrolled": 226
+    },
+    {
+     "name": "Ensino da Gestão Agrícola",
+     "graduates": 0,
+     "enrolled": 20
+    },
+    {
+     "name": "Ensino da Língua e Literaturas Africanas",
+     "graduates": 0,
+     "enrolled": 63
+    },
+    {
+     "name": "Ensino da Produção Agropecuária",
+     "graduates": 0,
+     "enrolled": 18
+    },
+    {
+     "name": "Ensino das Tecnologias Alimentares",
+     "graduates": 0,
+     "enrolled": 21
+    },
+    {
+     "name": "Educação Pré-Escolar",
+     "graduates": 0,
+     "enrolled": 544
+    },
+    {
+     "name": "Ensino da Educação Física e desportos",
+     "graduates": 0,
+     "enrolled": 179
+    }
+   ]
+  },
+  {
+   "area": "business",
+   "graduates": 5458,
+   "enrolled": 65381,
+   "candidates": 36459,
+   "admitted": 21025,
+   "courses": [
+    {
+     "name": "Gestão de Recursos Humanos",
+     "graduates": 702,
+     "enrolled": 11156
+    },
+    {
+     "name": "Economia",
+     "graduates": 611,
+     "enrolled": 7545
+    },
+    {
+     "name": "Economia e Gestão",
+     "graduates": 529,
+     "enrolled": 3424
+    },
+    {
+     "name": "Gestão",
+     "graduates": 421,
+     "enrolled": 3060
+    },
+    {
+     "name": "Contabilidade e Administração",
+     "graduates": 395,
+     "enrolled": 3586
+    },
+    {
+     "name": "Gestão de Empresas",
+     "graduates": 340,
+     "enrolled": 4393
+    },
+    {
+     "name": "Contabilidade e Gestão",
+     "graduates": 305,
+     "enrolled": 2670
+    },
+    {
+     "name": "Contabilidade e Auditoria",
+     "graduates": 238,
+     "enrolled": 2424
+    },
+    {
+     "name": "Gestão e Administração de Empresas",
+     "graduates": 233,
+     "enrolled": 2596
+    },
+    {
+     "name": "Contabilidade e Finanças",
+     "graduates": 204,
+     "enrolled": 4877
+    },
+    {
+     "name": "Secretariado Executivo e Comunicação Empresarial",
+     "graduates": 161,
+     "enrolled": 942
+    },
+    {
+     "name": "Administração e Gestão",
+     "graduates": 158,
+     "enrolled": 1370
+    },
+    {
+     "name": "Gestão e Inspecção Escolar",
+     "graduates": 143,
+     "enrolled": 0
+    },
+    {
+     "name": "Finanças e Contabilidade",
+     "graduates": 116,
+     "enrolled": 828
+    },
+    {
+     "name": "Gestão Administração e Marketing",
+     "graduates": 114,
+     "enrolled": 753
+    },
+    {
+     "name": "Gestão e Marketing",
+     "graduates": 103,
+     "enrolled": 546
+    },
+    {
+     "name": "Organização e Gestão de Empresas",
+     "graduates": 91,
+     "enrolled": 1412
+    },
+    {
+     "name": "Administração e Gestão Escolar",
+     "graduates": 82,
+     "enrolled": 98
+    },
+    {
+     "name": "Gestão e Contabilidade",
+     "graduates": 65,
+     "enrolled": 541
+    },
+    {
+     "name": "Contabilidade",
+     "graduates": 64,
+     "enrolled": 1507
+    },
+    {
+     "name": "Gestão Empresarial e Contabilidade",
+     "graduates": 59,
+     "enrolled": 499
+    },
+    {
+     "name": "Gestão de Contabilidade",
+     "graduates": 51,
+     "enrolled": 253
+    },
+    {
+     "name": "Gestão Empresarial",
+     "graduates": 51,
+     "enrolled": 102
+    },
+    {
+     "name": "Gestão Financeira",
+     "graduates": 47,
+     "enrolled": 470
+    },
+    {
+     "name": "Contabilidade, Fiscalidade e Auditoria",
+     "graduates": 39,
+     "enrolled": 235
+    },
+    {
+     "name": "Ciências Económicas Empresariais",
+     "graduates": 35,
+     "enrolled": 473
+    },
+    {
+     "name": "Gestão Comercial e Marketing",
+     "graduates": 34,
+     "enrolled": 1264
+    },
+    {
+     "name": "Gestão Bancária e de Seguros",
+     "graduates": 25,
+     "enrolled": 438
+    },
+    {
+     "name": "Gestão Bancária e Seguros",
+     "graduates": 19,
+     "enrolled": 117
+    },
+    {
+     "name": "Gestão Aeronáutica",
+     "graduates": 16,
+     "enrolled": 753
+    },
+    {
+     "name": "Gestão de Recursos Humanos e Marketing",
+     "graduates": 3,
+     "enrolled": 871
+    },
+    {
+     "name": "Gestão do Empreendedorismo",
+     "graduates": 2,
+     "enrolled": 46
+    },
+    {
+     "name": "Administração e Gestão de Empresas",
+     "graduates": 1,
+     "enrolled": 423
+    },
+    {
+     "name": "Gestão de Autarquias",
+     "graduates": 1,
+     "enrolled": 0
+    },
+    {
+     "name": "Contabilidade de Gestão",
+     "graduates": 0,
+     "enrolled": 696
+    },
+    {
+     "name": "Contabilidade e Fiscalidade",
+     "graduates": 0,
+     "enrolled": 180
+    },
+    {
+     "name": "Administração de Empresas",
+     "graduates": 0,
+     "enrolled": 613
+    },
+    {
+     "name": "Administração e Marketing",
+     "graduates": 0,
+     "enrolled": 396
+    },
+    {
+     "name": "Ciências de Gestão e Administração",
+     "graduates": 0,
+     "enrolled": 1156
+    },
+    {
+     "name": "Ciências Económicas e Gestão",
+     "graduates": 0,
+     "enrolled": 1262
+    },
+    {
+     "name": "Contabilidade Superior de Gestão",
+     "graduates": 0,
+     "enrolled": 86
+    },
+    {
+     "name": "Economia, Contabilidade e Auditoria",
+     "graduates": 0,
+     "enrolled": 97
+    },
+    {
+     "name": "Gestão das Autarquias",
+     "graduates": 0,
+     "enrolled": 168
+    },
+    {
+     "name": "Gestão de Administração de Empresas",
+     "graduates": 0,
+     "enrolled": 272
+    },
+    {
+     "name": "Gestão de Banca e Seguros",
+     "graduates": 0,
+     "enrolled": 194
+    },
+    {
+     "name": "Gestão Desportiva",
+     "graduates": 0,
+     "enrolled": 18
+    },
+    {
+     "name": "Gestão Financeira e Contabilidade",
+     "graduates": 0,
+     "enrolled": 571
+    }
+   ]
+  },
+  {
+   "area": "legal",
+   "graduates": 2628,
+   "enrolled": 34674,
+   "candidates": 16546,
+   "admitted": 9626,
+   "courses": [
+    {
+     "name": "Direito",
+     "graduates": 2628,
+     "enrolled": 34674
+    }
+   ]
+  },
+  {
+   "area": "public",
+   "graduates": 1038,
+   "enrolled": 7420,
+   "candidates": 4985,
+   "admitted": 2693,
+   "courses": [
+    {
+     "name": "Gestão e Administração Pública",
+     "graduates": 244,
+     "enrolled": 996
+    },
+    {
+     "name": "Ciências Criminais",
+     "graduates": 239,
+     "enrolled": 1490
+    },
+    {
+     "name": "Relações Internacionais",
+     "graduates": 226,
+     "enrolled": 2655
+    },
+    {
+     "name": "Ciência Política",
+     "graduates": 142,
+     "enrolled": 284
+    },
+    {
+     "name": "Administração Pública",
+     "graduates": 135,
+     "enrolled": 717
+    },
+    {
+     "name": "Ciências Políticas e Relações Internacionais",
+     "graduates": 17,
+     "enrolled": 551
+    },
+    {
+     "name": "Ciência Política e Relações Internacionais",
+     "graduates": 15,
+     "enrolled": 0
+    },
+    {
+     "name": "Ciência Política e Administração do Território",
+     "graduates": 11,
+     "enrolled": 362
+    },
+    {
+     "name": "Administração Pública e Gestão de Cidades",
+     "graduates": 9,
+     "enrolled": 141
+    },
+    {
+     "name": "Ciências Policiais e Criminais",
+     "graduates": 0,
+     "enrolled": 82
+    },
+    {
+     "name": "Administração Pública, Autárquica e Gestão do Território",
+     "graduates": 0,
+     "enrolled": 114
+    },
+    {
+     "name": "Gestão Pública",
+     "graduates": 0,
+     "enrolled": 28
+    }
+   ]
+  },
+  {
+   "area": "communication",
+   "graduates": 895,
+   "enrolled": 6813,
+   "candidates": 3334,
+   "admitted": 2047,
+   "courses": [
+    {
+     "name": "Comunicação Social",
+     "graduates": 289,
+     "enrolled": 2183
+    },
+    {
+     "name": "Ciências da Comunicação",
+     "graduates": 260,
+     "enrolled": 1331
+    },
+    {
+     "name": "Língua e Literaturas em Língua Portuguesa",
+     "graduates": 92,
+     "enrolled": 604
+    },
+    {
+     "name": "Língua Portuguesa e Comunicação",
+     "graduates": 78,
+     "enrolled": 317
+    },
+    {
+     "name": "Língua e Literaturas em Língua Inglesa",
+     "graduates": 74,
+     "enrolled": 382
+    },
+    {
+     "name": "Línguas e Literaturas Africanas",
+     "graduates": 56,
+     "enrolled": 0
+    },
+    {
+     "name": "Línguas e Administração",
+     "graduates": 13,
+     "enrolled": 156
+    },
+    {
+     "name": "Língua e Literaturas em Língua Francesa",
+     "graduates": 10,
+     "enrolled": 197
+    },
+    {
+     "name": "Comunicação Empresarial e Línguas",
+     "graduates": 9,
+     "enrolled": 270
+    },
+    {
+     "name": "Língua Inglesa",
+     "graduates": 5,
+     "enrolled": 92
+    },
+    {
+     "name": "Música",
+     "graduates": 4,
+     "enrolled": 102
+    },
+    {
+     "name": "Teatro",
+     "graduates": 3,
+     "enrolled": 104
+    },
+    {
+     "name": "Artes Visuais",
+     "graduates": 1,
+     "enrolled": 131
+    },
+    {
+     "name": "Comunicação Social e Imagem",
+     "graduates": 1,
+     "enrolled": 185
+    },
+    {
+     "name": "Língua e Literaturas Africanas",
+     "graduates": 0,
+     "enrolled": 238
+    },
+    {
+     "name": "Cinema e Televisão",
+     "graduates": 0,
+     "enrolled": 119
+    },
+    {
+     "name": "Jornalismo",
+     "graduates": 0,
+     "enrolled": 402
+    }
+   ]
+  },
+  {
+   "area": "agriculture",
+   "graduates": 552,
+   "enrolled": 5571,
+   "candidates": 3141,
+   "admitted": 1512,
+   "courses": [
+    {
+     "name": "Agronomia",
+     "graduates": 124,
+     "enrolled": 1029
+    },
+    {
+     "name": "Ambiente e Gestão do Território",
+     "graduates": 97,
+     "enrolled": 18
+    },
+    {
+     "name": "Biologia Marinha",
+     "graduates": 68,
+     "enrolled": 392
+    },
+    {
+     "name": "Engenharia de Ambiente",
+     "graduates": 46,
+     "enrolled": 399
+    },
+    {
+     "name": "Engenharia Agronómica",
+     "graduates": 41,
+     "enrolled": 1208
+    },
+    {
+     "name": "Zootecnia",
+     "graduates": 34,
+     "enrolled": 263
+    },
+    {
+     "name": "Engenharia Florestal",
+     "graduates": 31,
+     "enrolled": 525
+    },
+    {
+     "name": "Engenharia dos Recursos Naturais e Ambiente",
+     "graduates": 22,
+     "enrolled": 97
+    },
+    {
+     "name": "Aquicultura",
+     "graduates": 21,
+     "enrolled": 306
+    },
+    {
+     "name": "Recursos Marinhos",
+     "graduates": 20,
+     "enrolled": 179
+    },
+    {
+     "name": "Engenharia do Ambiente",
+     "graduates": 17,
+     "enrolled": 277
+    },
+    {
+     "name": "Medicina Veterinária",
+     "graduates": 14,
+     "enrolled": 385
+    },
+    {
+     "name": "Gestão de Empresas Agrárias",
+     "graduates": 11,
+     "enrolled": 138
+    },
+    {
+     "name": "Engenharia de Recursos Naturais e Ambiente",
+     "graduates": 6,
+     "enrolled": 0
+    },
+    {
+     "name": "Economia Agrária",
+     "graduates": 0,
+     "enrolled": 37
+    },
+    {
+     "name": "Engenharia Agrária",
+     "graduates": 0,
+     "enrolled": 91
+    },
+    {
+     "name": "Engenharia Agropecuária",
+     "graduates": 0,
+     "enrolled": 151
+    },
+    {
+     "name": "Engenharia de Ambiente e Território",
+     "graduates": 0,
+     "enrolled": 41
+    },
+    {
+     "name": "Gestão do Ambiente",
+     "graduates": 0,
+     "enrolled": 35
+    }
+   ]
+  },
+  {
+   "area": "hospitality",
+   "graduates": 171,
+   "enrolled": 1263,
+   "candidates": 428,
+   "admitted": 265,
+   "courses": [
+    {
+     "name": "Hotelaria e Turismo",
+     "graduates": 67,
+     "enrolled": 485
+    },
+    {
+     "name": "Turismo, Gestão Hoteleira e Animação",
+     "graduates": 51,
+     "enrolled": 153
+    },
+    {
+     "name": "Gestão Hoteleira",
+     "graduates": 31,
+     "enrolled": 0
+    },
+    {
+     "name": "Turismo e Gestão Hoteleira",
+     "graduates": 13,
+     "enrolled": 13
+    },
+    {
+     "name": "Gestão de Turismo",
+     "graduates": 9,
+     "enrolled": 520
+    },
+    {
+     "name": "Gestão Hoteleira e Turismo",
+     "graduates": 0,
+     "enrolled": 92
+    }
+   ]
+  },
+  {
+   "area": "logistics",
+   "graduates": 49,
+   "enrolled": 1335,
+   "candidates": 1004,
+   "admitted": 196,
+   "courses": [
+    {
+     "name": "Gestão Logística e Transportes",
+     "graduates": 27,
+     "enrolled": 0
+    },
+    {
+     "name": "Logística e Gestão Comercial",
+     "graduates": 22,
+     "enrolled": 776
+    },
+    {
+     "name": "Gestão Logística e Transporte",
+     "graduates": 0,
+     "enrolled": 559
+    }
+   ]
+  },
+  {
+   "area": "sciences",
+   "graduates": 3084,
+   "enrolled": 27816,
+   "candidates": 12086,
+   "admitted": 8869,
+   "courses": [
+    {
+     "name": "Psicologia",
+     "graduates": 2069,
+     "enrolled": 18830
+    },
+    {
+     "name": "Sociologia",
+     "graduates": 428,
+     "enrolled": 3031
+    },
+    {
+     "name": "Biologia",
+     "graduates": 101,
+     "enrolled": 860
+    },
+    {
+     "name": "História",
+     "graduates": 84,
+     "enrolled": 592
+    },
+    {
+     "name": "Antropologia",
+     "graduates": 82,
+     "enrolled": 90
+    },
+    {
+     "name": "Filosofia",
+     "graduates": 53,
+     "enrolled": 276
+    },
+    {
+     "name": "Psicologia Escolar",
+     "graduates": 51,
+     "enrolled": 429
+    },
+    {
+     "name": "Serviço Social",
+     "graduates": 49,
+     "enrolled": 0
+    },
+    {
+     "name": "Desenho",
+     "graduates": 25,
+     "enrolled": 138
+    },
+    {
+     "name": "Geodemografia",
+     "graduates": 22,
+     "enrolled": 79
+    },
+    {
+     "name": "Psicologia das Organizações e do Trabalho",
+     "graduates": 21,
+     "enrolled": 96
+    },
+    {
+     "name": "Matemática",
+     "graduates": 20,
+     "enrolled": 312
+    },
+    {
+     "name": "Psicologia Criminal",
+     "graduates": 20,
+     "enrolled": 486
+    },
+    {
+     "name": "Física",
+     "graduates": 17,
+     "enrolled": 272
+    },
+    {
+     "name": "Ciências Deporto e Motricidade Humana",
+     "graduates": 17,
+     "enrolled": 0
+    },
+    {
+     "name": "Química",
+     "graduates": 11,
+     "enrolled": 132
+    },
+    {
+     "name": "Psicologia do Trabalho",
+     "graduates": 10,
+     "enrolled": 214
+    },
+    {
+     "name": "Psicologia Jurídica",
+     "graduates": 4,
+     "enrolled": 0
+    },
+    {
+     "name": "Ciência da Informação",
+     "graduates": 0,
+     "enrolled": 180
+    },
+    {
+     "name": "Ciência dos Alimentos",
+     "graduates": 0,
+     "enrolled": 23
+    },
+    {
+     "name": "Design e Moda",
+     "graduates": 0,
+     "enrolled": 119
+    },
+    {
+     "name": "Hidráulica",
+     "graduates": 0,
+     "enrolled": 109
+    },
+    {
+     "name": "Metereologia",
+     "graduates": 0,
+     "enrolled": 43
+    },
+    {
+     "name": "Navegação",
+     "graduates": 0,
+     "enrolled": 104
+    },
+    {
+     "name": "Oceanografia",
+     "graduates": 0,
+     "enrolled": 171
+    },
+    {
+     "name": "Serviços Social",
+     "graduates": 0,
+     "enrolled": 430
+    },
+    {
+     "name": "Sistemas de Informação",
+     "graduates": 0,
+     "enrolled": 153
+    },
+    {
+     "name": "Biotecnologia",
+     "graduates": 0,
+     "enrolled": 65
+    },
+    {
+     "name": "Ciências Biológicas",
+     "graduates": 0,
+     "enrolled": 59
+    },
+    {
+     "name": "Ciências da Terra e Geo-Recursos",
+     "graduates": 0,
+     "enrolled": 34
+    },
+    {
+     "name": "Comércio Internacional",
+     "graduates": 0,
+     "enrolled": 23
+    },
+    {
+     "name": "Design",
+     "graduates": 0,
+     "enrolled": 17
+    },
+    {
+     "name": "Estatística",
+     "graduates": 0,
+     "enrolled": 22
+    },
+    {
+     "name": "Motricidade Humana",
+     "graduates": 0,
+     "enrolled": 52
+    },
+    {
+     "name": "Psicologia das Organizações",
+     "graduates": 0,
+     "enrolled": 190
+    },
+    {
+     "name": "Teologia",
+     "graduates": 0,
+     "enrolled": 185
+    }
+   ]
+  }
+ ],
+ "provinces": [
+  {
+   "province": "Luanda",
+   "graduates": 13465
+  },
+  {
+   "province": "Huambo",
+   "graduates": 4237
+  },
+  {
+   "province": "Huíla",
+   "graduates": 2025
+  },
+  {
+   "province": "Benguela",
+   "graduates": 1655
+  },
+  {
+   "province": "Bié",
+   "graduates": 1522
+  },
+  {
+   "province": "Lunda Norte",
+   "graduates": 1156
+  },
+  {
+   "province": "Cuanza Norte",
+   "graduates": 1124
+  },
+  {
+   "province": "Moxico",
+   "graduates": 917
+  },
+  {
+   "province": "Cabinda",
+   "graduates": 876
+  },
+  {
+   "province": "Zaire",
+   "graduates": 714
+  },
+  {
+   "province": "Lunda Sul",
+   "graduates": 643
+  },
+  {
+   "province": "Malanje",
+   "graduates": 589
+  },
+  {
+   "province": "Cuando Cubango",
+   "graduates": 563
+  },
+  {
+   "province": "Namibe",
+   "graduates": 501
+  },
+  {
+   "province": "Cunene",
+   "graduates": 465
+  },
+  {
+   "province": "Uíge",
+   "graduates": 401
+  },
+  {
+   "province": "Cuanza Sul",
+   "graduates": 394
+  },
+  {
+   "province": "Bengo",
+   "graduates": 256
+  }
+ ],
+ "series": [
+  {
+   "year": "2014",
+   "graduates": 13547,
+   "source": {
+    "label": "Expansão, a partir dos anuários do MESCTI (21/07/2026)",
+    "url": "https://expansao.co.ao/angola/detalhe/so-1-em-cada-10-licenciados-tiram-cursos-de-engenharia-universidades-desalinhadas-com-a-economia-73392.html"
+   }
+  },
+  {
+   "year": "2018",
+   "graduates": 21661,
+   "source": {
+    "label": "INE, Anuário Estatístico do Ensino Superior, Ciência, Tecnologia e Inovação 2019",
+    "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_638240590069968941.pdf"
+   }
+  },
+  {
+   "year": "2022/23",
+   "graduates": 29302,
+   "source": {
+    "label": "MESCTI, Anuário Estatístico do Ensino Superior 2022-2023 (INE, agosto de 2026)",
+    "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639216002117172437.pdf"
+   }
+  },
+  {
+   "year": "2023/24",
+   "graduates": 31503,
+   "source": {
+    "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+    "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+   }
+  }
+ ]
+}

@@ -18,6 +18,11 @@ if [ "${RUN_MIGRATIONS:-false}" = "true" ]; then
     php artisan migrate --force --no-interaction
 fi
 
+# Local and CI stacks: the catalogue from database/data (kaye:import changes only what differs).
+if [ "${RUN_IMPORT:-false}" = "true" ]; then
+    php artisan kaye:import --no-interaction
+fi
+
 php artisan config:cache --no-interaction
 php artisan route:cache --no-interaction
 php artisan view:cache --no-interaction

@@ -1,0 +1,2299 @@
+{
+ "area": "business",
+ "sources": {
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": {
+   "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
+   "url": "https://www.jobartis.com"
+  }
+ },
+ "teaching": {
+  "year": "2023/24",
+  "institutions": [
+   {
+    "name": "Escola Superior Politécnica de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Administração de Empresas",
+      "area": "business",
+      "students": 38,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 36,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior Técnica de Ciências do Desporto",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão Desportiva",
+      "area": "business",
+      "students": 18,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Escola Superior de Ciências, Artes e humanidade",
+    "nature": "publica",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 381,
+      "graduates": 63
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Católico do Lubango",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 105,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 47,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências Económicas e Gestão",
+      "area": "business",
+      "students": 1159,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 0,
+      "graduates": 61
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 0,
+      "graduates": 15
+     },
+     {
+      "name": "Gestão Bancária e Seguros",
+      "area": "business",
+      "students": 0,
+      "graduates": 19
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 0,
+      "graduates": 43
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 0,
+      "graduates": 65
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Atlântida",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 383,
+      "graduates": 35
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 303,
+      "graduates": 47
+     },
+     {
+      "name": "Gestão de Contabilidade",
+      "area": "business",
+      "students": 253,
+      "graduates": 51
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 176,
+      "graduates": 15
+     },
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 164,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 74,
+      "graduates": 18
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 513,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Católico do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 231,
+      "graduates": 25
+     },
+     {
+      "name": "Gestão do Empreendedorismo",
+      "area": "business",
+      "students": 46,
+      "graduates": 2
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 273,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 232,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Empresarial",
+      "area": "business",
+      "students": 0,
+      "graduates": 21
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Evangélico do Lubango",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 100,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 28,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Gregório Semedo",
+    "nature": "privada",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 1419,
+      "graduates": 0
+     },
+     {
+      "name": "Organização e Gestão de Empresas",
+      "area": "business",
+      "students": 470,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Comercial e Marketing",
+      "area": "business",
+      "students": 157,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Independente",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Finanças e Contabilidade",
+      "area": "business",
+      "students": 588,
+      "graduates": 60
+     },
+     {
+      "name": "Gestão e Marketing",
+      "area": "business",
+      "students": 201,
+      "graduates": 24
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Ciências de Gestão e Administração",
+      "area": "business",
+      "students": 1156,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Internacional de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos e Marketing",
+      "area": "business",
+      "students": 464,
+      "graduates": 3
+     },
+     {
+      "name": "Gestão e Administração de Empresas",
+      "area": "business",
+      "students": 235,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Bancária e Seguros",
+      "area": "business",
+      "students": 117,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 252,
+      "graduates": 53
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kalandula de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 934,
+      "graduates": 36
+     },
+     {
+      "name": "Gestão e Administração de Empresas",
+      "area": "business",
+      "students": 930,
+      "graduates": 33
+     },
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 427,
+      "graduates": 14
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 146,
+      "graduates": 4
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Kangonjo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 680,
+      "graduates": 63
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 590,
+      "graduates": 30
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada da Lunda Sul",
+    "nature": "privada",
+    "province": "Lunda Sul",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 322,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 400,
+      "graduates": 48
+     },
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 209,
+      "graduates": 7
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 155,
+      "graduates": 9
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 64,
+      "graduates": 7
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 114,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade de Gestão",
+      "area": "business",
+      "students": 37,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 20,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Lusíada do Huambo",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 133,
+      "graduates": 25
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 124,
+      "graduates": 13
+     },
+     {
+      "name": "Contabilidade Superior de Gestão",
+      "area": "business",
+      "students": 86,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Maravilha",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 595,
+      "graduates": 39
+     },
+     {
+      "name": "Ciências Económicas Empresariais",
+      "area": "business",
+      "students": 396,
+      "graduates": 21
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Metropolitano",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Administração de Empresas",
+      "area": "business",
+      "students": 575,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 413,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 292,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Ndunduma",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 226,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Nelson Mandela",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Administração de Empresas",
+      "area": "business",
+      "students": 272,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 27,
+      "graduates": 3
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 5,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 34
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privada do Zaire",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 184,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão e Administração de Empresas",
+      "area": "business",
+      "students": 78,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 58,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 41,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Sinodal",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Administração e Gestão de Empresas",
+      "area": "business",
+      "students": 0,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado Walinga",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 308,
+      "graduates": 51
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 138,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 35,
+      "graduates": 12
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado da Catepa",
+    "nature": "privada",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos e Marketing",
+      "area": "business",
+      "students": 407,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão e Administração de Empresas",
+      "area": "business",
+      "students": 201,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado de Menongue",
+    "nature": "privada",
+    "province": "Cubango",
+    "courses": [
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 257,
+      "graduates": 27
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Kilamba",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 210,
+      "graduates": 11
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 204,
+      "graduates": 8
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Luena",
+    "nature": "privada",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 179,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Privado do Uíge",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 943,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Sol Nascente",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 346,
+      "graduates": 58
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 150,
+      "graduates": 15
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 100,
+      "graduates": 13
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tocoísta",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 983,
+      "graduates": 42
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico Tundavala",
+    "nature": "privada",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Gestão e Contabilidade",
+      "area": "business",
+      "students": 65,
+      "graduates": 11
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico da Caála",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 309,
+      "graduates": 28
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 159,
+      "graduates": 0
+     },
+     {
+      "name": "Ciências Económicas Empresariais",
+      "area": "business",
+      "students": 0,
+      "graduates": 14
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Cabinda",
+    "nature": "privada",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Gestão e Contabilidade",
+      "area": "business",
+      "students": 301,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+    "nature": "privada",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 158,
+      "graduates": 23
+     },
+     {
+      "name": "Contabilidade, Fiscalidade e Auditoria",
+      "area": "business",
+      "students": 128,
+      "graduates": 39
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Ndalatando",
+    "nature": "publica",
+    "province": "Cuanza Norte",
+    "courses": [
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 518,
+      "graduates": 121
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Porto Amboim",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Gestão e Contabilidade",
+      "area": "business",
+      "students": 102,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Empresarial e Contabilidade",
+      "area": "business",
+      "students": 44,
+      "graduates": 49
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico de Tecnologias e Ciências",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 483,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 446,
+      "graduates": 43
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 342,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 12
+     },
+     {
+      "name": "Gestão Empresarial",
+      "area": "business",
+      "students": 0,
+      "graduates": 30
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bita",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 426,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Bié",
+    "nature": "publica",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 492,
+      "graduates": 138
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cazenga",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão Empresarial e Contabilidade",
+      "area": "business",
+      "students": 455,
+      "graduates": 10
+     },
+     {
+      "name": "Ciências Económicas e Gestão",
+      "area": "business",
+      "students": 103,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuanza Sul",
+    "nature": "publica",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 457,
+      "graduates": 41
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Cuito",
+    "nature": "privada",
+    "province": "Bié",
+    "courses": [
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 157,
+      "graduates": 25
+     },
+     {
+      "name": "Administração e Gestão Escolar",
+      "area": "business",
+      "students": 98,
+      "graduates": 82
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 8,
+      "graduates": 9
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 0,
+      "graduates": 6
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Libolo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 134,
+      "graduates": 1
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Moxico",
+    "nature": "publica",
+    "province": "Moxico",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 517,
+      "graduates": 112
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Politécnico do Zango",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 171,
+      "graduates": 41
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 91,
+      "graduates": 9
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Kiaxi",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão das Autarquias",
+      "area": "business",
+      "students": 130,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Nzenzu Estrela",
+    "nature": "privada",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 403,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Empresarial",
+      "area": "business",
+      "students": 102,
+      "graduates": 0
+     },
+     {
+      "name": "Economia, Contabilidade e Auditoria",
+      "area": "business",
+      "students": 97,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Privado Rei Luhuna",
+    "nature": "privada",
+    "province": "Cunene",
+    "courses": [
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 226,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 192,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Administração e Finanças",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 916,
+      "graduates": 57
+     },
+     {
+      "name": "Gestão Bancária e de Seguros",
+      "area": "business",
+      "students": 438,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Técnico de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 800,
+      "graduates": 45
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Nimi Ya Lukeni",
+    "nature": "privada",
+    "province": "Zaire",
+    "courses": [
+     {
+      "name": "Gestão Comercial e Marketing",
+      "area": "business",
+      "students": 580,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão Financeira e Contabilidade",
+      "area": "business",
+      "students": 571,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior Universitário Waku-Cungo",
+    "nature": "privada",
+    "province": "Cuanza Sul",
+    "courses": [
+     {
+      "name": "Ciências Económicas Empresariais",
+      "area": "business",
+      "students": 77,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 217,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 129,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 21,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências Sociais e Relações Internacionais",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 207,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Banca e Seguros",
+      "area": "business",
+      "students": 194,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 174,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 116,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ciências e Administração Humana",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 136,
+      "graduates": 25
+     },
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 111,
+      "graduates": 7
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 2,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Instituto Superior de Ombaka",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 146,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Insutituto Superior Politecnico de Ciências e Tecnologia",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 1369,
+      "graduates": 74
+     },
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 910,
+      "graduates": 18
+     }
+    ]
+   },
+   {
+    "name": "Intituto Superior Politécnico de Benguela",
+    "nature": "privada",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 372,
+      "graduates": 0
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 289,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade, Fiscalidade e Auditoria",
+      "area": "business",
+      "students": 107,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Agostinho Neto",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Secretariado Executivo e Comunicação Empresarial",
+      "area": "business",
+      "students": 942,
+      "graduates": 161
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 670,
+      "graduates": 44
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 529,
+      "graduates": 44
+     },
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 499,
+      "graduates": 34
+     },
+     {
+      "name": "Gestão Financeira",
+      "area": "business",
+      "students": 470,
+      "graduates": 47
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 322,
+      "graduates": 27
+     }
+    ]
+   },
+   {
+    "name": "Universidade Católica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Administração",
+      "area": "business",
+      "students": 0,
+      "graduates": 34
+     },
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 91
+     }
+    ]
+   },
+   {
+    "name": "Universidade Gregório Semedo",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão Comercial e Marketing",
+      "area": "business",
+      "students": 0,
+      "graduates": 34
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 0,
+      "graduates": 46
+     },
+     {
+      "name": "Organização e Gestão de Empresas",
+      "area": "business",
+      "students": 0,
+      "graduates": 91
+     }
+    ]
+   },
+   {
+    "name": "Universidade Independente de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 0,
+      "graduates": 70
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 0,
+      "graduates": 56
+     },
+     {
+      "name": "Finanças E Contabilidade",
+      "area": "business",
+      "students": 0,
+      "graduates": 56
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 0,
+      "graduates": 124
+     },
+     {
+      "name": "Gestão E Marketing",
+      "area": "business",
+      "students": 0,
+      "graduates": 79
+     }
+    ]
+   },
+   {
+    "name": "Universidade José Eduardo dos Santos",
+    "nature": "publica",
+    "province": "Huambo",
+    "courses": [
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 1600,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Katyavala Buila",
+    "nature": "publica",
+    "province": "Benguela",
+    "courses": [
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 295,
+      "graduates": 28
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 210,
+      "graduates": 16
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 127,
+      "graduates": 16
+     }
+    ]
+   },
+   {
+    "name": "Universidade Kimpa Vita",
+    "nature": "publica",
+    "province": "Uíge",
+    "courses": [
+     {
+      "name": "Contabilidade de Gestão",
+      "area": "business",
+      "students": 659,
+      "graduates": 0
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 634,
+      "graduates": 76
+     },
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 70
+     }
+    ]
+   },
+   {
+    "name": "Universidade Lueji A´Nkonde",
+    "nature": "publica",
+    "province": "Lunda Norte",
+    "courses": [
+     {
+      "name": "Administração e Gestão",
+      "area": "business",
+      "students": 937,
+      "graduates": 134
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 690,
+      "graduates": 82
+     },
+     {
+      "name": "Gestão e Inspecção Escolar",
+      "area": "business",
+      "students": 0,
+      "graduates": 143
+     }
+    ]
+   },
+   {
+    "name": "Universidade Mandume Ya Ndemufayo",
+    "nature": "publica",
+    "province": "Huíla",
+    "courses": [
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 1208,
+      "graduates": 33
+     },
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 193,
+      "graduates": 45
+     },
+     {
+      "name": "Contabilidade e Fiscalidade",
+      "area": "business",
+      "students": 180,
+      "graduates": 0
+     },
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 0,
+      "graduates": 25
+     }
+    ]
+   },
+   {
+    "name": "Universidade Metodista de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 0,
+      "graduates": 124
+     },
+     {
+      "name": "Gestão e Administração de Empresas",
+      "area": "business",
+      "students": 0,
+      "graduates": 200
+     }
+    ]
+   },
+   {
+    "name": "Universidade Onze de Novembro",
+    "nature": "publica",
+    "province": "Cabinda",
+    "courses": [
+     {
+      "name": "Gestão de Empresas",
+      "area": "business",
+      "students": 737,
+      "graduates": 40
+     },
+     {
+      "name": "Contabilidade e Auditoria",
+      "area": "business",
+      "students": 616,
+      "graduates": 29
+     },
+     {
+      "name": "Economia",
+      "area": "business",
+      "students": 265,
+      "graduates": 26
+     }
+    ]
+   },
+   {
+    "name": "Universidade Privada de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão e Contabilidade",
+      "area": "business",
+      "students": 0,
+      "graduates": 54
+     }
+    ]
+   },
+   {
+    "name": "Universidade Rainha Njinga a Mbande",
+    "nature": "publica",
+    "province": "Malanje",
+    "courses": [
+     {
+      "name": "Administração e Gestão",
+      "area": "business",
+      "students": 104,
+      "graduates": 0
+     }
+    ]
+   },
+   {
+    "name": "Universidade Técnica de Angola",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 0,
+      "graduates": 44
+     },
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 279
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Belas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 11
+     },
+     {
+      "name": "Gestão de Autarquias",
+      "area": "business",
+      "students": 0,
+      "graduates": 1
+     },
+     {
+      "name": "Gestão de Recursos Humanos",
+      "area": "business",
+      "students": 0,
+      "graduates": 10
+     }
+    ]
+   },
+   {
+    "name": "Universidade de Luanda",
+    "nature": "publica",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Gestão Aeronáutica",
+      "area": "business",
+      "students": 619,
+      "graduates": 16
+     },
+     {
+      "name": "Gestão",
+      "area": "business",
+      "students": 296,
+      "graduates": 8
+     },
+     {
+      "name": "Contabilidade",
+      "area": "business",
+      "students": 242,
+      "graduates": 17
+     }
+    ]
+   },
+   {
+    "name": "Universidade do Namibe",
+    "nature": "publica",
+    "province": "Namibe",
+    "courses": [
+     {
+      "name": "Contabilidade e Gestão",
+      "area": "business",
+      "students": 771,
+      "graduates": 51
+     },
+     {
+      "name": "Administração e Gestão",
+      "area": "business",
+      "students": 329,
+      "graduates": 24
+     }
+    ]
+   },
+   {
+    "name": "Universidade Óscar Ribas",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Contabilidade e Finanças",
+      "area": "business",
+      "students": 0,
+      "graduates": 19
+     },
+     {
+      "name": "Gestão Administração e Marketing",
+      "area": "business",
+      "students": 0,
+      "graduates": 114
+     }
+    ]
+   },
+   {
+    "name": "Universidades Jean Piaget",
+    "nature": "privada",
+    "province": "Luanda",
+    "courses": [
+     {
+      "name": "Economia e Gestão",
+      "area": "business",
+      "students": 0,
+      "graduates": 335
+     }
+    ]
+   }
+  ],
+  "courses": [
+   {
+    "name": "Gestão de Recursos Humanos",
+    "students": 9239,
+    "graduates": 702,
+    "institutions": 28
+   },
+   {
+    "name": "Economia",
+    "students": 7062,
+    "graduates": 611,
+    "institutions": 25
+   },
+   {
+    "name": "Gestão de Empresas",
+    "students": 4393,
+    "graduates": 340,
+    "institutions": 19
+   },
+   {
+    "name": "Contabilidade e Finanças",
+    "students": 3543,
+    "graduates": 204,
+    "institutions": 11
+   },
+   {
+    "name": "Contabilidade e Administração",
+    "students": 3163,
+    "graduates": 395,
+    "institutions": 8
+   },
+   {
+    "name": "Contabilidade e Gestão",
+    "students": 2044,
+    "graduates": 305,
+    "institutions": 8
+   },
+   {
+    "name": "Contabilidade e Auditoria",
+    "students": 1891,
+    "graduates": 238,
+    "institutions": 9
+   },
+   {
+    "name": "Gestão",
+    "students": 1785,
+    "graduates": 421,
+    "institutions": 8
+   },
+   {
+    "name": "Economia e Gestão",
+    "students": 1610,
+    "graduates": 529,
+    "institutions": 6
+   },
+   {
+    "name": "Contabilidade",
+    "students": 1507,
+    "graduates": 64,
+    "institutions": 7
+   },
+   {
+    "name": "Gestão e Administração de Empresas",
+    "students": 1444,
+    "graduates": 233,
+    "institutions": 5
+   },
+   {
+    "name": "Administração e Gestão",
+    "students": 1370,
+    "graduates": 158,
+    "institutions": 3
+   },
+   {
+    "name": "Ciências Económicas e Gestão",
+    "students": 1262,
+    "graduates": 0,
+    "institutions": 2
+   },
+   {
+    "name": "Ciências de Gestão e Administração",
+    "students": 1156,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Secretariado Executivo e Comunicação Empresarial",
+    "students": 942,
+    "graduates": 161,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão de Recursos Humanos e Marketing",
+    "students": 871,
+    "graduates": 3,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão Comercial e Marketing",
+    "students": 737,
+    "graduates": 34,
+    "institutions": 3
+   },
+   {
+    "name": "Contabilidade de Gestão",
+    "students": 696,
+    "graduates": 0,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão Aeronáutica",
+    "students": 619,
+    "graduates": 16,
+    "institutions": 1
+   },
+   {
+    "name": "Administração de Empresas",
+    "students": 613,
+    "graduates": 0,
+    "institutions": 2
+   },
+   {
+    "name": "Finanças e Contabilidade",
+    "students": 588,
+    "graduates": 60,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Financeira e Contabilidade",
+    "students": 571,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Empresarial e Contabilidade",
+    "students": 499,
+    "graduates": 59,
+    "institutions": 2
+   },
+   {
+    "name": "Ciências Económicas Empresariais",
+    "students": 473,
+    "graduates": 35,
+    "institutions": 3
+   },
+   {
+    "name": "Organização e Gestão de Empresas",
+    "students": 470,
+    "graduates": 91,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão Financeira",
+    "students": 470,
+    "graduates": 47,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão e Contabilidade",
+    "students": 468,
+    "graduates": 65,
+    "institutions": 4
+   },
+   {
+    "name": "Gestão Bancária e de Seguros",
+    "students": 438,
+    "graduates": 25,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão de Administração de Empresas",
+    "students": 272,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão de Contabilidade",
+    "students": 253,
+    "graduates": 51,
+    "institutions": 1
+   },
+   {
+    "name": "Contabilidade, Fiscalidade e Auditoria",
+    "students": 235,
+    "graduates": 39,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão e Marketing",
+    "students": 201,
+    "graduates": 24,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão de Banca e Seguros",
+    "students": 194,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Contabilidade e Fiscalidade",
+    "students": 180,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão das Autarquias",
+    "students": 130,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Bancária e Seguros",
+    "students": 117,
+    "graduates": 19,
+    "institutions": 2
+   },
+   {
+    "name": "Gestão Empresarial",
+    "students": 102,
+    "graduates": 51,
+    "institutions": 3
+   },
+   {
+    "name": "Administração e Gestão Escolar",
+    "students": 98,
+    "graduates": 82,
+    "institutions": 1
+   },
+   {
+    "name": "Economia, Contabilidade e Auditoria",
+    "students": 97,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Contabilidade Superior de Gestão",
+    "students": 86,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão do Empreendedorismo",
+    "students": 46,
+    "graduates": 2,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Desportiva",
+    "students": 18,
+    "graduates": 0,
+    "institutions": 1
+   },
+   {
+    "name": "Administração e Gestão de Empresas",
+    "students": 0,
+    "graduates": 1,
+    "institutions": 1
+   },
+   {
+    "name": "Finanças E Contabilidade",
+    "students": 0,
+    "graduates": 56,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão E Marketing",
+    "students": 0,
+    "graduates": 79,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão e Inspecção Escolar",
+    "students": 0,
+    "graduates": 143,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão de Autarquias",
+    "students": 0,
+    "graduates": 1,
+    "institutions": 1
+   },
+   {
+    "name": "Gestão Administração e Marketing",
+    "students": 0,
+    "graduates": 114,
+    "institutions": 1
+   }
+  ]
+ },
+ "training": [
+  {
+   "name": "Instituto de Formação Bancária de Angola (IFBA)",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "A escola da banca angolana, ligada à Associação Angolana de Bancos (ABANC): cursos para quem trabalha ou quer trabalhar num banco.",
+   "source": {
+    "label": "Expansão: o IFBA reestrutura-se e lança cursos novos",
+    "url": "https://expansao.co.ao/angola/detalhe/instituto-de-formacao-bancaria-sofre-reestruturacao-e-lanca-novos-cursos--47954.html"
+   }
+  },
+  {
+   "name": "Academia BAI",
+   "kind": "centro_formacao",
+   "province": "Luanda",
+   "summary": "A academia do Banco BAI. Com a ABANC, dá o programa Banking Routes: gestão comercial, de risco, estratégica e liderança na banca.",
+   "source": {
+    "label": "Forbes África Lusófona: ABANC e Academia BAI ratificam o Banking Routes",
+    "url": "https://forbesafricalusofona.com/?p=70167"
+   }
+  }
+ ],
+ "masters": [
+  {
+   "name": "Mestrado em Contabilidade e Finanças",
+   "decree": "Decreto Executivo n.º 414/17, de 13 de Setembro",
+   "url": "https://lex.ao/docs/ministerio-do-ensino-superior/2017/decreto-executivo-n-o-414-17-de-13-de-setembro/"
+  },
+  {
+   "name": "Mestrado em Contabilidade e Finanças",
+   "decree": "Decreto Executivo n.º 509/17, de 3 de Outubro",
+   "url": "https://lex.ao/docs/ministerio-do-ensino-superior/2017/decreto-executivo-n-o-509-17-de-03-de-outubro/"
+  }
+ ],
+ "employers": {
+  "named": [
+   {
+    "name": "Banco de Poupança e Crédito (BPC)",
+    "sector": "banca",
+    "kind": "banco_publico",
+    "source": {
+     "label": "Ver Angola, 12/2025: os seis bancos sistémicos segundo o BNA",
+     "url": "https://www.verangola.net/va/pt/122025/BancaSeguros/47062/BNA-identifica-seis-bancos-que-devem-aumentar-reservas-a-partir-de-Janeiro.htm"
+    }
+   },
+   {
+    "name": "Access Bank Angola",
+    "sector": "banca",
+    "kind": "banco",
+    "source": {
+     "label": "Access Bank Angola, comunicado de 2026",
+     "url": "https://angola.accessbankplc.com/access/media/documentos/Access-Bank-Angola-Access-Bank-Angola-obtem-autorizacao-da-ARSEG-e-lanca-operacao-de-Bancassurance-com-parcerias-estrategicas-no-sector-segurador.pdf?ext=.pdf"
+    }
+   },
+   {
+    "name": "ENSA Seguros",
+    "sector": "seguros",
+    "kind": "seguradora_publica",
+    "source": {
+     "label": "Ver Angola, 01/2020: a ENSA é a maior seguradora, segundo a ARSEG",
+     "url": "https://www.verangola.net/va/pt/012020/BancaSeguros/18006/Companhia-Ensa-é-a-maior-seguradora-do-país-revela-a-ARSEG.htm"
+    }
+   },
+   {
+    "name": "Fidelidade Angola",
+    "sector": "seguros",
+    "kind": "seguradora",
+    "source": {
+     "label": "Ver Angola, 01/2020: a ENSA é a maior seguradora, segundo a ARSEG",
+     "url": "https://www.verangola.net/va/pt/012020/BancaSeguros/18006/Companhia-Ensa-é-a-maior-seguradora-do-país-revela-a-ARSEG.htm"
+    }
+   },
+   {
+    "name": "Mulemba Ré",
+    "sector": "seguros",
+    "kind": "resseguradora",
+    "source": {
+     "label": "Forbes África Lusófona: a primeira resseguradora nacional",
+     "url": "https://forbesafricalusofona.com/?p=173867"
+    }
+   },
+   {
+    "name": "Deloitte Angola",
+    "sector": "consultoria",
+    "kind": "auditora",
+    "source": {
+     "label": "Deloitte, Banca em Análise",
+     "url": "https://www2.deloitte.com/content/dam/Deloitte/ao/Documents/financial-services/deloitte_banca_em_analise_2016.pdf"
+    }
+   },
+   {
+    "name": "PwC Angola",
+    "sector": "consultoria",
+    "kind": "auditora",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.pwc.com/ao"
+    }
+   },
+   {
+    "name": "EY Angola",
+    "sector": "consultoria",
+    "kind": "auditora",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.ey.com/pt_ao"
+    }
+   },
+   {
+    "name": "KPMG Angola",
+    "sector": "consultoria",
+    "kind": "auditora",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://kpmg.com/ao"
+    }
+   },
+   {
+    "name": "Banco Nacional de Angola (BNA)",
+    "sector": "estado",
+    "kind": "regulador",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.bna.ao"
+    }
+   },
+   {
+    "name": "Administração Geral Tributária (AGT)",
+    "sector": "estado",
+    "kind": "publico",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://agt.minfin.gov.ao"
+    }
+   },
+   {
+    "name": "Ministério das Finanças",
+    "sector": "estado",
+    "kind": "publico",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.minfin.gov.ao"
+    }
+   },
+   {
+    "name": "Bolsa de Dívida e Valores de Angola (BODIVA)",
+    "sector": "estado",
+    "kind": "regulador",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.bodiva.ao"
+    }
+   },
+   {
+    "name": "Comissão do Mercado de Capitais (CMC)",
+    "sector": "estado",
+    "kind": "regulador",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.cmc.ao"
+    }
+   },
+   {
+    "name": "Agência Angolana de Regulação e Supervisão de Seguros (ARSEG)",
+    "sector": "estado",
+    "kind": "regulador",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.arseg.ao"
+    }
+   },
+   {
+    "name": "Fundo Soberano de Angola",
+    "sector": "estado",
+    "kind": "publico",
+    "source": {
+     "label": "Página oficial",
+     "url": "https://www.fundosoberano.ao"
+    }
+   },
+   {
+    "name": "Shoprite Angola",
+    "sector": "comercio",
+    "kind": "retalho",
+    "source": {
+     "label": "Ver Angola, 2017: a Shoprite investe para quase duplicar a rede em Angola",
+     "url": "https://www.verangola.net/va/pt/042017/ComercioIndustria/7954/Sul-africanos-da-Shoprite-investem-mais-de--700-milhões-para-quase-duplicar-rede-em-Angola.htm"
+    }
+   },
+   {
+    "name": "Kero",
+    "sector": "comercio",
+    "kind": "retalho",
+    "source": {
+     "label": "Ver Angola, 2025: o Kero moderniza as suas 12 lojas",
+     "url": "https://www.verangola.net/va/pt/032025/Comercio/43781/Kero-vai-investir-830-milh%C3%B5es-de-kwanzas-na-moderniza%C3%A7%C3%A3o-das-suas-12-lojas.htm"
+    }
+   }
+  ],
+  "jobAds": [
+   {
+    "name": "RCS Angola",
+    "postings": 23
+   },
+   {
+    "name": "Refriango",
+    "postings": 21
+   },
+   {
+    "name": "SOL SORRISO- COMÉRCIO E INDÚSTRIA LIMITADA",
+    "postings": 20
+   },
+   {
+    "name": "Wange International Angola Lda",
+    "postings": 20
+   },
+   {
+    "name": "Academia Baxtter",
+    "postings": 14
+   },
+   {
+    "name": "PEP Angola",
+    "postings": 11
+   },
+   {
+    "name": "Banco Prestígio",
+    "postings": 6
+   },
+   {
+    "name": "Webcor Group",
+    "postings": 5
+   },
+   {
+    "name": "PREFANGOL Lda (Prefangol)",
+    "postings": 5
+   },
+   {
+    "name": "SANLAM Angola Seguros",
+    "postings": 5
+   },
+   {
+    "name": "Finibanco",
+    "postings": 5
+   },
+   {
+    "name": "Chemonics International",
+    "postings": 4
+   },
+   {
+    "name": "Africa Global Logistics",
+    "postings": 4
+   },
+   {
+    "name": "International Beverage Company",
+    "postings": 3
+   },
+   {
+    "name": "FREEMED LDA",
+    "postings": 3
+   },
+   {
+    "name": "Grupo Castel",
+    "postings": 3
+   },
+   {
+    "name": "Grupo MCA",
+    "postings": 3
+   }
+  ]
+ }
+}

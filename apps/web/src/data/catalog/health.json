@@ -1,0 +1,1362 @@
+{
+ "year": "2023/24",
+ "sources": {
+  "health": {
+   "label": "MINSA, Anuário Estatístico Sanitário 2023",
+   "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+  },
+  "education": {
+   "label": "MESCTI, Anuário Estatístico do Ensino Superior 2023-2024 (INE, agosto de 2026)",
+   "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
+  },
+  "jobs": "Sites de emprego angolanos (scrapers/jobs)"
+ },
+ "institutions": [
+  {
+   "name": "Escola Superior Técnica de Ciências do Desporto",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Fisioterapia",
+     "students": 335,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição",
+     "students": 92,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Escola Superior de Saúde Castelo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 201,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 186,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 93,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 70,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 32,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Alvorecer de Juventude",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1261,
+     "graduates": 114
+    },
+    {
+     "name": "Cardiopneumologia",
+     "students": 1060,
+     "graduates": 46
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 953,
+     "graduates": 87
+    },
+    {
+     "name": "Odontologia",
+     "students": 721,
+     "graduates": 43
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 316,
+     "graduates": 14
+    },
+    {
+     "name": "Radiologia",
+     "students": 295,
+     "graduates": 29
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Atlântida",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 455,
+     "graduates": 93
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 422,
+     "graduates": 51
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 119,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 73,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Cardeal Dom Alexandre do Nascimento",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 828,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 176,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Deolinda Rodrigues",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 909,
+     "graduates": 54
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 352,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 0,
+     "graduates": 25
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Evangélico do Lubango",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1378,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 1036,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 639,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição Humana",
+     "students": 595,
+     "graduates": 0
+    },
+    {
+     "name": "Farmácia",
+     "students": 503,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Intercontinental de Luanda",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1872,
+     "graduates": 1
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 1197,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Internacional de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1165,
+     "graduates": 3
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 755,
+     "graduates": 6
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 391,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 282,
+     "graduates": 2
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 207,
+     "graduates": 4
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Jean Piaget de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Enfermagem e Obstetrícia",
+     "students": 1680,
+     "graduates": 62
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 770,
+     "graduates": 27
+    },
+    {
+     "name": "Radiologia e Imagiologia",
+     "students": 256,
+     "graduates": 11
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 190,
+     "graduates": 10
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kalandula de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1443,
+     "graduates": 50
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 814,
+     "graduates": 43
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 673,
+     "graduates": 12
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 465,
+     "graduates": 1
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 394,
+     "graduates": 10
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 387,
+     "graduates": 8
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Kangonjo",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 773,
+     "graduates": 56
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 398,
+     "graduates": 43
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 277,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 142,
+     "graduates": 0
+    },
+    {
+     "name": "Farmácia",
+     "students": 0,
+     "graduates": 12
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Ndunduma",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Psicologia Clínica",
+     "students": 258,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Nelson Mandela",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 166,
+     "graduates": 23
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 70,
+     "graduates": 11
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 0,
+     "graduates": 6
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado Sinodal",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 436,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 90,
+     "graduates": 0
+    },
+    {
+     "name": "Gestão Hospitalar",
+     "students": 36,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado Walinga",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 573,
+     "graduates": 28
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado da Catepa",
+   "nature": "privada",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1095,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 422,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 370,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado de Menongue",
+   "nature": "privada",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Psicologia Clínica",
+     "students": 0,
+     "graduates": 17
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Kilamba",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Análises Clínicas",
+     "students": 146,
+     "graduates": 4
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 111,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "students": 56,
+     "graduates": 6
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 51,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 35,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Luena",
+   "nature": "privada",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 370,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Privado do Uíge",
+   "nature": "privada",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1270,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 585,
+     "graduates": 0
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 233,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 209,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 157,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Sol Nascente",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1481,
+     "graduates": 196
+    },
+    {
+     "name": "Cardiopneumologia",
+     "students": 628,
+     "graduates": 70
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico Tundavala",
+   "nature": "privada",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 721,
+     "graduates": 16
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 335,
+     "graduates": 2
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 62,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico da Caála",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1191,
+     "graduates": 161
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 587,
+     "graduates": 35
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 584,
+     "graduates": 21
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Cabinda",
+   "nature": "privada",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1395,
+     "graduates": 19
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Humanidade e Tecnologias EKUIKUI-II",
+   "nature": "privada",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1573,
+     "graduates": 235
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 1243,
+     "graduates": 121
+    },
+    {
+     "name": "Farmácia",
+     "students": 195,
+     "graduates": 18
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Ndalatando",
+   "nature": "publica",
+   "province": "Cuanza Norte",
+   "courses": [
+    {
+     "name": "Análises Clínicas",
+     "students": 315,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 272,
+     "graduates": 128
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico de Porto Amboim",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 494,
+     "graduates": 26
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bita",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 620,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 352,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Bié",
+   "nature": "publica",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 653,
+     "graduates": 116
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cazenga",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 950,
+     "graduates": 64
+    },
+    {
+     "name": "Gestão Hospitalar",
+     "students": 175,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuanza Sul",
+   "nature": "publica",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 456,
+     "graduates": 69
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Cuito",
+   "nature": "privada",
+   "province": "Bié",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1028,
+     "graduates": 20
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 792,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 391,
+     "graduates": 9
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Libolo",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 115,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Politécnico do Moxico",
+   "nature": "publica",
+   "province": "Moxico",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 622,
+     "graduates": 132
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 193,
+     "graduates": 41
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Técnico Militar",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 0,
+     "graduates": 78
+    },
+    {
+     "name": "Medicina",
+     "students": 0,
+     "graduates": 86
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior Universitário Waku-Cungo",
+   "nature": "privada",
+   "province": "Cuanza Sul",
+   "courses": [
+    {
+     "name": "Análises Clínicas",
+     "students": 100,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "students": 100,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 676,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 347,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 132,
+     "graduates": 0
+    },
+    {
+     "name": "Nutrição",
+     "students": 47,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Instituto Superior de Ciências Sociais e Relações Internacionais",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 47,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Intituto Superior Politécnico de Benguela",
+   "nature": "privada",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 1468,
+     "graduates": 0
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 696,
+     "graduates": 0
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 456,
+     "graduates": 0
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 401,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade Agostinho Neto",
+   "nature": "publica",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Medicina",
+     "students": 697,
+     "graduates": 30
+    },
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 670,
+     "graduates": 42
+    },
+    {
+     "name": "Enfermagem",
+     "students": 491,
+     "graduates": 52
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 426,
+     "graduates": 59
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 204,
+     "graduates": 32
+    }
+   ]
+  },
+  {
+   "name": "Universidade Católica de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Nutrição",
+     "students": 0,
+     "graduates": 7
+    }
+   ]
+  },
+  {
+   "name": "Universidade Cuito Cuanavale",
+   "nature": "publica",
+   "province": "Cubango",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 326,
+     "graduates": 110
+    }
+   ]
+  },
+  {
+   "name": "Universidade José Eduardo dos Santos",
+   "nature": "publica",
+   "province": "Huambo",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 839,
+     "graduates": 117
+    },
+    {
+     "name": "Medicina",
+     "students": 448,
+     "graduates": 58
+    },
+    {
+     "name": "Laboratório Clínico",
+     "students": 296,
+     "graduates": 39
+    },
+    {
+     "name": "Electromedicina",
+     "students": 160,
+     "graduates": 22
+    }
+   ]
+  },
+  {
+   "name": "Universidade Katyavala Buila",
+   "nature": "publica",
+   "province": "Benguela",
+   "courses": [
+    {
+     "name": "Medicina",
+     "students": 377,
+     "graduates": 43
+    }
+   ]
+  },
+  {
+   "name": "Universidade Kimpa Vita",
+   "nature": "publica",
+   "province": "Uíge",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 485,
+     "graduates": 55
+    }
+   ]
+  },
+  {
+   "name": "Universidade Lueji A´Nkonde",
+   "nature": "publica",
+   "province": "Lunda Norte",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 611,
+     "graduates": 25
+    }
+   ]
+  },
+  {
+   "name": "Universidade Mandume Ya Ndemufayo",
+   "nature": "publica",
+   "province": "Huíla",
+   "courses": [
+    {
+     "name": "Medicina",
+     "students": 603,
+     "graduates": 71
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 185,
+     "graduates": 0
+    },
+    {
+     "name": "Enfermagem",
+     "students": 182,
+     "graduates": 35
+    },
+    {
+     "name": "Análises Clínicas e Laboratório",
+     "students": 0,
+     "graduates": 26
+    }
+   ]
+  },
+  {
+   "name": "Universidade Metodista de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Análises Clínicas e Saúde Pública",
+     "students": 0,
+     "graduates": 203
+    },
+    {
+     "name": "Cardiopneumologia",
+     "students": 0,
+     "graduates": 48
+    },
+    {
+     "name": "Enfermagem",
+     "students": 0,
+     "graduates": 107
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 0,
+     "graduates": 57
+    }
+   ]
+  },
+  {
+   "name": "Universidade Onze de Novembro",
+   "nature": "publica",
+   "province": "Cabinda",
+   "courses": [
+    {
+     "name": "Psicologia Clínica",
+     "students": 594,
+     "graduates": 34
+    },
+    {
+     "name": "Medicina",
+     "students": 485,
+     "graduates": 74
+    },
+    {
+     "name": "Enfermagem",
+     "students": 363,
+     "graduates": 71
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 343,
+     "graduates": 66
+    }
+   ]
+  },
+  {
+   "name": "Universidade Privada de Angola",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Enfermagem",
+     "students": 0,
+     "graduates": 45
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 0,
+     "graduates": 25
+    },
+    {
+     "name": "Medicina",
+     "students": 0,
+     "graduates": 48
+    },
+    {
+     "name": "Odontologia",
+     "students": 0,
+     "graduates": 19
+    }
+   ]
+  },
+  {
+   "name": "Universidade Rainha Njinga a Mbande",
+   "nature": "publica",
+   "province": "Malanje",
+   "courses": [
+    {
+     "name": "Medicina",
+     "students": 389,
+     "graduates": 50
+    },
+    {
+     "name": "Enfermagem",
+     "students": 322,
+     "graduates": 65
+    },
+    {
+     "name": "Psicologia Clínica",
+     "students": 290,
+     "graduates": 23
+    },
+    {
+     "name": "Ciências Farmacêuticas",
+     "students": 173,
+     "graduates": 20
+    },
+    {
+     "name": "Análises Clínicas",
+     "students": 33,
+     "graduates": 0
+    }
+   ]
+  },
+  {
+   "name": "Universidade de Belas",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 0,
+     "graduates": 2
+    },
+    {
+     "name": "Farmácia",
+     "students": 0,
+     "graduates": 7
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 0,
+     "graduates": 3
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 0,
+     "graduates": 1
+    }
+   ]
+  },
+  {
+   "name": "Universidades Jean Piaget",
+   "nature": "privada",
+   "province": "Luanda",
+   "courses": [
+    {
+     "name": "Enfermagem",
+     "students": 0,
+     "graduates": 233
+    },
+    {
+     "name": "Farmácia",
+     "students": 0,
+     "graduates": 52
+    },
+    {
+     "name": "Fisioterapia",
+     "students": 0,
+     "graduates": 123
+    },
+    {
+     "name": "Medicina",
+     "students": 0,
+     "graduates": 90
+    },
+    {
+     "name": "Medicina Dentária",
+     "students": 0,
+     "graduates": 47
+    }
+   ]
+  }
+ ],
+ "employers": [
+  {
+   "name": "CETEP",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Centro Ortopédico de Viana",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Centro de Medicina Fisica e de Reabilitação de Luanda",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Complexo Hospitalar de Doenças Cardio-Pulmonares Cardeal Dom Alexandre de Nascimento",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "HMI CamamaManuel Pedro Azancot de Menezes",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Américo Boa Vida",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Dr. Walter Strangway",
+   "kind": "nacional",
+   "province": "Bié"
+  },
+  {
+   "name": "Hospital Josina Machel",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Maternidade Lucrécia Paim",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Neves Bendinha",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Pediátrico David Bernardino",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Psiquiátrico de Luanda",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital Sanatório de Luanda",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Hospital do Prenda",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Angolano de Controlo de Câncer",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Investigações em Saúde",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Luta contra a SIDA",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Oftalmológico Nacional de Angola",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto de Combate e Controlo das Tripanossomiases",
+   "kind": "nacional",
+   "province": "Luanda"
+  },
+  {
+   "name": "Clínica Multiperfil",
+   "kind": "publica_especial",
+   "source": {
+    "label": "MINSA, Anuário Estatístico Sanitário 2023 (Tabela 159)",
+    "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Clínica Sagrada Esperança",
+   "kind": "privada",
+   "source": {
+    "label": "MINSA, Anuário Estatístico Sanitário 2023 (Tabela 159)",
+    "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Clínica Girassol",
+   "kind": "privada",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://www.facebook.com/clinicagirassol.saude/"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Aliva Saúde",
+   "kind": "privada",
+   "source": {
+    "label": "Página oficial",
+    "url": "https://alivasaude.com/quem-somos/"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Central de Compras e Aprovisionamento de Medicamentos e Meios Médicos (CECOMA)",
+   "kind": "publica",
+   "source": {
+    "label": "Decreto Presidencial n.º 269/14 (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-da-central-de-compras-e-aprovisionamento-de-medicamentos-e-meios-medicos-269a-14a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Instituto Nacional de Emergência Médica (INEMA)",
+   "kind": "publica",
+   "source": {
+    "label": "Decreto Presidencial n.º 273/14 (AngoLEX)",
+    "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-instituto-nacional-de-emergencias-medicas-inema-273a-14a.html"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Elnor Pharma",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Directório de empresas",
+    "url": "https://village.ai/company/elnor-pharma"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Pharmadis",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Directório de empresas",
+    "url": "https://village.ai/company/pharmadis-sa"
+   },
+   "province": "Luanda"
+  },
+  {
+   "name": "Neofarma",
+   "kind": "distribuidora",
+   "source": {
+    "label": "Devex",
+    "url": "https://www.devex.com/organizations/neofarma-distribuidora-de-mediamentos-e-cosmeticos-lda-172313"
+   },
+   "province": "Benguela"
+  }
+ ]
+}

@@ -1,0 +1,799 @@
+{
+  "updated": "2026-10-28",
+  "from": "2025-10-29",
+  "postings": 2474,
+  "kinds": {
+    "vaga": 2227,
+    "estagio": 80,
+    "concurso": 148,
+    "espontanea": 19
+  },
+  "months": [
+    {
+      "month": "2025-11",
+      "postings": 215
+    },
+    {
+      "month": "2025-12",
+      "postings": 80
+    },
+    {
+      "month": "2026-01",
+      "postings": 126
+    },
+    {
+      "month": "2026-02",
+      "postings": 341
+    },
+    {
+      "month": "2026-03",
+      "postings": 145
+    },
+    {
+      "month": "2026-04",
+      "postings": 414
+    },
+    {
+      "month": "2026-05",
+      "postings": 120
+    },
+    {
+      "month": "2026-06",
+      "postings": 175
+    },
+    {
+      "month": "2026-07",
+      "postings": 174
+    },
+    {
+      "month": "2026-08",
+      "postings": 285
+    },
+    {
+      "month": "2026-09",
+      "postings": 201
+    },
+    {
+      "month": "2026-10",
+      "postings": 178
+    }
+  ],
+  "blocks": [
+    {
+      "month": "2025-11",
+      "postings": 421
+    },
+    {
+      "month": "2026-02",
+      "postings": 900
+    },
+    {
+      "month": "2026-05",
+      "postings": 469
+    },
+    {
+      "month": "2026-08",
+      "postings": 664
+    }
+  ],
+  "areas": [
+    {
+      "area": "business",
+      "postings": 903
+    },
+    {
+      "area": "engineering",
+      "postings": 325
+    },
+    {
+      "area": "other",
+      "postings": 246
+    },
+    {
+      "area": "logistics",
+      "postings": 199
+    },
+    {
+      "area": "technology",
+      "postings": 186
+    },
+    {
+      "area": "oil_mining",
+      "postings": 139
+    },
+    {
+      "area": "public",
+      "postings": 123
+    },
+    {
+      "area": "communication",
+      "postings": 78
+    },
+    {
+      "area": "education",
+      "postings": 78
+    },
+    {
+      "area": "health",
+      "postings": 75
+    },
+    {
+      "area": "hospitality",
+      "postings": 72
+    },
+    {
+      "area": "agriculture",
+      "postings": 26
+    },
+    {
+      "area": "legal",
+      "postings": 24
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "administration",
+      "postings": 423
+    },
+    {
+      "sector": "other",
+      "postings": 246
+    },
+    {
+      "sector": "finance",
+      "postings": 240
+    },
+    {
+      "sector": "sales",
+      "postings": 240
+    },
+    {
+      "sector": "engineering",
+      "postings": 220
+    },
+    {
+      "sector": "logistics",
+      "postings": 199
+    },
+    {
+      "sector": "technology",
+      "postings": 165
+    },
+    {
+      "sector": "oil_mining",
+      "postings": 139
+    },
+    {
+      "sector": "construction",
+      "postings": 105
+    },
+    {
+      "sector": "marketing",
+      "postings": 78
+    },
+    {
+      "sector": "education",
+      "postings": 78
+    },
+    {
+      "sector": "public_admin",
+      "postings": 78
+    },
+    {
+      "sector": "health",
+      "postings": 75
+    },
+    {
+      "sector": "hospitality",
+      "postings": 72
+    },
+    {
+      "sector": "security",
+      "postings": 45
+    },
+    {
+      "sector": "agriculture",
+      "postings": 26
+    },
+    {
+      "sector": "legal",
+      "postings": 24
+    },
+    {
+      "sector": "telecom",
+      "postings": 21
+    }
+  ],
+  "provinces": [
+    {
+      "province": "Luanda",
+      "postings": 1792
+    },
+    {
+      "province": "Benguela",
+      "postings": 44
+    },
+    {
+      "province": "Zaire",
+      "postings": 42
+    },
+    {
+      "province": "Huíla",
+      "postings": 41
+    },
+    {
+      "province": "Cabinda",
+      "postings": 35
+    },
+    {
+      "province": "Huambo",
+      "postings": 35
+    },
+    {
+      "province": "Cunene",
+      "postings": 28
+    },
+    {
+      "province": "Bengo",
+      "postings": 25
+    },
+    {
+      "province": "Malanje",
+      "postings": 24
+    },
+    {
+      "province": "Icolo e Bengo",
+      "postings": 22
+    },
+    {
+      "province": "Lunda Sul",
+      "postings": 13
+    },
+    {
+      "province": "Cuanza Norte",
+      "postings": 11
+    },
+    {
+      "province": "Cubango",
+      "postings": 9
+    },
+    {
+      "province": "Moxico",
+      "postings": 9
+    },
+    {
+      "province": "Uíge",
+      "postings": 8
+    },
+    {
+      "province": "Lunda Norte",
+      "postings": 8
+    },
+    {
+      "province": "Cuanza Sul",
+      "postings": 7
+    },
+    {
+      "province": "Moxico Leste",
+      "postings": 6
+    },
+    {
+      "province": "Namibe",
+      "postings": 4
+    },
+    {
+      "province": "Bié",
+      "postings": 4
+    },
+    {
+      "province": "Cuando",
+      "postings": 4
+    },
+    {
+      "province": "Todas as províncias",
+      "postings": 1
+    }
+  ],
+  "companies": [
+    {
+      "name": "MINEA - RECLIMA",
+      "postings": 75
+    },
+    {
+      "name": "RCS Angola",
+      "postings": 42
+    },
+    {
+      "name": "Wange International Angola",
+      "postings": 34
+    },
+    {
+      "name": "Academia Baxtter",
+      "postings": 26
+    },
+    {
+      "name": "SOL SORRISO- COMÉRCIO E INDÚSTRIA",
+      "postings": 23
+    },
+    {
+      "name": "Organizações Kiazop",
+      "postings": 21
+    },
+    {
+      "name": "St. Andrews English School - Mar dol Car",
+      "postings": 19
+    },
+    {
+      "name": "Carter Center",
+      "postings": 18
+    },
+    {
+      "name": "Southey Contracting",
+      "postings": 17
+    },
+    {
+      "name": "Pilar Campos",
+      "postings": 15
+    },
+    {
+      "name": "PREFANGOL  (Prefangol)",
+      "postings": 11
+    },
+    {
+      "name": "PEP Angola",
+      "postings": 11
+    }
+  ],
+  "agencies": {
+    "postings": 182,
+    "names": [
+      "KEPT PEOPLE",
+      "Ascending",
+      "Jobartis",
+      "Jobartis Select",
+      "RHF TALENTOS"
+    ]
+  },
+  "asks": {
+    "read": 714,
+    "education": [
+      {
+        "level": "licenciatura",
+        "postings": 220
+      },
+      {
+        "level": "medio_tecnico",
+        "postings": 87
+      },
+      {
+        "level": "ii_ciclo",
+        "postings": 46
+      },
+      {
+        "level": "primario",
+        "postings": 10
+      },
+      {
+        "level": "i_ciclo",
+        "postings": 10
+      },
+      {
+        "level": "mestrado",
+        "postings": 4
+      }
+    ],
+    "fields": [
+      {
+        "area": "business",
+        "postings": 43
+      },
+      {
+        "area": "engineering",
+        "postings": 23
+      },
+      {
+        "area": "technology",
+        "postings": 10
+      },
+      {
+        "area": "legal",
+        "postings": 7
+      },
+      {
+        "area": "logistics",
+        "postings": 5
+      },
+      {
+        "area": "health",
+        "postings": 4
+      },
+      {
+        "area": "agriculture",
+        "postings": 2
+      },
+      {
+        "area": "education",
+        "postings": 2
+      },
+      {
+        "area": "hospitality",
+        "postings": 1
+      },
+      {
+        "area": "oil_mining",
+        "postings": 1
+      },
+      {
+        "area": "communication",
+        "postings": 1
+      }
+    ],
+    "experience": [
+      {
+        "band": "none",
+        "postings": 199
+      },
+      {
+        "band": "junior",
+        "postings": 503
+      },
+      {
+        "band": "mid",
+        "postings": 991
+      },
+      {
+        "band": "senior",
+        "postings": 237
+      }
+    ]
+  },
+  "careers": [
+    {
+      "slug": "tecnico-de-suporte",
+      "postings": 25
+    },
+    {
+      "slug": "gestor-de-marketing-digital",
+      "postings": 15
+    },
+    {
+      "slug": "designer-grafico",
+      "postings": 15
+    },
+    {
+      "slug": "administrador-de-redes",
+      "postings": 12
+    },
+    {
+      "slug": "tecnico-de-hardware",
+      "postings": 7
+    },
+    {
+      "slug": "analista-de-dados",
+      "postings": 6
+    },
+    {
+      "slug": "administrador-de-base-de-dados",
+      "postings": 6
+    },
+    {
+      "slug": "desenvolvedor-full-stack",
+      "postings": 4
+    },
+    {
+      "slug": "analista-de-sistemas",
+      "postings": 3
+    },
+    {
+      "slug": "desenvolvedor-mobile",
+      "postings": 2
+    },
+    {
+      "slug": "tecnico-de-telecomunicacoes",
+      "postings": 2
+    },
+    {
+      "slug": "gestor-de-projetos-de-ti",
+      "postings": 2
+    },
+    {
+      "slug": "engenheiro-devops",
+      "postings": 2
+    },
+    {
+      "slug": "analista-de-bi",
+      "postings": 1
+    },
+    {
+      "slug": "analista-de-ciberseguranca",
+      "postings": 1
+    },
+    {
+      "slug": "desenvolvedor-frontend",
+      "postings": 1
+    },
+    {
+      "slug": "administrador-de-sistemas",
+      "postings": 1
+    },
+    {
+      "slug": "desenvolvedor-backend",
+      "postings": 1
+    },
+    {
+      "slug": "gestor-de-ti",
+      "postings": 1
+    }
+  ],
+  "salaries": {
+    "count": 5,
+    "median": 700000
+  },
+  "public": {
+    "areas": [
+      {
+        "area": "public",
+        "competitions": 31,
+        "openings": 12825
+      },
+      {
+        "area": "education",
+        "competitions": 4,
+        "openings": 8496
+      },
+      {
+        "area": "health",
+        "competitions": 2,
+        "openings": 6000
+      },
+      {
+        "area": "legal",
+        "competitions": 1,
+        "openings": 556
+      },
+      {
+        "area": "engineering",
+        "competitions": 2,
+        "openings": 167
+      },
+      {
+        "area": "agriculture",
+        "competitions": 2,
+        "openings": 92
+      },
+      {
+        "area": "oil_mining",
+        "competitions": 1,
+        "openings": 21
+      },
+      {
+        "area": "hospitality",
+        "competitions": 1,
+        "openings": 15
+      }
+    ],
+    "competitions": 44,
+    "openings": 28172,
+    "withOpenings": 28,
+    "bodies": [
+      {
+        "name": "Ministério da Educação",
+        "competitions": 1,
+        "openings": 8000
+      },
+      {
+        "name": "Ministério do Interior",
+        "competitions": 1,
+        "openings": 7682
+      },
+      {
+        "name": "Ministério da Saúde",
+        "competitions": 1,
+        "openings": 6000
+      },
+      {
+        "name": "Conselho Superior da Magistratura Judicial",
+        "competitions": 1,
+        "openings": 556
+      },
+      {
+        "name": "Governo Provincial (Bié)",
+        "competitions": 1,
+        "openings": 509
+      },
+      {
+        "name": "Governo Provincial (Luanda)",
+        "competitions": 1,
+        "openings": 486
+      },
+      {
+        "name": "Ministério do Ensino Superior, Ciência, Tecnologia e Inovação",
+        "competitions": 1,
+        "openings": 456
+      },
+      {
+        "name": "Governo Provincial (Cuando)",
+        "competitions": 1,
+        "openings": 445
+      },
+      {
+        "name": "Governo Provincial (Huíla)",
+        "competitions": 1,
+        "openings": 234
+      },
+      {
+        "name": "Governo Provincial (Cuanza Norte)",
+        "competitions": 1,
+        "openings": 221
+      }
+    ],
+    "provinces": [
+      {
+        "province": "Luanda",
+        "postings": 6
+      },
+      {
+        "province": "Cuando",
+        "postings": 4
+      },
+      {
+        "province": "Benguela",
+        "postings": 4
+      },
+      {
+        "province": "Moxico Leste",
+        "postings": 4
+      },
+      {
+        "province": "Cabinda",
+        "postings": 3
+      },
+      {
+        "province": "Huambo",
+        "postings": 3
+      },
+      {
+        "province": "Bié",
+        "postings": 2
+      },
+      {
+        "province": "Lunda Norte",
+        "postings": 2
+      },
+      {
+        "province": "Bengo",
+        "postings": 2
+      },
+      {
+        "province": "Moxico",
+        "postings": 2
+      },
+      {
+        "province": "Icolo e Bengo",
+        "postings": 2
+      },
+      {
+        "province": "Cuanza Sul",
+        "postings": 2
+      },
+      {
+        "province": "Huíla",
+        "postings": 2
+      },
+      {
+        "province": "Cuanza Norte",
+        "postings": 2
+      },
+      {
+        "province": "Zaire",
+        "postings": 1
+      },
+      {
+        "province": "Cunene",
+        "postings": 1
+      },
+      {
+        "province": "Lunda Sul",
+        "postings": 1
+      },
+      {
+        "province": "Uíge",
+        "postings": 1
+      },
+      {
+        "province": "Namibe",
+        "postings": 1
+      },
+      {
+        "province": "Malanje",
+        "postings": 1
+      },
+      {
+        "province": "Cubango",
+        "postings": 1
+      }
+    ],
+    "official": {
+      "openings": 22159,
+      "dispatches": 26,
+      "competitions": [
+        {
+          "body": "Ministério da Educação",
+          "area": "education",
+          "openings": 8000,
+          "dispatches": 1,
+          "date": "2026-07-09"
+        },
+        {
+          "body": "Ministério do Interior",
+          "area": "public",
+          "openings": 7682,
+          "dispatches": 1,
+          "date": "2026-06-05"
+        },
+        {
+          "body": "Ministério da Saúde",
+          "area": "health",
+          "openings": 6000,
+          "dispatches": 22,
+          "date": "2026-05-26"
+        },
+        {
+          "body": "Ministério do Ensino Superior, Ciência, Tecnologia e Inovação",
+          "area": "education",
+          "openings": 456,
+          "dispatches": 1,
+          "date": "2026-02-23"
+        },
+        {
+          "body": "Ministério dos Recursos Minerais, Petróleo e Gás",
+          "area": "oil_mining",
+          "openings": 21,
+          "dispatches": 1,
+          "date": "2026-05-25"
+        }
+      ],
+      "source": {
+        "name": "Diário da República (AngoLEX)",
+        "url": "https://angolex.com"
+      }
+    }
+  },
+  "sources": [
+    {
+      "id": "angovagas",
+      "name": "AngoVagas",
+      "url": "https://angovagas.net",
+      "postings": 20,
+      "since": "2021-06-06"
+    },
+    {
+      "id": "angoemprego",
+      "name": "Ango Emprego",
+      "url": "https://angoemprego.com",
+      "postings": 343,
+      "since": "2019-07-02"
+    },
+    {
+      "id": "angorecruta",
+      "name": "AngoRecruta",
+      "url": "https://angorecruta.com",
+      "postings": 152,
+      "since": "2021-06-05"
+    },
+    {
+      "id": "jobartis",
+      "name": "Jobartis",
+      "url": "https://www.jobartis.com",
+      "postings": 1936,
+      "since": "2025-08-21"
+    },
+    {
+      "id": "verangola",
+      "name": "Ver Angola Empregos",
+      "url": "https://empregos.verangola.net",
+      "postings": 23,
+      "since": "2023-04-03"
+    }
+  ]
+}

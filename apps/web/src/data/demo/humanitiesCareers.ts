@@ -1,0 +1,279 @@
+import type { CareerSummary } from '../types'
+import { entry, riasec, summary } from './careerSummary'
+
+// Law, public administration and the social and human sciences, the fourth area of the catalogue
+// (scrapers/catalog/humanities.json): the professions behind the area's degrees (MESCTI yearbook 2023-2024), the
+// training of lawyers, magistrates and diplomats and the employers (courts, the Public Prosecutor, the State). Interest
+// profiles approximate O*NET's. Demand reads the job ads and the public competitions; law's and public administration's, the job ads alone. Salaries: the State's 2026 base
+// salary on entry to the career (Decreto Presidencial 16/26), only where a table names the career; the magistrates'
+// representation allowance is left out.
+
+/** Justice officers in the courts on entry (Oficial de Diligência de 3.ª Classe), in Kz a month. */
+const COURT_OFFICER = entry(180_955)
+/** Registrars and notaries on entry (Conservador Adjunto, Notário Adjunto), in the same table. */
+const REGISTRAR = entry(458_419)
+/** The general regime's senior staff on entry (Técnico Superior de 2.ª Classe). */
+const SENIOR_CIVIL_SERVANT = entry(361_910)
+/** Juiz de Direito with under 5 years of service. */
+const JUDGE = entry(554_400)
+/** The Public Prosecutor's magistracy on entry (Procurador Adjunto da República). */
+const PROSECUTOR = entry(508_200)
+/** The diplomatic career on entry (Adido). */
+const DIPLOMAT = entry(361_910)
+/** The officers of the National Police and of the SIC on entry (Subinspector; the same in both). */
+const POLICE_OFFICER = entry(352_905)
+
+export const HUMANITIES_CAREERS: CareerSummary[] = [
+  summary(
+    'advogado',
+    'Advogado',
+    'advocacia',
+    'Defende pessoas e empresas em tribunal e aconselha-as sobre os seus direitos. Trabalha por conta própria ou numa sociedade de advogados, depois do estágio da Ordem dos Advogados.',
+    riasec(0.05, 0.6, 0.3, 0.6, 0.85, 0.55),
+    'media',
+    null,
+  ),
+  summary(
+    'jurista',
+    'Jurista',
+    'advocacia',
+    'Prepara contratos, pareceres e regulamentos para que a organização cumpra a lei. Trabalha em empresas, bancos e organismos públicos.',
+    riasec(0.05, 0.6, 0.2, 0.4, 0.5, 0.8),
+    'alta',
+    null,
+  ),
+  summary(
+    'mediador-de-conflitos',
+    'Mediador de Conflitos',
+    'advocacia',
+    'Ajuda as partes de um conflito familiar, laboral ou comercial a chegarem a acordo sem ir a tribunal. Trabalha em centros de mediação e arbitragem, públicos ou privados.',
+    riasec(0.05, 0.45, 0.25, 0.85, 0.6, 0.45),
+    'baixa',
+    null,
+  ),
+  summary(
+    'juiz',
+    'Juiz de Direito',
+    'justica',
+    'Julga os processos e decide segundo a lei, nos tribunais de comarca e nos superiores. Entra-se por concurso e pela formação do INEJ.',
+    riasec(0.05, 0.75, 0.2, 0.5, 0.55, 0.7),
+    'baixa',
+    JUDGE,
+  ),
+  summary(
+    'procurador',
+    'Procurador da República',
+    'justica',
+    'Dirige a investigação dos crimes, acusa em tribunal e defende a legalidade. Trabalha no Ministério Público, em todo o país.',
+    riasec(0.05, 0.75, 0.15, 0.5, 0.65, 0.65),
+    'baixa',
+    PROSECUTOR,
+  ),
+  summary(
+    'oficial-de-justica',
+    'Oficial de Justiça',
+    'justica',
+    'Trata dos processos no tribunal: notifica as partes, organiza os autos e cumpre as ordens do juiz. Começa como oficial de diligência e pode chegar a secretário judicial.',
+    riasec(0.2, 0.3, 0.05, 0.4, 0.3, 0.9),
+    'baixa',
+    COURT_OFFICER,
+  ),
+  summary(
+    'conservador-dos-registos',
+    'Conservador dos Registos',
+    'justica',
+    'Dirige uma conservatória, onde se registam os nascimentos, os casamentos, as empresas e os imóveis. Trabalha nos serviços de registo do Ministério da Justiça.',
+    riasec(0.05, 0.45, 0.05, 0.35, 0.4, 0.95),
+    'baixa',
+    REGISTRAR,
+  ),
+  summary(
+    'notario',
+    'Notário',
+    'justica',
+    'Dá fé pública a escrituras, testamentos e contratos, para que valham perante todos. Trabalha num cartório notarial do Estado.',
+    riasec(0.05, 0.45, 0.05, 0.35, 0.4, 0.95),
+    'baixa',
+    REGISTRAR,
+  ),
+  summary(
+    'tecnico-superior-de-administracao-publica',
+    'Técnico Superior de Administração Pública',
+    'administracao_publica',
+    'Prepara processos, pareceres e planos num ministério, governo provincial ou administração municipal. Entra-se por concurso público.',
+    riasec(0.1, 0.45, 0.1, 0.45, 0.45, 0.85),
+    'baixa',
+    SENIOR_CIVIL_SERVANT,
+  ),
+  summary(
+    'tecnico-de-contratacao-publica',
+    'Técnico de Contratação Pública',
+    'administracao_publica',
+    'Prepara e acompanha os concursos em que o Estado compra bens, obras e serviços, segundo a lei. Trabalha em ministérios, empresas públicas e fornecedores do Estado.',
+    riasec(0.05, 0.45, 0.05, 0.3, 0.5, 0.9),
+    'baixa',
+    null,
+  ),
+  summary(
+    'diplomata',
+    'Diplomata',
+    'relacoes_internacionais',
+    'Representa Angola noutros países e em organizações internacionais e negoceia acordos. Trabalha no Ministério das Relações Exteriores e nas embaixadas e consulados.',
+    riasec(0.05, 0.6, 0.3, 0.7, 0.75, 0.5),
+    'baixa',
+    DIPLOMAT,
+  ),
+  summary(
+    'tecnico-de-cooperacao-internacional',
+    'Técnico de Cooperação Internacional',
+    'relacoes_internacionais',
+    'Prepara e acompanha projectos com outros países e com organizações como a ONU ou a União Africana. Trabalha em ministérios, embaixadas e organizações internacionais.',
+    riasec(0.05, 0.55, 0.2, 0.7, 0.6, 0.55),
+    'baixa',
+    null,
+  ),
+  summary(
+    'analista-politico',
+    'Analista Político',
+    'relacoes_internacionais',
+    'Estuda as eleições, os partidos e as políticas públicas e explica-os em relatórios. Trabalha em centros de estudos, universidades e organizações internacionais.',
+    riasec(0.05, 0.8, 0.35, 0.45, 0.55, 0.4),
+    'baixa',
+    null,
+  ),
+  summary(
+    'investigador-criminal',
+    'Investigador Criminal',
+    'investigacao_criminal',
+    'Investiga os crimes, recolhe as provas e identifica os suspeitos para o Ministério Público. Trabalha no Serviço de Investigação Criminal.',
+    riasec(0.45, 0.75, 0.1, 0.45, 0.5, 0.55),
+    'baixa',
+    POLICE_OFFICER,
+  ),
+  summary(
+    'oficial-de-policia',
+    'Oficial da Polícia Nacional',
+    'investigacao_criminal',
+    'Comanda equipas de agentes na prevenção do crime e na ordem pública. Forma-se no Instituto Superior de Ciências Policiais e Criminais.',
+    riasec(0.6, 0.35, 0.05, 0.55, 0.7, 0.6),
+    'baixa',
+    POLICE_OFFICER,
+  ),
+  summary(
+    'perito-criminalista',
+    'Perito Criminalista',
+    'investigacao_criminal',
+    'Analisa no laboratório os vestígios de um crime: impressões digitais, documentos, armas. Trabalha na polícia científica do Serviço de Investigação Criminal.',
+    riasec(0.5, 0.85, 0.1, 0.25, 0.25, 0.7),
+    'baixa',
+    null,
+  ),
+  summary(
+    'psicologo-do-trabalho',
+    'Psicólogo do Trabalho e das Organizações',
+    'psicologia',
+    'Ajuda a escolher, formar e motivar as pessoas e a melhorar o ambiente de trabalho. Trabalha nos recursos humanos de empresas e em consultoras.',
+    riasec(0.05, 0.65, 0.25, 0.75, 0.6, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'psicologo-escolar',
+    'Psicólogo Escolar',
+    'psicologia',
+    'Acompanha alunos com dificuldades de aprendizagem ou de comportamento e apoia professores e famílias. Trabalha em escolas e nos serviços de educação.',
+    riasec(0.05, 0.65, 0.35, 0.9, 0.35, 0.4),
+    'baixa',
+    null,
+  ),
+  summary(
+    'psicologo-forense',
+    'Psicólogo Forense',
+    'psicologia',
+    'Avalia arguidos, vítimas e testemunhas e escreve relatórios para os tribunais. Trabalha com a justiça, a polícia e os serviços prisionais.',
+    riasec(0.05, 0.8, 0.2, 0.7, 0.4, 0.55),
+    'baixa',
+    null,
+  ),
+  summary(
+    'sociologo',
+    'Sociólogo',
+    'ciencias_sociais',
+    'Estuda como vivem os grupos e as comunidades, com inquéritos e entrevistas, para orientar projectos e políticas. Trabalha em ministérios, ONG, organizações internacionais e centros de estudos.',
+    riasec(0.05, 0.8, 0.3, 0.65, 0.4, 0.45),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-salvaguardas-sociais',
+    'Técnico de Salvaguardas Sociais',
+    'ciencias_sociais',
+    'Avalia como uma obra grande, uma estrada ou uma barragem, muda a vida das comunidades e planeia como reduzir os danos. Trabalha em projectos públicos financiados pelo Banco Mundial e por outros parceiros.',
+    riasec(0.15, 0.65, 0.1, 0.75, 0.45, 0.6),
+    'media',
+    null,
+  ),
+  summary(
+    'assistente-social',
+    'Assistente Social',
+    'ciencias_sociais',
+    'Apoia famílias, crianças e idosos em situação difícil e liga-os aos apoios que existem. Trabalha em hospitais, escolas, administrações municipais, ministérios e ONG.',
+    riasec(0.1, 0.4, 0.15, 0.95, 0.4, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'antropologo',
+    'Antropólogo',
+    'ciencias_sociais',
+    'Estuda as culturas, as línguas e as tradições dos povos, convivendo com as comunidades. Trabalha em universidades, museus e projectos de desenvolvimento.',
+    riasec(0.1, 0.8, 0.45, 0.6, 0.25, 0.3),
+    'baixa',
+    null,
+  ),
+  summary(
+    'demografo',
+    'Demógrafo',
+    'ciencias_sociais',
+    'Estuda a população (os nascimentos, as mortes e as migrações) e prevê como vai mudar. Trabalha no INE, em ministérios e em organizações internacionais.',
+    riasec(0.05, 0.85, 0.1, 0.3, 0.3, 0.75),
+    'baixa',
+    null,
+  ),
+  summary(
+    'investigador-em-ciencias-sociais',
+    'Investigador em Ciências Sociais e Humanas',
+    'ciencias_sociais',
+    'Investiga a sociedade, a história ou o pensamento e publica o que descobre. Trabalha em universidades e centros de investigação, quase sempre também a ensinar.',
+    riasec(0.05, 0.9, 0.4, 0.45, 0.3, 0.45),
+    'baixa',
+    null,
+  ),
+  summary(
+    'historiador',
+    'Historiador',
+    'humanidades',
+    'Investiga o passado em arquivos e documentos e conta-o em livros, aulas e exposições. Trabalha em universidades, museus e arquivos.',
+    riasec(0.05, 0.8, 0.5, 0.4, 0.25, 0.5),
+    'baixa',
+    null,
+  ),
+  summary(
+    'arquivista',
+    'Arquivista',
+    'humanidades',
+    'Organiza e conserva documentos, em papel e digitais, para que se encontrem quando são precisos. Trabalha em arquivos, bibliotecas, empresas e organismos públicos.',
+    riasec(0.15, 0.45, 0.15, 0.25, 0.15, 0.95),
+    'baixa',
+    null,
+  ),
+  summary(
+    'tecnico-de-patrimonio-cultural',
+    'Técnico de Património Cultural',
+    'humanidades',
+    'Estuda, protege e mostra ao público os monumentos, os sítios e os objectos históricos. Trabalha em museus e nos serviços de cultura do Estado.',
+    riasec(0.2, 0.6, 0.6, 0.45, 0.3, 0.55),
+    'baixa',
+    null,
+  ),
+]

@@ -96,13 +96,60 @@ docker compose down
 
 O detalhe está em [infraestrutura.md](docs/infraestrutura.md).
 
+## Deploy (Hostinger)
+
+Cada push no `main` corre o workflow `Deploy` (`.github/workflows/deploy.yml`): constrói a app web e o `vendor` do Laravel (`scripts/package-release.sh`), publica o resultado no ramo `deploy` (`scripts/publish-deploy.sh`) e a Hostinger puxa-o pelo webhook do Git do hPanel. Depois, por SSH, o `scripts/post-deploy.sh` corre as migrações, o `kaye:import`, o `optimize` e o teste de fumo. Sem domínio, o endereço é o temporário e sai todo de `APP_URL`. A primeira vez (chave SSH, base de dados, `.env`, Google, Git, cron, segredos) está em [infraestrutura.md](docs/infraestrutura.md#pôr-no-ar-pela-primeira-vez).
+
+```bash
+SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh https://steady-darkgoldenrod-goshawk-92.hostingersite.com   # confirma o site no ar
+```
+
 ## Compilar
 
 | Comando (em `apps/web`) | Resultado |
 |---|---|
 | `npm run build` | Compila a app web para `apps/api/public/spa`; o Laravel serve-a em http://127.0.0.1:8000 |
 | `npm run build:native` | Compila para o Android e copia para `apps/web/android` |
+| `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração, para testes no Vercel (`apps/web/vercel.json`: o projecto `kaye` do Vercel usa `apps/web` como pasta raiz; o `.vercelignore` da raiz só envia `apps/web`). Publicado em https://kaye-indol.vercel.app; `vercel deploy --prod` na raiz volta a publicar |
 | `npm run android` | Abre o projeto Android no Android Studio |
+
+## Lista de espera e críticas (pré-lançamento)
+
+No site de teste (Vercel), a landing guarda a lista de espera e as críticas no Redis (listas `waitlist` e `feedback`, `apps/web/api/_waitlist.ts`). Para as descarregar em CSV:
+
+| Variável | Onde | Para quê |
+|---|---|---|
+| `WAITLIST_EXPORT_TOKEN` | Vercel, projeto `kaye`, Production | Senha da exportação (16 caracteres ou mais); sem ela a exportação responde 401 |
+
+- Lista de espera: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=waitlist&token=<token>`
+- Críticas: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=feedback&token=<token>`
+
+O token também pode ir no header `X-Export-Token` ou `Authorization: Bearer <token>` (não fica no histórico do navegador).
+
+No Laravel, as mesmas rotas guardam em MySQL (`waitlist`, `feedback`, `interviews`, `public_cards`). O CSV descarrega-se no painel (Lista de espera e Críticas e ideias, botão "Descarregar CSV") ou em `/api/v1/waitlist/export` com `WAITLIST_EXPORT_TOKEN` no `.env`.
+
+**Passar os dados do Redis para o MySQL (uma vez, antes de mudar o site):** põe no `apps/api/.env` o `UPSTASH_REDIS_REST_URL` e o `UPSTASH_REDIS_REST_TOKEN` (no Vercel: Storage → a base Upstash → REST API) e corre em `apps/api`:
+
+```bash
+php artisan kaye:migrate-redis --dry-run   # só conta, não grava
+php artisan kaye:migrate-redis             # grava
+```
+
+No Windows, se aparecer `cURL error 60` (o PHP não tem a lista de certificados), descarrega https://curl.se/ca/cacert.pem para `C:\php\extras\ssl\cacert.pem` e põe no `php.ini` `curl.cainfo` e `openssl.cafile` com esse caminho (com barras `/`). Nunca desligues a verificação. Antes, `php artisan migrate` cria as tabelas na base local.
+
+A tabela mostra, para cada tabela, quantas linhas há no Redis, no MySQL antes e depois, as criadas e as que já lá estavam. Pode correr-se de novo sem duplicar. O Redis só é lido, nunca alterado. Se uma linha não se conseguir ler, o comando diz qual e termina com erro; as outras ficam gravadas.
+
+### Avisos: email e Web Push
+
+Os emails e as notificações saem pela fila; em produção o cron corre `php artisan schedule:run` a cada minuto, e o agendador processa a fila, envia os lotes das campanhas (`kaye:send-messages`) e, às 08:00, os lembretes dos prazos guardados (`kaye:deadline-reminders`). Localmente, `MAIL_MAILER=log` escreve os emails em `storage/logs`.
+
+```bash
+php artisan webpush:vapid --show   # gera o par VAPID; cola-o no .env (VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY)
+php artisan queue:work --stop-when-empty
+php artisan kaye:send-messages
+```
+
+No Windows, o PHP só cria chaves EC (precisas para o Web Push e para os seus testes) com a variável `OPENSSL_CONF` a apontar para o `openssl.cnf` do PHP. Uma vez, no PowerShell: `[Environment]::SetEnvironmentVariable('OPENSSL_CONF', 'C:\php\extras\ssl\openssl.cnf', 'User')`, e abre um terminal novo. No Linux (CI, Hostinger) não é preciso.
 
 ## Segurança
 

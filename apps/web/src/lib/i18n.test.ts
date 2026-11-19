@@ -17,25 +17,32 @@ describe('i18n', () => {
     for (const messages of [en, fr]) {
       expect(keysOf(messages).toSorted()).toEqual(reference)
     }
+    // Each leaf, not the JSON text: a message that ends in a quotation ("…") is not empty.
     for (const messages of [pt, en, fr]) {
-      expect(JSON.stringify(messages)).not.toContain('""')
+      const empty = keysOf(messages).filter(
+        (key) =>
+          key
+            .split('.')
+            .reduce<unknown>((value, part) => (value as Record<string, unknown>)[part], messages) === '',
+      )
+      expect(empty).toEqual([])
     }
   })
 
-  it('changes the language, the page lang and remembers the choice', () => {
-    changeLocale('en')
+  it('changes the language, the page lang and remembers the choice', async () => {
+    await changeLocale('en')
 
     expect(i18n.language).toBe('en')
     expect(document.documentElement.lang).toBe('en')
     expect(localStorage.getItem('kaye.locale')).toBe('en')
   })
 
-  it('still changes the language when storage is blocked', () => {
+  it('still changes the language when storage is blocked', async () => {
     vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new DOMException('blocked', 'SecurityError')
     })
 
-    expect(() => changeLocale('fr')).not.toThrow()
+    await expect(changeLocale('fr')).resolves.toBeUndefined()
     expect(i18n.language).toBe('fr')
   })
 
@@ -48,6 +55,7 @@ describe('i18n', () => {
 async function loadFresh() {
   vi.resetModules()
   const module = await import('./i18n')
+  await module.i18nReady
   return module.i18n.language
 }
 

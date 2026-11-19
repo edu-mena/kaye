@@ -27,5 +27,71 @@
     "import/no-cycle": "error",
     "import/no-duplicates": "error"
   },
+  "overrides": [
+    {
+      "files": ["src/domain/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "**/state/**",
+                  "**/lib/**",
+                  "**/components/**",
+                  "**/features/**",
+                  "react",
+                  "react-*"
+                ],
+                "message": "domain/ is plain TypeScript: only data/ types, no state, UI or React (docs/organizacao-do-codigo.md)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/data/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/state/**", "**/components/**", "**/features/**"],
+                "message": "data/ only knows where content comes from: no state or UI (docs/organizacao-do-codigo.md)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/components/**", "src/lib/**", "src/state/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/features/**"],
+                "message": "Shared code never imports from a screen (docs/organizacao-do-codigo.md)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "src/test/**", "e2e/**"],
+      "rules": {
+        "typescript/no-non-null-assertion": "off",
+        "no-await-in-loop": "off",
+        "react/only-export-components": "off",
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
   "ignorePatterns": ["android/**", "dist/**", "coverage/**", "playwright-report/**", "test-results/**"]
 }

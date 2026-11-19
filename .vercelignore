@@ -1,0 +1,12 @@
+# Only the web app goes to Vercel (the project's root directory is apps/web; see apps/web/vercel.json).
+/*
+!/apps
+/apps/*
+!/apps/web
+/apps/web/node_modules
+/apps/web/dist
+/apps/web/coverage
+/apps/web/test-results
+/apps/web/playwright-report
+/apps/web/android
+/apps/web/.env*

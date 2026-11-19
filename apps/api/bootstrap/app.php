@@ -18,9 +18,18 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: 'api/v1',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Behind the host's proxy (and Cloudflare later) the request arrives as http: X-Forwarded-Proto says it was
+        // https, which HSTS and the secure cookie depend on. The host header is not taken from it: signed links keep
+        // the real address.
+        $middleware->trustProxies(at: '*', headers: Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_PORT
+            | Request::HEADER_X_FORWARDED_PROTO);
+
         // Every response, including /admin and /up.
         $middleware->prepend(AssignRequestId::class);
         $middleware->append(SecurityHeaders::class);
+
+        // The one-click unsubscribe of the mail apps (RFC 8058) cannot carry a CSRF token; its URL is signed.
+        $middleware->validateCsrfTokens(except: ['unsubscribe/*']);
 
         $middleware->throttleApi();
         $middleware->api(append: [

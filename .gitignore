@@ -6,3 +6,13 @@ Thumbs.db
 !/.vscode/extensions.json
 /node_modules
 /build
+
+# Python (scrapers)
+__pycache__/
+scrapers/data/*.tmp
+# The collected facts stay in the market-data run artifact; only the counts reach the repository.
+scrapers/data/*.jsonl
+
+# Vercel CLI: the project link and its token (vercel link).
+.vercel
+.env.local

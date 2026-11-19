@@ -1,0 +1,350 @@
+[
+  {
+    "id": "agricultura",
+    "area": "agriculture",
+    "name": "Agriculture et forêts",
+    "position": 50
+  },
+  {
+    "id": "ambiente",
+    "area": "agriculture",
+    "name": "Environnement",
+    "position": 53
+  },
+  {
+    "id": "pecuaria",
+    "area": "agriculture",
+    "name": "Élevage et soins vétérinaires",
+    "position": 51
+  },
+  {
+    "id": "pescas",
+    "area": "agriculture",
+    "name": "Pêche et aquaculture",
+    "position": 52
+  },
+  {
+    "id": "banca_seguros",
+    "area": "business",
+    "name": "Banque et assurance",
+    "position": 19
+  },
+  {
+    "id": "comercial",
+    "area": "business",
+    "name": "Commercial et marketing",
+    "position": 22
+  },
+  {
+    "id": "contabilidade",
+    "area": "business",
+    "name": "Comptabilité et audit",
+    "position": 17
+  },
+  {
+    "id": "economia",
+    "area": "business",
+    "name": "Économie",
+    "position": 23
+  },
+  {
+    "id": "financas",
+    "area": "business",
+    "name": "Finance",
+    "position": 18
+  },
+  {
+    "id": "gestao_empresas",
+    "area": "business",
+    "name": "Gestion d’entreprise",
+    "position": 20
+  },
+  {
+    "id": "gestao_projetos",
+    "area": "business",
+    "name": "Gestion de projet",
+    "position": 24
+  },
+  {
+    "id": "recursos_humanos",
+    "area": "business",
+    "name": "Ressources humaines",
+    "position": 21
+  },
+  {
+    "id": "artes",
+    "area": "communication",
+    "name": "Arts, cinéma et musique",
+    "position": 35
+  },
+  {
+    "id": "comunicacao_social",
+    "area": "communication",
+    "name": "Journalisme et communication",
+    "position": 33
+  },
+  {
+    "id": "linguas",
+    "area": "communication",
+    "name": "Langues et traduction",
+    "position": 34
+  },
+  {
+    "id": "desporto",
+    "area": "education",
+    "name": "Sport et éducation physique",
+    "position": 42
+  },
+  {
+    "id": "ensino_primario",
+    "area": "education",
+    "name": "Petite enfance et école primaire",
+    "position": 38
+  },
+  {
+    "id": "ensino_secundario",
+    "area": "education",
+    "name": "Enseignement secondaire et technique",
+    "position": 39
+  },
+  {
+    "id": "ensino_superior",
+    "area": "education",
+    "name": "Enseignement supérieur et formation professionnelle",
+    "position": 41
+  },
+  {
+    "id": "pedagogia",
+    "area": "education",
+    "name": "Pédagogie et gestion scolaire",
+    "position": 40
+  },
+  {
+    "id": "arquitectura",
+    "area": "engineering",
+    "name": "Architecture et urbanisme",
+    "position": 44
+  },
+  {
+    "id": "construcao_civil",
+    "area": "engineering",
+    "name": "Génie civil et construction",
+    "position": 43
+  },
+  {
+    "id": "engenharia_electrica",
+    "area": "engineering",
+    "name": "Électricité et énergie",
+    "position": 46
+  },
+  {
+    "id": "engenharia_industrial",
+    "area": "engineering",
+    "name": "Mécanique, industrie et sécurité",
+    "position": 45
+  },
+  {
+    "id": "diagnostico",
+    "area": "health",
+    "name": "Diagnostic et laboratoire",
+    "position": 11
+  },
+  {
+    "id": "enfermagem",
+    "area": "health",
+    "name": "Soins infirmiers",
+    "position": 10
+  },
+  {
+    "id": "farmacia",
+    "area": "health",
+    "name": "Pharmacie",
+    "position": 12
+  },
+  {
+    "id": "medicina",
+    "area": "health",
+    "name": "Médecine",
+    "position": 9
+  },
+  {
+    "id": "reabilitacao",
+    "area": "health",
+    "name": "Rééducation et nutrition",
+    "position": 13
+  },
+  {
+    "id": "saude_mental",
+    "area": "health",
+    "name": "Santé mentale",
+    "position": 16
+  },
+  {
+    "id": "saude_oral",
+    "area": "health",
+    "name": "Santé bucco-dentaire",
+    "position": 14
+  },
+  {
+    "id": "saude_publica",
+    "area": "health",
+    "name": "Santé publique",
+    "position": 15
+  },
+  {
+    "id": "beleza",
+    "area": "hospitality",
+    "name": "Beauté et soins personnels",
+    "position": 57
+  },
+  {
+    "id": "turismo",
+    "area": "hospitality",
+    "name": "Tourisme et hôtellerie",
+    "position": 56
+  },
+  {
+    "id": "advocacia",
+    "area": "legal",
+    "name": "Avocature et conseil juridique",
+    "position": 25
+  },
+  {
+    "id": "justica",
+    "area": "legal",
+    "name": "Tribunaux et registres",
+    "position": 26
+  },
+  {
+    "id": "logistica",
+    "area": "logistics",
+    "name": "Logistique et douanes",
+    "position": 54
+  },
+  {
+    "id": "transportes",
+    "area": "logistics",
+    "name": "Transports, ports et aviation",
+    "position": 55
+  },
+  {
+    "id": "mecanica_offshore",
+    "area": "oil_mining",
+    "name": "Mécanique et opérations offshore",
+    "position": 48
+  },
+  {
+    "id": "minas_geologia",
+    "area": "oil_mining",
+    "name": "Mines, géologie et métallurgie",
+    "position": 49
+  },
+  {
+    "id": "petroleo_gas",
+    "area": "oil_mining",
+    "name": "Pétrole et gaz",
+    "position": 47
+  },
+  {
+    "id": "administracao_publica",
+    "area": "public",
+    "name": "Administration publique",
+    "position": 27
+  },
+  {
+    "id": "investigacao_criminal",
+    "area": "public",
+    "name": "Enquête criminelle et police",
+    "position": 29
+  },
+  {
+    "id": "relacoes_internacionais",
+    "area": "public",
+    "name": "Relations internationales et politique",
+    "position": 28
+  },
+  {
+    "id": "ciencias_exactas",
+    "area": "sciences",
+    "name": "Mathématiques, physique et chimie",
+    "position": 37
+  },
+  {
+    "id": "ciencias_sociais",
+    "area": "sciences",
+    "name": "Sciences sociales",
+    "position": 31
+  },
+  {
+    "id": "ciencias_vida",
+    "area": "sciences",
+    "name": "Biologie, mer et environnement",
+    "position": 36
+  },
+  {
+    "id": "humanidades",
+    "area": "sciences",
+    "name": "Histoire et patrimoine",
+    "position": 32
+  },
+  {
+    "id": "psicologia",
+    "area": "sciences",
+    "name": "Psychologie",
+    "position": 30
+  },
+  {
+    "id": "dados",
+    "area": "technology",
+    "name": "Données",
+    "position": 1
+  },
+  {
+    "id": "desenvolvimento",
+    "area": "technology",
+    "name": "Développement",
+    "position": 0
+  },
+  {
+    "id": "design",
+    "area": "technology",
+    "name": "Design",
+    "position": 5
+  },
+  {
+    "id": "digital",
+    "area": "technology",
+    "name": "Numérique",
+    "position": 8
+  },
+  {
+    "id": "educacao",
+    "area": "technology",
+    "name": "Éducation",
+    "position": 7
+  },
+  {
+    "id": "gestao",
+    "area": "technology",
+    "name": "Gestion et commerce",
+    "position": 6
+  },
+  {
+    "id": "infraestrutura",
+    "area": "technology",
+    "name": "Infrastructure",
+    "position": 2
+  },
+  {
+    "id": "seguranca",
+    "area": "technology",
+    "name": "Sécurité",
+    "position": 3
+  },
+  {
+    "id": "telecomunicacoes",
+    "area": "technology",
+    "name": "Télécommunications",
+    "position": 4
+  }
+]

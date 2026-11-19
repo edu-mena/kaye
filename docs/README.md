@@ -6,10 +6,15 @@
 | [roadmap.md](roadmap.md) | O que se faz e por que ordem: as fases e os critérios de saída |
 | [engenharia.md](engenharia.md) | Como trabalhamos: fluxo, Definição de Pronto, portões de qualidade, testes, reutilização |
 | [organizacao-do-codigo.md](organizacao-do-codigo.md) | Onde fica cada coisa e onde pôr o que é novo |
+| [design.md](design.md) | Como a app se vê: cores, letras, peças, padrões, gráficos, acessibilidade |
 | [base-de-dados.md](base-de-dados.md) | As tabelas que existem, as convenções e as regras das migrações |
 | [seguranca.md](seguranca.md) | Modelo de ameaças, controlos, privacidade, segredos, incidentes |
 | [observabilidade.md](observabilidade.md) | Logs, erros, saúde, alertas e o que fazer quando algo falha |
 | [infraestrutura.md](infraestrutura.md) | Ambientes, containers, CI/CD, deploy, variáveis de ambiente |
+| [guia-hostinger.md](guia-hostinger.md) | Guia passo a passo, para principiantes, de pôr o Kayé na Hostinger |
+| [recolha-de-dados.md](recolha-de-dados.md) | Que dados reais temos de instituições, empresas e notícias, com fonte, e o que falta confirmar |
+| [videos.md](videos.md) | Como gravar um vídeo "O meu dia como…", o consentimento e onde pôr os ficheiros |
+| [mentores.md](mentores.md) | Regras para os mentores, como são aprovados e o consentimento |
 | [decisoes/](decisoes/README.md) | Porque decidimos o que decidimos (ADR) |
 
 Para pôr o projeto a correr, vê o [README](../README.md) na raiz.

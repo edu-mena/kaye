@@ -1,31 +1,292 @@
+/* One family for titles and text; its optical size axis keeps small text readable. */
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
 @import 'tailwindcss';
 
-/* Kayé brand. Provisional until the design system is defined. */
+/*
+ * Plain figures for pages full of numbers (font-figures): Inter only for the digits and "%",
+ * so the letters around them stay in Bricolage. Downloaded only where it is used.
+ */
+@font-face {
+  font-family: 'Kaye Figures';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0030-0039, U+0025;
+}
+
+/*
+ * Kayé design tokens. Brand: azul-marinho + amarelo. Structure inspired by NOVU,
+ * identity from the logo: the winding path. See docs/design.md.
+ * Contrast (AA) is checked for every text colour on --color-paper and white.
+ */
 @theme {
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-figures: 'Kaye Figures', 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Line height: at least 1.5x the size for running text (WCAG 1.4.12). Spacing follows an 8 px grid. */
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.6;
+  --text-base--line-height: 1.6;
+
   --color-navy: #1b2a43;
-  --color-navy-soft: #2c3e5c;
+  /* The main action of each screen: a deep blue, white text 15:1. Hover lightens it, so it shows on dark surfaces too. */
+  --color-blue: #021d6d;
+  --color-blue-dark: #032a96;
   --color-gold: #ffc000;
-  --color-gold-soft: #fff4cc;
+  --color-gold-ink: #8a6400;
+  /* Behind dark text: selected text, searched words. */
+  --color-gold-soft: #ffe7a3;
+
   --color-ink: #1b2a43;
-  --color-muted: #5b6b82;
-  --color-surface: #f5f7fa;
+  /* Near-black for active states, headings and strong blocks; warm grays around it. */
+  --color-night: #16171b;
+  /* Closer to black, for the sidebar and the phone menu. */
+  --color-coal: #0a0a0b;
+  --color-ash-100: #efede9;
+  --color-ash-200: #e2dfd9;
+  --color-ash-300: #cdc9c1;
+  --color-ash-500: #8a857c;
+  --color-copy: #45423c;
+  --color-muted: #66625b;
+  --color-paper: #f7f4ee;
+  --color-surface: #ffffff;
+  --color-line: #e6e0d4;
+  --color-track: #b5b0a6;
+
+  --color-success: #1a7a50;
+  --color-coral: #b33a24;
+
+  --radius-card: 1.75rem;
+  --shadow-card: 0 1px 2px rgb(22 23 27 / 0.03), 0 12px 40px -16px rgb(22 23 27 / 0.08);
+  --shadow-lift: 0 2px 6px rgb(22 23 27 / 0.04), 0 20px 56px -20px rgb(22 23 27 / 0.14);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 520ms var(--ease-out) both;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+  /* The onboarding: the guide's moods, a new step, a choice, a career card leaving. */
+  --animate-step-in: step-in 420ms var(--ease-out) both;
+  --animate-pop: pop 320ms var(--ease-out) both;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-blink: blink 4.6s ease-in-out infinite;
+  --animate-talk: talk 240ms ease-in-out infinite alternate;
+  --animate-hop: hop 560ms var(--ease-out) both;
+  --animate-draw: draw 2.8s var(--ease-out) both;
+  --animate-grow: grow 800ms var(--ease-out) both;
+  --animate-fly-left: fly-left 300ms ease-in both;
+  --animate-fly-right: fly-right 300ms ease-in both;
+  --animate-fly-up: fly-up 300ms ease-in both;
+  /* The ring behind the guide on the landing page. */
+  --animate-spin-slow: spin-slow 40s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes step-in {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    60% {
+      transform: scale(1.15);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    94%,
+    100% {
+      transform: scaleY(1);
+    }
+    97% {
+      transform: scaleY(0.1);
+    }
+  }
+
+  @keyframes talk {
+    from {
+      transform: scaleY(0.5);
+    }
+    to {
+      transform: scaleY(1.7);
+    }
+  }
+
+  @keyframes hop {
+    0% {
+      transform: scale(0.85) translateY(6px);
+    }
+    45% {
+      transform: scale(1.06) translateY(-10px);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes fly-left {
+    to {
+      opacity: 0;
+      transform: translateX(-120%) rotate(-12deg);
+    }
+  }
+
+  @keyframes fly-right {
+    to {
+      opacity: 0;
+      transform: translateX(120%) rotate(12deg);
+    }
+  }
+
+  @keyframes fly-up {
+    to {
+      opacity: 0;
+      transform: translateY(-60%) scale(0.9);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgb(255 192 0 / 0.55);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 12px rgb(255 192 0 / 0);
+    }
+  }
 }
 
-html,
-body,
-#root {
-  min-height: 100%;
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+  }
 }
 
-body {
-  margin: 0;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
+/* Staggered entrance: give children `style="--i: n"` (set in components, not inline in HTML). */
+@utility rise {
+  animation: var(--animate-rise);
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Illustrations rise as they scroll into view. Without support (or with less motion) they just stay. */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+/* Sideways rows (filters, section tabs) still scroll by touch, without a grey bar. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
