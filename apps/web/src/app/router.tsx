@@ -148,7 +148,7 @@ export const router = createBrowserRouter([
       {
         path: 'perfil',
         handle: { wide: true } satisfies RouteHandle,
-        lazy: page(() => import('../features/profile/ProfilePage')),
+        lazy: personalPage(() => import('../features/profile/ProfilePage')),
       },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
