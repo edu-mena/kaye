@@ -95,6 +95,8 @@ flowchart LR
 
 #### Pôr no ar pela primeira vez
 
+> Primeira vez e nunca fizeste um deploy? Segue o [guia passo a passo](guia-hostinger.md), com o que clicar e como confirmar cada passo. A lista abaixo é o resumo.
+
 1. **Chave SSH.** No teu PC: `ssh-keygen -t ed25519 -f ~/.ssh/kaye_hostinger -C "kaye-deploy"` (sem usar a senha da Hostinger). No hPanel → *Avançado → Acesso SSH*, cola o conteúdo de `kaye_hostinger.pub`. A chave **privada** (`kaye_hostinger`) nunca sai do teu PC, exceto para o segredo do GitHub abaixo. Testa: `ssh -i ~/.ssh/kaye_hostinger -p 65002 u727672645@93.127.189.106`.
 2. **Base de dados.** hPanel → *Bases de dados MySQL*: cria a base e o utilizador só para o Kayé. A senha escreve-se no `.env` do servidor, nunca na conversa.
 3. **O `.env` do servidor**, por SSH, na pasta do site: copia `apps/api/.env.example` e preenche como na tabela abaixo: `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://steady-darkgoldenrod-goshawk-92.hostingersite.com`, `SESSION_SECURE_COOKIE=true`, `LOG_STACK=json`, os dados da base, o email (SMTP da Hostinger), `ADMIN_EMAILS`, `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`, as chaves VAPID e `SENTRY_LARAVEL_DSN`. A `APP_KEY` gera-se uma vez com `php artisan key:generate`, depois de o primeiro deploy trazer o código.

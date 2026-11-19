@@ -11,6 +11,7 @@
 | [seguranca.md](seguranca.md) | Modelo de ameaças, controlos, privacidade, segredos, incidentes |
 | [observabilidade.md](observabilidade.md) | Logs, erros, saúde, alertas e o que fazer quando algo falha |
 | [infraestrutura.md](infraestrutura.md) | Ambientes, containers, CI/CD, deploy, variáveis de ambiente |
+| [guia-hostinger.md](guia-hostinger.md) | Guia passo a passo, para principiantes, de pôr o Kayé na Hostinger |
 | [recolha-de-dados.md](recolha-de-dados.md) | Que dados reais temos de instituições, empresas e notícias, com fonte, e o que falta confirmar |
 | [videos.md](videos.md) | Como gravar um vídeo "O meu dia como…", o consentimento e onde pôr os ficheiros |
 | [mentores.md](mentores.md) | Regras para os mentores, como são aprovados e o consentimento |
