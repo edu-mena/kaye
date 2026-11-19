@@ -1,0 +1,1 @@
+var e={kaye:`megaphone`,eventos:`calendar`,cursos:`cap`,empresas:`building`,analise:`newspaper`};export{e as t};

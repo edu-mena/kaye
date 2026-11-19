@@ -1,0 +1,1 @@
+var e=`/spa/assets/cursos-1600-C8WdzLTv.webp`,t=`/spa/assets/cursos-400-CxyAuBIC.webp`,n=`/spa/assets/cursos-800-CUPHlixD.webp`;export{t as n,e as r,n as t};

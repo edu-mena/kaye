@@ -1,0 +1,23 @@
+# Hostinger: the Git deploy puts the app in the site's root (public_html), but only public/ may be served.
+# Everything else (.env, vendor, storage, source code) is never reachable from the web: each address is
+# rewritten into public/, where Laravel's own .htaccess takes over. In the container the document root is
+# already public/ and this file is not used. See docs/infraestrutura.md.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # HTTPS only (ADR 0002).
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$ [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L]
+</IfModule>
+
+# Dotfiles (.env, .git) answer 403 even if the rewrite above is ever switched off.
+<FilesMatch "^\.(?!well-known)">
+    Require all denied
+</FilesMatch>

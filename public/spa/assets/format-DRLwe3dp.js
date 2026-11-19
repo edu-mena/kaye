@@ -1,0 +1,1 @@
+function e(e){return`${Math.round(e).toString().replace(/\B(?=(\d{3})+(?!\d))/g,`.`)} Kz`}function t(e){return`${Math.round(e*100)}%`}export{t as n,e as t};

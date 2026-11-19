@@ -1,0 +1,1 @@
+var e=(e,t)=>`${t(`training.type_${e.type}`)} · ${e.ownership?t(`training.ownership_${e.ownership}`):t(`academies.ownershipPending`)}`;export{e as t};

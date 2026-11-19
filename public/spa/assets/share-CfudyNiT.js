@@ -1,0 +1,1 @@
+var e=e=>`${window.location.origin}${e}`,t=(e,t)=>`https://wa.me/?text=${encodeURIComponent(`${e}\n${t}`)}`;async function n(e,n){if(typeof navigator.share==`function`)try{await navigator.share({text:e,url:n});return}catch(e){if(e instanceof DOMException&&e.name===`AbortError`)return}window.open(t(e,n),`_blank`,`noopener`)}export{n,e as t};

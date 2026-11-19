@@ -1,0 +1,1 @@
+import{n as e}from"./icons-HNss27Xa.js";function t(){let{t}=e();return e=>e.key===`name`?String(e.values?.name??``):t(e.key,e.values)}export{t};

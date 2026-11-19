@@ -1,0 +1,1 @@
+import{t as e}from"./saveFile-t3CWLtKv.js";async function t(t,n,r){let i=new File([t],n,{type:t.type});if(typeof navigator.canShare==`function`&&navigator.canShare({files:[i]}))try{await navigator.share({files:[i],title:r});return}catch(e){if(e instanceof DOMException&&e.name===`AbortError`)return}e(t,n)}export{t};

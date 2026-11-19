@@ -1,0 +1,1 @@
+var e=e=>`/novidades/${e.id}`,t=e=>!!(e.event&&e.image?.thumb.startsWith(`/spa/eventos/`));export{e as n,t};

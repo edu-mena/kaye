@@ -1,0 +1,1 @@
+var e=(e,t)=>`/cursos/curso/${e}${t?`?academia=${t}`:``}`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/spa/assets/kaye-logo-CWkxNmox.png`;export{e as t};

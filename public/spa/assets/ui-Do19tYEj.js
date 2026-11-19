@@ -1,0 +1,1 @@
+function e(e){return{"--i":e}}function t(e){return e&&/^\/(?![/\\])/.test(e)?e:null}export{e as n,t};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-WkwZ5CU-.js";import{b as t}from"./icons-HNss27Xa.js";var n=e(t(),1);function r(e,t){let[r,i]=(0,n.useState)(()=>{try{let n=localStorage.getItem(e);return n===null?t:n===`1`}catch{return t}});return[r,(0,n.useCallback)(t=>{i(t);try{localStorage.setItem(e,t?`1`:`0`)}catch{}},[e])]}export{r as t};
