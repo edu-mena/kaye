@@ -56,7 +56,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Repositório privado no GitHub ([edu-mena/kaye](https://github.com/edu-mena/kaye)), com o CI a correr nos PRs
 - [ ] Proteção do `main` (exige GitHub Pro nos repositórios privados: Student Developer Pack)
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
-- [ ] Hostinger: staging e produção, cron, HTTPS, Cloudflare, workflow de deploy: o workflow `deploy.yml`, o ramo `deploy`, o `post-deploy.sh` e o teste de fumo estão feitos (18/11/2026, endereço temporário); falta ligar o Git do hPanel, o `.env`, o cron e os segredos ([primeira vez](infraestrutura.md#pôr-no-ar-pela-primeira-vez)), e depois staging, domínio e Cloudflare
+- [x] Hostinger no endereço temporário (20/11/2026): Git do hPanel ligado ao ramo `deploy`, `.env`, base de dados, cron a bater todos os minutos, segredos do GitHub e workflow `deploy.yml` a correr de ponta a ponta (build, publicação, `post-deploy.sh` por SSH e teste de fumo de fora, tudo verde). O guia [guia-hostinger.md](guia-hostinger.md) reflete o que o primeiro deploy real ensinou
+- [ ] Hostinger: staging, domínio próprio e Cloudflare
 - [x] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
 - [ ] Sentry: conta, DSN e Sentry na app React
 - [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
