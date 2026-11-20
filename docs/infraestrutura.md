@@ -107,7 +107,7 @@ flowchart LR
 8. **Segredos no GitHub** (*Settings → Environments → production*): os da tabela abaixo. A `HOSTINGER_SSH_KNOWN_HOSTS` obtém-se com `ssh-keyscan -p 65002 93.127.189.106`.
 9. **A primeira vez:** *Actions → Deploy → Run workflow*. Sem os segredos SSH, o workflow publica o ramo e avisa; nesse caso, depois do webhook, por SSH: `cd ~/domains/<site>/public_html && php artisan key:generate --force && scripts/post-deploy.sh`.
 
-Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos), corre o `post-deploy.sh` e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
+Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
 
 #### O que o `post-deploy.sh` faz
 
