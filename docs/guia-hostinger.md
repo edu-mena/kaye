@@ -90,14 +90,20 @@ O Kayé só deixa entrar com Google. O Google precisa de saber que o teu site é
 
 É aqui que a Hostinger aprende a "puxar o prato pronto".
 
-1. hPanel → **Avançado → Git**.
-2. Repositório: `git@github.com:edu-mena/kaye.git`
-3. Ramo: `deploy`
-4. Pasta de destino: **vazia** (a raiz do site, `public_html`). Se o hPanel disser que a pasta tem ficheiros, apaga o `default.php` de exemplo antes.
-5. Clica em **Criar**. O hPanel mostra uma **chave de deploy** (começa por `ssh-rsa` ou `ssh-ed25519`). Copia-a.
-6. No GitHub: repositório → **Settings → Deploy keys → Add deploy key**. Cola. Título "Hostinger". **Não marques** "Allow write access". Grava.
-7. De volta ao hPanel: clica em **Implementar/Deploy** para a primeira puxada.
-8. O hPanel mostra também um **URL de webhook**. Copia. No GitHub: **Settings → Webhooks → Add webhook**. Em *Payload URL* cola, em *Content type* `application/json`, evento só *push*. Grava.
+A Hostinger **não te dá** a chave de deploy: gera-se no próprio servidor, e é a parte pública dela que o GitHub precisa.
+
+1. Liga-te ao servidor por SSH (passo 2) e corre:
+   `ssh-keygen -t ed25519 -C "kaye-hostinger" -N "" -f ~/.ssh/kaye`
+   Depois mostra a parte **pública**: `cat ~/.ssh/kaye.pub` (uma linha a começar por `ssh-ed25519`). A privada (`~/.ssh/kaye`, sem `.pub`) nunca sai do servidor.
+2. No GitHub: repositório → **Settings → Deploy keys → Add deploy key**. Cola a linha pública. Título "Hostinger". **Não marques** "Allow write access". Grava.
+3. **Antes de implementar, muda o PHP para 8.4** (passo 5 abaixo). A Hostinger corre o `composer install` sozinha ao puxar e usa a versão de PHP do site; com a 8.3 falha com "Your Composer dependencies require a PHP version >= 8.4.1".
+4. hPanel → **Avançado → Git**.
+5. Repositório: `git@github.com:edu-mena/kaye.git`
+6. Ramo: `deploy`
+7. Pasta de destino: **vazia** (a raiz do site, `public_html`). Se o hPanel disser que a pasta tem ficheiros, apaga o `default.php` de exemplo antes.
+8. Clica em **Criar** e depois em **Implementar/Deploy** para a primeira puxada.
+9. Se o hPanel mostrar um **URL de webhook** (nem sempre aparece; ver nota abaixo), copia-o. No GitHub: **Settings → Webhooks → Add webhook**. Em *Payload URL* cola, em *Content type* `application/json`, evento só *push*. Grava.
+   **Se não houver URL de webhook, não faz mal:** o passo 9 (workflow Deploy) manda o servidor puxar por SSH em cada push no `main`, por isso o webhook é só um extra.
 
 **Como sei que correu bem:** no hPanel, a pasta do site passa a ter ficheiros (`artisan`, `app`, `vendor`, `public`…). No GitHub, o webhook mostra um visto verde em *Recent Deliveries*.
 
@@ -119,7 +125,9 @@ O `.env` é o ficheiro com as **senhas e configurações**. Fica só no servidor
 1. Entra por SSH (comando do passo 1).
 2. Vai à pasta do site: `cd ~/domains/steady-darkgoldenrod-goshawk-92.hostingersite.com/public_html`
    (se o caminho não existir, corre `ls ~/domains` e vê o nome certo).
-3. Copia o modelo: `cp .env.example .env` e abre com `nano .env`.
+3. O modelo `.env.example` **não vem no deploy** (os ficheiros `.env*` são excluídos de propósito). Envia-o do teu computador, a partir da raiz do projeto, num PowerShell:
+   `scp -i $HOME\.ssh\kaye_hostinger -P 65002 apps\api\.env.example u727672645@93.127.189.106:domains/steady-darkgoldenrod-goshawk-92.hostingersite.com/public_html/.env`
+   Depois, no servidor: `chmod 600 .env` e abre com `nano .env`.
 4. Muda estas linhas (o resto fica como está):
 
 | Variável | Valor |
@@ -147,7 +155,8 @@ A `APP_KEY` (a chave que protege as sessões) **não se escreve à mão**: gera-
 Ainda por SSH, na pasta do site:
 
 ```bash
-php artisan key:generate --force
+export PHP=/opt/alt/php84/usr/bin/php   # o `php` do SSH é a 8.1; este é o 8.4
+$PHP artisan key:generate --force
 scripts/post-deploy.sh
 ```
 
@@ -166,8 +175,10 @@ Sem processos sempre ligados, o Kayé usa um relógio que acorda o Laravel **tod
 3. Comando (troca `<site>` pelo nome certo da pasta):
 
 ```
-cd ~/domains/<site>/public_html && php artisan schedule:run >> /dev/null 2>&1
+cd ~/domains/<site>/public_html && /opt/alt/php84/usr/bin/php artisan schedule:run >> /dev/null 2>&1
 ```
+
+Usa o caminho completo do PHP 8.4: o `php` simples do servidor é a 8.1 e o Kayé não arranca com ela.
 
 **Como sei que correu bem:** espera 2 minutos e abre `https://steady-darkgoldenrod-goshawk-92.hostingersite.com/api/v1/health`. Tem de aparecer `"cron": "ok"`. Se disser `unknown`, o cron nunca correu; se disser `stale`, parou.
 
