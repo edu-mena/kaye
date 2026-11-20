@@ -606,7 +606,29 @@ type CompanyProgram = { name: string; summary: string; source: SourceLink }
 export type CompanyFact = { value: string; source: SourceLink }
 
 /** A post the company hires for or advertises, tied to the catalogue's careers; without a source, our reading. */
-export type CompanyRole = { title: string; careers: string[]; source?: SourceLink }
+export type CompanyRole = {
+  title: string
+  careers: string[]
+  source?: SourceLink
+  /** What a young person typically needs to be hired for this post here. */
+  requirements?: string[]
+  /** true: our reading from the type of business, not stated by the company (docs/recolha-de-dados.md). */
+  estimated?: boolean
+}
+
+/** A short statement from an interview (up to two sentences, word for word), with when, where and the link. */
+export type CompanyQuote = {
+  text: string
+  /** Who said it, and in which post at the time. */
+  speaker: string
+  role: string
+  /** ISO date of the publication. */
+  date: string
+  /** The outlet's name (Forbes África Lusófona, Expansão, …). */
+  outlet: string
+  url: string
+  topic: 'contratacao' | 'competencias' | 'estagios' | 'planos'
+}
 
 /**
  * Someone who leads or speaks for the company, with the post confirmed in an official source. Never a minor,
@@ -657,6 +679,12 @@ export type Company = {
   roles?: CompanyRole[]
   /** Its leadership and public spokespeople. */
   people?: CompanyPerson[]
+  /** Its headquarters: the address or the city, with where it is stated. */
+  headquarters?: CompanyFact
+  /** What its leaders said in interviews, word for word. */
+  quotes?: CompanyQuote[]
+  /** true: `partners` and the posts' requirements are our reading, not stated by the company. */
+  estimated?: boolean
 }
 
 export type InternshipKind = 'trainee' | 'estagio_profissional' | 'estagio_curricular' | 'programa_publico'

@@ -53,7 +53,7 @@
     "sector": "banca",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Banco comercial a operar em Angola.",
+    "summary": "Banco comercial a operar em Angola, do grupo bancário nigeriano Access Bank, com um programa próprio para recém-licenciados.",
     "careers": [
       "gestor-de-clientes-bancario",
       "operador-de-caixa-bancario",
@@ -64,23 +64,158 @@
       "auditor-interno",
       "tecnico-de-cobrancas",
       "analista-de-estudos-economicos",
-      "gestor-de-programas-e-portfolio"
+      "gestor-de-programas-e-portfolio",
+      "tesoureiro",
+      "contabilista",
+      "desenvolvedor-backend",
+      "analista-de-ciberseguranca",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "careersSourced": false,
     "areas": [
+      "desenvolvimento",
+      "infraestrutura",
+      "seguranca",
       "contabilidade",
       "financas",
       "banca_seguros",
-      "economia"
+      "recursos_humanos",
+      "comercial",
+      "economia",
+      "gestao_projetos"
     ],
-    "programs": [],
-    "partners": [],
+    "programs": [
+      {
+        "name": "Programa de Recém-Licenciados",
+        "summary": "Três meses de formação prática na sede do Access Bank em Lagos (Nigéria) e três meses de formação técnica e comportamental na Banking School of Excellence.",
+        "source": {
+          "label": "Forbes África Lusófona, 11/08/2025",
+          "url": "https://forbesafricalusofona.com/access-bank-angola-lanca-programa-de-recem-licenciados/"
+        }
+      }
+    ],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "sources": [
       {
         "label": "Access Bank Angola, comunicado de 2026",
         "url": "https://angola.accessbankplc.com/access/media/documentos/Access-Bank-Angola-Access-Bank-Angola-obtem-autorizacao-da-ARSEG-e-lanca-operacao-de-Bancassurance-com-parcerias-estrategicas-no-sector-segurador.pdf?ext=.pdf"
       }
     ],
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "Ricardo Ferreira",
+        "role": "Presidente da Comissão Executiva",
+        "source": {
+          "label": "Forbes África Lusófona, 11/08/2025",
+          "url": "https://forbesafricalusofona.com/access-bank-angola-lanca-programa-de-recem-licenciados/"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Estes jovens continuam a beneficiar de um percurso de capacitação contínua",
+        "speaker": "Ricardo Ferreira",
+        "role": "Presidente da Comissão Executiva do Access Bank Angola",
+        "date": "2025-08-11",
+        "outlet": "Forbes África Lusófona",
+        "url": "https://forbesafricalusofona.com/access-bank-angola-lanca-programa-de-recem-licenciados/",
+        "topic": "estagios"
+      }
+    ],
+    "estimated": true,
     "position": 60
   },
   {
@@ -89,26 +224,102 @@
     "sector": "estado",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Organismo público das finanças do Estado.",
+    "summary": "Organismo do Estado que cobra os impostos em Angola.",
     "careers": [
       "tecnico-de-impostos",
       "economista",
       "auditor",
-      "contabilista"
+      "contabilista",
+      "analista-de-estudos-economicos",
+      "auditor-interno",
+      "analista-financeiro",
+      "tecnico-superior-de-administracao-publica",
+      "jurista",
+      "analista-de-sistemas",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "seguranca",
+      "gestao",
       "contabilidade",
-      "economia"
+      "financas",
+      "economia",
+      "advocacia",
+      "administracao_publica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-nacional-de-administracao-e-politicas-publicas-enapp",
+      "uan",
+      "ucan",
+      "isptec"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://agt.minfin.gov.ao"
       }
     ],
+    "roles": [
+      {
+        "title": "Economia e estudos",
+        "careers": [
+          "economista",
+          "analista-de-estudos-economicos"
+        ],
+        "requirements": [
+          "Licenciatura em Economia",
+          "Concurso público ou processo de selecção"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças e impostos",
+        "careers": [
+          "tecnico-de-impostos",
+          "auditor-interno",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Direito"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Administração pública e jurídico",
+        "careers": [
+          "tecnico-superior-de-administracao-publica",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Administração Pública ou Gestão"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Informática",
+        "careers": [
+          "analista-de-sistemas",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "Leonildo Manuel",
+        "role": "Presidente do Conselho de Administração",
+        "source": {
+          "label": "Expansão: Leonildo Manuel é o novo PCA da AGT",
+          "url": "https://expansao.co.ao/angola/detalhe/leonildo-manuel-e-o-novo-pca-da-agt-74610.html"
+        }
+      }
+    ],
+    "estimated": true,
     "position": 69
   },
   {
@@ -131,6 +342,7 @@
     "areas": [
       "gestao_empresas",
       "comercial",
+      "logistica",
       "transportes"
     ],
     "programs": [],
@@ -172,7 +384,14 @@
     "province": "Luanda",
     "careersSourced": true,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "africell",
     "logo": "/src/assets/companies/africell-logo.webp",
     "name": "Africell Angola",
@@ -219,6 +438,66 @@
           "label": "Ver Angola, 2021",
           "url": "https://www.verangola.net/va/pt/022021/Telecomunicacoes/23946/Africell-abre-recrutamento-online-Há-vagas-para-técnicos-comerciais-e-gestores.htm"
         }
+      },
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
       }
     ],
     "people": [
@@ -235,6 +514,12 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/AfricellAngola",
+      "instagram": "https://www.instagram.com/africell.ao",
+      "linkedin": "https://www.linkedin.com/company/africell-angola"
+    },
+    "estimated": true,
     "position": 3
   },
   {
@@ -247,21 +532,83 @@
     "careers": [
       "jornalista",
       "revisor-de-textos",
-      "editor-de-video"
+      "editor-de-video",
+      "realizador",
+      "tecnico-de-relacoes-publicas",
+      "gestor-de-redes-sociais",
+      "designer-grafico",
+      "tecnico-de-telecomunicacoes"
     ],
     "careersSourced": false,
     "areas": [
+      "telecomunicacoes",
+      "design",
       "comunicacao_social",
-      "linguas"
+      "linguas",
+      "artes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "centro-de-formacao-de-jornalistas-cefojor",
+      "isutic",
+      "uan",
+      "ucan",
+      "instituto-superior-de-artes"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.angop.ao"
       }
     ],
+    "roles": [
+      {
+        "title": "Jornalismo",
+        "careers": [
+          "jornalista",
+          "editor-de-video"
+        ],
+        "requirements": [
+          "Licenciatura em Comunicação Social ou Jornalismo",
+          "Portfólio de peças"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Produção e realização",
+        "careers": [
+          "realizador",
+          "tecnico-de-relacoes-publicas"
+        ],
+        "requirements": [
+          "Formação em Audiovisual ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Digital e design",
+        "careers": [
+          "gestor-de-redes-sociais",
+          "designer-grafico"
+        ],
+        "requirements": [
+          "Portfólio digital",
+          "Domínio de ferramentas de edição"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Técnico de emissão",
+        "careers": [
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electrónica ou Telecomunicações"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 111
   },
   {
@@ -289,6 +636,12 @@
         "url": "https://www.arseg.ao"
       }
     ],
+    "website": "https://www.arseg.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/arseg.ao",
+      "instagram": "https://www.instagram.com/arseg_ao",
+      "linkedin": "https://www.linkedin.com/company/arseg"
+    },
     "position": 73
   },
   {
@@ -341,6 +694,11 @@
         "url": "https://www.anpg.co.ao"
       }
     ],
+    "website": "https://anpg.co.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/ANPGAngola",
+      "linkedin": "https://www.linkedin.com/company/anpg-angola"
+    },
     "position": 135
   },
   {
@@ -366,6 +724,7 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-da-agencia-nacional-de-residuos-181a-14a.html"
       }
     ],
+    "website": "https://anr.gov.ao",
     "position": 245
   },
   {
@@ -406,7 +765,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "agricultura"
+      "agricultura",
+      "pecuaria"
     ],
     "programs": [],
     "partners": [],
@@ -462,7 +822,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "construcao_civil"
+      "engenharia_industrial"
     ],
     "programs": [],
     "partners": [],
@@ -511,17 +871,34 @@
         }
       }
     ],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "angola-cables",
     "logo": "/src/assets/companies/angola-cables-logo.webp",
     "name": "Angola Cables",
     "sector": "telecomunicacoes",
     "place": "Luanda",
     "website": "https://www.angolacables.co.ao",
-    "summary": "Cabos submarinos e ligações de internet entre continentes.",
+    "summary": "Opera cabos submarinos de fibra óptica que ligam Angola a outros continentes e vende capacidade de internet a operadores.",
     "careers": [
       "engenheiro-de-telecomunicacoes",
-      "administrador-de-redes"
+      "administrador-de-redes",
+      "tecnico-de-telecomunicacoes",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-marketing-digital",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "sources": [
       {
@@ -530,8 +907,15 @@
       }
     ],
     "areas": [
+      "desenvolvimento",
+      "dados",
       "infraestrutura",
-      "telecomunicacoes"
+      "seguranca",
+      "telecomunicacoes",
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
     "activities": [
       "Cabos submarinos internacionais",
@@ -556,6 +940,69 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 4
   },
   {
@@ -593,14 +1040,38 @@
       "engenheiro-de-processos-de-refinacao",
       "operador-de-producao-petrolifera",
       "tecnico-de-manutencao-mecanica",
-      "tecnico-de-instrumentacao"
+      "tecnico-de-instrumentacao",
+      "engenheiro-de-petroleos",
+      "engenheiro-de-perfuracao",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
-      "petroleo_gas"
+      "financas",
+      "advocacia",
+      "engenharia_industrial",
+      "petroleo_gas",
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Angorecruta: vagas da Angola LNG (Julho de 2026)",
@@ -648,15 +1119,85 @@
           "label": "Angorecruta: vagas da Angola LNG (Julho de 2026)",
           "url": "https://angorecruta.com/a-angola-lng-abre-vagas-de-emprego-em-diversas-areas/"
         }
+      },
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
       }
     ],
+    "estimated": true,
     "position": 164
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "angola-telecom",
     "name": "Angola Telecom",
     "sector": "telecomunicacoes",
@@ -675,15 +1216,100 @@
       "cientista-de-dados",
       "product-manager",
       "gestor-de-ti",
-      "designer-ui-ux"
+      "designer-ui-ux",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-marketing-digital",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
       "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "gestao"
+      "gestao",
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "founded": {
+      "value": "1992",
+      "source": {
+        "label": "Wikipédia: Angola Telecom",
+        "url": "https://pt.wikipedia.org/wiki/Angola_Telecom"
+      }
+    },
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 2
   },
   {
@@ -737,13 +1363,22 @@
         "url": "https://www.parlamento.ao"
       }
     ],
+    "website": "https://www.parlamento.ao",
     "position": 103
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "id": "atlantico",
     "banner": "/src/assets/companies/atlantico-banner-800.webp",
     "name": "Banco Millennium Atlântico",
@@ -751,7 +1386,7 @@
     "place": "Luanda",
     "logo": "/src/assets/companies/atlantico-logo.webp",
     "website": "https://www.atlantico.ao",
-    "summary": "Banco comercial angolano.",
+    "summary": "Banco comercial angolano, conhecido também como Banco Millennium Atlântico, com serviços para particulares e empresas.",
     "sources": [
       {
         "label": "Site oficial",
@@ -767,14 +1402,31 @@
       "desenvolvedor-frontend",
       "desenvolvedor-mobile",
       "designer-ui-ux",
-      "gestor-de-ti"
+      "gestor-de-ti",
+      "gestor-de-clientes-bancario",
+      "operador-de-caixa-bancario",
+      "analista-de-credito",
+      "analista-de-risco",
+      "tecnico-de-compliance",
+      "auditor-interno",
+      "tesoureiro",
+      "contabilista",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "areas": [
       "desenvolvimento",
       "dados",
+      "infraestrutura",
       "seguranca",
       "design",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "financas",
+      "banca_seguros",
+      "recursos_humanos",
+      "comercial"
     ],
     "people": [
       {
@@ -794,6 +1446,95 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/bancomillenniumatlantico",
+      "instagram": "https://www.instagram.com/atlantico.ao",
+      "linkedin": "https://www.linkedin.com/company/bancomillenniumatlantico"
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 11
   },
   {
@@ -875,28 +1616,77 @@
     "sector": "energia",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Produz petróleo e gás no mar de Angola.",
+    "summary": "Empresa angolana de petróleo e gás formada em 2022 pela BP e pela Eni, que juntaram nela os seus interesses em Angola.",
     "careers": [
       "engenheiro-de-petroleos",
       "operador-de-producao-petrolifera",
       "tecnico-de-manutencao-mecanica",
       "tecnico-de-instrumentacao",
-      "tecnico-de-seguranca-no-trabalho"
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-de-perfuracao",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "advocacia",
       "engenharia_industrial",
       "petroleo_gas",
-      "mecanica_offshore"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.azule-energy.com"
       }
     ],
+    "website": "https://www.azule-energy.com",
+    "activities": [
+      "Exploração e produção de petróleo e gás"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.azule-energy.com"
+    },
+    "founded": {
+      "value": "2022",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.azule-energy.com"
+      }
+    },
+    "employees": {
+      "value": "mais de 900",
+      "source": {
+        "label": "Azule Energy, carreiras",
+        "url": "https://www.azule-energy.com/en/careers/"
+      }
+    },
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.azule-energy.com"
+      }
+    },
     "people": [
       {
         "name": "Joe Murphy",
@@ -907,6 +1697,75 @@
         }
       }
     ],
+    "socials": {
+      "instagram": "https://www.instagram.com/azuleenergy",
+      "linkedin": "https://www.linkedin.com/company/86585154"
+    },
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 140
   },
   {
@@ -948,7 +1807,15 @@
         }
       }
     ],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "id": "bai",
     "banner": "/src/assets/companies/bai-banner-800.webp",
     "name": "Banco BAI",
@@ -1056,6 +1923,76 @@
           "label": "Jobartis, anúncios do BAI",
           "url": "https://www.jobartis.com/vagas-emprego/BAI+(Banco+Angolano+de+Investimentos)"
         }
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
       }
     ],
     "people": [
@@ -1068,6 +2005,23 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/bai.angola",
+      "instagram": "https://www.instagram.com/bai.ao",
+      "linkedin": "https://www.linkedin.com/company/banco-bai"
+    },
+    "quotes": [
+      {
+        "text": "Os líderes do futuro não podem descurar as competências técnicas",
+        "speaker": "Noelma Viegas d'Abreu",
+        "role": "CEO da Academia BAI",
+        "date": "2026-11-17",
+        "outlet": "Forbes África Lusófona",
+        "url": "https://forbesafricalusofona.com/os-lideres-do-futuro-terao-de-aliar-visao-estrategica-integridade-e-capacidade-de-ouvir-as-pessoas/",
+        "topic": "competencias"
+      }
+    ],
+    "estimated": true,
     "position": 7
   },
   {
@@ -1082,28 +2036,123 @@
       "engenheiro-de-petroleos",
       "operador-de-producao-petrolifera",
       "mecanico-de-sonda",
-      "tecnico-de-manutencao-mecanica"
+      "tecnico-de-manutencao-mecanica",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "tecnico-de-instrumentacao",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "advocacia",
+      "engenharia_industrial",
       "petroleo_gas",
-      "mecanica_offshore"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 145
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "id": "banco-bic",
     "name": "Banco BIC",
     "sector": "banca",
@@ -1111,7 +2160,7 @@
     "logo": "/src/assets/companies/banco-bic-logo.svg",
     "banner": "/src/assets/companies/banco-bic-banner-800.webp",
     "website": "https://www.bancobic.ao",
-    "summary": "Banco comercial angolano.",
+    "summary": "Banco comercial angolano de capitais privados, com serviços para particulares e empresas.",
     "sources": [
       {
         "label": "Site oficial",
@@ -1127,14 +2176,31 @@
       "desenvolvedor-frontend",
       "desenvolvedor-mobile",
       "designer-ui-ux",
-      "gestor-de-ti"
+      "gestor-de-ti",
+      "gestor-de-clientes-bancario",
+      "operador-de-caixa-bancario",
+      "analista-de-credito",
+      "analista-de-risco",
+      "tecnico-de-compliance",
+      "auditor-interno",
+      "tesoureiro",
+      "contabilista",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "areas": [
       "desenvolvimento",
       "dados",
+      "infraestrutura",
       "seguranca",
       "design",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "financas",
+      "banca_seguros",
+      "recursos_humanos",
+      "comercial"
     ],
     "people": [
       {
@@ -1146,6 +2212,95 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/Banco-BIC-Angola-105885061390924",
+      "instagram": "https://www.instagram.com/bancobic.angola",
+      "linkedin": "https://www.linkedin.com/company/banco-bic-angola"
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 9
   },
   {
@@ -1165,23 +2320,77 @@
       "auditor-interno",
       "tecnico-de-cobrancas",
       "analista-de-estudos-economicos",
-      "gestor-de-programas-e-portfolio"
+      "gestor-de-programas-e-portfolio",
+      "tesoureiro",
+      "contabilista",
+      "desenvolvedor-backend",
+      "analista-de-ciberseguranca",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "careersSourced": false,
     "areas": [
+      "desenvolvimento",
+      "infraestrutura",
+      "seguranca",
       "contabilidade",
       "financas",
       "banca_seguros",
-      "economia"
+      "recursos_humanos",
+      "comercial",
+      "economia",
+      "gestao_projetos"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "sources": [
       {
         "label": "Ver Angola, 12/2025: os seis bancos sistémicos segundo o BNA",
         "url": "https://www.verangola.net/va/pt/122025/BancaSeguros/47062/BNA-identifica-seis-bancos-que-devem-aumentar-reservas-a-partir-de-Janeiro.htm"
       }
     ],
+    "website": "https://www.bpc.ao",
+    "activities": [
+      "Poupança",
+      "Crédito",
+      "Contas",
+      "Cartões",
+      "Serviços (BPC Net, SMS Banking, câmbios)"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.bpc.ao"
+    },
+    "founded": {
+      "value": "1956",
+      "source": {
+        "label": "Wikipédia: Banco de Poupança e Crédito",
+        "url": "https://en.wikipedia.org/wiki/Banco_de_Poupan%C3%A7a_e_Cr%C3%A9dito"
+      }
+    },
+    "employees": {
+      "value": "4 820 (2020)",
+      "source": {
+        "label": "Wikipédia: Banco de Poupança e Crédito",
+        "url": "https://en.wikipedia.org/wiki/Banco_de_Poupan%C3%A7a_e_Cr%C3%A9dito"
+      }
+    },
+    "headquarters": {
+      "value": "Largo Saydi Mingas, Edifício Sede, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.bpc.ao"
+      }
+    },
     "people": [
       {
         "name": "Cláudio Pinheiro",
@@ -1190,8 +2399,104 @@
           "label": "Forbes África Lusófona: resultados de 2025",
           "url": "https://forbesafricalusofona.com/bpc-regista-um-resultado-liquido-de-4-mil-milhoes-de-kwanzas-em-2025/"
         }
+      },
+      {
+        "name": "Cláudio Pinheiro Pinto Macedo",
+        "role": "Presidente do Conselho de Administração e da Comissão Executiva (mandato 2022/2026)",
+        "source": {
+          "label": "Ver Angola, 10/2022",
+          "url": "https://www.verangola.net/va/pt/102022/BancaSeguros/33057/BPC-tem-novo-conselho-de-administração.htm"
+        }
       }
     ],
+    "socials": {
+      "facebook": "https://facebook.com/share/j2n7NZqDA2sDYqeJ",
+      "instagram": "https://www.instagram.com/bancobpc.ao"
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 59
   },
   {
@@ -1200,7 +2505,7 @@
     "sector": "estado",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Entidade que regula ou organiza o sistema financeiro.",
+    "summary": "Banco central de Angola: o único responsável pela política monetária e o supervisor de todos os bancos do país.",
     "careers": [
       "gestor-de-clientes-bancario",
       "operador-de-caixa-bancario",
@@ -1211,23 +2516,111 @@
       "auditor-interno",
       "tecnico-de-cobrancas",
       "analista-de-estudos-economicos",
-      "gestor-de-programas-e-portfolio"
+      "gestor-de-programas-e-portfolio",
+      "economista",
+      "tecnico-de-impostos",
+      "tecnico-superior-de-administracao-publica",
+      "jurista",
+      "analista-de-sistemas",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "seguranca",
+      "gestao",
       "contabilidade",
       "financas",
       "banca_seguros",
-      "economia"
+      "economia",
+      "gestao_projetos",
+      "advocacia",
+      "administracao_publica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-nacional-de-administracao-e-politicas-publicas-enapp",
+      "uan",
+      "ucan",
+      "isptec"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.bna.ao"
       }
     ],
+    "website": "https://www.bna.ao",
+    "activities": [
+      "Política monetária",
+      "Supervisão da banca"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Banco Nacional de Angola",
+      "url": "https://pt.wikipedia.org/wiki/Banco_Nacional_de_Angola"
+    },
+    "founded": {
+      "value": "1926 (como Banco de Angola)",
+      "source": {
+        "label": "Wikipédia: Banco Nacional de Angola",
+        "url": "https://pt.wikipedia.org/wiki/Banco_Nacional_de_Angola"
+      }
+    },
+    "headquarters": {
+      "value": "Avenida 4 de Fevereiro, Luanda",
+      "source": {
+        "label": "Wikipédia: Banco Nacional de Angola",
+        "url": "https://pt.wikipedia.org/wiki/Banco_Nacional_de_Angola"
+      }
+    },
+    "roles": [
+      {
+        "title": "Economia e estudos",
+        "careers": [
+          "economista",
+          "analista-de-estudos-economicos"
+        ],
+        "requirements": [
+          "Licenciatura em Economia",
+          "Concurso público ou processo de selecção"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças e impostos",
+        "careers": [
+          "tecnico-de-impostos",
+          "auditor-interno",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Direito"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Administração pública e jurídico",
+        "careers": [
+          "tecnico-superior-de-administracao-publica",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Administração Pública ou Gestão"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Informática",
+        "careers": [
+          "analista-de-sistemas",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 68
   },
   {
@@ -1254,7 +2647,8 @@
       "contabilidade",
       "financas",
       "banca_seguros",
-      "economia"
+      "economia",
+      "gestao_projetos"
     ],
     "programs": [],
     "partners": [],
@@ -1270,13 +2664,21 @@
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "id": "banco-sol",
     "name": "Banco Sol",
     "sector": "banca",
     "place": "Luanda",
     "website": "https://www.bancosol.ao",
-    "summary": "Banco comercial angolano.",
+    "summary": "Banco angolano de retalho e empresas, com um balcão dedicado ao petróleo e à mineração (Oil & Mining Desk). Em 2025 aprovou um plano de recapitalização e reestruturação.",
     "sources": [
       {
         "label": "Site oficial",
@@ -1292,15 +2694,176 @@
       "desenvolvedor-frontend",
       "desenvolvedor-mobile",
       "designer-ui-ux",
-      "gestor-de-ti"
+      "gestor-de-ti",
+      "gestor-de-clientes-bancario",
+      "operador-de-caixa-bancario",
+      "analista-de-credito",
+      "analista-de-risco",
+      "tecnico-de-compliance",
+      "auditor-interno",
+      "tesoureiro",
+      "contabilista",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "areas": [
       "desenvolvimento",
       "dados",
+      "infraestrutura",
       "seguranca",
       "design",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "financas",
+      "banca_seguros",
+      "recursos_humanos",
+      "comercial"
     ],
+    "activities": [
+      "Particulares",
+      "Empresas e Oil & Mining Desk",
+      "Private banking",
+      "Premium"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.bancosol.ao"
+    },
+    "headquarters": {
+      "value": "Gaveto da Rua Frederico Welwitsch n.º 47 com a Rua Lourenço Mendes da Conceição n.º 7, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.bancosol.ao"
+      }
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/profile.php?id=61592801581079",
+      "instagram": "https://www.instagram.com/bancosol.angola",
+      "linkedin": "https://www.linkedin.com/company/bancosol"
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "António André Lopes",
+        "role": "Presidente do Conselho de Administração",
+        "source": {
+          "label": "Ver Angola, 04/2025",
+          "url": "https://www.verangola.net/va/pt/042025/BancaSeguros/44244/Banco-Sol-vai-ser-recapitalizado-com-capitais-privados-e-reduzir-até-30-por-cento-de-trabalhadores.htm"
+        }
+      },
+      {
+        "name": "Osvaldo de Lemos Macaia",
+        "role": "Presidente da Comissão Executiva",
+        "source": {
+          "label": "Forbes África Lusófona, 2026",
+          "url": "https://forbesafricalusofona.com/?p=176025"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "text": "… é nossa intenção dedicar e desenvolver competências ao nosso capital humano, o activo mais importante de qualquer organização.",
+        "speaker": "Osvaldo de Lemos Macaia",
+        "role": "Presidente da Comissão Executiva do Banco Sol",
+        "date": "2025-03-18",
+        "outlet": "Expansão",
+        "url": "https://expansao.co.ao/grande-entrevista/detalhe/neste-momento-ha-uma-consciencia-da-parte-dos-accionistas-que-o-banco-vai-precisar-de-um-aumento-de-capital-64520.html",
+        "topic": "planos"
+      },
+      {
+        "text": "… o plano também prevê um plano de formação para os colaboradores do banco.",
+        "speaker": "Osvaldo de Lemos Macaia",
+        "role": "Presidente da Comissão Executiva do Banco Sol",
+        "date": "2025-03-18",
+        "outlet": "Expansão",
+        "url": "https://expansao.co.ao/grande-entrevista/detalhe/neste-momento-ha-uma-consciencia-da-parte-dos-accionistas-que-o-banco-vai-precisar-de-um-aumento-de-capital-64520.html",
+        "topic": "competencias"
+      }
+    ],
+    "estimated": true,
     "position": 13
   },
   {
@@ -1317,7 +2880,13 @@
       }
     ],
     "partners": [
-      "ucan"
+      "ucan",
+      "uan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
     ],
     "id": "bci",
     "name": "BCI, Banco de Comércio e Indústria",
@@ -1344,15 +2913,123 @@
       "desenvolvedor-frontend",
       "desenvolvedor-mobile",
       "designer-ui-ux",
-      "gestor-de-ti"
+      "gestor-de-ti",
+      "gestor-de-clientes-bancario",
+      "operador-de-caixa-bancario",
+      "analista-de-credito",
+      "analista-de-risco",
+      "tecnico-de-compliance",
+      "auditor-interno",
+      "tesoureiro",
+      "contabilista",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "areas": [
       "desenvolvimento",
       "dados",
+      "infraestrutura",
       "seguranca",
       "design",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "financas",
+      "banca_seguros",
+      "recursos_humanos",
+      "comercial"
     ],
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Banco de Comércio e Indústria",
+        "url": "https://pt.wikipedia.org/wiki/Banco_de_Com%C3%A9rcio_e_Ind%C3%BAstria"
+      }
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 12
   },
   {
@@ -1401,7 +3078,14 @@
       }
     ],
     "partners": [
-      "pmi-angola-chapter"
+      "pmi-angola-chapter",
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
     ],
     "id": "bfa",
     "banner": "/src/assets/companies/bfa-banner-800.webp",
@@ -1478,6 +3162,95 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/Banco.BFA",
+      "instagram": "https://www.instagram.com/bancofomentoangola",
+      "linkedin": "https://www.linkedin.com/company/bfa"
+    },
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 8
   },
   {
@@ -1534,6 +3307,7 @@
         "url": "https://www.bodiva.ao"
       }
     ],
+    "website": "https://www.bodiva.ao",
     "position": 71
   },
   {
@@ -1573,7 +3347,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "construcao_civil"
+      "arquitectura"
     ],
     "programs": [],
     "partners": [],
@@ -1595,21 +3369,90 @@
     "careers": [
       "tecnico-de-transportes",
       "engenheiro-de-transportes",
-      "engenheiro-mecanico"
+      "engenheiro-mecanico",
+      "inspector-de-aviacao-civil",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-de-manutencao",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-comercial",
+      "contabilista"
     ],
     "careersSourced": false,
     "areas": [
+      "contabilidade",
+      "comercial",
       "engenharia_industrial",
+      "mecanica_offshore",
       "transportes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "ucan",
+      "instituto-medio-industrial-de-luanda"
+    ],
     "sources": [
       {
         "label": "Decreto Presidencial n.º 150/10, Estatuto da Empresa do Caminho de Ferro de Benguela (AngoLEX)",
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-da-empresa-do-caminho-de-ferro-de-benguela-150a-10a.html"
       }
     ],
+    "activities": [
+      "Transporte ferroviário de carga e passageiros"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Caminho de Ferro de Benguela",
+      "url": "https://pt.wikipedia.org/wiki/Caminho_de_Ferro_de_Benguela"
+    },
+    "roles": [
+      {
+        "title": "Operações e transportes",
+        "careers": [
+          "tecnico-de-transportes",
+          "engenheiro-de-transportes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia ou Gestão de Transportes"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Aviação e segurança",
+        "careers": [
+          "inspector-de-aviacao-civil",
+          "tecnico-de-seguranca-no-trabalho"
+        ],
+        "requirements": [
+          "Formação aeronáutica ou em segurança",
+          "Inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Manutenção",
+        "careers": [
+          "engenheiro-de-manutencao",
+          "tecnico-de-manutencao-mecanica"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Comercial e finanças",
+        "careers": [
+          "tecnico-comercial",
+          "contabilista"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 158
   },
   {
@@ -1880,22 +3723,107 @@
       "operador-de-producao-petrolifera",
       "tecnico-de-manutencao-mecanica",
       "tecnico-de-instrumentacao",
-      "tecnico-de-seguranca-no-trabalho"
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-de-perfuracao",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "advocacia",
       "engenharia_industrial",
       "petroleo_gas",
-      "mecanica_offshore"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "logo": "/src/assets/companies/chevron-logo.webp",
     "position": 141
   },
@@ -1905,7 +3833,7 @@
     "sector": "saude",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Unidade privada de saúde.",
+    "summary": "Clínica privada de saúde em Luanda, com consultas, exames e urgências.",
     "careers": [
       "medico-clinica-geral",
       "enfermeiro",
@@ -1935,7 +3863,9 @@
       "cardiopneumologista",
       "fisioterapeuta",
       "nutricionista",
-      "psicologo-clinico"
+      "psicologo-clinico",
+      "contabilista",
+      "tecnico-de-recursos-humanos"
     ],
     "careersSourced": false,
     "areas": [
@@ -1945,16 +3875,89 @@
       "farmacia",
       "reabilitacao",
       "saude_oral",
-      "saude_mental"
+      "saude_mental",
+      "contabilidade",
+      "recursos_humanos"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-de-formacao-de-tecnicos-de-saude-de-luanda",
+      "instituto-de-especializacao-em-saude",
+      "uan",
+      "ucan"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.facebook.com/clinicagirassol.saude/"
       }
     ],
+    "website": "https://clinicagirassol.co.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/clinicagirassol.saude"
+    },
+    "roles": [
+      {
+        "title": "Medicina",
+        "careers": [
+          "medico-clinica-geral",
+          "medico-pediatra",
+          "cirurgiao-geral"
+        ],
+        "requirements": [
+          "Licenciatura em Medicina",
+          "Inscrição na Ordem dos Médicos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Enfermagem",
+        "careers": [
+          "enfermeiro",
+          "tecnico-medio-enfermagem"
+        ],
+        "requirements": [
+          "Licenciatura ou curso médio de Enfermagem",
+          "Inscrição na Ordem dos Enfermeiros"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Diagnóstico e farmácia",
+        "careers": [
+          "tecnico-analises-clinicas",
+          "tecnico-radiologia",
+          "farmaceutico"
+        ],
+        "requirements": [
+          "Formação técnica ou licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Reabilitação e nutrição",
+        "careers": [
+          "fisioterapeuta",
+          "nutricionista"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Administração",
+        "careers": [
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Formação em Gestão ou Contabilidade"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 52
   },
   {
@@ -2013,6 +4016,7 @@
         "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
       }
     ],
+    "website": "https://www.multiperfil.co.ao",
     "position": 50
   },
   {
@@ -2021,7 +4025,7 @@
     "sector": "saude",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Unidade privada de saúde.",
+    "summary": "Clínica privada de saúde em Luanda, com consultas, exames e urgências.",
     "careers": [
       "medico-clinica-geral",
       "enfermeiro",
@@ -2051,7 +4055,9 @@
       "cardiopneumologista",
       "fisioterapeuta",
       "nutricionista",
-      "psicologo-clinico"
+      "psicologo-clinico",
+      "contabilista",
+      "tecnico-de-recursos-humanos"
     ],
     "careersSourced": false,
     "areas": [
@@ -2061,16 +4067,91 @@
       "farmacia",
       "reabilitacao",
       "saude_oral",
-      "saude_mental"
+      "saude_mental",
+      "contabilidade",
+      "recursos_humanos"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-de-formacao-de-tecnicos-de-saude-de-luanda",
+      "instituto-de-especializacao-em-saude",
+      "uan",
+      "ucan"
+    ],
     "sources": [
       {
         "label": "MINSA, Anuário Estatístico Sanitário 2023 (Tabela 159)",
         "url": "https://www.ine.gov.ao/Arquivos/arquivosCarregados/Carregados/Publicacao_639110352357683245.pdf"
       }
     ],
+    "website": "https://clinicasagradaesperanca.co.ao",
+    "socials": {
+      "facebook": "https://facebook.com/clinicasagradaesperanca",
+      "instagram": "https://www.instagram.com/clinicasagradaesperanca.ao",
+      "linkedin": "https://linkedin.com/company/clinicasagradaesperanca"
+    },
+    "roles": [
+      {
+        "title": "Medicina",
+        "careers": [
+          "medico-clinica-geral",
+          "medico-pediatra",
+          "cirurgiao-geral"
+        ],
+        "requirements": [
+          "Licenciatura em Medicina",
+          "Inscrição na Ordem dos Médicos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Enfermagem",
+        "careers": [
+          "enfermeiro",
+          "tecnico-medio-enfermagem"
+        ],
+        "requirements": [
+          "Licenciatura ou curso médio de Enfermagem",
+          "Inscrição na Ordem dos Enfermeiros"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Diagnóstico e farmácia",
+        "careers": [
+          "tecnico-analises-clinicas",
+          "tecnico-radiologia",
+          "farmaceutico"
+        ],
+        "requirements": [
+          "Formação técnica ou licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Reabilitação e nutrição",
+        "careers": [
+          "fisioterapeuta",
+          "nutricionista"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Administração",
+        "careers": [
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Formação em Gestão ou Contabilidade"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 51
   },
   {
@@ -2150,6 +4231,12 @@
         "url": "https://www.cmc.ao"
       }
     ],
+    "website": "https://www.cmc.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/cmcangola",
+      "instagram": "https://www.instagram.com/cmc_ao",
+      "linkedin": "https://www.linkedin.com/company/comissaodomercadodecapitais"
+    },
     "position": 72
   },
   {
@@ -2178,6 +4265,11 @@
         "url": "https://www.cne.ao"
       }
     ],
+    "website": "https://www.cne.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/CNE.AO",
+      "instagram": "https://www.instagram.com/cne_angola"
+    },
     "position": 104
   },
   {
@@ -2321,21 +4413,84 @@
     "careers": [
       "auditor",
       "consultor-de-gestao",
-      "tecnico-de-impostos"
+      "tecnico-de-impostos",
+      "contabilista",
+      "analista-financeiro",
+      "jurista",
+      "analista-de-dados",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "dados",
+      "seguranca",
       "contabilidade",
-      "gestao_empresas"
+      "financas",
+      "gestao_empresas",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "pwc-academy-angola"
+    ],
     "sources": [
       {
         "label": "Deloitte, Banca em Análise",
         "url": "https://www2.deloitte.com/content/dam/Deloitte/ao/Documents/financial-services/deloitte_banca_em_analise_2016.pdf"
       }
     ],
+    "roles": [
+      {
+        "title": "Auditoria",
+        "careers": [
+          "auditor",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Auditoria ou Finanças",
+          "Média alta e inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Consultoria e finanças",
+        "careers": [
+          "consultor-de-gestao",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Economia",
+          "Excel e apresentação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Fiscalidade e jurídico",
+        "careers": [
+          "tecnico-de-impostos",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e dados",
+        "careers": [
+          "analista-de-dados",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 64
   },
   {
@@ -2351,8 +4506,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -2402,6 +4556,7 @@
     ],
     "careersSourced": false,
     "areas": [
+      "logistica",
       "transportes"
     ],
     "programs": [],
@@ -2412,6 +4567,7 @@
         "url": "https://www.verangola.net/va/pt/052021/Sociedade/25295/Gestora-do-Porto-de-Luanda-lan%C3%A7a-concurso-de-recrutamento-para-jovens-angolanos.htm"
       }
     ],
+    "website": "https://www.dpworld.com/en/about-us/our-locations/angola",
     "position": 249
   },
   {
@@ -2495,6 +4651,9 @@
       "infraestrutura",
       "seguranca"
     ],
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/emis---empresa-interbanc-ria-de-servi-os"
+    },
     "position": 14
   },
   {
@@ -2508,21 +4667,42 @@
       "engenheiro-electrotecnico",
       "tecnico-electricista",
       "engenheiro-de-manutencao",
-      "engenheiro-de-energias-renovaveis"
+      "engenheiro-de-energias-renovaveis",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-comercial",
+      "tecnico-de-cobrancas",
+      "tecnico-de-seguranca-no-trabalho",
+      "analista-financeiro"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "comercial",
       "engenharia_industrial",
-      "engenharia_electrica"
+      "engenharia_electrica",
+      "mecanica_offshore"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "instituto-medio-industrial-de-luanda",
+      "instituto-medio-politecnico-industrial-de-luanda",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Decreto Presidencial n.º 305/14, Estatuto Orgânico da ENDE (AngoLEX)",
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-da-empresa-nacional-de-distribuicao-de-electricidade-305a-14a.html"
       }
     ],
+    "activities": [
+      "Distribuição de electricidade"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Empresa Nacional de Distribuição de Electricidade",
+      "url": "https://pt.wikipedia.org/wiki/Empresa_Nacional_de_Distribui%C3%A7%C3%A3o_de_Electricidade"
+    },
     "people": [
       {
         "name": "Pedro Buca",
@@ -2533,6 +4713,56 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia electrotécnica",
+        "careers": [
+          "engenheiro-electrotecnico",
+          "engenheiro-de-energias-renovaveis"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Electrotécnica ou Energias",
+          "Carta de condução"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Electricistas e manutenção",
+        "careers": [
+          "tecnico-electricista",
+          "tecnico-de-manutencao-mecanica",
+          "engenheiro-de-manutencao"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electricidade ou Mecânica",
+          "Formação em segurança eléctrica"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Clientes e cobranças",
+        "careers": [
+          "tecnico-comercial",
+          "tecnico-de-cobrancas"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 130
   },
   {
@@ -2546,21 +4776,107 @@
       "engenheiro-electrotecnico",
       "tecnico-electricista",
       "engenheiro-de-manutencao",
-      "engenheiro-de-energias-renovaveis"
+      "engenheiro-de-energias-renovaveis",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-comercial",
+      "tecnico-de-cobrancas",
+      "tecnico-de-seguranca-no-trabalho",
+      "analista-financeiro"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "comercial",
       "engenharia_industrial",
-      "engenharia_electrica"
+      "engenharia_electrica",
+      "mecanica_offshore"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "instituto-medio-industrial-de-luanda",
+      "instituto-medio-politecnico-industrial-de-luanda",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.prodel.co.ao"
       }
     ],
+    "website": "https://www.prodel.co.ao",
+    "activities": [
+      "Geração de electricidade"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Empresa Pública de Produção de Electricidade",
+      "url": "https://pt.wikipedia.org/wiki/Empresa_P%C3%BAblica_de_Produ%C3%A7%C3%A3o_de_Electricidade"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ProdelAngola",
+      "linkedin": "https://www.linkedin.com/company/prodel-angola"
+    },
+    "roles": [
+      {
+        "title": "Engenharia electrotécnica",
+        "careers": [
+          "engenheiro-electrotecnico",
+          "engenheiro-de-energias-renovaveis"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Electrotécnica ou Energias",
+          "Carta de condução"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Electricistas e manutenção",
+        "careers": [
+          "tecnico-electricista",
+          "tecnico-de-manutencao-mecanica",
+          "engenheiro-de-manutencao"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electricidade ou Mecânica",
+          "Formação em segurança eléctrica"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Clientes e cobranças",
+        "careers": [
+          "tecnico-comercial",
+          "tecnico-de-cobrancas"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "Pedro Eduardo Manuel Afonso",
+        "role": "Presidente do Conselho de Administração (nomeado em Abril de 2023)",
+        "source": {
+          "label": "Ver Angola, 04/2023",
+          "url": "https://www.verangola.net/va/pt/042023/Energia/35303/EPAL-e-PRODEL-têm-novos-conselhos-de-administração.htm"
+        }
+      }
+    ],
+    "estimated": true,
     "position": 131
   },
   {
@@ -2574,21 +4890,36 @@
       "engenheiro-de-minas",
       "geologo",
       "engenheiro-metalurgico",
-      "tecnico-de-seguranca-no-trabalho"
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-mecanico",
+      "engenheiro-de-manutencao",
+      "operador-de-maquinas-pesadas",
+      "tecnico-de-manutencao-mecanica",
+      "contabilista",
+      "tecnico-de-recursos-humanos"
     ],
     "careersSourced": false,
     "areas": [
+      "contabilidade",
+      "recursos_humanos",
       "engenharia_industrial",
-      "minas_geologia"
+      "minas_geologia",
+      "mecanica_offshore"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "isptec",
+      "ucan",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.endiama.co.ao"
       }
     ],
+    "website": "https://www.endiama.co.ao",
     "people": [
       {
         "name": "José Manuel Ganga Júnior",
@@ -2599,6 +4930,58 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Geologia e minas",
+        "careers": [
+          "geologo",
+          "engenheiro-de-minas"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Engenharia de Minas",
+          "Disponibilidade para viver na mina"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Processamento e metalurgia",
+        "careers": [
+          "engenheiro-metalurgico",
+          "engenheiro-mecanico",
+          "engenheiro-de-manutencao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia",
+          "Formação em segurança industrial"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação de máquinas",
+        "careers": [
+          "operador-de-maquinas-pesadas",
+          "tecnico-de-manutencao-mecanica"
+        ],
+        "requirements": [
+          "Ensino médio técnico",
+          "Certificado de operador"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Apoio e gestão",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "logo": "/src/assets/companies/endiama-logo.webp",
     "position": 138
   },
@@ -2608,25 +4991,111 @@
     "sector": "seguros",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Seguradora pública, a maior do país segundo a ARSEG.",
+    "summary": "Seguradora pública, a maior do país segundo a ARSEG. Vende seguros de saúde, automóvel, vida, casa, agro negócios e acidentes de trabalho, entre outros.",
     "careers": [
       "tecnico-de-seguros",
       "actuario",
       "mediador-de-seguros",
-      "analista-de-risco"
+      "analista-de-risco",
+      "jurista",
+      "contabilista",
+      "tecnico-comercial",
+      "gestor-comercial"
     ],
     "careersSourced": false,
     "areas": [
-      "banca_seguros"
+      "contabilidade",
+      "banca_seguros",
+      "comercial",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "academia-de-seguros-e-fundos-de-pensoes",
+      "uan",
+      "ucan",
+      "isptec"
+    ],
     "sources": [
       {
         "label": "Ver Angola, 01/2020: a ENSA é a maior seguradora, segundo a ARSEG",
         "url": "https://www.verangola.net/va/pt/012020/BancaSeguros/18006/Companhia-Ensa-é-a-maior-seguradora-do-país-revela-a-ARSEG.htm"
       }
     ],
+    "website": "https://www.ensa.co.ao",
+    "activities": [
+      "Saúde",
+      "Automóvel",
+      "Vida",
+      "Casa",
+      "Agro negócios",
+      "Fundo de pensões",
+      "Acidentes de trabalho"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.ensa.co.ao"
+    },
+    "headquarters": {
+      "value": "Loanda Towers, Rua Gamal Abdel Nasser, Torres A e B, Ingombota, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.ensa.co.ao"
+      }
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ENSASegurosAngola",
+      "instagram": "https://www.instagram.com/ensasegurosdeangola",
+      "linkedin": "https://www.linkedin.com/company/ensasegurosangola"
+    },
+    "roles": [
+      {
+        "title": "Seguros e mediação",
+        "careers": [
+          "tecnico-de-seguros",
+          "mediador-de-seguros"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão, Economia ou Direito",
+          "Formação em seguros"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Actuariado e risco",
+        "careers": [
+          "actuario",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Matemática, Estatística ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Jurídico e contabilidade",
+        "careers": [
+          "jurista",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Comercial",
+        "careers": [
+          "tecnico-comercial",
+          "gestor-comercial"
+        ],
+        "requirements": [
+          "Gosto por vender e acompanhar clientes"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 61
   },
   {
@@ -2653,6 +5122,7 @@
     "areas": [
       "desenvolvimento"
     ],
+    "website": "https://www.ensis.co.ao",
     "position": 24
   },
   {
@@ -2678,6 +5148,7 @@
         "url": "https://erca.ao"
       }
     ],
+    "website": "https://erca.ao",
     "position": 113
   },
   {
@@ -2788,21 +5259,84 @@
     "careers": [
       "auditor",
       "consultor-de-gestao",
-      "tecnico-de-impostos"
+      "tecnico-de-impostos",
+      "contabilista",
+      "analista-financeiro",
+      "jurista",
+      "analista-de-dados",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "dados",
+      "seguranca",
       "contabilidade",
-      "gestao_empresas"
+      "financas",
+      "gestao_empresas",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "pwc-academy-angola"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.ey.com/pt_ao"
       }
     ],
+    "roles": [
+      {
+        "title": "Auditoria",
+        "careers": [
+          "auditor",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Auditoria ou Finanças",
+          "Média alta e inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Consultoria e finanças",
+        "careers": [
+          "consultor-de-gestao",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Economia",
+          "Excel e apresentação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Fiscalidade e jurídico",
+        "careers": [
+          "tecnico-de-impostos",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e dados",
+        "careers": [
+          "analista-de-dados",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 66
   },
   {
@@ -2818,7 +5352,8 @@
     ],
     "careersSourced": true,
     "areas": [
-      "construcao_civil"
+      "engenharia_industrial",
+      "engenharia_electrica"
     ],
     "programs": [],
     "partners": [],
@@ -2928,24 +5463,84 @@
       "tecnico-de-recursos-humanos",
       "gestor-de-recursos-humanos",
       "tecnico-de-recrutamento",
-      "tecnico-de-salarios"
+      "tecnico-de-salarios",
+      "tecnico-de-seguros",
+      "mediador-de-seguros",
+      "actuario",
+      "analista-de-risco",
+      "jurista"
     ],
     "careersSourced": false,
     "areas": [
       "contabilidade",
       "financas",
+      "banca_seguros",
       "gestao_empresas",
       "recursos_humanos",
-      "comercial"
+      "comercial",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "academia-de-seguros-e-fundos-de-pensoes",
+      "uan",
+      "ucan",
+      "isptec"
+    ],
     "sources": [
       {
         "label": "Ver Angola, 01/2020: a ENSA é a maior seguradora, segundo a ARSEG",
         "url": "https://www.verangola.net/va/pt/012020/BancaSeguros/18006/Companhia-Ensa-é-a-maior-seguradora-do-país-revela-a-ARSEG.htm"
       }
     ],
+    "roles": [
+      {
+        "title": "Seguros e mediação",
+        "careers": [
+          "tecnico-de-seguros",
+          "mediador-de-seguros"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão, Economia ou Direito",
+          "Formação em seguros"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Actuariado e risco",
+        "careers": [
+          "actuario",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Matemática, Estatística ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Jurídico e contabilidade",
+        "careers": [
+          "jurista",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Comercial",
+        "careers": [
+          "tecnico-comercial",
+          "gestor-comercial"
+        ],
+        "requirements": [
+          "Gosto por vender e acompanhar clientes"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 62
   },
   {
@@ -2972,7 +5567,8 @@
       "contabilidade",
       "financas",
       "banca_seguros",
-      "economia"
+      "economia",
+      "gestao_projetos"
     ],
     "programs": [],
     "partners": [],
@@ -3042,8 +5638,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -3173,8 +5768,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "artes",
-      "comunicacao_social"
+      "comunicacao_social",
+      "artes"
     ],
     "programs": [],
     "partners": [],
@@ -3208,6 +5803,11 @@
         "url": "https://angoemprego.com/100-vagas-de-emprego-para-tecnico-superior-de-2a-classe-no-gorverno-provincial-do-huambo/"
       }
     ],
+    "website": "https://huambo.gov.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/GovernoProvincialdoHuambo",
+      "instagram": "https://www.instagram.com/governo_provincial_do_huambo"
+    },
     "position": 209
   },
   {
@@ -3269,7 +5869,15 @@
       "tecnico-de-recursos-humanos",
       "gestor-de-recursos-humanos",
       "tecnico-de-recrutamento",
-      "tecnico-de-salarios"
+      "tecnico-de-salarios",
+      "engenheiro-de-producao-industrial",
+      "tecnico-de-qualidade-alimentar",
+      "engenheiro-quimico",
+      "engenheiro-de-manutencao",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-electricista",
+      "gestor-de-logistica",
+      "tecnico-de-seguranca-no-trabalho"
     ],
     "careersSourced": false,
     "areas": [
@@ -3277,16 +5885,75 @@
       "financas",
       "gestao_empresas",
       "recursos_humanos",
-      "comercial"
+      "comercial",
+      "ciencias_vida",
+      "engenharia_industrial",
+      "engenharia_electrica",
+      "mecanica_offshore",
+      "logistica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "instituto-medio-industrial-de-luanda",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "roles": [
+      {
+        "title": "Produção e qualidade",
+        "careers": [
+          "engenheiro-de-producao-industrial",
+          "tecnico-de-qualidade-alimentar",
+          "engenheiro-quimico"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Industrial, Química ou Alimentar"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Manutenção",
+        "careers": [
+          "engenheiro-de-manutencao",
+          "tecnico-de-manutencao-mecanica",
+          "tecnico-electricista"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electricidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Logística e comercial",
+        "careers": [
+          "gestor-de-logistica",
+          "gestor-comercial"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Logística"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "contabilista"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 92
   },
   {
@@ -3396,7 +6063,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "construcao_civil"
+      "engenharia_industrial"
     ],
     "programs": [],
     "partners": [],
@@ -3441,6 +6108,12 @@
         "url": "https://www.omatapalo.com"
       }
     ],
+    "website": "https://www.omatapalo.com",
+    "socials": {
+      "facebook": "https://www.facebook.com/grupoomatapalo",
+      "instagram": "https://www.instagram.com/grupoomatapalo",
+      "linkedin": "https://www.linkedin.com/company/grupo-omatapalo"
+    },
     "position": 133
   },
   {
@@ -3508,21 +6181,109 @@
       "engenheiro-de-petroleos",
       "operador-de-producao-petrolifera",
       "mecanico-de-sonda",
-      "tecnico-de-manutencao-mecanica"
+      "tecnico-de-manutencao-mecanica",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "tecnico-de-instrumentacao",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "advocacia",
+      "engenharia_industrial",
       "petroleo_gas",
-      "mecanica_offshore"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "website": "https://www.halliburton.com",
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 143
   },
   {
@@ -3979,7 +6740,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "ciencias_vida"
+      "ciencias_vida",
+      "ciencias_exactas"
     ],
     "programs": [],
     "partners": [],
@@ -4161,6 +6923,7 @@
         "url": "https://ida.gov.ao"
       }
     ],
+    "website": "https://ida.gov.ao",
     "position": 150
   },
   {
@@ -4325,20 +7088,91 @@
     "summary": "Gere os centros de emprego e de formação profissional do Estado, em todo o país.",
     "careers": [
       "tecnico-de-emprego-e-formacao",
-      "formador-profissional"
+      "formador-profissional",
+      "economista",
+      "analista-de-estudos-economicos",
+      "tecnico-de-impostos",
+      "auditor-interno",
+      "analista-financeiro",
+      "tecnico-superior-de-administracao-publica",
+      "jurista",
+      "analista-de-sistemas",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "seguranca",
+      "gestao",
+      "contabilidade",
+      "financas",
+      "economia",
+      "advocacia",
+      "administracao_publica",
       "ensino_superior"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-nacional-de-administracao-e-politicas-publicas-enapp",
+      "uan",
+      "ucan",
+      "isptec"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://inefop.gov.ao"
       }
     ],
+    "website": "https://www.inefop.gov.ao",
+    "roles": [
+      {
+        "title": "Economia e estudos",
+        "careers": [
+          "economista",
+          "analista-de-estudos-economicos"
+        ],
+        "requirements": [
+          "Licenciatura em Economia",
+          "Concurso público ou processo de selecção"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças e impostos",
+        "careers": [
+          "tecnico-de-impostos",
+          "auditor-interno",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Direito"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Administração pública e jurídico",
+        "careers": [
+          "tecnico-superior-de-administracao-publica",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Administração Pública ou Gestão"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Informática",
+        "careers": [
+          "analista-de-sistemas",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 123
   },
   {
@@ -4366,6 +7200,11 @@
         "url": "https://www.ine.gov.ao"
       }
     ],
+    "website": "https://www.ine.gov.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/INE-Angola-917797135010576",
+      "instagram": "https://www.instagram.com/ine_angola"
+    },
     "position": 107
   },
   {
@@ -4517,8 +7356,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "humanidades",
-      "ciencias_sociais"
+      "ciencias_sociais",
+      "humanidades"
     ],
     "programs": [],
     "partners": [],
@@ -4685,21 +7524,98 @@
     "careers": [
       "jornalista",
       "revisor-de-textos",
-      "editor-de-video"
+      "editor-de-video",
+      "realizador",
+      "tecnico-de-relacoes-publicas",
+      "gestor-de-redes-sociais",
+      "designer-grafico",
+      "tecnico-de-telecomunicacoes"
     ],
     "careersSourced": false,
     "areas": [
+      "telecomunicacoes",
+      "design",
       "comunicacao_social",
-      "linguas"
+      "linguas",
+      "artes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "centro-de-formacao-de-jornalistas-cefojor",
+      "isutic",
+      "uan",
+      "ucan",
+      "instituto-superior-de-artes"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.jornaldeangola.ao"
       }
     ],
+    "website": "https://jornaldeangola.ao",
+    "founded": {
+      "value": "1975",
+      "source": {
+        "label": "Wikipédia: Jornal de Angola",
+        "url": "https://en.wikipedia.org/wiki/Jornal_de_Angola"
+      }
+    },
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Jornal de Angola",
+        "url": "https://en.wikipedia.org/wiki/Jornal_de_Angola"
+      }
+    },
+    "roles": [
+      {
+        "title": "Jornalismo",
+        "careers": [
+          "jornalista",
+          "editor-de-video"
+        ],
+        "requirements": [
+          "Licenciatura em Comunicação Social ou Jornalismo",
+          "Portfólio de peças"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Produção e realização",
+        "careers": [
+          "realizador",
+          "tecnico-de-relacoes-publicas"
+        ],
+        "requirements": [
+          "Formação em Audiovisual ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Digital e design",
+        "careers": [
+          "gestor-de-redes-sociais",
+          "designer-grafico"
+        ],
+        "requirements": [
+          "Portfólio digital",
+          "Domínio de ferramentas de edição"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Técnico de emissão",
+        "careers": [
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electrónica ou Telecomunicações"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 112
   },
   {
@@ -4732,27 +7648,95 @@
     "sector": "comercio",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Cadeia de supermercados em Angola.",
+    "summary": "Empresa angolana de distribuição moderna, só com capitais angolanos, que vende produtos alimentares e não alimentares. Abriu o primeiro hipermercado em Dezembro de 2010.",
     "careers": [
       "gestor-de-loja",
       "tecnico-comercial",
       "tecnico-de-compras",
-      "gestor-de-recursos-humanos"
+      "gestor-de-recursos-humanos",
+      "gestor-de-logistica",
+      "tecnico-de-logistica",
+      "contabilista",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "careersSourced": false,
     "areas": [
+      "contabilidade",
       "gestao_empresas",
       "recursos_humanos",
-      "comercial"
+      "comercial",
+      "logistica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-medio-comercial-de-luanda",
+      "uan",
+      "ucan",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Ver Angola, 2025: o Kero moderniza as suas 12 lojas",
         "url": "https://www.verangola.net/va/pt/032025/Comercio/43781/Kero-vai-investir-830-milh%C3%B5es-de-kwanzas-na-moderniza%C3%A7%C3%A3o-das-suas-12-lojas.htm"
       }
     ],
+    "founded": {
+      "value": "2010",
+      "source": {
+        "label": "Wikipédia: Hipermercados Kero",
+        "url": "https://pt.wikipedia.org/wiki/Hipermercados_Kero"
+      }
+    },
+    "roles": [
+      {
+        "title": "Gestão de loja",
+        "careers": [
+          "gestor-de-loja",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão",
+          "Experiência de atendimento é valorizada"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compras e logística",
+        "careers": [
+          "tecnico-de-compras",
+          "gestor-de-logistica",
+          "tecnico-de-logistica"
+        ],
+        "requirements": [
+          "Formação em Logística ou Gestão",
+          "Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças e pessoas",
+        "careers": [
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing",
+        "careers": [
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Gestão"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 76
   },
   {
@@ -4765,21 +7749,88 @@
     "careers": [
       "auditor",
       "consultor-de-gestao",
-      "tecnico-de-impostos"
+      "tecnico-de-impostos",
+      "contabilista",
+      "analista-financeiro",
+      "jurista",
+      "analista-de-dados",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "dados",
+      "seguranca",
       "contabilidade",
-      "gestao_empresas"
+      "financas",
+      "gestao_empresas",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "pwc-academy-angola"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://kpmg.com/ao"
       }
     ],
+    "website": "https://kpmg.com/ao",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/kpmg-angola"
+    },
+    "roles": [
+      {
+        "title": "Auditoria",
+        "careers": [
+          "auditor",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Auditoria ou Finanças",
+          "Média alta e inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Consultoria e finanças",
+        "careers": [
+          "consultor-de-gestao",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Economia",
+          "Excel e apresentação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Fiscalidade e jurídico",
+        "careers": [
+          "tecnico-de-impostos",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e dados",
+        "careers": [
+          "analista-de-dados",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 67
   },
   {
@@ -4848,7 +7899,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "ensino_secundario"
+      "ensino_primario"
     ],
     "programs": [],
     "partners": [],
@@ -5020,6 +8071,10 @@
         "url": "https://www.jobartis.com"
       }
     ],
+    "website": "https://minea.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/minea_angola"
+    },
     "position": 108
   },
   {
@@ -5047,6 +8102,10 @@
         "url": "https://masfamu.gov.ao"
       }
     ],
+    "website": "https://masfamu.gov.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/masfamu"
+    },
     "position": 106
   },
   {
@@ -5074,6 +8133,10 @@
         "url": "https://www.mat.gov.ao"
       }
     ],
+    "website": "https://mat.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/mat_gov_ao"
+    },
     "position": 105
   },
   {
@@ -5101,6 +8164,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-agricultura-e-floresta.html"
       }
     ],
+    "website": "https://minagrif.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/minagrif_gov_ao"
+    },
     "position": 148
   },
   {
@@ -5129,6 +8196,10 @@
         "url": "https://mincult.gov.ao"
       }
     ],
+    "website": "https://mincult.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/mincult.gov.ao"
+    },
     "position": 115
   },
   {
@@ -5171,6 +8242,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-educacao.html"
       }
     ],
+    "website": "https://med.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/med.gov.ao"
+    },
     "position": 120
   },
   {
@@ -5198,6 +8273,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-da-energia-e-aguas-223a-20a.html"
       }
     ],
+    "website": "https://minea.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/minea_angola"
+    },
     "position": 128
   },
   {
@@ -5227,6 +8306,10 @@
         "url": "https://minjusdh.gov.ao"
       }
     ],
+    "website": "https://minjusdh.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/minjusdh_angola"
+    },
     "position": 98
   },
   {
@@ -5255,6 +8338,7 @@
         "url": "https://www.minfin.gov.ao"
       }
     ],
+    "website": "https://www.minfin.gov.ao",
     "position": 70
   },
   {
@@ -5283,6 +8367,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-das-obras-publicas-urbanismo-e-habitacao.html"
       }
     ],
+    "website": "https://minopuh.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/ministerio_das_obras_publicas"
+    },
     "position": 127
   },
   {
@@ -5309,6 +8397,7 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-das-pescas-e-recursos-marinhos-132a-24a.html"
       }
     ],
+    "website": "https://minpermar.gov.ao",
     "position": 149
   },
   {
@@ -5336,6 +8425,7 @@
         "url": "https://mirex.gov.ao/PortalMIREX/"
       }
     ],
+    "website": "https://mirex.gov.ao",
     "position": 102
   },
   {
@@ -5362,6 +8452,7 @@
         "url": "https://minttics.gov.ao"
       }
     ],
+    "website": "https://minttics.gov.ao",
     "position": 114
   },
   {
@@ -5389,6 +8480,11 @@
         "url": "https://mescti.gov.ao"
       }
     ],
+    "website": "https://mescti.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/mescti.gov.ao",
+      "linkedin": "https://www.linkedin.com/company/minist%C3%A9rio-do-ensino-superior-ci%C3%AAncia-tecnologia-e-inova%C3%A7%C3%A3o"
+    },
     "position": 116
   },
   {
@@ -5415,6 +8511,10 @@
         "url": "https://www.verangola.net/va/pt/092026/Defesa/50038/Minist%C3%A9rio-do-Interior-disponibiliza-calend%C3%A1rio-do-concurso-p%C3%BAblico-Conhe%C3%A7a-as-fases.htm"
       }
     ],
+    "website": "https://minint.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/ministerio_do_interior_"
+    },
     "position": 206
   },
   {
@@ -5467,6 +8567,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-dos-recursos-minerais-petroleo-e-gas.html"
       }
     ],
+    "website": "https://mirempet.gov.ao",
+    "socials": {
+      "instagram": "https://www.instagram.com/mirempet_angola"
+    },
     "position": 136
   },
   {
@@ -5493,6 +8597,10 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/estatuto-organico-do-ministerio-dos-transportes-233a-20a.html"
       }
     ],
+    "website": "https://mintrans.gov.ao",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/lobito-atlantic-railway"
+    },
     "position": 154
   },
   {
@@ -5510,10 +8618,14 @@
       "desenhador-projectista",
       "tecnico-electricista",
       "tecnico-de-seguranca-no-trabalho",
-      "operador-de-maquinas-pesadas"
+      "operador-de-maquinas-pesadas",
+      "arquitecto",
+      "gestor-de-projectos",
+      "engenheiro-electrotecnico"
     ],
     "careersSourced": false,
     "areas": [
+      "gestao_projetos",
       "construcao_civil",
       "arquitectura",
       "engenharia_industrial",
@@ -5521,20 +8633,72 @@
       "mecanica_offshore"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "isptec",
+      "ucan",
+      "instituto-medio-politecnico-industrial-de-luanda"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.mota-engil.com"
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia civil e obras",
+        "careers": [
+          "engenheiro-civil",
+          "tecnico-de-obras",
+          "topografo"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Civil ou curso técnico de Construção",
+          "Disponibilidade para obra"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Orçamentos e projecto",
+        "careers": [
+          "medidor-orcamentista",
+          "arquitecto",
+          "gestor-de-projectos"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia, Arquitectura ou Gestão",
+          "AutoCAD e Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Electricidade e segurança",
+        "careers": [
+          "engenheiro-electrotecnico",
+          "tecnico-de-seguranca-no-trabalho"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 132
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "movicel",
     "name": "Movicel",
     "sector": "telecomunicacoes",
@@ -5553,15 +8717,124 @@
       "cientista-de-dados",
       "product-manager",
       "gestor-de-ti",
-      "designer-ui-ux"
+      "designer-ui-ux",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-marketing-digital",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
       "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "gestao"
+      "gestao",
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "website": "https://www.movicel.com",
+    "activities": [
+      "Telefonia móvel (2G, 3G e 4G)",
+      "Telefonia fixa",
+      "Internet móvel"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Movicel",
+      "url": "https://en.wikipedia.org/wiki/Movicel"
+    },
+    "founded": {
+      "value": "2003",
+      "source": {
+        "label": "Wikipédia: Movicel",
+        "url": "https://en.wikipedia.org/wiki/Movicel"
+      }
+    },
+    "employees": {
+      "value": "≈ 1 500 (2019)",
+      "source": {
+        "label": "Wikipédia: Movicel",
+        "url": "https://en.wikipedia.org/wiki/Movicel"
+      }
+    },
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Movicel",
+        "url": "https://en.wikipedia.org/wiki/Movicel"
+      }
+    },
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 1
   },
   {
@@ -5595,7 +8868,14 @@
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "multitel",
     "name": "Multitel",
     "sector": "telecomunicacoes",
@@ -5603,7 +8883,7 @@
     "logo": "/src/assets/companies/multitel-logo.webp",
     "banner": "/src/assets/companies/multitel-banner-800.webp",
     "website": "https://www.multitel.co.ao",
-    "summary": "Fornecedor de internet e de serviços de telecomunicações.",
+    "summary": "Fornecedor angolano de internet e de serviços de telecomunicações para empresas e particulares.",
     "sources": [
       {
         "label": "Site oficial",
@@ -5617,15 +8897,93 @@
       "cientista-de-dados",
       "product-manager",
       "gestor-de-ti",
-      "designer-ui-ux"
+      "designer-ui-ux",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-marketing-digital",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
       "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "gestao"
+      "gestao",
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 5
   },
   {
@@ -5721,8 +9079,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -5748,7 +9105,8 @@
     ],
     "careersSourced": true,
     "areas": [
-      "ensino_secundario"
+      "ensino_secundario",
+      "ensino_superior"
     ],
     "programs": [],
     "partners": [],
@@ -5790,7 +9148,14 @@
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "paratus",
     "name": "Paratus Angola",
     "sector": "telecomunicacoes",
@@ -5812,15 +9177,93 @@
       "cientista-de-dados",
       "product-manager",
       "gestor-de-ti",
-      "designer-ui-ux"
+      "designer-ui-ux",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-marketing-digital",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
       "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "gestao"
+      "gestao",
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 6
   },
   {
@@ -5866,7 +9309,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "ensino_secundario"
+      "desporto"
     ],
     "programs": [],
     "partners": [],
@@ -6005,6 +9448,12 @@
         "url": "https://unjobs.org/offices/undp_lad"
       }
     ],
+    "website": "https://www.undp.org/pt/angola",
+    "socials": {
+      "facebook": "https://www.facebook.com/PnudAngola",
+      "instagram": "https://www.instagram.com/undpangola",
+      "linkedin": "https://www.linkedin.com/company/undpangola"
+    },
     "position": 212
   },
   {
@@ -6041,21 +9490,92 @@
     "careers": [
       "gestor-portuario",
       "tecnico-de-logistica",
-      "despachante-aduaneiro"
+      "despachante-aduaneiro",
+      "gestor-de-logistica",
+      "engenheiro-civil",
+      "operador-de-maquinas-pesadas",
+      "rigger-e-operador-de-grua",
+      "tecnico-de-seguranca-no-trabalho",
+      "analista-financeiro"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "construcao_civil",
+      "engenharia_industrial",
+      "mecanica_offshore",
       "logistica",
       "transportes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "centro-de-formacao-maritima-de-angola",
+      "uan",
+      "isptec",
+      "ucan"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.portoluanda.co.ao"
       }
     ],
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Porto de Luanda",
+        "url": "https://pt.wikipedia.org/wiki/Porto_de_Luanda"
+      }
+    },
+    "roles": [
+      {
+        "title": "Gestão portuária",
+        "careers": [
+          "gestor-portuario",
+          "despachante-aduaneiro"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Logística ou Transportes"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Logística",
+        "careers": [
+          "gestor-de-logistica",
+          "tecnico-de-logistica"
+        ],
+        "requirements": [
+          "Formação em Logística"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Obras e equipamentos",
+        "careers": [
+          "engenheiro-civil",
+          "operador-de-maquinas-pesadas",
+          "rigger-e-operador-de-grua"
+        ],
+        "requirements": [
+          "Engenharia Civil ou curso técnico",
+          "Certificado de operador"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 156
   },
   {
@@ -6260,7 +9780,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "construcao_civil"
+      "arquitectura"
     ],
     "programs": [],
     "partners": [],
@@ -6286,7 +9806,7 @@
     ],
     "careersSourced": false,
     "areas": [
-      "ensino_secundario"
+      "desporto"
     ],
     "programs": [],
     "partners": [],
@@ -6310,7 +9830,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "ensino_secundario"
+      "ensino_superior"
     ],
     "programs": [],
     "partners": [],
@@ -6373,6 +9893,12 @@
         "url": "https://provedordejustica.ao"
       }
     ],
+    "website": "https://provedordejustica.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/provjus",
+      "instagram": "https://www.instagram.com/provedordejustica",
+      "linkedin": "https://www.linkedin.com/company/provedoria-de-justi%C3%A7a-de-angola"
+    },
     "position": 101
   },
   {
@@ -6385,21 +9911,84 @@
     "careers": [
       "auditor",
       "consultor-de-gestao",
-      "tecnico-de-impostos"
+      "tecnico-de-impostos",
+      "contabilista",
+      "analista-financeiro",
+      "jurista",
+      "analista-de-dados",
+      "analista-de-ciberseguranca"
     ],
     "careersSourced": false,
     "areas": [
+      "dados",
+      "seguranca",
       "contabilidade",
-      "gestao_empresas"
+      "financas",
+      "gestao_empresas",
+      "advocacia"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "pwc-academy-angola"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.pwc.com/ao"
       }
     ],
+    "roles": [
+      {
+        "title": "Auditoria",
+        "careers": [
+          "auditor",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Auditoria ou Finanças",
+          "Média alta e inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Consultoria e finanças",
+        "careers": [
+          "consultor-de-gestao",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Economia",
+          "Excel e apresentação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Fiscalidade e jurídico",
+        "careers": [
+          "tecnico-de-impostos",
+          "jurista"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e dados",
+        "careers": [
+          "analista-de-dados",
+          "analista-de-ciberseguranca"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 65
   },
   {
@@ -6436,21 +10025,114 @@
     "careers": [
       "jornalista",
       "revisor-de-textos",
-      "editor-de-video"
+      "editor-de-video",
+      "realizador",
+      "tecnico-de-relacoes-publicas",
+      "gestor-de-redes-sociais",
+      "designer-grafico",
+      "tecnico-de-telecomunicacoes"
     ],
     "careersSourced": false,
     "areas": [
+      "telecomunicacoes",
+      "design",
       "comunicacao_social",
-      "linguas"
+      "linguas",
+      "artes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "centro-de-formacao-de-jornalistas-cefojor",
+      "isutic",
+      "uan",
+      "ucan",
+      "instituto-superior-de-artes"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.rna.ao"
       }
     ],
+    "website": "https://rna.ao",
+    "activities": [
+      "Estações de Luanda",
+      "18 estações regionais",
+      "Serviço Internacional"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Rádio Nacional de Angola",
+      "url": "https://pt.wikipedia.org/wiki/R%C3%A1dio_Nacional_de_Angola"
+    },
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Rádio Nacional de Angola",
+        "url": "https://pt.wikipedia.org/wiki/R%C3%A1dio_Nacional_de_Angola"
+      }
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/rnangola",
+      "instagram": "https://www.instagram.com/rnangola"
+    },
+    "roles": [
+      {
+        "title": "Jornalismo",
+        "careers": [
+          "jornalista",
+          "editor-de-video"
+        ],
+        "requirements": [
+          "Licenciatura em Comunicação Social ou Jornalismo",
+          "Portfólio de peças"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Produção e realização",
+        "careers": [
+          "realizador",
+          "tecnico-de-relacoes-publicas"
+        ],
+        "requirements": [
+          "Formação em Audiovisual ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Digital e design",
+        "careers": [
+          "gestor-de-redes-sociais",
+          "designer-grafico"
+        ],
+        "requirements": [
+          "Portfólio digital",
+          "Domínio de ferramentas de edição"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Técnico de emissão",
+        "careers": [
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electrónica ou Telecomunicações"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "António Sebastião Lino",
+        "role": "Presidente do Conselho de Administração",
+        "source": {
+          "label": "Ver Angola, 01/2026",
+          "url": "https://www.verangola.net/va/pt/012026/Telecomunicacoes/47382/Sebastião-Lino-passa-a-liderar-Conselho-de-Administração-da-RNA.htm"
+        }
+      }
+    ],
+    "estimated": true,
     "position": 110
   },
   {
@@ -6487,7 +10169,7 @@
       "gestao_empresas",
       "recursos_humanos",
       "comercial",
-      "construcao_civil"
+      "engenharia_industrial"
     ],
     "programs": [],
     "partners": [],
@@ -6513,7 +10195,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "petroleo_gas"
+      "petroleo_gas",
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -6551,7 +10234,14 @@
       "tecnico-de-recrutamento",
       "tecnico-de-salarios",
       "tecnico-de-qualidade-alimentar",
-      "quimico"
+      "quimico",
+      "engenheiro-de-producao-industrial",
+      "engenheiro-quimico",
+      "engenheiro-de-manutencao",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-electricista",
+      "gestor-de-logistica",
+      "tecnico-de-seguranca-no-trabalho"
     ],
     "careersSourced": false,
     "areas": [
@@ -6561,16 +10251,95 @@
       "recursos_humanos",
       "comercial",
       "ciencias_vida",
-      "ciencias_exactas"
+      "ciencias_exactas",
+      "engenharia_industrial",
+      "engenharia_electrica",
+      "mecanica_offshore",
+      "logistica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "instituto-medio-industrial-de-luanda",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "website": "https://www.refriango.com",
+    "activities": [
+      "Refrigerantes",
+      "Sumos",
+      "Água",
+      "Bebidas energéticas e alcoólicas"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.refriango.com"
+    },
+    "headquarters": {
+      "value": "Edifício Nuvi, Rua D. Eduardo André Muaca, Lote C4, Bairro Palanca, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.refriango.com"
+      }
+    },
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/refriangoangola/mycompany"
+    },
+    "roles": [
+      {
+        "title": "Produção e qualidade",
+        "careers": [
+          "engenheiro-de-producao-industrial",
+          "tecnico-de-qualidade-alimentar",
+          "engenheiro-quimico"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Industrial, Química ou Alimentar"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Manutenção",
+        "careers": [
+          "engenheiro-de-manutencao",
+          "tecnico-de-manutencao-mecanica",
+          "tecnico-electricista"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electricidade"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Logística e comercial",
+        "careers": [
+          "gestor-de-logistica",
+          "gestor-comercial"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão ou Logística"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "contabilista"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 78
   },
   {
@@ -6609,20 +10378,71 @@
       "gestor-hoteleiro",
       "recepcionista-de-hotel",
       "chefe-de-cozinha",
-      "gestor-de-restauracao"
+      "gestor-de-restauracao",
+      "cozinheiro",
+      "tecnico-de-turismo",
+      "guia-turistico"
     ],
     "careersSourced": false,
     "areas": [
       "turismo"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "escola-de-hotelaria-e-restauracao-de-talatona",
+      "escola-de-hotelaria-e-turismo-de-cabinda",
+      "uan"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.sanahotels.com"
       }
     ],
+    "website": "https://www.sanahotels.com/pt",
+    "socials": {
+      "facebook": "https://www.facebook.com/sanahotels",
+      "instagram": "https://www.instagram.com/sanahotels",
+      "linkedin": "https://www.linkedin.com/company/sana-hotels"
+    },
+    "roles": [
+      {
+        "title": "Gestão hoteleira",
+        "careers": [
+          "gestor-hoteleiro",
+          "recepcionista-de-hotel"
+        ],
+        "requirements": [
+          "Curso de Hotelaria ou Turismo",
+          "Inglês e simpatia ao balcão"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Cozinha e restauração",
+        "careers": [
+          "chefe-de-cozinha",
+          "cozinheiro",
+          "gestor-de-restauracao"
+        ],
+        "requirements": [
+          "Escola de hotelaria e experiência de cozinha"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Turismo",
+        "careers": [
+          "tecnico-de-turismo",
+          "guia-turistico"
+        ],
+        "requirements": [
+          "Formação em Turismo e línguas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 160
   },
   {
@@ -6667,8 +10487,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -6718,8 +10537,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "gestao_projetos",
-      "gestao"
+      "gestao",
+      "gestao_projetos"
     ],
     "programs": [],
     "partners": [
@@ -6788,6 +10607,7 @@
         "url": "https://sic.gov.ao"
       }
     ],
+    "website": "https://sic.gov.ao",
     "position": 100
   },
   {
@@ -6804,8 +10624,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -6823,27 +10642,89 @@
     "sector": "comercio",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Cadeia de supermercados em Angola.",
+    "summary": "Cadeia de supermercados do grupo sul-africano Shoprite a operar em Angola.",
     "careers": [
       "gestor-de-loja",
       "tecnico-comercial",
       "tecnico-de-compras",
-      "gestor-de-recursos-humanos"
+      "gestor-de-recursos-humanos",
+      "gestor-de-logistica",
+      "tecnico-de-logistica",
+      "contabilista",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "careersSourced": false,
     "areas": [
+      "contabilidade",
       "gestao_empresas",
       "recursos_humanos",
-      "comercial"
+      "comercial",
+      "logistica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-medio-comercial-de-luanda",
+      "uan",
+      "ucan",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Ver Angola, 2017: a Shoprite investe para quase duplicar a rede em Angola",
         "url": "https://www.verangola.net/va/pt/042017/ComercioIndustria/7954/Sul-africanos-da-Shoprite-investem-mais-de--700-milhões-para-quase-duplicar-rede-em-Angola.htm"
       }
     ],
+    "website": "https://www.shoprite.co.ao",
+    "roles": [
+      {
+        "title": "Gestão de loja",
+        "careers": [
+          "gestor-de-loja",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão",
+          "Experiência de atendimento é valorizada"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compras e logística",
+        "careers": [
+          "tecnico-de-compras",
+          "gestor-de-logistica",
+          "tecnico-de-logistica"
+        ],
+        "requirements": [
+          "Formação em Logística ou Gestão",
+          "Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças e pessoas",
+        "careers": [
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Licenciatura na área"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing",
+        "careers": [
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Gestão"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 75
   },
   {
@@ -6889,6 +10770,7 @@
     ],
     "careersSourced": true,
     "areas": [
+      "advocacia",
       "administracao_publica"
     ],
     "programs": [],
@@ -6907,28 +10789,69 @@
     "sector": "mineracao",
     "province": "Luanda",
     "place": "Luanda",
-    "summary": "Explora a maior mina de diamantes de Angola, na Lunda Sul.",
+    "summary": "A maior empresa de diamantes de Angola, na mina de Catoca (Lunda Sul), uma das maiores minas a céu aberto do mundo. Os accionistas são a Endiama e a Taadeen Investment, do fundo soberano de Omã.",
     "careers": [
       "engenheiro-de-minas",
       "geologo",
       "engenheiro-metalurgico",
       "tecnico-de-seguranca-no-trabalho",
-      "operador-de-maquinas-pesadas"
+      "operador-de-maquinas-pesadas",
+      "engenheiro-mecanico",
+      "engenheiro-de-manutencao",
+      "tecnico-de-manutencao-mecanica",
+      "contabilista",
+      "tecnico-de-recursos-humanos"
     ],
     "careersSourced": false,
     "areas": [
+      "contabilidade",
+      "recursos_humanos",
       "engenharia_industrial",
       "minas_geologia",
       "mecanica_offshore"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "isptec",
+      "ucan",
+      "inefop"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://www.catoca.com"
       }
     ],
+    "website": "https://www.catoca.com",
+    "activities": [
+      "Prospecção, exploração, recuperação e comercialização de diamantes"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.catoca.com"
+    },
+    "founded": {
+      "value": "1996 (início da operação)",
+      "source": {
+        "label": "Wikipédia: Mina de diamantes Catoca",
+        "url": "https://pt.wikipedia.org/wiki/Mina_de_diamantes_Catoca"
+      }
+    },
+    "employees": {
+      "value": "mais de 3 300",
+      "source": {
+        "label": "Wikipédia: Mina de diamantes Catoca",
+        "url": "https://pt.wikipedia.org/wiki/Mina_de_diamantes_Catoca"
+      }
+    },
+    "headquarters": {
+      "value": "Mina de Catoca, Saurimo (Lunda Sul), e Talatona, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.catoca.com"
+      }
+    },
     "people": [
       {
         "name": "Pedro Inácio Velasco Galiano",
@@ -6939,6 +10862,63 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://www.facebook.com/catoca.oficial",
+      "instagram": "https://www.instagram.com/sociedade_mineira_de_catoca",
+      "linkedin": "https://www.linkedin.com/company/catoca"
+    },
+    "roles": [
+      {
+        "title": "Geologia e minas",
+        "careers": [
+          "geologo",
+          "engenheiro-de-minas"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Engenharia de Minas",
+          "Disponibilidade para viver na mina"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Processamento e metalurgia",
+        "careers": [
+          "engenheiro-metalurgico",
+          "engenheiro-mecanico",
+          "engenheiro-de-manutencao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia",
+          "Formação em segurança industrial"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação de máquinas",
+        "careers": [
+          "operador-de-maquinas-pesadas",
+          "tecnico-de-manutencao-mecanica"
+        ],
+        "requirements": [
+          "Ensino médio técnico",
+          "Certificado de operador"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Apoio e gestão",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "contabilista",
+          "tecnico-de-recursos-humanos"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 139
   },
   {
@@ -7004,7 +10984,8 @@
     ],
     "careersSourced": false,
     "areas": [
-      "minas_geologia"
+      "minas_geologia",
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -7090,7 +11071,13 @@
     "careersSourced": false,
     "programs": [],
     "partners": [
-      "isptec"
+      "isptec",
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
     ],
     "id": "sonangol",
     "logo": "/src/assets/companies/sonangol-logo.webp",
@@ -7110,7 +11097,14 @@
       "engenheiro-de-processos-de-refinacao",
       "operador-de-producao-petrolifera",
       "geologo",
-      "geofisico"
+      "geofisico",
+      "engenheiro-mecanico",
+      "tecnico-de-instrumentacao",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "sources": [
       {
@@ -7126,8 +11120,13 @@
       "dados",
       "infraestrutura",
       "seguranca",
+      "financas",
+      "advocacia",
+      "engenharia_industrial",
       "petroleo_gas",
-      "minas_geologia"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "activities": [
       "Prospecção e produção de petróleo e gás",
@@ -7157,6 +11156,76 @@
         }
       }
     ],
+    "socials": {
+      "facebook": "https://facebook.com/sonangoloficial",
+      "instagram": "https://instagram.com/sonangoloficial",
+      "linkedin": "https://www.linkedin.com/company/sonangoloficial"
+    },
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 20
   },
   {
@@ -7172,8 +11241,7 @@
     ],
     "careersSourced": true,
     "areas": [
-      "mecanica_offshore",
-      "petroleo_gas"
+      "mecanica_offshore"
     ],
     "programs": [],
     "partners": [],
@@ -7279,14 +11347,22 @@
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "ucan",
+      "isptec",
+      "isutic",
+      "instituto-medio-de-economia-de-luanda",
+      "instituto-medio-comercial-de-luanda",
+      "academia-de-seguros-e-fundos-de-pensoes"
+    ],
     "id": "standard-bank",
     "name": "Standard Bank Angola",
     "sector": "banca",
     "place": "Luanda",
     "banner": "/src/assets/companies/standard-bank-banner-800.webp",
     "website": "https://www.standardbank.co.ao",
-    "summary": "Banco do grupo sul-africano Standard Bank.",
+    "summary": "Banco do grupo sul-africano Standard Bank, com serviços para particulares, empresas e grandes empresas. Em 2026 passou a estar cotado na bolsa (BODIVA).",
     "sources": [
       {
         "label": "Site oficial",
@@ -7302,15 +11378,48 @@
       "desenvolvedor-frontend",
       "desenvolvedor-mobile",
       "designer-ui-ux",
-      "gestor-de-ti"
+      "gestor-de-ti",
+      "gestor-de-clientes-bancario",
+      "operador-de-caixa-bancario",
+      "analista-de-credito",
+      "analista-de-risco",
+      "tecnico-de-compliance",
+      "auditor-interno",
+      "tesoureiro",
+      "contabilista",
+      "administrador-de-redes",
+      "tecnico-de-recursos-humanos",
+      "gestor-de-marketing"
     ],
     "areas": [
       "desenvolvimento",
       "dados",
+      "infraestrutura",
       "seguranca",
       "design",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "financas",
+      "banca_seguros",
+      "recursos_humanos",
+      "comercial"
     ],
+    "activities": [
+      "Particulares",
+      "Empresas",
+      "Grandes empresas (banca de investimento, tesouraria)"
+    ],
+    "activitiesSource": {
+      "label": "Site oficial",
+      "url": "https://www.standardbank.co.ao"
+    },
+    "headquarters": {
+      "value": "Inara Business Park & Gardens, Torre 1, Via A2, Talatona, Luanda",
+      "source": {
+        "label": "Site oficial",
+        "url": "https://www.standardbank.co.ao"
+      }
+    },
     "people": [
       {
         "name": "Luís Teles",
@@ -7321,13 +11430,113 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Gestor de clientes",
+        "careers": [
+          "gestor-de-clientes-bancario"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Gestão ou Finanças",
+          "Gosto por vender e falar com pessoas"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Atendimento e caixa",
+        "careers": [
+          "operador-de-caixa-bancario"
+        ],
+        "requirements": [
+          "Ensino médio em Contabilidade, Economia ou Administração",
+          "Rigor com dinheiro"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Crédito e risco",
+        "careers": [
+          "analista-de-credito",
+          "analista-de-risco"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Finanças ou Matemática",
+          "Domínio de Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Compliance e auditoria",
+        "careers": [
+          "tecnico-de-compliance",
+          "auditor-interno"
+        ],
+        "requirements": [
+          "Licenciatura em Direito, Economia ou Contabilidade",
+          "Conhecimento das regras do BNA"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tesouraria e contabilidade",
+        "careers": [
+          "tesoureiro",
+          "contabilista"
+        ],
+        "requirements": [
+          "Licenciatura em Contabilidade, Finanças ou Economia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Tecnologia e segurança",
+        "careers": [
+          "desenvolvedor-backend",
+          "analista-de-ciberseguranca",
+          "administrador-de-redes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Informática ou afins",
+          "Certificações são uma mais-valia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Recursos humanos e marketing",
+        "careers": [
+          "tecnico-de-recursos-humanos",
+          "gestor-de-marketing"
+        ],
+        "requirements": [
+          "Licenciatura em Gestão, Psicologia ou Marketing"
+        ],
+        "estimated": true
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Pretendemos fazer do Standard Bank de Angola um líder no desenvolvimento de jovens licenciados",
+        "speaker": "Alexandre Sambo",
+        "role": "Direcção de Capital Humano do Standard Bank de Angola",
+        "date": "2017-10-18",
+        "outlet": "Expansão",
+        "url": "https://expansao.co.ao/gestao/detalhe/standard-bank-aposta-no-enquadramento-de-recem-formados-51510.html",
+        "topic": "contratacao"
+      }
+    ],
+    "estimated": true,
     "position": 10
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "uan",
+      "ucan",
+      "instituto-medio-industrial-de-luanda"
+    ],
     "id": "taag",
     "logo": "/src/assets/companies/taag-logo.webp",
     "name": "TAAG Angola Airlines",
@@ -7345,11 +11554,24 @@
     "careers": [
       "analista-de-sistemas",
       "administrador-de-redes",
-      "tecnico-de-suporte"
+      "tecnico-de-suporte",
+      "tecnico-de-transportes",
+      "engenheiro-de-transportes",
+      "inspector-de-aviacao-civil",
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-de-manutencao",
+      "tecnico-de-manutencao-mecanica",
+      "tecnico-comercial",
+      "contabilista"
     ],
     "areas": [
       "infraestrutura",
-      "gestao"
+      "gestao",
+      "contabilidade",
+      "comercial",
+      "engenharia_industrial",
+      "mecanica_offshore",
+      "transportes"
     ],
     "founded": {
       "value": "1938",
@@ -7380,6 +11602,54 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Operações e transportes",
+        "careers": [
+          "tecnico-de-transportes",
+          "engenheiro-de-transportes"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia ou Gestão de Transportes"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Aviação e segurança",
+        "careers": [
+          "inspector-de-aviacao-civil",
+          "tecnico-de-seguranca-no-trabalho"
+        ],
+        "requirements": [
+          "Formação aeronáutica ou em segurança",
+          "Inglês"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Manutenção",
+        "careers": [
+          "engenheiro-de-manutencao",
+          "tecnico-de-manutencao-mecanica"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Comercial e finanças",
+        "careers": [
+          "tecnico-comercial",
+          "contabilista"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 23
   },
   {
@@ -7418,20 +11688,73 @@
       "engenheiro-civil",
       "tecnico-de-obras",
       "medidor-orcamentista",
-      "topografo"
+      "topografo",
+      "arquitecto",
+      "gestor-de-projectos",
+      "engenheiro-electrotecnico",
+      "tecnico-de-seguranca-no-trabalho"
     ],
     "careersSourced": false,
     "areas": [
-      "construcao_civil"
+      "gestao_projetos",
+      "construcao_civil",
+      "arquitectura",
+      "engenharia_industrial",
+      "engenharia_electrica"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "uan",
+      "isptec",
+      "ucan",
+      "instituto-medio-politecnico-industrial-de-luanda"
+    ],
     "sources": [
       {
         "label": "Angorecruta: vagas da Teixeira Duarte (2026)",
         "url": "https://angorecruta.com/a-teixeira-duarte-tem-vagas-de-emprego-em-diversas-areas/"
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia civil e obras",
+        "careers": [
+          "engenheiro-civil",
+          "tecnico-de-obras",
+          "topografo"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia Civil ou curso técnico de Construção",
+          "Disponibilidade para obra"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Orçamentos e projecto",
+        "careers": [
+          "medidor-orcamentista",
+          "arquitecto",
+          "gestor-de-projectos"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia, Arquitectura ou Gestão",
+          "AutoCAD e Excel"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Electricidade e segurança",
+        "careers": [
+          "engenheiro-electrotecnico",
+          "tecnico-de-seguranca-no-trabalho"
+        ],
+        "requirements": [
+          "Formação na área"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 185
   },
   {
@@ -7444,28 +11767,118 @@
     "careers": [
       "jornalista",
       "realizador",
-      "editor-de-video"
+      "editor-de-video",
+      "tecnico-de-relacoes-publicas",
+      "gestor-de-redes-sociais",
+      "designer-grafico",
+      "tecnico-de-telecomunicacoes"
     ],
     "careersSourced": false,
     "areas": [
+      "telecomunicacoes",
+      "design",
       "comunicacao_social",
       "artes"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "centro-de-formacao-de-jornalistas-cefojor",
+      "isutic",
+      "uan",
+      "ucan",
+      "instituto-superior-de-artes"
+    ],
     "sources": [
       {
         "label": "Página oficial",
         "url": "https://tpa.ao"
       }
     ],
+    "activities": [
+      "TPA 1",
+      "TPA 2",
+      "TPA Notícias"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: Televisão Pública de Angola",
+      "url": "https://en.wikipedia.org/wiki/Televis%C3%A3o_P%C3%BAblica_de_Angola"
+    },
+    "founded": {
+      "value": "1973",
+      "source": {
+        "label": "Wikipédia: Televisão Pública de Angola",
+        "url": "https://en.wikipedia.org/wiki/Televis%C3%A3o_P%C3%BAblica_de_Angola"
+      }
+    },
+    "headquarters": {
+      "value": "Luanda",
+      "source": {
+        "label": "Wikipédia: Televisão Pública de Angola",
+        "url": "https://en.wikipedia.org/wiki/Televis%C3%A3o_P%C3%BAblica_de_Angola"
+      }
+    },
+    "roles": [
+      {
+        "title": "Jornalismo",
+        "careers": [
+          "jornalista",
+          "editor-de-video"
+        ],
+        "requirements": [
+          "Licenciatura em Comunicação Social ou Jornalismo",
+          "Portfólio de peças"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Produção e realização",
+        "careers": [
+          "realizador",
+          "tecnico-de-relacoes-publicas"
+        ],
+        "requirements": [
+          "Formação em Audiovisual ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Digital e design",
+        "careers": [
+          "gestor-de-redes-sociais",
+          "designer-grafico"
+        ],
+        "requirements": [
+          "Portfólio digital",
+          "Domínio de ferramentas de edição"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Técnico de emissão",
+        "careers": [
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Ensino médio técnico em Electrónica ou Telecomunicações"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 109
   },
   {
     "province": "Luanda",
     "careersSourced": true,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "tis-tech-angola",
     "name": "TIS TECH Angola",
     "sector": "tecnologia",
@@ -7483,6 +11896,99 @@
     "areas": [
       "desenvolvimento"
     ],
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "people": [
+      {
+        "name": "William de Oliveira",
+        "role": "CEO",
+        "source": {
+          "label": "Forbes África Lusófona, 12/07/2026",
+          "url": "https://forbesafricalusofona.com/adn-tis-2026-integra-30-estagiarios-para-aproximar-jovens-angolanos-do-mercado-de-trabalho/"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Todos nós somos profissionais porque alguém nos deu uma oportunidade.",
+        "speaker": "William de Oliveira",
+        "role": "CEO da TIS",
+        "date": "2026-07-12",
+        "outlet": "Forbes África Lusófona",
+        "url": "https://forbesafricalusofona.com/adn-tis-2026-integra-30-estagiarios-para-aproximar-jovens-angolanos-do-mercado-de-trabalho/",
+        "topic": "estagios"
+      },
+      {
+        "text": "A ideia do ADN TIS é dar a estes jovens a oportunidade de se mostrarem ao mercado de trabalho",
+        "speaker": "William de Oliveira",
+        "role": "CEO da TIS",
+        "date": "2026-07-12",
+        "outlet": "Forbes África Lusófona",
+        "url": "https://forbesafricalusofona.com/adn-tis-2026-integra-30-estagiarios-para-aproximar-jovens-angolanos-do-mercado-de-trabalho/",
+        "topic": "estagios"
+      }
+    ],
+    "estimated": true,
     "position": 25
   },
   {
@@ -7497,22 +12003,43 @@
       "operador-de-producao-petrolifera",
       "tecnico-de-manutencao-mecanica",
       "tecnico-de-instrumentacao",
-      "tecnico-de-seguranca-no-trabalho"
+      "tecnico-de-seguranca-no-trabalho",
+      "engenheiro-de-perfuracao",
+      "geologo",
+      "geofisico",
+      "engenheiro-mecanico",
+      "engenheiro-do-ambiente",
+      "analista-financeiro",
+      "jurista",
+      "tecnico-de-procurement"
     ],
     "careersSourced": false,
     "areas": [
+      "financas",
+      "advocacia",
       "engenharia_industrial",
       "petroleo_gas",
-      "mecanica_offshore"
+      "minas_geologia",
+      "mecanica_offshore",
+      "ambiente"
     ],
     "programs": [],
-    "partners": [],
+    "partners": [
+      "instituto-nacional-de-petroleos",
+      "uan",
+      "isptec",
+      "ucan",
+      "academia-petroangola",
+      "centro-de-formacao-maritima-de-angola",
+      "instituto-profissional-de-gestao-de-petroleo"
+    ],
     "sources": [
       {
         "label": "Anúncios de emprego (Jobartis, AngoEmprego e outros)",
         "url": "https://www.jobartis.com"
       }
     ],
+    "website": "https://totalenergies.com",
     "people": [
       {
         "name": "Martin Deffontaines",
@@ -7523,6 +12050,71 @@
         }
       }
     ],
+    "roles": [
+      {
+        "title": "Engenharia de petróleos e perfuração",
+        "careers": [
+          "engenheiro-de-petroleos",
+          "engenheiro-de-perfuracao"
+        ],
+        "requirements": [
+          "Licenciatura em Engenharia de Petróleos ou Química",
+          "Inglês técnico",
+          "Cursos de segurança offshore"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Geociências",
+        "careers": [
+          "geologo",
+          "geofisico"
+        ],
+        "requirements": [
+          "Licenciatura em Geologia ou Geofísica",
+          "Inglês técnico"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Operação e manutenção",
+        "careers": [
+          "operador-de-producao-petrolifera",
+          "engenheiro-mecanico",
+          "tecnico-de-instrumentacao"
+        ],
+        "requirements": [
+          "Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia",
+          "Certificados de segurança (BOSIET)"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança, saúde e ambiente",
+        "careers": [
+          "tecnico-de-seguranca-no-trabalho",
+          "engenheiro-do-ambiente"
+        ],
+        "requirements": [
+          "Formação em HSE ou Engenharia"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Finanças, jurídico e compras",
+        "careers": [
+          "analista-financeiro",
+          "jurista",
+          "tecnico-de-procurement"
+        ],
+        "requirements": [
+          "Licenciatura em Economia, Direito ou Gestão",
+          "Inglês"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "logo": "/src/assets/companies/totalenergies-logo.webp",
     "position": 142
   },
@@ -7575,6 +12167,10 @@
         "url": "https://www.tribunalconstitucional.ao"
       }
     ],
+    "website": "https://www.tribunalconstitucional.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/tribunalconstiticionalangola.ao"
+    },
     "position": 95
   },
   {
@@ -7602,13 +12198,25 @@
         "url": "https://tribunalsupremo.ao"
       }
     ],
+    "website": "https://tribunalsupremo.ao",
+    "socials": {
+      "facebook": "https://www.facebook.com/tribunalsupremodeangola",
+      "instagram": "https://www.instagram.com/tribunal_supremo"
+    },
     "position": 94
   },
   {
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "tv-cabo",
     "name": "TV Cabo Angola",
     "sector": "televisao",
@@ -7627,14 +12235,104 @@
       "tecnico-de-telecomunicacoes",
       "tecnico-de-suporte",
       "gestor-de-marketing-digital",
-      "designer-grafico"
+      "designer-grafico",
+      "engenheiro-de-telecomunicacoes",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
+      "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "digital"
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "activities": [
+      "Televisão por subscrição"
+    ],
+    "activitiesSource": {
+      "label": "Wikipédia: TV Cabo",
+      "url": "https://pt.wikipedia.org/wiki/TV_Cabo"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/TVCABOAngola",
+      "instagram": "https://www.instagram.com/tvcabo_angola",
+      "linkedin": "https://www.linkedin.com/company/tvcabo-angola"
+    },
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 18
   },
   {
@@ -7659,6 +12357,12 @@
         "url": "https://jobs.unicef.org/en-us/job/595373"
       }
     ],
+    "website": "https://www.unicef.org/angola",
+    "socials": {
+      "facebook": "https://www.facebook.com/unicef",
+      "instagram": "https://www.instagram.com/unicef",
+      "linkedin": "https://www.linkedin.com/company/unicef"
+    },
     "position": 211
   },
   {
@@ -7674,7 +12378,14 @@
         }
       }
     ],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "unitel",
     "name": "Unitel",
     "sector": "telecomunicacoes",
@@ -7831,6 +12542,66 @@
           "label": "beBee, candidatura espontânea da Unitel (2026)",
           "url": "https://bebee.com/ao/jobs/oportunidades-de-carreira-candidatura-espontanea-unitel-luanda--ss-ao-h4md4k"
         }
+      },
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
       }
     ],
     "people": [
@@ -7843,6 +12614,7 @@
         }
       }
     ],
+    "estimated": true,
     "position": 0
   },
   {
@@ -7976,7 +12748,14 @@
     "province": "Luanda",
     "careersSourced": false,
     "programs": [],
-    "partners": [],
+    "partners": [
+      "isptec",
+      "isutic",
+      "itel",
+      "uan",
+      "ucan",
+      "cinfotec"
+    ],
     "id": "zap",
     "name": "ZAP",
     "sector": "televisao",
@@ -7994,14 +12773,92 @@
       "tecnico-de-telecomunicacoes",
       "tecnico-de-suporte",
       "gestor-de-marketing-digital",
-      "designer-grafico"
+      "designer-grafico",
+      "engenheiro-de-telecomunicacoes",
+      "desenvolvedor-backend",
+      "administrador-de-sistemas",
+      "analista-de-dados",
+      "gestor-comercial",
+      "tecnico-comercial",
+      "gestor-de-redes-sociais",
+      "analista-de-ciberseguranca",
+      "analista-financeiro"
     ],
     "areas": [
+      "desenvolvimento",
+      "dados",
       "infraestrutura",
+      "seguranca",
       "telecomunicacoes",
       "design",
-      "digital"
+      "digital",
+      "financas",
+      "comercial",
+      "comunicacao_social"
     ],
+    "roles": [
+      {
+        "title": "Redes e telecomunicações",
+        "careers": [
+          "engenheiro-de-telecomunicacoes",
+          "tecnico-de-telecomunicacoes"
+        ],
+        "requirements": [
+          "Engenharia de Telecomunicações ou Electrotécnica",
+          "Disponibilidade para trabalho de campo"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Sistemas e desenvolvimento",
+        "careers": [
+          "desenvolvedor-backend",
+          "administrador-de-sistemas",
+          "analista-de-dados"
+        ],
+        "requirements": [
+          "Engenharia Informática ou afins",
+          "Portfólio de projectos"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Vendas e clientes",
+        "careers": [
+          "gestor-comercial",
+          "tecnico-comercial"
+        ],
+        "requirements": [
+          "Ensino médio ou licenciatura em Gestão ou Marketing",
+          "Boa comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Marketing digital",
+        "careers": [
+          "gestor-de-marketing-digital",
+          "gestor-de-redes-sociais"
+        ],
+        "requirements": [
+          "Licenciatura em Marketing ou Comunicação"
+        ],
+        "estimated": true
+      },
+      {
+        "title": "Segurança e finanças",
+        "careers": [
+          "analista-de-ciberseguranca",
+          "analista-financeiro"
+        ],
+        "requirements": [
+          "Licenciatura na área",
+          "Certificações de segurança ou finanças valorizadas"
+        ],
+        "estimated": true
+      }
+    ],
+    "estimated": true,
     "position": 19
   },
   {

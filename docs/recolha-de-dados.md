@@ -22,7 +22,7 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Carreiras com salário publicado | 68 | As outras mostram "—" até haver fonte |
 | Academias | 167 | Instituições reais |
 | Cursos no catálogo | 422 | |
-| Empresas | 252 | 19 pessoas com nome, cargo e fonte |
+| Empresas | 252 | 22 com líderes (nome, cargo e fonte), 77 com site, 5 com citações |
 | Bolsas | 19 | |
 | Estágios e programas de trainee | 13 | |
 | Admissões (exames e candidaturas) | 14 | |
@@ -221,6 +221,18 @@ Em `apps/web/src/data/demo/companyProfiles.ts`, por id, aplicado a todas as 252 
 - **Notícias** (15, datadas, com fonte): Unitel (2), Africell, Angola Cables, BAI, BFA, Sonangol, TAAG (2), Endiama, Catoca, TotalEnergies, Chevron, Angola LNG e ENDE. Os programas para jovens e o memorando PMI–Selenium também ficaram ligados às empresas.
 - **Imagens novas** (Wikimedia Commons): logótipos da TotalEnergies, da Chevron e da Endiama (domínio público). Rejeitada outra vez uma foto "Banco Sol" do Commons (é do BancoSol de Santa Cruz, Bolívia). Sem imagem livre: Banco Sol, Standard Bank (logótipo), Movicel, Angola LNG, Azule Energy e Catoca (só imagens de radar).
 - **Sem dados novos:** as restantes ~235 empresas (hospitais, ministérios, institutos, escritórios de advogados, empresas dos anúncios). Ficam com o que já tinham; a próxima ronda deve seguir a ordem das mais procuradas.
+
+### Empresas completas e citações dos líderes (20/11/2026)
+
+Em `apps/web/src/data/demo/companyDirectory.ts` (factos e modelos por tipo de negócio) e `companyLinks.ts` (sites e redes lidos nas páginas oficiais), juntos às fichas em `withProfiles`. O perfil com fonte de 13/11 ganha sempre sobre a nossa leitura.
+
+Contagens (252 empresas): 77 com site (antes 20), 46 com redes (antes 1), 19 com áreas de atuação, 13 com ano de fundação, 14 com sede, 22 com líderes, 55 com cargos, requisitos e academias de origem **estimados**, 5 com citações (`quotes`: Banco Sol, BAI, Standard Bank, Access Bank Angola e TIS).
+
+- **Estimado (`estimated: true`):** cargos que cada tipo de negócio contrata, requisitos típicos de cada cargo e academias de onde vêm as pessoas, para 55 empresas (banca, telecomunicações, petróleo, electricidade, media, minas, comércio, consultoria, saúde, seguros, transportes, portos, Estado, indústria, construção e hotelaria). Os cargos de `companyProfiles.ts` (com anúncio) não são substituídos.
+- **Citações:** só frases copiadas das entrevistas e confirmadas no texto da página (Forbes África Lusófona e Expansão); cada uma com data, meio e ligação. Não se encontraram citações verificáveis sobre contratação nas entrevistas de Unitel, Sonangol, TAAG, BFA e BIC, nem no Novo Jornal, Jornal de Angola, TPA, TV Zimbo e O Telegrama; essas ficam por recolher.
+- **Líderes novos (com fonte e data):** Luís Teles (Standard Bank), Osvaldo Macaia e António André Lopes (Banco Sol), Cláudio Pinheiro Macedo (BPC, mandato 2022/2026), Ricardo Ferreira (Access Bank), Joe Murphy (Azule Energy), Pedro Afonso (PRODEL, 2023), António Sebastião Lino (RNA), Leonildo Manuel (AGT) e William de Oliveira (TIS).
+- **Sem dados:** sede e fundação da maior parte das empresas (nenhuma fonte encontrada), líderes da ENDE, Angola Telecom, TPA e TV Cabo (as nomeações achadas são antigas). As ~200 empresas dos anúncios e os organismos públicos ficam com descrição, setor e carreiras; só ganharam site e redes quando a página oficial foi encontrada.
+- **Falta no servidor:** a API ainda não guarda `headquarters`, `quotes` e `estimated` (só o frontend demo os mostra); a página das citações é o prompt 4.
 
 ## Empresa → carreiras
 
