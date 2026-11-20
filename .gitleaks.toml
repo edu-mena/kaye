@@ -1,0 +1,10 @@
+# Gitleaks (CI: job "security"). ADR 0022: the generated `deploy` branch carries vendor/ (third-party code with
+# example keys in READMEs and tests). Nothing else is excluded: the app's own code is always scanned.
+title = "Kayé"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Third-party code in the generated deploy branch (main does not track vendor/)"
+paths = ['''^vendor/''']
