@@ -160,7 +160,7 @@ $PHP artisan key:generate --force
 scripts/post-deploy.sh
 ```
 
-O `post-deploy.sh` faz, por ordem: cria as tabelas da base de dados (`migrate`), carrega o catálogo de carreiras (`kaye:import`), prepara as caches (`optimize`), verifica a configuração de produção e corre o teste de fumo. **Pára no primeiro erro** e diz qual.
+O `post-deploy.sh` faz, por ordem: espera que o `composer install` da própria Hostinger acabe, tira as ferramentas de desenvolvimento que ele volta a instalar (o `kaye:check-production` recusa-as), cria as tabelas da base de dados (`migrate`), carrega o catálogo de carreiras (`kaye:import`), prepara as caches (`optimize`), verifica a configuração de produção e corre o teste de fumo. **Pára no primeiro erro** e diz qual.
 
 **Como sei que correu bem:** acaba com tudo verde. Abre `https://steady-darkgoldenrod-goshawk-92.hostingersite.com` no telemóvel: deve aparecer a landing do Kayé. Se aparecer "Erro 500", vê o fim do ficheiro `storage/logs/` (`tail -n 50 storage/logs/*.log`).
 
@@ -172,13 +172,17 @@ Sem processos sempre ligados, o Kayé usa um relógio que acorda o Laravel **tod
 
 1. hPanel → **Avançado → Cron Jobs → Criar**.
 2. Tipo: personalizado, tudo em `*` (todos os minutos).
-3. Comando (troca `<site>` pelo nome certo da pasta):
+3. Comando (troca `<utilizador>` e `<site>` pelos teus; no hPanel → SSH vês o utilizador, e a pasta vês com `ls ~/domains`):
 
 ```
-cd ~/domains/<site>/public_html && /opt/alt/php84/usr/bin/php artisan schedule:run >> /dev/null 2>&1
+echo "HOME=$HOME"; cd /home/<utilizador>/domains/<site>/public_html && pwd && /opt/alt/php84/usr/bin/php -v | head -1 && /opt/alt/php84/usr/bin/php artisan schedule:run 2>&1 | head -5
 ```
 
-Usa o caminho completo do PHP 8.4: o `php` simples do servidor é a 8.1 e o Kayé não arranca com ela.
+Este é o comando **que foi testado e bate todos os minutos** (20/11/2026). Duas coisas que não funcionaram na Hostinger e por isso não se usam:
+- redirecionar a saída para um ficheiro (`>> ~/cron.log` ou `>> /dev/null`) e usar `~` no caminho;
+- terminar com `| tail -1` (o cron parou ao fim de uns minutos).
+
+Usa o caminho completo do PHP 8.4: o `php` simples do servidor é a 8.1 e o Kayé não arranca com ela. A saída (poucas linhas) vê-se em **Ver resultado**; não vai para email nem para fora.
 
 **Como sei que correu bem:** espera 2 minutos e abre `https://steady-darkgoldenrod-goshawk-92.hostingersite.com/api/v1/health`. Tem de aparecer `"cron": "ok"`. Se disser `unknown`, o cron nunca correu; se disser `stale`, parou.
 

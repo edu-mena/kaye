@@ -56,6 +56,32 @@ class HostingTest extends TestCase
         $this->assertMatchesRegularExpression('/<IfModule mod_headers\.c>\s*Header always unset X-Powered-By\s*<\/IfModule>/', $rules);
     }
 
+    public function test_post_deploy_waits_for_the_hostinger_composer_and_then_drops_the_dev_tools(): void
+    {
+        $script = $this->file('../../scripts/post-deploy.sh');
+
+        $wait = strpos($script, "pgrep -u \"\$(id -u)\" -f '[c]omposer (install|update)'");
+        $strip = strpos($script, 'install --no-dev --optimize-autoloader');
+        $migrate = strpos($script, 'artisan migrate --force');
+
+        $this->assertNotFalse($wait, 'The wait for the Git deploy composer is missing.');
+        $this->assertNotFalse($strip, 'The dev tools are not removed.');
+        $this->assertNotFalse($migrate);
+        $this->assertTrue($wait < $strip && $strip < $migrate, 'Wait, then remove dev tools, then migrate.');
+        $this->assertStringContainsString('vendor/laravel/boost', $script);
+    }
+
+    public function test_the_deploy_workflow_retries_only_the_transient_ssh_failure(): void
+    {
+        $workflow = $this->file('../../.github/workflows/deploy.yml');
+
+        $this->assertStringContainsString('-o ConnectTimeout=10', $workflow);
+        $this->assertStringContainsString('PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh', $workflow);
+        $this->assertStringContainsString('[ "$rc" != 255 ] && break', $workflow);
+        $this->assertStringContainsString('for attempt in 1 2 3', $workflow);
+        $this->assertStringContainsString('exit "$rc"', $workflow);
+    }
+
     public function test_the_app_knows_a_request_was_https_when_the_proxy_says_so(): void
     {
         $this->get('/api/v1/health', ['X-Forwarded-Proto' => 'https'])

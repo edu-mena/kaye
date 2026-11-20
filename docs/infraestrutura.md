@@ -107,11 +107,11 @@ flowchart LR
 8. **Segredos no GitHub** (*Settings → Environments → production*): os da tabela abaixo. A `HOSTINGER_SSH_KNOWN_HOSTS` obtém-se com `ssh-keyscan -p 65002 93.127.189.106`.
 9. **A primeira vez:** *Actions → Deploy → Run workflow*. Sem os segredos SSH, o workflow publica o ramo e avisa; nesse caso, depois do webhook, por SSH: `cd ~/domains/<site>/public_html && php artisan key:generate --force && scripts/post-deploy.sh`.
 
-Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
+Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` (se acabar com 255, uma falha passageira da ligação ou do PHP, tenta mais duas vezes; com outro código, falha logo) e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
 
 #### O que o `post-deploy.sh` faz
 
-`migrate --force`, `kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), `optimize` (config, rotas e vistas em cache), `kaye:check-production` (se falhar, pára), `queue:restart` e `scripts/smoke-test.sh` contra o `APP_URL`.
+Primeiro espera que o `composer install` do Git da Hostinger acabe (ela corre-o sozinha ao puxar, e correr o `artisan` a meio falha com 255) e, se esse `install` tiver trazido de volta o `laravel/boost` e as outras ferramentas de desenvolvimento, volta a instalar só as de produção (`composer install --no-dev`). Depois: `migrate --force`, `kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), `optimize` (config, rotas e vistas em cache), `kaye:check-production` (se falhar, pára), `queue:restart` e `scripts/smoke-test.sh` contra o `APP_URL`.
 
 ### Voltar atrás (rollback)
 
