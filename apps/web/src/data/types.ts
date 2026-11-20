@@ -612,7 +612,20 @@ export type CompanyRole = {
   source?: SourceLink
   /** What a young person typically needs to be hired for this post here. */
   requirements?: string[]
+  /** How to get there, step by step, in the order a young person does it. */
+  path?: string[]
+  /** The posts of the career ladder here, from the entry post to the top. */
+  ladder?: string[]
   /** true: our reading from the type of business, not stated by the company (docs/recolha-de-dados.md). */
+  estimated?: boolean
+}
+
+/** What our study of the company says to a young person: how it hires, what it values, what to prepare. */
+export type CompanyInsight = {
+  title: string
+  text: string
+  /** A public source, when the insight states a fact; without it, it is our reading (`estimated`). */
+  source?: SourceLink
   estimated?: boolean
 }
 
@@ -683,6 +696,8 @@ export type Company = {
   headquarters?: CompanyFact
   /** What its leaders said in interviews, word for word. */
   quotes?: CompanyQuote[]
+  /** Our study of the company for people who want to work there. */
+  insights?: CompanyInsight[]
   /** true: `partners` and the posts' requirements are our reading, not stated by the company. */
   estimated?: boolean
 }

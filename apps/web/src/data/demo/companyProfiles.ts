@@ -1,6 +1,6 @@
 import type { Company, CompanyFact, CompanyPerson, CompanyRole, SourceLink } from '../types'
 import { CAREER_SUMMARIES } from './careers'
-import { DIRECTORY } from './companyDirectory'
+import { directoryFor } from './companyDirectory'
 
 // What we know of each company beyond its card, by id (docs/recolha-de-dados.md, "Empresas", 13/11/2026):
 // - activities: its lines of business, from the company itself or the press, with that source;
@@ -295,7 +295,7 @@ const union = <T>(...lists: (T[] | undefined)[]): T[] => [...new Set(lists.flatM
  * profile above: a figure or a leader that a source states is never replaced by our reading of the business.
  */
 function complete(company: Company): Company {
-  const found = DIRECTORY[company.id] ?? {}
+  const found = directoryFor(company)
   const profile: Partial<Company> = PROFILES[company.id] ?? {}
   const careers = company.careersSourced ? company.careers : union(company.careers, found.careers)
   const own = profile.roles ?? []
@@ -330,6 +330,7 @@ function complete(company: Company): Company {
     ...(roles.length ? { roles } : {}),
     ...(people.length ? { people } : {}),
     ...(found.quotes ? { quotes: found.quotes } : {}),
+    ...(found.insights?.length ? { insights: found.insights } : {}),
     ...(found.estimated ? { estimated: true } : {}),
   }
 }

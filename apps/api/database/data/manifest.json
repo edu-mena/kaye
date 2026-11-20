@@ -173,17 +173,17 @@
     "pt": {
       "file": "companies.pt.json",
       "records": 252,
-      "sha256": "b4e3b95a44313464ae4ee2f1ef67176401db5a55ebec5febaa75caadf6badf6d"
+      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
     },
     "en": {
       "file": "companies.en.json",
       "records": 252,
-      "sha256": "b4e3b95a44313464ae4ee2f1ef67176401db5a55ebec5febaa75caadf6badf6d"
+      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
     },
     "fr": {
       "file": "companies.fr.json",
       "records": 252,
-      "sha256": "b4e3b95a44313464ae4ee2f1ef67176401db5a55ebec5febaa75caadf6badf6d"
+      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
     }
   },
   "market-jobs": {

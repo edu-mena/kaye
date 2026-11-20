@@ -1,4 +1,5 @@
-import type { Company, CompanyFact, CompanyQuote, SourceLink } from '../types'
+import type { Company, CompanyFact, CompanyInsight, CompanyQuote, SourceLink } from '../types'
+import { kindOf, typical, type Kind } from './companyKinds'
 import { LINKS } from './companyLinks'
 
 // What we collected for the showcase companies and for the rest of the directory (docs/recolha-de-dados.md,
@@ -29,6 +30,7 @@ export type Extra = Partial<
     | 'partners'
     | 'careers'
     | 'estimated'
+    | 'insights'
   >
 >
 
@@ -42,526 +44,6 @@ const wiki = (title: string, lang: 'pt' | 'en' = 'pt'): SourceLink =>
 const site = (url: string): SourceLink => src('Site oficial', url)
 const FORBES = 'https://forbesafricalusofona.com'
 const VA = 'https://www.verangola.net/va'
-
-type Kind =
-  | 'banco'
-  | 'telecom'
-  | 'petroleo'
-  | 'electricidade'
-  | 'media'
-  | 'mineracao'
-  | 'comercio'
-  | 'consultoria'
-  | 'saude'
-  | 'seguros'
-  | 'transporte'
-  | 'porto'
-  | 'estado'
-  | 'industria'
-  | 'construcao'
-  | 'hotelaria'
-
-type Post = { title: string; careers: string[]; requirements: string[] }
-
-const TYPICAL: Record<Kind, { posts: Post[]; partners: string[] }> = {
-  banco: {
-    posts: [
-      {
-        title: 'Gestor de clientes',
-        careers: ['gestor-de-clientes-bancario'],
-        requirements: [
-          'Licenciatura em Economia, Gestão ou Finanças',
-          'Gosto por vender e falar com pessoas',
-        ],
-      },
-      {
-        title: 'Atendimento e caixa',
-        careers: ['operador-de-caixa-bancario'],
-        requirements: ['Ensino médio em Contabilidade, Economia ou Administração', 'Rigor com dinheiro'],
-      },
-      {
-        title: 'Crédito e risco',
-        careers: ['analista-de-credito', 'analista-de-risco'],
-        requirements: ['Licenciatura em Economia, Finanças ou Matemática', 'Domínio de Excel'],
-      },
-      {
-        title: 'Compliance e auditoria',
-        careers: ['tecnico-de-compliance', 'auditor-interno'],
-        requirements: [
-          'Licenciatura em Direito, Economia ou Contabilidade',
-          'Conhecimento das regras do BNA',
-        ],
-      },
-      {
-        title: 'Tesouraria e contabilidade',
-        careers: ['tesoureiro', 'contabilista'],
-        requirements: ['Licenciatura em Contabilidade, Finanças ou Economia'],
-      },
-      {
-        title: 'Tecnologia e segurança',
-        careers: ['desenvolvedor-backend', 'analista-de-ciberseguranca', 'administrador-de-redes'],
-        requirements: ['Licenciatura em Engenharia Informática ou afins', 'Certificações são uma mais-valia'],
-      },
-      {
-        title: 'Recursos humanos e marketing',
-        careers: ['tecnico-de-recursos-humanos', 'gestor-de-marketing'],
-        requirements: ['Licenciatura em Gestão, Psicologia ou Marketing'],
-      },
-    ],
-    partners: [
-      'uan',
-      'ucan',
-      'isptec',
-      'isutic',
-      'instituto-medio-de-economia-de-luanda',
-      'instituto-medio-comercial-de-luanda',
-      'academia-de-seguros-e-fundos-de-pensoes',
-    ],
-  },
-  telecom: {
-    posts: [
-      {
-        title: 'Redes e telecomunicações',
-        careers: ['engenheiro-de-telecomunicacoes', 'tecnico-de-telecomunicacoes'],
-        requirements: [
-          'Engenharia de Telecomunicações ou Electrotécnica',
-          'Disponibilidade para trabalho de campo',
-        ],
-      },
-      {
-        title: 'Sistemas e desenvolvimento',
-        careers: ['desenvolvedor-backend', 'administrador-de-sistemas', 'analista-de-dados'],
-        requirements: ['Engenharia Informática ou afins', 'Portfólio de projectos'],
-      },
-      {
-        title: 'Vendas e clientes',
-        careers: ['gestor-comercial', 'tecnico-comercial'],
-        requirements: ['Ensino médio ou licenciatura em Gestão ou Marketing', 'Boa comunicação'],
-      },
-      {
-        title: 'Marketing digital',
-        careers: ['gestor-de-marketing-digital', 'gestor-de-redes-sociais'],
-        requirements: ['Licenciatura em Marketing ou Comunicação'],
-      },
-      {
-        title: 'Segurança e finanças',
-        careers: ['analista-de-ciberseguranca', 'analista-financeiro'],
-        requirements: ['Licenciatura na área', 'Certificações de segurança ou finanças valorizadas'],
-      },
-    ],
-    partners: ['isptec', 'isutic', 'itel', 'uan', 'ucan', 'cinfotec'],
-  },
-  petroleo: {
-    posts: [
-      {
-        title: 'Engenharia de petróleos e perfuração',
-        careers: ['engenheiro-de-petroleos', 'engenheiro-de-perfuracao'],
-        requirements: [
-          'Licenciatura em Engenharia de Petróleos ou Química',
-          'Inglês técnico',
-          'Cursos de segurança offshore',
-        ],
-      },
-      {
-        title: 'Geociências',
-        careers: ['geologo', 'geofisico'],
-        requirements: ['Licenciatura em Geologia ou Geofísica', 'Inglês técnico'],
-      },
-      {
-        title: 'Operação e manutenção',
-        careers: ['operador-de-producao-petrolifera', 'engenheiro-mecanico', 'tecnico-de-instrumentacao'],
-        requirements: [
-          'Ensino médio técnico ou licenciatura em Mecânica ou Electrotecnia',
-          'Certificados de segurança (BOSIET)',
-        ],
-      },
-      {
-        title: 'Segurança, saúde e ambiente',
-        careers: ['tecnico-de-seguranca-no-trabalho', 'engenheiro-do-ambiente'],
-        requirements: ['Formação em HSE ou Engenharia'],
-      },
-      {
-        title: 'Finanças, jurídico e compras',
-        careers: ['analista-financeiro', 'jurista', 'tecnico-de-procurement'],
-        requirements: ['Licenciatura em Economia, Direito ou Gestão', 'Inglês'],
-      },
-    ],
-    partners: [
-      'instituto-nacional-de-petroleos',
-      'uan',
-      'isptec',
-      'ucan',
-      'academia-petroangola',
-      'centro-de-formacao-maritima-de-angola',
-      'instituto-profissional-de-gestao-de-petroleo',
-    ],
-  },
-  electricidade: {
-    posts: [
-      {
-        title: 'Engenharia electrotécnica',
-        careers: ['engenheiro-electrotecnico', 'engenheiro-de-energias-renovaveis'],
-        requirements: ['Licenciatura em Engenharia Electrotécnica ou Energias', 'Carta de condução'],
-      },
-      {
-        title: 'Electricistas e manutenção',
-        careers: ['tecnico-electricista', 'tecnico-de-manutencao-mecanica', 'engenheiro-de-manutencao'],
-        requirements: [
-          'Ensino médio técnico em Electricidade ou Mecânica',
-          'Formação em segurança eléctrica',
-        ],
-      },
-      {
-        title: 'Clientes e cobranças',
-        careers: ['tecnico-comercial', 'tecnico-de-cobrancas'],
-        requirements: ['Ensino médio ou licenciatura em Gestão ou Economia'],
-      },
-      {
-        title: 'Segurança e finanças',
-        careers: ['tecnico-de-seguranca-no-trabalho', 'analista-financeiro'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: [
-      'isptec',
-      'uan',
-      'instituto-medio-industrial-de-luanda',
-      'instituto-medio-politecnico-industrial-de-luanda',
-      'inefop',
-    ],
-  },
-  media: {
-    posts: [
-      {
-        title: 'Jornalismo',
-        careers: ['jornalista', 'editor-de-video'],
-        requirements: ['Licenciatura em Comunicação Social ou Jornalismo', 'Portfólio de peças'],
-      },
-      {
-        title: 'Produção e realização',
-        careers: ['realizador', 'tecnico-de-relacoes-publicas'],
-        requirements: ['Formação em Audiovisual ou Comunicação'],
-      },
-      {
-        title: 'Digital e design',
-        careers: ['gestor-de-redes-sociais', 'designer-grafico'],
-        requirements: ['Portfólio digital', 'Domínio de ferramentas de edição'],
-      },
-      {
-        title: 'Técnico de emissão',
-        careers: ['tecnico-de-telecomunicacoes'],
-        requirements: ['Ensino médio técnico em Electrónica ou Telecomunicações'],
-      },
-    ],
-    partners: [
-      'centro-de-formacao-de-jornalistas-cefojor',
-      'isutic',
-      'uan',
-      'ucan',
-      'instituto-superior-de-artes',
-    ],
-  },
-  mineracao: {
-    posts: [
-      {
-        title: 'Geologia e minas',
-        careers: ['geologo', 'engenheiro-de-minas'],
-        requirements: [
-          'Licenciatura em Geologia ou Engenharia de Minas',
-          'Disponibilidade para viver na mina',
-        ],
-      },
-      {
-        title: 'Processamento e metalurgia',
-        careers: ['engenheiro-metalurgico', 'engenheiro-mecanico', 'engenheiro-de-manutencao'],
-        requirements: ['Licenciatura em Engenharia', 'Formação em segurança industrial'],
-      },
-      {
-        title: 'Operação de máquinas',
-        careers: ['operador-de-maquinas-pesadas', 'tecnico-de-manutencao-mecanica'],
-        requirements: ['Ensino médio técnico', 'Certificado de operador'],
-      },
-      {
-        title: 'Apoio e gestão',
-        careers: ['tecnico-de-seguranca-no-trabalho', 'contabilista', 'tecnico-de-recursos-humanos'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: ['uan', 'isptec', 'ucan', 'inefop'],
-  },
-  comercio: {
-    posts: [
-      {
-        title: 'Gestão de loja',
-        careers: ['gestor-de-loja', 'tecnico-comercial'],
-        requirements: ['Ensino médio ou licenciatura em Gestão', 'Experiência de atendimento é valorizada'],
-      },
-      {
-        title: 'Compras e logística',
-        careers: ['tecnico-de-compras', 'gestor-de-logistica', 'tecnico-de-logistica'],
-        requirements: ['Formação em Logística ou Gestão', 'Excel'],
-      },
-      {
-        title: 'Finanças e pessoas',
-        careers: ['contabilista', 'tecnico-de-recursos-humanos'],
-        requirements: ['Licenciatura na área'],
-      },
-      {
-        title: 'Marketing',
-        careers: ['gestor-de-marketing'],
-        requirements: ['Licenciatura em Marketing ou Gestão'],
-      },
-    ],
-    partners: ['instituto-medio-comercial-de-luanda', 'uan', 'ucan', 'inefop'],
-  },
-  consultoria: {
-    posts: [
-      {
-        title: 'Auditoria',
-        careers: ['auditor', 'contabilista'],
-        requirements: ['Licenciatura em Contabilidade, Auditoria ou Finanças', 'Média alta e inglês'],
-      },
-      {
-        title: 'Consultoria e finanças',
-        careers: ['consultor-de-gestao', 'analista-financeiro'],
-        requirements: ['Licenciatura em Gestão ou Economia', 'Excel e apresentação'],
-      },
-      {
-        title: 'Fiscalidade e jurídico',
-        careers: ['tecnico-de-impostos', 'jurista'],
-        requirements: ['Licenciatura em Direito, Economia ou Contabilidade'],
-      },
-      {
-        title: 'Tecnologia e dados',
-        careers: ['analista-de-dados', 'analista-de-ciberseguranca'],
-        requirements: ['Engenharia Informática ou afins'],
-      },
-    ],
-    partners: ['uan', 'ucan', 'isptec', 'pwc-academy-angola'],
-  },
-  saude: {
-    posts: [
-      {
-        title: 'Medicina',
-        careers: ['medico-clinica-geral', 'medico-pediatra', 'cirurgiao-geral'],
-        requirements: ['Licenciatura em Medicina', 'Inscrição na Ordem dos Médicos'],
-      },
-      {
-        title: 'Enfermagem',
-        careers: ['enfermeiro', 'tecnico-medio-enfermagem'],
-        requirements: ['Licenciatura ou curso médio de Enfermagem', 'Inscrição na Ordem dos Enfermeiros'],
-      },
-      {
-        title: 'Diagnóstico e farmácia',
-        careers: ['tecnico-analises-clinicas', 'tecnico-radiologia', 'farmaceutico'],
-        requirements: ['Formação técnica ou licenciatura na área'],
-      },
-      {
-        title: 'Reabilitação e nutrição',
-        careers: ['fisioterapeuta', 'nutricionista'],
-        requirements: ['Licenciatura na área'],
-      },
-      {
-        title: 'Administração',
-        careers: ['contabilista', 'tecnico-de-recursos-humanos'],
-        requirements: ['Formação em Gestão ou Contabilidade'],
-      },
-    ],
-    partners: [
-      'escola-de-formacao-de-tecnicos-de-saude-de-luanda',
-      'instituto-de-especializacao-em-saude',
-      'uan',
-      'ucan',
-    ],
-  },
-  seguros: {
-    posts: [
-      {
-        title: 'Seguros e mediação',
-        careers: ['tecnico-de-seguros', 'mediador-de-seguros'],
-        requirements: ['Ensino médio ou licenciatura em Gestão, Economia ou Direito', 'Formação em seguros'],
-      },
-      {
-        title: 'Actuariado e risco',
-        careers: ['actuario', 'analista-de-risco'],
-        requirements: ['Licenciatura em Matemática, Estatística ou Economia'],
-      },
-      {
-        title: 'Jurídico e contabilidade',
-        careers: ['jurista', 'contabilista'],
-        requirements: ['Licenciatura na área'],
-      },
-      {
-        title: 'Comercial',
-        careers: ['tecnico-comercial', 'gestor-comercial'],
-        requirements: ['Gosto por vender e acompanhar clientes'],
-      },
-    ],
-    partners: ['academia-de-seguros-e-fundos-de-pensoes', 'uan', 'ucan', 'isptec'],
-  },
-  transporte: {
-    posts: [
-      {
-        title: 'Operações e transportes',
-        careers: ['tecnico-de-transportes', 'engenheiro-de-transportes'],
-        requirements: ['Licenciatura em Engenharia ou Gestão de Transportes'],
-      },
-      {
-        title: 'Aviação e segurança',
-        careers: ['inspector-de-aviacao-civil', 'tecnico-de-seguranca-no-trabalho'],
-        requirements: ['Formação aeronáutica ou em segurança', 'Inglês'],
-      },
-      {
-        title: 'Manutenção',
-        careers: ['engenheiro-de-manutencao', 'tecnico-de-manutencao-mecanica'],
-        requirements: ['Ensino médio técnico ou licenciatura em Mecânica'],
-      },
-      {
-        title: 'Comercial e finanças',
-        careers: ['tecnico-comercial', 'contabilista'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: ['isptec', 'uan', 'ucan', 'instituto-medio-industrial-de-luanda'],
-  },
-  porto: {
-    posts: [
-      {
-        title: 'Gestão portuária',
-        careers: ['gestor-portuario', 'despachante-aduaneiro'],
-        requirements: ['Licenciatura em Gestão, Logística ou Transportes'],
-      },
-      {
-        title: 'Logística',
-        careers: ['gestor-de-logistica', 'tecnico-de-logistica'],
-        requirements: ['Formação em Logística'],
-      },
-      {
-        title: 'Obras e equipamentos',
-        careers: ['engenheiro-civil', 'operador-de-maquinas-pesadas', 'rigger-e-operador-de-grua'],
-        requirements: ['Engenharia Civil ou curso técnico', 'Certificado de operador'],
-      },
-      {
-        title: 'Segurança e finanças',
-        careers: ['tecnico-de-seguranca-no-trabalho', 'analista-financeiro'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: ['centro-de-formacao-maritima-de-angola', 'uan', 'isptec', 'ucan'],
-  },
-  estado: {
-    posts: [
-      {
-        title: 'Economia e estudos',
-        careers: ['economista', 'analista-de-estudos-economicos'],
-        requirements: ['Licenciatura em Economia', 'Concurso público ou processo de selecção'],
-      },
-      {
-        title: 'Finanças e impostos',
-        careers: ['tecnico-de-impostos', 'auditor-interno', 'analista-financeiro'],
-        requirements: ['Licenciatura em Contabilidade, Finanças ou Direito'],
-      },
-      {
-        title: 'Administração pública e jurídico',
-        careers: ['tecnico-superior-de-administracao-publica', 'jurista'],
-        requirements: ['Licenciatura em Direito, Administração Pública ou Gestão'],
-      },
-      {
-        title: 'Informática',
-        careers: ['analista-de-sistemas', 'analista-de-ciberseguranca'],
-        requirements: ['Engenharia Informática ou afins'],
-      },
-    ],
-    partners: ['escola-nacional-de-administracao-e-politicas-publicas-enapp', 'uan', 'ucan', 'isptec'],
-  },
-  industria: {
-    posts: [
-      {
-        title: 'Produção e qualidade',
-        careers: [
-          'engenheiro-de-producao-industrial',
-          'tecnico-de-qualidade-alimentar',
-          'engenheiro-quimico',
-        ],
-        requirements: ['Licenciatura em Engenharia Industrial, Química ou Alimentar'],
-      },
-      {
-        title: 'Manutenção',
-        careers: ['engenheiro-de-manutencao', 'tecnico-de-manutencao-mecanica', 'tecnico-electricista'],
-        requirements: ['Ensino médio técnico ou licenciatura em Mecânica ou Electricidade'],
-      },
-      {
-        title: 'Logística e comercial',
-        careers: ['gestor-de-logistica', 'gestor-comercial'],
-        requirements: ['Licenciatura em Gestão ou Logística'],
-      },
-      {
-        title: 'Segurança e finanças',
-        careers: ['tecnico-de-seguranca-no-trabalho', 'contabilista'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: ['isptec', 'uan', 'instituto-medio-industrial-de-luanda', 'inefop'],
-  },
-  construcao: {
-    posts: [
-      {
-        title: 'Engenharia civil e obras',
-        careers: ['engenheiro-civil', 'tecnico-de-obras', 'topografo'],
-        requirements: [
-          'Licenciatura em Engenharia Civil ou curso técnico de Construção',
-          'Disponibilidade para obra',
-        ],
-      },
-      {
-        title: 'Orçamentos e projecto',
-        careers: ['medidor-orcamentista', 'arquitecto', 'gestor-de-projectos'],
-        requirements: ['Licenciatura em Engenharia, Arquitectura ou Gestão', 'AutoCAD e Excel'],
-      },
-      {
-        title: 'Electricidade e segurança',
-        careers: ['engenheiro-electrotecnico', 'tecnico-de-seguranca-no-trabalho'],
-        requirements: ['Formação na área'],
-      },
-    ],
-    partners: ['uan', 'isptec', 'ucan', 'instituto-medio-politecnico-industrial-de-luanda'],
-  },
-  hotelaria: {
-    posts: [
-      {
-        title: 'Gestão hoteleira',
-        careers: ['gestor-hoteleiro', 'recepcionista-de-hotel'],
-        requirements: ['Curso de Hotelaria ou Turismo', 'Inglês e simpatia ao balcão'],
-      },
-      {
-        title: 'Cozinha e restauração',
-        careers: ['chefe-de-cozinha', 'cozinheiro', 'gestor-de-restauracao'],
-        requirements: ['Escola de hotelaria e experiência de cozinha'],
-      },
-      {
-        title: 'Turismo',
-        careers: ['tecnico-de-turismo', 'guia-turistico'],
-        requirements: ['Formação em Turismo e línguas'],
-      },
-    ],
-    partners: [
-      'escola-de-hotelaria-e-restauracao-de-talatona',
-      'escola-de-hotelaria-e-turismo-de-cabinda',
-      'uan',
-    ],
-  },
-}
-
-/** The posts, careers and schools of a kind of business, flagged as our reading. */
-const typical = (kind: Kind): Extra => {
-  const { posts, partners } = TYPICAL[kind]
-  return {
-    roles: posts.map((post) => ({ ...post, estimated: true })),
-    careers: [...new Set(posts.flatMap((post) => post.careers))],
-    partners,
-    estimated: true,
-  }
-}
 
 const quote = (q: CompanyQuote): CompanyQuote => q
 
@@ -638,6 +120,52 @@ const MACAIA_QUOTES = [
 
 const ANGOLA = 'Luanda'
 
+/** The kind's posts and study, plus notes that a public source states about this company. */
+const withInsights = (kind: Kind, notes: CompanyInsight[]) => {
+  const base = typical(kind)
+  return { ...base, insights: [...base.insights, ...notes] }
+}
+
+const TIS_NOTE: CompanyInsight = {
+  title: 'Estágios e contratação',
+  text: 'O programa de estágios ADN TIS integrou 165 estagiários desde 2017 e teve uma taxa de contratação de 77% entre 2017 e 2025. A edição de 2026 tem 30 estagiários e chega a Benguela, Namibe, Malanje e Uíge.',
+  source: src(
+    'Forbes África Lusófona, 12/07/2026',
+    `${FORBES}/adn-tis-2026-integra-30-estagiarios-para-aproximar-jovens-angolanos-do-mercado-de-trabalho/`,
+  ),
+}
+const BANCO_SOL_NOTE: CompanyInsight = {
+  title: 'Momento do banco',
+  text: 'O Banco Sol aprovou um plano de recapitalização e reestruturação (2025–2027) que pode reduzir até 30% dos trabalhadores. Enquanto durar, a entrada de recém-formados será mais difícil; o plano inclui formação para os colaboradores.',
+  source: src(
+    'Ver Angola, 04/2025',
+    `${VA}/pt/042025/BancaSeguros/44244/Banco-Sol-vai-ser-recapitalizado-com-capitais-privados-e-reduzir-até-30-por-cento-de-trabalhadores.htm`,
+  ),
+}
+const STANDARD_NOTE: CompanyInsight = {
+  title: 'Banco cotado em bolsa',
+  text: 'Em 2026 o Standard Bank de Angola entrou na bolsa (BODIVA). Uma empresa cotada pede mais rigor e transparência, e o banco tem um programa de graduados para recém-licenciados.',
+  source: src(
+    'Expansão, 09/2026',
+    'https://expansao.co.ao/empresas/detalhe/ring-the-bell-standard-bank-angola-entra-oficialmente-na-bolsa-de-valores-75027.html',
+  ),
+}
+const TAAG_NOTES: CompanyInsight[] = [
+  {
+    title: 'Formação de pilotos',
+    text: 'A segunda edição do programa de formação inicial de pilotos cadetes vai beneficiar até 70 jovens angolanos, com possibilidade de integração nos quadros de pessoal navegante técnico. A selecção dos candidatos é conduzida pela Academia BAI.',
+    source: src(
+      'Ver Angola, 11/2025',
+      `${VA}/pt/112025/Transportes/46646/TAAG-lança-nova-edição-de-programa-que-quer-formar-“próxima-geração-de-pilotos”.htm`,
+    ),
+  },
+  {
+    title: 'Estágios',
+    text: 'A TAAG e a H2AIR formalizaram um protocolo de cooperação para a capacitação de estagiários (80, segundo o título da notícia).',
+    source: src('Forbes África Lusófona, 21/03/2026', `${FORBES}/?p=170241`),
+  },
+]
+
 /** The showcase companies and the other facts we could source, by company id. */
 export const DETAILS: Record<string, Extra> = {
   // Telecommunications and television
@@ -693,7 +221,7 @@ export const DETAILS: Record<string, Extra> = {
   'standard-bank': {
     summary:
       'Banco do grupo sul-africano Standard Bank, com serviços para particulares, empresas e grandes empresas. Em 2026 passou a estar cotado na bolsa (BODIVA).',
-    ...typical('banco'),
+    ...withInsights('banco', [STANDARD_NOTE]),
     activities: ['Particulares', 'Empresas', 'Grandes empresas (banca de investimento, tesouraria)'],
     activitiesSource: site('https://www.standardbank.co.ao'),
     headquarters: fact(
@@ -719,7 +247,7 @@ export const DETAILS: Record<string, Extra> = {
     headquarters: fact(ANGOLA, wiki('Banco_de_Com%C3%A9rcio_e_Ind%C3%BAstria')),
   },
   'banco-sol': {
-    ...typical('banco'),
+    ...withInsights('banco', [BANCO_SOL_NOTE]),
     quotes: MACAIA_QUOTES,
     summary:
       'Banco angolano de retalho e empresas, com um balcão dedicado ao petróleo e à mineração (Oil & Mining Desk). Em 2025 aprovou um plano de recapitalização e reestruturação.',
@@ -858,7 +386,7 @@ export const DETAILS: Record<string, Extra> = {
   },
 
   // Transport
-  taag: { ...typical('transporte') },
+  taag: { ...withInsights('transporte', TAAG_NOTES) },
   'porto-de-luanda': {
     ...typical('porto'),
     summary:
@@ -1002,7 +530,7 @@ export const DETAILS: Record<string, Extra> = {
 
   // Technology
   'tis-tech-angola': {
-    ...typical('telecom'),
+    ...withInsights('tecnologia', [TIS_NOTE]),
     people: [
       {
         name: 'William de Oliveira',
@@ -1024,3 +552,31 @@ export const DIRECTORY: Record<string, Extra> = Object.fromEntries(
     { ...LINKS[id], ...DETAILS[id] },
   ]),
 )
+
+/**
+ * What we know about a company beyond its card: the collected facts over the kind's posts and study, plus what
+ * its own card says (programmes, public vacancies, province).
+ */
+export function directoryFor(company: Company): Extra {
+  const found = DIRECTORY[company.id] ?? {}
+  const base: Extra = found.roles ? found : { ...typical(kindOf(company)), ...found }
+  const own: CompanyInsight[] = company.programs.map((program) => ({
+    title: 'Programa para jovens',
+    text: `${program.name}: ${program.summary}`,
+    source: program.source,
+  }))
+  if (company.careersSourced) {
+    own.push({
+      title: 'Vagas já anunciadas',
+      text: 'A empresa já anunciou vagas publicamente para estas carreiras (ver as fontes). Candidata-te ao tipo de vaga que já abriu.',
+    })
+  }
+  if (company.province !== 'Luanda') {
+    own.push({
+      title: 'Fora de Luanda',
+      text: `Fica em ${company.province}: há menos vagas do que em Luanda, mas também menos concorrência. Mostra que podes ficar na província.`,
+      estimated: true,
+    })
+  }
+  return { ...base, insights: [...(base.insights ?? []), ...own] }
+}
