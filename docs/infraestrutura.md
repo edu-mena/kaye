@@ -91,7 +91,7 @@ flowchart LR
 - **O que o servidor guarda e o `git pull` não toca:** `.env`, `storage/` (logs, cache, sessões) e tudo o que não está no ramo.
 - **Fila e cache** na base de dados. Uma só linha de cron no hPanel: `* * * * * cd ~/domains/<site>/public_html && php artisan schedule:run >> /dev/null 2>&1`. O agendador bate o pulso do cron todos os minutos (`CronHeartbeat`), e `GET /api/v1/health` mostra `checks.cron`: `ok`, `stale` (parou há mais de 5 minutos) ou `unknown` (nunca bateu). O teste de fumo na Hostinger exige `ok`.
 - **O endereço** vem todo de `APP_URL`: o redirecionamento do Google (`APP_URL/auth/google/callback`), o domínio com sessão (Sanctum) e os links dos emails. Trocar o endereço temporário pelo domínio é mudar o `APP_URL` no `.env`, juntar o novo endereço no Google Cloud e correr `php artisan optimize`. Nenhum código muda.
-- **PWA e HTTPS** (ADR 0002): `worker-src 'self'` e `manifest-src 'self'` na CSP (`SecurityHeaders`); `Cache-Control: no-cache` no `sw.js` e no `manifest.webmanifest`, ficheiros do `/spa/assets/` imutáveis, e `Service-Worker-Allowed: /` no `sw.js` (`apps/api/public/.htaccess`). O `.htaccess` manda o http para https, menos em `localhost` (container e testes). `X-Forwarded-Proto` é aceite por trás do proxy da Hostinger e, mais tarde, do Cloudflare.
+- **PWA e HTTPS** (ADR 0002): `worker-src 'self'` e `manifest-src 'self'` na CSP (`SecurityHeaders`); `Cache-Control: no-cache` no `sw.js` e no `manifest.webmanifest`, ficheiros do `/spa/assets/` imutáveis, e `Service-Worker-Allowed: /` no `sw.js` (`apps/api/public/.htaccess`). O `.htaccess` da raiz também apaga o cabeçalho `X-Powered-By` (o PHP da Hostinger ignora o `docker/php.ini`, por isso o `expose_php=Off` não chega lá). O `.htaccess` manda o http para https, menos em `localhost` (container e testes). `X-Forwarded-Proto` é aceite por trás do proxy da Hostinger e, mais tarde, do Cloudflare.
 
 #### Pôr no ar pela primeira vez
 
@@ -107,7 +107,7 @@ flowchart LR
 8. **Segredos no GitHub** (*Settings → Environments → production*): os da tabela abaixo. A `HOSTINGER_SSH_KNOWN_HOSTS` obtém-se com `ssh-keyscan -p 65002 93.127.189.106`.
 9. **A primeira vez:** *Actions → Deploy → Run workflow*. Sem os segredos SSH, o workflow publica o ramo e avisa; nesse caso, depois do webhook, por SSH: `cd ~/domains/<site>/public_html && php artisan key:generate --force && scripts/post-deploy.sh`.
 
-Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos), corre o `post-deploy.sh` e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
+Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
 
 #### O que o `post-deploy.sh` faz
 

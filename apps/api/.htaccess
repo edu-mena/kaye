@@ -17,6 +17,11 @@ Options -Indexes
     RewriteRule ^(.*)$ /public/$1 [L]
 </IfModule>
 
+# Do not reveal the PHP version: Hostinger's PHP ignores docker/php.ini, so expose_php is handled here.
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+</IfModule>
+
 # Dotfiles (.env, .git) answer 403 even if the rewrite above is ever switched off.
 <FilesMatch "^\.(?!well-known)">
     Require all denied

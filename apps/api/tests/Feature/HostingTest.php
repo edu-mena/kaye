@@ -49,6 +49,13 @@ class HostingTest extends TestCase
         $this->assertStringContainsString('RewriteCond %{HTTPS} off', $rules);
     }
 
+    public function test_the_root_htaccess_hides_the_php_version_on_hosts_that_ignore_php_ini(): void
+    {
+        $rules = $this->file('.htaccess');
+
+        $this->assertMatchesRegularExpression('/<IfModule mod_headers\.c>\s*Header always unset X-Powered-By\s*<\/IfModule>/', $rules);
+    }
+
     public function test_the_app_knows_a_request_was_https_when_the_proxy_says_so(): void
     {
         $this->get('/api/v1/health', ['X-Forwarded-Proto' => 'https'])
