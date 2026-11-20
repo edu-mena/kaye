@@ -14,6 +14,25 @@ php="${PHP:-php}"
 
 step() { printf '\n== %s\n' "$1"; }
 
+step "Wait for the Git deploy's own composer install"
+# Hostinger runs `composer install` (with dev tools) after every pull. Running artisan while it is half done
+# crashes (exit 255), so wait until no composer has run for three checks in a row. `[c]` keeps pgrep from matching itself.
+idle=0
+for _ in $(seq 1 60); do
+  if pgrep -u "$(id -u)" -f '[c]omposer (install|update)' >/dev/null 2>&1; then idle=0; else idle=$((idle + 1)); fi
+  [ "$idle" -ge 3 ] && break
+  sleep 5
+done
+[ "$idle" -ge 3 ] || { echo "error: composer was still running after 5 minutes." >&2; exit 1; }
+
+# That install also brings back laravel/boost and the other dev tools, which kaye:check-production refuses.
+step "Production dependencies (no dev tools)"
+if [ -d vendor/laravel/boost ]; then
+  composer="$(command -v composer || true)"
+  [ -n "$composer" ] || composer=/usr/local/bin/composer
+  "$php" "$composer" install --no-dev --optimize-autoloader --no-interaction --quiet
+fi
+
 step "Migrations"
 "$php" artisan migrate --force
 step "Catalogue (only what changed)"
