@@ -80,7 +80,15 @@ jobs:
             sleep 10
           done
           # The server's default `php` is 8.1; the app needs 8.4 (docs/infraestrutura.md).
-          ssh_run "cd '$SITE_DIR' && PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh"
+          # Exit 255 = the SSH link or PHP died mid-way (a transient crash): try again. Exit 1 = a check failed for real: do not.
+          for attempt in 1 2 3; do
+            rc=0
+            ssh_run "cd '$SITE_DIR' && PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh" || rc=$?
+            [ "$rc" != 255 ] && break
+            echo "::warning::post-deploy ended with 255 (attempt $attempt of 3); trying again in 30 s"
+            sleep 30
+          done
+          exit "$rc"
       - name: Smoke test from outside
         run: |
           [ -n "$SITE_URL" ] || { echo "::notice::SITE_URL is not set; skipping the outside test."; exit 0; }
