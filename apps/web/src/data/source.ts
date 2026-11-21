@@ -13,6 +13,7 @@ import { withProfiles } from './demo/companyProfiles'
 import { withFees } from './demo/academyFees'
 import { withImages } from './demo/academyImages'
 import { withContacts } from './demo/academyContacts'
+import { withShowcase } from './demo/academyShowcase'
 import { LUANDA_MIDDLE_SCHOOLS } from './demo/luandaMiddleSchools'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
@@ -231,7 +232,9 @@ const AREA_ACADEMIES = withAreas(
     HOSPITALITY.academies,
   ],
 )
-const ALL_ACADEMIES = withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))))
+const ALL_ACADEMIES = withShowcase(
+  withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)))),
+)
 // Built on first use, not at load: the profiles read the careers, which load the companies in a cycle.
 let allCompanies: Company[] | null = null
 const companies = (): Company[] =>

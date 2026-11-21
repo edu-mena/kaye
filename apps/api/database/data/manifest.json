@@ -139,51 +139,51 @@
     "pt": {
       "file": "institutions.pt.json",
       "records": 166,
-      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
     },
     "en": {
       "file": "institutions.en.json",
       "records": 166,
-      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
     },
     "fr": {
       "file": "institutions.fr.json",
       "records": 166,
-      "sha256": "edb1c57937568839889703df19f6f37d18b52e16fa3482def177d6eadd052444"
+      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
     }
   },
   "courses": {
     "pt": {
       "file": "courses.pt.json",
-      "records": 422,
-      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+      "records": 428,
+      "sha256": "14b5fe64562c2daf14da4d5107568311238f5f5745ebf778186fec700007959c"
     },
     "en": {
       "file": "courses.en.json",
-      "records": 422,
-      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+      "records": 428,
+      "sha256": "14b5fe64562c2daf14da4d5107568311238f5f5745ebf778186fec700007959c"
     },
     "fr": {
       "file": "courses.fr.json",
-      "records": 422,
-      "sha256": "e400d95e56a51cb28c382c327a0bd282ea2ac7f776f69f691362f2ce5e3076eb"
+      "records": 428,
+      "sha256": "14b5fe64562c2daf14da4d5107568311238f5f5745ebf778186fec700007959c"
     }
   },
   "companies": {
     "pt": {
       "file": "companies.pt.json",
       "records": 252,
-      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
+      "sha256": "a9242f59a4190bb369017d32f5d03f5ad0937594a666dd98765566d505157df0"
     },
     "en": {
       "file": "companies.en.json",
       "records": 252,
-      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
+      "sha256": "a9242f59a4190bb369017d32f5d03f5ad0937594a666dd98765566d505157df0"
     },
     "fr": {
       "file": "companies.fr.json",
       "records": 252,
-      "sha256": "c9c0be43b46149b1e82a12afb672837280b8d9c8c98e097f0ae7558d53487809"
+      "sha256": "a9242f59a4190bb369017d32f5d03f5ad0937594a666dd98765566d505157df0"
     }
   },
   "market-jobs": {

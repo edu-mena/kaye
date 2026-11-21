@@ -176,6 +176,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/academia-baxtter-logo.webp",
+    "banner": "/src/assets/companies/academia-baxtter-banner-800.webp",
     "position": 81
   },
   {
@@ -450,6 +452,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/access-bank-angola-logo.webp",
+    "banner": "/src/assets/companies/access-bank-angola-banner-800.webp",
     "position": 60
   },
   {
@@ -619,6 +623,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/administracao-geral-tributaria-agt-banner-800.webp",
     "position": 69
   },
   {
@@ -778,6 +783,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/africa-global-logistics-logo.webp",
     "position": 89
   },
   {
@@ -908,6 +914,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/african-parks-logo.webp",
     "position": 220
   },
   {
@@ -1288,6 +1295,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/agencia-angola-press-angop-logo.webp",
+    "banner": "/src/assets/companies/agencia-angola-press-angop-banner-800.webp",
     "position": 111
   },
   {
@@ -1615,6 +1623,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/agencia-maritima-nacional-logo.webp",
+    "banner": "/src/assets/companies/agencia-maritima-nacional-banner-800.webp",
     "position": 224
   },
   {
@@ -1784,6 +1794,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/agencia-nacional-de-petroleo-gas-e-biocombustiveis-anpg-logo.webp",
+    "banner": "/src/assets/companies/agencia-nacional-de-petroleo-gas-e-biocombustiveis-anpg-banner-800.webp",
     "position": 135
   },
   {
@@ -2067,6 +2078,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/alc-advogados-logo.webp",
+    "banner": "/src/assets/companies/alc-advogados-banner-800.webp",
     "position": 191
   },
   {
@@ -2228,6 +2241,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/aldeia-nova-logo.webp",
+    "banner": "/src/assets/companies/aldeia-nova-banner-800.webp",
     "position": 237
   },
   {
@@ -2414,6 +2429,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/aliva-saude-logo.webp",
+    "banner": "/src/assets/companies/aliva-saude-banner-800.webp",
     "position": 53
   },
   {
@@ -2572,6 +2589,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/alpla-angola-banner-800.webp",
     "position": 183
   },
   {
@@ -2737,6 +2755,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ango-alloys-banner-800.webp",
     "position": 171
   },
   {
@@ -3136,6 +3155,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/angola-iron-and-steel-logo.webp",
+    "banner": "/src/assets/companies/angola-iron-and-steel-banner-800.webp",
     "position": 172
   },
   {
@@ -3379,6 +3400,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/angola-lng-logo.webp",
+    "banner": "/src/assets/companies/angola-lng-banner-800.webp",
     "position": 164
   },
   {
@@ -3584,6 +3606,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/angola-telecom-logo.webp",
+    "banner": "/src/assets/companies/angola-telecom-banner-800.webp",
     "position": 2
   },
   {
@@ -3744,6 +3768,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/arquivo-nacional-de-angola-banner-800.webp",
     "position": 217
   },
   {
@@ -3905,6 +3930,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/assembleia-nacional-logo.webp",
+    "banner": "/src/assets/companies/assembleia-nacional-banner-800.webp",
     "position": 103
   },
   {
@@ -4335,6 +4361,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/atlantico-pescaria-logo.webp",
     "position": 242
   },
   {
@@ -4494,6 +4521,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/autoridade-nacional-da-aviacao-civil-anac-logo.webp",
     "position": 155
   },
   {
@@ -4615,6 +4643,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/avm-advogados-logo.webp",
+    "banner": "/src/assets/companies/avm-advogados-banner-800.webp",
     "position": 196
   },
   {
@@ -4853,6 +4883,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/azule-energy-logo.webp",
     "position": 140
   },
   {
@@ -5006,6 +5037,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/back-communication-logo.webp",
     "position": 226
   },
   {
@@ -5535,6 +5567,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/baker-hughes-logo.webp",
+    "banner": "/src/assets/companies/baker-hughes-banner-800.webp",
     "position": 145
   },
   {
@@ -6101,6 +6134,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/banco-de-poupanca-e-credito-bpc-logo.webp",
+    "banner": "/src/assets/companies/banco-de-poupanca-e-credito-bpc-banner-800.webp",
     "position": 59
   },
   {
@@ -6291,6 +6325,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/banco-nacional-de-angola-bna-logo.webp",
+    "banner": "/src/assets/companies/banco-nacional-de-angola-bna-banner-800.webp",
     "position": 68
   },
   {
@@ -6535,6 +6570,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/banco-prestigio-logo.webp",
     "position": 83
   },
   {
@@ -6853,6 +6889,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/banco-sol-logo.webp",
+    "banner": "/src/assets/companies/banco-sol-banner-800.webp",
     "position": 13
   },
   {
@@ -7130,6 +7167,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/bci-logo.webp",
+    "banner": "/src/assets/companies/bci-banner-800.webp",
     "position": 12
   },
   {
@@ -7286,6 +7325,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/beatriz-franck-logo.webp",
+    "banner": "/src/assets/companies/beatriz-franck-banner-800.webp",
     "position": 234
   },
   {
@@ -7764,6 +7805,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/biocom-companhia-de-bioenergia-de-angola-logo.webp",
+    "banner": "/src/assets/companies/biocom-companhia-de-bioenergia-de-angola-banner-800.webp",
     "position": 153
   },
   {
@@ -8073,6 +8116,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/brandai-express-logo.webp",
     "position": 229
   },
   {
@@ -8208,6 +8252,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/bsprojectos-logo.webp",
     "position": 180
   },
   {
@@ -8369,6 +8414,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/caminho-de-ferro-de-benguela-cfb-logo.webp",
+    "banner": "/src/assets/companies/caminho-de-ferro-de-benguela-cfb-banner-800.webp",
     "position": 158
   },
   {
@@ -8493,6 +8540,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/carter-center-angola-logo.webp",
     "position": 240
   },
   {
@@ -8654,6 +8702,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ceic-ucan-logo.webp",
+    "banner": "/src/assets/companies/ceic-ucan-banner-800.webp",
     "position": 213
   },
   {
@@ -8841,6 +8891,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/central-de-compras-e-aprovisionamento-de-medicamentos-e-meios-medicos-cecoma-banner-800.webp",
     "position": 54
   },
   {
@@ -8961,6 +9012,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/centro-arbitragem-aia-logo.webp",
     "position": 204
   },
   {
@@ -9149,6 +9201,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/centro-de-medicina-fisica-e-de-reabilitacao-de-luanda-logo.webp",
+    "banner": "/src/assets/companies/centro-de-medicina-fisica-e-de-reabilitacao-de-luanda-banner-800.webp",
     "position": 33
   },
   {
@@ -9312,6 +9366,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/centro-nacional-de-investigacao-cientifica-cnic-logo.webp",
+    "banner": "/src/assets/companies/centro-nacional-de-investigacao-cientifica-cnic-banner-800.webp",
     "position": 117
   },
   {
@@ -9500,6 +9556,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/centro-ortopedico-de-viana-logo.webp",
+    "banner": "/src/assets/companies/centro-ortopedico-de-viana-banner-800.webp",
     "position": 32
   },
   {
@@ -9688,6 +9746,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/cetep-banner-800.webp",
     "position": 31
   },
   {
@@ -9839,6 +9898,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/chemonics-international-logo.webp",
     "position": 88
   },
   {
@@ -10247,6 +10307,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/clinica-girassol-logo.webp",
+    "banner": "/src/assets/companies/clinica-girassol-banner-800.webp",
     "position": 52
   },
   {
@@ -10802,6 +10863,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/cms-lbr-logo.webp",
     "position": 193
   },
   {
@@ -10989,6 +11051,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/cnec-refinaria-do-lobito-logo.webp",
+    "banner": "/src/assets/companies/cnec-refinaria-do-lobito-banner-800.webp",
     "position": 166
   },
   {
@@ -11321,6 +11385,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/comissao-nacional-eleitoral-cne-logo.webp",
+    "banner": "/src/assets/companies/comissao-nacional-eleitoral-cne-banner-800.webp",
     "position": 104
   },
   {
@@ -11512,6 +11577,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/complexo-hospitalar-de-doencas-cardio-pulmonares-cardeal-dom-alexandre-de-nascimento-banner-800.webp",
     "position": 34
   },
   {
@@ -11659,6 +11725,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/conosenti-angola-logo.webp",
     "position": 230
   },
   {
@@ -11789,6 +11856,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/conselho-superior-da-magistratura-judicial-csmj-banner-800.webp",
     "position": 96
   },
   {
@@ -11913,6 +11981,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/conservation-international-logo.webp",
     "position": 221
   },
   {
@@ -12033,6 +12102,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/crel-logo.webp",
+    "banner": "/src/assets/companies/crel-banner-800.webp",
     "position": 205
   },
   {
@@ -12192,6 +12263,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/deloitte-angola-logo.webp",
+    "banner": "/src/assets/companies/deloitte-angola-banner-800.webp",
     "position": 64
   },
   {
@@ -12374,6 +12446,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/dietsmann-angola-logo.webp",
     "position": 177
   },
   {
@@ -12505,6 +12578,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/dla-piper-africa-angola-logo.webp",
     "position": 194
   },
   {
@@ -12662,6 +12736,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/dp-world-luanda-logo.webp",
     "banner": "/src/assets/companies/dp-world-luanda-banner-800.webp",
     "position": 249
   },
@@ -12817,6 +12892,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/elinga-teatro-logo.webp",
+    "banner": "/src/assets/companies/elinga-teatro-banner-800.webp",
     "position": 233
   },
   {
@@ -13005,6 +13082,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/elnor-pharma-logo.webp",
     "position": 56
   },
   {
@@ -13355,6 +13433,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/empresa-nacional-de-distribuicao-de-electricidade-ende-banner-800.webp",
     "position": 130
   },
   {
@@ -13537,6 +13616,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/empresa-publica-de-producao-de-electricidade-prodel-logo.webp",
+    "banner": "/src/assets/companies/empresa-publica-de-producao-de-electricidade-prodel-banner-800.webp",
     "position": 131
   },
   {
@@ -13709,6 +13789,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/endiama-logo.webp",
+    "banner": "/src/assets/companies/endiama-banner-800.webp",
     "position": 138
   },
   {
@@ -13887,6 +13968,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/ensa-seguros-logo.webp",
+    "banner": "/src/assets/companies/ensa-seguros-banner-800.webp",
     "position": 61
   },
   {
@@ -14045,6 +14127,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ensis-angola-logo.webp",
     "position": 24
   },
   {
@@ -14340,6 +14423,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/escola-camilo-castelo-branco-logo.webp",
+    "banner": "/src/assets/companies/escola-camilo-castelo-branco-banner-800.webp",
     "position": 126
   },
   {
@@ -14493,6 +14578,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/espaco-agricola-logo.webp",
     "position": 239
   },
   {
@@ -14614,6 +14700,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/evc-advogados-logo.webp",
     "position": 198
   },
   {
@@ -14738,6 +14825,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/expertise-france-logo.webp",
     "position": 210
   },
   {
@@ -14896,6 +14984,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ey-angola-logo.webp",
+    "banner": "/src/assets/companies/ey-angola-banner-800.webp",
     "position": 66
   },
   {
@@ -15045,6 +15135,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/fabrimetal-logo.webp",
+    "banner": "/src/assets/companies/fabrimetal-banner-800.webp",
     "position": 182
   },
   {
@@ -15176,6 +15268,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/fatima-freitas-associados-logo.webp",
+    "banner": "/src/assets/companies/fatima-freitas-associados-banner-800.webp",
     "position": 197
   },
   {
@@ -15329,6 +15423,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/fazenda-sol-nascente-banner-800.webp",
     "position": 238
   },
   {
@@ -15450,6 +15545,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/fbl-advogados-logo.webp",
+    "banner": "/src/assets/companies/fbl-advogados-banner-800.webp",
     "position": 200
   },
   {
@@ -15618,6 +15715,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/fidelidade-angola-logo.webp",
+    "banner": "/src/assets/companies/fidelidade-angola-banner-800.webp",
     "position": 62
   },
   {
@@ -15862,6 +15961,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/finibanco-logo.webp",
+    "banner": "/src/assets/companies/finibanco-banner-800.webp",
     "position": 87
   },
   {
@@ -16029,6 +16130,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/freemed-lda-logo.webp",
     "position": 91
   },
   {
@@ -16212,6 +16314,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/friedlander-logo.webp",
+    "banner": "/src/assets/companies/friedlander-banner-800.webp",
     "position": 178
   },
   {
@@ -16333,6 +16437,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ftl-advogados-logo.webp",
     "position": 199
   },
   {
@@ -16493,6 +16598,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/fundo-soberano-de-angola-logo.webp",
+    "banner": "/src/assets/companies/fundo-soberano-de-angola-banner-800.webp",
     "position": 74
   },
   {
@@ -16654,6 +16761,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/gabinete-de-gestao-do-programa-espacial-nacional-ggpen-banner-800.webp",
     "position": 118
   },
   {
@@ -16786,6 +16894,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/geonorte-logo.webp",
+    "banner": "/src/assets/companies/geonorte-banner-800.webp",
     "position": 179
   },
   {
@@ -16939,6 +17049,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/geracao-80-logo.webp",
     "position": 232
   },
   {
@@ -17235,6 +17346,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-casais-logo.webp",
+    "banner": "/src/assets/companies/grupo-casais-banner-800.webp",
     "position": 134
   },
   {
@@ -17411,6 +17524,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-castel-logo.webp",
     "position": 92
   },
   {
@@ -17536,6 +17650,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-hoteleiro-td-hotels-logo.webp",
+    "banner": "/src/assets/companies/grupo-hoteleiro-td-hotels-banner-800.webp",
     "position": 161
   },
   {
@@ -17656,6 +17772,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-legal-logo.webp",
     "position": 201
   },
   {
@@ -17823,6 +17940,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-mca-logo.webp",
+    "banner": "/src/assets/companies/grupo-mca-banner-800.webp",
     "position": 93
   },
   {
@@ -17970,6 +18089,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/grupo-nov-logo.webp",
+    "banner": "/src/assets/companies/grupo-nov-banner-800.webp",
     "position": 184
   },
   {
@@ -18276,6 +18397,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/guanda-pesca-banner-800.webp",
     "position": 243
   },
   {
@@ -18407,6 +18529,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/guiche-unico-da-empresa-gue-banner-800.webp",
     "position": 99
   },
   {
@@ -18755,6 +18878,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/hispatec-globaltec-logo.webp",
     "position": 247
   },
   {
@@ -18945,6 +19069,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/hmi-camamamanuel-pedro-azancot-de-menezes-logo.webp",
+    "banner": "/src/assets/companies/hmi-camamamanuel-pedro-azancot-de-menezes-banner-800.webp",
     "position": 35
   },
   {
@@ -19152,6 +19278,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-americo-boa-vida-banner-800.webp",
     "position": 36
   },
   {
@@ -19359,6 +19486,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-do-prenda-banner-800.webp",
     "position": 44
   },
   {
@@ -19571,6 +19699,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-dr-walter-strangway-banner-800.webp",
     "position": 37
   },
   {
@@ -19778,6 +19907,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-josina-machel-banner-800.webp",
     "position": 38
   },
   {
@@ -19968,6 +20098,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/hospital-maternidade-lucrecia-paim-logo.webp",
+    "banner": "/src/assets/companies/hospital-maternidade-lucrecia-paim-banner-800.webp",
     "position": 39
   },
   {
@@ -20157,6 +20289,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-neves-bendinha-banner-800.webp",
     "position": 40
   },
   {
@@ -20344,6 +20477,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-pediatrico-david-bernardino-banner-800.webp",
     "position": 41
   },
   {
@@ -20533,6 +20667,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/hospital-psiquiatrico-de-luanda-logo.webp",
+    "banner": "/src/assets/companies/hospital-psiquiatrico-de-luanda-banner-800.webp",
     "position": 42
   },
   {
@@ -20721,6 +20857,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/hospital-sanatorio-de-luanda-banner-800.webp",
     "position": 43
   },
   {
@@ -20882,6 +21019,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ianorq-banner-800.webp",
     "position": 222
   },
   {
@@ -21032,6 +21170,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/impact-cloud-logo.webp",
     "position": 235
   },
   {
@@ -21199,6 +21338,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/innovation-makers-logo.webp",
     "position": 15
   },
   {
@@ -21562,6 +21702,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-angolano-de-controlo-de-cancer-banner-800.webp",
     "position": 45
   },
   {
@@ -21752,6 +21893,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-de-combate-e-controlo-das-tripanossomiases-banner-800.webp",
     "position": 49
   },
   {
@@ -21915,6 +22057,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-de-desenvolvimento-agrario-ida-logo.webp",
     "position": 150
   },
   {
@@ -22076,6 +22219,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-de-desenvolvimento-florestal-idf-logo.webp",
+    "banner": "/src/assets/companies/instituto-de-desenvolvimento-florestal-idf-banner-800.webp",
     "position": 151
   },
   {
@@ -22236,6 +22381,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-geologico-de-angola-igeo-banner-800.webp",
     "position": 137
   },
   {
@@ -22396,6 +22542,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-da-biodiversidade-e-areas-de-conservacao-inbac-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-da-biodiversidade-e-areas-de-conservacao-inbac-banner-800.webp",
     "position": 119
   },
   {
@@ -22529,6 +22677,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-avaliacao-e-desenvolvimento-da-educacao-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-avaliacao-e-desenvolvimento-da-educacao-banner-800.webp",
     "position": 121
   },
   {
@@ -22664,6 +22814,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-nacional-de-educacao-especial-banner-800.webp",
     "position": 122
   },
   {
@@ -22850,6 +23001,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-emergencia-medica-inema-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-emergencia-medica-inema-banner-800.webp",
     "position": 55
   },
   {
@@ -23011,6 +23164,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-emprego-e-formacao-profissional-inefop-logo.webp",
     "position": 123
   },
   {
@@ -23178,6 +23332,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-nacional-de-estatistica-ine-banner-800.webp",
     "position": 107
   },
   {
@@ -23338,6 +23493,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-investigacao-pesqueira-e-marinha-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-investigacao-pesqueira-e-marinha-banner-800.webp",
     "position": 218
   },
   {
@@ -23528,6 +23685,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-investigacoes-em-saude-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-investigacoes-em-saude-banner-800.webp",
     "position": 46
   },
   {
@@ -23718,6 +23877,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-nacional-de-luta-contra-a-sida-banner-800.webp",
     "position": 47
   },
   {
@@ -23879,6 +24039,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-meteorologia-e-geofisica-inamet-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-meteorologia-e-geofisica-inamet-banner-800.webp",
     "position": 152
   },
   {
@@ -24038,6 +24200,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/instituto-nacional-de-recursos-hidricos-logo.webp",
+    "banner": "/src/assets/companies/instituto-nacional-de-recursos-hidricos-banner-800.webp",
     "position": 219
   },
   {
@@ -24200,6 +24364,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-nacional-do-patrimonio-cultural-banner-800.webp",
     "position": 216
   },
   {
@@ -24389,6 +24554,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/instituto-oftalmologico-nacional-de-angola-banner-800.webp",
     "position": 48
   },
   {
@@ -24544,6 +24710,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/integer-consultoria-logo.webp",
+    "banner": "/src/assets/companies/integer-consultoria-banner-800.webp",
     "position": 28
   },
   {
@@ -24720,6 +24888,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/international-beverage-company-logo.webp",
     "position": 90
   },
   {
@@ -24880,6 +25049,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ip-world-logo.webp",
     "position": 29
   },
   {
@@ -25000,6 +25170,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/jac-angola-logo.webp",
+    "banner": "/src/assets/companies/jac-angola-banner-800.webp",
     "position": 203
   },
   {
@@ -25330,6 +25502,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/kept-people-logo.webp",
+    "banner": "/src/assets/companies/kept-people-banner-800.webp",
     "position": 214
   },
   {
@@ -25492,6 +25666,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/kero-banner-800.webp",
     "position": 76
   },
   {
@@ -25808,6 +25983,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/kreatif-comunicacoes-logo.webp",
     "position": 228
   },
   {
@@ -25970,6 +26146,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/laboratorio-de-engenharia-de-angola-lea-banner-800.webp",
     "position": 129
   },
   {
@@ -26102,6 +26279,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/light-for-autism-logo.webp",
     "position": 190
   },
   {
@@ -26238,6 +26416,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/luanda-international-school-lis-banner-800.webp",
     "position": 124
   },
   {
@@ -26474,6 +26653,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/mca-logo.webp",
+    "banner": "/src/assets/companies/mca-banner-800.webp",
     "position": 21
   },
   {
@@ -26621,6 +26802,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/merlahen-logo.webp",
     "position": 223
   },
   {
@@ -26768,6 +26950,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/merlion-agentes-de-navegacao-banner-800.webp",
     "position": 250
   },
   {
@@ -27100,6 +27283,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-accao-social-familia-e-promocao-da-mulher-masfamu-banner-800.webp",
     "position": 106
   },
   {
@@ -27262,6 +27446,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-administracao-do-territorio-mat-banner-800.webp",
     "position": 105
   },
   {
@@ -27428,6 +27613,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-agricultura-e-florestas-minagrif-banner-800.webp",
     "position": 148
   },
   {
@@ -27595,6 +27781,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-cultura-banner-800.webp",
     "position": 115
   },
   {
@@ -27743,6 +27930,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-educacao-med-banner-800.webp",
     "position": 120
   },
   {
@@ -28045,6 +28233,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-da-justica-e-dos-direitos-humanos-banner-800.webp",
     "position": 98
   },
   {
@@ -28206,6 +28395,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/ministerio-das-financas-logo.webp",
+    "banner": "/src/assets/companies/ministerio-das-financas-banner-800.webp",
     "position": 70
   },
   {
@@ -28373,6 +28563,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-das-obras-publicas-urbanismo-e-habitacao-minopuh-banner-800.webp",
     "position": 127
   },
   {
@@ -28535,6 +28726,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-das-pescas-e-recursos-marinhos-minpermar-banner-800.webp",
     "position": 149
   },
   {
@@ -28697,6 +28889,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/ministerio-das-relacoes-exteriores-mirex-logo.webp",
+    "banner": "/src/assets/companies/ministerio-das-relacoes-exteriores-mirex-banner-800.webp",
     "position": 102
   },
   {
@@ -28860,6 +29053,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/ministerio-das-telecomunicacoes-tecnologias-de-informacao-e-comunicacao-social-minttics-logo.webp",
+    "banner": "/src/assets/companies/ministerio-das-telecomunicacoes-tecnologias-de-informacao-e-comunicacao-social-minttics-banner-800.webp",
     "position": 114
   },
   {
@@ -29027,6 +29221,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-do-ensino-superior-ciencia-tecnologia-e-inovacao-mescti-banner-800.webp",
     "position": 116
   },
   {
@@ -29192,6 +29387,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-do-interior-banner-800.webp",
     "position": 206
   },
   {
@@ -29352,6 +29548,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-do-turismo-mintur-banner-800.webp",
     "position": 159
   },
   {
@@ -29518,6 +29715,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ministerio-dos-recursos-minerais-petroleo-e-gas-mirempet-banner-800.webp",
     "position": 136
   },
   {
@@ -29683,6 +29881,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/ministerio-dos-transportes-mintrans-logo.webp",
     "position": 154
   },
   {
@@ -29822,6 +30021,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/mota-engil-angola-logo.webp",
+    "banner": "/src/assets/companies/mota-engil-angola-banner-800.webp",
     "position": 132
   },
   {
@@ -30051,6 +30251,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/movicel-logo.webp",
+    "banner": "/src/assets/companies/movicel-banner-800.webp",
     "position": 1
   },
   {
@@ -30202,6 +30404,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/mulemba-re-logo.webp",
+    "banner": "/src/assets/companies/mulemba-re-banner-800.webp",
     "position": 63
   },
   {
@@ -30564,6 +30768,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/museu-nacional-de-antropologia-banner-800.webp",
     "position": 215
   },
   {
@@ -30757,6 +30962,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/neofarma-logo.webp",
     "position": 58
   },
   {
@@ -30914,6 +31120,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/novagrolider-banner-800.webp",
     "position": 236
   },
   {
@@ -31097,6 +31304,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/oceaneering-angola-logo.webp",
+    "banner": "/src/assets/companies/oceaneering-angola-banner-800.webp",
     "position": 173
   },
   {
@@ -31224,6 +31433,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/organizacoes-kiazop-banner-800.webp",
     "position": 188
   },
   {
@@ -31389,6 +31599,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/ozango-minerais-banner-800.webp",
     "position": 170
   },
   {
@@ -31745,6 +31956,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pep-angola-logo.webp",
     "position": 82
   },
   {
@@ -31881,6 +32093,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/petro-de-luanda-logo.webp",
+    "banner": "/src/assets/companies/petro-de-luanda-banner-800.webp",
     "position": 186
   },
   {
@@ -32069,6 +32283,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pharmadis-logo.webp",
+    "banner": "/src/assets/companies/pharmadis-banner-800.webp",
     "position": 57
   },
   {
@@ -32191,6 +32407,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pilar-campos-logo.webp",
+    "banner": "/src/assets/companies/pilar-campos-banner-800.webp",
     "position": 202
   },
   {
@@ -32328,6 +32546,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pinto-e-cruz-angola-logo.webp",
     "position": 163
   },
   {
@@ -32449,6 +32668,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/plmj-colab-rva-advogados-logo.webp",
+    "banner": "/src/assets/companies/plmj-colab-rva-advogados-banner-800.webp",
     "position": 195
   },
   {
@@ -32584,6 +32805,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pnud-angola-logo.webp",
     "banner": "/src/assets/companies/pnud-angola-banner-800.webp",
     "position": 212
   },
@@ -32744,6 +32966,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/policia-nacional-de-angola-logo.webp",
+    "banner": "/src/assets/companies/policia-nacional-de-angola-banner-800.webp",
     "position": 207
   },
   {
@@ -32907,6 +33131,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/porto-de-luanda-logo.webp",
+    "banner": "/src/assets/companies/porto-de-luanda-banner-800.webp",
     "position": 156
   },
   {
@@ -33063,6 +33289,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/porto-do-lobito-logo.webp",
+    "banner": "/src/assets/companies/porto-do-lobito-banner-800.webp",
     "position": 157
   },
   {
@@ -33211,6 +33439,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/portulang-logo.webp",
     "position": 231
   },
   {
@@ -33378,6 +33607,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/prefangol-lda-prefangol-logo.webp",
+    "banner": "/src/assets/companies/prefangol-lda-prefangol-banner-800.webp",
     "position": 85
   },
   {
@@ -33530,6 +33761,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/premier-yangue-logo.webp",
     "position": 225
   },
   {
@@ -33842,6 +34074,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/prime-advogados-banner-800.webp",
     "position": 192
   },
   {
@@ -33977,6 +34210,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/prime-engenharia-logo.webp",
+    "banner": "/src/assets/companies/prime-engenharia-banner-800.webp",
     "position": 181
   },
   {
@@ -34113,6 +34348,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/primeiro-de-agosto-logo.webp",
     "position": 187
   },
   {
@@ -34239,6 +34475,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/pro-futuro-academy-logo.webp",
+    "banner": "/src/assets/companies/pro-futuro-academy-banner-800.webp",
     "position": 189
   },
   {
@@ -34369,6 +34607,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/procuradoria-geral-da-republica-pgr-logo.webp",
+    "banner": "/src/assets/companies/procuradoria-geral-da-republica-pgr-banner-800.webp",
     "position": 97
   },
   {
@@ -34507,6 +34747,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/provedor-de-justica-banner-800.webp",
     "position": 101
   },
   {
@@ -34827,6 +35068,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/quinta-do-bagre-banner-800.webp",
     "position": 241
   },
   {
@@ -35013,6 +35255,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/radio-nacional-de-angola-rna-logo.webp",
+    "banner": "/src/assets/companies/radio-nacional-de-angola-rna-banner-800.webp",
     "position": 110
   },
   {
@@ -35182,6 +35425,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/rcs-angola-logo.webp",
+    "banner": "/src/assets/companies/rcs-angola-banner-800.webp",
     "position": 77
   },
   {
@@ -35382,6 +35627,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/refinaria-de-cabinda-banner-800.webp",
     "position": 165
   },
   {
@@ -35582,6 +35828,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/refriango-logo.webp",
+    "banner": "/src/assets/companies/refriango-banner-800.webp",
     "position": 78
   },
   {
@@ -35706,6 +35953,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/restaurante-pimms-banner-800.webp",
     "position": 251
   },
   {
@@ -35838,6 +36086,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/sana-hotels-logo.webp",
+    "banner": "/src/assets/companies/sana-hotels-banner-800.webp",
     "position": 160
   },
   {
@@ -35989,6 +36238,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/sanlam-angola-seguros-banner-800.webp",
     "position": 86
   },
   {
@@ -36173,6 +36423,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sbm-offshore-angola-logo.webp",
     "position": 174
   },
   {
@@ -36334,6 +36585,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/seatag-pesca-banner-800.webp",
     "position": 244
   },
   {
@@ -36503,6 +36755,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/selenium-digital-solutions-logo.webp",
     "position": 162
   },
   {
@@ -36698,6 +36951,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sercomoil-group-logo.webp",
     "position": 147
   },
   {
@@ -36832,6 +37086,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/servico-de-investigacao-criminal-sic-logo.webp",
     "position": 100
   },
   {
@@ -37015,6 +37270,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/shelf-drilling-logo.webp",
     "position": 175
   },
   {
@@ -37172,6 +37428,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/shoprite-angola-logo.webp",
+    "banner": "/src/assets/companies/shoprite-angola-banner-800.webp",
     "position": 75
   },
   {
@@ -37485,6 +37742,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sncp-logo.webp",
+    "banner": "/src/assets/companies/sncp-banner-800.webp",
     "position": 208
   },
   {
@@ -37690,6 +37949,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/sociedade-mineira-de-catoca-logo.webp",
+    "banner": "/src/assets/companies/sociedade-mineira-de-catoca-banner-800.webp",
     "position": 139
   },
   {
@@ -37846,6 +38106,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/sociedade-mineira-de-kaixepa-banner-800.webp",
     "position": 168
   },
   {
@@ -38003,6 +38264,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sociedade-mineira-do-chitotolo-logo.webp",
+    "banner": "/src/assets/companies/sociedade-mineira-do-chitotolo-banner-800.webp",
     "position": 167
   },
   {
@@ -38168,6 +38431,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sociedade-mineira-do-lulo-logo.webp",
+    "banner": "/src/assets/companies/sociedade-mineira-do-lulo-banner-800.webp",
     "position": 169
   },
   {
@@ -38316,6 +38581,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/socinter-logo.webp",
+    "banner": "/src/assets/companies/socinter-banner-800.webp",
     "position": 248
   },
   {
@@ -38492,6 +38759,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/sol-sorriso-comercio-e-industria-limitada-banner-800.webp",
     "position": 79
   },
   {
@@ -38916,6 +39184,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/sonepral-logo.webp",
     "position": 176
   },
   {
@@ -39111,6 +39380,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/southey-contracting-limitada-logo.webp",
     "position": 144
   },
   {
@@ -39306,6 +39576,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/spie-oil-gas-services-logo.webp",
+    "banner": "/src/assets/companies/spie-oil-gas-services-banner-800.webp",
     "position": 146
   },
   {
@@ -39442,6 +39714,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/st-andrews-english-school-logo.webp",
     "position": 125
   },
   {
@@ -40105,6 +40378,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/techfix-angola-logo.webp",
+    "banner": "/src/assets/companies/techfix-angola-banner-800.webp",
     "position": 30
   },
   {
@@ -40415,6 +40690,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/televisao-publica-de-angola-tpa-logo.webp",
+    "banner": "/src/assets/companies/televisao-publica-de-angola-tpa-banner-800.webp",
     "position": 109
   },
   {
@@ -40608,6 +40885,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/tis-tech-angola-logo.webp",
     "position": 25
   },
   {
@@ -40971,6 +41249,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/tresluncorte-logo.webp",
     "position": 27
   },
   {
@@ -41106,6 +41385,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/tribunal-constitucional-logo.webp",
+    "banner": "/src/assets/companies/tribunal-constitucional-banner-800.webp",
     "position": 95
   },
   {
@@ -41242,6 +41522,7 @@
     ],
     "estimated": true,
     "logo": "/src/assets/companies/tribunal-supremo-logo.webp",
+    "banner": "/src/assets/companies/tribunal-supremo-banner-800.webp",
     "position": 94
   },
   {
@@ -41931,6 +42212,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/unitel-banner-800.webp",
     "position": 0
   },
   {
@@ -42092,6 +42374,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/wange-international-angola-lda-logo.webp",
     "position": 80
   },
   {
@@ -42259,6 +42542,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/webcor-group-logo.webp",
+    "banner": "/src/assets/companies/webcor-group-banner-800.webp",
     "position": 84
   },
   {
@@ -42415,6 +42700,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/xd-people-logo.webp",
+    "banner": "/src/assets/companies/xd-people-banner-800.webp",
     "position": 26
   },
   {
@@ -42566,6 +42853,8 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/yingke-angola-consultoria-logo.webp",
+    "banner": "/src/assets/companies/yingke-angola-consultoria-banner-800.webp",
     "position": 246
   },
   {
@@ -42762,6 +43051,7 @@
       }
     ],
     "estimated": true,
+    "banner": "/src/assets/companies/zap-banner-800.webp",
     "position": 19
   },
   {
@@ -42915,6 +43205,7 @@
       }
     ],
     "estimated": true,
+    "logo": "/src/assets/companies/zwela-angola-logo.webp",
     "position": 227
   }
 ]

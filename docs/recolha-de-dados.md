@@ -92,6 +92,10 @@ Não encontrados (para ligar ou visitar):
 - **Propinas de 2026/27:** ainda não publicadas. As de 2025/26 continuam para as 8 privadas; as outras são estimadas.
 - **Ofertas novas confirmadas por decreto:** nenhuma nesta ronda.
 
+### Academias da vitrine (21/11/2026)
+
+`apps/web/src/data/demo/academyShowcase.ts`: 63 instituições de Luanda (universidades, institutos superiores, médios e centros) com 588 cursos. Todas têm cursos, descrição com os cursos e como se entra, e cada oferta tem duração e regime (`durationMonths`, `schedule`, `estimated: true`, por nível e tipo de instituição: licenciatura 48 meses, engenharia 60, medicina 72, médio 48, curso curto 6; público só diurno, privado e cursos curtos também pós-laboral). Sete escolas sem cursos (ISUTIC, INEFOP, IFBA, Academia BAI e os institutos médios industriais e de gestão) receberam cursos prováveis pelo tipo, também estimados. Ainda faltam (só com fonte): logótipo em 46, capa em 51, site em 46, contactos em 51. As "por confirmar" de "Contactos e identidade" e as de "Ainda por pesquisar" (secção que não existe neste ficheiro) continuam por ligar ou visitar. Os cursos novos do ponto 7 já estavam em `academies.ts`.
+
 ### Ecossistema (não dá cursos)
 
 | id | Nome | O que é | Fonte |

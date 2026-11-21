@@ -346,6 +346,11 @@ export type AcademyOffer = {
   curriculum?: Curriculum
   /** The published fee; without one, the app estimates it (domain/fees.ts). */
   fee?: PublishedFee
+  /** Length in months and the schedules; with `estimated`, they follow from the level and the kind of institution. */
+  durationMonths?: number
+  schedule?: Schedule[]
+  /** true: the offer itself, its length or its schedule is our logical reading, not stated by the institution. */
+  estimated?: true
 }
 
 /** A course across the institutions that offer it (GET /courses): the catalogue the Cursos page shows. */
@@ -368,6 +373,8 @@ export type Academy = Omit<Institution, 'ownership'> & {
   ownership: Institution['ownership'] | null
   place: string
   summary: string
+  /** true: part of the description (access, courses) is our reading by the kind of institution (data-to-collect-later). */
+  estimated?: true
   offers: AcademyOffer[]
   /** The youngest age it takes, when a source says so. */
   minAge?: number
