@@ -4,17 +4,17 @@
 
 | # | Instituição | id | Logótipo | Capa |
 |---|---|---|---|---|
-| 1 | Academia Cisco Tocoísta | `academia-cisco-tocoista` | falta | falta |
+| 1 | Academia Cisco Tocoísta | `academia-cisco-tocoista` | ok | falta |
 | 2 | Academia de Seguros e Fundos de Pensões | `academia-de-seguros-e-fundos-de-pensoes` | ok | falta |
-| 3 | Academia PetroAngola | `academia-petroangola` | falta | falta |
-| 4 | Centro de Formação de Jornalistas | `centro-de-formacao-de-jornalistas-cefojor` | falta | falta |
-| 5 | Centro de Formação Profissional Feminino | `centro-formacao-profissional-feminino` | falta | falta |
-| 6 | Complexo das Escolas de Artes | `complexo-das-escolas-de-artes-cearte` | falta | falta |
-| 7 | Escola de Formação de Técnicos de Saúde de Luanda | `escola-de-formacao-de-tecnicos-de-saude-de-luanda` | falta | falta |
-| 8 | Escola Nacional de Administração e Políticas Públicas | `escola-nacional-de-administracao-e-politicas-publicas-enapp` | falta | ok |
-| 9 | Escola Superior de Saúde Castelo | `escola-superior-de-saude-castelo` | ok | falta |
-| 10 | Instituto de Especialização em Saúde | `instituto-de-especializacao-em-saude` | falta | falta |
-| 11 | Instituto de Formação Bancária de Angola | `instituto-de-formacao-bancaria-de-angola-ifba` | falta | falta |
+| 3 | Academia PetroAngola | `academia-petroangola` | ok | ok |
+| 4 | Centro de Formação de Jornalistas | `centro-de-formacao-de-jornalistas-cefojor` | ok | ok |
+| 5 | Centro de Formação Profissional Feminino | `centro-formacao-profissional-feminino` | falta | ok |
+| 6 | Complexo das Escolas de Artes | `complexo-das-escolas-de-artes-cearte` | falta | ok |
+| 7 | Escola de Formação de Técnicos de Saúde de Luanda | `escola-de-formacao-de-tecnicos-de-saude-de-luanda` | ok | ok |
+| 8 | Escola Nacional de Administração e Políticas Públicas | `escola-nacional-de-administracao-e-politicas-publicas-enapp` | ok | ok |
+| 9 | Escola Superior de Saúde Castelo | `escola-superior-de-saude-castelo` | ok | ok |
+| 10 | Instituto de Especialização em Saúde | `instituto-de-especializacao-em-saude` | ok | ok |
+| 11 | Instituto de Formação Bancária de Angola | `instituto-de-formacao-bancaria-de-angola-ifba` | ok | ok |
 | 12 | Instituto Médio Comercial de Luanda | `instituto-medio-comercial-de-luanda` | falta | falta |
 | 13 | Instituto Médio de Administração e Gestão do Kilamba Kiaxi | `instituto-medio-de-administracao-e-gestao-do-kilamba-kiaxi` | falta | falta |
 | 14 | Instituto Médio de Economia de Luanda | `instituto-medio-de-economia-de-luanda` | falta | ok |
