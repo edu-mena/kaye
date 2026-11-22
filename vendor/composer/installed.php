@@ -3,7 +3,7 @@
         'name' => 'kaye/api',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e24487ca3ade921252b373715092160bc2aa684f',
+        'reference' => '9417f9d124264e4b0cbcabfbe40fa6b94c9957f3',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -541,7 +541,7 @@
         'kaye/api' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e24487ca3ade921252b373715092160bc2aa684f',
+            'reference' => '9417f9d124264e4b0cbcabfbe40fa6b94c9957f3',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
