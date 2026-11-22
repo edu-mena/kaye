@@ -53,7 +53,7 @@ describe('AcademyPage', () => {
   })
 
   it('says when no course is confirmed yet', async () => {
-    open('inefop?secao=cursos')
+    open('instituto-nacional-de-formacao-de-quadros-da-educacao-infqe?secao=cursos')
     expect(
       await screen.findByText('Ainda não temos nenhum curso confirmado desta instituição.'),
     ).toBeInTheDocument()
