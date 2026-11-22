@@ -11,6 +11,8 @@ type Fixtures = {
    * returning users (tour done), unless they turn this off to test the tour itself.
    */
   tourDone: boolean
+  /** The question about the areas, at the entrance, is already answered (tests of the question itself turn this off). */
+  areasAsked: boolean
 }
 
 const PROFILE = {
@@ -29,7 +31,14 @@ const PROFILE = {
 export const test = base.extend<Fixtures>({
   signedIn: [true, { option: true }],
   tourDone: [true, { option: true }],
-  page: async ({ page, signedIn, tourDone }, provide) => {
+  areasAsked: [true, { option: true }],
+  page: async ({ page, signedIn, tourDone, areasAsked }, provide) => {
+    if (!signedIn && areasAsked) {
+      await page.addInitScript(() => {
+        if (localStorage.getItem('kaye.user.v1')) return
+        localStorage.setItem('kaye.user.v1', JSON.stringify({ version: 1, interestAreas: [] }))
+      })
+    }
     if (signedIn) {
       // Only once per tab, so erasing the data is not undone by the next page load.
       await page.addInitScript(

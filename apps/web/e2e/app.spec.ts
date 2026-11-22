@@ -96,3 +96,32 @@ test.describe('app shell', () => {
     await expect(page).toHaveURL(/\/$/)
   })
 })
+
+test.describe('the question about the areas', () => {
+  test.use({ signedIn: false, areasAsked: false })
+
+  test('asks on one screen, keeps the choice and shows what has to do with it', async ({
+    page,
+    consoleErrors,
+  }) => {
+    await page.goto('/carreiras')
+    const question = page.getByRole('dialog', { name: 'Que áreas te interessam?' })
+    await expect(question).toBeVisible()
+    await question.getByRole('button', { name: 'Saúde' }).click()
+    await question.getByRole('button', { name: 'Continuar' }).click()
+    await expect(question).toBeHidden()
+    await expect(page.getByText('A mostrar o que tem a ver contigo.').first()).toBeVisible()
+    await page.getByRole('button', { name: 'Ver outras áreas' }).click()
+    await expect(page.getByText('A mostrar tudo, também as outras áreas.')).toBeVisible()
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('"Saltar" leaves every list open', async ({ page }) => {
+    await page.goto('/carreiras')
+    await page
+      .getByRole('dialog', { name: 'Que áreas te interessam?' })
+      .getByRole('button', { name: 'Saltar' })
+      .click()
+    await expect(page.getByText(/A mostrar o que tem a ver contigo/)).toHaveCount(0)
+  })
+})
