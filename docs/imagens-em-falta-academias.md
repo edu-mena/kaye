@@ -15,16 +15,16 @@
 | 9 | Escola Superior de Saúde Castelo | `escola-superior-de-saude-castelo` | ok | ok |
 | 10 | Instituto de Especialização em Saúde | `instituto-de-especializacao-em-saude` | ok | ok |
 | 11 | Instituto de Formação Bancária de Angola | `instituto-de-formacao-bancaria-de-angola-ifba` | ok | ok |
-| 12 | Instituto Médio Comercial de Luanda | `instituto-medio-comercial-de-luanda` | falta | falta |
-| 13 | Instituto Médio de Administração e Gestão do Kilamba Kiaxi | `instituto-medio-de-administracao-e-gestao-do-kilamba-kiaxi` | falta | falta |
-| 14 | Instituto Médio de Economia de Luanda | `instituto-medio-de-economia-de-luanda` | falta | ok |
-| 15 | Instituto Médio Industrial de Luanda | `instituto-medio-industrial-de-luanda` | falta | falta |
-| 16 | Instituto Médio Politécnico Alda Lara | `instituto-medio-politecnico-alda-lara` | falta | falta |
-| 17 | Instituto Médio Politécnico Industrial de Luanda | `instituto-medio-politecnico-industrial-de-luanda` | falta | falta |
-| 18 | Instituto Politécnico de Administração e Serviços dos Ramiros n.º 2.066 - Kundi Paihama | `instituto-politecnico-dos-ramiros` | falta | falta |
-| 19 | Instituto Politécnico Maiombe n.º 4.023 | `instituto-politecnico-maiombe` | falta | falta |
-| 20 | Instituto Superior de Angola | `instituto-superior-de-angola` | falta | falta |
-| 21 | Instituto Superior de Artes | `instituto-superior-de-artes` | falta | falta |
+| 12 | Instituto Médio Comercial de Luanda | `instituto-medio-comercial-de-luanda` | falta | ok |
+| 13 | Instituto Médio de Administração e Gestão do Kilamba Kiaxi | `instituto-medio-de-administracao-e-gestao-do-kilamba-kiaxi` | falta | ok |
+| 14 | Instituto Médio de Economia de Luanda | `instituto-medio-de-economia-de-luanda` | ok | ok |
+| 15 | Instituto Médio Industrial de Luanda | `instituto-medio-industrial-de-luanda` | ok | ok |
+| 16 | Instituto Médio Politécnico Alda Lara | `instituto-medio-politecnico-alda-lara` | ok | ok |
+| 17 | Instituto Médio Politécnico Industrial de Luanda | `instituto-medio-politecnico-industrial-de-luanda` | ok | ok |
+| 18 | Instituto Politécnico de Administração e Serviços dos Ramiros n.º 2.066 - Kundi Paihama | `instituto-politecnico-dos-ramiros` | falta | ok |
+| 19 | Instituto Politécnico Maiombe n.º 4.023 | `instituto-politecnico-maiombe` | falta | ok |
+| 20 | Instituto Superior de Angola | `instituto-superior-de-angola` | ok | ok |
+| 21 | Instituto Superior de Artes | `instituto-superior-de-artes` | ok | ok |
 | 22 | Instituto Superior de Ciências de Educação de Luanda | `instituto-superior-de-ciencias-de-educacao-de-luanda` | falta | ok |
 | 23 | Instituto Superior de Ciências Sociais e Relações Internacionais | `instituto-superior-de-ciencias-sociais-e-relacoes-internacionais` | falta | falta |
 | 24 | Instituto Superior Politécnico Atlântida | `instituto-superior-politecnico-atlantida` | ok | falta |
