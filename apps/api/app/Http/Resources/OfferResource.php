@@ -36,6 +36,9 @@ class OfferResource extends ContentResource
             'curriculum' => $this->value('curriculum'),
             'fee' => self::feeShape($this->fee()),
             'faculty' => $this->value('faculty'),
+            'durationMonths' => $this->value('duration_months'),
+            'schedule' => $this->value('schedule'),
+            'estimated' => $this->resource->estimated ? true : null,
         ]);
     }
 

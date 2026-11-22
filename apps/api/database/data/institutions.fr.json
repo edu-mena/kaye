@@ -36,6 +36,8 @@
         "url": "https://forbesafricalusofona.com/?p=70167"
       }
     ],
+    "logo": "/src/assets/academies/academia-bai-logo.webp",
+    "banner": "/src/assets/academies/academia-bai-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Academia%20BAI%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 152
@@ -81,6 +83,8 @@
         "url": "https://www.verangola.net/va/en/102026/Technology/50493/Academy-dedicated-to-technological-training-opens-its-doors-with-courses-starting-at-25000-kwanzas.htm"
       }
     ],
+    "logo": "/src/assets/academies/academia-cisco-tocoista-logo.webp",
+    "banner": "/src/assets/academies/academia-cisco-tocoista-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Academia%20Cisco%20Toco%C3%ADsta%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 44
@@ -126,6 +130,8 @@
         "url": "https://expansao.co.ao/empresas/detalhe/academia-de-seguros-forma-840-mediadores-em-sete-provincias-63710.html"
       }
     ],
+    "logo": "/src/assets/academies/academia-de-seguros-e-fundos-de-pensoes-logo.webp",
+    "banner": "/src/assets/academies/academia-de-seguros-e-fundos-de-pensoes-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Academia%20de%20Seguros%20e%20Fundos%20de%20Pens%C3%B5es%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 43
@@ -230,6 +236,8 @@
         "url": "https://academia.petroangola.com/"
       }
     ],
+    "logo": "/src/assets/academies/academia-petroangola-logo.webp",
+    "banner": "/src/assets/academies/academia-petroangola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Academia%20PetroAngola%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 17
@@ -391,6 +399,8 @@
         "url": "https://cefojor.ao/sobre-nos/"
       }
     ],
+    "logo": "/src/assets/academies/centro-de-formacao-de-jornalistas-cefojor-logo.webp",
+    "banner": "/src/assets/academies/centro-de-formacao-de-jornalistas-cefojor-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Centro%20de%20Forma%C3%A7%C3%A3o%20de%20Jornalistas%20(CEFOJOR)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 51
@@ -754,6 +764,8 @@
         "url": "https://faolex.fao.org/docs/pdf/ang221175.pdf"
       }
     ],
+    "logo": "/src/assets/academies/centro-formacao-profissional-feminino-logo.webp",
+    "banner": "/src/assets/academies/centro-formacao-profissional-feminino-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Centro%20de%20Forma%C3%A7%C3%A3o%20Profissional%20Feminino%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 68
@@ -901,6 +913,8 @@
         "url": "https://www.verangola.net/va/pt/012025/Cultura/42854/Numa-d%C3%A9cada-CEARTE-introduziu-mais-de-300-artistas-no-mercado-de-trabalho.htm"
       }
     ],
+    "logo": "/src/assets/academies/complexo-das-escolas-de-artes-cearte-logo.webp",
+    "banner": "/src/assets/academies/complexo-das-escolas-de-artes-cearte-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Complexo%20das%20Escolas%20de%20Artes%20(CEARTE)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 53
@@ -1344,6 +1358,8 @@
         "url": "https://www.verangola.net/va/pt/072025/Saude/44961/Sindicato-de-enfermeiros-concorda-com-encerramento-de-cursos-sem-condições-de-funcionamento.htm"
       }
     ],
+    "logo": "/src/assets/academies/escola-de-formacao-de-tecnicos-de-saude-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/escola-de-formacao-de-tecnicos-de-saude-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Escola%20de%20Forma%C3%A7%C3%A3o%20de%20T%C3%A9cnicos%20de%20Sa%C3%BAde%20de%20Luanda%2C%20Luanda%2C%20Angola",
     "phone": "+244 2 357879",
     "address": "Rua da Samba, 13, Maianga, Luanda",
@@ -1712,6 +1728,8 @@
         "url": "https://enapp.gov.ao"
       }
     ],
+    "logo": "/src/assets/academies/escola-nacional-de-administracao-e-politicas-publicas-enapp-logo.webp",
+    "banner": "/src/assets/academies/escola-nacional-de-administracao-e-politicas-publicas-enapp-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Escola%20Nacional%20de%20Administra%C3%A7%C3%A3o%20e%20Pol%C3%ADticas%20P%C3%BAblicas%20(ENAPP)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 59
@@ -2734,6 +2752,7 @@
       }
     ],
     "logo": "/src/assets/academies/escola-superior-de-saude-castelo-logo.webp",
+    "banner": "/src/assets/academies/escola-superior-de-saude-castelo-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Escola%20Superior%20de%20Sa%C3%BAde%20Castelo%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 129
@@ -4598,6 +4617,8 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/regulamento-sobre-internato-medico-60a-25a.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-de-especializacao-em-saude-logo.webp",
+    "banner": "/src/assets/academies/instituto-de-especializacao-em-saude-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20de%20Especializa%C3%A7%C3%A3o%20em%20Sa%C3%BAde%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 12
@@ -4639,6 +4660,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/instituto-de-formacao-bancaria-sofre-reestruturacao-e-lanca-novos-cursos--47954.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-de-formacao-bancaria-de-angola-ifba-logo.webp",
+    "banner": "/src/assets/academies/instituto-de-formacao-bancaria-de-angola-ifba-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20de%20Forma%C3%A7%C3%A3o%20Banc%C3%A1ria%20de%20Angola%20(IFBA)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 151
@@ -4763,6 +4786,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/funcionarios-das-escolas-publicas-micham-ate-400-mil-kz-para-garantir-vagas-62314.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-comercial-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-comercial-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20Comercial%20de%20Luanda%20(IMCL)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 37
@@ -4848,6 +4873,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/apenas-1-em-cada-5-inscritos-vai-entrar-no-ensino-medio-tecnico-profissional-66860.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-de-administracao-e-gestao-do-kilamba-kiaxi-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-de-administracao-e-gestao-do-kilamba-kiaxi-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20de%20Administra%C3%A7%C3%A3o%20e%20Gest%C3%A3o%20do%20Kilamba%20Kiaxi%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 35
@@ -4937,6 +4964,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/apenas-1-em-cada-5-inscritos-vai-entrar-no-ensino-medio-tecnico-profissional-66860.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-de-economia-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-de-economia-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20de%20Economia%20de%20Luanda%20(IMEL)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 36
@@ -5038,6 +5067,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/funcionarios-das-escolas-publicas-micham-ate-400-mil-kz-para-garantir-vagas-62314.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-industrial-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-industrial-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20Industrial%20de%20Luanda%20(IMIL)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 32
@@ -5101,6 +5132,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/funcionarios-das-escolas-publicas-micham-ate-400-mil-kz-para-garantir-vagas-62314.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-politecnico-alda-lara-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-politecnico-alda-lara-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20Polit%C3%A9cnico%20Alda%20Lara%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 38
@@ -5202,6 +5235,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/apenas-1-em-cada-5-inscritos-vai-entrar-no-ensino-medio-tecnico-profissional-66860.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-politecnico-do-kilamba-kiaxi-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-politecnico-do-kilamba-kiaxi-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20Polit%C3%A9cnico%20do%20Kilamba%20Kiaxi%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 34
@@ -5303,6 +5338,8 @@
         "url": "https://expansao.co.ao/angola/detalhe/apenas-1-em-cada-5-inscritos-vai-entrar-no-ensino-medio-tecnico-profissional-66860.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-medio-politecnico-industrial-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-medio-politecnico-industrial-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20M%C3%A9dio%20Polit%C3%A9cnico%20Industrial%20de%20Luanda%20(IMPIL)%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 33
@@ -5969,6 +6006,8 @@
         "url": "https://lex.ao/docs/ministerio-da-educacao/2023/decreto-executivo-n-o-230-23-de-24-de-outubro/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-politecnico-dos-ramiros-logo.webp",
+    "banner": "/src/assets/academies/instituto-politecnico-dos-ramiros-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Polit%C3%A9cnico%20de%20Administra%C3%A7%C3%A3o%20e%20Servi%C3%A7os%20dos%20Ramiros%20n.%C2%BA%202.066%20-%20Kundi%20Paihama%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 41
@@ -6095,6 +6134,8 @@
         "url": "https://lex.ao/docs/ministerio-da-educacao/2022/decreto-executivo-n-o-227-22-de-07-de-junho/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-politecnico-maiombe-logo.webp",
+    "banner": "/src/assets/academies/instituto-politecnico-maiombe-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Polit%C3%A9cnico%20Maiombe%20n.%C2%BA%204.023%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 39
@@ -6703,6 +6744,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-de-angola-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-de-angola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20de%20Angola%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 112
@@ -6802,6 +6845,8 @@
         "url": "https://lex.ao/docs/ministerio-do-ensino-superior/2017/decreto-executivo-n-o-584-17-de-04-de-outubro/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-de-artes-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-de-artes-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20de%20Artes%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 52
@@ -8586,6 +8631,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-de-ciencias-de-educacao-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-de-ciencias-de-educacao-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20de%20Ci%C3%AAncias%20de%20Educa%C3%A7%C3%A3o%20de%20Luanda%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 161
@@ -9633,6 +9680,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-de-ciencias-sociais-e-relacoes-internacionais-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-de-ciencias-sociais-e-relacoes-internacionais-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20de%20Ci%C3%AAncias%20Sociais%20e%20Rela%C3%A7%C3%B5es%20Internacionais%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 139
@@ -10986,6 +11035,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-alvorecer-de-juventude-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-alvorecer-de-juventude-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Alvorecer%20de%20Juventude%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 69
@@ -11380,6 +11431,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-atlantida-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-atlantida-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Atl%C3%A2ntida%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 70
@@ -14355,6 +14408,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-deolinda-rodrigues-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-deolinda-rodrigues-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Deolinda%20Rodrigues%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 72
@@ -14810,6 +14865,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-do-bita-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-do-bita-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20do%20Bita%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 99
@@ -15260,6 +15317,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-do-cazenga-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-do-cazenga-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20do%20Cazenga%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 101
@@ -16590,6 +16649,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-do-zango-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-do-zango-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20do%20Zango%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 105
@@ -17744,6 +17805,8 @@
         "url": "https://lex.ao/docs/presidente-da-republica/2017/decreto-presidencial-n-o-173-17-de-03-de-agosto/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-intercontinental-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-intercontinental-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Intercontinental%20de%20Luanda%2C%20Luanda%2C%20Angola",
     "founded": {
       "year": 2017,
@@ -18421,6 +18484,8 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/autoriza-a-criacao-de-varias-instituicoes-do-ensino-superior-privado-168a-12a.html"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-internacional-de-angola-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-internacional-de-angola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Internacional%20de%20Angola%2C%20Luanda%2C%20Angola",
     "founded": {
       "year": 2012,
@@ -19488,6 +19553,7 @@
       }
     ],
     "logo": "/src/assets/academies/instituto-superior-politecnico-kalandula-de-angola-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-kalandula-de-angola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Kalandula%20de%20Angola%2C%20Luanda%2C%20Angola",
     "website": "https://ispeka.ao",
     "social": {
@@ -19983,6 +20049,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-kangonjo-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-kangonjo-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Kangonjo%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 79
@@ -21720,6 +21788,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-metropolitano-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-metropolitano-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Metropolitano%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 85
@@ -22325,6 +22395,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-nelson-mandela-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-nelson-mandela-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Nelson%20Mandela%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 131
@@ -23492,6 +23564,8 @@
         "url": "https://lex.ao/docs/presidente-da-republica/2017/decreto-presidencial-n-o-173-17-de-03-de-agosto/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-privado-do-kilamba-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-privado-do-kilamba-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Privado%20do%20Kilamba%2C%20Luanda%2C%20Angola",
     "founded": {
       "year": 2017,
@@ -25149,6 +25223,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-politecnico-tocoista-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-politecnico-tocoista-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20Polit%C3%A9cnico%20Toco%C3%ADsta%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 93
@@ -26291,6 +26367,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-tecnico-de-angola-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-tecnico-de-angola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20T%C3%A9cnico%20de%20Angola%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 110
@@ -26484,6 +26562,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/instituto-superior-tecnico-militar-logo.webp",
+    "banner": "/src/assets/academies/instituto-superior-tecnico-militar-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20Superior%20T%C3%A9cnico%20Militar%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 108
@@ -27198,6 +27278,8 @@
         "url": "https://lex.ao/docs/ministerio-da-educacao/2024/decreto-executivo-n-o-194-24-de-01-de-novembro/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-tecnico-de-saude-do-kilamba-n-2-010-logo.webp",
+    "banner": "/src/assets/academies/instituto-tecnico-de-saude-do-kilamba-n-2-010-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20T%C3%A9cnico%20de%20Sa%C3%BAde%20do%20Kilamba%20n.%C2%BA%202.010%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 19
@@ -27630,6 +27712,8 @@
         "url": "https://lex.ao/docs/ministerio-da-educacao/2020/decreto-executivo-n-o-214-20-de-17-de-julho/"
       }
     ],
+    "logo": "/src/assets/academies/instituto-tecnico-de-saude-n-5-146-logo.webp",
+    "banner": "/src/assets/academies/instituto-tecnico-de-saude-n-5-146-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Instituto%20T%C3%A9cnico%20de%20Sa%C3%BAde%20n.%C2%BA%205.146%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 25
@@ -29216,6 +29300,8 @@
         "url": "https://www.verangola.net/va/pt/102026/Sociedade/50392/Pavilh%C3%A3o-de-forma%C3%A7%C3%A3o-profissional-dos-Ramiros-abre-portas-para-qualificar-1000-formandos-por-ciclo.htm"
       }
     ],
+    "logo": "/src/assets/academies/pavilhao-artes-oficios-ramiros-logo.webp",
+    "banner": "/src/assets/academies/pavilhao-artes-oficios-ramiros-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pavilh%C3%A3o%20de%20Forma%C3%A7%C3%A3o%20Profissional%20de%20Artes%20e%20Of%C3%ADcios%20dos%20Ramiros%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 66
@@ -29471,6 +29557,8 @@
         "url": "https://ordemengenheiros.ao/o-e-a/73kwa5ds92kufk17vsgyp30h9k5o7q"
       }
     ],
+    "logo": "/src/assets/academies/pmi-angola-chapter-logo.webp",
+    "banner": "/src/assets/academies/pmi-angola-chapter-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=PMI%20Angola%20Chapter%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 13
@@ -33460,6 +33548,7 @@
       }
     ],
     "logo": "/src/assets/academies/universidade-de-belas-logo.webp",
+    "banner": "/src/assets/academies/universidade-de-belas-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidade%20de%20Belas%2C%20Luanda%2C%20Angola",
     "website": "https://unibelas.online",
     "phone": "+244 927 217 253",
@@ -33990,6 +34079,7 @@
       }
     ],
     "logo": "/src/assets/academies/universidade-de-luanda-logo.webp",
+    "banner": "/src/assets/academies/universidade-de-luanda-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidade%20de%20Luanda%2C%20Luanda%2C%20Angola",
     "website": "https://uniluanda.ao",
     "phone": "+244 940 112 732",
@@ -34781,6 +34871,8 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/autoriza-a-empresa-intelectus-a-abrir-a-universidade-gregorio-semedo-23a-07a.html"
       }
     ],
+    "logo": "/src/assets/academies/universidade-gregorio-semedo-logo.webp",
+    "banner": "/src/assets/academies/universidade-gregorio-semedo-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidade%20Greg%C3%B3rio%20Semedo%2C%20Luanda%2C%20Angola",
     "founded": {
       "year": 2007,
@@ -37857,6 +37949,8 @@
         "url": "https://ine.gov.ao/Arquivos/arquivosCarregados//Carregados/Publicacao_639215989476277608.pdf"
       }
     ],
+    "logo": "/src/assets/academies/universidade-oscar-ribas-logo.webp",
+    "banner": "/src/assets/academies/universidade-oscar-ribas-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidade%20%C3%93scar%20Ribas%2C%20Luanda%2C%20Angola",
     "estimated": true,
     "position": 126
@@ -38211,6 +38305,8 @@
         "url": "https://angolex.com/paginas/decreto-presidencial/autoriza-a-empresa-crea-a-abrir-a-universidade-privada-de-angola-28a-07a.html"
       }
     ],
+    "logo": "/src/assets/academies/universidade-privada-de-angola-logo.webp",
+    "banner": "/src/assets/academies/universidade-privada-de-angola-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidade%20Privada%20de%20Angola%2C%20Luanda%2C%20Angola",
     "founded": {
       "year": 2007,
@@ -39294,6 +39390,7 @@
       }
     ],
     "logo": "/src/assets/academies/universidades-jean-piaget-logo.webp",
+    "banner": "/src/assets/academies/universidades-jean-piaget-banner-800.webp",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Universidades%20Jean%20Piaget%2C%20Luanda%2C%20Angola",
     "website": "https://unipiaget-angola.org",
     "phone": "+244 929 815 107",

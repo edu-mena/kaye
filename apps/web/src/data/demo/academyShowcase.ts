@@ -6,7 +6,7 @@ import { CAREER_SUMMARIES } from './careers'
 // and marked `estimated: true`. Never a phone, a name or a price: those stay empty until a source gives them.
 
 /** About 60 institutions: the universities and higher institutes, the main médio schools and training centres. */
-export const SHOWCASE_IDS = new Set([
+const SHOWCASE_IDS = new Set([
   // universities and higher institutes
   'uan',
   'isutic',
@@ -221,12 +221,13 @@ export function withShowcase(academies: Academy[]): Academy[] {
   return academies.map((academy) => {
     const showcase = SHOWCASE_IDS.has(academy.id)
     const listed = academy.offers.length > 0 || !showcase ? academy.offers : coursesFor(academy)
-    const offers = listed.map((offer) => ({
-      ...offer,
-      durationMonths: offer.durationMonths ?? months(offer),
-      schedule: offer.schedule ?? schedules(academy, offer),
-      estimated: true as const,
-    }))
+    const offers = listed.map((offer) =>
+      Object.assign({}, offer, {
+        durationMonths: offer.durationMonths ?? months(offer),
+        schedule: offer.schedule ?? schedules(academy, offer),
+        estimated: true as const,
+      }),
+    )
     if (!showcase) return { ...academy, offers }
     const names = [...new Set(offers.map((offer) => offer.name))]
     const courses = names.length > 0 ? ` Cursos: ${sentence(names)}.` : ''

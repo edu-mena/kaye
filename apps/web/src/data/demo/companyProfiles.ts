@@ -301,12 +301,12 @@ function complete(company: Company): Company {
   const own = profile.roles ?? []
   const roles = [
     ...own,
-    ...(found.roles ?? []).filter((post) => !own.some((role) => role.title === post.title)),
+    ...(found.roles ?? []).filter((post) => !own.some((mine) => mine.title === post.title)),
   ]
-  const names = new Set((profile.people ?? []).map((person) => person.name))
+  const names = new Set((profile.people ?? []).map((member) => member.name))
   const people = [
     ...(profile.people ?? []),
-    ...(found.people ?? []).filter((person) => !names.has(person.name)),
+    ...(found.people ?? []).filter((member) => !names.has(member.name)),
   ]
   const website = company.website ?? found.website
   return {
