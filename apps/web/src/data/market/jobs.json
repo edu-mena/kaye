@@ -1,125 +1,125 @@
 {
- "updated": "2026-10-28",
- "from": "2025-10-29",
- "postings": 2474,
+ "updated": "2026-11-22",
+ "from": "2025-11-23",
+ "postings": 2485,
  "kinds": {
-  "vaga": 2227,
-  "estagio": 80,
-  "concurso": 148,
-  "espontanea": 19
+  "vaga": 2235,
+  "estagio": 83,
+  "espontanea": 18,
+  "concurso": 149
  },
  "months": [
   {
-   "month": "2025-11",
-   "postings": 215
-  },
-  {
    "month": "2025-12",
-   "postings": 80
+   "postings": 60
   },
   {
    "month": "2026-01",
-   "postings": 126
+   "postings": 465
   },
   {
    "month": "2026-02",
-   "postings": 341
+   "postings": 261
   },
   {
    "month": "2026-03",
-   "postings": 145
+   "postings": 124
   },
   {
    "month": "2026-04",
-   "postings": 414
+   "postings": 135
   },
   {
    "month": "2026-05",
-   "postings": 120
+   "postings": 278
   },
   {
    "month": "2026-06",
-   "postings": 175
+   "postings": 135
   },
   {
    "month": "2026-07",
-   "postings": 174
+   "postings": 334
   },
   {
    "month": "2026-08",
-   "postings": 285
-  },
-  {
-   "month": "2026-09",
    "postings": 201
   },
   {
+   "month": "2026-09",
+   "postings": 156
+  },
+  {
    "month": "2026-10",
+   "postings": 139
+  },
+  {
+   "month": "2026-11",
    "postings": 178
   }
  ],
  "blocks": [
   {
-   "month": "2025-11",
-   "postings": 421
+   "month": "2025-12",
+   "postings": 786
   },
   {
-   "month": "2026-02",
-   "postings": 900
+   "month": "2026-03",
+   "postings": 537
   },
   {
-   "month": "2026-05",
-   "postings": 469
+   "month": "2026-06",
+   "postings": 670
   },
   {
-   "month": "2026-08",
-   "postings": 664
+   "month": "2026-09",
+   "postings": 473
   }
  ],
  "areas": [
   {
    "area": "business",
-   "postings": 903
+   "postings": 892
   },
   {
    "area": "engineering",
-   "postings": 325
+   "postings": 330
   },
   {
    "area": "other",
-   "postings": 246
+   "postings": 251
   },
   {
    "area": "logistics",
-   "postings": 199
+   "postings": 202
   },
   {
    "area": "technology",
-   "postings": 186
+   "postings": 191
   },
   {
    "area": "oil_mining",
-   "postings": 139
+   "postings": 137
   },
   {
    "area": "public",
-   "postings": 123
-  },
-  {
-   "area": "communication",
-   "postings": 78
-  },
-  {
-   "area": "education",
-   "postings": 78
+   "postings": 124
   },
   {
    "area": "health",
-   "postings": 75
+   "postings": 88
+  },
+  {
+   "area": "communication",
+   "postings": 81
+  },
+  {
+   "area": "education",
+   "postings": 74
   },
   {
    "area": "hospitality",
-   "postings": 72
+   "postings": 65
   },
   {
    "area": "agriculture",
@@ -133,63 +133,63 @@
  "sectors": [
   {
    "sector": "administration",
-   "postings": 423
+   "postings": 416
   },
   {
    "sector": "other",
-   "postings": 246
-  },
-  {
-   "sector": "finance",
-   "postings": 240
+   "postings": 251
   },
   {
    "sector": "sales",
-   "postings": 240
+   "postings": 238
+  },
+  {
+   "sector": "finance",
+   "postings": 238
   },
   {
    "sector": "engineering",
-   "postings": 220
+   "postings": 230
   },
   {
    "sector": "logistics",
-   "postings": 199
+   "postings": 202
   },
   {
    "sector": "technology",
-   "postings": 165
+   "postings": 170
   },
   {
    "sector": "oil_mining",
-   "postings": 139
+   "postings": 137
   },
   {
    "sector": "construction",
-   "postings": 105
+   "postings": 100
+  },
+  {
+   "sector": "health",
+   "postings": 88
   },
   {
    "sector": "marketing",
-   "postings": 78
-  },
-  {
-   "sector": "education",
-   "postings": 78
+   "postings": 81
   },
   {
    "sector": "public_admin",
    "postings": 78
   },
   {
-   "sector": "health",
-   "postings": 75
+   "sector": "education",
+   "postings": 74
   },
   {
    "sector": "hospitality",
-   "postings": 72
+   "postings": 65
   },
   {
    "sector": "security",
-   "postings": 45
+   "postings": 46
   },
   {
    "sector": "agriculture",
@@ -207,31 +207,31 @@
  "provinces": [
   {
    "province": "Luanda",
-   "postings": 1792
+   "postings": 1797
   },
   {
    "province": "Benguela",
-   "postings": 44
+   "postings": 47
   },
   {
    "province": "Zaire",
-   "postings": 42
+   "postings": 43
+  },
+  {
+   "province": "Cabinda",
+   "postings": 41
   },
   {
    "province": "Huíla",
    "postings": 41
   },
   {
-   "province": "Cabinda",
-   "postings": 35
-  },
-  {
    "province": "Huambo",
-   "postings": 35
+   "postings": 34
   },
   {
    "province": "Cunene",
-   "postings": 28
+   "postings": 26
   },
   {
    "province": "Bengo",
@@ -243,19 +243,19 @@
   },
   {
    "province": "Icolo e Bengo",
-   "postings": 22
-  },
-  {
-   "province": "Lunda Sul",
-   "postings": 13
+   "postings": 21
   },
   {
    "province": "Cuanza Norte",
-   "postings": 11
+   "postings": 12
   },
   {
    "province": "Cubango",
-   "postings": 9
+   "postings": 10
+  },
+  {
+   "province": "Lunda Sul",
+   "postings": 10
   },
   {
    "province": "Moxico",
@@ -291,21 +291,21 @@
   },
   {
    "province": "Todas as províncias",
-   "postings": 1
+   "postings": 2
   }
  ],
  "companies": [
   {
    "name": "MINEA - RECLIMA",
-   "postings": 75
+   "postings": 78
   },
   {
    "name": "RCS Angola",
-   "postings": 42
+   "postings": 47
   },
   {
    "name": "Wange International Angola",
-   "postings": 34
+   "postings": 33
   },
   {
    "name": "Academia Baxtter",
@@ -320,12 +320,12 @@
    "postings": 21
   },
   {
-   "name": "St. Andrews English School - Mar dol Car",
+   "name": "Carter Center",
    "postings": 19
   },
   {
-   "name": "Carter Center",
-   "postings": 18
+   "name": "St. Andrews English School - Mar dol Car",
+   "postings": 19
   },
   {
    "name": "Southey Contracting",
@@ -333,19 +333,19 @@
   },
   {
    "name": "Pilar Campos",
-   "postings": 15
+   "postings": 12
+  },
+  {
+   "name": "Webcor Group",
+   "postings": 11
   },
   {
    "name": "PREFANGOL  (Prefangol)",
    "postings": 11
-  },
-  {
-   "name": "PEP Angola",
-   "postings": 11
   }
  ],
  "agencies": {
-  "postings": 182,
+  "postings": 199,
   "names": [
    "KEPT PEOPLE",
    "Ascending",
@@ -355,64 +355,64 @@
   ]
  },
  "asks": {
-  "read": 714,
+  "read": 810,
   "education": [
    {
     "level": "licenciatura",
-    "postings": 220
+    "postings": 293
    },
    {
     "level": "medio_tecnico",
-    "postings": 87
+    "postings": 98
    },
    {
     "level": "ii_ciclo",
-    "postings": 46
+    "postings": 55
    },
    {
     "level": "primario",
+    "postings": 12
+   },
+   {
+    "level": "mestrado",
     "postings": 10
    },
    {
     "level": "i_ciclo",
     "postings": 10
-   },
-   {
-    "level": "mestrado",
-    "postings": 4
    }
   ],
   "fields": [
    {
     "area": "business",
-    "postings": 43
+    "postings": 56
    },
    {
     "area": "engineering",
-    "postings": 23
-   },
-   {
-    "area": "technology",
-    "postings": 10
-   },
-   {
-    "area": "legal",
-    "postings": 7
-   },
-   {
-    "area": "logistics",
-    "postings": 5
+    "postings": 24
    },
    {
     "area": "health",
-    "postings": 4
+    "postings": 17
+   },
+   {
+    "area": "technology",
+    "postings": 13
+   },
+   {
+    "area": "legal",
+    "postings": 8
+   },
+   {
+    "area": "education",
+    "postings": 3
    },
    {
     "area": "agriculture",
     "postings": 2
    },
    {
-    "area": "education",
+    "area": "logistics",
     "postings": 2
    },
    {
@@ -431,45 +431,45 @@
   "experience": [
    {
     "band": "none",
-    "postings": 199
+    "postings": 209
    },
    {
     "band": "junior",
-    "postings": 503
+    "postings": 499
    },
    {
     "band": "mid",
-    "postings": 991
+    "postings": 1011
    },
    {
     "band": "senior",
-    "postings": 237
+    "postings": 234
    }
   ]
  },
  "careers": [
   {
    "slug": "tecnico-de-suporte",
-   "postings": 25
+   "postings": 28
   },
   {
    "slug": "gestor-de-marketing-digital",
-   "postings": 15
+   "postings": 14
   },
   {
    "slug": "designer-grafico",
-   "postings": 15
+   "postings": 13
   },
   {
    "slug": "administrador-de-redes",
    "postings": 12
   },
   {
-   "slug": "tecnico-de-hardware",
-   "postings": 7
+   "slug": "analista-de-dados",
+   "postings": 6
   },
   {
-   "slug": "analista-de-dados",
+   "slug": "tecnico-de-hardware",
    "postings": 6
   },
   {
@@ -477,11 +477,11 @@
    "postings": 6
   },
   {
-   "slug": "desenvolvedor-full-stack",
+   "slug": "analista-de-sistemas",
    "postings": 4
   },
   {
-   "slug": "analista-de-sistemas",
+   "slug": "desenvolvedor-full-stack",
    "postings": 3
   },
   {
@@ -509,6 +509,10 @@
    "postings": 1
   },
   {
+   "slug": "engenheiro-de-dados",
+   "postings": 1
+  },
+  {
    "slug": "desenvolvedor-frontend",
    "postings": 1
   },
@@ -526,8 +530,8 @@
   }
  ],
  "salaries": {
-  "count": 5,
-  "median": 700000
+  "count": 4,
+  "median": 550000
  },
  "public": {
   "areas": [
@@ -568,11 +572,11 @@
    },
    {
     "area": "hospitality",
-    "competitions": 1,
+    "competitions": 2,
     "openings": 15
    }
   ],
-  "competitions": 44,
+  "competitions": 45,
   "openings": 28172,
   "withOpenings": 28,
   "bodies": [
@@ -771,28 +775,28 @@
    "id": "angoemprego",
    "name": "Ango Emprego",
    "url": "https://angoemprego.com",
-   "postings": 343,
+   "postings": 336,
    "since": "2019-07-02"
   },
   {
    "id": "angorecruta",
    "name": "AngoRecruta",
    "url": "https://angorecruta.com",
-   "postings": 152,
+   "postings": 154,
    "since": "2021-06-05"
   },
   {
    "id": "jobartis",
    "name": "Jobartis",
    "url": "https://www.jobartis.com",
-   "postings": 1936,
-   "since": "2025-08-21"
+   "postings": 1957,
+   "since": "2025-09-02"
   },
   {
    "id": "verangola",
    "name": "Ver Angola Empregos",
    "url": "https://empregos.verangola.net",
-   "postings": 23,
+   "postings": 18,
    "since": "2023-04-03"
   }
  ]
