@@ -39,6 +39,8 @@ class CourseOffer extends Model
             'groups' => 'array',
             'students' => 'integer',
             'graduates' => 'integer',
+            'duration_months' => 'integer',
+            'schedule' => 'array',
         ];
     }
 

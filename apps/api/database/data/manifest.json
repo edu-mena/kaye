@@ -139,17 +139,17 @@
     "pt": {
       "file": "institutions.pt.json",
       "records": 166,
-      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
+      "sha256": "b352b4eab6e066e3a36c72bd603c81f2aac8e6ee0c9d1750df55af2a2a663e55"
     },
     "en": {
       "file": "institutions.en.json",
       "records": 166,
-      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
+      "sha256": "b352b4eab6e066e3a36c72bd603c81f2aac8e6ee0c9d1750df55af2a2a663e55"
     },
     "fr": {
       "file": "institutions.fr.json",
       "records": 166,
-      "sha256": "550445ed54ab73b3ef0b4817758af9ab54cd2985b8d7d0c344263abb9e1aebca"
+      "sha256": "b352b4eab6e066e3a36c72bd603c81f2aac8e6ee0c9d1750df55af2a2a663e55"
     }
   },
   "courses": {

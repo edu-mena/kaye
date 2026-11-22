@@ -167,7 +167,7 @@ const TAAG_NOTES: CompanyInsight[] = [
 ]
 
 /** The showcase companies and the other facts we could source, by company id. */
-export const DETAILS: Record<string, Extra> = {
+const DETAILS: Record<string, Extra> = {
   // Telecommunications and television
   unitel: { ...typical('telecom') },
   movicel: {
@@ -546,7 +546,7 @@ export const DETAILS: Record<string, Extra> = {
 }
 
 /** The links (site and socials) merged under the details: a detail wins over a link for the same key. */
-export const DIRECTORY: Record<string, Extra> = Object.fromEntries(
+const DIRECTORY: Record<string, Extra> = Object.fromEntries(
   [...new Set([...Object.keys(LINKS), ...Object.keys(DETAILS)])].map((id) => [
     id,
     { ...LINKS[id], ...DETAILS[id] },

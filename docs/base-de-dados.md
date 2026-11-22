@@ -376,6 +376,9 @@ Um curso numa instituição (`AcademyOffer`).
 | `students`, `graduates` | int, podem ser vazios | Do anuário |
 | `year` | varchar(9), pode ser vazio | "2023/24" |
 | `curriculum`\* | json, pode ser vazio | `Curriculum`: períodos, disciplinas, fonte |
+| `duration_months` | smallint, pode ser vazio | A duração estimada (`AcademyOffer.durationMonths`) |
+| `schedule` | json, pode ser vazio | Os horários (`diurno`, `pos_laboral`…), estimados |
+| `estimated` | bool | Comum a todas as tabelas de conteúdo; a API só o devolve quando é verdadeiro |
 | `position` | smallint | Ordem dentro da instituição |
 
 Índice único (`institution_id`, `course_id`, `level`). `career_course_offer`: `career_id`, `course_offer_id`.
@@ -474,6 +477,9 @@ Empresas reais, só com o que as fontes confirmam (`Company`).
 | `socials` | json, pode ser vazio | |
 | `roles`\* | json, pode ser vazio | `CompanyRole[]` |
 | `people` | json, pode ser vazio | `CompanyPerson[]`: só cargos públicos com fonte, nunca menores |
+| `insights` | json, pode ser vazio | `CompanyInsight[]`: como entrar e outras notas; iguais em todas as línguas |
+| `quotes` | json, pode ser vazio | `CompanyQuote[]`: citações públicas com fonte |
+| `headquarters` | json, pode ser vazio | `CompanyFact`: a sede, com onde está dito |
 | `sources` | json | |
 
 `career_company`: `career_id`, `company_id`, `position`. `company_institution` (os `partners`): `company_id`, `institution_id`.

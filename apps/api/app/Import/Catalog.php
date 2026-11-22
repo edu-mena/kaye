@@ -84,7 +84,8 @@ final class Catalog
                 'groups' => $r->get('areas', []), 'programs' => $r->t('programs'), 'activities' => $r->t('activities'),
                 'activities_source' => $r->get('activitiesSource'), 'founded' => $r->get('founded'),
                 'employees' => $r->get('employees'), 'socials' => $r->get('socials'), 'roles' => $r->t('roles'),
-                'people' => $r->get('people'),
+                'people' => $r->get('people'), 'insights' => $r->get('insights'), 'quotes' => $r->get('quotes'),
+                'headquarters' => $r->get('headquarters'),
             ] + self::sourced($r), fn (Record $r, Importer $i): Closure => fn (Company $company): bool => self::any(
                 $i->sync($company->careers(), self::ordered($i->ids(Career::class, $r->strings('careers'), "companies {$r->string('id')}"))),
                 $i->sync($company->partners(), self::ordered($i->ids(Institution::class, $r->strings('partners'), "companies {$r->string('id')} (partners)"))),
@@ -318,7 +319,8 @@ final class Catalog
                         'name' => $o->t('name'), 'level' => $o->get('level'), 'faculty' => $o->get('faculty'),
                         'recognition' => $o->get('recognition'), 'groups' => $o->get('areas', []),
                         'students' => $o->get('students'), 'graduates' => $o->get('graduates'), 'year' => $o->get('year'),
-                        'curriculum' => $o->t('curriculum'),
+                        'curriculum' => $o->t('curriculum'), 'duration_months' => $o->get('durationMonths'),
+                        'schedule' => $o->get('schedule'), 'estimated' => (bool) $o->get('estimated', false),
                     ], self::status(false), self::on(CourseOffer::class, fn (CourseOffer $offer): bool => $importer->sync(
                         $offer->careers(),
                         self::ordered($importer->ids(Career::class, $o->strings('careers'), "course-offers {$slug}")),
