@@ -68,7 +68,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Primeira recolha (27/10/2026): AngoVagas, Ango Emprego, AngoRecruta, Jobartis e Ver Angola Empregos, só factos, em `scrapers/` ([ADR 0008](decisoes/0008-recolha-de-vagas-de-todos-os-sites.md))
 - [x] Recolha automática (GitHub Actions) e envio para a API
   - [x] Recolha semanal no GitHub Actions (`market-data.yml`): os factos num artefacto de 90 dias, as contagens num pull request
-  - [x] Corrida leve de 2 em 2 horas (só as primeiras páginas, só o que é novo) que envia os factos para `/ingest/jobs`; liga-se com o segredo `INGEST_TOKEN`
+  - [x] Corrida leve de 2 em 2 horas (só as primeiras páginas, só o que é novo) que envia os factos para `/ingest/jobs`; liga-se com o segredo `INGEST_TOKEN` (segredo de repositório, não de ambiente) e a variável `KAYE_API_URL`; verificado a 22/11/2026: 147 vagas enviadas à Hostinger, 146 guardadas
   - [x] Novidades de Angola a entrar sozinhas: `kaye:fetch-news` de 2 em 2 horas ([fontes-de-noticias.md](fontes-de-noticias.md))
   - [x] Comentários nas notícias, empresas e simulações (só com conta, filtro, denúncias)
 - [x] `/ingest/jobs` e remoção de duplicados por `external_id` (a normalização e a classificação já vêm dos scrapers)
