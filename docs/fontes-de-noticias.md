@@ -4,8 +4,9 @@ As Novidades de Angola entram sozinhas: o comando `kaye:fetch-news` corre no cro
 
 ## O que se guarda (e o que não)
 
-- **Guardamos:** título, data, um resumo curto (a primeira frase do *lead* do feed, no máximo 200 caracteres; sem *lead*, só "Notícia publicada por <fonte>."), a imagem **só se o próprio feed a dá**, e a ligação para o original (`source`). Nunca se pede a página do artigo.
-- **Não guardamos:** o corpo do artigo. Nada de copiar texto.
+- **Guardamos:** título, data, a imagem **só se o próprio feed a dá**, a ligação para o original (`source`) e o **resumo** ([ADR 0023](decisoes/0023-resumo-das-noticias-por-ia.md)): a página lê-se uma vez e, **sem chave (o normal)**, guarda-se um excerto curto cortado por regras: a frase de abertura como resumo e, no corpo, até 3 frases do primeiro parágrafo (350 caracteres) mais até 2 frases seguintes com um número ou uma data. Com `ANTHROPIC_API_KEY`, a API do Claude escreve em vez disso um resumo com palavras próprias (uma frase e 2 a 4 parágrafos). Se a página falhar, fica a primeira frase do *lead* do feed (até 200 caracteres) ou só "Notícia publicada por <fonte>.".
+- **Não guardamos:** o artigo inteiro. Só o excerto ou o resumo, sempre com a fonte nomeada e ligada.
+- **Resumos:** no fim de cada corrida, até 15 notícias recolhidas e sem corpo (as mais recentes primeiro), no máximo 3 tentativas cada (`summary_attempts`). Com a IA ligada, a resposta só vale se for JSON com frase até 300 caracteres e 1 a 5 parágrafos até 700.
 - **Limites por corrida:** 15 s por pedido, 40 entradas lidas por fonte, 60 notícias novas no total, respostas até 2 MB, 3 s de pausa entre fontes, `User-Agent` identificado (`KayeBot/1.0`).
 - **Duplicados:** a mesma ligação (sem `http`/`https`, `www`, parâmetros e `/` final) ou o mesmo título (sem acentos, maiúsculas nem pontuação) não entra duas vezes, mesmo que a notícia apagada no painel volte ao feed.
 - **Idade:** notícias com mais de 30 dias, ou com data no futuro, ficam de fora.

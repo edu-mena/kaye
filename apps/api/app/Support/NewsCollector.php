@@ -22,7 +22,41 @@ final class NewsCollector
     /** Older pieces are not news any more. */
     private const int MAX_AGE_DAYS = 30;
 
-    public function __construct(private readonly NewsClassifier $classifier) {}
+    public function __construct(private readonly NewsClassifier $classifier, private readonly NewsSummariser $summariser) {}
+
+    /**
+     * Gives the newest collected pieces without a summary their own (a few per run, each tried at most
+     * `news.ai.max_attempts` times). Returns how many got one.
+     */
+    public function summarise(): int
+    {
+        $done = 0;
+        $pending = News::query()
+            ->whereNotNull('url_hash')->whereNull('body')
+            ->where('summary_attempts', '<', Config::integer('news.ai.max_attempts'))
+            ->orderByDesc('date')->orderByDesc('id')
+            ->limit(Config::integer('news.ai.max_per_run'))
+            ->get();
+
+        foreach ($pending as $index => $news) {
+            if ($index > 0) {
+                $this->pause();
+            }
+            $news->increment('summary_attempts');
+            $title = $news->getTranslation('title', 'pt');
+            $result = is_string($title) ? $this->summariser->summarise((string) $news->source_url, $title) : null;
+            if ($result === null) {
+                continue;
+            }
+            $news->setTranslation('summary', 'pt', $result['summary'])->setTranslation('body', 'pt', $result['body'])->save();
+            $done++;
+        }
+        if ($done > 0) {
+            PublicContent::flush();
+        }
+
+        return $done;
+    }
 
     /**
      * @return array{created: int, skipped: int, failed: list<string>}
