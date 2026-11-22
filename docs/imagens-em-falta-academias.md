@@ -41,7 +41,7 @@
 | 35 | Instituto Superior Técnico Militar | `instituto-superior-tecnico-militar` | ok | ok |
 | 36 | Instituto Técnico de Saúde do Kilamba n.º 2.010 | `instituto-tecnico-de-saude-do-kilamba-n-2-010` | ok | ok |
 | 37 | Instituto Técnico de Saúde n.º 5.146 | `instituto-tecnico-de-saude-n-5-146` | ok | ok |
-| 38 | Pavilhão de Formação Profissional de Artes e Ofícios dos Ramiros | `pavilhao-artes-oficios-ramiros` | falta | ok |
+| 38 | Pavilhão de Formação Profissional de Artes e Ofícios dos Ramiros | `pavilhao-artes-oficios-ramiros` | ok | ok |
 | 39 | PMI Angola Chapter | `pmi-angola-chapter` | ok | ok |
 | 40 | Universidade de Belas | `universidade-de-belas` | ok | ok |
 | 41 | Universidade de Luanda | `universidade-de-luanda` | ok | ok |
