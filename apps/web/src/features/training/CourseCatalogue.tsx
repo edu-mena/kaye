@@ -12,7 +12,10 @@ import { MARKET_AREAS, type CareerSummary, type CatalogCourse } from '../../data
 import { filterCourses, OFFER_LEVELS } from '../../domain/courses'
 import { byInterest } from '../../domain/interests'
 import { paginate } from '../../lib/pagination'
+import { courseSubject } from '../../domain/relevance'
+import { InterestNotice } from '../../components/InterestNotice'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { coursePath } from './coursePath'
 
@@ -36,16 +39,17 @@ export function CourseCatalogue({ courses, careers, career, careerOptions, onCar
   const [search, setSearch] = useUrlText('q')
   const list = useRef<HTMLElement>(null)
   const mine = useInterestAreas()
+  const interest = useInterestFilter('courses')
   const area = MARKET_AREAS.find((value) => value === params.get('area')) ?? null
   const level = OFFER_LEVELS.find((value) => value === params.get('grau')) ?? null
   const areas = MARKET_AREAS.filter((value) => courses.some((course) => course.areas.includes(value)))
   const levels = OFFER_LEVELS.filter((value) => courses.some((course) => course.levels.includes(value)))
   // In "todas as áreas", the person's areas first (health has the most courses and would fill the top).
-  const results = byInterest(
-    filterCourses(courses, { query: search, area, level, career }),
-    (course) => course.areas,
-    mine,
-  )
+  const matching = filterCourses(courses, { query: search, area, level, career })
+  // The person's areas, unless they chose an area, a career or are searching: then they asked for it.
+  const { items, hidden } =
+    area || career || search ? { items: matching, hidden: 0 } : interest.apply(matching, courseSubject)
+  const results = byInterest(items, (course) => course.areas, mine)
   const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
   // A new area, level or search starts again on the first page.
   const setFilter = (key: string, value: string | null) => setParam(key, value, ['pagina'])
@@ -102,9 +106,12 @@ export function CourseCatalogue({ courses, careers, career, careerOptions, onCar
           ]}
         />
       </div>
-      <output className="mb-4 block text-xs font-light text-muted">
+      <output className="block text-xs font-light text-muted">
         {t('training.courses', { count: results.length })}
       </output>
+      <div className="mt-1 mb-4">
+        <InterestNotice filter={interest} hidden={hidden} />
+      </div>
       {results.length === 0 ? (
         <p className="rounded-card bg-surface py-10 text-center text-sm font-light text-muted shadow-card">
           {t('training.catalogueEmpty')}

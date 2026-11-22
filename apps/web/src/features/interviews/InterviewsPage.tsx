@@ -26,7 +26,7 @@ import {
 import { ApiError } from '../../lib/api'
 import { useFocus } from '../../lib/focusMode'
 import { userActions, useUser } from '../../state/userStore'
-import { AREA_ICONS } from '../onboarding/areaIcons'
+import { AREA_ICONS } from '../../components/areaIcons'
 import { InterviewRunner } from './InterviewRunner'
 import { useShowsSalaries } from '../../state/useShowsSalaries'
 

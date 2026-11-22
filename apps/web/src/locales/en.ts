@@ -67,6 +67,25 @@ export const en: Messages = {
     save: 'Save',
     source: 'Source: {{label}}',
   },
+  interest: {
+    showingMine: 'Showing what is relevant to you. {{count}} outside your areas are hidden.',
+    showingMineAll: 'Showing what is relevant to you.',
+    showingAll: 'Showing everything, other areas too.',
+    seeOthers: 'See other areas',
+    onlyMine: 'Only what is relevant to me',
+    outside: 'Outside your areas',
+    gateTitle: 'Which areas interest you?',
+    gateBody:
+      'Pick the areas you want to follow. Lists show what is relevant to you first; you can change this in Settings.',
+    areasLegend: 'Areas',
+    gateSave: 'Continue',
+    skip: 'Skip',
+    settingsGroup: 'What you see',
+    settingsTitle: 'Your areas of interest',
+    settingsBody:
+      'Lists, the home page and the news show what relates to these areas, to what you saved and to your test result. With none chosen, you see everything.',
+    building: 'Profile being built',
+  },
   states: {
     errorTitle: 'This could not be loaded',
     retry: 'Try again',
@@ -1241,6 +1260,12 @@ export const en: Messages = {
     sector_comercio: 'Trade and services',
   },
   company: {
+    quotesTitle: 'What its leaders said',
+    quotesNote: 'Quotes word for word, from press interviews. Each one links to the original.',
+    quoteTopic_contratacao: 'Hiring',
+    quoteTopic_competencias: 'Skills',
+    quoteTopic_estagios: 'Internships',
+    quoteTopic_planos: 'Plans',
     tab_noticias: 'News',
     activitiesTitle: 'Lines of business',
     founded: 'Founded',

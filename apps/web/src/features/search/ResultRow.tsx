@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { LIST_ROW } from '../../components/CareerRow'
 import { GROUP_ICONS } from '../../components/groupIcons'
@@ -34,6 +35,7 @@ export function ResultRow({
   words: string[]
   onOpen: () => void
 }) {
+  const { t } = useTranslation()
   return (
     <Link to={result.to} onClick={onOpen} className={LIST_ROW}>
       {'group' in result.picture ? (
@@ -53,6 +55,11 @@ export function ResultRow({
         </span>
         <span className="mt-0.5 block truncate text-xs font-light text-muted">{result.meta}</span>
       </span>
+      {result.outside && (
+        <span className="shrink-0 rounded-full bg-ash-100 px-2 py-0.5 text-[0.6875rem] font-normal text-copy">
+          {t('interest.outside')}
+        </span>
+      )}
       <Icon name="chevronRight" className="size-4 shrink-0 text-muted" />
     </Link>
   )

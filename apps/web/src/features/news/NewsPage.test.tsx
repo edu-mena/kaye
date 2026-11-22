@@ -62,9 +62,13 @@ describe('NewsPage', () => {
     expect(
       within(screen.getByRole('region', { name: 'Para ti' })).getByText(/das tuas carreiras/),
     ).toBeInTheDocument()
-    expect(cards()).toHaveLength(NEWS.length)
+    // The rest is only what has to do with the person's areas; "Ver outras áreas" brings back the others.
+    expect(cards().length).toBeGreaterThanOrEqual(forYouCount)
+    expect(cards().length).toBeLessThan(NEWS.length)
     for (const card of cards().slice(0, forYouCount))
       expect(within(card).getByText('Para ti')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: 'Ver outras áreas' }))
+    expect(cards()).toHaveLength(NEWS.length)
     expect(within(cards()[forYouCount] as HTMLElement).queryByText('Para ti')).not.toBeInTheDocument()
   })
 })

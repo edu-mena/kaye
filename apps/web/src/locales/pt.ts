@@ -67,6 +67,25 @@ export const pt = {
     save: 'Guardar',
     source: 'Fonte: {{label}}',
   },
+  interest: {
+    showingMine: 'A mostrar o que tem a ver contigo. Escondemos {{count}} fora das tuas áreas.',
+    showingMineAll: 'A mostrar o que tem a ver contigo.',
+    showingAll: 'A mostrar tudo, também as outras áreas.',
+    seeOthers: 'Ver outras áreas',
+    onlyMine: 'Só o que tem a ver comigo',
+    outside: 'Fora das tuas áreas',
+    gateTitle: 'Que áreas te interessam?',
+    gateBody:
+      'Escolhe as áreas que queres seguir. As listas mostram primeiro o que tem a ver contigo; podes mudar isto nas Definições.',
+    areasLegend: 'Áreas',
+    gateSave: 'Continuar',
+    skip: 'Saltar',
+    settingsGroup: 'O que vês',
+    settingsTitle: 'As tuas áreas de interesse',
+    settingsBody:
+      'As listas, o início e as novidades mostram o que tem a ver com estas áreas, com o que guardaste e com o resultado do teste. Sem nenhuma, vês tudo.',
+    building: 'Perfil em construção',
+  },
   states: {
     errorTitle: 'Não foi possível carregar',
     retry: 'Tentar outra vez',
@@ -1239,6 +1258,12 @@ export const pt = {
     sector_comercio: 'Comércio e serviços',
   },
   company: {
+    quotesTitle: 'Os líderes disseram',
+    quotesNote: 'Citações palavra por palavra, de entrevistas à imprensa. Cada uma leva ao texto original.',
+    quoteTopic_contratacao: 'Contratação',
+    quoteTopic_competencias: 'Competências',
+    quoteTopic_estagios: 'Estágios',
+    quoteTopic_planos: 'Planos',
     tab_noticias: 'Notícias',
     activitiesTitle: 'Áreas de atuação',
     founded: 'Fundação',

@@ -18,6 +18,8 @@ import { marketSummary } from '../../domain/market'
 import { overall } from '../../domain/psychotech'
 import { todayIso } from '../../domain/scholarships'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { careerSubject, isRelevant } from '../../domain/relevance'
+import { useInterestProfile } from '../../lib/useInterestFilter'
 import { useNewsForMe } from '../../lib/useNewsForMe'
 import { useRecommendations } from '../../lib/useRecommendations'
 import { useDeadlines } from '../../state/useDeadlines'
@@ -113,8 +115,9 @@ type NewsFilter = 'forMe' | 'eventos' | 'kaye'
 /** Novidades: one piece in focus, three more below; a local filter (the URL stays as it is). */
 export function NewsTile({ index }: { index: number }) {
   const { t, i18n } = useTranslation()
-  const { data: news = [] } = useNews()
-  const { forMe } = useNewsForMe()
+  const { data: everyPiece = [] } = useNews()
+  const { forMe, relevant } = useNewsForMe()
+  const news = everyPiece.filter(relevant)
   const [filter, setFilter] = useState<NewsFilter | null>(null)
   const date = new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short' })
 
@@ -201,7 +204,9 @@ export function NewsTile({ index }: { index: number }) {
 /** The next four events still to happen, by first day. */
 export function EventsTile({ index }: { index: number }) {
   const { t, i18n } = useTranslation()
-  const { data: news = [] } = useNews()
+  const { data: everyPiece = [] } = useNews()
+  const { relevant } = useNewsForMe()
+  const news = everyPiece.filter(relevant)
   const today = todayIso()
   const events = news
     .flatMap((item) =>
@@ -298,9 +303,15 @@ export function CareersTile({ index }: { index: number }) {
   const interests = useInterestAreas()
   const { data: careers = [] } = useCareers()
   const { savedCareers, assessmentCompletedAt } = useUser()
+  const profile = useInterestProfile()
   const fallback = [
     ...careers.filter((career) => savedCareers.includes(career.slug)),
-    ...careers.filter((career) => career.demand === 'alta' && !savedCareers.includes(career.slug)),
+    ...careers.filter(
+      (career) =>
+        career.demand === 'alta' &&
+        !savedCareers.includes(career.slug) &&
+        isRelevant(profile, careerSubject(career)),
+    ),
   ].slice(0, 6)
   const shown = ranked
     ? byInterest(ranked, (item) => groupAreas([item.career.group]), interests).map((item) => item.career)

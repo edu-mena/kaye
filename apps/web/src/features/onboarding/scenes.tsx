@@ -6,7 +6,7 @@ import { useAcademies, useCompanies, useCourses } from '../../data/queries'
 import type { CareerSummary } from '../../data/types'
 import { areaCounts } from '../../domain/discovery'
 import { stagger } from '../../lib/ui'
-import { AREA_ICONS } from './areaIcons'
+import { AREA_ICONS } from '../../components/areaIcons'
 
 const COUNT_MS = 900
 

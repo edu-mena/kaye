@@ -15,6 +15,8 @@ type Fixtures = {
 
 const PROFILE = {
   version: 1,
+  // Already asked for the areas (and skipped): the question at the entrance would cover every page.
+  interestAreas: [],
   profile: {
     name: 'Joana',
     birthYear: 2006,

@@ -8,12 +8,15 @@ import { EntityCard } from '../../components/EntityCard'
 import type { IconName } from '../../components/icons'
 import { ListSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
+import { InterestNotice } from '../../components/InterestNotice'
 import { FilterBar } from '../../components/ui/Filters'
 import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { useCareers, useCompanies, useNews } from '../../data/queries'
 import { byInterest, groupAreas } from '../../domain/interests'
+import { companySubject } from '../../domain/relevance'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import { COMPANY_SECTORS } from '../../data/types'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
@@ -36,6 +39,7 @@ export default function CompaniesPage() {
   const { t } = useTranslation()
   const companiesQuery = useCompanies()
   const mine = useInterestAreas()
+  const interest = useInterestFilter('companies')
   const { data: careers = [] } = useCareers()
   const careerName = (slug: string) => careers.find((career) => career.slug === slug)?.name ?? slug
   const [params, setParam] = useUrlFilters()
@@ -78,21 +82,21 @@ export default function CompaniesPage() {
           const activity = pick('atuacao', activities)
           const programs = pick('programas', programOptions)
           const province = pick('onde', provinces)
-          const visible = byInterest(
-            ofSector.filter(
-              (company) =>
-                (!career || company.careers.includes(career)) &&
-                (!area || company.areas.includes(area)) &&
-                (!activity || (company.activities ?? []).includes(activity)) &&
-                (show !== 'guardadas' || savedCompanies.includes(company.id)) &&
-                (show !== 'pessoas' || (company.people ?? []).length > 0) &&
-                (show !== 'noticias' || withNews.has(company.id)) &&
-                (!programs || company.programs.length > 0) &&
-                (!province || company.province === province),
-            ),
-            (company) => groupAreas(company.areas),
-            mine,
+          const matching = ofSector.filter(
+            (company) =>
+              (!career || company.careers.includes(career)) &&
+              (!area || company.areas.includes(area)) &&
+              (!activity || (company.activities ?? []).includes(activity)) &&
+              (show !== 'guardadas' || savedCompanies.includes(company.id)) &&
+              (show !== 'pessoas' || (company.people ?? []).length > 0) &&
+              (show !== 'noticias' || withNews.has(company.id)) &&
+              (!programs || company.programs.length > 0) &&
+              (!province || company.province === province),
           )
+          // The person's areas, unless they chose an area or a career themselves: then they asked for it.
+          const { items, hidden } =
+            area || career ? { items: matching, hidden: 0 } : interest.apply(matching, companySubject)
+          const visible = byInterest(items, (company) => groupAreas(company.areas), mine)
           const { page, pages, shown: onPage } = paginate(visible, Number(params.get('pagina')), PAGE_SIZE)
           const goTo = (next: number) => {
             setParam('pagina', next > 1 ? String(next) : null)
@@ -126,6 +130,9 @@ export default function CompaniesPage() {
                   <output className="mt-1 block text-xs font-light text-muted">
                     {t('companies.count', { count: visible.length })}
                   </output>
+                  <div className="mt-1">
+                    <InterestNotice filter={interest} hidden={hidden} />
+                  </div>
                 </div>
                 <div className="mb-6">
                   <FilterBar

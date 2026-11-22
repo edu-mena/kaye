@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Outlet, ScrollRestoration, useMatches } from 'react-router'
 import { AccountPrompt } from '../components/AccountPrompt'
+import { InterestGate } from '../components/InterestGate'
 import { BottomNav, Sidebar, TopBar } from '../components/Navigation'
 import { TourHost } from '../components/Tour'
 import { useFocusMode } from '../lib/focusMode'
@@ -74,6 +75,7 @@ export function Layout() {
       {!focus && <BottomNav />}
       {/* The guided tour is for people with a profile: it moves the page around. */}
       {profile && <TourHost />}
+      <InterestGate />
       <AccountPrompt />
       <AppStatus />
       {/* New screens start at the top; going back restores where you were. */}

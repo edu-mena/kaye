@@ -24,6 +24,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     version: 1,
     profile: PROFILE,
     discovery: null,
+    interestAreas: [],
     answers: {},
     assessmentCompletedAt: null,
     skills: {},

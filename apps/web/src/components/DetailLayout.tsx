@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
+import { filled } from '../lib/filled'
 import { Icon, type IconName } from './icons'
 import { TabPanel, Tabs, type Tab } from './ui/Tabs'
 
@@ -98,6 +100,7 @@ export function Subheading({ children, className = '' }: { children: ReactNode; 
 
 /** Navy cells with big numbers: the few figures a section is about. */
 export function StatBlock({ items }: { items: { label: string; value: string }[] }) {
+  const { t } = useTranslation()
   return (
     <dl
       className={`grid gap-px overflow-hidden rounded-card ${items.length > 2 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2'}`}
@@ -105,7 +108,9 @@ export function StatBlock({ items }: { items: { label: string; value: string }[]
       {items.map((item) => (
         <div key={item.label} className="bg-coal p-4 text-white sm:p-5">
           <dt className="text-xs font-light text-white/75">{item.label}</dt>
-          <dd className="mt-1 text-sm leading-snug font-normal">{item.value}</dd>
+          <dd className="mt-1 text-sm leading-snug font-normal">
+            {filled(item.value) ?? t('interest.building')}
+          </dd>
         </div>
       ))}
     </dl>

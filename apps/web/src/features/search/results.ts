@@ -12,6 +12,16 @@ import type {
   Scholarship,
 } from '../../data/types'
 import { byInterest, groupAreas } from '../../domain/interests'
+import {
+  academySubject,
+  areasSubject,
+  careerSubject,
+  companySubject,
+  EMPTY_PROFILE,
+  isRelevant,
+  type InterestProfile,
+  type Subject,
+} from '../../domain/relevance'
 import { rank } from '../../domain/search'
 
 export const RESULT_TYPES = [
@@ -69,7 +79,15 @@ type Picture =
   | { logo: Pick<Institution, 'name' | 'logo'> & { logoOnDark?: boolean | undefined } }
 
 /** One result, whatever it is: where it leads, its picture, its name and one line about it. */
-export type Result = { key: string; to: string; picture: Picture; title: string; meta: string }
+export type Result = {
+  key: string
+  to: string
+  picture: Picture
+  title: string
+  meta: string
+  /** Found, but with nothing to do with the person's areas: the row says so. */
+  outside?: true
+}
 
 type Data = {
   careers: CareerSummary[]
@@ -81,18 +99,35 @@ type Data = {
 }
 
 /**
- * Every match of the words, by type, best first; on a tie, what touches the person's areas first.
- * Labels are searched in the person's language.
+ * Every match of the words, by type: what has to do with the person's areas first (best match first within each
+ * group), then the rest, marked "outside". Search finds everything, it never hides. Labels are searched in the
+ * person's language.
  */
 export function findResults(
   data: Data,
   words: string[],
   t: TFunction,
-  areas: readonly MarketArea[] = [],
+  profile: InterestProfile = EMPTY_PROFILE,
 ): Record<ResultType, Result[]> {
+  const areas = profile.areas
   // rank() keeps the order of equal scores, so sorting by interest first breaks the ties.
   const mine = <T>(items: T[], areasOf: (item: T) => readonly MarketArea[]) =>
     byInterest(items, areasOf, areas)
+  const careerAreas = new Map(data.careers.map((career) => [career.slug, careerSubject(career).areas ?? []]))
+  /**
+   * The results of one type: what has to do with the person first (the order of the match kept), then the rest,
+   * each marked "outside".
+   */
+  const finish = <T>(items: T[], subjectOf: (item: T) => Subject, build: (item: T) => Result): Result[] => {
+    const inside: Result[] = []
+    const others: Result[] = []
+    for (const item of items) {
+      const result = build(item)
+      if (isRelevant(profile, subjectOf(item))) inside.push(result)
+      else others.push(Object.assign(result, { outside: true as const }))
+    }
+    return [...inside, ...others]
+  }
   const careers = rank(
     mine(data.careers, (career) => groupAreas([career.group])),
     words,
@@ -172,42 +207,49 @@ export function findResults(
   }))
 
   return {
-    carreiras: careers.map((career) => ({
+    carreiras: finish(careers, careerSubject, (career) => ({
       key: career.slug,
       to: `/carreiras/${career.slug}`,
       title: career.name,
       meta: `${t(`groups.${career.group}`)} · ${t(`demand.${career.demand}`)}`,
       picture: { group: career.group },
     })),
-    cursos: programs.map((program) => ({
-      key: program.id,
-      to: `/cursos/${program.id}`,
-      title: program.name,
-      meta: `${program.institution.name} · ${t(`training.${program.level}`)}`,
-      picture: { logo: program.institution },
-    })),
-    academias: academies.map((academy) => ({
+    cursos: finish(
+      programs,
+      (program) => ({
+        areas: program.careers.flatMap((slug) => careerAreas.get(slug) ?? []),
+        careers: program.careers,
+      }),
+      (program) => ({
+        key: program.id,
+        to: `/cursos/${program.id}`,
+        title: program.name,
+        meta: `${program.institution.name} · ${t(`training.${program.level}`)}`,
+        picture: { logo: program.institution },
+      }),
+    ),
+    academias: finish(academies, academySubject, (academy) => ({
       key: academy.id,
       to: `/academias/${academy.id}`,
       title: academy.name,
       meta: `${t(`training.type_${academy.type}`)} · ${academy.place}`,
       picture: { logo: academy },
     })),
-    bolsas: scholarships.map((scholarship) => ({
+    bolsas: finish(scholarships, areasSubject, (scholarship) => ({
       key: scholarship.id,
       to: `/oportunidades?tab=bolsas&destino=${scholarship.destination}`,
       title: scholarship.name,
       meta: `${scholarship.provider} · ${t(`scholarships.destination_${scholarship.destination}`)}`,
       picture: { icon: 'award' },
     })),
-    estagios: internships.map((internship) => ({
+    estagios: finish(internships, areasSubject, (internship) => ({
       key: internship.id,
       to: `/oportunidades?tab=estagios&tipo=${internship.kind}`,
       title: internship.name,
       meta: `${internship.provider} · ${t(`internships.kind_${internship.kind}`)}`,
       picture: { icon: 'briefcase' },
     })),
-    empresas: companies.map((company) => ({
+    empresas: finish(companies, companySubject, (company) => ({
       key: company.id,
       to: `/empresas/${company.id}`,
       title: company.name,

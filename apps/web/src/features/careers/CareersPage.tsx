@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { AreaPicker } from '../../components/AreaPicker'
 import { CareerCard } from '../../components/CareerCard'
+import { InterestNotice } from '../../components/InterestNotice'
 import { DemandMeter } from '../../components/DemandMeter'
 import { GROUP_ICONS } from '../../components/groupIcons'
 import { Icon, type IconName } from '../../components/icons'
@@ -31,7 +32,9 @@ import { interestLevel } from '../../domain/fit'
 import { formatKz } from '../../domain/format'
 import { compatibility } from '../../domain/riasec'
 import { paginate } from '../../lib/pagination'
+import { careerSubject } from '../../domain/relevance'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { useShowsSalaries } from '../../state/useShowsSalaries'
@@ -87,6 +90,7 @@ export default function CareersPage() {
   const { t } = useTranslation()
   const query = useCareers()
   const { profile } = useRiasecProfile()
+  const interest = useInterestFilter('careers')
   const [params, setParam] = useUrlFilters()
   const [search, setSearch] = useUrlText('q')
   const groupParam = params.get('area')
@@ -119,7 +123,10 @@ export default function CareersPage() {
 
   return (
     <QueryState query={query} loading={<ListSkeleton />}>
-      {(careers) => {
+      {(everyCareer) => {
+        // The person's areas, unless they chose an area themselves or are searching: then they asked for it.
+        const { items: careers, hidden } =
+          group || search ? { items: everyCareer, hidden: 0 } : interest.apply(everyCareer, careerSubject)
         const results = filterCareers(careers, {
           query: search,
           group,
@@ -130,7 +137,7 @@ export default function CareersPage() {
           guide,
         }).filter((career) => !noDegreeOnly || noDegree.has(career.slug))
         const guides = highlightCareers(careers)
-        const groups = CAREER_GROUPS.filter((item) => careers.some((career) => career.group === item))
+        const groups = CAREER_GROUPS.filter((item) => everyCareer.some((career) => career.group === item))
         const { page, pages, shown } = paginate(results, Number(params.get('pagina')), PAGE_SIZE)
         const goTo = (next: number) => {
           setParam('pagina', next > 1 ? String(next) : null)
@@ -138,9 +145,9 @@ export default function CareersPage() {
         }
         return (
           <div className="space-y-12">
-            <Hero careers={careers} guides={guides} />
+            <Hero careers={everyCareer} guides={guides} />
             <Areas
-              careers={careers}
+              careers={everyCareer}
               selected={group}
               onSelect={(value) => setFilter('area', value)}
               search={search}
@@ -157,6 +164,9 @@ export default function CareersPage() {
                   <output className="mt-1 block text-xs font-light text-muted">
                     {t('careers.count', { count: results.length })}
                   </output>
+                  <div className="mt-1">
+                    <InterestNotice filter={interest} hidden={hidden} />
+                  </div>
                 </div>
                 <Segmented
                   label={t('careers.sortLabel')}
