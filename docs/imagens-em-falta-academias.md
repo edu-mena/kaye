@@ -26,22 +26,22 @@
 | 20 | Instituto Superior de Angola | `instituto-superior-de-angola` | ok | ok |
 | 21 | Instituto Superior de Artes | `instituto-superior-de-artes` | ok | ok |
 | 22 | Instituto Superior de Ciências de Educação de Luanda | `instituto-superior-de-ciencias-de-educacao-de-luanda` | falta | ok |
-| 23 | Instituto Superior de Ciências Sociais e Relações Internacionais | `instituto-superior-de-ciencias-sociais-e-relacoes-internacionais` | falta | falta |
-| 24 | Instituto Superior Politécnico Atlântida | `instituto-superior-politecnico-atlantida` | ok | falta |
-| 25 | Instituto Superior Politécnico Deolinda Rodrigues | `instituto-superior-politecnico-deolinda-rodrigues` | falta | falta |
-| 26 | Instituto Superior Politécnico do Bita | `instituto-superior-politecnico-do-bita` | falta | falta |
-| 27 | Instituto Superior Politécnico do Cazenga | `instituto-superior-politecnico-do-cazenga` | falta | falta |
-| 28 | Instituto Superior Politécnico do Zango | `instituto-superior-politecnico-do-zango` | falta | falta |
-| 29 | Instituto Superior Politécnico Intercontinental de Luanda | `instituto-superior-politecnico-intercontinental-de-luanda` | ok | falta |
-| 30 | Instituto Superior Politécnico Internacional de Angola | `instituto-superior-politecnico-internacional-de-angola` | falta | falta |
-| 31 | Instituto Superior Politécnico Kalandula de Angola | `instituto-superior-politecnico-kalandula-de-angola` | ok | falta |
-| 32 | Instituto Superior Politécnico Metropolitano | `instituto-superior-politecnico-metropolitano` | falta | falta |
-| 33 | Instituto Superior Politécnico Privado do Kilamba | `instituto-superior-politecnico-privado-do-kilamba` | ok | falta |
-| 34 | Instituto Superior Técnico de Angola | `instituto-superior-tecnico-de-angola` | falta | ok |
-| 35 | Instituto Superior Técnico Militar | `instituto-superior-tecnico-militar` | ok | falta |
-| 36 | Instituto Técnico de Saúde do Kilamba n.º 2.010 | `instituto-tecnico-de-saude-do-kilamba-n-2-010` | falta | falta |
-| 37 | Instituto Técnico de Saúde n.º 5.146 | `instituto-tecnico-de-saude-n-5-146` | falta | falta |
-| 38 | Pavilhão de Formação Profissional de Artes e Ofícios dos Ramiros | `pavilhao-artes-oficios-ramiros` | falta | falta |
-| 39 | PMI Angola Chapter | `pmi-angola-chapter` | ok | falta |
-| 40 | Universidade de Belas | `universidade-de-belas` | ok | falta |
-| 41 | Universidade de Luanda | `universidade-de-luanda` | ok | falta |
+| 23 | Instituto Superior de Ciências Sociais e Relações Internacionais | `instituto-superior-de-ciencias-sociais-e-relacoes-internacionais` | falta | ok |
+| 24 | Instituto Superior Politécnico Atlântida | `instituto-superior-politecnico-atlantida` | ok | ok |
+| 25 | Instituto Superior Politécnico Deolinda Rodrigues | `instituto-superior-politecnico-deolinda-rodrigues` | falta | ok |
+| 26 | Instituto Superior Politécnico do Bita | `instituto-superior-politecnico-do-bita` | ok | falta |
+| 27 | Instituto Superior Politécnico do Cazenga | `instituto-superior-politecnico-do-cazenga` | ok | ok |
+| 28 | Instituto Superior Politécnico do Zango | `instituto-superior-politecnico-do-zango` | ok | ok |
+| 29 | Instituto Superior Politécnico Intercontinental de Luanda | `instituto-superior-politecnico-intercontinental-de-luanda` | ok | ok |
+| 30 | Instituto Superior Politécnico Internacional de Angola | `instituto-superior-politecnico-internacional-de-angola` | ok | ok |
+| 31 | Instituto Superior Politécnico Kalandula de Angola | `instituto-superior-politecnico-kalandula-de-angola` | ok | ok |
+| 32 | Instituto Superior Politécnico Metropolitano | `instituto-superior-politecnico-metropolitano` | ok | ok |
+| 33 | Instituto Superior Politécnico Privado do Kilamba | `instituto-superior-politecnico-privado-do-kilamba` | ok | ok |
+| 34 | Instituto Superior Técnico de Angola | `instituto-superior-tecnico-de-angola` | ok | ok |
+| 35 | Instituto Superior Técnico Militar | `instituto-superior-tecnico-militar` | ok | ok |
+| 36 | Instituto Técnico de Saúde do Kilamba n.º 2.010 | `instituto-tecnico-de-saude-do-kilamba-n-2-010` | ok | ok |
+| 37 | Instituto Técnico de Saúde n.º 5.146 | `instituto-tecnico-de-saude-n-5-146` | falta | ok |
+| 38 | Pavilhão de Formação Profissional de Artes e Ofícios dos Ramiros | `pavilhao-artes-oficios-ramiros` | falta | ok |
+| 39 | PMI Angola Chapter | `pmi-angola-chapter` | ok | ok |
+| 40 | Universidade de Belas | `universidade-de-belas` | ok | ok |
+| 41 | Universidade de Luanda | `universidade-de-luanda` | ok | ok |
