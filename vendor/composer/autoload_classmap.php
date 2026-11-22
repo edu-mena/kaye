@@ -198,6 +198,7 @@ return array(
     'App\\Support\\NewsClassifier' => $baseDir . '/app/Support/NewsClassifier.php',
     'App\\Support\\NewsCollector' => $baseDir . '/app/Support/NewsCollector.php',
     'App\\Support\\NewsFeed' => $baseDir . '/app/Support/NewsFeed.php',
+    'App\\Support\\NewsSummariser' => $baseDir . '/app/Support/NewsSummariser.php',
     'App\\Support\\NoticeLinks' => $baseDir . '/app/Support/NoticeLinks.php',
     'App\\Support\\PublicContent' => $baseDir . '/app/Support/PublicContent.php',
     'App\\Support\\Submission' => $baseDir . '/app/Support/Submission.php',

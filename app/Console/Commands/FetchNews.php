@@ -17,7 +17,7 @@ class FetchNews extends Command
     public function handle(NewsCollector $collector): int
     {
         $result = $collector->run();
-        $this->info("News: {$result['created']} new, {$result['skipped']} skipped.");
+        $this->info("News: {$result['created']} new, {$result['skipped']} skipped, {$collector->summarise()} summarised.");
         if ($result['failed'] !== []) {
             $this->warn('Sources that did not answer: '.implode(', ', $result['failed']));
         }

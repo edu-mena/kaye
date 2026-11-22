@@ -1007,6 +1007,7 @@ class ComposerStaticInitd3bbdb5d81c2256ae17bf4b3cb3dfff1
         'App\\Support\\NewsClassifier' => __DIR__ . '/../..' . '/app/Support/NewsClassifier.php',
         'App\\Support\\NewsCollector' => __DIR__ . '/../..' . '/app/Support/NewsCollector.php',
         'App\\Support\\NewsFeed' => __DIR__ . '/../..' . '/app/Support/NewsFeed.php',
+        'App\\Support\\NewsSummariser' => __DIR__ . '/../..' . '/app/Support/NewsSummariser.php',
         'App\\Support\\NoticeLinks' => __DIR__ . '/../..' . '/app/Support/NoticeLinks.php',
         'App\\Support\\PublicContent' => __DIR__ . '/../..' . '/app/Support/PublicContent.php',
         'App\\Support\\Submission' => __DIR__ . '/../..' . '/app/Support/Submission.php',

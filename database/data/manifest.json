@@ -190,17 +190,17 @@
     "pt": {
       "file": "market-jobs.pt.json",
       "records": 1,
-      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+      "sha256": "3306b44e4bb2d2f141a65c9d8649ce40410b0fb13c02ffe0c9b08611b6a92fd4"
     },
     "en": {
       "file": "market-jobs.en.json",
       "records": 1,
-      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+      "sha256": "3306b44e4bb2d2f141a65c9d8649ce40410b0fb13c02ffe0c9b08611b6a92fd4"
     },
     "fr": {
       "file": "market-jobs.fr.json",
       "records": 1,
-      "sha256": "401ca8224f1147ba87580161683741eb18df22046ffd849782ebe5b3f36d3288"
+      "sha256": "3306b44e4bb2d2f141a65c9d8649ce40410b0fb13c02ffe0c9b08611b6a92fd4"
     }
   },
   "market-education": {
