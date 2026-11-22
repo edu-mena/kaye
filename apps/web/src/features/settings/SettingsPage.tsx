@@ -7,6 +7,7 @@ import { Button } from '../../components/ui/Button'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { useInstall } from '../../lib/install'
 import { stagger } from '../../lib/ui'
+import { InterestSettings } from './InterestSettings'
 import { NoticePreferences } from './NoticePreferences'
 import {
   AccountRow,
@@ -75,6 +76,9 @@ export default function SettingsPage() {
             <div className="p-3">
               <LanguagePicker />
             </div>
+          </Group>
+          <Group id="interests" icon="compass" title={t('interest.settingsGroup')} index={1}>
+            <InterestSettings />
           </Group>
           <Group id="data-saver" icon="wallet" title={t('dataSaver.group')} index={1}>
             <Row title={t('dataSaver.title')} body={t('dataSaver.body')} action={<DataSaverSwitch />} />

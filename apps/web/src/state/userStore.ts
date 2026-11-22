@@ -85,6 +85,11 @@ export type UserData = {
   profile: Profile | null
   /** What the person told the guide on their first visit. */
   discovery: Discovery | null
+  /**
+   * The areas the person wants to see (domain/relevance.ts): null before they were asked, [] when they
+   * skipped ("Saltar": everything shows), otherwise their choice, edited in Definições.
+   */
+  interestAreas: MarketArea[] | null
   answers: Record<string, Likert>
   assessmentCompletedAt: string | null
   skills: Record<string, SkillLevel>
@@ -145,6 +150,7 @@ const INITIAL: UserData = {
   version: 1,
   profile: null,
   discovery: null,
+  interestAreas: null,
   answers: {},
   assessmentCompletedAt: null,
   skills: {},
@@ -371,12 +377,16 @@ export const userActions = {
           ...user,
           profile,
           discovery,
+          interestAreas: discovery.areas,
           savedCareers: [...new Set([...user.savedCareers, ...liked])],
           subscriptions: user.subscriptions ?? { areas: discovery.areas, kinds: [...NEWS_KINDS] },
         },
         'profile',
       ),
     ),
+
+  /** The areas the lists show by default (the entry screen, Definições); [] skips the question. */
+  setInterestAreas: (interestAreas: MarketArea[]) => update((user) => ({ ...user, interestAreas })),
 
   /** The topics the person follows on Novidades (in the app only, until there is a server). */
   subscribe: (subscriptions: Subscriptions) => update((user) => ({ ...user, subscriptions })),

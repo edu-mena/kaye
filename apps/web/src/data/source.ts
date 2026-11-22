@@ -13,6 +13,7 @@ import { withProfiles } from './demo/companyProfiles'
 import { withFees } from './demo/academyFees'
 import { withImages } from './demo/academyImages'
 import { withContacts } from './demo/academyContacts'
+import { withShowcase } from './demo/academyShowcase'
 import { LUANDA_MIDDLE_SCHOOLS } from './demo/luandaMiddleSchools'
 import { withDecrees } from './demo/courseDecrees'
 import { HEALTH_COURSE_DECREES, SPECIALISATION_INSTITUTE } from './demo/healthCourseDecrees'
@@ -231,31 +232,36 @@ const AREA_ACADEMIES = withAreas(
     HOSPITALITY.academies,
   ],
 )
-const ALL_ACADEMIES = withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES))))
-const ALL_COMPANIES = withProfiles(
-  withoutRepeats([
-    ...COMPANIES,
-    ...HEALTH.companies,
-    ...BUSINESS.companies,
-    ...HUMANITIES.companies,
-    ...SCIENCES.companies,
-    ...EDUCATION.companies,
-    ...ENGINEERING.companies,
-    ...OIL_MINING.companies,
-    ...AGRICULTURE.companies,
-    ...LOGISTICS.companies,
-    ...HOSPITALITY.companies,
-    ...PROJECT_COMPANIES,
-    ...OFFSHORE_COMPANIES,
-    ...ENGINEERING_COMPANIES,
-    ...EDUCATION_COMPANIES,
-    ...LEGAL_COMPANIES,
-    ...PUBLIC_COMPANIES,
-    ...SCIENCES_COMPANIES,
-    ...COMMUNICATION_COMPANIES,
-    ...LAST_AREAS_COMPANIES,
-  ]),
+const ALL_ACADEMIES = withShowcase(
+  withContacts(withImages(withFees(withDecrees(AREA_ACADEMIES, HEALTH_COURSE_DECREES)))),
 )
+// Built on first use, not at load: the profiles read the careers, which load the companies in a cycle.
+let allCompanies: Company[] | null = null
+const companies = (): Company[] =>
+  (allCompanies ??= withProfiles(
+    withoutRepeats([
+      ...COMPANIES,
+      ...HEALTH.companies,
+      ...BUSINESS.companies,
+      ...HUMANITIES.companies,
+      ...SCIENCES.companies,
+      ...EDUCATION.companies,
+      ...ENGINEERING.companies,
+      ...OIL_MINING.companies,
+      ...AGRICULTURE.companies,
+      ...LOGISTICS.companies,
+      ...HOSPITALITY.companies,
+      ...PROJECT_COMPANIES,
+      ...OFFSHORE_COMPANIES,
+      ...ENGINEERING_COMPANIES,
+      ...EDUCATION_COMPANIES,
+      ...LEGAL_COMPANIES,
+      ...PUBLIC_COMPANIES,
+      ...SCIENCES_COMPANIES,
+      ...COMMUNICATION_COMPANIES,
+      ...LAST_AREAS_COMPANIES,
+    ]),
+  ))
 
 export async function listAcademies(): Promise<Academy[]> {
   if (FROM_API) return read('/institutions')
@@ -285,13 +291,13 @@ export async function getCourse(id: string): Promise<CatalogCourse | null> {
 /** GET /companies — real ones, with public facts only. */
 export async function listCompanies(): Promise<Company[]> {
   if (FROM_API) return read('/companies')
-  return ALL_COMPANIES
+  return companies()
 }
 
 /** GET /companies/{id} (null = 404) */
 export async function getCompany(id: string): Promise<Company | null> {
   if (FROM_API) return detail<Company>('/companies', id)
-  return ALL_COMPANIES.find((company) => company.id === id) ?? null
+  return companies().find((company) => company.id === id) ?? null
 }
 
 /** GET /market/jobs — counted from Angolan job sites. A separate file, loaded only when Mercado opens. */

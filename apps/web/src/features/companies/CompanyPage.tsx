@@ -23,11 +23,19 @@ import { ButtonLink } from '../../components/ui/Button'
 import { Chip } from '../../components/ui/Chip'
 import { Dialog } from '../../components/ui/Dialog'
 import { useAcademies, useCareer, useCareers, useCompany, useNews } from '../../data/queries'
-import type { CareerSummary, Company, CompanyPerson, Demand, SourceLink } from '../../data/types'
+import type {
+  CareerSummary,
+  Company,
+  CompanyPerson,
+  CompanyQuote,
+  Demand,
+  SourceLink,
+} from '../../data/types'
 import { companyNeeds, companyRoles } from '../../domain/companyNeeds'
 import { useNewsForMe } from '../../lib/useNewsForMe'
 import { NewsCard } from '../news/NewsCard'
 import { SaveCompany } from './SaveCompany'
+import { filled } from '../../lib/filled'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { CareersEvaluation, CareersMarket } from '../careers/CareersOverview'
 import { InternshipsOfCompany } from '../internships/InternshipLinks'
@@ -184,7 +192,9 @@ function General({ company }: { company: Company }) {
   )
   return (
     <DetailSection id="geral" title={t('company.tab_geral')} icon="eye">
-      <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">{company.summary}</p>
+      <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">
+        {filled(company.summary) ?? t('interest.building')}
+      </p>
       {company.activities && company.activities.length > 0 && (
         <div className="mt-8">
           <Subheading>{t('company.activitiesTitle')}</Subheading>
@@ -205,6 +215,7 @@ function General({ company }: { company: Company }) {
         ))}
       </div>
       <People people={company.people ?? []} />
+      <Quotes quotes={company.quotes ?? []} />
       {company.programs.length > 0 && (
         <div className="mt-10">
           <Subheading>{t('company.programsTitle')}</Subheading>
@@ -289,6 +300,36 @@ function People({ people }: { people: CompanyPerson[] }) {
         ))}
       </ul>
       <p className="mt-3 text-xs font-light text-muted">{t('company.peopleNote')}</p>
+    </div>
+  )
+}
+
+/** What its leaders said in interviews, word for word, each with who said it, when, and the link to the interview. */
+function Quotes({ quotes }: { quotes: CompanyQuote[] }) {
+  const { t, i18n } = useTranslation()
+  if (quotes.length === 0) return null
+  const date = new Intl.DateTimeFormat(i18n.language, { month: 'long', year: 'numeric' })
+  return (
+    <div className="mt-10">
+      <Subheading>{t('company.quotesTitle')}</Subheading>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {quotes.map((quote) => (
+          <li key={quote.url + quote.text}>
+            <figure className="flex h-full flex-col rounded-2xl border border-line p-4">
+              <p className="text-xs font-semibold text-blue">{t(`company.quoteTopic_${quote.topic}`)}</p>
+              <blockquote className="mt-2 text-sm leading-relaxed font-light text-night">
+                “{quote.text}”
+              </blockquote>
+              <figcaption className="mt-auto pt-3 text-xs font-light text-muted">
+                <span className="font-semibold text-night">{quote.speaker}</span>, {quote.role} ·{' '}
+                {date.format(new Date(quote.date))} ·{' '}
+                <ExternalLink href={quote.url}>{quote.outlet}</ExternalLink>
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-xs font-light text-muted">{t('company.quotesNote')}</p>
     </div>
   )
 }

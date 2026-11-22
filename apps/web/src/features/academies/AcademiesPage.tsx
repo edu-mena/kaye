@@ -10,7 +10,10 @@ import { SectionHeading } from '../../components/ui/PageHeader'
 import { Pagination } from '../../components/ui/Pagination'
 import { useAcademies } from '../../data/queries'
 import { byInterest, groupAreas } from '../../domain/interests'
+import { academySubject } from '../../domain/relevance'
+import { InterestNotice } from '../../components/InterestNotice'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import type { Academy, AcademyOffer, CareerGroup, Institution } from '../../data/types'
 import { paginate } from '../../lib/pagination'
 import { useUrlFilters } from '../../lib/useUrlFilters'
@@ -83,6 +86,7 @@ export default function AcademiesPage() {
   const { t } = useTranslation()
   const academiesQuery = useAcademies()
   const mine = useInterestAreas()
+  const interest = useInterestFilter('academies')
   const [params, setParam] = useUrlFilters()
   /** A filter from the URL, only when it is one of the options: unknown values are ignored. */
   const pick = <T extends string>(key: string, values: readonly T[]) =>
@@ -122,15 +126,21 @@ export default function AcademiesPage() {
           const level = pick('nivel', levels)
           const faculty = pick('faculdade', faculties)
           const province = pick('onde', provinces)
+          const matching = ofType.filter(
+            (academy) =>
+              offersMatch(academy, { course, area, level, faculty }) &&
+              (!province || academy.province === province) &&
+              (!ownership || academy.ownership === ownership) &&
+              (show !== 'guardadas' || savedAcademies.includes(academy.id)) &&
+              (show !== 'contactos' || hasContacts(academy)),
+          )
+          // The person's areas, unless they chose an area, a course or the saved ones themselves.
+          const { items, hidden } =
+            area || course || show === 'guardadas'
+              ? { items: matching, hidden: 0 }
+              : interest.apply(matching, academySubject)
           const ranked = byInterest(
-            ofType.filter(
-              (academy) =>
-                offersMatch(academy, { course, area, level, faculty }) &&
-                (!province || academy.province === province) &&
-                (!ownership || academy.ownership === ownership) &&
-                (show !== 'guardadas' || savedAcademies.includes(academy.id)) &&
-                (show !== 'contactos' || hasContacts(academy)),
-            ),
+            items,
             (academy) => groupAreas(academy.offers.flatMap((offer) => offer.areas)),
             mine,
           )
@@ -171,6 +181,9 @@ export default function AcademiesPage() {
                   <output className="mt-1 block text-xs font-light text-muted">
                     {t('academies.count', { count: visible.length })}
                   </output>
+                  <div className="mt-1">
+                    <InterestNotice filter={interest} hidden={hidden} />
+                  </div>
                 </div>
                 <div className="mb-6">
                   <FilterBar

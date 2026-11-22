@@ -1,6 +1,6 @@
-import type { IconName } from '../../components/icons'
-import type { MarketArea, RiasecKey } from '../../data/types'
-import type { Goal, Situation } from '../../domain/discovery'
+import type { IconName } from './icons'
+import type { MarketArea, RiasecKey } from '../data/types'
+import type { Goal, Situation } from '../domain/discovery'
 
 export const AREA_ICONS: Record<MarketArea, IconName> = {
   technology: 'code',

@@ -346,6 +346,11 @@ export type AcademyOffer = {
   curriculum?: Curriculum
   /** The published fee; without one, the app estimates it (domain/fees.ts). */
   fee?: PublishedFee
+  /** Length in months and the schedules; with `estimated`, they follow from the level and the kind of institution. */
+  durationMonths?: number
+  schedule?: Schedule[]
+  /** true: the offer itself, its length or its schedule is our logical reading, not stated by the institution. */
+  estimated?: true
 }
 
 /** A course across the institutions that offer it (GET /courses): the catalogue the Cursos page shows. */
@@ -368,6 +373,8 @@ export type Academy = Omit<Institution, 'ownership'> & {
   ownership: Institution['ownership'] | null
   place: string
   summary: string
+  /** true: part of the description (access, courses) is our reading by the kind of institution (data-to-collect-later). */
+  estimated?: true
   offers: AcademyOffer[]
   /** The youngest age it takes, when a source says so. */
   minAge?: number
@@ -606,7 +613,42 @@ type CompanyProgram = { name: string; summary: string; source: SourceLink }
 export type CompanyFact = { value: string; source: SourceLink }
 
 /** A post the company hires for or advertises, tied to the catalogue's careers; without a source, our reading. */
-export type CompanyRole = { title: string; careers: string[]; source?: SourceLink }
+export type CompanyRole = {
+  title: string
+  careers: string[]
+  source?: SourceLink
+  /** What a young person typically needs to be hired for this post here. */
+  requirements?: string[]
+  /** How to get there, step by step, in the order a young person does it. */
+  path?: string[]
+  /** The posts of the career ladder here, from the entry post to the top. */
+  ladder?: string[]
+  /** true: our reading from the type of business, not stated by the company (docs/recolha-de-dados.md). */
+  estimated?: boolean
+}
+
+/** What our study of the company says to a young person: how it hires, what it values, what to prepare. */
+export type CompanyInsight = {
+  title: string
+  text: string
+  /** A public source, when the insight states a fact; without it, it is our reading (`estimated`). */
+  source?: SourceLink
+  estimated?: boolean
+}
+
+/** A short statement from an interview (up to two sentences, word for word), with when, where and the link. */
+export type CompanyQuote = {
+  text: string
+  /** Who said it, and in which post at the time. */
+  speaker: string
+  role: string
+  /** ISO date of the publication. */
+  date: string
+  /** The outlet's name (Forbes África Lusófona, Expansão, …). */
+  outlet: string
+  url: string
+  topic: 'contratacao' | 'competencias' | 'estagios' | 'planos'
+}
 
 /**
  * Someone who leads or speaks for the company, with the post confirmed in an official source. Never a minor,
@@ -657,6 +699,14 @@ export type Company = {
   roles?: CompanyRole[]
   /** Its leadership and public spokespeople. */
   people?: CompanyPerson[]
+  /** Its headquarters: the address or the city, with where it is stated. */
+  headquarters?: CompanyFact
+  /** What its leaders said in interviews, word for word. */
+  quotes?: CompanyQuote[]
+  /** Our study of the company for people who want to work there. */
+  insights?: CompanyInsight[]
+  /** true: `partners` and the posts' requirements are our reading, not stated by the company. */
+  estimated?: boolean
 }
 
 export type InternshipKind = 'trainee' | 'estagio_profissional' | 'estagio_curricular' | 'programa_publico'

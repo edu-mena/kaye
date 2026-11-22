@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Icon, type IconName } from '../../components/icons'
+import { Icon } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
 import { Dialog } from '../../components/ui/Dialog'
+import { Toggles } from '../../components/ui/Toggles'
 import { MARKET_AREAS, NEWS_KINDS, type Subscriptions } from '../../data/types'
 import { userActions } from '../../state/userStore'
-import { AREA_ICONS } from '../onboarding/areaIcons'
+import { AREA_ICONS } from '../../components/areaIcons'
 import { KIND_ICONS } from './kindIcons'
 
 const toggled = <T,>(list: readonly T[], value: T) =>
@@ -83,45 +84,5 @@ export function SubscribeDialog({
         {t('news.subscribeWhere')}
       </p>
     </Dialog>
-  )
-}
-
-function Toggles<T extends string>({
-  legend,
-  options,
-  selected,
-  onToggle,
-}: {
-  legend: string
-  options: { value: T; label: string; icon: IconName }[]
-  selected: readonly T[]
-  onToggle: (value: T) => void
-}) {
-  return (
-    <fieldset className="mt-5">
-      <legend className="text-sm font-semibold text-night">{legend}</legend>
-      <ul className="mt-2 flex flex-wrap gap-2">
-        {options.map((option) => {
-          const active = selected.includes(option.value)
-          return (
-            <li key={option.value}>
-              <button
-                type="button"
-                aria-pressed={active}
-                onClick={() => onToggle(option.value)}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-normal transition ${
-                  active
-                    ? 'border-night bg-night text-white'
-                    : 'border-line bg-surface text-night hover:bg-ash-100'
-                }`}
-              >
-                <Icon name={active ? 'check' : option.icon} className="size-3.5" />
-                {option.label}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
-    </fieldset>
   )
 }

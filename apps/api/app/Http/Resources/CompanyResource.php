@@ -42,6 +42,10 @@ class CompanyResource extends ContentResource
             'founded' => $this->value('founded'),
             'employees' => $this->value('employees'),
             'logoOnDark' => $this->flag('logo_on_dark'),
+            'insights' => $this->value('insights'),
+            'quotes' => $this->value('quotes'),
+            'headquarters' => $this->value('headquarters'),
+            'estimated' => $this->resource->estimated ? true : null,
         ]);
     }
 }

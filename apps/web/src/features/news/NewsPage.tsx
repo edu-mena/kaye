@@ -12,7 +12,9 @@ import { useNews } from '../../data/queries'
 import { NEWS_KINDS, type NewsItem, type NewsKind } from '../../data/types'
 import { byInterest } from '../../domain/interests'
 import { stagger } from '../../lib/ui'
+import { InterestNotice } from '../../components/InterestNotice'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import { useNewsForMe } from '../../lib/useNewsForMe'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { Figures } from './Figures'
@@ -58,15 +60,24 @@ export default function NewsPage() {
   )
 }
 
-function Feed({ news }: { news: NewsItem[] }) {
+function Feed({ news: everyPiece }: { news: NewsItem[] }) {
   const { t, i18n } = useTranslation()
   const [params, setParam] = useUrlFilters()
   const { mine, subscriptions, areasOf, forMe } = useNewsForMe()
   const interests = useInterestAreas()
+  const interest = useInterestFilter('news')
   const [subscribing, setSubscribing] = useState(false)
 
   const following =
     subscriptions !== null && (subscriptions.areas.length > 0 || subscriptions.kinds.length > 0)
+  // What is about the person's areas, careers or companies, or in their subscription; general news is for everyone.
+  const { items: relevant } = interest.apply(everyPiece, (item) => ({
+    areas: areasOf(item),
+    careers: item.careers ?? [],
+    companies: item.companies ?? [],
+  }))
+  const kept = new Set(relevant)
+  const news = everyPiece.filter((item) => kept.has(item) || forMe(item))
   const forYou = news.filter(forMe)
   const hasForYou = following || mine.size > 0
   // "Para ti": the subscribed topics and the person's careers first, then the rest by their areas.
@@ -124,6 +135,7 @@ function Feed({ news }: { news: NewsItem[] }) {
         {subscribing && (
           <SubscribeDialog open onClose={() => setSubscribing(false)} current={subscriptions} />
         )}
+        <InterestNotice filter={interest} hidden={everyPiece.length - news.length} />
         <ul className="space-y-3">
           {shown.map((item, index) => (
             <li key={item.id} className="rise" style={stagger(Math.min(index, 6))}>

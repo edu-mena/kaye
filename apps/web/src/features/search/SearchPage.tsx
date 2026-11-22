@@ -13,7 +13,7 @@ import { paginate } from '../../lib/pagination'
 import { stagger } from '../../lib/ui'
 import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
-import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestProfile } from '../../lib/useInterestFilter'
 import { EXPLORE_TYPES, findResults, RESULT_TYPES, SECTIONS, type Result, type ResultType } from './results'
 import { ResultRow } from './ResultRow'
 
@@ -177,7 +177,7 @@ function Results({ query, words }: { query: string; words: string[] }) {
   const [params, setParam] = useUrlFilters()
   const list = useRef<HTMLDivElement>(null)
   const catalog = useCatalog()
-  const interests = useInterestAreas()
+  const profile = useInterestProfile()
 
   if (catalog.isError) return <ErrorState onRetry={catalog.retry} />
   if (!catalog.data) {
@@ -188,7 +188,7 @@ function Results({ query, words }: { query: string; words: string[] }) {
     )
   }
 
-  const results = findResults(catalog.data, words, t, interests)
+  const results = findResults(catalog.data, words, t, profile)
   const total = RESULT_TYPES.reduce((sum, type) => sum + results[type].length, 0)
   const tipo = params.get('tipo')
   const type = RESULT_TYPES.find((value) => value === tipo) ?? null

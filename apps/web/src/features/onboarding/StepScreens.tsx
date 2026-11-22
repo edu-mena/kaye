@@ -28,7 +28,7 @@ import {
 } from '../../domain/discovery'
 import { VOICES } from '../../lib/voices'
 import { LanguagePicker } from '../settings/SettingsParts'
-import { AREA_ICONS, GOAL_ICONS, INTEREST_ICONS, SITUATION_ICONS } from './areaIcons'
+import { AREA_ICONS, GOAL_ICONS, INTEREST_ICONS, SITUATION_ICONS } from '../../components/areaIcons'
 import {
   BIRTH_YEARS,
   CURRENT_YEAR,

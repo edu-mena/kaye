@@ -1,4 +1,6 @@
 import type { Company, CompanyFact, CompanyPerson, CompanyRole, SourceLink } from '../types'
+import { CAREER_SUMMARIES } from './careers'
+import { directoryFor } from './companyDirectory'
 
 // What we know of each company beyond its card, by id (docs/recolha-de-dados.md, "Empresas", 13/11/2026):
 // - activities: its lines of business, from the company itself or the press, with that source;
@@ -285,14 +287,62 @@ const FILES = import.meta.glob<string>('../../assets/companies/*-{logo,banner-80
   import: 'default',
 })
 
+const MIN_SUMMARY = 60
+const union = <T>(...lists: (T[] | undefined)[]): T[] => [...new Set(lists.flatMap((list) => list ?? []))]
+
+/**
+ * The card first, the directory's collected facts over it (companyDirectory.ts) and, over both, the sourced
+ * profile above: a figure or a leader that a source states is never replaced by our reading of the business.
+ */
+function complete(company: Company): Company {
+  const found = directoryFor(company)
+  const profile: Partial<Company> = PROFILES[company.id] ?? {}
+  const careers = company.careersSourced ? company.careers : union(company.careers, found.careers)
+  const own = profile.roles ?? []
+  const roles = [
+    ...own,
+    ...(found.roles ?? []).filter((post) => !own.some((mine) => mine.title === post.title)),
+  ]
+  const names = new Set((profile.people ?? []).map((member) => member.name))
+  const people = [
+    ...(profile.people ?? []),
+    ...(found.people ?? []).filter((member) => !names.has(member.name)),
+  ]
+  const website = company.website ?? found.website
+  return {
+    ...company,
+    summary: company.summary.length >= MIN_SUMMARY ? company.summary : (found.summary ?? company.summary),
+    ...(website ? { website } : {}),
+    ...(found.activities ? { activities: found.activities, activitiesSource: found.activitiesSource } : {}),
+    ...(found.founded ? { founded: found.founded } : {}),
+    ...(found.employees ? { employees: found.employees } : {}),
+    ...(found.headquarters ? { headquarters: found.headquarters } : {}),
+    ...profile,
+    ...(found.socials || profile.socials ? { socials: { ...found.socials, ...profile.socials } } : {}),
+    careers,
+    areas: [
+      ...new Set(
+        CAREER_SUMMARIES.filter((career) => careers.includes(career.slug)).map((career) => career.group),
+      ),
+    ],
+    programs: [...company.programs, ...(found.programs ?? [])],
+    partners: union(company.partners, found.partners),
+    ...(roles.length ? { roles } : {}),
+    ...(people.length ? { people } : {}),
+    ...(found.quotes ? { quotes: found.quotes } : {}),
+    ...(found.insights?.length ? { insights: found.insights } : {}),
+    ...(found.estimated ? { estimated: true } : {}),
+  }
+}
+
 /** Each company with its profile and, when it has none yet, the logo and cover found for it. */
 export function withProfiles(companies: Company[]): Company[] {
-  return companies.map((company) => {
+  return companies.map((card) => {
+    const company = complete(card)
     const logo = company.logo ?? FILES[`../../assets/companies/${company.id}-logo.webp`]
     const banner = company.banner ?? FILES[`../../assets/companies/${company.id}-banner-800.webp`]
     return {
       ...company,
-      ...PROFILES[company.id],
       ...(logo ? { logo } : {}),
       ...(banner ? { banner } : {}),
     }

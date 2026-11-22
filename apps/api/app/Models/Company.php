@@ -41,6 +41,9 @@ class Company extends Model
             'employees' => 'array',
             'socials' => 'array',
             'people' => 'array',
+            'insights' => 'array',
+            'quotes' => 'array',
+            'headquarters' => 'array',
             'sources' => 'array',
         ];
     }

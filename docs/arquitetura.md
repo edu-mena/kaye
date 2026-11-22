@@ -409,6 +409,19 @@ A gamificação só dá pontos por contribuições **aprovadas**, o que desencor
 - **Nada pago entra na pontuação.** O conteúdo patrocinado aparece sempre marcado e à parte.
 - Apresentar como "mais bem classificadas segundo os critérios do Kayé", nunca como verdade absoluta. Validar a forma com um advogado.
 
+### 5.8 O que cada pessoa vê (filtro pelos gostos)
+
+Cada pessoa só vê, por defeito, o que tem a ver com ela. Tudo vive no aparelho (frontend, sem rotas novas): o campo `interestAreas` de `UserData` (`null` = ainda não foi perguntado, `[]` = saltou, ou as áreas escolhidas).
+
+- **Perfil de interesse** (`domain/interests.ts` + `domain/relevance.ts`, `lib/useInterestFilter.ts`): as áreas escolhidas (ecrã de entrada, guia do onboarding, Definições), mais as áreas das carreiras guardadas e do destino, mais as do resultado do teste; as carreiras e empresas que a pessoa guardou entram também. Um só módulo calcula a relevância de qualquer item (`isRelevant`, `onlyRelevant`), lendo o que cada tipo diz de si: áreas, carreiras, empresas (`careerSubject`, `companySubject`, `academySubject`, `courseSubject`, `areasSubject`).
+- **Regra:** um item é relevante se toca uma área da pessoa, uma carreira dela ou uma empresa que guardou. O que não diz nada sobre áreas, carreiras ou empresas (notícia geral, bolsa aberta a qualquer área) é para toda a gente. Sem áreas, nada se esconde. Nada pago entra no cálculo.
+- **Listas** (carreiras, empresas, academias, cursos, estágios, bolsas, novidades, início): escondem o que não tem relação nenhuma e dizem "A mostrar o que tem a ver contigo", com o número de itens escondidos e o botão "Ver outras áreas". O botão lembra-se só dessa lista (`kaye.others.<lista>` no aparelho). Se a pessoa escolhe ela própria uma área, uma carreira ou pesquisa dentro da lista, o filtro não se mete: foi ela que pediu.
+- **Pesquisa:** encontra tudo, põe primeiro o relevante (dentro de cada grupo, a melhor correspondência primeiro) e marca o resto com "Fora das tuas áreas".
+- **Sem perfil:** quem ainda não escolheu nada vê uma pergunta num só ecrã (`InterestGate`) com as áreas e "Saltar" (vê tudo). Quem passou pelo guia ou já respondeu não volta a ser perguntado.
+- **Definições:** o perfil de interesse edita-se aí (cada toque guarda).
+- **Páginas de empresa e de academia:** a empresa mostra as citações dos líderes (`quotes`, palavra por palavra, com quem, quando e a ligação). Um campo vazio mostra "Perfil em construção", nunca um "—" solto (`StatBlock`, resumo).
+- **Ainda sem filtro:** rankings e simulações dentro de uma carreira (já são sobre a carreira aberta), os prazos e os totais do início, e o Mercado (mostra o país inteiro de propósito).
+
 ## 6. API v1
 
 A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a uma função de `apps/web/src/data/source.ts` (ou a um módulo que a app lê diretamente) e devolve **exatamente a mesma forma** de `apps/web/src/data/types.ts`: o frontend troca de fonte sem mudar tipos, e o teste de paridade compara cada rota com o JSON exportado.

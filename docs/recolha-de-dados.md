@@ -22,7 +22,7 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Carreiras com salário publicado | 68 | As outras mostram "—" até haver fonte |
 | Academias | 167 | Instituições reais |
 | Cursos no catálogo | 422 | |
-| Empresas | 252 | 19 pessoas com nome, cargo e fonte |
+| Empresas | 252 | 252 com posições, percurso e estudo (estimados); 22 com líderes, 77 com site, 5 com citações |
 | Bolsas | 19 | |
 | Estágios e programas de trainee | 13 | |
 | Admissões (exames e candidaturas) | 14 | |
@@ -91,6 +91,10 @@ Não encontrados (para ligar ou visitar):
 - **Sem site nem página oficial encontrada:** ISPAJ, INSUTEC, ISPIL, ISIA (o site é só o portal académico), CINFOTEC, IMIL e os outros institutos médios.
 - **Propinas de 2026/27:** ainda não publicadas. As de 2025/26 continuam para as 8 privadas; as outras são estimadas.
 - **Ofertas novas confirmadas por decreto:** nenhuma nesta ronda.
+
+### Academias da vitrine (21/11/2026)
+
+`apps/web/src/data/demo/academyShowcase.ts`: 63 instituições de Luanda (universidades, institutos superiores, médios e centros) com 588 cursos. Todas têm cursos, descrição com os cursos e como se entra, e cada oferta tem duração e regime (`durationMonths`, `schedule`, `estimated: true`, por nível e tipo de instituição: licenciatura 48 meses, engenharia 60, medicina 72, médio 48, curso curto 6; público só diurno, privado e cursos curtos também pós-laboral). Sete escolas sem cursos (ISUTIC, INEFOP, IFBA, Academia BAI e os institutos médios industriais e de gestão) receberam cursos prováveis pelo tipo, também estimados. Imagens (21/11/2026): +46 logótipos (4 deles só com as iniciais, por a instituição não ter logótipo) e +51 capas, achados no Bing Imagens (Chrome), nas páginas oficiais e em miniaturas do Google Imagens indicadas por Eduardo (22/11/2026, baixa resolução, sem uso de permissão institucional ainda), conferidos à vista; rejeitados um cartaz, um recorte e dois brasões do Estado. Não ficam logótipos nem capas por fazer na vitrine (lista, vazia, em [imagens-em-falta-academias.md](imagens-em-falta-academias.md)), site em 46 e contactos em 51 (só com fonte). As "por confirmar" de "Contactos e identidade" e as de "Ainda por pesquisar" (secção que não existe neste ficheiro) continuam por ligar ou visitar. Os cursos novos do ponto 7 já estavam em `academies.ts`.
 
 ### Ecossistema (não dá cursos)
 
@@ -221,6 +225,18 @@ Em `apps/web/src/data/demo/companyProfiles.ts`, por id, aplicado a todas as 252 
 - **Notícias** (15, datadas, com fonte): Unitel (2), Africell, Angola Cables, BAI, BFA, Sonangol, TAAG (2), Endiama, Catoca, TotalEnergies, Chevron, Angola LNG e ENDE. Os programas para jovens e o memorando PMI–Selenium também ficaram ligados às empresas.
 - **Imagens novas** (Wikimedia Commons): logótipos da TotalEnergies, da Chevron e da Endiama (domínio público). Rejeitada outra vez uma foto "Banco Sol" do Commons (é do BancoSol de Santa Cruz, Bolívia). Sem imagem livre: Banco Sol, Standard Bank (logótipo), Movicel, Angola LNG, Azule Energy e Catoca (só imagens de radar).
 - **Sem dados novos:** as restantes ~235 empresas (hospitais, ministérios, institutos, escritórios de advogados, empresas dos anúncios). Ficam com o que já tinham; a próxima ronda deve seguir a ordem das mais procuradas.
+
+### Empresas completas e citações dos líderes (20/11/2026)
+
+O objetivo das empresas dentro do Kayé não são os dados institucionais, são **as posições de carreira que a empresa oferece e como lá chegar**, mais o nosso estudo sobre ela. Tudo vive em `apps/web/src/data/demo/`: `companyKinds.ts` (o que cada tipo de negócio contrata e como se entra), `companyDirectory.ts` (factos com fonte e notas por empresa), `companyLinks.ts` (sites e redes lidos nas páginas oficiais). `withProfiles` junta tudo à ficha; o perfil com fonte de 13/11 ganha sempre sobre a nossa leitura.
+
+- **Posições e percurso (as 252 empresas):** cada empresa tem 3 a 7 posições (`roles`) com os requisitos típicos, o percurso passo a passo (`path`) e a escada de progressão (`ladder`, do cargo de entrada ao topo), as carreiras ligadas e as academias de onde vêm as pessoas (`partners`). Vêm de 22 tipos de negócio (banco, telecom, petróleo, electricidade, media, minas, comércio, consultoria, saúde, seguros, transportes, portos, Estado, justiça, advocacia, educação, agricultura, ONG, tecnologia, indústria, construção, hotelaria), escolhidos pelo setor e por algumas regras por id. **Tudo `estimated: true`** (lógica, não declaração da empresa).
+- **O nosso estudo** (`insights`, as 252): "Como entrar", "O que valorizam", "Dica Kayé" (estimados) e, quando há fonte, notas factuais: programa de estágios da TIS (77% de contratação em 2017–2025), pilotos cadetes da TAAG (até 70 jovens), reestruturação do Banco Sol (até 30% dos trabalhadores), Standard Bank cotado em bolsa. Os programas e as vagas anunciadas da própria ficha entram como notas com a sua fonte.
+- **Imagens (21/11/2026):** as 252 empresas têm pelo menos uma imagem (121 com logótipo e capa, 58 só com capa, 73 só com logótipo). As últimas 90 vieram de uma lista do Eduardo (Google Imagens, conferida à vista; ficaram de fora os cabeçalhos genéricos "Governo de Angola" dos ministérios e logótipos de outros institutos) e, para 15 empresas sem imagem pública (só têm vagas nos sites de emprego), de um logótipo genérico do setor (balança, balão de fala, folha, saco, capelo, fábrica, camião, pasta; `status` `generated`). Antes disso (20/11/2026): 162 de 252, 90 sem nenhuma. Três vias: páginas oficiais (og:image e logótipo do cabeçalho), Wikimedia Commons com licença livre e, para o resto, o Bing Imagens no Chrome (extensão Claude in Chrome), com cada imagem conferida à vista numa folha de contactos antes de entrar. Registadas em `scrapers/catalog/company_images.csv` (`source_type` = official, wikimedia ou search). Rejeitadas: capas genéricas dos portais do Governo (e o cabeçalho "Governo de Angola" que fazem de logótipo dos ministérios; só o IDA tinha logótipo próprio), fotos de outras empresas com o mesmo nome (Prestigio, Boavida Healthcare, Pimm's), cartazes de vagas e fotos com marca de água. As imagens que não são do site oficial (sobretudo de imprensa) precisam de autorização ou substituição antes de a app ser pública.
+- **Factos com fonte:** 77 empresas com site (antes 20), 46 com redes (antes 1), 19 com áreas de atuação, 13 com fundação, 14 com sede, 22 com líderes e 5 com citações (`quotes`: Banco Sol, BAI, Standard Bank, Access Bank Angola e TIS), todas copiadas das entrevistas e confirmadas no texto da página (Forbes África Lusófona e Expansão), com data, meio e ligação.
+- **Líderes novos (com fonte e data):** Luís Teles (Standard Bank), Osvaldo Macaia e António André Lopes (Banco Sol), Cláudio Pinheiro Macedo (BPC, mandato 2022/2026), Ricardo Ferreira (Access Bank), Joe Murphy (Azule Energy), Pedro Afonso (PRODEL, 2023), António Sebastião Lino (RNA), Leonildo Manuel (AGT) e William de Oliveira (TIS).
+- **Sem dados:** sede e fundação da maior parte das empresas (nenhuma fonte), líderes da ENDE, Angola Telecom, TPA e TV Cabo (nomeações antigas), citações verificáveis de Unitel, Sonangol, TAAG, BFA, BIC e dos outros meios pedidos (Novo Jornal, Jornal de Angola, TPA, TV Zimbo, O Telegrama).
+- **Falta no servidor:** a API ainda não guarda `headquarters`, `quotes`, `insights`, `estimated`, nem `path`, `ladder` e `requirements` dos cargos (só o frontend demo os tem); a página das citações é o prompt 4.
 
 ## Empresa → carreiras
 

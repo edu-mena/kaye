@@ -67,6 +67,25 @@ export const fr: Messages = {
     save: 'Enregistrer',
     source: 'Source : {{label}}',
   },
+  interest: {
+    showingMine: 'Affichage de ce qui te concerne. {{count}} hors de tes domaines sont masqués.',
+    showingMineAll: 'Affichage de ce qui te concerne.',
+    showingAll: 'Tout est affiché, les autres domaines aussi.',
+    seeOthers: 'Voir les autres domaines',
+    onlyMine: 'Seulement ce qui me concerne',
+    outside: 'Hors de tes domaines',
+    gateTitle: 'Quels domaines t’intéressent ?',
+    gateBody:
+      'Choisis les domaines que tu veux suivre. Les listes montrent d’abord ce qui te concerne ; tu peux changer cela dans les Réglages.',
+    areasLegend: 'Domaines',
+    gateSave: 'Continuer',
+    skip: 'Passer',
+    settingsGroup: 'Ce que tu vois',
+    settingsTitle: 'Tes domaines d’intérêt',
+    settingsBody:
+      'Les listes, l’accueil et les nouveautés montrent ce qui se rapporte à ces domaines, à ce que tu as enregistré et à ton résultat du test. Sans aucun domaine, tu vois tout.',
+    building: 'Profil en construction',
+  },
   states: {
     errorTitle: 'Impossible de charger',
     retry: 'Réessayer',
@@ -1262,6 +1281,13 @@ export const fr: Messages = {
     sector_comercio: 'Commerce et services',
   },
   company: {
+    quotesTitle: 'Ce que ses dirigeants ont dit',
+    quotesNote:
+      'Citations mot pour mot, tirées d’entretiens dans la presse. Chacune renvoie au texte original.',
+    quoteTopic_contratacao: 'Recrutement',
+    quoteTopic_competencias: 'Compétences',
+    quoteTopic_estagios: 'Stages',
+    quoteTopic_planos: 'Projets',
     tab_noticias: 'Actualités',
     activitiesTitle: 'Domaines d’activité',
     founded: 'Fondation',

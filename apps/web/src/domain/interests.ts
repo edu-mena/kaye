@@ -8,24 +8,30 @@ import {
 } from '../data/types'
 import type { Discovery } from './discovery'
 
-type InterestUser = { discovery: Discovery | null; savedCareers: string[] }
+export type InterestUser = {
+  discovery: Discovery | null
+  /** What the person chose to see (entry screen, Definições); without it, the guide's areas. */
+  interestAreas?: MarketArea[] | null
+  savedCareers: string[]
+  targetCareer?: string | null
+}
 
 /**
- * The person's areas, most interesting first: those they chose with the guide, then those of the
- * careers they saved, then those of their recommendations. Without onboarding, none: the lists
- * keep today's order.
+ * The person's areas, most interesting first: those they chose (the entry screen, the guide, Definições),
+ * then those of the careers they saved or aim at, then those of their recommendations (the test).
+ * Nobody chose or saved anything: none, and the lists keep today's order.
  */
 export function interestAreas(
   user: InterestUser,
   careers: CareerSummary[],
   recommended: CareerSummary[] = [],
 ): MarketArea[] {
-  if (!user.discovery) return []
-  const saved = careers.filter((career) => user.savedCareers.includes(career.slug))
+  const chosen = user.interestAreas ?? user.discovery?.areas ?? []
+  const mine = new Set([...user.savedCareers, ...(user.targetCareer ? [user.targetCareer] : [])])
   return [
     ...new Set([
-      ...user.discovery.areas,
-      ...saved.map((career) => GROUP_AREAS[career.group]),
+      ...chosen,
+      ...careers.filter((career) => mine.has(career.slug)).map((career) => GROUP_AREAS[career.group]),
       ...recommended.map((career) => GROUP_AREAS[career.group]),
     ]),
   ]

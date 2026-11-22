@@ -25,6 +25,7 @@ import type { Academy, AcademyOffer, Admission, CareerSummary } from '../../data
 import { admissionsFor, examSubjects } from '../../domain/admissions'
 import { offerFee, FEE_BANDS, feeBand, type FeeBand } from '../../domain/fees'
 import { formatKz } from '../../domain/format'
+import { filled } from '../../lib/filled'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { CareersEvaluation, CareersMarket } from '../careers/CareersOverview'
 import { coursePath } from '../training/coursePath'
@@ -238,7 +239,9 @@ function General({ academy }: { academy: Academy }) {
   const { t } = useTranslation()
   return (
     <DetailSection id="geral" title={t('academy.tab_geral')} icon="eye">
-      <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">{academy.summary}</p>
+      <p className="max-w-3xl text-sm leading-relaxed font-light text-copy">
+        {filled(academy.summary) ?? t('interest.building')}
+      </p>
       <div className="mt-8">
         <StatBlock items={facts(academy, t)} />
         <FactSources academy={academy} />

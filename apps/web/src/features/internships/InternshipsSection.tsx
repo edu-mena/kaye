@@ -8,7 +8,10 @@ import { ButtonLink } from '../../components/ui/Button'
 import { FilterBar } from '../../components/ui/Filters'
 import { useInternships } from '../../data/queries'
 import { byInterest } from '../../domain/interests'
+import { areasSubject } from '../../domain/relevance'
+import { InterestNotice } from '../../components/InterestNotice'
 import { useInterestAreas } from '../../lib/useInterestAreas'
+import { useInterestFilter } from '../../lib/useInterestFilter'
 import { MARKET_AREAS, type Internship } from '../../data/types'
 import { filterInternships, INTERNSHIP_AUDIENCES, INTERNSHIP_KINDS } from '../../domain/internships'
 import { isOpen, todayIso } from '../../domain/scholarships'
@@ -40,6 +43,7 @@ const yes = (on: boolean) => (on ? 'sim' : null)
 function List({ internships }: { internships: Internship[] }) {
   const { t } = useTranslation()
   const mine = useInterestAreas()
+  const interest = useInterestFilter('internships')
   const [params, setParam] = useUrlFilters()
   const today = todayIso()
   const kind = INTERNSHIP_KINDS.find((value) => value === params.get('tipo')) ?? null
@@ -47,11 +51,10 @@ function List({ internships }: { internships: Internship[] }) {
   const audience = INTERNSHIP_AUDIENCES.find((value) => value === params.get('para')) ?? null
   const open = params.get('abertos') === 'sim'
   const paid = params.get('pago') === 'sim'
-  const shown = byInterest(
-    filterInternships(internships, { kind, area, audience, open, paid }, today),
-    (item) => item.areas,
-    mine,
-  )
+  const matching = filterInternships(internships, { kind, area, audience, open, paid }, today)
+  // The person's areas, unless they chose an area themselves.
+  const { items, hidden } = area ? { items: matching, hidden: 0 } : interest.apply(matching, areasSubject)
+  const shown = byInterest(items, (item) => item.areas, mine)
 
   return (
     <div className="space-y-4">
@@ -100,6 +103,7 @@ function List({ internships }: { internships: Internship[] }) {
           },
         ]}
       />
+      <InterestNotice filter={interest} hidden={hidden} />
       <OpportunityGrid
         items={shown}
         count={t('internships.count', { count: shown.length })}
