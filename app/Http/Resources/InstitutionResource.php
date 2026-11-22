@@ -40,6 +40,7 @@ class InstitutionResource extends ContentResource
             'checkedAt' => $this->date('source_checked_at'),
             'founded' => $this->value('founded'),
             'recognizedBy' => $this->value('recognized_by'),
+            'estimated' => $this->resource->estimated ? true : null,
         ]);
     }
 
