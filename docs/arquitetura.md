@@ -269,7 +269,7 @@ Uma conta apagada no painel (*soft delete*) não volta pelo login. `POST /auth/l
 ```mermaid
 flowchart TD
   A["GitHub Actions (semanal)<br/>um adaptador por site"] --> B["Extrai campos:<br/>título, empresa, local, salário, texto, link"]
-  B -->|"POST /api/v1/ingest/jobs<br/>assinado (HMAC)"| R[("job_postings_raw")]
+  B -->|"POST /api/v1/ingest/jobs<br/>com token"| R[("job_postings_raw")]
   W["Admin cola texto<br/>de canal WhatsApp"] --> R
   U["Utilizador partilha vaga"] --> R
   R --> N["Normalizar<br/>província · salário em Kz/mês · datas"]
@@ -281,6 +281,10 @@ flowchart TD
   P --> K["Extrair competências"]
   K --> S["Estatísticas semanais<br/>(market_stats)"]
 ```
+
+**Envio (token, não HMAC).** A corrida leve de 2 em 2 horas e a completa de sábado enviam os factos a `POST /ingest/jobs` com o segredo `INGEST_TOKEN`; a API guarda-os em `job_postings` (só factos). Os GitHub Actions têm 2000 minutos grátis por mês: a corrida leve é medida e, se o mês passar de 1500, passa para 3 em 3 horas (ver `scrapers/README.md`).
+
+**Comentários.** `GET /comments?type=&id=` é público (sem cookie); `POST /comments`, `POST /comments/{id}/report`, `DELETE /comments/{id}` e `GET /me/comments` exigem conta. Limite de 20 pedidos por hora por conta; filtro automático (`CommentFilter`); 3 denúncias escondem; menores aparecem só com o primeiro nome.
 
 **O sistema aprende com as correções.** Quando o admin classifica uma vaga à mão, o título original passa a ser um alias dessa profissão. Com o tempo, há cada vez menos vagas para rever.
 
@@ -456,6 +460,7 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | GET | `/market/jobs` | `getJobMarket` | `JobMarket` |
 | GET | `/market/education` | `getEducation` | `EducationStats` |
 | GET | `/market/employment` | `getEmployment` | `EmploymentStats` |
+| GET | `/comments?type=&id=` | — | Comentários visíveis de uma notícia (`news`), empresa (`company`) ou simulação (`simulation`): id, autor (só o primeiro nome nos menores), texto e data |
 | GET | `/news` | `listNews` | `NewsItem[]`, mais recentes primeiro |
 | GET | `/scholarships` | `listScholarships` | `Scholarship[]` |
 | GET | `/internships` | `listInternships` | `Internship[]` |
@@ -502,6 +507,9 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 | GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
 | DELETE | `/me/consents/{kind}` | Retirar um consentimento |
 | POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o Web Push neste browser (só com um consentimento push) |
+| POST | `/comments` | Comentar (`type`, `id`, `body` até 500 caracteres); recusado com 422 se tiver palavrões, telefones, emails ou ligações; 20 por hora por conta |
+| POST | `/comments/{id}/report` | Denunciar; 3 denúncias escondem o comentário |
+| DELETE, GET | `/comments/{id}`, `/me/comments` | O autor apaga o seu; os ids dos meus comentários |
 | GET | `/me/export` | Os meus dados em JSON (Lei n.º 22/11) |
 | DELETE | `/me` | Apagar a conta e tudo o que é da pessoa |
 
@@ -509,7 +517,7 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 
 | Método | Caminho | Para quê | Autenticação |
 |---|---|---|---|
-| POST | `/ingest/jobs` | Entrada dos scrapers | Assinatura HMAC |
+| POST | `/ingest/jobs` | Entrada dos scrapers: factos das vagas (até 500 por pedido, atualiza por `external_id`) | Token `INGEST_TOKEN` (`Authorization: Bearer` ou `X-Ingest-Token`), comparado em tempo constante; menos de 16 caracteres = fechado |
 | GET, POST | `/webhooks/whatsapp` | Estado das entregas e "PARAR" (WhatsApp Cloud API, mais tarde: por agora o WhatsApp vai à mão) | `X-Hub-Signature-256` da Meta |
 | — | `/mcp` | Servidor MCP para a IA: lê o conteúdo público, escreve só em `revisions` | Token Sanctum de um editor, com a permissão `ai` |
 | — | `/admin` | Painel Filament | Sessão, papéis `admin`, `editor`, `revisor` |
@@ -608,7 +616,7 @@ Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O a
   - as consultas passam pelo Eloquent, o que protege de SQL injection;
   - o React e o Blade escapam o output, o que protege de XSS;
   - os testemunhos nunca são mostrados como HTML.
-- **`/ingest/jobs`:** assinatura HMAC com carimbo de tempo; pedidos com mais de 5 minutos são recusados. O segredo só existe nos GitHub Secrets e no `.env` do servidor.
+- **`/ingest/jobs`:** token partilhado (`INGEST_TOKEN`), comparado em tempo constante; sem token, ou com um de menos de 16 caracteres, responde 401. O segredo só existe nos GitHub Secrets e no `.env` do servidor.
 - **Segredos:** só no `.env` (fora do Git) e nos GitHub Secrets.
 - **Cópias de segurança:** as da Hostinger, mais uma cópia semanal cifrada guardada fora da Hostinger.
 
@@ -671,8 +679,10 @@ Basta uma linha de cron no hPanel: `* * * * * php artisan schedule:run`.
 | Quando (hora de Angola) | Tarefa |
 |---|---|
 | A cada minuto | Processar a fila (vagas, emails) |
+| De 2 em 2 horas | `kaye:fetch-news`: notícias de Angola sobre formação, emprego e carreiras ([fontes-de-noticias.md](fontes-de-noticias.md)) |
+| De 2 em 2 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
 | Diário, 02:00 | Expirar vagas antigas, limpar tokens velhos |
-| Sábado, 22:00 | Scrapers no GitHub Actions |
+| Sábado, 22:00 | Scrapers completos no GitHub Actions |
 | Domingo, 03:00 | Recalcular `market_stats` |
 | Semanal | Cópia de segurança cifrada |
 

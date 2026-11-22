@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Mail\WaitlistConfirmation;
 use App\Models\WaitlistEntry;
+use App\Support\AccessToken;
 use App\Support\Consents;
 use App\Support\Contact;
 use App\Support\ListExport;
@@ -60,7 +61,7 @@ class WaitlistController extends Controller
 
     public function export(Request $request): Response
     {
-        if (! self::authorised($request)) {
+        if (! AccessToken::allows($request, Config::string('kaye.waitlist_export_token'))) {
             return Submission::json(['error' => 'unauthorised'], 401);
         }
         $kind = $request->query('kind', 'waitlist');
@@ -105,24 +106,5 @@ class WaitlistController extends Controller
             'source' => is_string($source) && in_array($source, self::SOURCES, true) ? $source : 'landing',
             'locale' => Submission::locale($body['lang'] ?? null),
         ];
-    }
-
-    /**
-     * The token from X-Export-Token, a Bearer header or ?token=, compared in constant time. A token shorter than
-     * 16 characters, or none, locks the export.
-     */
-    private static function authorised(Request $request): bool
-    {
-        $expected = Config::string('kaye.waitlist_export_token');
-        if (mb_strlen($expected) < 16) {
-            return false;
-        }
-        $given = $request->header('X-Export-Token') ?? $request->bearerToken() ?? '';
-        if ($given === '') {
-            $token = $request->query('token');
-            $given = is_string($token) ? $token : '';
-        }
-
-        return $given !== '' && hash_equals(hash('sha256', $expected), hash('sha256', $given));
     }
 }

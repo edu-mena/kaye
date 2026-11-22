@@ -97,7 +97,7 @@ Com o login Google já existem `user_data` (o `UserData` da app, com versão) e 
 
 ### Catálogo (ADR 0019)
 
-As tabelas de conteúdo do [modelo completo](#modelo-completo-adr-0019) já existem, com as colunas descritas lá: `areas`, `career_groups`, `careers`, `skills`, `career_skill`, `pathways`, `cv_examples`, `testimonials`, `video_stories`, `mentors`, `career_mentor`, `institutions`, `courses`, `course_offers`, `career_course_offer`, `tuition_fees`, `admissions`, `admission_course`, `programs`, `career_program`, `free_courses`, `career_free_course`, `companies`, `career_company`, `company_institution`, `scholarships`, `internships`, `support_programs`, `news`, `career_news`, `company_news`, `events`, `figures`, `career_figure`, `assessment_questions`, `access_exam_questions`, `interview_questions`, `kursos`, `kurso_units`, `kurso_exam_questions` e `datasets`. O histórico de cada alteração fica em `activity_log` (`spatie/laravel-activitylog`).
+As tabelas de conteúdo do [modelo completo](#modelo-completo-adr-0019) já existem, com as colunas descritas lá: `areas`, `career_groups`, `careers`, `skills`, `career_skill`, `pathways`, `cv_examples`, `testimonials`, `video_stories`, `mentors`, `career_mentor`, `institutions`, `courses`, `course_offers`, `career_course_offer`, `tuition_fees`, `admissions`, `admission_course`, `programs`, `career_program`, `free_courses`, `career_free_course`, `companies`, `career_company`, `company_institution`, `scholarships`, `internships`, `support_programs`, `news`, `career_news`, `company_news`, `area_news`, `institution_news`, `events`, `figures`, `career_figure`, `assessment_questions`, `access_exam_questions`, `interview_questions`, `kursos`, `kurso_units`, `kurso_exam_questions` e `datasets`. As notícias recolhidas, os factos das vagas e os comentários têm tabelas próprias (`area_news`, `institution_news`, `job_postings`, `comments`, `comment_reports`; ver Novidades, Mercado e Comentários). O histórico de cada alteração fica em `activity_log` (`spatie/laravel-activitylog`).
 
 No código:
 
@@ -556,6 +556,8 @@ Novidades (`NewsItem`).
 
 `career_news`: `career_id`, `news_id`. `company_news`: `company_id`, `news_id`.
 
+As notícias recolhidas dos feeds ([fontes-de-noticias.md](fontes-de-noticias.md)) usam as mesmas colunas, mais `url_hash` (char(64), único: sha-256 da ligação normalizada) e `title_hash` (char(64), indexado: sha-256 do título normalizado), que evitam duplicados. `area_news`: `area_id`, `news_id`. `institution_news`: `institution_id`, `news_id` (as ligações que o filtro das Novidades usa).
+
 #### `events`
 
 Os **eventos** de uma novidade do tipo `eventos` (`NewsEvent`): uma linha por novidade, para os prazos e o calendário poderem filtrar pela data.
@@ -668,6 +670,20 @@ Os Kursos (`Course` de `data/kursos/types.ts`, ADR 0016) e os anunciados "Em bre
 
 ### Mercado
 
+#### `job_postings`
+
+Os factos de cada vaga enviados pelos scrapers a `POST /ingest/jobs` (`JobPosting`): nunca o texto do anúncio, nunca mostrados como vaga; só alimentam as contagens do Mercado.
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `external_id` | varchar(191), único | `fonte:id`, como em `postings.jsonl`; reenviar atualiza |
+| `source` | varchar(40), indexado | |
+| `date` | date, indexado | |
+| `url`, `title` | varchar(2048), varchar(500) | |
+| `kind`, `company`, `province`, `sector`, `career` | varchar, pode ser vazio | |
+| `openings` | smallint, pode ser vazio | |
+| `created_at`, `updated_at` | timestamp | |
+
 #### `datasets`
 
 Os números agregados do Mercado, um documento por recurso, tal como os scrapers os produzem (`JobMarket`, `EducationStats`, `EmploymentStats`): são lidos sempre inteiros. Também as listas fixas que não pedem tabela: as listas do psicotécnico (`{analogies, synonyms, nonsenseWords}`) e as 21 províncias (`PROVINCES`, que validam o perfil).
@@ -746,6 +762,22 @@ Críticas, ideias e erros (`Feedback`).
 | `locale` | varchar(5) | O `lang` da app |
 | `status` | varchar(10) | `new`, `read`, `done` |
 | `created_at`, `updated_at` | timestamp | |
+
+#### `comments` e `comment_reports`
+
+Comentários nas notícias, empresas e simulações (`Comment`). Só com conta; filtro automático (palavrões, telefones, emails, links); 3 denúncias escondem; o autor apaga o seu. A resposta da API traz só o id, o assunto, o autor (nome; só o primeiro nome se for menor ou a idade for desconhecida), o texto e a data.
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `user_id` | fk → `users` | Apagada com a conta |
+| `subject_type` | varchar(12) | `news`, `company`, `simulation` |
+| `subject_id` | varchar(191) | O `slug` da notícia ou empresa; o da simulação |
+| `body` | text | Até 500 caracteres |
+| `reports_count` | tinyint | |
+| `hidden_at` | timestamp, pode ser vazio | Preenchido ao chegar a 3 denúncias |
+| `created_at`, `updated_at` | timestamp | |
+
+`comment_reports`: `comment_id`, `user_id` (chave composta: cada pessoa denuncia uma vez), `created_at`, `updated_at`.
 
 #### `interviews`
 

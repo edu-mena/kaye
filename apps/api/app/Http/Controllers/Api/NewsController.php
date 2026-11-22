@@ -16,7 +16,7 @@ class NewsController extends PublicController
     public function index(Request $request): Response
     {
         return $this->content->respond($request, fn (): mixed => NewsResource::collection(
-            self::published(News::class)->with(['event', ...Catalog::links(), ...Catalog::links('companies')])->get(),
+            self::published(News::class)->orderByDesc('date')->with(['event', ...Catalog::links(), ...Catalog::links('companies'), ...Catalog::links('areas'), ...Catalog::links('institutions')])->get(),
         ));
     }
 }

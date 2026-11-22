@@ -22,3 +22,7 @@ Schedule::command('queue:work --stop-when-empty --max-time=50')->everyMinute()->
 // Messages go out in batches within each channel's hourly limit; the saved deadlines get their reminder.
 Schedule::command('kaye:send-messages')->everyMinute()->withoutOverlapping();
 Schedule::command('kaye:deadline-reminders')->dailyAt('08:00');
+
+// Angola's news about training, work and careers, every 2 hours (docs/fontes-de-noticias.md). One bounded request
+// per source; a source that fails is skipped.
+Schedule::command('kaye:fetch-news')->everyTwoHours()->withoutOverlapping();

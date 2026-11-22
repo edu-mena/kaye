@@ -20,6 +20,8 @@ class NewsResource extends ContentResource
     {
         $careers = $this->slugs('careers');
         $companies = $this->slugs('companies');
+        $areas = $this->slugs('areas');
+        $institutions = $this->slugs('institutions');
         $event = $this->resource->getRelationValue('event');
 
         return self::shape([
@@ -36,6 +38,8 @@ class NewsResource extends ContentResource
             'example' => $this->flag('example'),
             'careers' => $careers === [] ? null : $careers,
             'companies' => $companies === [] ? null : $companies,
+            'areas' => $areas === [] ? null : $areas,
+            'institutions' => $institutions === [] ? null : $institutions,
             'event' => $event instanceof NewsEvent ? self::event($event) : null,
         ]);
     }

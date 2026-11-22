@@ -43,6 +43,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Ingest of the scrapers' facts
+    |--------------------------------------------------------------------------
+    |
+    | The password for POST /api/v1/ingest/jobs, sent by the GitHub Actions
+    | runs (the GitHub secret of the same name). Shorter than 16 characters,
+    | or empty, locks it.
+    |
+    */
+
+    'ingest_token' => (string) env('INGEST_TOKEN', ''),
+
+    /*
+    |--------------------------------------------------------------------------
     | Legal texts
     |--------------------------------------------------------------------------
     |

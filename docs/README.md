@@ -14,6 +14,7 @@
 | [guia-hostinger.md](guia-hostinger.md) | Guia passo a passo, para principiantes, de pôr o Kayé na Hostinger |
 | [recolha-de-dados.md](recolha-de-dados.md) | Que dados reais temos de instituições, empresas e notícias, com fonte, e o que falta confirmar |
 | [noticias/colectanea-2026-11-22.md](noticias/colectanea-2026-11-22.md) | Colectânea de notícias (JA, NJ, O Telegrama, Gira, XAA) com imagem, créditos, área, curso e profissão; mais a matéria 3 e os temas futuros do Kayé Explica |
+| [fontes-de-noticias.md](fontes-de-noticias.md) | De onde vêm as notícias que entram sozinhas: feeds, `robots.txt`, termos, limites e o que entra |
 | [videos.md](videos.md) | Como gravar um vídeo "O meu dia como…", o consentimento e onde pôr os ficheiros |
 | [mentores.md](mentores.md) | Regras para os mentores, como são aprovados e o consentimento |
 | [decisoes/](decisoes/README.md) | Porque decidimos o que decidimos (ADR) |

@@ -34,6 +34,16 @@ class ScheduleTest extends TestCase
         $this->assertSame('0 8 * * *', $find('kaye:deadline-reminders')?->expression);
     }
 
+    public function test_the_news_are_collected_every_two_hours_without_overlapping(): void
+    {
+        $event = collect(app(Schedule::class)->events())
+            ->first(fn (Event $event): bool => str_contains((string) $event->command, 'kaye:fetch-news'));
+
+        $this->assertNotNull($event, 'kaye:fetch-news is not scheduled');
+        $this->assertSame('0 */2 * * *', $event->expression);
+        $this->assertTrue($event->withoutOverlapping);
+    }
+
     public function test_interviews_are_pruned_daily_at_2am_angola_time(): void
     {
         $event = collect(app(Schedule::class)->events())
