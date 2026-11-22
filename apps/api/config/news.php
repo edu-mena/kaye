@@ -18,6 +18,22 @@ return [
     'max_bytes' => 2_000_000,
     'pause_seconds' => 3,
 
+    /**
+     * The summary of each piece, written by the Claude API from the article's text (docs/decisoes/0023). Without a
+     * key nothing is sent and the pieces keep the feed's lead. Only the public article text leaves the server.
+     */
+    'ai' => [
+        'key' => (string) env('ANTHROPIC_API_KEY', ''),
+        'model' => (string) env('NEWS_AI_MODEL', 'claude-haiku-5-5'),
+        'url' => 'https://api.anthropic.com/v1/messages',
+        'timeout' => 40,
+        'max_per_run' => 15,
+        'max_attempts' => 3,
+        'max_page_bytes' => 1_500_000,
+        'max_text_chars' => 8000,
+        'min_text_chars' => 300,
+    ],
+
     /** The robot's name, as the scrapers' (scrapers/jobs/http.py). */
     'user_agent' => 'KayeBot/1.0 (+https://github.com/edu-mena/kaye)',
 

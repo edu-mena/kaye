@@ -556,7 +556,7 @@ Novidades (`NewsItem`).
 
 `career_news`: `career_id`, `news_id`. `company_news`: `company_id`, `news_id`.
 
-As notícias recolhidas dos feeds ([fontes-de-noticias.md](fontes-de-noticias.md)) usam as mesmas colunas, mais `url_hash` (char(64), único: sha-256 da ligação normalizada) e `title_hash` (char(64), indexado: sha-256 do título normalizado), que evitam duplicados. `area_news`: `area_id`, `news_id`. `institution_news`: `institution_id`, `news_id` (as ligações que o filtro das Novidades usa).
+As notícias recolhidas dos feeds ([fontes-de-noticias.md](fontes-de-noticias.md)) usam as mesmas colunas, mais `url_hash` (char(64), único: sha-256 da ligação normalizada) e `title_hash` (char(64), indexado: sha-256 do título normalizado), que evitam duplicados, e `summary_attempts` (tinyint, 0 por defeito: quantas vezes se tentou o resumo por IA; ver [ADR 0023](decisoes/0023-resumo-das-noticias-por-ia.md)). `area_news`: `area_id`, `news_id`. `institution_news`: `institution_id`, `news_id` (as ligações que o filtro das Novidades usa).
 
 #### `events`
 

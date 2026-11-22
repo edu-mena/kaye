@@ -29,6 +29,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0020](0020-cobertura-do-frontend-temporaria.md) | Cobertura do frontend abaixo de 90%, temporariamente, com calendário para voltar | Aceite |
 | [0021](0021-explorar-sem-conta.md) | Explorar sem conta; o registo só aparece quando a pessoa guarda, comenta ou faz o plano | Aceite |
 | [0022](0022-gitleaks-ignora-o-vendor-do-ramo-deploy.md) | O Gitleaks ignora o `vendor/` do ramo `deploy` (código de terceiros), e só isso | Aceite |
+| [0023](0023-resumo-das-noticias-por-ia.md) | Cada notícia tem um resumo escrito por IA a partir do texto do artigo; guarda-se só o resumo | Aceite |
 
 Modelo para um novo ADR:
 
