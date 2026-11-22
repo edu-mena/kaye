@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Http\Resources\MeResource;
+use App\Models\Comment;
 use App\Models\Consent;
 use App\Models\MessageDelivery;
 use App\Models\User;
@@ -118,6 +119,12 @@ class Accounts
                 'status' => $delivery->status->value,
                 'sentAt' => $delivery->sent_at?->toIso8601String(),
             ])->all(),
+            'comments' => Comment::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (Comment $comment): array => [
+                'on' => $comment->subject_type.':'.$comment->subject_id,
+                'text' => $comment->body,
+                'at' => $comment->created_at->toIso8601String(),
+                'hidden' => $comment->hidden_at !== null,
+            ])->all(),
             'devices' => $user->tokens()->oldest('id')->get()->map(fn ($token): array => [
                 'name' => $token->name,
                 'createdAt' => $token->created_at?->toIso8601String(),
@@ -138,6 +145,8 @@ class Accounts
             DB::table('sessions')->where('user_id', $user->getKey())->delete();
             $user->userData()->delete();
             $user->consents()->delete();
+            Comment::query()->where('user_id', $user->getKey())->delete();
+            DB::table('comment_reports')->where('user_id', $user->getKey())->delete();
             // A morph relation: no foreign key deletes them by itself.
             $user->pushSubscriptions()->delete();
             $user->forceDelete();

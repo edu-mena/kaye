@@ -66,10 +66,12 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Primeiras 5 fontes avaliadas (`robots.txt`, feeds e termos): [fontes-de-vagas.md](fontes-de-vagas.md)
 - [ ] Avaliar as outras fontes e os canais de WhatsApp; pedir autorização onde os termos o exigem
 - [x] Primeira recolha (27/10/2026): AngoVagas, Ango Emprego, AngoRecruta, Jobartis e Ver Angola Empregos, só factos, em `scrapers/` ([ADR 0008](decisoes/0008-recolha-de-vagas-de-todos-os-sites.md))
-- [ ] Recolha semanal automática (GitHub Actions) e envio para a API
+- [x] Recolha automática (GitHub Actions) e envio para a API
   - [x] Recolha semanal no GitHub Actions (`market-data.yml`): os factos num artefacto de 90 dias, as contagens num pull request
-  - [ ] Envio para a API, quando a Hostinger estiver ligada
-- [ ] `/ingest/jobs`, normalização e remoção de duplicados
+  - [x] Corrida leve de 2 em 2 horas (só as primeiras páginas, só o que é novo) que envia os factos para `/ingest/jobs`; liga-se com o segredo `INGEST_TOKEN`
+  - [x] Novidades de Angola a entrar sozinhas: `kaye:fetch-news` de 2 em 2 horas ([fontes-de-noticias.md](fontes-de-noticias.md))
+  - [x] Comentários nas notícias, empresas e simulações (só com conta, filtro, denúncias)
+- [x] `/ingest/jobs` e remoção de duplicados por `external_id` (a normalização e a classificação já vêm dos scrapers)
 - [ ] "Colar vaga" no admin (para o WhatsApp)
 
 ### 0.3 Modelo de dados e taxonomia

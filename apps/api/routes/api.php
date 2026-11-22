@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AccessExamController;
 use App\Http\Controllers\Api\AdmissionController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
+use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\ConsentController;
 use App\Http\Controllers\Api\CourseController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Api\DatasetController;
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\FigureController;
 use App\Http\Controllers\Api\FreeCourseController;
+use App\Http\Controllers\Api\IngestJobsController;
 use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
 use App\Http\Controllers\Api\InterviewController;
@@ -68,6 +70,7 @@ Route::get('/psychotech', [DatasetController::class, 'show'])->defaults('dataset
 Route::get('/provinces', [DatasetController::class, 'show'])->defaults('dataset', 'provinces');
 
 Route::get('/news', [NewsController::class, 'index']);
+Route::get('/comments', [CommentController::class, 'index']);
 Route::get('/scholarships', [ScholarshipController::class, 'index']);
 Route::get('/internships', [InternshipController::class, 'index']);
 Route::get('/free-courses', [FreeCourseController::class, 'index']);
@@ -88,6 +91,8 @@ Route::get('/kursos/{slug}/exam', [KursoController::class, 'exam']);
 // Each has its own hourly limit per IP (docs/seguranca.md), on top of the general one.
 Route::post('/waitlist', [WaitlistController::class, 'store'])->middleware('throttle:waitlist');
 Route::get('/waitlist/export', [WaitlistController::class, 'export']);
+// The scrapers' facts, with INGEST_TOKEN (docs/arquitetura.md, 5.2).
+Route::post('/ingest/jobs', [IngestJobsController::class, 'store']);
 Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('throttle:feedback');
 Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
 Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
@@ -106,6 +111,10 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
     Route::middleware('auth:sanctum')->group(function (): void {
         Route::post('/auth/logout', LogoutController::class);
         Route::get('/me', [MeController::class, 'show']);
+        Route::post('/comments', [CommentController::class, 'store'])->middleware('throttle:comments');
+        Route::post('/comments/{comment}/report', [CommentController::class, 'report'])->middleware('throttle:comments');
+        Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
+        Route::get('/me/comments', [CommentController::class, 'mine']);
         Route::delete('/me', [MeController::class, 'destroy']);
         Route::get('/me/export', [MeController::class, 'export']);
         Route::get('/me/data', [MeDataController::class, 'show']);

@@ -1,11 +1,14 @@
-# Weekly data for the Mercado: the job sites, the Jobartis post pages and the Diário da República's dispatches.
+# Data for the Mercado. Weekly (Saturday): the job sites, the Jobartis post pages and the Diário da República's dispatches.
+# Every 2 hours: a light run of the job sites (only the first pages, only what is new), sent to the API. Both send the
+# facts to POST /api/v1/ingest/jobs with the INGEST_TOKEN secret and the KAYE_API_URL variable (docs/arquitetura.md, 5.2).
 # The collected facts (scrapers/data) live in an artifact kept 90 days and carried from run to run; only the
 # counts reach the repository, through a pull request. Why here and not on the hosting: docs/arquitetura.md.
 name: Market data
 
 on:
   schedule:
-    - cron: '0 21 * * 6' # Saturday 22:00 in Luanda
+    - cron: '0 21 * * 6' # Saturday 22:00 in Luanda: the full run
+    - cron: '15 */2 * * *' # every 2 hours: the light run
   workflow_dispatch:
 
 permissions:
@@ -13,13 +16,13 @@ permissions:
   contents: write # the branch with the new counts
   pull-requests: write
 
-concurrency:
-  group: market-data
-  cancel-in-progress: false
-
 jobs:
   collect:
     name: Collect and count
+    if: github.event.schedule != '15 */2 * * *'
+    concurrency:
+      group: market-data
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 300
     defaults:
@@ -50,6 +53,13 @@ jobs:
       - name: Diário da República dispatches
         run: python3 -m jobs.official
 
+      - name: Send the facts to the API
+        env:
+          KAYE_API_URL: ${{ vars.KAYE_API_URL }}
+          INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
+          SINCE: ${{ steps.previous.outputs.since }}
+        run: python3 -m jobs.push ${SINCE:+--since "$SINCE"}
+
       - name: Count
         run: python3 -m jobs.summarize
 
@@ -77,3 +87,31 @@ jobs:
           gh pr view "$branch" > /dev/null 2>&1 || gh pr create --head "$branch" \
             --title 'chore(data): weekly market counts' \
             --body 'Counts from the weekly collection (job sites, Jobartis post pages, Diário da República dispatches). Only aggregates: the facts stay in the run artifact.'
+
+  # The light run: the posts of the last 3 days only, no artifact, nothing but the API. If the month passes 1500
+  # Actions minutes, change the cron above to every 3 hours (docs/arquitetura.md, 5.2, and scrapers/README.md).
+  light:
+    name: Light run
+    if: github.event.schedule == '15 */2 * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: market-light
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: scrapers
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Job sites (last 3 days)
+        run: |
+          start=$(date -u +%s)
+          python3 -m jobs.collect --since "$(date -u -d '3 days ago' +%F)"
+          echo "collect_seconds=$(( $(date -u +%s) - start ))" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Send the facts to the API
+        env:
+          KAYE_API_URL: ${{ vars.KAYE_API_URL }}
+          INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
+        run: python3 -m jobs.push --since "$(date -u -d '3 days ago' +%F)"

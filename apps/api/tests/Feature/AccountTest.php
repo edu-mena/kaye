@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Enums\ConsentKind;
+use App\Models\Comment;
 use App\Models\Consent;
 use App\Models\User;
 use App\Models\UserData;
@@ -105,10 +106,12 @@ class AccountTest extends TestCase
         $user = User::factory()->create(['email' => 'joana@example.com']);
         $user->createToken('Pixel 8');
         $user->consents()->create(['kind' => ConsentKind::Terms, 'version' => '2026-11', 'granted_at' => now()]);
+        Comment::factory()->create(['user_id' => $user->id, 'subject_id' => 'bolsas', 'body' => 'Muito bom']);
         Sanctum::actingAs($user);
         $this->putJson('/api/v1/me/data', ['version' => 0, 'data' => ['version' => 1, 'savedCareers' => ['medico']]])->assertOk();
 
         $this->getJson('/api/v1/me/export')->assertOk()
+            ->assertJsonPath('comments.0.text', 'Muito bom')
             ->assertHeader('Content-Disposition', 'attachment; filename="kaye-os-meus-dados.json"')
             ->assertHeader('Cache-Control', 'no-store, private')
             ->assertJsonPath('account.email', 'joana@example.com')
@@ -129,8 +132,10 @@ class AccountTest extends TestCase
         Sanctum::actingAs($user);
         $this->putJson('/api/v1/me/data', ['version' => 0, 'data' => ['version' => 1, 'savedCareers' => ['medico']]])->assertOk();
 
+        Comment::factory()->create(['user_id' => $user->id]);
         $this->deleteJson('/api/v1/me')->assertNoContent();
 
+        $this->assertSame(0, Comment::query()->count());
         $this->assertNull(User::withTrashed()->find($user->id), 'Not a soft delete: the row is gone.');
         $this->assertSame(0, UserData::query()->count());
         $this->assertSame(0, Consent::query()->where('user_id', $user->id)->count());
