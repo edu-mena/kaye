@@ -84,7 +84,12 @@ jobs:
           git add ../apps/web/src/data/market
           git commit -m "chore(data): weekly market counts ($(date -u +%F))"
           git push --force origin "$branch"
-          gh pr view "$branch" > /dev/null 2>&1 || gh pr create --head "$branch" \
+          # `gh pr view` also finds closed PRs and fails on other errors; only an open PR means "nothing to create".
+          if [ -n "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+            echo "The pull request for $branch is already open: the push updated it."
+            exit 0
+          fi
+          gh pr create --head "$branch" \
             --title 'chore(data): weekly market counts' \
             --body 'Counts from the weekly collection (job sites, Jobartis post pages, Diário da República dispatches). Only aggregates: the facts stay in the run artifact.'
 
