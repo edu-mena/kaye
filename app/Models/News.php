@@ -50,6 +50,22 @@ class News extends Model
     }
 
     /**
+     * @return BelongsToMany<Area, $this>
+     */
+    public function areas(): BelongsToMany
+    {
+        return $this->belongsToMany(Area::class);
+    }
+
+    /**
+     * @return BelongsToMany<Institution, $this>
+     */
+    public function institutions(): BelongsToMany
+    {
+        return $this->belongsToMany(Institution::class);
+    }
+
+    /**
      * @return HasOne<NewsEvent, $this>
      */
     public function event(): HasOne
