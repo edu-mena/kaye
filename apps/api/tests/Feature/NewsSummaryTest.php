@@ -45,17 +45,48 @@ class NewsSummaryTest extends TestCase
             && ! str_contains($request->body(), 'Menu do site'));
     }
 
-    public function test_without_a_key_nothing_is_read_or_sent(): void
+    public function test_without_a_key_a_short_excerpt_is_kept_and_nothing_goes_to_the_api(): void
     {
         config(['news.ai.key' => '']);
         $news = $this->collected();
-        Http::fake();
+        Http::fake(['a.test/*' => Http::response($this->article())]);
 
         $this->assertSame(0, Artisan::call('kaye:fetch-news'));
 
-        Http::assertNothingSent();
-        $this->assertNull($news->refresh()->getRawOriginal('body'));
-        $this->assertSame(0, $news->summary_attempts);
+        Http::assertNotSent(fn (Request $request): bool => str_contains($request->url(), 'anthropic'));
+        $news->refresh();
+        $this->assertSame('A Unitel exerce o direito de preferência no BFA.', $news->getTranslation('summary', 'pt'));
+        $body = $news->getTranslation('body', 'pt');
+        $this->assertIsArray($body);
+        $this->assertCount(3, $body);
+        $this->assertSame(
+            ['A Unitel exerce o direito de preferência no BFA. Isto obriga a empresa a lançar uma oferta pública de aquisição.', 'A operação vale 12 mil milhões de kwanzas.', 'O prazo termina a 15 de Dezembro.'],
+            $body,
+        );
+    }
+
+    public function test_the_excerpt_is_short_and_never_the_whole_article(): void
+    {
+        $sentence = 'Esta frase do artigo fala de coisas sem números nenhuns e é longa o bastante para passar do limite do excerto que se guarda. ';
+        $long = implode("\n", array_fill(0, 30, str_repeat($sentence, 4)));
+
+        $excerpt = NewsSummariser::excerpt($long);
+
+        $this->assertNotNull($excerpt);
+        $this->assertLessThanOrEqual(200, mb_strlen($excerpt['summary']));
+        $this->assertCount(1, $excerpt['body']);
+        $this->assertLessThanOrEqual(351, mb_strlen($excerpt['body'][0]));
+        $this->assertNull(NewsSummariser::excerpt(''));
+    }
+
+    public function test_the_excerpt_takes_at_most_two_later_sentences_with_figures(): void
+    {
+        $excerpt = NewsSummariser::excerpt(
+            "Abertas 200 vagas para jovens em Luanda.\nSem dados aqui. Há 10 vagas em Benguela. Há 20 vagas no Huambo. Há 30 vagas em Cabinda.",
+        );
+
+        $this->assertNotNull($excerpt);
+        $this->assertSame(['Abertas 200 vagas para jovens em Luanda.', 'Há 10 vagas em Benguela.', 'Há 20 vagas no Huambo.'], $excerpt['body']);
     }
 
     public function test_a_bad_answer_a_refusal_or_a_dead_page_keep_the_old_summary_and_count_the_attempt(): void
@@ -146,6 +177,17 @@ class NewsSummaryTest extends TestCase
             'source_url' => 'https://a.test/'.$slug,
             'url_hash' => hash('sha256', $slug),
         ]);
+    }
+
+    private function article(): string
+    {
+        return '<html><body><article>'
+            .'<p>A Unitel exerce o direito de preferência no BFA. Isto obriga a empresa a lançar uma oferta pública de aquisição.</p>'
+            .'<p>Os analistas dizem que o mercado angolano vai mudar muito nos próximos anos com esta decisão.</p>'
+            .'<p>A operação vale 12 mil milhões de kwanzas. O resto do texto fala de outras coisas sem importância.</p>'
+            .'<p>O prazo termina a 15 de Dezembro. Depois disso, o negócio fecha para novos interessados no banco.</p>'
+            .'<p>Mais outra frase com 3 números e dados que já não cabem no excerto da notícia publicada.</p>'
+            .'</article></body></html>';
     }
 
     private function page(): string

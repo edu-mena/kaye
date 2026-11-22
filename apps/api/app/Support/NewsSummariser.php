@@ -8,12 +8,13 @@ use DOMXPath;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Throwable;
 
 /**
- * Writes the summary of a piece of news: reads the article page once, takes only its paragraphs, and asks the Claude
- * API for the facts that matter (who, how much, when, what it means for a young person) in its own words. Only the
- * summary is kept, never the article. Any failure (no key, page unreadable, bad answer) is `null`.
+ * Writes the summary of a piece of news: reads the article page once and takes only its paragraphs. With an
+ * `ANTHROPIC_API_KEY` the Claude API writes the facts that matter in its own words; without one (the default) a short
+ * excerpt is cut by rules (`excerpt`). Only that is kept, never the article. Any failure is `null`.
  *
  * @phpstan-type Summary array{summary: string, body: list<string>}
  */
@@ -30,22 +31,17 @@ Recebes o título e o texto de uma notícia. Responde só com JSON: {"summary": 
 - Se o texto não é uma notícia sobre o título, responde {"summary": null}.
 TXT;
 
-    public function enabled(): bool
-    {
-        return Config::string('news.ai.key') !== '';
-    }
-
     /**
      * @return Summary|null
      */
     public function summarise(string $url, string $title): ?array
     {
-        if (! $this->enabled()) {
-            return null;
-        }
         $text = $this->articleText($url);
         if ($text === null) {
             return null;
+        }
+        if (Config::string('news.ai.key') === '') {
+            return self::excerpt($text);
         }
 
         try {
@@ -97,6 +93,46 @@ TXT;
         return mb_strlen($text) >= Config::integer('news.ai.min_text_chars')
             ? mb_substr($text, 0, Config::integer('news.ai.max_text_chars'))
             : null;
+    }
+
+    /**
+     * Without an API key: the opening sentence (where a news piece puts its main fact), the rest of the lead paragraph
+     * up to a short limit, and at most two later sentences that carry a number or a date. A few hundred characters,
+     * never the article.
+     *
+     * @return Summary|null
+     */
+    public static function excerpt(string $text): ?array
+    {
+        $paragraphs = array_values(array_filter(explode("\n", $text), static fn (string $line): bool => $line !== ''));
+        if ($paragraphs === []) {
+            return null;
+        }
+        $lead = self::sentences($paragraphs[0]);
+        $first = Str::limit($lead[0] ?? '', 200, '…', preserveWords: true);
+        $body = [Str::limit(implode(' ', array_slice($lead, 0, 3)), 350, '…', preserveWords: true)];
+
+        $facts = [];
+        foreach (array_slice($paragraphs, 1) as $paragraph) {
+            foreach (self::sentences($paragraph) as $sentence) {
+                if (count($facts) < 2 && preg_match('/\d/u', $sentence) === 1 && mb_strlen($sentence) <= 250) {
+                    $facts[] = $sentence;
+                }
+            }
+        }
+        array_push($body, ...$facts);
+
+        return $first === '' ? null : ['summary' => $first, 'body' => $body];
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function sentences(string $paragraph): array
+    {
+        $parts = preg_split('/(?<=[.!?])\s+/u', $paragraph);
+
+        return is_array($parts) ? array_values(array_filter(array_map('trim', $parts), static fn (string $part): bool => $part !== '')) : [];
     }
 
     public static function paragraphs(string $html): string

@@ -26,13 +26,10 @@ final class NewsCollector
 
     /**
      * Gives the newest collected pieces without a summary their own (a few per run, each tried at most
-     * `news.ai.max_attempts` times). Returns how many got one; 0 without an API key.
+     * `news.ai.max_attempts` times). Returns how many got one.
      */
     public function summarise(): int
     {
-        if (! $this->summariser->enabled()) {
-            return 0;
-        }
         $done = 0;
         $pending = News::query()
             ->whereNotNull('url_hash')->whereNull('body')
