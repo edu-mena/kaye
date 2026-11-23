@@ -17,6 +17,13 @@ class AssessmentQuestionResource extends ContentResource
      */
     public function toArray(Request $request): array
     {
-        return ['id' => $this->resource->slug, 'dimension' => $this->value('dimension'), 'text' => $this->value('text')];
+        if ($this->value('kind') === 'situation') {
+            return [
+                'kind' => 'situation', 'id' => $this->resource->slug, 'context' => $this->value('context'),
+                'text' => $this->value('text'), 'options' => $this->value('options'),
+            ];
+        }
+
+        return ['kind' => 'statement', 'id' => $this->resource->slug, 'dimension' => $this->value('dimension'), 'text' => $this->value('text')];
     }
 }

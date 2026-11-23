@@ -343,17 +343,17 @@
     "pt": {
       "file": "assessment-questions.pt.json",
       "records": 42,
-      "sha256": "90f91a315e209731cf6d76b95632f9a755719fdbb13471e846ba2980a1fd40a5"
+      "sha256": "0beb6b7513dfc7706f1f64e9163d4785e9826ca50557a7f7dddcb186904c0a8f"
     },
     "en": {
       "file": "assessment-questions.en.json",
       "records": 42,
-      "sha256": "15307d4389d33112a65f7eddc04ee5545da5f864223f917200e578e7ca741697"
+      "sha256": "0d5c82b217108504d5f4e32bf81f3412bf996fa3801f26e2aa661dc01b948796"
     },
     "fr": {
       "file": "assessment-questions.fr.json",
       "records": 42,
-      "sha256": "f6a16a268209e5684280ea3796aa829770a63ba6f3c1f10fac49330119a9e4c9"
+      "sha256": "e8d794a65fa5cc3eb67665f2ff1878003583152a40c4f9a58d1b8bb93c87673f"
     }
   },
   "cv-examples": {

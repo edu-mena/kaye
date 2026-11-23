@@ -177,6 +177,42 @@ class ImportContentTest extends TestCase
         $this->assertSame(['pt' => 'reparar um motor'], $stored->refresh()->getTranslations('text'));
     }
 
+    public function test_a_situation_keeps_its_cards_in_each_language_and_the_api_answers_both_kinds(): void
+    {
+        $record = fn (string $statement, string $situation, string $card): array => [
+            ['kind' => 'statement', 'id' => 'R1', 'dimension' => 'R', 'text' => $statement, 'position' => 0],
+            [
+                'kind' => 'situation', 'id' => 'X1', 'context' => 'school', 'text' => $situation, 'position' => 1,
+                'options' => [['dimension' => 'R', 'icon' => 'gear', 'text' => $card], ['dimension' => 'I', 'icon' => 'flask', 'text' => 'x']],
+            ],
+        ];
+        $this->fixture(['assessment-questions' => [
+            'pt' => $record('consertar um motor', 'Na feira, o que preferes?', 'Montar as bancas'),
+            'en' => $record('fixing an engine', 'At the fair, what do you prefer?', 'Set up the stalls'),
+            'fr' => $record('réparer un moteur', 'À la foire, que préfères-tu ?', 'Monter les stands'),
+        ]]);
+
+        $this->assertSame(0, Artisan::call('kaye:import', ['--only' => 'assessment-questions']));
+
+        $situation = AssessmentQuestion::where('slug', 'X1')->sole();
+        $this->assertSame('situation', $situation->kind);
+        $this->assertNull($situation->dimension);
+        $this->assertSame('school', $situation->context);
+        $this->assertSame('statement', AssessmentQuestion::where('slug', 'R1')->sole()->kind);
+
+        $answer = $this->getJson('/api/v1/assessment', ['Accept-Language' => 'en'])->assertOk()->json();
+        $this->assertSame(
+            [
+                ['kind' => 'statement', 'id' => 'R1', 'dimension' => 'R', 'text' => 'fixing an engine'],
+                [
+                    'kind' => 'situation', 'id' => 'X1', 'context' => 'school', 'text' => 'At the fair, what do you prefer?',
+                    'options' => [['dimension' => 'R', 'icon' => 'gear', 'text' => 'Set up the stalls'], ['dimension' => 'I', 'icon' => 'flask', 'text' => 'x']],
+                ],
+            ],
+            $answer,
+        );
+    }
+
     public function test_a_manifest_without_a_language_or_with_invalid_json_is_refused(): void
     {
         $this->fixture(['areas' => [['id' => 'health', 'name' => 'Saúde', 'position' => 0]]]);

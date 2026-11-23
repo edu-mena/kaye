@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, Navigate } from 'react-router'
-import { CareerCard } from '../../components/CareerCard'
 import { Icon } from '../../components/icons'
 import { ShareButton } from '../../components/ShareButton'
 import { BarList } from '../../components/ui/BarList'
@@ -24,6 +23,7 @@ import { CvFillDialog } from '../cv/CvFillPanel'
 import { ShowFamily } from '../family/ShowFamily'
 import { useCvSuggestions } from '../cv/useCvSuggestions'
 import { ClearStrengths } from './ClearStrengths'
+import { ResultCareers } from './ResultCareers'
 import { useTestProgress } from '../../state/useTestProgress'
 
 const LEVELS: SkillLevel[] = ['domino', 'sei', 'aprender']
@@ -63,7 +63,7 @@ export default function ResultPage() {
   const { profile, completed } = useRiasecProfile()
   const { strengthsDone } = useTestProgress()
   const user = useUser()
-  const recommendations = useRecommendations(6)
+  const recommendations = useRecommendations(5)
 
   if (!completed) return <Navigate to="/teste" replace />
   if (!profile) return null
@@ -145,17 +145,7 @@ export default function ResultPage() {
         </Card>
       </section>
 
-      <section aria-labelledby="recommendations">
-        <SectionHeading id="recommendations" title={t('assessment.recommendations')} icon="compass" />
-        <p className="-mt-2 mb-4 text-sm font-light text-copy">{t('assessment.recommendationsBody')}</p>
-        <ul className="grid gap-4 lg:grid-cols-2">
-          {recommendations?.map((item, index) => (
-            <li key={item.career.slug} className="rise" style={stagger(index)}>
-              <CareerCard career={item.career} match={item.match} reasons={item.reasons} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <ResultCareers profile={profile} recommendations={recommendations} />
 
       <StrengthsSummary />
       <ToCv />

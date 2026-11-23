@@ -592,13 +592,16 @@ Figuras da semana (`Figure`): pessoas reais, com o cargo confirmado numa fonte.
 
 #### `assessment_questions`
 
-As 42 frases do teste vocacional (`AssessmentQuestion`, ADR 0017).
+As 42 perguntas do teste vocacional (`AssessmentQuestion`, ADR 0017): 30 frases (5 por dimensão) e 12 situações com 6 cartões, um por dimensão.
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `slug` | | `R1`…`C7`: não mudam, as respostas guardadas continuam válidas |
-| `dimension` | char(1) | `R`, `I`, `A`, `S`, `E`, `C` |
+| `slug` | | Frases `R1`…`C5`, situações `X1`…`X12` |
+| `kind` | varchar(12) | `statement` (frase, resposta de 1 a 5) ou `situation` (situação, escolhe-se um cartão) |
+| `context` | varchar(16), pode ser vazio | Só nas situações: onde acontece (`school`, `market`, `transport`…) |
+| `dimension` | char(1), pode ser vazio | `R`, `I`, `A`, `S`, `E`, `C`; só nas frases |
 | `text`\* | json | |
+| `options`\* | json, pode ser vazio | Só nas situações: lista de `{dimension, icon, text}` |
 
 #### `access_exam_questions`
 

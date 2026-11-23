@@ -1,254 +1,680 @@
 [
   {
+    "kind": "statement",
     "id": "A1",
     "dimension": "A",
     "text": "desenhar, pintar ou fazer artesanato",
-    "position": 2
-  },
-  {
-    "id": "A2",
-    "dimension": "A",
-    "text": "cantar, dançar ou tocar um instrumento",
-    "position": 8
-  },
-  {
-    "id": "A3",
-    "dimension": "A",
-    "text": "escrever histórias, poemas ou letras de música",
-    "position": 14
-  },
-  {
-    "id": "A4",
-    "dimension": "A",
-    "text": "fazer fotografias ou vídeos que contam uma história",
-    "position": 20
-  },
-  {
-    "id": "A5",
-    "dimension": "A",
-    "text": "criar roupa, penteados ou maquilhagem",
-    "position": 26
-  },
-  {
-    "id": "A6",
-    "dimension": "A",
-    "text": "decorar uma sala, uma montra ou uma festa",
-    "position": 32
-  },
-  {
-    "id": "A7",
-    "dimension": "A",
-    "text": "imaginar como devia ser o ecrã de uma app",
-    "position": 38
-  },
-  {
-    "id": "C1",
-    "dimension": "C",
-    "text": "controlar as contas de um negócio",
-    "position": 5
-  },
-  {
-    "id": "C2",
-    "dimension": "C",
-    "text": "organizar documentos e arquivos",
-    "position": 11
-  },
-  {
-    "id": "C3",
-    "dimension": "C",
-    "text": "registar o que entra e sai de um armazém",
-    "position": 17
-  },
-  {
-    "id": "C4",
-    "dimension": "C",
-    "text": "preencher formulários e seguir as regras com cuidado",
-    "position": 23
-  },
-  {
-    "id": "C5",
-    "dimension": "C",
-    "text": "rever um trabalho até não haver nenhum erro",
-    "position": 29
-  },
-  {
-    "id": "C6",
-    "dimension": "C",
-    "text": "planear horários, turnos ou uma viagem ao pormenor",
-    "position": 35
-  },
-  {
-    "id": "C7",
-    "dimension": "C",
-    "text": "organizar dados numa folha de Excel",
-    "position": 41
-  },
-  {
-    "id": "E1",
-    "dimension": "E",
-    "text": "vender na praça ou online",
-    "position": 4
-  },
-  {
-    "id": "E2",
-    "dimension": "E",
-    "text": "liderar um grupo e tomar decisões",
-    "position": 10
-  },
-  {
-    "id": "E3",
-    "dimension": "E",
-    "text": "abrir e fazer crescer o teu próprio negócio",
-    "position": 16
-  },
-  {
-    "id": "E4",
-    "dimension": "E",
-    "text": "convencer alguém a apoiar uma ideia tua",
-    "position": 22
-  },
-  {
-    "id": "E5",
-    "dimension": "E",
-    "text": "negociar um preço ou um acordo",
-    "position": 28
-  },
-  {
-    "id": "E6",
-    "dimension": "E",
-    "text": "defender alguém numa discussão ou num tribunal",
-    "position": 34
-  },
-  {
-    "id": "E7",
-    "dimension": "E",
-    "text": "falar em público, na rádio ou num evento",
-    "position": 40
-  },
-  {
-    "id": "I1",
-    "dimension": "I",
-    "text": "descobrir porque é que uma pessoa ficou doente",
-    "position": 1
-  },
-  {
-    "id": "I2",
-    "dimension": "I",
-    "text": "fazer experiências num laboratório",
-    "position": 7
-  },
-  {
-    "id": "I3",
-    "dimension": "I",
-    "text": "perceber porque é que uma colheita correu mal",
-    "position": 13
-  },
-  {
-    "id": "I4",
-    "dimension": "I",
-    "text": "analisar números para perceber o que está a acontecer",
-    "position": 19
-  },
-  {
-    "id": "I5",
-    "dimension": "I",
-    "text": "investigar um caso até encontrar a verdade",
-    "position": 25
-  },
-  {
-    "id": "I6",
-    "dimension": "I",
-    "text": "pesquisar a história de Angola e de outros povos",
-    "position": 31
-  },
-  {
-    "id": "I7",
-    "dimension": "I",
-    "text": "resolver um problema de lógica ou de programação",
-    "position": 37
-  },
-  {
-    "id": "R1",
-    "dimension": "R",
-    "text": "cuidar de plantas, de uma horta ou de animais",
-    "position": 0
-  },
-  {
-    "id": "R2",
-    "dimension": "R",
-    "text": "reparar uma mota, um gerador ou uma bomba de água",
-    "position": 6
-  },
-  {
-    "id": "R3",
-    "dimension": "R",
-    "text": "construir coisas com as tuas mãos, como um móvel ou uma parede",
-    "position": 12
-  },
-  {
-    "id": "R4",
-    "dimension": "R",
-    "text": "fazer uma instalação elétrica ou de canalização",
-    "position": 18
-  },
-  {
-    "id": "R5",
-    "dimension": "R",
-    "text": "conduzir, carregar e entregar mercadorias",
-    "position": 24
-  },
-  {
-    "id": "R6",
-    "dimension": "R",
-    "text": "cozinhar para muitas pessoas numa cozinha a sério",
-    "position": 30
-  },
-  {
-    "id": "R7",
-    "dimension": "R",
-    "text": "montar ou reparar um computador ou um telemóvel",
-    "position": 36
-  },
-  {
-    "id": "S1",
-    "dimension": "S",
-    "text": "cuidar de alguém doente",
     "position": 3
   },
   {
-    "id": "S2",
-    "dimension": "S",
-    "text": "ajudar um colega a estudar",
-    "position": 9
+    "kind": "statement",
+    "id": "A2",
+    "dimension": "A",
+    "text": "cantar, dançar ou tocar um instrumento",
+    "position": 11
   },
   {
-    "id": "S3",
-    "dimension": "S",
-    "text": "ouvir os problemas de um amigo e dar conselhos",
+    "kind": "statement",
+    "id": "A3",
+    "dimension": "A",
+    "text": "escrever histórias, poemas ou letras de música",
+    "position": 20
+  },
+  {
+    "kind": "statement",
+    "id": "A4",
+    "dimension": "A",
+    "text": "fazer fotografias ou vídeos que contam uma história",
+    "position": 28
+  },
+  {
+    "kind": "statement",
+    "id": "A5",
+    "dimension": "A",
+    "text": "criar penteados ou roupa com o teu estilo",
+    "position": 36
+  },
+  {
+    "kind": "statement",
+    "id": "C1",
+    "dimension": "C",
+    "text": "controlar as contas de um negócio",
+    "position": 7
+  },
+  {
+    "kind": "statement",
+    "id": "C2",
+    "dimension": "C",
+    "text": "arrumar documentos e arquivos",
     "position": 15
   },
   {
-    "id": "S4",
-    "dimension": "S",
-    "text": "dar aulas a crianças",
-    "position": 21
+    "kind": "statement",
+    "id": "C3",
+    "dimension": "C",
+    "text": "registar o que entra e sai de um armazém",
+    "position": 24
   },
   {
-    "id": "S5",
-    "dimension": "S",
-    "text": "organizar atividades no teu bairro, igreja ou associação",
+    "kind": "statement",
+    "id": "C4",
+    "dimension": "C",
+    "text": "preencher formulários com muito cuidado",
+    "position": 32
+  },
+  {
+    "kind": "statement",
+    "id": "C5",
+    "dimension": "C",
+    "text": "planear horários, turnos ou uma viagem ao pormenor",
+    "position": 41
+  },
+  {
+    "kind": "statement",
+    "id": "E1",
+    "dimension": "E",
+    "text": "vender na praça ou online",
+    "position": 6
+  },
+  {
+    "kind": "statement",
+    "id": "E2",
+    "dimension": "E",
+    "text": "liderar um grupo e decidir o que fazer",
+    "position": 14
+  },
+  {
+    "kind": "statement",
+    "id": "E3",
+    "dimension": "E",
+    "text": "abrir e fazer crescer o teu próprio negócio",
+    "position": 22
+  },
+  {
+    "kind": "statement",
+    "id": "E4",
+    "dimension": "E",
+    "text": "negociar um preço",
+    "position": 31
+  },
+  {
+    "kind": "statement",
+    "id": "E5",
+    "dimension": "E",
+    "text": "falar em público, na rádio ou num evento",
+    "position": 39
+  },
+  {
+    "kind": "statement",
+    "id": "I1",
+    "dimension": "I",
+    "text": "descobrir porque é que alguém ficou doente",
+    "position": 1
+  },
+  {
+    "kind": "statement",
+    "id": "I2",
+    "dimension": "I",
+    "text": "fazer experiências para ver o que acontece",
+    "position": 10
+  },
+  {
+    "kind": "statement",
+    "id": "I3",
+    "dimension": "I",
+    "text": "perceber porque é que uma plantação secou",
+    "position": 18
+  },
+  {
+    "kind": "statement",
+    "id": "I4",
+    "dimension": "I",
+    "text": "olhar para números e perceber o que dizem",
     "position": 27
   },
   {
-    "id": "S6",
+    "kind": "statement",
+    "id": "I5",
+    "dimension": "I",
+    "text": "resolver um enigma de lógica, nem que demores",
+    "position": 35
+  },
+  {
+    "kind": "statement",
+    "id": "R1",
+    "dimension": "R",
+    "text": "cuidar de uma horta ou de animais",
+    "position": 0
+  },
+  {
+    "kind": "statement",
+    "id": "R2",
+    "dimension": "R",
+    "text": "reparar uma mota, um gerador ou uma bomba de água",
+    "position": 8
+  },
+  {
+    "kind": "statement",
+    "id": "R3",
+    "dimension": "R",
+    "text": "construir um móvel ou levantar uma parede",
+    "position": 17
+  },
+  {
+    "kind": "statement",
+    "id": "R4",
+    "dimension": "R",
+    "text": "conduzir e entregar encomendas pela cidade",
+    "position": 25
+  },
+  {
+    "kind": "statement",
+    "id": "R5",
+    "dimension": "R",
+    "text": "cozinhar para muita gente, numa festa ou num casamento",
+    "position": 34
+  },
+  {
+    "kind": "statement",
+    "id": "S1",
     "dimension": "S",
-    "text": "receber e orientar as pessoas que chegam a um serviço",
+    "text": "cuidar de alguém que está doente",
+    "position": 4
+  },
+  {
+    "kind": "statement",
+    "id": "S2",
+    "dimension": "S",
+    "text": "ajudar um colega a estudar",
+    "position": 13
+  },
+  {
+    "kind": "statement",
+    "id": "S3",
+    "dimension": "S",
+    "text": "ouvir os problemas de um amigo",
+    "position": 21
+  },
+  {
+    "kind": "statement",
+    "id": "S4",
+    "dimension": "S",
+    "text": "dar aulas ou catequese a crianças",
+    "position": 29
+  },
+  {
+    "kind": "statement",
+    "id": "S5",
+    "dimension": "S",
+    "text": "ajudar a organizar uma atividade no teu bairro ou na tua igreja",
+    "position": 38
+  },
+  {
+    "kind": "situation",
+    "id": "X1",
+    "context": "school",
+    "text": "Na feira da tua escola, o que preferes fazer?",
+    "options": [
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Montar as bancas e consertar o que avaria"
+      },
+      {
+        "dimension": "I",
+        "icon": "flask",
+        "text": "Fazer uma experiência para mostrar como funciona"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Pintar os cartazes e decorar o espaço"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "Receber os visitantes e ajudar os mais pequenos"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Vender os produtos da tua turma"
+      },
+      {
+        "dimension": "C",
+        "icon": "wallet",
+        "text": "Fazer a lista de tudo e contar o dinheiro"
+      }
+    ],
+    "position": 2
+  },
+  {
+    "kind": "situation",
+    "id": "X10",
+    "context": "money",
+    "text": "Recebes dinheiro para um projeto teu. O que fazes primeiro?",
+    "options": [
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Penso em como vai ajudar a minha comunidade"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Planeio como o fazer crescer num negócio"
+      },
+      {
+        "dimension": "C",
+        "icon": "wallet",
+        "text": "Faço o orçamento e guardo cada recibo"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Compro as ferramentas e começo a fazer"
+      },
+      {
+        "dimension": "I",
+        "icon": "brain",
+        "text": "Estudo primeiro qual é a melhor ideia"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Crio algo bonito e diferente de tudo"
+      }
+    ],
     "position": 33
   },
   {
-    "id": "S7",
-    "dimension": "S",
-    "text": "ensinar alguém a usar o telemóvel ou o computador",
-    "position": 39
+    "kind": "situation",
+    "id": "X11",
+    "context": "free",
+    "text": "Tens um sábado livre, sem nada marcado. Como o passas?",
+    "options": [
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "A tratar de uma venda ou de um projeto meu"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "A arrumar tudo e a planear a semana"
+      },
+      {
+        "dimension": "R",
+        "icon": "sprout",
+        "text": "A tratar da horta ou a arranjar algo em casa"
+      },
+      {
+        "dimension": "I",
+        "icon": "book",
+        "text": "A ler ou a ver vídeos para aprender algo novo"
+      },
+      {
+        "dimension": "A",
+        "icon": "pencil",
+        "text": "A desenhar, a escrever ou a fazer música"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "Com amigos ou a ajudar alguém"
+      }
+    ],
+    "position": 37
+  },
+  {
+    "kind": "situation",
+    "id": "X12",
+    "context": "future",
+    "text": "Daqui a dez anos, o que gostavas de poder dizer do teu trabalho?",
+    "options": [
+      {
+        "dimension": "C",
+        "icon": "scale",
+        "text": "Deixei tudo bem organizado e sem falhas"
+      },
+      {
+        "dimension": "R",
+        "icon": "ruler",
+        "text": "Construí e consertei coisas que duram"
+      },
+      {
+        "dimension": "I",
+        "icon": "atom",
+        "text": "Descobri respostas que ninguém tinha"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Criei coisas de que as pessoas gostam"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Ajudei muita gente a viver melhor"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Liderei e fiz crescer uma empresa"
+      }
+    ],
+    "position": 40
+  },
+  {
+    "kind": "situation",
+    "id": "X2",
+    "context": "market",
+    "text": "A tua família abre uma banca na praça. O que ficas a fazer?",
+    "options": [
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Descobrir o que as pessoas mais compram"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Arranjar a banca para chamar a atenção"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Conversar com os clientes e ganhar a confiança deles"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Negociar os preços e fazer crescer as vendas"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Registar tudo o que entra e sai"
+      },
+      {
+        "dimension": "R",
+        "icon": "truck",
+        "text": "Carregar a mercadoria e montar a banca"
+      }
+    ],
+    "position": 5
+  },
+  {
+    "kind": "situation",
+    "id": "X3",
+    "context": "transport",
+    "text": "Estás num candongueiro cheio e o motor falha. O que fazes?",
+    "options": [
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Passo o tempo a cantar ou a imaginar uma história"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Acalmo os passageiros e ajudo quem tem pressa"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Organizo o grupo para apanhar outro carro"
+      },
+      {
+        "dimension": "C",
+        "icon": "pencil",
+        "text": "Anoto a hora e a matrícula para reclamar"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Ajudo o motorista a ver a avaria"
+      },
+      {
+        "dimension": "I",
+        "icon": "brain",
+        "text": "Penso no que pode ter causado a avaria"
+      }
+    ],
+    "position": 9
+  },
+  {
+    "kind": "situation",
+    "id": "X4",
+    "context": "church",
+    "text": "A tua igreja vai fazer uma festa de fim de ano. Qual é o teu papel?",
+    "options": [
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Acolher as famílias e cuidar dos mais velhos"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Convencer pessoas a ajudar e a dar donativos"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "Planear o horário e a lista de convidados"
+      },
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Montar as tendas e cozinhar para todos"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Ver o que correu bem e mal nos outros anos"
+      },
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Ensaiar o coro, a dança ou uma peça"
+      }
+    ],
+    "position": 12
+  },
+  {
+    "kind": "situation",
+    "id": "X5",
+    "context": "neighbourhood",
+    "text": "No teu bairro falta água há uma semana. O que fazes?",
+    "options": [
+      {
+        "dimension": "E",
+        "icon": "users",
+        "text": "Junto os vizinhos e vou falar com quem manda"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Escrevo a queixa certa e guardo os papéis"
+      },
+      {
+        "dimension": "R",
+        "icon": "drop",
+        "text": "Procuro onde está a avaria e ajudo a consertar"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Pergunto e investigo até descobrir a causa"
+      },
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Faço um vídeo para mostrar o problema"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Ajudo os vizinhos mais velhos a arranjar água"
+      }
+    ],
+    "position": 16
+  },
+  {
+    "kind": "situation",
+    "id": "X6",
+    "context": "phone",
+    "text": "Compras um telemóvel novo. O que te dá mais gosto?",
+    "options": [
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Organizar os contactos e as aplicações"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Mexer nele e ver como é por dentro"
+      },
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Ler as características e comparar modelos"
+      },
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Escolher o fundo de ecrã e tirar as primeiras fotos"
+      },
+      {
+        "dimension": "S",
+        "icon": "phone",
+        "text": "Ensinar um familiar a usá-lo"
+      },
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "Vender o antigo pelo melhor preço"
+      }
+    ],
+    "position": 19
+  },
+  {
+    "kind": "situation",
+    "id": "X7",
+    "context": "family",
+    "text": "Um familiar adoece em casa. O que tens vontade de fazer?",
+    "options": [
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Arrumar o quarto e preparar tudo o que é preciso"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Pesquisar o que pode ser e como se trata"
+      },
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Fazer-lhe companhia com música e histórias"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Cuidar dessa pessoa e ouvir o que sente"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Tratar de tudo e decidir com a família o que fazer"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "Organizar as consultas e os medicamentos"
+      }
+    ],
+    "position": 23
+  },
+  {
+    "kind": "situation",
+    "id": "X8",
+    "context": "school",
+    "text": "O professor pede um trabalho de grupo sobre Angola. Qual é a tua parte?",
+    "options": [
+      {
+        "dimension": "I",
+        "icon": "book",
+        "text": "Pesquisar e confirmar os factos"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Fazer o desenho ou o vídeo"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "Garantir que todos do grupo participam"
+      },
+      {
+        "dimension": "E",
+        "icon": "mic",
+        "text": "Liderar o grupo e apresentar à turma"
+      },
+      {
+        "dimension": "C",
+        "icon": "pencil",
+        "text": "Organizar o texto e rever os erros"
+      },
+      {
+        "dimension": "R",
+        "icon": "ruler",
+        "text": "Construir a maqueta"
+      }
+    ],
+    "position": 26
+  },
+  {
+    "kind": "situation",
+    "id": "X9",
+    "context": "work",
+    "text": "Arranjas um biscato nas férias. Qual preferias?",
+    "options": [
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Fotografar eventos ou decorar festas"
+      },
+      {
+        "dimension": "S",
+        "icon": "chalkboard",
+        "text": "Ser explicador ou monitor de crianças"
+      },
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "Vender numa loja ou numa feira"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Trabalhar num escritório a arquivar e digitar"
+      },
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Ajudar numa obra ou numa oficina"
+      },
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Ajudar num estudo ou num inquérito"
+      }
+    ],
+    "position": 30
   }
 ]
