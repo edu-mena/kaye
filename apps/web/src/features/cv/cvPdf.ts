@@ -1,5 +1,5 @@
 import type { jsPDF } from 'jspdf'
-import type { CvData, CvStyle, CvTemplate } from '../../data/types'
+import type { CvArrangement, CvData, CvStyle, CvTemplate } from '../../data/types'
 import { resolveCvStyle } from '../../domain/cvStyle'
 import { saveFile } from '../../lib/saveFile'
 import { createMeasure, loadCvFont, type CvFontFiles } from './cvFonts'
@@ -112,11 +112,12 @@ type PdfSource = {
   template: CvTemplate
   style?: Partial<CvStyle>
   photo?: string | null
+  arrangement?: CvArrangement
 }
 
 /** Builds the CV as a PDF on the device and saves it (docs/decisoes/0006: no server yet). */
 export async function downloadCvPdf(
-  { cv, template, style, photo }: PdfSource,
+  { cv, template, style, photo, arrangement }: PdfSource,
   labels: CvLabels,
 ): Promise<void> {
   const resolved = resolveCvStyle(template, style)
@@ -132,6 +133,7 @@ export async function downloadCvPdf(
     labels,
     measure: createMeasure(files ? resolved.font : null),
     photo: jpeg,
+    arrangement,
   })
   const doc = new jsPDF({ unit: 'mm', format: 'a4' })
   if (files) embedCvFont(doc, files)

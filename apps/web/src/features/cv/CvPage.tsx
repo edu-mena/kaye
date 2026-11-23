@@ -28,7 +28,7 @@ export default function CvPage() {
 
   const create = () => {
     userActions.createCv()
-    void navigate('/cv/editar')
+    void navigate('/cv/passo-a-passo')
   }
   const edit = (id: string) => {
     userActions.openCv(id)

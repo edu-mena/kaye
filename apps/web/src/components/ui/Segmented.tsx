@@ -7,6 +7,8 @@ type SegmentedProps<T extends string> = {
   onChange: (value: T | null) => void
   /** Pressing the active option again clears it (filters). */
   clearable?: boolean
+  /** Wraps to new rows on phones too, for options the person must see all at once. */
+  wrap?: boolean
   className?: string
 }
 
@@ -17,11 +19,12 @@ export function Segmented<T extends string>({
   value,
   onChange,
   clearable = false,
+  wrap = false,
   className = '',
 }: SegmentedProps<T>) {
   return (
     <fieldset
-      className={`-mx-3 no-scrollbar flex min-w-0 gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
+      className={`flex min-w-0 gap-2 ${wrap ? 'flex-wrap' : '-mx-3 no-scrollbar overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0'} ${className}`}
     >
       <legend className="sr-only">{label}</legend>
       {options.map((option) => {

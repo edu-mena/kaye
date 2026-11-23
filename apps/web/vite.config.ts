@@ -104,6 +104,17 @@ function pwa(base: string, native: boolean) {
           },
         },
         {
+          // The CV fonts a person already used: the CV (and its PDF) keeps its font offline, and the step-by-step
+          // guide works with no network. Not precached: all of them together are too heavy for a first visit.
+          urlPattern: ({ url }) => url.pathname.includes('/fonts/cv/'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'kaye-cv-fonts',
+            expiration: { maxEntries: 12 },
+            cacheableResponse: { statuses: [200] },
+          },
+        },
+        {
           // Never cached: some answers carry the person's data. The public catalogue endpoints
           // (careers, courses, academies...) will move to StaleWhileRevalidate in their own rule.
           urlPattern: ({ url }) => url.pathname.startsWith('/api/'),

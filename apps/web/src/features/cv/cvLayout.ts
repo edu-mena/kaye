@@ -1,4 +1,19 @@
-import type { CvData, CvEntry, CvSection, CvStyle, CvTemplate } from '../../data/types'
+import type {
+  CvArrangement,
+  CvData,
+  CvEntry,
+  CvFormat,
+  CvSection,
+  CvStyle,
+  CvTemplate,
+} from '../../data/types'
+import {
+  ALL_SECTIONS,
+  effectiveFormat,
+  linksInHeader,
+  resolveSections,
+  SIDE_TEMPLATES,
+} from '../../domain/cvArrange'
 import { mixColors } from '../../domain/cvStyle'
 import type { Measure } from './cvFonts'
 
@@ -10,8 +25,7 @@ export const PAGE_HEIGHT = 297
 export const PT_TO_MM = 0.3528
 
 const WHITE = '#ffffff'
-const STORY: CvSection[] = ['summary', 'experience', 'projects', 'education']
-const MAIN: CvSection[] = [...STORY, 'certifications']
+const GHOST_FADE = 0.62
 const ENTRY_GAP = 2.4
 const BOX_PADDING = 1.2
 const OUTLINE_PADDING = 2.4
@@ -73,6 +87,16 @@ type LayoutInput = {
   placeholder?: string
   /** The person's photo; without it the photo templates show their initials. */
   photo?: string | null
+  /** What the person moved, hid or rewrote. */
+  arrangement?: CvArrangement
+  /** Only on screen: a model CV whose sections show, faded, where the person's own are still empty. */
+  sample?: CvData | null
+}
+
+/** The input once the arrangement is read and the example filled in. */
+type Plan = LayoutInput & {
+  ghost: Set<CvSection>
+  flow: { main: CvSection[]; side: CvSection[] }
 }
 
 type TextOptions = {
@@ -133,6 +157,8 @@ class Column {
   width: number
   y: number
   page = 0
+  /** Writing the faded example: every colour is washed out. */
+  ghost = false
 
   constructor(sheet: Sheet, input: LayoutInput, x: number, width: number, y: number) {
     this.sheet = sheet
@@ -160,7 +186,8 @@ class Column {
 
   text(value: string, size: number, options: TextOptions = {}) {
     if (!value.trim()) return
-    const { bold = false, color = this.style.text, align = 'left', after = 0, tracking = 0 } = options
+    const { bold = false, align = 'left', after = 0, tracking = 0 } = options
+    const color = this.tone(options.color ?? this.style.text)
     const widthOf = (line: string) => this.measure(line, size, bold) + tracking * line.length
     const lineHeight = this.lineHeight(size)
     for (const line of wrap(value, this.width, (candidate) => widthOf(candidate) <= this.width)) {
@@ -180,6 +207,11 @@ class Column {
       this.y += lineHeight
     }
     this.y += after
+  }
+
+  /** A colour as it is drawn now: washed out while an example is written. */
+  tone(color: string) {
+    return this.ghost ? mixColors(color, WHITE, GHOST_FADE) : color
   }
 
   rule(color: string) {
@@ -295,8 +327,9 @@ type ContentOptions = {
   periodRight?: boolean
   /** A dot of this colour in the margin, beside each entry. */
   marker?: string
-  /** Skills as small labels, in this colour. */
+  /** Skills as small labels, unless the format says otherwise. */
   chips?: string
+  format?: CvFormat | null
 }
 
 /** The title of an entry with its period aligned to the right of the same line. */
@@ -313,9 +346,9 @@ function titleWithPeriod(column: Column, entry: CvEntry, style: CvStyle) {
 }
 
 function writeEntries(column: Column, list: CvEntry[], style: CvStyle, options: ContentOptions = {}) {
-  const { periodRight = false, marker } = options
+  const { periodRight = false, marker, format = 'full' } = options
   list.forEach((entry, index) => {
-    if (index > 0) column.y += ENTRY_GAP
+    if (index > 0) column.y += format === 'compact' ? ENTRY_GAP / 2 : ENTRY_GAP
     column.keep(column.lineHeight(style.bodySize) * 2)
     if (marker)
       column.draw({
@@ -325,8 +358,17 @@ function writeEntries(column: Column, list: CvEntry[], style: CvStyle, options: 
         width: 1.6,
         height: 1.6,
         radius: 0.8,
-        fill: marker,
+        fill: column.tone(marker),
       })
+    if (format === 'compact') {
+      // One line: the title with its place, the period at the right.
+      titleWithPeriod(
+        column,
+        { ...entry, title: [entry.title, entry.place].filter(Boolean).join(' · ') },
+        style,
+      )
+      return
+    }
     if (periodRight) titleWithPeriod(column, entry, style)
     else column.text(entry.title, style.bodySize, { bold: true })
     const detail = periodRight ? entry.place : [entry.place, entry.period].filter(Boolean).join(' · ')
@@ -346,6 +388,7 @@ function writeChips(column: Column, items: string[], style: CvStyle, color: stri
   const size = style.bodySize - 0.5
   const height = column.lineHeight(size) + 1.6
   const padding = 2.2
+  const ink = column.tone(color)
   let x = column.x
   column.keep(height)
   for (const item of items) {
@@ -362,7 +405,7 @@ function writeChips(column: Column, items: string[], style: CvStyle, color: stri
       width,
       height,
       radius: height / 2,
-      fill: mixColors(color, WHITE, 0.87),
+      fill: mixColors(ink, WHITE, 0.87),
     })
     column.draw({
       kind: 'text',
@@ -371,12 +414,46 @@ function writeChips(column: Column, items: string[], style: CvStyle, color: stri
       text: item,
       size,
       bold: false,
-      color,
+      color: ink,
       tracking: 0,
     })
     x += width + CHIP_GAP
   }
   column.y += height
+}
+
+/** A short list: separated by commas, a line each, or with a dot before each one. */
+function writeList(column: Column, items: string[], style: CvStyle, format: CvFormat, color: string) {
+  if (format === 'chips') {
+    writeChips(column, items, style, style.accent)
+    return
+  }
+  if (format === 'comma') {
+    column.text(items.join(', '), style.bodySize, { color })
+    return
+  }
+  const dots = format === 'bullets'
+  const indent = dots ? 3.2 : 0
+  const { x, width } = column
+  column.x += indent
+  column.width -= indent
+  for (const item of items) {
+    if (dots) {
+      column.keep(column.lineHeight(style.bodySize))
+      column.draw({
+        kind: 'rect',
+        x: x + 0.6,
+        y: column.y + column.lineHeight(style.bodySize) / 2 - 0.5,
+        width: 1.1,
+        height: 1.1,
+        radius: 0.55,
+        fill: column.tone(color),
+      })
+    }
+    column.text(item, style.bodySize, { color, after: 0.6 })
+  }
+  column.x = x
+  column.width = width
 }
 
 function writeContent(
@@ -388,43 +465,65 @@ function writeContent(
 ) {
   const value = cv[section]
   if (typeof value === 'string') column.text(value, style.bodySize)
-  else if (section === 'skills' && options.chips) writeChips(column, cv.skills, style, options.chips)
   else if (section === 'skills' || section === 'languages' || section === 'links')
-    column.text((value as string[]).join(', '), style.bodySize)
+    writeList(
+      column,
+      value as string[],
+      style,
+      options.format ?? (options.chips ? 'chips' : 'comma'),
+      style.text,
+    )
   else writeEntries(column, value as CvEntry[], style, options)
 }
+
+/** Writes a section with the washed-out colours while it is only the example. */
+function inExample(plan: Plan, section: CvSection, columns: Column[], write: () => void) {
+  const ghost = plan.ghost.has(section)
+  for (const column of columns) column.ghost = ghost
+  write()
+  for (const column of columns) column.ghost = false
+}
+
+const formatIn = (plan: Plan, section: CvSection, side = false) =>
+  effectiveFormat(plan.template, section, side, plan.arrangement)
 
 /** The sections of a main column, one after the other, each followed by the section gap. */
 function writeSections(
   sheet: Sheet,
   column: Column,
-  input: LayoutInput,
+  plan: Plan,
   sections: CvSection[],
   options: ContentOptions & { title?: TitleOptions } = {},
 ) {
-  const { cv, style, labels } = input
+  const { cv, style, labels } = plan
   for (const section of sections) {
     if (!hasContent(cv, section)) continue
-    boxedSection(sheet, column, style, () => {
-      sectionTitle(column, labels[section], style, paperColors(style), options.title)
-      column.y += style.headingGap
-      writeContent(column, cv, section, style, options)
+    inExample(plan, section, [column], () => {
+      boxedSection(sheet, column, style, () => {
+        sectionTitle(column, labels[section], style, paperColors(style), options.title)
+        column.y += style.headingGap
+        writeContent(column, cv, section, style, { ...options, format: formatIn(plan, section) })
+      })
     })
     column.y += style.sectionGap
   }
 }
 
-/** Links, skills, languages and certifications as short lists, for a narrow column. */
-function writeSideLists(side: Column, input: LayoutInput, colors: TitleColors, color: string) {
-  const { cv, style, labels } = input
-  for (const section of ['links', 'skills', 'languages', 'certifications'] as CvSection[]) {
+/** The short lists of the narrow column, as the arrangement puts them. */
+function writeSideLists(side: Column, plan: Plan, colors: TitleColors, color: string) {
+  const { cv, style, labels } = plan
+  for (const section of plan.flow.side) {
     if (!hasContent(cv, section)) continue
-    side.y += style.sectionGap
-    sectionTitle(side, labels[section], style, colors)
-    side.y += style.headingGap
-    const items =
-      section === 'certifications' ? cv.certifications.map((entry) => entry.title) : (cv[section] as string[])
-    for (const item of items) side.text(item, style.bodySize, { color, after: 0.6 })
+    inExample(plan, section, [side], () => {
+      side.y += style.sectionGap
+      sectionTitle(side, labels[section], style, colors)
+      side.y += style.headingGap
+      const items =
+        section === 'certifications'
+          ? cv.certifications.map((entry) => entry.title)
+          : (cv[section] as string[])
+      writeList(side, items, style, formatIn(plan, section, true) ?? 'list', color)
+    })
   }
 }
 
@@ -501,7 +600,7 @@ function boxedSection(sheet: Sheet, column: Column, style: CvStyle, write: () =>
 }
 
 /** One column, centred header, ruled sections: the Harvard style. */
-function classico(input: LayoutInput): CvPage[] {
+function classico(input: Plan): CvPage[] {
   const { cv, style, labels, placeholder = '' } = input
   const sheet = new Sheet()
   const column = new Column(sheet, input, style.marginX, PAGE_WIDTH - style.marginX * 2, style.marginY)
@@ -514,20 +613,22 @@ function classico(input: LayoutInput): CvPage[] {
     after: 1.4,
   })
   column.rule(colors.rule)
-  for (const section of [...MAIN, 'skills', 'languages'] as CvSection[]) {
+  for (const section of input.flow.main) {
     if (!hasContent(cv, section)) continue
     column.y += style.sectionGap
-    boxedSection(sheet, column, style, () => {
-      sectionTitle(column, labels[section], style, colors)
-      column.y += style.headingGap
-      writeContent(column, cv, section, style)
+    inExample(input, section, [column], () => {
+      boxedSection(sheet, column, style, () => {
+        sectionTitle(column, labels[section], style, colors)
+        column.y += style.headingGap
+        writeContent(column, cv, section, style, { format: formatIn(input, section) })
+      })
     })
   }
   return sheet.pages
 }
 
 /** Two columns: contact and skills in a coloured band, the story on the right. */
-function moderno(input: LayoutInput): CvPage[] {
+function moderno(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const sheet = new Sheet([
     { kind: 'rect', x: 0, y: 0, width: BAND_WIDTH, height: PAGE_HEIGHT, fill: style.accent },
@@ -542,12 +643,12 @@ function moderno(input: LayoutInput): CvPage[] {
   writeSideLists(side, input, colors, WHITE)
   const left = BAND_WIDTH + 10
   const main = new Column(sheet, input, left, PAGE_WIDTH - left - style.marginX, style.marginY)
-  writeSections(sheet, main, input, STORY)
+  writeSections(sheet, main, input, input.flow.main)
   return sheet.pages
 }
 
 /** Labels on the left, content on the right, thin rules: the Europass style. */
-function europeu(input: LayoutInput): CvPage[] {
+function europeu(input: Plan): CvPage[] {
   const { cv, style, labels, placeholder = '' } = input
   const sheet = new Sheet()
   const width = PAGE_WIDTH - style.marginX * 2
@@ -565,38 +666,40 @@ function europeu(input: LayoutInput): CvPage[] {
   content.text(cv.name || placeholder, style.nameSize, { bold: true, color: style.accent })
   content.text(cv.headline || placeholder, style.bodySize + 1.2, { after: 0.6 })
   content.text(cv.contact, style.bodySize - 0.4, { color: style.muted })
-  for (const section of [...MAIN, 'skills', 'languages', 'links'] as CvSection[]) {
+  for (const section of input.flow.main) {
     if (!hasContent(cv, section)) continue
-    // Both columns start each row together, under a rule across the page.
-    row.page = content.page
-    row.y = content.y + style.sectionGap * 0.5
-    row.keep(label.lineHeight(style.headingSize) * 2 + style.sectionGap)
-    row.rule(colors.rule)
-    row.y += style.sectionGap * 0.5
-    label.page = row.page
-    content.page = row.page
-    label.y = row.y
-    content.y = row.y + style.headingGap
-    sectionTitle(label, labels[section], style, colors, { rule: false })
-    writeContent(content, cv, section, style)
-    if (style.box === 'outline') {
-      content.y += 1.2
-      outline(
-        sheet,
-        { page: row.page, y: row.y - 1 },
-        content,
-        style.marginX - 1.5,
-        width + 3,
-        colors.rule,
-        style.marginY,
-      )
-    }
+    inExample(input, section, [label, content], () => {
+      // Both columns start each row together, under a rule across the page.
+      row.page = content.page
+      row.y = content.y + style.sectionGap * 0.5
+      row.keep(label.lineHeight(style.headingSize) * 2 + style.sectionGap)
+      row.rule(colors.rule)
+      row.y += style.sectionGap * 0.5
+      label.page = row.page
+      content.page = row.page
+      label.y = row.y
+      content.y = row.y + style.headingGap
+      sectionTitle(label, labels[section], style, colors, { rule: false })
+      writeContent(content, cv, section, style, { format: formatIn(input, section) })
+      if (style.box === 'outline') {
+        content.y += 1.2
+        outline(
+          sheet,
+          { page: row.page, y: row.y - 1 },
+          content,
+          style.marginX - 1.5,
+          width + 3,
+          colors.rule,
+          style.marginY,
+        )
+      }
+    })
   }
   return sheet.pages
 }
 
 /** A light band with the photo and the short lists; the name opens the story on the right. */
-function retrato(input: LayoutInput): CvPage[] {
+function retrato(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const tint = mixColors(style.accent, WHITE, 0.9)
   const sheet = new Sheet([
@@ -616,12 +719,12 @@ function retrato(input: LayoutInput): CvPage[] {
   const main = new Column(sheet, input, left, PAGE_WIDTH - left - style.marginX, style.marginY)
   main.text(cv.name || placeholder, style.nameSize, { bold: true, color: style.accent, after: 0.6 })
   main.text(cv.headline || placeholder, style.bodySize + 1.5, { color: style.muted, after: style.sectionGap })
-  writeSections(sheet, main, input, STORY)
+  writeSections(sheet, main, input, input.flow.main)
   return sheet.pages
 }
 
 /** A coloured header across the page, then the story and a narrow column split by a thin line. */
-function colunas(input: LayoutInput): CvPage[] {
+function colunas(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const sheet = new Sheet()
   const width = PAGE_WIDTH - style.marginX * 2
@@ -638,7 +741,7 @@ function colunas(input: LayoutInput): CvPage[] {
   const body = top + style.sectionGap
   const main = new Column(sheet, input, style.marginX, width - sideWidth - gutter, body)
   const side = new Column(sheet, input, style.marginX + width - sideWidth, sideWidth, body - style.sectionGap)
-  writeSections(sheet, main, input, STORY)
+  writeSections(sheet, main, input, input.flow.main)
   writeSideLists(side, input, paperColors(style), style.text)
 
   // The line between the columns, on every page they reach.
@@ -660,7 +763,7 @@ function colunas(input: LayoutInput): CvPage[] {
 }
 
 /** Only type and white space: a light name, plain titles, periods at the right. */
-function minimalista(input: LayoutInput): CvPage[] {
+function minimalista(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const sheet = new Sheet()
   const column = new Column(sheet, input, style.marginX, PAGE_WIDTH - style.marginX * 2, style.marginY)
@@ -670,7 +773,7 @@ function minimalista(input: LayoutInput): CvPage[] {
     color: style.muted,
     after: style.sectionGap * 1.4,
   })
-  writeSections(sheet, column, input, [...MAIN, 'skills', 'languages'], {
+  writeSections(sheet, column, input, input.flow.main, {
     periodRight: true,
     title: { plain: true },
   })
@@ -678,7 +781,7 @@ function minimalista(input: LayoutInput): CvPage[] {
 }
 
 /** Colour and shapes in the header, the photo in the corner, dots beside each entry. */
-function criativo(input: LayoutInput): CvPage[] {
+function criativo(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const sheet = new Sheet([
     { kind: 'rect', x: 0, y: 0, width: CRIATIVO_STRIP, height: PAGE_HEIGHT, fill: style.accent },
@@ -713,7 +816,7 @@ function criativo(input: LayoutInput): CvPage[] {
     portrait(head, input, x, style.marginY, CRIATIVO_PHOTO, [WHITE, style.accent])
   }
   const column = new Column(sheet, input, left, PAGE_WIDTH - left - style.marginX, top + style.sectionGap)
-  writeSections(sheet, column, input, [...MAIN, 'skills', 'languages', 'links'], {
+  writeSections(sheet, column, input, input.flow.main, {
     marker: style.accent,
     chips: style.accent,
   })
@@ -721,7 +824,7 @@ function criativo(input: LayoutInput): CvPage[] {
 }
 
 /** A large name over a short bar, the summary in a box and the skills as chips, right at the top. */
-function destaque(input: LayoutInput): CvPage[] {
+function destaque(input: Plan): CvPage[] {
   const { cv, style, placeholder = '' } = input
   const sheet = new Sheet()
   const column = new Column(sheet, input, style.marginX, PAGE_WIDTH - style.marginX * 2, style.marginY)
@@ -733,7 +836,8 @@ function destaque(input: LayoutInput): CvPage[] {
   })
   column.rect(1.2, style.accent)
   column.y += 1.2 + style.sectionGap
-  if (hasContent(cv, 'summary')) {
+  if (hasContent(cv, 'summary') && !input.arrangement?.hidden?.includes('summary')) {
+    column.ghost = input.ghost.has('summary')
     const pad = 3.5
     const mark = column.mark()
     const y = column.y
@@ -748,21 +852,14 @@ function destaque(input: LayoutInput): CvPage[] {
     const height = (column.page === mark.page ? column.y : PAGE_HEIGHT - style.marginY) - y
     column.behind(mark, { kind: 'rect', x, y, width: 1.2, height, fill: style.accent })
     column.behind(mark, { kind: 'rect', x, y, width, height, fill: mixColors(style.accent, WHITE, 0.92) })
+    column.ghost = false
     column.y += style.sectionGap
   }
-  writeSections(
-    sheet,
-    column,
-    input,
-    ['skills', 'experience', 'projects', 'education', 'certifications', 'languages', 'links'],
-    {
-      chips: style.accent,
-    },
-  )
+  writeSections(sheet, column, input, input.flow.main, { chips: style.accent })
   return sheet.pages
 }
 
-const LAYOUTS: Record<CvTemplate, (input: LayoutInput) => CvPage[]> = {
+const LAYOUTS: Record<CvTemplate, (input: Plan) => CvPage[]> = {
   classico,
   moderno,
   europeu,
@@ -773,7 +870,34 @@ const LAYOUTS: Record<CvTemplate, (input: LayoutInput) => CvPage[]> = {
   destaque,
 }
 
+/** The CV with a faded example in the parts that are still empty, and the sections the person hid left out. */
+function makePlan(input: LayoutInput): Plan {
+  const { template, arrangement = {}, sample } = input
+  const hidden = new Set(arrangement.hidden ?? [])
+  // The models that write the links under the name never show them as a section.
+  const headerLinks = linksInHeader(template)
+  // A copy: the example is written into it, never into the person's own CV.
+  const cv: CvData = { ...input.cv, links: hidden.has('links') ? [] : input.cv.links }
+  const ghost = new Set<CvSection>()
+  if (sample && arrangement.sample !== false) {
+    for (const section of ALL_SECTIONS) {
+      if (hidden.has(section) || (headerLinks && section === 'links')) continue
+      if (hasContent(cv, section) || !hasContent(sample, section)) continue
+      Object.assign(cv, { [section]: sample[section] })
+      ghost.add(section)
+    }
+  }
+  const flow = resolveSections(template, arrangement)
+  // Models with a narrow column keep the story in the main one; the others have no side.
+  return {
+    ...input,
+    cv,
+    ghost,
+    flow: SIDE_TEMPLATES.includes(template) ? flow : { main: flow.main, side: [] },
+  }
+}
+
 /** The whole CV as pages of drawing instructions. */
 export function layoutCv(input: LayoutInput): CvPage[] {
-  return LAYOUTS[input.template](input)
+  return LAYOUTS[input.template](makePlan(input))
 }

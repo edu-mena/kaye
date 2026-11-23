@@ -1,22 +1,22 @@
 import { useDeferredValue, useEffect, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon } from '../../components/icons'
-import { Button } from '../../components/ui/Button'
+import { Button, ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
 import { TextAreaField, TextField } from '../../components/ui/Field'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Segmented } from '../../components/ui/Segmented'
 import { useCvExamples } from '../../data/queries'
-import type { CvData, CvDocument, CvEntry, CvSection } from '../../data/types'
-import { newEntry, parseList } from '../../domain/cv'
+import type { CvData, CvDocument, CvSection } from '../../data/types'
 import { activeCv, userActions, useUser } from '../../state/userStore'
 import { CvDesignPanel } from './CvDesignPanel'
 import { CvFillPanel } from './CvFillPanel'
+import { EntryList, ListField, type EntrySection } from './cvFields'
 import { downloadCvPdf } from './cvPdf'
 import { ScaledSheet } from './CvSheet'
+import { useCareerTips } from './useCareerTips'
 import { useCvLabels } from './useCvLabels'
 
-type EntrySection = 'experience' | 'education' | 'projects' | 'certifications'
 const ENTRY_SECTIONS: EntrySection[] = ['experience', 'education', 'projects', 'certifications']
 
 export default function CvEditorPage() {
@@ -32,7 +32,7 @@ export default function CvEditorPage() {
 
 function Editor({ document }: { document: CvDocument }) {
   const { t } = useTranslation()
-  const { cv, template, style } = document
+  const { cv, template, style, arrangement } = document
   const { photo } = useUser()
   const { data: examples = [] } = useCvExamples()
   const notes = examples.find((example) => example.id === document.basedOn)?.notes ?? {}
@@ -41,6 +41,7 @@ function Editor({ document }: { document: CvDocument }) {
   const [fills, setFills] = useState(0)
   // Typing comes first; on slow phones the preview catches up a moment later.
   const preview = useDeferredValue(document)
+  const { sample } = useCareerTips(cv, document.target)
 
   // Saved on every change: nothing to lose when the phone locks.
   const save = (change: Partial<CvData>) => userActions.updateCv({ ...cv, ...change })
@@ -53,8 +54,14 @@ function Editor({ document }: { document: CvDocument }) {
           <Icon name="check" className="size-4" />
           {t('cv.autosaved')}
         </p>
-        <span className="flex flex-col items-end gap-0.5">
-          <Button size="sm" onClick={() => void downloadCvPdf({ cv, template, style, photo }, labels)}>
+        <span className="flex flex-wrap items-center justify-end gap-2">
+          <ButtonLink to="/cv/passo-a-passo" size="sm" variant="secondary">
+            {t('cv.wizTitle')}
+          </ButtonLink>
+          <Button
+            size="sm"
+            onClick={() => void downloadCvPdf({ cv, template, style, photo, arrangement }, labels)}
+          >
             <Icon name="download" className="size-4" />
             {t('cv.download')}
           </Button>
@@ -86,7 +93,7 @@ function Editor({ document }: { document: CvDocument }) {
       <div className="grid gap-8 lg:grid-cols-2">
         {view === 'design' ? (
           <div className="order-2 min-w-0 lg:order-1">
-            <CvDesignPanel document={document} preview={preview} photo={photo} />
+            <CvDesignPanel document={document} preview={preview} photo={photo} sample={sample} />
           </div>
         ) : (
           <form
@@ -172,6 +179,8 @@ function Editor({ document }: { document: CvDocument }) {
                 template={preview.template}
                 style={preview.style}
                 photo={photo}
+                arrangement={preview.arrangement}
+                sample={sample}
                 fit="content"
                 className="rounded-card shadow-card"
               />
@@ -203,79 +212,5 @@ function EditorSection({
       )}
       {children}
     </Card>
-  )
-}
-
-type EntryListProps = { section: EntrySection; entries: CvEntry[]; onChange: (entries: CvEntry[]) => void }
-
-function EntryList({ section, entries, onChange }: EntryListProps) {
-  const { t } = useTranslation()
-  const update = (index: number, change: Partial<CvEntry>) =>
-    onChange(entries.map((entry, position) => (position === index ? { ...entry, ...change } : entry)))
-
-  return (
-    <fieldset className="space-y-4">
-      <legend className="text-base font-semibold text-night">{t(`cv.${section}`)}</legend>
-      {entries.map((entry, index) => (
-        <div key={entry.id} className="space-y-4 rounded-2xl border border-line p-4">
-          <TextField
-            label={t('cv.entryTitle')}
-            value={entry.title}
-            onChange={(event) => update(index, { title: event.target.value })}
-          />
-          <div className="grid gap-4 sm:grid-cols-2">
-            <TextField
-              label={t('cv.entryPlace')}
-              value={entry.place}
-              onChange={(event) => update(index, { place: event.target.value })}
-            />
-            <TextField
-              label={t('cv.entryPeriod')}
-              value={entry.period}
-              onChange={(event) => update(index, { period: event.target.value })}
-            />
-          </div>
-          <TextAreaField
-            label={t('cv.entryDescription')}
-            rows={2}
-            value={entry.description}
-            onChange={(event) => update(index, { description: event.target.value })}
-          />
-          <Button
-            variant="danger"
-            size="sm"
-            className="-ml-3"
-            onClick={() => onChange(entries.filter((_, position) => position !== index))}
-          >
-            <Icon name="trash" className="size-4" />
-            {t('cv.removeEntry')}
-          </Button>
-        </div>
-      ))}
-      <Button variant="secondary" size="sm" onClick={() => onChange([...entries, newEntry()])}>
-        <Icon name="plus" className="size-4" />
-        {t('cv.addEntry')}
-      </Button>
-    </fieldset>
-  )
-}
-
-type ListFieldProps = { label: string; items: string[]; onChange: (items: string[]) => void }
-
-/** Comma-separated list; the text is kept while typing so "React, " does not lose its comma. */
-function ListField({ label, items, onChange }: ListFieldProps) {
-  const { t } = useTranslation()
-  const [text, setText] = useState(items.join(', '))
-
-  return (
-    <TextField
-      label={label}
-      hint={t('cv.listPlaceholder')}
-      value={text}
-      onChange={(event) => {
-        setText(event.target.value)
-        onChange(parseList(event.target.value))
-      }}
-    />
   )
 }

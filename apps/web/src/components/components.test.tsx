@@ -117,6 +117,15 @@ describe('ui', () => {
     expect(onChange).toHaveBeenLastCalledWith('b')
   })
 
+  it('Segmented wraps to new rows, instead of scrolling sideways, when the options must all be seen', () => {
+    const options = [{ value: 'a', label: 'A' }]
+    renderWithApp(<Segmented label="Fixo" wrap value="a" onChange={() => undefined} options={options} />)
+    renderWithApp(<Segmented label="Corre" value="a" onChange={() => undefined} options={options} />)
+    expect(screen.getByRole('group', { name: 'Fixo' })).toHaveClass('flex-wrap')
+    expect(screen.getByRole('group', { name: 'Fixo' })).not.toHaveClass('overflow-x-auto')
+    expect(screen.getByRole('group', { name: 'Corre' })).toHaveClass('overflow-x-auto')
+  })
+
   it('Pagination keeps long ranges short, with gaps', () => {
     expect(pageNumbers(2, 5)).toBe('1 2 3 4 5')
     expect(pageNumbers(5, 10)).toBe('1 … 4 5 6 … 10')
