@@ -69,11 +69,25 @@ jobs:
           path: scrapers/data/*.jsonl
           retention-days: 90
 
+      # The API imports a copy of the app's data (apps/api/database/data); src/data/export.test.ts fails on `main`
+      # while it is out of date, so the pull request carries both.
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Export the data for the API
+        working-directory: apps/web
+        run: |
+          npm ci
+          npm run export:data
+
       - name: Pull request with the new counts
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet -- ../apps/web/src/data/market; then
+          if git diff --quiet -- ../apps/web/src/data/market ../apps/api/database/data; then
             echo "The counts did not change."
             exit 0
           fi
@@ -81,7 +95,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git switch -C "$branch"
-          git add ../apps/web/src/data/market
+          git add ../apps/web/src/data/market ../apps/api/database/data
           git commit -m "chore(data): weekly market counts ($(date -u +%F))"
           git push --force origin "$branch"
           # `gh pr view` also finds closed PRs and fails on other errors; only an open PR means "nothing to create".
