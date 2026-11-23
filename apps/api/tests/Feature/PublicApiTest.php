@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Enums\ContentStatus;
+use App\Models\Agent;
 use App\Models\Area;
 use App\Models\Career;
 use App\Models\Course;
@@ -15,6 +16,7 @@ use App\Models\Kurso;
 use App\Models\KursoUnit;
 use App\Models\Mentor;
 use App\Models\Program;
+use App\Models\Simulation;
 use App\Models\Testimonial;
 use App\Models\VideoStory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -187,6 +189,12 @@ class PublicApiTest extends TestCase
             'slug' => 'mentor', 'name' => 'Rui', 'role' => 'Enfermeiro', 'company' => 'Hospital', 'bio' => ['pt' => 'Bio.'],
             'languages' => ['pt', 'umb'], 'consent_at' => '2026-10-01', 'availability' => 'grupo',
         ] + self::PUBLISHED);
+        $agent = Agent::factory()->create([
+            'slug' => 'agente', 'name' => 'Rita', 'role' => 'Técnica de RH', 'area' => 'health', 'verified_by' => 'Eduardo',
+            'verified_at' => '2026-11-20', 'consent_at' => '2026-11-19',
+        ] + self::PUBLISHED);
+        Simulation::factory()->for($career)->for($agent)->create(['slug' => 'dia', 'title' => ['pt' => 'Um dia'], 'minutes' => 7] + self::PUBLISHED);
+        Simulation::factory()->for($career)->create(['slug' => 'rascunho', 'example' => false]);
         VideoStory::factory()->for($career)->create([
             'slug' => 'video', 'name' => 'Rui', 'role' => 'Enfermeiro', 'title' => ['pt' => 'O meu dia'], 'url' => 'https://youtu.be/x',
             'platform' => 'youtube', 'duration_seconds' => 75, 'consent_at' => '2026-10-01', 'recorded_at' => '2026-10-02',
@@ -208,6 +216,16 @@ class PublicApiTest extends TestCase
             'id' => 'mentor', 'name' => 'Rui', 'role' => 'Enfermeiro', 'company' => 'Hospital', 'careers' => [], 'bio' => 'Bio.',
             'languages' => ['pt', 'umb'], 'consentAt' => '2026-10-01', 'availability' => 'grupo',
         ]]);
+        $this->getJson('/api/v1/agents')->assertExactJson([[
+            'id' => 'agente', 'name' => 'Rita', 'role' => 'Técnica de RH', 'area' => 'health', 'verifiedBy' => 'Eduardo',
+            'verifiedAt' => '2026-11-20', 'consentAt' => '2026-11-19',
+        ]]);
+        $this->getJson('/api/v1/simulations')->assertJsonCount(1)
+            ->assertJsonPath('0.id', 'dia')->assertJsonPath('0.careerSlug', 'enfermeiro')->assertJsonPath('0.agentId', 'agente')
+            ->assertJsonPath('0.title', 'Um dia')->assertJsonPath('0.minutes', 7)->assertJsonPath('0.example', true)
+            ->assertJsonPath('0.languages', ['pt'])->assertJsonPath('0.next.0.kind', 'course');
+        $this->getJson('/api/v1/occupations/enfermeiro/simulations')->assertJsonCount(1);
+        $this->getJson('/api/v1/occupations/nao-existe/simulations')->assertExactJson([]);
         $this->getJson('/api/v1/video-stories')->assertExactJson([[
             'id' => 'video', 'careerSlug' => 'enfermeiro', 'name' => 'Rui', 'role' => 'Enfermeiro', 'title' => 'O meu dia',
             'url' => 'https://youtu.be/x', 'platform' => 'youtube', 'durationSeconds' => 75, 'consentAt' => '2026-10-01', 'recordedAt' => '2026-10-02',

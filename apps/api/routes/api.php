@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AccessExamController;
 use App\Http\Controllers\Api\AdmissionController;
+use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
 use App\Http\Controllers\Api\CommentController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\PublicCardController;
 use App\Http\Controllers\Api\PushSubscriptionController;
 use App\Http\Controllers\Api\ScholarshipController;
+use App\Http\Controllers\Api\SimulationController;
 use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\Api\SupportProgramController;
 use App\Http\Controllers\Api\TestimonialController;
@@ -81,6 +83,9 @@ Route::get('/assessment', [AssessmentController::class, 'index']);
 Route::get('/access-exams', [AccessExamController::class, 'index']);
 Route::get('/interview-questions', [InterviewQuestionController::class, 'index']);
 Route::get('/mentors', [MentorController::class, 'index']);
+Route::get('/agents', [AgentController::class, 'index']);
+Route::get('/simulations', [SimulationController::class, 'index']);
+Route::get('/occupations/{slug}/simulations', [SimulationController::class, 'index']);
 Route::get('/video-stories', [VideoStoryController::class, 'index']);
 
 Route::get('/kursos', [KursoController::class, 'index']);

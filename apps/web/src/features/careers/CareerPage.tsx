@@ -48,6 +48,7 @@ import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
 import { ProgramSummary } from '../training/ProgramSummary'
 import { ShowFamily } from '../family/ShowFamily'
 import { CareerMentorsLink } from '../mentors/CareerMentorsLink'
+import { CareerSimulations } from '../simulations/CareerSimulations'
 import { CareerVideos } from '../videos/VideoStories'
 import { CareerMarket } from './CareerMarket'
 import { CareerPath } from './CareerPath'
@@ -354,6 +355,7 @@ function Overview({ career }: { career: Career }) {
       </ol>
 
       <CareerVideos careerSlug={career.slug} careerName={career.name} />
+      <CareerSimulations careerSlug={career.slug} careerName={career.name} />
 
       <Subheading className="mt-10">{t('career.workContext')}</Subheading>
       <StatBlock items={career.workContext} />

@@ -4,9 +4,11 @@ import { CareerCard } from '../../components/CareerCard'
 import { Icon } from '../../components/icons'
 import { Card } from '../../components/ui/Card'
 import { SectionHeading } from '../../components/ui/PageHeader'
+import { SIMULATIONS } from '../../data/demo/simulations'
 import { useAssessment, useCareerDetails } from '../../data/queries'
 import { GROUP_AREAS, type Career, type MarketArea, type RiasecProfile } from '../../data/types'
 import { evidenceFor, nextStep, whyDimension } from '../../domain/resultAdvice'
+import { simulationsOf } from '../../domain/simulations'
 import { stagger } from '../../lib/ui'
 import type { RecommendedCareer } from '../../lib/useRecommendations'
 import { useUser } from '../../state/userStore'
@@ -81,6 +83,16 @@ export function ResultCareers({ profile, recommendations }: Props) {
                 slug={item.career.slug}
                 career={details.find((career) => career.slug === item.career.slug)}
               />
+              {simulationsOf(SIMULATIONS, item.career.slug).map((simulation) => (
+                <Link
+                  key={simulation.id}
+                  to={`/simulacoes/${simulation.id}`}
+                  className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 text-sm font-semibold text-night hover:border-ash-300 hover:bg-ash-100"
+                >
+                  <Icon name="play" className="size-4 shrink-0 text-blue" />
+                  {t('simulations.careerTitle', { career: item.career.name })}
+                </Link>
+              ))}
             </li>
           ))}
         </ul>

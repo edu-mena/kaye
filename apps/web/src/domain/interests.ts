@@ -7,6 +7,7 @@ import {
   type Subscriptions,
 } from '../data/types'
 import type { Discovery } from './discovery'
+import { likedCareers, type SimulationResult } from './simulations'
 
 export type InterestUser = {
   discovery: Discovery | null
@@ -14,11 +15,13 @@ export type InterestUser = {
   interestAreas?: MarketArea[] | null
   savedCareers: string[]
   targetCareer?: string | null
+  /** The work-day simulations the person lived: the ones they liked count as interest. */
+  simulations?: SimulationResult[]
 }
 
 /**
  * The person's areas, most interesting first: those they chose (the entry screen, the guide, Definições),
- * then those of the careers they saved or aim at, then those of their recommendations (the test).
+ * then those of the careers they saved, aim at or liked in a simulation, then those of their recommendations (the test).
  * Nobody chose or saved anything: none, and the lists keep today's order.
  */
 export function interestAreas(
@@ -27,7 +30,11 @@ export function interestAreas(
   recommended: CareerSummary[] = [],
 ): MarketArea[] {
   const chosen = user.interestAreas ?? user.discovery?.areas ?? []
-  const mine = new Set([...user.savedCareers, ...(user.targetCareer ? [user.targetCareer] : [])])
+  const mine = new Set([
+    ...user.savedCareers,
+    ...(user.targetCareer ? [user.targetCareer] : []),
+    ...likedCareers(user.simulations ?? []),
+  ])
   return [
     ...new Set([
       ...chosen,

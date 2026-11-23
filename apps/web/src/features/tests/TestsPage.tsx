@@ -116,7 +116,7 @@ function Done({ children }: { children: ReactNode }) {
 /** Testes (/testes): every test in the app, with where the person stands in each. */
 export default function TestsPage() {
   const { t } = useTranslation()
-  const { psychotech, interviews, kursos, accessExams } = useUser()
+  const { psychotech, interviews, kursos, accessExams, simulations } = useUser()
   const progress = useTestProgress()
   const { total, answered, stepsDone, stepsTotal } = progress
 
@@ -223,6 +223,21 @@ export default function TestsPage() {
         interviews.length === 0 ? undefined : <Done>{t('tests.sent', { count: interviews.length })}</Done>,
       action: { to: '/entrevistas', label: t('tests.train') },
       tour: 'interviews',
+    },
+    {
+      icon: 'play',
+      tone: 'blue',
+      title: t('simulations.title'),
+      body: t('simulations.tests'),
+      facts: [t('simulations.minutes', { count: 8 })],
+      status:
+        simulations.length === 0 ? undefined : (
+          <Done>{t('simulations.testsDone', { count: simulations.length })}</Done>
+        ),
+      action: {
+        to: '/simulacoes',
+        label: simulations.length === 0 ? t('tests.start') : t('simulations.otherDays'),
+      },
     },
     {
       icon: 'award',

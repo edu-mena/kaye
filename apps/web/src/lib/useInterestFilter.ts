@@ -3,6 +3,7 @@ import { useCareers } from '../data/queries'
 import { onlyRelevant, hasProfile, type InterestProfile, type Subject } from '../domain/relevance'
 import { interestAreas } from '../domain/interests'
 import { myCareers } from '../domain/path'
+import { likedCareers } from '../domain/simulations'
 import { useUser } from '../state/userStore'
 import { usePersistentFlag } from './usePersistentFlag'
 import { useRecommendations } from './useRecommendations'
@@ -19,7 +20,11 @@ export function useInterestProfile(): InterestProfile {
     const recommended = (recommendations ?? []).map((item) => item.career)
     return {
       areas: interestAreas(user, careers ?? [], recommended),
-      careers: new Set([...myCareers(user), ...recommended.map((career) => career.slug)]),
+      careers: new Set([
+        ...myCareers(user),
+        ...likedCareers(user.simulations),
+        ...recommended.map((career) => career.slug),
+      ]),
       companies: new Set(user.savedCompanies),
     }
   }, [user, careers, recommendations])

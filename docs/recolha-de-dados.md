@@ -35,6 +35,8 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Testemunhos | 21 | |
 | Vídeos "O meu dia como…" | 0 | Interface pronta; falta gravar (`videos.md`) |
 | Mentores | 0 | Interface pronta; falta aprovar os primeiros (`mentores.md`) |
+| Simulações de trabalho | 13 | Uma por área, marcadas "Exemplo"; só em português (`mentores.md#simulações-de-trabalho`) |
+| Agentes Kayé | 0 | Interface pronta; falta aprovar os primeiros (`mentores.md#agentes-kayé`) |
 
 ## Como os dados se ligam
 

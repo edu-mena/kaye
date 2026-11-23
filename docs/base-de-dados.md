@@ -97,7 +97,7 @@ Com o login Google já existem `user_data` (o `UserData` da app, com versão) e 
 
 ### Catálogo (ADR 0019)
 
-As tabelas de conteúdo do [modelo completo](#modelo-completo-adr-0019) já existem, com as colunas descritas lá: `areas`, `career_groups`, `careers`, `skills`, `career_skill`, `pathways`, `cv_examples`, `testimonials`, `video_stories`, `mentors`, `career_mentor`, `institutions`, `courses`, `course_offers`, `career_course_offer`, `tuition_fees`, `admissions`, `admission_course`, `programs`, `career_program`, `free_courses`, `career_free_course`, `companies`, `career_company`, `company_institution`, `scholarships`, `internships`, `support_programs`, `news`, `career_news`, `company_news`, `area_news`, `institution_news`, `events`, `figures`, `career_figure`, `assessment_questions`, `access_exam_questions`, `interview_questions`, `kursos`, `kurso_units`, `kurso_exam_questions` e `datasets`. As notícias recolhidas, os factos das vagas e os comentários têm tabelas próprias (`area_news`, `institution_news`, `job_postings`, `comments`, `comment_reports`; ver Novidades, Mercado e Comentários). O histórico de cada alteração fica em `activity_log` (`spatie/laravel-activitylog`).
+As tabelas de conteúdo do [modelo completo](#modelo-completo-adr-0019) já existem, com as colunas descritas lá: `areas`, `career_groups`, `careers`, `skills`, `career_skill`, `pathways`, `cv_examples`, `testimonials`, `video_stories`, `mentors`, `career_mentor`, `agents`, `simulations`, `institutions`, `courses`, `course_offers`, `career_course_offer`, `tuition_fees`, `admissions`, `admission_course`, `programs`, `career_program`, `free_courses`, `career_free_course`, `companies`, `career_company`, `company_institution`, `scholarships`, `internships`, `support_programs`, `news`, `career_news`, `company_news`, `area_news`, `institution_news`, `events`, `figures`, `career_figure`, `assessment_questions`, `access_exam_questions`, `interview_questions`, `kursos`, `kurso_units`, `kurso_exam_questions` e `datasets`. As notícias recolhidas, os factos das vagas e os comentários têm tabelas próprias (`area_news`, `institution_news`, `job_postings`, `comments`, `comment_reports`; ver Novidades, Mercado e Comentários). O histórico de cada alteração fica em `activity_log` (`spatie/laravel-activitylog`).
 
 No código:
 
@@ -171,7 +171,7 @@ erDiagram
   KURSO_UNITS ||--o{ KURSO_EXAM_QUESTIONS : "exame"
 ```
 
-As restantes tabelas do catálogo (`video_stories`, `mentors`, `programs`, `free_courses`, `support_programs`, `figures`, as perguntas e `datasets`) e as ligações delas estão no [diagrama do modelo completo](#diagrama-do-modelo-completo).
+As restantes tabelas do catálogo (`video_stories`, `mentors`, `agents`, `simulations`, `programs`, `free_courses`, `support_programs`, `figures`, as perguntas e `datasets`) e as ligações delas estão no [diagrama do modelo completo](#diagrama-do-modelo-completo).
 
 ## Modelo completo (ADR 0019)
 
@@ -326,6 +326,38 @@ Voluntários aprovados (`Mentor`, [mentores.md](mentores.md)).
 | `availability` | varchar(10) | `grupo`, `individual` (os menores só veem `grupo`) |
 
 `career_mentor`: `career_id`, `mentor_id`.
+
+#### `agents`
+
+Os agentes Kayé: técnicos de recursos humanos e profissionais aprovados pelo Kayé, que escrevem as simulações ([mentores.md](mentores.md#agentes-kayé)). Só se guarda o que o agente autoriza.
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `name`, `role` | varchar | Nome e função |
+| `area` | varchar(20) | Uma das 13 áreas do Mercado (`health`, `business`…) |
+| `verified_by` | varchar | Quem, no Kayé, verificou a pessoa e o texto |
+| `verified_at` | date | Data dessa verificação |
+| `company` | varchar, pode ser vazio | Só se o agente autorizou |
+| `photo` | varchar, pode ser vazio | Só com consentimento |
+| `consent_at` | date | |
+
+#### `simulations`
+
+Um dia de trabalho de uma carreira, para viver antes de escolher ([mentores.md](mentores.md#simulações-de-trabalho)).
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `career_id` | FK `careers` | Uma carreira com procura |
+| `agent_id` | FK `agents`, pode ser vazio | Sem agente, a página mostra "Equipa Kayé" |
+| `title`\*, `intro`\* | json | |
+| `minutes` | smallint | Tempo de leitura e decisões |
+| `moments`\* | json | A lista inteira por língua: 5 a 8 momentos `{id, time, title, text, decision?}`; cada decisão tem 2 a 4 opções `{id, text, result, why}` |
+| `asks`\* | json | O que a profissão pede |
+| `next_steps`\* | json | O passo seguinte: `{kind: course|academy|internship, text}` (na API: `next`) |
+| `example` | boolean | Escrita pelo Kayé, à espera de revisão por um profissional: a app mostra a marca "Exemplo". **Importa-se como publicada** (ao contrário dos outros exemplos, que ficam em rascunho), porque a marca é visível |
+| `languages` | json | As línguas em que o texto existe (`["pt"]`); nas outras a app mostra o português, com o aviso de tradução em curso |
+
+Os comentários às simulações usam a tabela `comments` (`subject_type = simulation`, `subject_id` = `slug`).
 
 ### Formação
 
@@ -887,6 +919,8 @@ erDiagram
   CAREERS ||--o{ TESTIMONIALS : "como cheguei aqui"
   CAREERS ||--o{ VIDEO_STORIES : "o meu dia como"
   CAREERS }o--o{ MENTORS : "career_mentor"
+  CAREERS ||--o{ SIMULATIONS : "um dia como"
+  AGENTS ||--o{ SIMULATIONS : "escreve"
   INSTITUTIONS ||--o{ COURSE_OFFERS : "oferece"
   COURSES ||--o{ COURSE_OFFERS : "é oferecido"
   COURSE_OFFERS }o--o{ CAREERS : "prepara para"
