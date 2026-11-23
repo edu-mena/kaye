@@ -5,6 +5,7 @@ namespace App\Import;
 use App\Enums\ContentStatus;
 use App\Models\AccessExamQuestion;
 use App\Models\Admission;
+use App\Models\Agent;
 use App\Models\Area;
 use App\Models\AssessmentQuestion;
 use App\Models\Career;
@@ -28,6 +29,7 @@ use App\Models\NewsEvent;
 use App\Models\Pathway;
 use App\Models\Program;
 use App\Models\Scholarship;
+use App\Models\Simulation;
 use App\Models\Skill;
 use App\Models\SupportProgram;
 use App\Models\Testimonial;
@@ -164,6 +166,18 @@ final class Catalog
                 'languages' => $r->get('languages', []), 'photo' => $r->get('photo'), 'consent_at' => $r->get('consentAt'),
                 'availability' => $r->get('availability'),
             ], self::careerLinks('mentors', 'careers')),
+            $catalog->flat('agents', Agent::class, 'agents', fn (Record $r): array => [
+                'name' => $r->get('name'), 'role' => $r->get('role'), 'area' => $r->get('area'),
+                'verified_by' => $r->get('verifiedBy'), 'verified_at' => $r->get('verifiedAt'), 'company' => $r->get('company'),
+                'photo' => $r->get('photo'), 'consent_at' => $r->get('consentAt'),
+            ]),
+            $catalog->flat('simulations', Simulation::class, 'simulations', fn (Record $r, Importer $i): array => [
+                'career_id' => $i->id(Career::class, $r->string('careerSlug'), "simulations {$r->string('id')}"),
+                'agent_id' => $i->id(Agent::class, $r->optionalString('agentId'), "simulations {$r->string('id')}"),
+                'title' => $r->t('title'), 'intro' => $r->t('intro'), 'minutes' => $r->get('minutes'),
+                'moments' => $r->t('moments'), 'asks' => $r->t('asks'), 'next_steps' => $r->t('next'),
+                'example' => (bool) $r->get('example', false), 'languages' => $r->get('languages', ['pt']),
+            ], keepExamples: true),
             $catalog->flat('video-stories', VideoStory::class, 'video-stories', fn (Record $r, Importer $i): array => [
                 'career_id' => $i->id(Career::class, $r->string('careerSlug'), "video-stories {$r->string('id')}"),
                 'name' => $r->get('name'), 'role' => $r->get('role'), 'company' => $r->get('company'), 'title' => $r->t('title'),
@@ -199,14 +213,15 @@ final class Catalog
      * @param  Closure(Record, Importer): array<string, mixed>  $values
      * @param  (Closure(Record, Importer): (Closure(TModel): bool))|null  $links
      * @param  bool  $example  every record is made up: it stays a draft
+     * @param  bool  $keepExamples  records marked `example` are published anyway (the app shows the mark): simulations
      */
-    private function flat(string $name, string $model, string $file, Closure $values, ?Closure $links = null, bool $example = false): Target
+    private function flat(string $name, string $model, string $file, Closure $values, ?Closure $links = null, bool $example = false, bool $keepExamples = false): Target
     {
-        return new Target($name, $model, function (Importer $importer) use ($model, $file, $values, $links, $example): iterable {
+        return new Target($name, $model, function (Importer $importer) use ($model, $file, $values, $links, $example, $keepExamples): iterable {
             foreach ($importer->files->records($file) as $record) {
                 yield new Row(
                     self::common($record) + $values($record, $importer),
-                    self::status($example || $record->get('example') === true),
+                    self::status($example || (! $keepExamples && $record->get('example') === true)),
                     $links === null ? null : self::on($model, $links($record, $importer)),
                 );
             }

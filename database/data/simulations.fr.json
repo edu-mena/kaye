@@ -1,0 +1,1571 @@
+[
+  {
+    "id": "um-dia-como-assistente-social",
+    "careerSlug": "assistente-social",
+    "title": "Um dia como assistente social numa administração municipal",
+    "intro": "Trabalhas num serviço de acção social de uma administração municipal na periferia de Luanda. A equipa é pequena e os casos são muitos.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "08:00",
+        "title": "A fila à porta",
+        "text": "Quando chegas, já há fila à porta do serviço: uma avó que cuida de três netos, um rapaz sem documentos e uma mulher que quer saber de um apoio de que ouviu falar. A tua colega abre o caderno de atendimento e dividem os casos pela urgência."
+      },
+      {
+        "id": "atendimento",
+        "time": "09:00",
+        "title": "O primeiro atendimento",
+        "text": "A avó explica que o neto mais velho deixou de ir à escola desde que a mãe foi trabalhar para outra província. Chora ao contar. Tu ouves, tomas notas e percebes que há três problemas ao mesmo tempo: documentos, escola e comida.",
+        "decision": {
+          "question": "Ela quer uma solução hoje. O que lhe dizes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prometes que resolves tudo esta semana, para ela ir sossegada.",
+              "result": "Ela sai aliviada, mas uma semana depois volta zangada porque nada mudou. Perdeu a confiança.",
+              "why": "Prometer o que não controlas estraga a relação. A tua palavra é a tua ferramenta."
+            },
+            {
+              "id": "b",
+              "text": "Explicas o que vão fazer, por ordem: primeiro os documentos, depois a escola, e marcas quando voltas a vê-la.",
+              "result": "Ela percebe os passos, marca a próxima visita e leva uma lista do que trazer.",
+              "why": "Um plano com passos e datas dá segurança, mesmo sem resolver tudo hoje. É assim que se acompanha um caso."
+            },
+            {
+              "id": "c",
+              "text": "Encaminhas para outro serviço e fechas o caso.",
+              "result": "O outro serviço não a conhece e ela perde-se entre balcões. O caso volta, pior.",
+              "why": "Encaminhar é parte do trabalho, mas acompanhar até ao fim também. Sem seguimento, a pessoa desiste."
+            }
+          ]
+        }
+      },
+      {
+        "id": "visita",
+        "time": "11:00",
+        "title": "Visita a uma família",
+        "text": "Vais com o motorista da administração a casa de uma família de que recebeste um alerta: uma criança que fica sozinha de dia, sem comer. O bairro não tem ruas asfaltadas e a viatura deixa-te a dez minutos a pé.",
+        "decision": {
+          "question": "Em casa só está uma menina de 8 anos. A mãe vende no mercado e só volta ao fim do dia. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deixas um recado e voltas quando a mãe estiver.",
+              "result": "Perdes a viagem, mas não expões a menina. Voltas dois dias depois e falas com a mãe com calma.",
+              "why": "Falar da família com uma criança sozinha é um erro. A visita só vale com um adulto responsável presente."
+            },
+            {
+              "id": "b",
+              "text": "Fazes perguntas à menina sobre a mãe e sobre o que comem em casa.",
+              "result": "A menina fica assustada e uma vizinha vem perguntar quem és. Quando a mãe sabe, fica zangada.",
+              "why": "Uma criança sozinha não se interroga. Assusta-se, e a família sente-se vigiada."
+            },
+            {
+              "id": "c",
+              "text": "Falas com uma vizinha de confiança, perguntas a que horas a mãe costuma chegar e voltas a essa hora.",
+              "result": "Encontras a mãe ao fim da tarde e ela aceita ser acompanhada porque não a apanhaste de surpresa.",
+              "why": "Contar com a comunidade, sem expor a família, é o que se faz no terreno."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço com a equipa",
+        "text": "Comes com a colega e com uma enfermeira do centro de saúde que veio tratar de um caso. Combinam quem acompanha o quê. Percebes que parte do teu trabalho é fazer com que serviços diferentes falem uns com os outros."
+      },
+      {
+        "id": "relatorio",
+        "time": "14:30",
+        "title": "O relatório social",
+        "text": "Escreves o relatório social do caso da manhã: a situação da família, o que foi feito e o que falta. O director vai ler isto para decidir um apoio, por isso tem de ser claro e com factos, sem opiniões."
+      },
+      {
+        "id": "fim",
+        "time": "16:30",
+        "title": "Fim do dia",
+        "text": "Marcas as visitas da próxima semana e escreves no caderno o que ficou por fazer. Sais com a sensação de que não resolveste tudo, mas que três famílias têm hoje um passo seguinte."
+      }
+    ],
+    "asks": [
+      "Saber ouvir sem julgar e sem prometer o que não depende de ti.",
+      "Escrever relatórios claros, com factos.",
+      "Aguentar casos difíceis e voltar no dia seguinte.",
+      "Trabalhar com poucos meios e ligar serviços diferentes."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê as licenciaturas em Serviço Social na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as instituições que têm Serviço Social."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em ONG, hospitais e administrações."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 1
+  },
+  {
+    "id": "um-dia-como-chefe-de-cozinha",
+    "careerSlug": "chefe-de-cozinha",
+    "title": "Um dia como chefe de cozinha num restaurante de hotel",
+    "intro": "És o chefe de cozinha de um restaurante de hotel em Luanda. Tens uma equipa de oito pessoas e hoje há um jantar de empresa com 60 convidados.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "09:00",
+        "title": "As compras e o stock",
+        "text": "Chegas, vais à câmara fria e confirmas o stock. O fornecedor de peixe ligou: o peixe que encomendaste só chega ao fim da tarde. O jantar é às 20h e a ementa leva peixe grelhado.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperas que o peixe chegue, na esperança de não atrasar.",
+              "result": "O peixe chega às 18h30, já sem tempo para o preparar com calma. O jantar atrasa e os convidados notam.",
+              "why": "Um chefe tem sempre um plano B. Esperar sem alternativa põe o serviço em risco."
+            },
+            {
+              "id": "b",
+              "text": "Ligas ao mercado do peixe e a outro fornecedor, e preparas uma alternativa com o que já tens, como frango, caso o peixe falhe.",
+              "result": "Compras uma parte do peixe noutro lado, e o frango fica pronto como reserva. O jantar corre bem.",
+              "why": "Antecipar e ter alternativas é o essencial numa cozinha. O prato tem de sair sempre."
+            },
+            {
+              "id": "c",
+              "text": "Substituis o peixe por outro mais barato, sem dizer à direcção.",
+              "result": "Um convidado repara e queixa-se ao gerente. Tens de explicar a troca.",
+              "why": "Mudar o que foi prometido ao cliente exige acordo prévio. O chefe responde pela ementa."
+            }
+          ]
+        }
+      },
+      {
+        "id": "equipa",
+        "time": "11:00",
+        "title": "Distribuir o trabalho",
+        "text": "Reúnes a equipa e distribuis as tarefas: um prepara os legumes, outra faz as sobremesas, o mais novo lava e corta. Explicas a ordem dos pratos e a hora a que cada um tem de estar pronto."
+      },
+      {
+        "id": "higiene",
+        "time": "13:30",
+        "title": "Higiene e segurança",
+        "text": "Ao passar pela bancada, vês um ajudante a cortar carne crua e depois legumes na mesma tábua, sem lavar.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deixas passar, porque estão com pressa.",
+              "result": "Um convidado fica doente depois do jantar. O hotel abre um inquérito.",
+              "why": "A higiene é uma regra, não um pormenor. Uma intoxicação destrói a reputação de um restaurante."
+            },
+            {
+              "id": "b",
+              "text": "Paras o ajudante com calma, mostras as tábuas por cor e explicas porque é que se separam. Mandas lavar tudo.",
+              "result": "Ele ouve, corrige e passa a usar as tábuas certas. A equipa vê que és exigente com respeito.",
+              "why": "Corrigir com calma e explicar o porquê forma a equipa e protege o cliente."
+            },
+            {
+              "id": "c",
+              "text": "Gritas com ele à frente de todos.",
+              "result": "O ajudante fica com medo, a equipa fica tensa e dois cometem erros à tarde.",
+              "why": "Gritar não ensina e piora a pressão. A autoridade vem da calma e do exemplo."
+            }
+          ]
+        }
+      },
+      {
+        "id": "pausa",
+        "time": "15:00",
+        "title": "Pausa e reunião",
+        "text": "Almoças tarde, de pé. Falas com o gerente do hotel sobre o preço do menu e os custos: ele quer um prato mais barato, sem perder a qualidade. Fazes contas dos custos por porção."
+      },
+      {
+        "id": "servico",
+        "time": "19:30",
+        "title": "O serviço",
+        "text": "O jantar começa. Na cozinha ouvem-se pedidos e passam pratos. Dizes \"passa\", \"pronto\" e \"mais dois\" em voz firme. Um prato volta da sala: o convidado diz que a carne está mal passada.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes à sala que o cliente não percebe e que o prato está certo.",
+              "result": "O cliente fica aborrecido e não volta. O gerente pergunta o que se passou.",
+              "why": "Na hotelaria, o cliente é quem decide. Discutir não resolve."
+            },
+            {
+              "id": "b",
+              "text": "Pegas no prato, refazes um novo no ponto pedido e vais tu ver o resultado.",
+              "result": "O novo prato sai a tempo e o cliente fica satisfeito. A cozinha mantém o ritmo.",
+              "why": "Resolver depressa e sem drama é o que distingue uma cozinha profissional."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "23:00",
+        "title": "Fim do serviço",
+        "text": "Quando o último prato sai, a equipa limpa e tu verificas as câmaras e as luzes. Escreves o que ficou por repor e o que correu bem. Chegas a casa quando a cidade já dorme."
+      }
+    ],
+    "asks": [
+      "Aguentar horas longas, em pé e sob pressão.",
+      "Planear e ter sempre um plano B.",
+      "Liderar uma equipa com calma e exigência.",
+      "Respeitar a higiene e o custo de cada prato."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê os cursos de Cozinha e de Hotelaria na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as escolas de hotelaria e turismo."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em cozinhas de hotéis e restaurantes."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 12
+  },
+  {
+    "id": "um-dia-como-contabilista",
+    "careerSlug": "contabilista",
+    "title": "Um dia como contabilista numa empresa de distribuição",
+    "intro": "Trabalhas no departamento de contabilidade de uma empresa de distribuição em Luanda. Estamos a três dias do fecho do mês e o chefe quer o balancete na quinta-feira.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "08:00",
+        "title": "A caixa de entrada",
+        "text": "Chegas ao escritório e abres o programa de contabilidade. Na secretária há uma pilha de facturas dos fornecedores e no email, três pedidos urgentes: pagamentos, o extracto do banco e um cliente que diz que já pagou."
+      },
+      {
+        "id": "registos",
+        "time": "09:00",
+        "title": "Registar e reconciliar",
+        "text": "Lanças as facturas no programa e confrontas o extracto do banco com os teus registos. Falta uma entrada de 1 200 000 Kz que o banco mostra e tu não encontras.",
+        "decision": {
+          "question": "A diferença trava-te o fecho. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lanças a diferença numa conta de \"outros\" para a reconciliação bater certo.",
+              "result": "O balancete fecha, mas daqui a duas semanas o auditor pergunta o que é aquele valor e ninguém sabe responder.",
+              "why": "Esconder uma diferença não a resolve. Na contabilidade, o que não se explica volta com juros."
+            },
+            {
+              "id": "b",
+              "text": "Procuras o cliente pelo valor e pela data, pedes o talão à tesouraria e lanças o recebimento certo.",
+              "result": "Descobres que era o cliente que dizia ter pago. Registas, e a reconciliação bate certo com a prova.",
+              "why": "Cada lançamento precisa de um documento que o justifique. Procurar a origem é o trabalho."
+            },
+            {
+              "id": "c",
+              "text": "Deixas a diferença para o mês seguinte.",
+              "result": "O chefe nota a diferença no balancete e pergunta porque a deixaste. Perdes a manhã a justificar.",
+              "why": "Um fecho com pendentes sem explicação põe em causa os números todos. Pelo menos regista-os como pendentes."
+            }
+          ]
+        }
+      },
+      {
+        "id": "impostos",
+        "time": "11:30",
+        "title": "Os impostos",
+        "text": "Preparas a declaração do IVA do mês. Cada factura precisa do NIF do fornecedor e de estar bem classificada. Encontras uma factura sem NIF.",
+        "decision": {
+          "question": "O fornecedor é um prestador que o director conhece bem. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incluis a factura na declaração, para o director não se queixar.",
+              "result": "Meses depois, uma inspecção da AGT não aceita a despesa e a empresa paga mais imposto e uma multa.",
+              "why": "Uma factura sem os dados exigidos não é aceite como despesa. O contabilista responde pela correcção das contas."
+            },
+            {
+              "id": "b",
+              "text": "Pedes ao fornecedor uma factura correcta e avisas o director da razão.",
+              "result": "O fornecedor reemite em dois dias. O director percebe que a regra é para todos.",
+              "why": "Dizer não com a razão e a solução faz parte do trabalho. O contabilista protege a empresa de problemas futuros."
+            },
+            {
+              "id": "c",
+              "text": "Deixas a factura fora e não dizes nada.",
+              "result": "O fornecedor liga ao director, que quer saber porque ainda não foi pago.",
+              "why": "Calar-te deixa os outros sem saber o que fazer. Explicar é metade do teu trabalho."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço com os colegas",
+        "text": "Almoças com uma colega da tesouraria e com o estagiário. Ela explica-te como os pagamentos são aprovados; ele pergunta-te como é que se estuda para a Ordem dos Contabilistas e Peritos Contabilistas."
+      },
+      {
+        "id": "chefe",
+        "time": "15:00",
+        "title": "A pergunta do director",
+        "text": "O director financeiro chama-te e pergunta: \"Porque é que as vendas subiram e a margem desceu?\" Tens o balancete provisório no ecrã e uns minutos para responder.",
+        "decision": {
+          "question": "Como respondes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lês-lhe os números linha a linha, tal como estão no programa.",
+              "result": "Ele perde-se no meio e diz que volta a perguntar amanhã.",
+              "why": "Quem decide precisa da resposta, não da lista. Explicar os números em poucas palavras é uma competência."
+            },
+            {
+              "id": "b",
+              "text": "Dizes que o custo do transporte subiu mais do que os preços e mostras as duas linhas lado a lado.",
+              "result": "Ele percebe logo e pede-te uma estimativa do efeito de rever os preços.",
+              "why": "Escolher os números que respondem à pergunta e mostrá-los é o que torna um contabilista útil à gestão."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "17:30",
+        "title": "Fim do dia",
+        "text": "Gravas o ficheiro, deixas a lista do que falta e sais mais tarde do que queres, porque estás em fecho de mês. Amanhã há mais, mas o balancete está a meio caminho."
+      }
+    ],
+    "asks": [
+      "Rigor: um zero a mais ou a menos muda tudo.",
+      "Paciência para procurar a origem de uma diferença.",
+      "Saber dizer não e explicar porquê, mesmo ao director.",
+      "Explicar números a quem não é da área."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê as licenciaturas e os cursos médios de Contabilidade na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as escolas de contabilidade de Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em gabinetes de contabilidade e em empresas."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 3
+  },
+  {
+    "id": "um-dia-como-enfermeiro",
+    "careerSlug": "enfermeiro",
+    "title": "Um dia como enfermeiro numa enfermaria",
+    "intro": "Turno da manhã numa enfermaria de medicina de um hospital municipal de Luanda. Tens 12 doentes à tua responsabilidade e uma técnica de enfermagem a trabalhar contigo.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "06:50",
+        "title": "Passagem de turno",
+        "text": "Chegas de candongueiro dez minutos antes do turno, porque a colega da noite não sai sem passar o turno. À volta do livro de registos, ela diz-te o estado de cada cama: quem tem febre, quem foi operado, quem espera análises. Na cama 7 há um senhor com a tensão alta que passou a noite agitado."
+      },
+      {
+        "id": "sinais-vitais",
+        "time": "07:30",
+        "title": "Sinais vitais e medicação",
+        "text": "Começas a ronda: tensão, temperatura, pulso e oxigénio de cada doente, tudo escrito no processo. Depois vem a medicação das 8h, que confirmas pelo nome, pela dose e pela hora antes de dar a cada um.",
+        "decision": {
+          "question": "Na cama 7 a tensão continua alta e o senhor diz que não dormiu nada. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dás a medicação da hora e anotas a tensão no fim da ronda.",
+              "result": "Meia hora depois o senhor queixa-se de uma dor de cabeça forte. A tensão subiu mais.",
+              "why": "Um valor fora do normal não espera pelo fim da ronda: quem vigia é o enfermeiro, e os atrasos pagam-se em saúde do doente."
+            },
+            {
+              "id": "b",
+              "text": "Voltas a medir, anotas os dois valores e chamas o médico de serviço.",
+              "result": "O médico vem em dez minutos, ajusta a medicação e pede-te para medires de hora a hora.",
+              "why": "Confirmar o valor e avisar logo é o que a equipa espera de ti: o médico decide com números, não com palpites."
+            },
+            {
+              "id": "c",
+              "text": "Dás uma segunda dose do comprimido, para baixar mais depressa.",
+              "result": "A tensão baixa depressa demais e o doente fica tonto. O médico pergunta quem autorizou.",
+              "why": "Só o médico prescreve doses. O enfermeiro cumpre, vigia e avisa; mudar a dose por conta própria põe o doente em risco."
+            }
+          ]
+        }
+      },
+      {
+        "id": "pensos",
+        "time": "10:00",
+        "title": "Pensos e um doente novo",
+        "text": "Fazes os pensos de uma senhora operada há dois dias e ensinas a filha a manter a ferida limpa. Chega uma maca da urgência com um doente novo, com pneumonia. Tens de o instalar, medir os sinais e abrir-lhe o processo."
+      },
+      {
+        "id": "falta-material",
+        "time": "12:15",
+        "title": "Falta de material",
+        "text": "Ao preparar um soro, vês que as luvas do teu tamanho acabaram e que o armazém da farmácia do hospital só abre às 14h. A enfermeira-chefe está numa reunião.",
+        "decision": {
+          "question": "Precisas das luvas para a próxima hora. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pedes à família do doente para comprar luvas na farmácia da rua.",
+              "result": "A família traz as luvas, mas fica a sentir que o hospital falhou. Mais tarde, a chefe diz-te que isto não se pede.",
+              "why": "O doente tem direito ao material do serviço. Pedir à família é último recurso, e a chefe deve saber antes."
+            },
+            {
+              "id": "b",
+              "text": "Pedes luvas emprestadas a outra enfermaria e registas o empréstimo no caderno.",
+              "result": "Resolves a hora seguinte e deixas escrito o que falta, para a chefe pedir mais ao armazém.",
+              "why": "Entre colegas, emprestar e anotar é normal. O registo faz com que a falta chegue a quem compra."
+            },
+            {
+              "id": "c",
+              "text": "Fazes o soro sem luvas, com mais cuidado.",
+              "result": "O doente fica bem, mas uma colega vê e avisa a chefe. Ficas com uma chamada de atenção.",
+              "why": "As luvas protegem o doente e a ti. A segurança não se negoceia, mesmo com pressa."
+            }
+          ]
+        }
+      },
+      {
+        "id": "equipa",
+        "time": "13:30",
+        "title": "Com a equipa",
+        "text": "No intervalo, a técnica de enfermagem conta-te como organiza as camas à hora das visitas. Depois, a médica passa visita contigo e pergunta como estiveram os doentes: és tu quem lhe explica o que viste."
+      },
+      {
+        "id": "registos",
+        "time": "14:30",
+        "title": "Registos e passagem",
+        "text": "Escreves no processo de cada doente o que fizeste, a que horas e o que mudou. Se não está escrito, para a equipa não aconteceu. Às 15h passas o turno à colega da tarde, cama a cama, e sais com os pés cansados."
+      }
+    ],
+    "asks": [
+      "Atenção ao pormenor: uma dose ou uma hora erradas contam.",
+      "Resistência física e calma sob pressão.",
+      "Falar com doentes e famílias com respeito, mesmo cansado.",
+      "Trabalhar por turnos, incluindo noites e fins-de-semana."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê o curso médio de Enfermagem e a licenciatura na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as escolas de enfermagem de Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em centros de saúde e hospitais."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 0
+  },
+  {
+    "id": "um-dia-como-engenheiro-civil",
+    "careerSlug": "engenheiro-civil",
+    "title": "Um dia como engenheiro civil numa obra de edifício",
+    "intro": "És engenheiro civil júnior numa obra de um edifício de cinco andares em Luanda. O engenheiro director de obra está contigo no terreno e o encarregado manda nas equipas.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "06:30",
+        "title": "Chegada ao estaleiro",
+        "text": "A obra começa cedo, para fugir ao calor e ao trânsito. Chegas com o capacete e as botas, assinas a folha de presenças e passas pelo encarregado, que te diz o que há para fazer: betonar a laje do segundo andar."
+      },
+      {
+        "id": "verificar",
+        "time": "07:15",
+        "title": "Verificar antes de betonar",
+        "text": "Antes de chegar o betão, tens de conferir a armadura da laje com o projecto: diâmetro dos varões, espaçamento e recobrimento. Medes com a fita e encontras uma zona com os varões mais afastados do que o desenho.",
+        "decision": {
+          "question": "O camião do betão está a chegar e cada minuto de atraso custa dinheiro. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deixas passar, é só uma zona pequena.",
+              "result": "A laje é betonada. Meses depois aparecem fissuras e a empresa gasta muito mais a reparar.",
+              "why": "A armadura fica escondida para sempre. Se não verificares agora, ninguém verifica mais."
+            },
+            {
+              "id": "b",
+              "text": "Paras a betonagem na zona, mostras ao encarregado a diferença e esperas que a equipa corrija antes de chamares o camião.",
+              "result": "Perdes quarenta minutos e o encarregado resmunga, mas a laje fica conforme ao projecto.",
+              "why": "Um engenheiro assina pela qualidade. Ser o chato na hora certa evita o problema grande depois."
+            },
+            {
+              "id": "c",
+              "text": "Corriges tu mesmo, com as tuas mãos, para ser mais depressa.",
+              "result": "Fazes o trabalho mal e magoas as costas. O encarregado perde o respeito por ti.",
+              "why": "O engenheiro dirige e verifica; a equipa executa. Tomar o lugar dos outros não resolve."
+            }
+          ]
+        }
+      },
+      {
+        "id": "betao",
+        "time": "09:00",
+        "title": "A betonagem",
+        "text": "O camião betoneira chega e começa o trabalho. Pedes uma amostra para o ensaio de resistência e controlas a trabalhabilidade com o cone de Abrams. O sol já aperta e a equipa não pode parar."
+      },
+      {
+        "id": "material",
+        "time": "11:30",
+        "title": "O fornecedor falha",
+        "text": "O fornecedor de ferro liga: a entrega de amanhã vai atrasar uma semana. Sem ferro, a equipa fica parada no terceiro andar. O director de obra está numa reunião no escritório.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deixas a equipa parada até o director voltar.",
+              "result": "Perdem-se dois dias de trabalho e salário a quem não trabalha.",
+              "why": "Um problema de obra pede decisão rápida. Esperar sempre custa dinheiro."
+            },
+            {
+              "id": "b",
+              "text": "Reorganizas o plano: a equipa passa a trabalhar nas paredes do segundo andar, enquanto procuras outro fornecedor e avisas o director por mensagem.",
+              "result": "A equipa continua ocupada. O director liga à noite, aprova o novo fornecedor e agradece.",
+              "why": "Resolver o que está ao teu alcance e informar quem decide é a postura de um bom engenheiro."
+            },
+            {
+              "id": "c",
+              "text": "Compras ferro a um vendedor de rua, sem factura, para não parar.",
+              "result": "O ferro não tem certificado. Na fiscalização, a obra é parada.",
+              "why": "Materiais sem certificado põem em risco a obra e as pessoas. A pressa não justifica."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço no estaleiro",
+        "text": "Almoças com o encarregado e os pedreiros, num banco debaixo de uma árvore. Aprendes mais sobre como as coisas realmente se fazem do que num mês de aulas. Ele conta o que já viu correr mal noutras obras."
+      },
+      {
+        "id": "escritorio",
+        "time": "15:00",
+        "title": "Diário de obra",
+        "text": "No contentor-escritório, registas no diário de obra o que foi feito, quem esteve, o material que chegou e o problema do ferro. Se mais tarde houver uma disputa, este caderno é a prova."
+      },
+      {
+        "id": "fim",
+        "time": "17:00",
+        "title": "Fim do dia",
+        "text": "Mandas as fotos da laje ao director de obra e planeias amanhã. Voltas a casa com poeira nas botas e a certeza de que, de manhã, há um edifício um pouco mais alto do que ontem."
+      }
+    ],
+    "asks": [
+      "Rigor com medidas e normas, mesmo sob pressão.",
+      "Gostar de estar no terreno, ao sol e à poeira.",
+      "Ser respeitado por quem trabalha contigo, sem gritar.",
+      "Resolver problemas práticos e registar tudo."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê a licenciatura em Engenharia Civil na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as faculdades de engenharia de Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em construtoras e em gabinetes de fiscalização."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 7
+  },
+  {
+    "id": "um-dia-como-engenheiro-de-minas",
+    "careerSlug": "engenheiro-de-minas",
+    "title": "Um dia como engenheiro de minas numa exploração das Lundas",
+    "intro": "Trabalhas numa exploração mineira das Lundas, em regime de turnos longos no local. Hoje és o engenheiro de turno de uma frente de desmonte a céu aberto.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "05:45",
+        "title": "Briefing de segurança",
+        "text": "O dia começa antes do sol, com a reunião de segurança: o chefe de turno lê os riscos do dia, as zonas interditas e os pontos de reunião. Tu assinas, colocas o capacete, os óculos e os coletes, e subis à frente de trabalho na carrinha."
+      },
+      {
+        "id": "frente",
+        "time": "06:30",
+        "title": "A frente de trabalho",
+        "text": "Com o mapa da mina na mão, vês onde as máquinas vão escavar. Escavadoras e camiões estão a postos. Um operador diz-te que o terreno numa das bermas está a ceder.",
+        "decision": {
+          "question": "A produção do turno está atrasada e o supervisor pede para não parar. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes ao operador para continuar com cuidado.",
+              "result": "A berma cede a meio da manhã e a escavadora quase cai. Ninguém se magoa, mas a frente fica parada três dias.",
+              "why": "Na mina, a segurança vem antes da produção. Quem pára cedo evita o acidente e a paragem longa."
+            },
+            {
+              "id": "b",
+              "text": "Paras a máquina, isolas a zona, inspeccionas a berma com o geotécnico e só voltas quando estiver estável.",
+              "result": "Perdes duas horas, o supervisor não gosta, mas a equipa fica segura e a produção recupera à tarde.",
+              "why": "O engenheiro tem autoridade e dever de parar uma operação perigosa. É a decisão que se defende no relatório."
+            },
+            {
+              "id": "c",
+              "text": "Mudas a máquina para outra frente, sem avisar ninguém.",
+              "result": "A mudança estraga o plano de lavra e deixa as equipas confusas. O supervisor pergunta porquê.",
+              "why": "Mudar o plano sem avisar desorganiza a mina. Comunicar é parte da segurança."
+            }
+          ]
+        }
+      },
+      {
+        "id": "geologia",
+        "time": "09:30",
+        "title": "Com os geólogos",
+        "text": "Falas com a geóloga sobre as amostras da semana. Ela diz que a concentração de diamantes numa zona é menor do que o previsto. Isso muda quanto vale a pena escavar ali."
+      },
+      {
+        "id": "explosivos",
+        "time": "11:30",
+        "title": "O desmonte com explosivos",
+        "text": "Hoje há uma detonação programada. Verificas a evacuação, as sirenes e a lista de pessoas. Um camionista diz que ainda precisa de dez minutos para tirar o camião de uma zona de risco.",
+        "decision": {
+          "question": "A detonação está marcada e o prazo é apertado. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperas até o camião sair e só depois dás ordem.",
+              "result": "A detonação atrasa dez minutos, o plano ajusta-se e ninguém corre risco.",
+              "why": "Nenhuma detonação avança sem a zona estar vazia. Dez minutos custam menos do que uma vida."
+            },
+            {
+              "id": "b",
+              "text": "Autorizas a detonação, porque o camião está longe.",
+              "result": "Fragmentos de rocha atingem o camião. O motorista fica ferido e abre-se um inquérito.",
+              "why": "A distância de segurança é uma regra, não uma estimativa. Quem a quebra responde por ela."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:30",
+        "title": "Almoço no refeitório",
+        "text": "No refeitório do acampamento, comes com os geólogos e os operadores. A conversa é sobre quando é a próxima folga e sobre o que se come em casa. Estar longe da família é a parte mais difícil."
+      },
+      {
+        "id": "relatorio",
+        "time": "16:00",
+        "title": "Relatório do turno",
+        "text": "No gabinete, registas a produção do turno, as paragens, as ocorrências e o plano para amanhã. Passas o turno ao colega da noite e vais ao dormitório."
+      }
+    ],
+    "asks": [
+      "Aguentar turnos longos, longe de casa e da família.",
+      "Pôr a segurança acima da produção, sempre.",
+      "Trabalhar em equipa com geólogos, operadores e chefias.",
+      "Gostar de campo, de máquinas e de números."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê a licenciatura em Engenharia de Minas na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as instituições com cursos de minas e geologia."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em empresas mineiras."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 8
+  },
+  {
+    "id": "um-dia-como-formador-profissional",
+    "careerSlug": "formador-profissional",
+    "title": "Um dia como formador num centro de formação",
+    "intro": "Dás um curso de 40 horas de segurança no trabalho a 18 adultos de uma empresa de construção, num centro de formação em Luanda. Hoje é o terceiro dia.",
+    "minutes": 7,
+    "moments": [
+      {
+        "id": "preparar",
+        "time": "07:15",
+        "title": "Preparar a sala",
+        "text": "Chegas antes dos formandos para ligar o projector, que falha sempre à primeira, imprimir as fichas e arrumar os capacetes e os coletes da parte prática. A luz vai-se abaixo duas vezes, e por isso trouxeste os slides também impressos."
+      },
+      {
+        "id": "sessao",
+        "time": "08:30",
+        "title": "A primeira sessão",
+        "text": "Ensinas os tipos de extintor. Um formando, mais velho do que tu e com trinta anos de obra, diz que \"isso são coisas de livro\". Os outros olham para ti.",
+        "decision": {
+          "question": "Como respondes ao formando?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que ele está enganado e continuas o slide.",
+              "result": "O formando fecha-se e passa a manhã de braços cruzados. Os outros ficam desconfiados.",
+              "why": "Os adultos aprendem melhor quando a sua experiência é respeitada. Contrariar em público custa-te a atenção da sala."
+            },
+            {
+              "id": "b",
+              "text": "Pedes-lhe um exemplo de obra e usas o caso para mostrar porque é que o tipo de extintor importa.",
+              "result": "Ele conta um incêndio que viu e a sala percebe a utilidade. Ele passa a ajudar-te nas práticas.",
+              "why": "Ligar a teoria à experiência dos formandos é a base da formação de adultos."
+            },
+            {
+              "id": "c",
+              "text": "Ignoras o comentário para não perder tempo.",
+              "result": "A sessão acaba a horas, mas a sala fica a pensar que não ligas ao que eles sabem.",
+              "why": "Ignorar custa menos agora e mais depois: sem a sala contigo, a prática não corre bem."
+            }
+          ]
+        }
+      },
+      {
+        "id": "pratica",
+        "time": "10:30",
+        "title": "A parte prática",
+        "text": "Lá fora, cada um treina com um extintor num exercício controlado. Um formando hesita, com medo do fogo. Dois outros riem-se dele.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pedes aos que riem para esperarem de lado e acompanhas o formando, passo a passo.",
+              "result": "O formando faz o exercício, devagar, e no fim agradece. Os outros ficam mais respeitadores.",
+              "why": "Segurança e respeito vêm antes da pressa. O formador cuida do grupo todo, não só dos mais rápidos."
+            },
+            {
+              "id": "b",
+              "text": "Dizes-lhe para tentar já, que o medo passa a fazer.",
+              "result": "Ele larga o extintor, assustado, e quase se queima. Tens de parar o exercício.",
+              "why": "Num exercício com fogo, forçar é perigoso. O formador responde pela segurança do grupo."
+            },
+            {
+              "id": "c",
+              "text": "Passas ao seguinte e deixas que ele tente no fim.",
+              "result": "Ele não volta a tentar e sai sem a competência. Mais tarde, a empresa queixa-se.",
+              "why": "A empresa paga por pessoas que saem a saber fazer. Quem fica para trás conta nos teus resultados."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "12:30",
+        "title": "Almoço e coordenação",
+        "text": "Comes com a coordenadora do centro, que te lembra que no sábado tens outro grupo e te pede a lista de presenças para o relatório à empresa cliente."
+      },
+      {
+        "id": "avaliacao",
+        "time": "14:30",
+        "title": "Avaliação",
+        "text": "Fazes uma pequena avaliação prática e escrita. Três formandos não chegam à nota mínima, e a empresa quer o certificado para todos.",
+        "decision": {
+          "question": "O que fazes com os três que não chegaram?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dás-lhes o certificado, para não criar problemas com a empresa.",
+              "result": "A empresa fica contente, mas um deles falha num exercício real semanas depois. O centro perde credibilidade.",
+              "why": "O certificado diz o que a pessoa sabe fazer. Se mentir, deixa de valer para todos."
+            },
+            {
+              "id": "b",
+              "text": "Marcas uma sessão de reforço e uma nova avaliação, e informas a coordenadora e a empresa.",
+              "result": "Dois passam à segunda tentativa; o terceiro repete o curso. A empresa aceita, porque percebe o critério.",
+              "why": "Dar segunda oportunidade com um critério claro mantém a exigência e ajuda a pessoa."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "17:00",
+        "title": "Fim do dia",
+        "text": "Anotas o que correu bem e o que mudar amanhã, e passas os resultados à coordenadora. Voltas para casa a pensar em como vais explicar melhor os extintores à segunda turma."
+      }
+    ],
+    "asks": [
+      "Gostar de explicar e de ver os outros aprender.",
+      "Respeitar quem sabe por experiência e tem mais idade do que tu.",
+      "Preparar tudo e improvisar quando o material falha.",
+      "Dominar bem, na prática, a profissão que ensinas."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê os cursos de formação de formadores e a área em que queres ensinar."
+      },
+      {
+        "kind": "academy",
+        "text": "Conhece os centros de formação profissional de Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Pede para acompanhar um formador como assistente."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 2
+  },
+  {
+    "id": "um-dia-como-gestor-de-redes-sociais",
+    "careerSlug": "gestor-de-redes-sociais",
+    "title": "Um dia como gestor de redes sociais numa agência",
+    "intro": "Trabalhas numa pequena agência de Luanda e geres as redes sociais de uma marca de bebidas e de uma loja de roupa. Hoje há lançamento de uma promoção.",
+    "minutes": 7,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "08:30",
+        "title": "As notificações",
+        "text": "Antes do café, já abriste as mensagens das duas contas: perguntas sobre preços, uma queixa de uma entrega, um comentário a elogiar e outro a insultar. Respondes ao que podes e deixas o resto para depois da reunião."
+      },
+      {
+        "id": "reuniao",
+        "time": "09:30",
+        "title": "Reunião de planeamento",
+        "text": "Com a directora de contas, vês o calendário da semana. A promoção da bebida sai às 12h e o cliente quer um vídeo curto no Instagram e no TikTok. Tens uma manhã e um telemóvel com boa câmara."
+      },
+      {
+        "id": "criar",
+        "time": "10:00",
+        "title": "Criar o conteúdo",
+        "text": "Filmas, editas, escreves a legenda e escolhes as hashtags. O cliente envia por WhatsApp uma mensagem: \"Pode ser com a minha filha a dizer o texto?\" É menor de idade.",
+        "decision": {
+          "question": "O que respondes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que sim, porque o cliente decide.",
+              "result": "O vídeo sai e uma conta denuncia a marca por usar uma criança em publicidade de bebidas. O vídeo é retirado.",
+              "why": "Há regras para a publicidade, sobretudo de bebidas e com menores. O gestor deve conhecê-las e avisar o cliente."
+            },
+            {
+              "id": "b",
+              "text": "Explicas que numa campanha de bebidas não podes usar menores, e propões uma pessoa adulta ou só a música e o produto.",
+              "result": "O cliente aceita a segunda ideia e o vídeo sai a horas.",
+              "why": "Conhecer os limites e propor uma alternativa faz de ti um profissional, não só alguém que executa."
+            },
+            {
+              "id": "c",
+              "text": "Recusas e não dizes porquê.",
+              "result": "O cliente fica confuso e liga à directora. Perdes uma tarde a explicar.",
+              "why": "Uma recusa sem razão custa tempo e confiança. Explicar é parte do serviço."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "12:30",
+        "title": "A publicação sai",
+        "text": "Publicas às 12h, como combinado. Em poucos minutos entram os primeiros comentários e as primeiras perguntas. Almoças com o portátil aberto, a responder."
+      },
+      {
+        "id": "crise",
+        "time": "14:30",
+        "title": "Um comentário que cresce",
+        "text": "Uma pessoa publicou na conta da loja de roupa: \"Paguei e nunca chegou.\" Já tem 40 gostos e outras pessoas a juntar-se. Ainda não falaste com o cliente.",
+        "decision": {
+          "question": "O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Apagas o comentário.",
+              "result": "A pessoa volta a escrever, mais zangada, e publica uma captura. O assunto cresce.",
+              "why": "Apagar queixas reais piora o problema. As pessoas esperam resposta, não silêncio."
+            },
+            {
+              "id": "b",
+              "text": "Respondes em público, com calma, a pedir os dados da encomenda em privado, e avisas o cliente para resolver a entrega.",
+              "result": "A pessoa manda os dados, a entrega é encontrada e ela volta a comentar a agradecer.",
+              "why": "Responder depressa, em público, e resolver em privado é o que se faz numa crise pequena."
+            },
+            {
+              "id": "c",
+              "text": "Respondes a dizer que a culpa foi dela.",
+              "result": "O comentário tem centenas de respostas em duas horas. O cliente liga, furioso.",
+              "why": "Uma marca nunca ganha uma discussão em público. O tom é parte do trabalho."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "17:00",
+        "title": "Os números do dia",
+        "text": "Abres as estatísticas: o vídeo teve 18 mil visualizações e 60 mensagens. Escreves o resumo para o cliente, com o que funcionou e o que mudar na próxima publicação."
+      }
+    ],
+    "asks": [
+      "Escrever curto e claro, com o tom da marca.",
+      "Manter a calma com críticas e queixas.",
+      "Conhecer as regras da publicidade e das plataformas.",
+      "Medir resultados, não só publicar."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê os cursos de marketing digital e de comunicação na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as escolas de comunicação e marketing."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em agências e em departamentos de marketing."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 6
+  },
+  {
+    "id": "um-dia-como-jurista",
+    "careerSlug": "jurista",
+    "title": "Um dia como jurista numa empresa",
+    "intro": "És o jurista de uma empresa de média dimensão em Luanda. Trabalhas para uma só organização: a direcção, as finanças, os recursos humanos e as compras pedem-te ajuda.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "08:15",
+        "title": "Os pedidos do dia",
+        "text": "Abres o email e tens quatro pedidos: um contrato de arrendamento para rever, uma dúvida do director de recursos humanos sobre um despedimento, um parecer sobre uma licença e um fornecedor que ameaça processar."
+      },
+      {
+        "id": "contrato",
+        "time": "09:30",
+        "title": "O contrato de arrendamento",
+        "text": "Lês o contrato palavra a palavra. Há uma cláusula que permite ao proprietário subir a renda quando quiser, sem aviso.",
+        "decision": {
+          "question": "O director comercial quer assinar hoje, porque gostou do espaço. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que está tudo bem para não atrasar o negócio.",
+              "result": "Seis meses depois a renda sobe 40% e a empresa não pode reclamar.",
+              "why": "O jurista existe para ver o que os outros não vêem. Calar-te sai caro à empresa."
+            },
+            {
+              "id": "b",
+              "text": "Explicas o risco em duas frases e propões uma versão da cláusula com um limite e um aviso prévio.",
+              "result": "O proprietário aceita um limite anual e o contrato assina-se na semana seguinte.",
+              "why": "Um bom jurista não só trava: propõe uma saída. O negócio avança com o risco controlado."
+            },
+            {
+              "id": "c",
+              "text": "Recusas o contrato, sem mais explicações.",
+              "result": "O director fica irritado e passa a evitar-te. O negócio perde-se.",
+              "why": "Dizer não sem alternativa afasta os colegas. O jurista é útil quando ajuda a fazer."
+            }
+          ]
+        }
+      },
+      {
+        "id": "rh",
+        "time": "11:30",
+        "title": "O pedido dos recursos humanos",
+        "text": "O director de recursos humanos quer despedir um trabalhador por faltas. Pergunta-te se pode fazê-lo hoje. Ao ver o processo, notas que não há registo das advertências anteriores.",
+        "decision": {
+          "question": "O que lhe dizes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que pode despedir, porque as faltas são claras.",
+              "result": "O trabalhador vai ao tribunal e a empresa perde, por falta de procedimento.",
+              "why": "Na lei laboral, o procedimento conta tanto como a razão. Sem provas escritas, a empresa fica sem defesa."
+            },
+            {
+              "id": "b",
+              "text": "Que primeiro é preciso reunir as faltas, as advertências e a resposta do trabalhador, e que explicas os passos que a lei exige.",
+              "result": "O processo leva três semanas, mas fica pronto e a empresa está protegida.",
+              "why": "O trabalho é prevenir problemas. Um processo bem montado vale mais do que uma pressa."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço",
+        "text": "Almoças com a colega das finanças, que te pergunta se podem pagar mais cedo a um fornecedor para ter desconto. Aprendes que muita coisa que parece financeira tem um lado legal."
+      },
+      {
+        "id": "parecer",
+        "time": "14:30",
+        "title": "O parecer",
+        "text": "Escreves um parecer curto sobre a licença: o que a lei exige, o que a empresa já tem, o que falta e quanto tempo demora. Escreves para quem não é jurista: frases curtas e uma conclusão no início."
+      },
+      {
+        "id": "fim",
+        "time": "17:30",
+        "title": "Fim do dia",
+        "text": "Respondes ao fornecedor que ameaça processar, com cuidado e sem prometer nada. Fechas o email e deixas a lista de amanhã. O dia foi de ler, escrever e dizer o que os outros não querem ouvir, com jeito."
+      }
+    ],
+    "asks": [
+      "Ler com atenção e perceber o risco no que está escrito.",
+      "Escrever claro, para quem não é jurista.",
+      "Dizer que não com uma alternativa.",
+      "Estudar leis que mudam e manter-se actualizado."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê as licenciaturas em Direito na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as faculdades de Direito de Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em empresas, bancos e escritórios de advogados."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 4
+  },
+  {
+    "id": "um-dia-como-tecnico-de-ambiente",
+    "careerSlug": "tecnico-de-ambiente",
+    "title": "Um dia como técnico de ambiente num projecto de obra",
+    "intro": "És técnico de ambiente na equipa de ambiente e segurança de uma empresa que constrói uma estrada na província do Bengo. Controlas resíduos, descargas e licenças.",
+    "minutes": 7,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "07:00",
+        "title": "Reunião de arranque",
+        "text": "Começas na reunião de segurança com o chefe do projecto e os encarregados. Hoje há movimento de terras e transporte de resíduos. Levas a lista de licenças e os formulários de controlo."
+      },
+      {
+        "id": "estaleiro",
+        "time": "08:30",
+        "title": "Inspecção ao estaleiro",
+        "text": "Percorres o estaleiro com a lista na mão: onde estão os óleos, como estão guardados os resíduos, se os contentores estão tapados. Num canto, vês óleo usado a escorrer para o solo.",
+        "decision": {
+          "question": "O encarregado diz que é só hoje e que o camião de recolha vem à tarde. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deixas, porque o camião vem à tarde.",
+              "result": "Chove ao meio-dia e o óleo chega a uma linha de água. A empresa é multada e o projecto atrasa.",
+              "why": "O risco ambiental não espera o camião. A prevenção é o trabalho."
+            },
+            {
+              "id": "b",
+              "text": "Mandas parar, contens o óleo com areia, recolhes o solo contaminado e registas a ocorrência.",
+              "result": "O encarregado resmunga, mas o problema fica contido e o relatório mostra que agiste.",
+              "why": "Conter, limpar e registar é a sequência certa. O registo protege a empresa e prova que cumpriste."
+            },
+            {
+              "id": "c",
+              "text": "Limpas o óleo e não dizes nada ao chefe, para não criar problema.",
+              "result": "Uma semana depois a falha repete-se e o chefe pergunta porque não foi avisado.",
+              "why": "Esconder uma ocorrência impede que se corrija a causa. Os relatórios existem para isso."
+            }
+          ]
+        }
+      },
+      {
+        "id": "medicoes",
+        "time": "10:30",
+        "title": "Medições",
+        "text": "Medes o ruído junto à povoação mais próxima e recolhes uma amostra da água de uma vala. Anotas hora, local e leituras. Os moradores aproximam-se: querem saber se a água do poço vai ficar suja."
+      },
+      {
+        "id": "comunidade",
+        "time": "11:30",
+        "title": "Falar com a comunidade",
+        "text": "Um morador mais velho pergunta, zangado, porque é que os camiões levantam tanta poeira. Outros acenam.",
+        "decision": {
+          "question": "Como respondes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que isso é com a empresa e que não podes fazer nada.",
+              "result": "O grupo fica ainda mais zangado e bloqueia a estrada no dia seguinte.",
+              "why": "Para a comunidade, tu és a empresa. Uma resposta fria custa dias de obra."
+            },
+            {
+              "id": "b",
+              "text": "Ouves, anotas o horário dos camiões que mais incomodam e prometes levar o assunto ao chefe, com resposta em dois dias.",
+              "result": "O chefe manda regar a estrada e mudar o horário. O morador reconhece que o ouviram.",
+              "why": "Ouvir, registar e dar um prazo realista constrói confiança. É um trabalho de pessoas."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço",
+        "text": "Almoças com o técnico de segurança e a topógrafa. Falam de como a obra mudou o sítio e de quanto ainda falta para acabar. Ele explica-te como se prepara um relatório para a fiscalização."
+      },
+      {
+        "id": "relatorio",
+        "time": "15:00",
+        "title": "O relatório",
+        "text": "No contentor, passas as medições e a ocorrência do óleo para o relatório da semana. O relatório vai para o chefe e depois para a fiscalização do projecto. Escreves factos, datas e o que foi feito."
+      }
+    ],
+    "asks": [
+      "Atenção a pormenores e coragem de dizer que algo está mal.",
+      "Falar com trabalhadores e comunidades com calma.",
+      "Escrever relatórios com factos e datas.",
+      "Aceitar deslocações às obras, longe da cidade."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê as licenciaturas em Ambiente e Engenharia na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as instituições com cursos de ambiente e agronomia."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em empresas, consultoras e projectos do Estado."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 9
+  },
+  {
+    "id": "um-dia-como-tecnico-de-contratacao-publica",
+    "careerSlug": "tecnico-de-contratacao-publica",
+    "title": "Um dia como técnico de contratação pública",
+    "intro": "Trabalhas na Unidade de Contratação Pública de um organismo do Estado. Tens um concurso para a compra de computadores para escolas, com prazo de propostas a acabar hoje.",
+    "minutes": 8,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "07:45",
+        "title": "O último dia de propostas",
+        "text": "Chegas cedo. O prazo de entrega das propostas fecha às 15h e a sala de abertura tem de estar pronta. O chefe da unidade quer tudo registado no portal e as regras do concurso bem à vista."
+      },
+      {
+        "id": "duvidas",
+        "time": "09:00",
+        "title": "As dúvidas dos concorrentes",
+        "text": "Um concorrente telefona: pergunta se pode entregar a proposta às 15h05, porque está preso no trânsito. Outro pergunta, em privado, qual é o orçamento que o organismo tem.",
+        "decision": {
+          "question": "O que respondes aos dois?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ao primeiro dizes que \"5 minutos não faz mal\". Ao segundo dizes o valor, para ele fazer uma proposta mais certa.",
+              "result": "Os outros concorrentes descobrem e queixam-se. O concurso pode ser anulado.",
+              "why": "Todos os concorrentes têm de ser tratados da mesma forma, com as mesmas informações. É o princípio do concurso."
+            },
+            {
+              "id": "b",
+              "text": "Dizes ao primeiro que o prazo é o do caderno de encargos e que não há excepções. Ao segundo, que a resposta será publicada para todos no portal.",
+              "result": "O primeiro corre e entrega a tempo; o segundo vê a resposta publicada com as outras dúvidas.",
+              "why": "Regras iguais e respostas públicas protegem o concurso e protegem-te a ti."
+            },
+            {
+              "id": "c",
+              "text": "Não atendes mais chamadas durante o dia.",
+              "result": "Dois concorrentes não conseguem esclarecer dúvidas e entregam propostas incompletas.",
+              "why": "Esclarecer dúvidas, por canais oficiais, faz parte do processo. Fugir à comunicação não é imparcialidade."
+            }
+          ]
+        }
+      },
+      {
+        "id": "chefe",
+        "time": "11:30",
+        "title": "A chamada de um director",
+        "text": "Um director de outro departamento liga-te: um amigo dele vai concorrer e pede que \"ajudes\" quando as propostas forem avaliadas.",
+        "decision": {
+          "question": "Como respondes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que vais ver o que se pode fazer.",
+              "result": "Ficas comprometido. Se isto se souber, perdes o cargo e podes responder em tribunal.",
+              "why": "Dar sinais de favor é o primeiro passo de uma corrupção. A tua assinatura responde por ti."
+            },
+            {
+              "id": "b",
+              "text": "Dizes que a avaliação é feita em comissão, com critérios escritos, e que não podes falar de nenhuma proposta. No fim, informas o chefe da unidade.",
+              "result": "O director desliga, desagradado. O chefe regista a chamada e agradece-te por avisares.",
+              "why": "Recusar com calma e avisar é o que protege o processo e a tua carreira."
+            }
+          ]
+        }
+      },
+      {
+        "id": "abertura",
+        "time": "15:00",
+        "title": "A abertura das propostas",
+        "text": "Às 15h fecha-se a recepção. Na sala, com os representantes de seis empresas presentes, abres os envelopes um a um e lês em voz alta o nome e o valor. Alguém regista tudo na acta."
+      },
+      {
+        "id": "avaliacao",
+        "time": "16:15",
+        "title": "Primeira verificação",
+        "text": "Com a comissão, verificas se cada proposta tem os documentos obrigatórios: certidões, NIF, alvará. Uma das propostas, a mais barata, não traz uma certidão.",
+        "decision": {
+          "question": "A proposta é a mais barata. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceitas a proposta e pedes a certidão depois, porque é a melhor para o Estado.",
+              "result": "Outro concorrente reclama e a reclamação é aceite. O concurso atrasa meses.",
+              "why": "As regras valem para todos. Uma excepção abre a porta a reclamações e a mais atrasos."
+            },
+            {
+              "id": "b",
+              "text": "Aplicas a regra: a proposta é excluída e a razão fica escrita na acta.",
+              "result": "A empresa reclama mas a decisão fica de pé, porque seguiste o caderno de encargos.",
+              "why": "Fazer cumprir as regras, mesmo quando custa, é a base da contratação pública."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "18:00",
+        "title": "Fim do dia",
+        "text": "Carregas a acta no portal, arquivas os envelopes e sais tarde. O processo tem uma semana de avaliação à frente, sempre por escrito."
+      }
+    ],
+    "asks": [
+      "Tratar todos de igual modo e resistir a pressões.",
+      "Rigor com prazos, regras e documentos.",
+      "Ler leis e cadernos de encargos com atenção.",
+      "Registar tudo por escrito."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê as formações em contratação pública na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Conhece as instituições que dão esta formação."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios e concursos públicos em organismos do Estado."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 5
+  },
+  {
+    "id": "um-dia-como-tecnico-de-logistica",
+    "careerSlug": "tecnico-de-logistica",
+    "title": "Um dia como técnico de logística num armazém de distribuição",
+    "intro": "Trabalhas no armazém de uma distribuidora de bens alimentares no Zango, em Luanda. O turno começa cedo, porque os camiões chegam antes do trânsito.",
+    "minutes": 7,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "06:00",
+        "title": "Início do turno",
+        "text": "Marcas o ponto, vestes o colete e vais ao quadro: hoje há três camiões a descarregar e catorze encomendas a preparar. O fiel de armazém, teu chefe, distribui as tarefas."
+      },
+      {
+        "id": "receber",
+        "time": "06:30",
+        "title": "Receber mercadoria",
+        "text": "Um camião de arroz e óleo chega ao cais. Confrontas a guia de remessa com a nota de encomenda e contas os paletes. Faltam duas caixas de óleo e uma das palete tem sacos rasgados.",
+        "decision": {
+          "question": "O motorista tem pressa e pede-te para assinar já. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Assinas sem ressalvas, para não o atrasar.",
+              "result": "Na contagem do dia, faltam as duas caixas e a empresa perde o valor. Ninguém sabe onde ficaram.",
+              "why": "Quem assina sem ressalva aceita o que recebeu. A conferência à chegada protege a empresa."
+            },
+            {
+              "id": "b",
+              "text": "Conferes tudo, escreves na guia o que falta e o que está danificado, fotografas e só então assinas.",
+              "result": "O motorista resmunga, mas a transportadora reconhece e a empresa é compensada.",
+              "why": "Registar as diferenças no momento da entrega é a única prova que tens."
+            },
+            {
+              "id": "c",
+              "text": "Recusas o camião inteiro.",
+              "result": "O camião vai embora e os clientes ficam sem encomenda. O chefe pergunta se era mesmo preciso.",
+              "why": "Recusar tudo por um problema pequeno cria outros. Aceita-se o que está bom e anota-se o resto."
+            }
+          ]
+        }
+      },
+      {
+        "id": "arrumar",
+        "time": "08:30",
+        "title": "Arrumar e registar",
+        "text": "Etiquetas os paletes e arrumas pelo sistema FIFO: o que chegou primeiro, sai primeiro. Registas as entradas no sistema, para o stock ficar certo."
+      },
+      {
+        "id": "preparar",
+        "time": "10:00",
+        "title": "Preparar as saídas",
+        "text": "Pegas na lista de encomendas, buscas os produtos e agrupas por cliente. Um supermercado pediu 40 caixas de um produto de que só tens 25.",
+        "decision": {
+          "question": "O comercial já prometeu as 40. O que fazes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Envias 25 sem avisar ninguém.",
+              "result": "O supermercado queixa-se e o comercial fica a saber só quando o cliente liga.",
+              "why": "Uma entrega parcial sem aviso quebra a confiança. A informação tem de andar à frente do camião."
+            },
+            {
+              "id": "b",
+              "text": "Avisas o comercial de imediato, propões enviar 25 hoje e 15 quando chegar a reposição, e registas as duas saídas.",
+              "result": "O cliente aceita a entrega em duas partes e fica a saber o que esperar.",
+              "why": "Dar o problema e a solução a quem fala com o cliente é a boa prática de armazém."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "12:30",
+        "title": "Almoço e inventário",
+        "text": "Almoças com os colegas do armazém, no pátio, à sombra. Depois fazes o inventário rotativo de um corredor: contas os produtos e comparas com o sistema. Tudo certo, menos um produto com uma caixa a mais."
+      },
+      {
+        "id": "fim",
+        "time": "15:00",
+        "title": "Fim do turno",
+        "text": "Passas o turno ao colega, com a lista de encomendas por sair e o problema do arroz anotado. Sais com as pernas cansadas e o armazém organizado."
+      }
+    ],
+    "asks": [
+      "Organização e atenção a números e códigos.",
+      "Aguentar trabalho físico e turnos cedo.",
+      "Registar tudo, mesmo quando há pressa.",
+      "Comunicar problemas depressa a quem decide."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê os cursos técnicos de Logística na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara as escolas técnicas e institutos de logística."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em distribuidoras, portos e supermercados."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 10
+  },
+  {
+    "id": "um-dia-como-tecnico-de-suporte",
+    "careerSlug": "tecnico-de-suporte",
+    "title": "Um dia como técnico de suporte informático num banco",
+    "intro": "Trabalhas na equipa de suporte de um banco em Luanda, que atende a sede e quinze agências. Há quatro técnicos e um supervisor. Todos os pedidos entram no sistema de tickets.",
+    "minutes": 7,
+    "moments": [
+      {
+        "id": "chegada",
+        "time": "07:45",
+        "title": "A fila de tickets",
+        "text": "Abres o sistema e já há onze pedidos: um computador que não liga, uma impressora sem toner, uma agência sem internet e um director que não consegue abrir o email. O supervisor marca as prioridades."
+      },
+      {
+        "id": "agencia",
+        "time": "08:15",
+        "title": "A agência sem internet",
+        "text": "Uma agência em Viana não tem rede: os caixas não conseguem atender clientes e a fila já passa da porta. Falas com a gerente por telefone, que está nervosa e quer saber quando volta.",
+        "decision": {
+          "question": "O que fazes primeiro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vais logo de táxi à agência, sem ver nada à distância.",
+              "result": "Chegas uma hora depois e vês que era só o router desligado da tomada. Perdeste uma hora.",
+              "why": "Começa sempre pelo mais simples e pelo que podes ver à distância. Deslocar-se é o último passo."
+            },
+            {
+              "id": "b",
+              "text": "Pedes à gerente que veja as luzes do equipamento e se o cabo está ligado, e verificas à distância se a linha responde.",
+              "result": "Em cinco minutos descobres que o equipamento reiniciou-se com uma falha de luz. Ela liga-o e a rede volta.",
+              "why": "Fazer perguntas simples e testar à distância resolve a maioria dos problemas, sem custo."
+            },
+            {
+              "id": "c",
+              "text": "Dizes que vais ver mais tarde, porque tens outros tickets.",
+              "result": "A agência fica uma manhã parada e o director liga ao supervisor.",
+              "why": "Num banco, um balcão parado custa clientes. A prioridade vem do impacto, não da ordem de chegada."
+            }
+          ]
+        }
+      },
+      {
+        "id": "director",
+        "time": "10:30",
+        "title": "O director e a palavra-passe",
+        "text": "Um director ligou: não consegue abrir o email e tem uma reunião às 11h. Pede-te a sua palavra-passe e diz que quer a de uma colega, \"para ver uma coisa urgente\".",
+        "decision": {
+          "question": "Como respondes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dás-lhe a palavra-passe da colega, porque é o director.",
+              "result": "O email da colega é lido sem ela saber. Mais tarde, a segurança informática abre um inquérito e o teu nome aparece.",
+              "why": "As palavras-passe são pessoais e nunca se dão, por muito que o pedido seja de um superior. É regra de segurança."
+            },
+            {
+              "id": "b",
+              "text": "Recuperas o acesso do director pelo processo normal e explicas que o acesso à conta da colega só se faz com um pedido formal à segurança.",
+              "result": "O director está no email em dez minutos e acaba por pedir o acesso à segurança, pelos canais certos.",
+              "why": "Resolver o problema dele sem quebrar a regra é o que se espera de ti, com educação e firmeza."
+            }
+          ]
+        }
+      },
+      {
+        "id": "almoco",
+        "time": "13:00",
+        "title": "Almoço",
+        "text": "Almoças com os colegas e aprendes um truque novo para limpar o cache de uma aplicação que dá erros. Os mais velhos contam os casos mais malucos que já viram: um servidor desligado por alguém a limpar o chão."
+      },
+      {
+        "id": "instalar",
+        "time": "14:00",
+        "title": "Instalar um computador novo",
+        "text": "Preparas um computador para um novo funcionário: sistema, programas, impressoras, acesso ao email e à rede interna. Segues a lista, tickado ponto a ponto, para não falhares nenhum."
+      },
+      {
+        "id": "ensinar",
+        "time": "16:00",
+        "title": "Explicar sem confundir",
+        "text": "Uma utilizadora liga pela terceira vez no mês com o mesmo problema: ficheiros que desaparecem. Percebes que ela guarda tudo no ambiente de trabalho, que se apaga ao reiniciar.",
+        "decision": {
+          "question": "Como lhe explicas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dizes que ela devia saber, que já foi explicado.",
+              "result": "Ela fica envergonhada e deixa de ligar. Daqui a pouco perde um ficheiro importante.",
+              "why": "O suporte é também ensinar, sem humilhar. Quem tem medo de perguntar acaba por perder dados."
+            },
+            {
+              "id": "b",
+              "text": "Mostras-lhe, ao lado dela, onde guardar na pasta certa e fazes uma cópia dos ficheiros que lá estavam.",
+              "result": "Ela agradece e deixa de ligar com este problema. Fechas o ticket com uma nota.",
+              "why": "Resolver a causa, com paciência, evita o próximo ticket."
+            }
+          ]
+        }
+      },
+      {
+        "id": "fim",
+        "time": "17:00",
+        "title": "Fecho dos tickets",
+        "text": "Fechas os tickets resolvidos, com uma nota do que fizeste, e passas os pendentes ao colega da noite. A nota serve a quem apanha o mesmo problema daqui a seis meses."
+      }
+    ],
+    "asks": [
+      "Paciência para ouvir e explicar sem fazer sentir mal.",
+      "Método: começar pelo mais simples e testar uma coisa de cada vez.",
+      "Saber dizer não a pedidos que quebram a segurança.",
+      "Estudar sempre: as ferramentas mudam muito depressa."
+    ],
+    "next": [
+      {
+        "kind": "course",
+        "text": "Vê os cursos de informática e redes na página da carreira."
+      },
+      {
+        "kind": "academy",
+        "text": "Compara os institutos e centros de formação de TI em Luanda."
+      },
+      {
+        "kind": "internship",
+        "text": "Procura estágios em bancos, operadoras e empresas de TI."
+      }
+    ],
+    "example": true,
+    "languages": [
+      "pt"
+    ],
+    "position": 11
+  }
+]

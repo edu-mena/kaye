@@ -1,1 +1,0 @@
-import{n as e}from"./useInterestFilter-CobjmWc0.js";function t(){return e().areas}export{t};

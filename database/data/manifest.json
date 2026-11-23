@@ -492,6 +492,40 @@
       "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
     }
   },
+  "agents": {
+    "pt": {
+      "file": "agents.pt.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "en": {
+      "file": "agents.en.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "fr": {
+      "file": "agents.fr.json",
+      "records": 0,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  },
+  "simulations": {
+    "pt": {
+      "file": "simulations.pt.json",
+      "records": 13,
+      "sha256": "4e2815f713e90b1a7eff96ae959e3fdb2086a1d09ba82e4053c99aef5a544b14"
+    },
+    "en": {
+      "file": "simulations.en.json",
+      "records": 13,
+      "sha256": "4e2815f713e90b1a7eff96ae959e3fdb2086a1d09ba82e4053c99aef5a544b14"
+    },
+    "fr": {
+      "file": "simulations.fr.json",
+      "records": 13,
+      "sha256": "4e2815f713e90b1a7eff96ae959e3fdb2086a1d09ba82e4053c99aef5a544b14"
+    }
+  },
   "video-stories": {
     "pt": {
       "file": "video-stories.pt.json",
