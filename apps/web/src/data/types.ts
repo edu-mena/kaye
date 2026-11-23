@@ -1,3 +1,5 @@
+import type { Locale } from '../lib/i18n'
+
 // Shapes of the /api/v1 responses (docs/arquitetura.md, sections 4 and 6).
 // The demo data source returns exactly these; the real API will too.
 
@@ -1122,4 +1124,63 @@ export type Mentor = {
   consentAt: string
   /** Minors only see 'grupo'. */
   availability: 'grupo' | 'individual'
+}
+
+/**
+ * A Kayé agent: a human-resources technician or a professional approved by Kayé who writes the work-day simulations
+ * (docs/mentores.md#agentes-kayé). Only what the agent authorised is shown.
+ */
+export type Agent = {
+  id: string
+  name: string
+  /** Job title, e.g. "Técnica de recursos humanos". */
+  role: string
+  area: MarketArea
+  /** Who at Kayé checked the person and the text. */
+  verifiedBy: string
+  /** ISO date of that check. */
+  verifiedAt: string
+  /** Employer, only when the agent allowed it. */
+  company?: string
+  /** File name in assets/mentors/ (same folder as the mentors' photos), only with consent. */
+  photo?: string
+  /** ISO date of the signed consent. */
+  consentAt: string
+}
+
+/** One way to act at a decision: what would happen and why, as in real life (never "right" or "wrong"). */
+export type SimulationOption = { id: string; text: string; result: string; why: string }
+
+export type SimulationMoment = {
+  id: string
+  /** "07:30" */
+  time: string
+  title: string
+  text: string
+  /** Two to four options. */
+  decision?: { question: string; options: SimulationOption[] }
+}
+
+/** The way on from a simulation: a course, an academy or an internship. */
+type SimulationStep = { kind: 'course' | 'academy' | 'internship'; text: string }
+
+/** A typical working day in a career, to live through before choosing it (docs/mentores.md#simulações). */
+export type Simulation = {
+  id: string
+  careerSlug: string
+  title: string
+  intro: string
+  /** About how long it takes to read and decide. */
+  minutes: number
+  /** Five to eight moments, in the order of the day. */
+  moments: SimulationMoment[]
+  /** What the profession asks of the person. */
+  asks: string[]
+  next: SimulationStep[]
+  /** The Kayé agent who wrote it; without one the page shows "Equipa Kayé". */
+  agentId?: string
+  /** Written by Kayé while it waits for an agent's review: the page says so. */
+  example?: true
+  /** Languages the text exists in; the others show it in Portuguese until the translation arrives. */
+  languages: Locale[]
 }

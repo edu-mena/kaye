@@ -72,6 +72,8 @@ class ImportContentTest extends TestCase
             'cv_examples' => $records('cv-examples'),
             'testimonials' => $records('testimonials'),
             'mentors' => $records('mentors'),
+            'agents' => $records('agents'),
+            'simulations' => $records('simulations'),
             'video_stories' => $records('video-stories'),
             'assessment_questions' => $records('assessment-questions'),
             'access_exam_questions' => $records('access-exam-questions'),
@@ -93,7 +95,7 @@ class ImportContentTest extends TestCase
 
         $this->assertStringContainsString('Import complete.', $output);
         preg_match_all('/^\|\s*([a-z-]+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*$/m', $output, $rows, PREG_SET_ORDER);
-        $this->assertCount(31, $rows);
+        $this->assertCount(33, $rows);
         foreach ($rows as [, $resource, , $created, $updated, $errors]) {
             $this->assertSame(['0', '0', '0'], [$created, $updated, $errors], $resource);
         }

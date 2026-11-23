@@ -51,6 +51,8 @@ class ApiParityTest extends TestCase
         'interview-questions' => '/interview-questions',
         'psychotech' => '/psychotech',
         'mentors' => '/mentors',
+        'agents' => '/agents',
+        'simulations' => '/simulations',
         'video-stories' => '/video-stories',
         'provinces' => '/provinces',
     ];

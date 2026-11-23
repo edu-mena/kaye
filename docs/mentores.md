@@ -68,3 +68,24 @@ Guarda a folha digitalizada numa pasta privada, nunca no repositório.
 ```
 
 3. Publica (deploy). O item "Mentores" aparece no menu e o link aparece nas páginas das carreiras dele.
+
+## Agentes Kayé
+
+Os agentes são técnicos de recursos humanos e profissionais aprovados pelo Kayé que escrevem as simulações de trabalho. Seguem o mesmo processo de aprovação dos mentores (verificação, conversa, referência e consentimento) e só aparece o que cada um autoriza.
+
+- **Tipo `Agent`** (`data/types.ts`): nome, função, área (uma das 13 do Mercado), `verifiedBy` (quem no Kayé verificou), `verifiedAt` (a data), empresa e fotografia (só com autorização) e `consentAt`.
+- **Página do agente** (`/agentes/:id`): mostra só esses dados, quem o verificou e as simulações que escreveu. Sem dados pessoais além do que o agente autoriza.
+- **Sem agentes reais ainda:** `data/demo/agents.ts` está vazio e a autoria de cada simulação mostra "Equipa Kayé".
+- **Como acrescentar um agente:** uma linha em `apps/web/src/data/demo/agents.ts` (foto em `assets/mentors/`, como os mentores), com `consentAt` e `verifiedAt` preenchidos. Para lhe atribuir uma simulação: pôr o `agentId` e tirar a marca `example` dessa simulação, depois de ele a rever.
+
+## Simulações de trabalho
+
+Um dia típico de uma profissão para viver antes de a escolher. São conteúdo dos agentes Kayé; enquanto não há agentes, o Kayé escreve uma por área, marcada **"Exemplo, à espera de revisão por um profissional"**, e os agentes substituem-nas.
+
+- **Formato:** 5 a 8 momentos (chegada, tarefas, um problema, uma decisão, colegas, fim do dia); em cada decisão, 2 a 4 opções, cada uma com o que aconteceria e porquê, como na vida real (não há "certo" e "errado" a vermelho). No fim: o que a profissão pede, "Gostei / Não gostei" e o passo seguinte (curso, academia, estágio). O que a pessoa escolhe em cada decisão nunca é guardado; só o "gostei".
+- **As 13 simulações** (uma por área, na carreira com mais procura da área; nas áreas sem nenhuma carreira de procura alta, a de procura mais alta): Saúde (enfermeiro), Negócios (contabilista), Tecnologia (técnico de suporte), Direito (jurista), Agricultura e ambiente (técnico de ambiente), Estado (técnico de contratação pública), Ciências (assistente social), Engenharia (engenheiro civil), Hotelaria (chefe de cozinha), Logística (técnico de logística), Educação (formador profissional), Comunicação (gestor de redes sociais) e Petróleo e minas (engenheiro de minas). Escritas com o realismo de Angola: horários, deslocações, ferramentas e hierarquia.
+- **Línguas:** só em português. O campo `languages` diz em que línguas o texto existe; em en e fr a app mostra o português com o aviso "tradução a caminho" até a tradução (prompt 8 do backend) preencher as outras línguas.
+- **Onde aparecem:** na página da carreira ("Vive um dia como…"), no resultado do teste (por carreira recomendada), em Testes e na lista `/simulacoes`, filtrada pelo perfil de interesse.
+- **"Gostei" alimenta o perfil de interesse:** a área da carreira passa a contar como as das carreiras guardadas (`domain/interests.ts`). "Não gostei" só fica registado. Fica no aparelho (`UserData.simulations`).
+- **Comentários:** cada simulação aceita comentários com conta (`subject_type = simulation`): filtro automático, 3 denúncias escondem, o autor apaga o seu, só o primeiro nome nos menores. Só existem no build com contas; o site de demonstração não os mostra.
+- **Como acrescentar ou mudar uma:** em `apps/web/src/data/demo/simulations/`; depois `npm run export:data` em `apps/web`.

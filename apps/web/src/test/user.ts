@@ -58,6 +58,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     psychotech: [],
     accessExams: [],
     interviews: [],
+    simulations: [],
     subscriptions: null,
     kursos: {},
     strengths: EMPTY_STRENGTHS,

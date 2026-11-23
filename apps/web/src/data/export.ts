@@ -1,8 +1,10 @@
 import type { Locale } from '../lib/i18n'
 import { ACCESS_EXAM_BANK } from './demo/accessExams'
+import { AGENTS } from './demo/agents'
 import { AREA_QUESTIONS, GENERAL_QUESTIONS } from './demo/interviews'
 import { MENTORS } from './demo/mentors'
 import { ANALOGIES, NONSENSE_WORDS, SYNONYMS } from './demo/psychotech'
+import { SIMULATIONS } from './demo/simulations'
 import { VIDEO_STORIES } from './demo/videoStories'
 import { ANNOUNCED, KURSOS } from './kursos'
 import { en } from '../locales/en'
@@ -105,6 +107,8 @@ async function resources(locale: Locale): Promise<Record<string, Data>> {
     ],
     psychotech: { analogies: ANALOGIES, synonyms: SYNONYMS, nonsenseWords: NONSENSE_WORDS },
     mentors: MENTORS,
+    agents: AGENTS,
+    simulations: SIMULATIONS,
     'video-stories': VIDEO_STORIES,
     provinces: PROVINCES,
   }

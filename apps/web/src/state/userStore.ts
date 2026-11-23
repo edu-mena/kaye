@@ -24,6 +24,7 @@ import type {
 import { NEWS_KINDS } from '../data/types'
 import { newEntry, newId } from '../domain/cv'
 import type { Discovery } from '../domain/discovery'
+import { MAX_SIMULATIONS, withResult, type SimulationResult } from '../domain/simulations'
 import { EMPTY_STRENGTHS, withAllStrengths, type Strengths, type StrengthStep } from '../domain/strengths'
 import type { Level, Mode, Scores } from '../domain/psychotech'
 import type { ExamMode, TopicScores } from '../domain/accessExams'
@@ -128,6 +129,8 @@ export type UserData = {
   accessExams: AccessExamResult[]
   /** Interview practice, newest first, at most MAX_INTERVIEWS. */
   interviews: InterviewResult[]
+  /** The work-day simulations lived, newest first, one per simulation: liked or not (feeds the interest profile). */
+  simulations: SimulationResult[]
   /** The topics followed on Novidades; filled at the end of onboarding, null before. */
   subscriptions: Subscriptions | null
   /** Kursos progress, by course id. */
@@ -178,6 +181,7 @@ const INITIAL: UserData = {
   psychotech: [],
   accessExams: [],
   interviews: [],
+  simulations: [],
   subscriptions: null,
   kursos: {},
   strengths: EMPTY_STRENGTHS,
@@ -237,6 +241,8 @@ function fromSaved(saved: (Partial<UserData> & LegacyCv) | null): UserData {
     savedCompanies: saved.savedCompanies ?? [],
     // Devices from before "O meu plano" have none.
     plan: saved.plan ?? null,
+    // Devices from before the work-day simulations have none.
+    simulations: saved.simulations ?? [],
   }
 }
 
@@ -293,6 +299,7 @@ export function replaceUser(data: Partial<UserData>) {
       psychotech: next.psychotech.slice(0, MAX_PSYCHOTECH),
       accessExams: next.accessExams.slice(0, MAX_ACCESS_EXAMS),
       interviews: next.interviews.slice(0, MAX_INTERVIEWS),
+      simulations: next.simulations.slice(0, MAX_SIMULATIONS),
     }
   })
 }
@@ -559,6 +566,10 @@ export const userActions = {
 
   addAccessExam: (result: AccessExamResult) =>
     update((user) => ({ ...user, accessExams: [result, ...user.accessExams].slice(0, MAX_ACCESS_EXAMS) })),
+
+  /** "Gostei / não gostei" after a simulation; answering again replaces the earlier answer. */
+  rateSimulation: (result: SimulationResult) =>
+    update((user) => ({ ...user, simulations: withResult(user.simulations, result) })),
 
   addInterview: (result: InterviewResult) =>
     update((user) => ({ ...user, interviews: [result, ...user.interviews].slice(0, MAX_INTERVIEWS) })),
