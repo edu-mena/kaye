@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 /**
- * One of the 42 sentences of the vocational test (ADR 0017). See `assessment_questions` in docs/base-de-dados.md.
+ * One of the 42 questions of the vocational test: a statement or a situation with six cards (ADR 0017). See `assessment_questions` in docs/base-de-dados.md.
  */
 #[Guarded(['id'])]
 class AssessmentQuestion extends Model
@@ -23,5 +23,5 @@ class AssessmentQuestion extends Model
      *
      * @var list<string>
      */
-    public array $translatable = ['text'];
+    public array $translatable = ['text', 'options'];
 }
