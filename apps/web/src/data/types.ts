@@ -547,6 +547,25 @@ export type PublicCard = {
   portfolio?: string
 }
 
+/**
+ * How a list or a section is written: skills, languages and links as `comma`, `list` (a line each), `bullets` or `chips`;
+ * entries (experience, education…) as `full` or `compact` (one line each, no description).
+ */
+export type CvFormat = 'comma' | 'list' | 'bullets' | 'chips' | 'full' | 'compact'
+
+/** Where the person put things. It keeps only what they changed; the template gives the rest. */
+export type CvArrangement = {
+  /** The order of the sections, top to bottom; the ones left out follow in the template's order. */
+  order?: CvSection[]
+  /** Sections the person does not want on this CV. */
+  hidden?: CvSection[]
+  /** On the templates with a side column: the short lists that go there; the others stay in the main column. */
+  side?: CvSection[]
+  formats?: Partial<Record<CvSection, CvFormat>>
+  /** `false`: the empty parts stay empty. Otherwise the preview shows a faded example in them. */
+  sample?: boolean
+}
+
 /** One of the person's CVs. `style` keeps only what they changed; the template gives the rest. */
 export type CvDocument = {
   id: string
@@ -559,6 +578,9 @@ export type CvDocument = {
   basedOn: string | null
   target?: CvTarget
   card?: CvCard
+  arrangement?: CvArrangement
+  /** The step-by-step guide already started it from what the app knows: it never does it twice. */
+  autofilled?: boolean
 }
 
 /** The ideal CV for one path into a career (fictional person, docs/arquitetura.md, 5.5). */

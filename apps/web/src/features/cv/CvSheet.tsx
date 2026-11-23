@@ -1,6 +1,6 @@
 import { memo, useId, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { CvData, CvStyle, CvTemplate } from '../../data/types'
+import type { CvArrangement, CvData, CvStyle, CvTemplate } from '../../data/types'
 import { resolveCvStyle } from '../../domain/cvStyle'
 import { cvFontFamily, useCvMeasure } from './cvFonts'
 import { layoutCv, PAGE_HEIGHT, PAGE_WIDTH, PT_TO_MM, type CvOp, type CvPage } from './cvLayout'
@@ -12,17 +12,21 @@ type SheetProps = {
   style?: Partial<CvStyle>
   /** Only on the person's own CVs, never on a model. */
   photo?: string | null
+  arrangement?: CvArrangement
+  /** A faded example in the parts still empty: it makes the sheet look full, and never reaches the PDF. */
+  sample?: CvData | null
 }
 
-function usePages({ cv, template, style, photo }: SheetProps) {
+function usePages({ cv, template, style, photo, arrangement, sample }: SheetProps) {
   const { t } = useTranslation()
   const labels = useCvLabels()
   const resolved = useMemo(() => resolveCvStyle(template, style), [template, style])
   const measure = useCvMeasure(resolved.font)
   const placeholder = t('cv.empty')
   const pages = useMemo(
-    () => layoutCv({ cv, template, style: resolved, labels, measure, placeholder, photo }),
-    [cv, template, resolved, labels, measure, placeholder, photo],
+    () =>
+      layoutCv({ cv, template, style: resolved, labels, measure, placeholder, photo, arrangement, sample }),
+    [cv, template, resolved, labels, measure, placeholder, photo, arrangement, sample],
   )
   return { pages, family: cvFontFamily(resolved.font) }
 }

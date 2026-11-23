@@ -165,6 +165,92 @@ test.describe('journeys', () => {
     expect(consoleErrors).toEqual([])
   })
 
+  test('a CV makes itself step by step, and the PDF still downloads with no network', async ({
+    page,
+    consoleErrors,
+  }) => {
+    test.slow()
+    const proceed = () => page.getByRole('button', { name: 'Continuar', exact: true }).click()
+    const question = (name: string) => page.getByRole('heading', { level: 1, name })
+
+    await page.goto('/cv/passo-a-passo')
+    // It starts made: the profile is already in, and the CV is beside (on a phone, under) the question.
+    await expect(question('Como te chamas?')).toBeVisible()
+    await expect(page.getByLabel('Nome')).toHaveValue('Joana')
+    await expect(page.getByText(/Já preenchemos o que sabemos de ti/)).toBeVisible({ timeout: 60_000 })
+    await expect(page.getByText(/O teu CV está \d+% forte/)).toBeVisible()
+    const next = await page.getByRole('button', { name: 'Continuar', exact: true }).boundingBox()
+    const preview = await page.getByRole('heading', { name: 'Pré-visualização' }).boundingBox()
+    expect(preview!.y).toBeGreaterThan(next!.y)
+    await expectAccessible(page)
+
+    await proceed()
+    await page.getByLabel('Título profissional').fill('Designer UI/UX')
+    await proceed()
+    await expect(page.getByText('Boa! +10 pontos no teu CV.')).toBeVisible()
+    await page.getByLabel('Contacto').fill('joana@exemplo.ao')
+    await proceed()
+    await page
+      .getByRole('textbox', { name: 'Resumo' })
+      .fill('Estudante de design, procuro o meu primeiro estágio.')
+    await proceed()
+    await expect(page.getByLabel('Título').first()).toHaveValue('Ensino médio técnico (13.ª classe)')
+    await proceed()
+
+    // No experience yet: ideas for it, one tap each.
+    await expect(question('O que já fizeste?')).toBeVisible()
+    await page.getByRole('button', { name: 'Juntar: Projeto da escola' }).click()
+    await expect(page.getByLabel('Título').first()).toHaveValue('Projeto da escola')
+    await expectAccessible(page)
+    await proceed()
+    await page.getByRole('textbox', { name: 'Competências' }).fill('Figma, Canva, Excel')
+    await proceed()
+    await page.getByRole('button', { name: 'Juntar: Umbundu' }).click()
+    await expect(page.getByRole('textbox', { name: 'Línguas' })).toHaveValue('Umbundu')
+    await proceed()
+
+    // Own order and look for each section.
+    await expect(question('Organiza o teu CV')).toBeVisible()
+    // By keyboard: the floating bar at the bottom of a phone covers the rows that scroll under it.
+    const press = async (name: string, role: 'button' | 'switch' = 'button') => {
+      await page.getByRole(role, { name }).first().focus()
+      await page.keyboard.press('Enter')
+    }
+    await press('Descer Resumo')
+    await press('Com pontos')
+    await press('Mostrar Línguas', 'switch')
+    await expect(page.getByRole('switch', { name: 'Mostrar Línguas' })).not.toBeChecked()
+    await expectAccessible(page)
+    await proceed()
+
+    await expect(question('Escolhe o modelo')).toBeVisible()
+    await page.getByRole('button', { name: /Moderno/ }).click()
+    await expect(page.getByRole('button', { name: /Moderno/, pressed: true })).toBeVisible()
+    await expectAccessible(page)
+    await proceed()
+    await expect(question('O teu CV está pronto')).toBeVisible()
+
+    // It was all saved on the device.
+    await page.reload()
+    await page.goto('/cv/editar')
+    await expect(page.getByLabel('Título profissional')).toHaveValue('Designer UI/UX')
+
+    // The PDF is made on the device: it needs no network.
+    await page.goto('/cv/passo-a-passo')
+    await expect(page.getByLabel('Nome')).toBeVisible()
+    const online = consoleErrors.length
+    await page.context().setOffline(true)
+    for (let step = 0; step < 10; step += 1) await proceed()
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Descarregar PDF' }).click()
+    expect((await download).suggestedFilename()).toBe('cv-joana.pdf')
+    await page.context().setOffline(false)
+    // Offline the browser logs the fonts it could not fetch (the CV falls back to another font): nothing else.
+    const offline = consoleErrors.splice(online)
+    expect(offline.every((message) => message.includes('net::ERR_FAILED'))).toBe(true)
+    expect(consoleErrors).toEqual([])
+  })
+
   test('the person can erase everything the app keeps', async ({ page, consoleErrors }) => {
     await page.goto('/perfil')
     await expect(page.getByText('Joana')).toBeVisible()

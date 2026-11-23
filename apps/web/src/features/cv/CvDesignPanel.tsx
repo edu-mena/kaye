@@ -3,7 +3,7 @@ import { Icon } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
 import { CheckboxField, SelectField } from '../../components/ui/Field'
 import { Segmented } from '../../components/ui/Segmented'
-import type { CvBox, CvDocument, CvFont, CvSeparator, CvStyle } from '../../data/types'
+import type { CvBox, CvData, CvDocument, CvFont, CvSeparator, CvStyle } from '../../data/types'
 import {
   CV_BOXES,
   CV_FONTS,
@@ -15,6 +15,7 @@ import {
 } from '../../domain/cvStyle'
 import { userActions } from '../../state/userStore'
 import { CvAdvicePanel } from './CvAdvicePanel'
+import { CvArrangePanel } from './CvArrangePanel'
 import { ScaledSheet } from './CvSheet'
 import { AccentSwatches, Color, Group, Range } from './styleControls'
 
@@ -34,9 +35,11 @@ type CvDesignPanelProps = {
   /** The same CV a moment behind, so the thumbnails never slow the controls down. */
   preview: CvDocument
   photo: string | null
+  /** A model CV that fills, faded, what is still empty. */
+  sample?: CvData | null
 }
 
-export function CvDesignPanel({ document, preview, photo }: CvDesignPanelProps) {
+export function CvDesignPanel({ document, preview, photo, sample }: CvDesignPanelProps) {
   const { t } = useTranslation()
   const style = resolveCvStyle(document.template, document.style)
 
@@ -56,7 +59,14 @@ export function CvDesignPanel({ document, preview, photo }: CvDesignPanelProps) 
                 className="w-full rounded-lg border-2 border-transparent p-0.5 text-center aria-pressed:border-night"
               >
                 <span aria-hidden="true" className="block overflow-hidden rounded-md border border-line">
-                  <ScaledSheet cv={preview.cv} template={template} style={preview.style} photo={photo} />
+                  <ScaledSheet
+                    cv={preview.cv}
+                    template={template}
+                    style={preview.style}
+                    photo={photo}
+                    arrangement={preview.arrangement}
+                    sample={sample}
+                  />
                 </span>
                 <span className="mt-1 block truncate text-xs font-light text-night">
                   {t(`cv.template_${template}`)}
@@ -84,6 +94,10 @@ export function CvDesignPanel({ document, preview, photo }: CvDesignPanelProps) 
           options={CV_FONTS.map((font) => ({ value: font.id, label: font.label }))}
           onChange={(event) => change({ font: event.target.value as CvFont })}
         />
+      </Group>
+
+      <Group title={t('cv.arrangeTitle')}>
+        <CvArrangePanel document={document} />
       </Group>
 
       {GROUPS.map((group) => (

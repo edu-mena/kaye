@@ -143,6 +143,7 @@ export const router = createBrowserRouter([
       { path: 'privacidade', lazy: publicPage(() => import('../features/legal/PrivacyPage')) },
       { path: 'cv', lazy: page(() => import('../features/cv/CvPage')) },
       { path: 'cv/modelos/:id', lazy: page(() => import('../features/cv/CvExamplePage')) },
+      { path: 'cv/passo-a-passo', lazy: personalPage(() => import('../features/cv/CvWizardPage')) },
       { path: 'cv/editar', lazy: personalPage(() => import('../features/cv/CvEditorPage')) },
       { path: 'cv/cartao', lazy: personalPage(() => import('../features/cv/CvCardPage')) },
       {

@@ -5,6 +5,7 @@ import type {
   CardModel,
   CardStyle,
   CvCard,
+  CvArrangement,
   CvData,
   CvDocument,
   CvEntry,
@@ -482,6 +483,13 @@ export const userActions = {
   openCv: (id: string) => update((user) => ({ ...user, activeCvId: id })),
 
   updateCv: (cv: CvData) => updateActive((document) => ({ ...document, cv })),
+
+  /** The guide started this CV from what the app knows: it is marked, so it never starts it twice. */
+  autofillCv: (cv: CvData) => updateActive((document) => ({ ...document, cv, autofilled: true })),
+
+  /** Order, columns and formats of the open CV; `{}` puts everything back as the model has it. */
+  setCvArrangement: (arrangement: CvArrangement) =>
+    updateActive((document) => ({ ...document, arrangement })),
 
   setCvTemplate: (template: CvTemplate) => updateActive((document) => ({ ...document, template })),
 
