@@ -15,6 +15,13 @@
 - **Recomendação:** a viabilidade passa a usar as condições (pesos em configuração em `domain/recommend.ts`): o nível de estudo pedido pelo caminho mais curto da carreira face ao que a pessoa quer estudar, se há formação na sua província (ou online) quando não pode sair, e, para quem precisa de trabalhar já, um caminho de formação curta ou médio técnico vale o máximo. O estilo de trabalho tem um peso pequeno (0,05) contra os estilos de trabalho da carreira. Sem respostas, cada parte vale 0,5 e a ordem fica igual à de antes. A lista inclui pelo menos uma carreira sem ensino superior quando existe uma que combina.
 - **CV:** o preenchimento (`domain/cvFill.ts`) passa a propor línguas, experiência, projetos e certificações (incluindo os Kursos concluídos, com o número do certificado). Continua tudo proposto: nada entra sem a pessoa marcar, e o que substituiria texto dela começa desmarcado.
 
+## Atualização de 23 de novembro de 2026: perguntas de situação e resultado explicado
+
+- **Parte 1 com dois tipos de pergunta, 42 no total.** 30 frases (5 por dimensão, reescritas na linguagem de um jovem angolano, uma ideia por frase, nenhuma que só uma profissão responda) e 12 **situações** do dia a dia (feira da escola, banca na praça, candongueiro, igreja, falta de água no bairro, telemóvel, biscato…) com 6 cartões, um por dimensão. Cada dimensão aparece em cada posição de cartão o mesmo número de vezes (2 em 12), por rotação. Os ids `R6`, `R7`… deixaram de existir e as frases que ficaram mudaram: quem já tinha concluído o teste vê-o como incompleto e só responde às situações novas.
+- **Cálculo.** Cada dimensão = 70% da média das frases + 30% das situações; cada situação dá um voto à dimensão do cartão escolhido, e metade ou mais dos votos já conta como o máximo (`SITUATION_WEIGHT` em `domain/riasec.ts`). As escolhas ficam em `userStore.choices`, junto das respostas.
+- **Resultado.** Explica até 3 áreas com o que a pessoa disse («Disseste que gostas de…», «Escolheste: …»), mostra 5 carreiras e, em cada uma, o passo seguinte do caminho mais curto (estudar, formação, certificação, portefólio, estágio). As carreiras e áreas do resultado alimentam o filtro de interesses das listas (`useInterestProfile`).
+- **API.** `assessment_questions` ganha `kind`, `context` e `options`; `dimension` passa a poder ser vazio (docs/base-de-dados.md).
+
 ## O que se recolhe, e o que não, incluindo de menores (14–17)
 
 - Tudo fica no aparelho (`userStore.strengths`), como o resto antes da API, e sai com "Apagar os meus dados". Há também "Apagar as valências", junto de "Recomeçar o teste".

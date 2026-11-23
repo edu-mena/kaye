@@ -1,254 +1,680 @@
 [
   {
+    "kind": "statement",
     "id": "A1",
     "dimension": "A",
     "text": "drawing, painting or making crafts",
-    "position": 2
+    "position": 3
   },
   {
+    "kind": "statement",
     "id": "A2",
     "dimension": "A",
     "text": "singing, dancing or playing an instrument",
-    "position": 8
-  },
-  {
-    "id": "A3",
-    "dimension": "A",
-    "text": "writing stories, poems or song lyrics",
-    "position": 14
-  },
-  {
-    "id": "A4",
-    "dimension": "A",
-    "text": "taking photos or making videos that tell a story",
-    "position": 20
-  },
-  {
-    "id": "A5",
-    "dimension": "A",
-    "text": "designing clothes, hairstyles or make-up",
-    "position": 26
-  },
-  {
-    "id": "A6",
-    "dimension": "A",
-    "text": "decorating a room, a shop window or a party",
-    "position": 32
-  },
-  {
-    "id": "A7",
-    "dimension": "A",
-    "text": "imagining what an app screen should look like",
-    "position": 38
-  },
-  {
-    "id": "C1",
-    "dimension": "C",
-    "text": "keeping the accounts of a business",
-    "position": 5
-  },
-  {
-    "id": "C2",
-    "dimension": "C",
-    "text": "organising documents and records",
     "position": 11
   },
   {
-    "id": "C3",
-    "dimension": "C",
-    "text": "recording what comes in and goes out of a warehouse",
-    "position": 17
+    "kind": "statement",
+    "id": "A3",
+    "dimension": "A",
+    "text": "writing stories, poems or song lyrics",
+    "position": 20
   },
   {
-    "id": "C4",
-    "dimension": "C",
-    "text": "filling in forms and following the rules carefully",
-    "position": 23
-  },
-  {
-    "id": "C5",
-    "dimension": "C",
-    "text": "checking a piece of work until there are no mistakes",
-    "position": 29
-  },
-  {
-    "id": "C6",
-    "dimension": "C",
-    "text": "planning timetables, shifts or a trip in detail",
-    "position": 35
-  },
-  {
-    "id": "C7",
-    "dimension": "C",
-    "text": "organising data in an Excel sheet",
-    "position": 41
-  },
-  {
-    "id": "E1",
-    "dimension": "E",
-    "text": "selling at the market or online",
-    "position": 4
-  },
-  {
-    "id": "E2",
-    "dimension": "E",
-    "text": "leading a group and making decisions",
-    "position": 10
-  },
-  {
-    "id": "E3",
-    "dimension": "E",
-    "text": "starting and growing your own business",
-    "position": 16
-  },
-  {
-    "id": "E4",
-    "dimension": "E",
-    "text": "persuading someone to back one of your ideas",
-    "position": 22
-  },
-  {
-    "id": "E5",
-    "dimension": "E",
-    "text": "negotiating a price or a deal",
+    "kind": "statement",
+    "id": "A4",
+    "dimension": "A",
+    "text": "taking photos or making videos that tell a story",
     "position": 28
   },
   {
-    "id": "E6",
-    "dimension": "E",
-    "text": "standing up for someone in an argument or in court",
-    "position": 34
+    "kind": "statement",
+    "id": "A5",
+    "dimension": "A",
+    "text": "creating hairstyles or clothes with your own style",
+    "position": 36
   },
   {
-    "id": "E7",
+    "kind": "statement",
+    "id": "C1",
+    "dimension": "C",
+    "text": "keeping the accounts of a business",
+    "position": 7
+  },
+  {
+    "kind": "statement",
+    "id": "C2",
+    "dimension": "C",
+    "text": "filing documents and records",
+    "position": 15
+  },
+  {
+    "kind": "statement",
+    "id": "C3",
+    "dimension": "C",
+    "text": "recording what comes in and goes out of a warehouse",
+    "position": 24
+  },
+  {
+    "kind": "statement",
+    "id": "C4",
+    "dimension": "C",
+    "text": "filling in forms very carefully",
+    "position": 32
+  },
+  {
+    "kind": "statement",
+    "id": "C5",
+    "dimension": "C",
+    "text": "planning timetables, shifts or a trip in detail",
+    "position": 41
+  },
+  {
+    "kind": "statement",
+    "id": "E1",
+    "dimension": "E",
+    "text": "selling at the market or online",
+    "position": 6
+  },
+  {
+    "kind": "statement",
+    "id": "E2",
+    "dimension": "E",
+    "text": "leading a group and deciding what to do",
+    "position": 14
+  },
+  {
+    "kind": "statement",
+    "id": "E3",
+    "dimension": "E",
+    "text": "starting and growing your own business",
+    "position": 22
+  },
+  {
+    "kind": "statement",
+    "id": "E4",
+    "dimension": "E",
+    "text": "negotiating a price",
+    "position": 31
+  },
+  {
+    "kind": "statement",
+    "id": "E5",
     "dimension": "E",
     "text": "speaking in public, on the radio or at an event",
-    "position": 40
+    "position": 39
   },
   {
+    "kind": "statement",
     "id": "I1",
     "dimension": "I",
     "text": "finding out why someone fell ill",
     "position": 1
   },
   {
+    "kind": "statement",
     "id": "I2",
     "dimension": "I",
-    "text": "doing experiments in a lab",
-    "position": 7
+    "text": "doing experiments to see what happens",
+    "position": 10
   },
   {
+    "kind": "statement",
     "id": "I3",
     "dimension": "I",
-    "text": "working out why a harvest went wrong",
-    "position": 13
-  },
-  {
-    "id": "I4",
-    "dimension": "I",
-    "text": "looking at numbers to understand what is going on",
-    "position": 19
-  },
-  {
-    "id": "I5",
-    "dimension": "I",
-    "text": "investigating a case until you find the truth",
-    "position": 25
-  },
-  {
-    "id": "I6",
-    "dimension": "I",
-    "text": "researching the history of Angola and other peoples",
-    "position": 31
-  },
-  {
-    "id": "I7",
-    "dimension": "I",
-    "text": "solving a logic or coding puzzle",
-    "position": 37
-  },
-  {
-    "id": "R1",
-    "dimension": "R",
-    "text": "looking after plants, a vegetable garden or animals",
-    "position": 0
-  },
-  {
-    "id": "R2",
-    "dimension": "R",
-    "text": "fixing a motorbike, a generator or a water pump",
-    "position": 6
-  },
-  {
-    "id": "R3",
-    "dimension": "R",
-    "text": "building things with your hands, like a piece of furniture or a wall",
-    "position": 12
-  },
-  {
-    "id": "R4",
-    "dimension": "R",
-    "text": "wiring a house or fitting the plumbing",
+    "text": "working out why a crop dried up",
     "position": 18
   },
   {
-    "id": "R5",
-    "dimension": "R",
-    "text": "driving, loading and delivering goods",
-    "position": 24
-  },
-  {
-    "id": "R6",
-    "dimension": "R",
-    "text": "cooking for many people in a real kitchen",
-    "position": 30
-  },
-  {
-    "id": "R7",
-    "dimension": "R",
-    "text": "putting together or fixing a computer or a phone",
-    "position": 36
-  },
-  {
-    "id": "S1",
-    "dimension": "S",
-    "text": "caring for someone who is ill",
-    "position": 3
-  },
-  {
-    "id": "S2",
-    "dimension": "S",
-    "text": "helping a classmate study",
-    "position": 9
-  },
-  {
-    "id": "S3",
-    "dimension": "S",
-    "text": "listening to a friend’s problems and giving advice",
-    "position": 15
-  },
-  {
-    "id": "S4",
-    "dimension": "S",
-    "text": "teaching children",
-    "position": 21
-  },
-  {
-    "id": "S5",
-    "dimension": "S",
-    "text": "organising activities in your neighbourhood, church or club",
+    "kind": "statement",
+    "id": "I4",
+    "dimension": "I",
+    "text": "looking at numbers and understanding what they say",
     "position": 27
   },
   {
-    "id": "S6",
+    "kind": "statement",
+    "id": "I5",
+    "dimension": "I",
+    "text": "solving a logic puzzle, even if it takes a while",
+    "position": 35
+  },
+  {
+    "kind": "statement",
+    "id": "R1",
+    "dimension": "R",
+    "text": "looking after a vegetable garden or animals",
+    "position": 0
+  },
+  {
+    "kind": "statement",
+    "id": "R2",
+    "dimension": "R",
+    "text": "fixing a motorbike, a generator or a water pump",
+    "position": 8
+  },
+  {
+    "kind": "statement",
+    "id": "R3",
+    "dimension": "R",
+    "text": "building a piece of furniture or putting up a wall",
+    "position": 17
+  },
+  {
+    "kind": "statement",
+    "id": "R4",
+    "dimension": "R",
+    "text": "driving and delivering parcels around the city",
+    "position": 25
+  },
+  {
+    "kind": "statement",
+    "id": "R5",
+    "dimension": "R",
+    "text": "cooking for lots of people, at a party or a wedding",
+    "position": 34
+  },
+  {
+    "kind": "statement",
+    "id": "S1",
     "dimension": "S",
-    "text": "welcoming and guiding the people who come to a service",
+    "text": "caring for someone who is ill",
+    "position": 4
+  },
+  {
+    "kind": "statement",
+    "id": "S2",
+    "dimension": "S",
+    "text": "helping a classmate study",
+    "position": 13
+  },
+  {
+    "kind": "statement",
+    "id": "S3",
+    "dimension": "S",
+    "text": "listening to a friend’s problems",
+    "position": 21
+  },
+  {
+    "kind": "statement",
+    "id": "S4",
+    "dimension": "S",
+    "text": "teaching children, at school or at church",
+    "position": 29
+  },
+  {
+    "kind": "statement",
+    "id": "S5",
+    "dimension": "S",
+    "text": "helping to organise an activity in your neighbourhood or church",
+    "position": 38
+  },
+  {
+    "kind": "situation",
+    "id": "X1",
+    "context": "school",
+    "text": "At your school fair, what would you rather do?",
+    "options": [
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Set up the stalls and fix what breaks"
+      },
+      {
+        "dimension": "I",
+        "icon": "flask",
+        "text": "Do an experiment to show how it works"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Paint the posters and decorate the space"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "Welcome the visitors and help the little ones"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Sell your class’s products"
+      },
+      {
+        "dimension": "C",
+        "icon": "wallet",
+        "text": "Make the list of everything and count the money"
+      }
+    ],
+    "position": 2
+  },
+  {
+    "kind": "situation",
+    "id": "X10",
+    "context": "money",
+    "text": "You are given money for a project of your own. What do you do first?",
+    "options": [
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Think about how it will help my community"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Plan how to grow it into a business"
+      },
+      {
+        "dimension": "C",
+        "icon": "wallet",
+        "text": "Make the budget and keep every receipt"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Buy the tools and start making"
+      },
+      {
+        "dimension": "I",
+        "icon": "brain",
+        "text": "Study first which idea is best"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Create something beautiful and different"
+      }
+    ],
     "position": 33
   },
   {
-    "id": "S7",
-    "dimension": "S",
-    "text": "showing someone how to use a phone or a computer",
-    "position": 39
+    "kind": "situation",
+    "id": "X11",
+    "context": "free",
+    "text": "You have a free Saturday with nothing planned. How do you spend it?",
+    "options": [
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "Working on a sale or a project of mine"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "Tidying everything and planning the week"
+      },
+      {
+        "dimension": "R",
+        "icon": "sprout",
+        "text": "Looking after the garden or fixing something at home"
+      },
+      {
+        "dimension": "I",
+        "icon": "book",
+        "text": "Reading or watching videos to learn something new"
+      },
+      {
+        "dimension": "A",
+        "icon": "pencil",
+        "text": "Drawing, writing or making music"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "With friends or helping someone"
+      }
+    ],
+    "position": 37
+  },
+  {
+    "kind": "situation",
+    "id": "X12",
+    "context": "future",
+    "text": "Ten years from now, what would you like to say about your work?",
+    "options": [
+      {
+        "dimension": "C",
+        "icon": "scale",
+        "text": "I left everything well organised and error-free"
+      },
+      {
+        "dimension": "R",
+        "icon": "ruler",
+        "text": "I built and fixed things that last"
+      },
+      {
+        "dimension": "I",
+        "icon": "atom",
+        "text": "I found answers nobody had"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "I created things people love"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "I helped many people live better"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "I led and grew a company"
+      }
+    ],
+    "position": 40
+  },
+  {
+    "kind": "situation",
+    "id": "X2",
+    "context": "market",
+    "text": "Your family opens a stall at the market. What do you take on?",
+    "options": [
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Find out what people buy most"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Dress the stall to catch the eye"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Chat with customers and earn their trust"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Negotiate prices and grow the sales"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Write down everything that comes in and goes out"
+      },
+      {
+        "dimension": "R",
+        "icon": "truck",
+        "text": "Load the goods and set up the stall"
+      }
+    ],
+    "position": 5
+  },
+  {
+    "kind": "situation",
+    "id": "X3",
+    "context": "transport",
+    "text": "You are in a packed minibus taxi and the engine fails. What do you do?",
+    "options": [
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Pass the time singing or imagining a story"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Calm the passengers and help those in a hurry"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Get the group organised to catch another ride"
+      },
+      {
+        "dimension": "C",
+        "icon": "pencil",
+        "text": "Note the time and the plate to make a complaint"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Help the driver look for the fault"
+      },
+      {
+        "dimension": "I",
+        "icon": "brain",
+        "text": "Think about what may have caused the fault"
+      }
+    ],
+    "position": 9
+  },
+  {
+    "kind": "situation",
+    "id": "X4",
+    "context": "church",
+    "text": "Your church is holding an end-of-year party. What is your part?",
+    "options": [
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Welcome the families and look after the elderly"
+      },
+      {
+        "dimension": "E",
+        "icon": "megaphone",
+        "text": "Persuade people to help and to give donations"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "Plan the schedule and the guest list"
+      },
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Put up the tents and cook for everyone"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Look at what went well and badly in other years"
+      },
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Rehearse the choir, the dance or a play"
+      }
+    ],
+    "position": 12
+  },
+  {
+    "kind": "situation",
+    "id": "X5",
+    "context": "neighbourhood",
+    "text": "Your neighbourhood has had no water for a week. What do you do?",
+    "options": [
+      {
+        "dimension": "E",
+        "icon": "users",
+        "text": "Rally the neighbours and go and speak to those in charge"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Write the right complaint and keep the papers"
+      },
+      {
+        "dimension": "R",
+        "icon": "drop",
+        "text": "Look for where the fault is and help fix it"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Ask around and investigate until I find the cause"
+      },
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Make a video to show the problem"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Help the older neighbours get water"
+      }
+    ],
+    "position": 16
+  },
+  {
+    "kind": "situation",
+    "id": "X6",
+    "context": "phone",
+    "text": "You buy a new phone. What do you enjoy most?",
+    "options": [
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Organise the contacts and the apps"
+      },
+      {
+        "dimension": "R",
+        "icon": "gear",
+        "text": "Tinker with it and see how it works inside"
+      },
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Read the specs and compare models"
+      },
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Pick the wallpaper and take the first photos"
+      },
+      {
+        "dimension": "S",
+        "icon": "phone",
+        "text": "Show a relative how to use it"
+      },
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "Sell the old one for the best price"
+      }
+    ],
+    "position": 19
+  },
+  {
+    "kind": "situation",
+    "id": "X7",
+    "context": "family",
+    "text": "A relative falls ill at home. What do you feel like doing?",
+    "options": [
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Tidy the room and get everything ready"
+      },
+      {
+        "dimension": "I",
+        "icon": "search",
+        "text": "Look up what it could be and how it is treated"
+      },
+      {
+        "dimension": "A",
+        "icon": "volume",
+        "text": "Keep them company with music and stories"
+      },
+      {
+        "dimension": "S",
+        "icon": "heart",
+        "text": "Care for them and listen to how they feel"
+      },
+      {
+        "dimension": "E",
+        "icon": "target",
+        "text": "Take charge and decide with the family what to do"
+      },
+      {
+        "dimension": "C",
+        "icon": "calendar",
+        "text": "Organise the appointments and the medicines"
+      }
+    ],
+    "position": 23
+  },
+  {
+    "kind": "situation",
+    "id": "X8",
+    "context": "school",
+    "text": "The teacher sets a group project on Angola. What is your part?",
+    "options": [
+      {
+        "dimension": "I",
+        "icon": "book",
+        "text": "Research and check the facts"
+      },
+      {
+        "dimension": "A",
+        "icon": "palette",
+        "text": "Do the drawing or the video"
+      },
+      {
+        "dimension": "S",
+        "icon": "users",
+        "text": "Make sure everyone in the group takes part"
+      },
+      {
+        "dimension": "E",
+        "icon": "mic",
+        "text": "Lead the group and present to the class"
+      },
+      {
+        "dimension": "C",
+        "icon": "pencil",
+        "text": "Organise the text and check for mistakes"
+      },
+      {
+        "dimension": "R",
+        "icon": "ruler",
+        "text": "Build the model"
+      }
+    ],
+    "position": 26
+  },
+  {
+    "kind": "situation",
+    "id": "X9",
+    "context": "work",
+    "text": "You find a holiday job. Which would you prefer?",
+    "options": [
+      {
+        "dimension": "A",
+        "icon": "camera",
+        "text": "Photograph events or decorate parties"
+      },
+      {
+        "dimension": "S",
+        "icon": "chalkboard",
+        "text": "Be a tutor or a children’s activity leader"
+      },
+      {
+        "dimension": "E",
+        "icon": "briefcase",
+        "text": "Sell in a shop or at a fair"
+      },
+      {
+        "dimension": "C",
+        "icon": "document",
+        "text": "Work in an office filing and typing"
+      },
+      {
+        "dimension": "R",
+        "icon": "helmet",
+        "text": "Help on a building site or in a workshop"
+      },
+      {
+        "dimension": "I",
+        "icon": "chart",
+        "text": "Help with a study or a survey"
+      }
+    ],
+    "position": 30
   }
 ]

@@ -1,18 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { QUESTIONS } from './demo/assessment'
 import { HEALTH_CAREERS } from './demo/healthCareers'
 import { OFFSHORE_CAREERS } from './demo/offshoreTrades'
 import { PROJECT_CAREERS } from './demo/projectManagement'
-import {
-  getAssessment,
-  getCareer,
-  listAcademies,
-  listCareers,
-  listCompanies,
-  listCvExamples,
-  listPrograms,
-} from './source'
-import { GROUP_AREAS, MARKET_AREAS, RIASEC_KEYS } from './types'
+import { getCareer, listAcademies, listCareers, listCompanies, listCvExamples, listPrograms } from './source'
+import { GROUP_AREAS, MARKET_AREAS } from './types'
 
 describe('demo data source', () => {
   it('lists the careers of every area (27 of technology, 39 of health), each with its full guide (ADR 0015)', async () => {
@@ -62,18 +53,6 @@ describe('demo data source', () => {
       'dados-junior',
       'dados-reconversao',
     ])
-  })
-
-  it('has 42 questions, 7 per dimension, never two of the same in a row', async () => {
-    const questions = await getAssessment()
-    expect(questions).toHaveLength(42)
-    for (const key of RIASEC_KEYS) {
-      expect(questions.filter((question) => question.dimension === key)).toHaveLength(7)
-    }
-    expect(
-      QUESTIONS.every((question, i) => i === 0 || question.dimension !== QUESTIONS[i - 1]?.dimension),
-    ).toBe(true)
-    expect(new Set(questions.map((question) => question.id)).size).toBe(42)
   })
 
   it('uses fictional institutions only', async () => {

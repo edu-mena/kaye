@@ -518,7 +518,7 @@ export const fr: Messages = {
     title: 'Test d’orientation',
     intro:
       'Il a deux parties. Dans la première, tu dis ce que tu aimes faire (le modèle RIASEC) ; dans la seconde, facultative, ce que tu sais déjà et ce que tu as déjà fait. À la fin : des métiers de tous les domaines qui te correspondent, et un CV plus complet.',
-    point1: 'Partie 1 : {{count}} affirmations sur ce que tu aimes, environ {{minutes}} min',
+    point1: 'Partie 1 : {{count}} questions sur ce que tu aimes et ce que tu ferais, environ {{minutes}} min',
     point2:
       'Partie 2 (facultative) : {{count}} étapes courtes sur ce que tu sais déjà, environ {{minutes}} min',
     point3:
@@ -560,6 +560,32 @@ export const fr: Messages = {
     completeStrengthsBody:
       'Langues, compétences et ce que tu as déjà fait : les suggestions deviennent plus justes et ton CV se remplit. Chaque étape peut être passée.',
     completeStrengthsCta: 'Aller à la partie 2',
+    situationPrompt: 'choisis ce qui te ressemble le plus',
+    context_school: 'À l’école',
+    context_market: 'Au marché',
+    context_transport: 'Dans le minibus',
+    context_church: 'À l’église',
+    context_neighbourhood: 'Dans le quartier',
+    context_phone: 'Sur ton téléphone',
+    context_family: 'À la maison',
+    context_work: 'Au petit boulot',
+    context_money: 'Avec de l’argent',
+    context_free: 'Dans ton temps libre',
+    context_future: 'Dans l’avenir',
+    whyTitle: 'Pourquoi ces domaines',
+    whyBody:
+      'Ils viennent de ce que tu as choisi dans le test, dans l’ordre. Ce ne sont pas des ordres : ce sont des pistes à explorer.',
+    whyArea: '{{area}} : tu as un côté {{dimension}} marqué.',
+    whyLiked: 'Tu as dit que tu aimes {{text}}.',
+    whyPicked: 'Tu as choisi : « {{text}} ».',
+    nextStep: 'Ta prochaine étape',
+    nextStep_academico: 'Étudier : {{title}}',
+    nextStep_formacao: 'Suivre une formation : {{title}}',
+    nextStep_certificacao: 'Obtenir une certification : {{title}}',
+    nextStep_portfolio: 'Monter un portfolio : {{title}}',
+    nextStep_experiencia: 'Gagner de l’expérience ou faire un stage : {{title}}',
+    nextStepGeneric: 'Ouvre la page du métier pour voir les cours et le parcours.',
+    nextStepOpen: 'Voir tout le parcours',
   },
   strengths: {
     progress: 'Étape {{current}} sur {{total}}',

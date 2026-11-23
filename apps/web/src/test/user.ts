@@ -11,11 +11,22 @@ const PROFILE: Profile = {
   guardianInformed: false,
 }
 
-/** Every question answered with one value per dimension (default gives code IAC). */
+/** The statements answered with one value per dimension (default gives code IAC). */
 export function answersFor(
   values: Record<RiasecKey, Likert> = { R: 2, I: 5, A: 4, S: 3, E: 2, C: 4 },
 ): Record<string, Likert> {
-  return Object.fromEntries(QUESTIONS.map((question) => [question.id, values[question.dimension]]))
+  return Object.fromEntries(
+    QUESTIONS.flatMap((question) =>
+      question.kind === 'statement' ? [[question.id, values[question.dimension]]] : [],
+    ),
+  )
+}
+
+/** Every situation answered with the card of one interest (default: the same as the statements' strongest). */
+export function choicesFor(dimension: RiasecKey = 'I'): Record<string, RiasecKey> {
+  return Object.fromEntries(
+    QUESTIONS.flatMap((question) => (question.kind === 'situation' ? [[question.id, dimension]] : [])),
+  )
 }
 
 /** Puts a user in storage and reloads the store, as if the app had just opened. */
@@ -26,6 +37,7 @@ export function seedUser(change: Partial<UserData> = {}) {
     discovery: null,
     interestAreas: [],
     answers: {},
+    choices: {},
     assessmentCompletedAt: null,
     skills: {},
     savedCareers: [],
@@ -59,7 +71,12 @@ export function seedUser(change: Partial<UserData> = {}) {
 
 /** A user who finished the test. */
 export function seedTested(change: Partial<UserData> = {}) {
-  return seedUser({ answers: answersFor(), assessmentCompletedAt: '2026-10-23T10:00:00.000Z', ...change })
+  return seedUser({
+    answers: answersFor(),
+    choices: choicesFor(),
+    assessmentCompletedAt: '2026-10-23T10:00:00.000Z',
+    ...change,
+  })
 }
 
 /** One saved CV, as the store keeps it. */

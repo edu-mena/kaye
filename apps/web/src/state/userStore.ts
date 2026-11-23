@@ -16,6 +16,7 @@ import type {
   Likert,
   MarketArea,
   PublicCard,
+  RiasecKey,
   SkillLevel,
   Subscriptions,
 } from '../data/types'
@@ -90,7 +91,10 @@ export type UserData = {
    * skipped ("Saltar": everything shows), otherwise their choice, edited in Definições.
    */
   interestAreas: MarketArea[] | null
+  /** The statements of the test, 1–5, by question id. */
   answers: Record<string, Likert>
+  /** The card picked in each situation of the test (ADR 0017): the interest it points to, by question id. */
+  choices: Record<string, RiasecKey>
   assessmentCompletedAt: string | null
   skills: Record<string, SkillLevel>
   savedCareers: string[]
@@ -152,6 +156,7 @@ const INITIAL: UserData = {
   discovery: null,
   interestAreas: null,
   answers: {},
+  choices: {},
   assessmentCompletedAt: null,
   skills: {},
   savedCareers: [],
@@ -394,10 +399,15 @@ export const userActions = {
   answer: (questionId: string, value: Likert) =>
     update((user) => ({ ...user, answers: { ...user.answers, [questionId]: value } })),
 
+  /** The card picked in a situation question. */
+  choose: (questionId: string, dimension: RiasecKey) =>
+    update((user) => ({ ...user, choices: { ...user.choices, [questionId]: dimension } })),
+
   completeAssessment: () =>
     update((user) => logged({ ...user, assessmentCompletedAt: new Date().toISOString() }, 'test')),
 
-  restartAssessment: () => update((user) => ({ ...user, answers: {}, assessmentCompletedAt: null })),
+  restartAssessment: () =>
+    update((user) => ({ ...user, answers: {}, choices: {}, assessmentCompletedAt: null })),
 
   /** An answer in part 2; with `step`, that step counts as done (answered or skipped). */
   saveStrengths: (change: Partial<Strengths>, step?: StrengthStep) =>

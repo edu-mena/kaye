@@ -579,7 +579,32 @@ export type CvExample = {
 /** What a CV for this career must show and avoid: the rules change a lot between areas. */
 type CvGuide = { template: CvTemplate; include: string[]; avoid: string[] }
 
-export type AssessmentQuestion = { id: string; dimension: RiasecKey; text: string }
+/** One card of a situation question: what the person would do, and the interest it points to. */
+export type SituationOption = { dimension: RiasecKey; icon: string; text: string }
+
+/** Where a situation happens (the little label above it); the cards are what count. */
+export const SITUATION_CONTEXTS = [
+  'school',
+  'market',
+  'transport',
+  'church',
+  'neighbourhood',
+  'phone',
+  'family',
+  'work',
+  'money',
+  'free',
+  'future',
+] as const
+export type SituationContext = (typeof SITUATION_CONTEXTS)[number]
+
+/**
+ * A question of the vocational test (ADR 0017): a statement answered from 1 to 5, or a situation with one card
+ * per interest, of which the person picks one.
+ */
+export type AssessmentQuestion =
+  | { kind: 'statement'; id: string; dimension: RiasecKey; text: string }
+  | { kind: 'situation'; id: string; context: SituationContext; text: string; options: SituationOption[] }
 
 /** An answer to an assessment statement, from 1 to 5. */
 export type Likert = 1 | 2 | 3 | 4 | 5

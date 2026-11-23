@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useAssessment } from '../data/queries'
 import type { RiasecProfile } from '../data/types'
-import { scoreAnswers } from '../domain/riasec'
+import { isAnswered, scoreAnswers } from '../domain/riasec'
 import { useUser } from './userStore'
 
 export type RiasecState = {
@@ -12,19 +12,23 @@ export type RiasecState = {
   completed: boolean
 }
 
-/** The person's RIASEC profile, from the saved answers. Home, results and fit share it. */
+/**
+ * The person's RIASEC profile, from the saved answers. Home, results and fit share it. A test finished before the
+ * situation questions existed is not complete any more: it asks for them (ADR 0017).
+ */
 export function useRiasecProfile(): RiasecState {
-  const { answers, assessmentCompletedAt } = useUser()
+  const { answers, choices, assessmentCompletedAt } = useUser()
   const { data: questions = [] } = useAssessment()
 
   return useMemo(() => {
-    const answered = questions.filter((question) => answers[question.id] !== undefined).length
-    const completed = assessmentCompletedAt !== null
+    const answered = questions.filter((question) => isAnswered(question, answers, choices)).length
+    // While the questions are still loading nothing is known yet: a finished test stays finished.
+    const completed = assessmentCompletedAt !== null && answered === questions.length
     return {
-      profile: completed ? scoreAnswers(questions, answers) : null,
+      profile: completed ? scoreAnswers(questions, answers, choices) : null,
       answered,
       total: questions.length,
       completed,
     }
-  }, [questions, answers, assessmentCompletedAt])
+  }, [questions, answers, choices, assessmentCompletedAt])
 }

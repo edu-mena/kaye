@@ -90,12 +90,26 @@ test.describe('journeys', () => {
     test.slow()
     await page.goto('/teste')
     await page.getByRole('button', { name: 'Começar' }).click()
-    // Questions alternate R, I, A, S, E, C: strong Investigative and Artistic sides, where Frontend fits
-    // (the health careers, high on Investigative, also need a strong Social side).
+    // Statements alternate R, I, A, S, E, C; strong Investigative and Artistic sides, where Frontend fits (the
+    // health careers, high on Investigative, also need a strong Social side). In every situation the card of
+    // the Investigative interest is picked: card k of situation n belongs to interest (k + n) mod 6.
+    let statements = 0
+    let situations = 0
     for (let index = 0; index < 42; index++) {
       await expect(page.getByText(`Pergunta ${index + 1} de 42`)).toBeVisible()
-      await page.getByRole('button', { name: index % 6 === 1 || index % 6 === 2 ? /Muito/ : /Pouco/ }).click()
+      if (await page.getByText('Quanto gostas de…').isVisible()) {
+        const strong = statements % 6 === 1 || statements % 6 === 2
+        await page.getByRole('button', { name: strong ? /Muito/ : /Pouco/ }).click()
+        statements++
+      } else {
+        await page
+          .locator('fieldset button')
+          .nth((((1 - situations) % 6) + 6) % 6)
+          .click()
+        situations++
+      }
     }
+    expect([statements, situations]).toEqual([30, 12])
     await page.getByRole('button', { name: /Ver o resultado/ }).click()
 
     // Part 2, the strengths, comes next; the interests' result is already there.

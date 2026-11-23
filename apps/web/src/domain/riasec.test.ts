@@ -1,8 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from '../data/demo/assessment'
 import type { RiasecProfile } from '../data/types'
-import { answersFor } from '../test/user'
-import { compatibility, rankDimensions, riasecCode, scoreAnswers, sharedStrength } from './riasec'
+import { answersFor, choicesFor } from '../test/user'
+import {
+  compatibility,
+  isAnswered,
+  rankDimensions,
+  riasecCode,
+  scoreAnswers,
+  SITUATION_WEIGHT,
+  sharedStrength,
+} from './riasec'
 
 const profile = (R: number, I: number, A: number, S: number, E: number, C: number): RiasecProfile => ({
   R,
@@ -14,16 +22,58 @@ const profile = (R: number, I: number, A: number, S: number, E: number, C: numbe
 })
 
 describe('scoreAnswers', () => {
-  it('turns 1–5 answers into 0–1 per dimension', () => {
-    const scores = scoreAnswers(QUESTIONS, answersFor({ R: 1, I: 5, A: 3, S: 2, E: 4, C: 5 }))
-    expect(scores).toEqual({ R: 0, I: 1, A: 0.5, S: 0.25, E: 0.75, C: 1 })
+  const values = { R: 1, I: 5, A: 3, S: 2, E: 4, C: 5 } as const
+  const fromStatements = { R: 0, I: 1, A: 0.5, S: 0.25, E: 0.75, C: 1 }
+
+  it('turns 1–5 statements into 0–1 and gives each situation card to its interest', () => {
+    // Every card picked is an I: 12 votes of 12 is above the half that already counts as the maximum.
+    const scores = scoreAnswers(QUESTIONS, answersFor(values), choicesFor('I'))
+    for (const key of ['R', 'I', 'A', 'S', 'E', 'C'] as const) {
+      const votes = key === 'I' ? 1 : 0
+      expect(scores?.[key]).toBeCloseTo(
+        (1 - SITUATION_WEIGHT) * fromStatements[key] + SITUATION_WEIGHT * votes,
+      )
+    }
   })
 
-  it('waits until every question is answered', () => {
+  it('lets the situations move the result when the statements are all the same', () => {
+    const flat = answersFor({ R: 3, I: 3, A: 3, S: 3, E: 3, C: 3 })
+    const scores = scoreAnswers(QUESTIONS, flat, choicesFor('S'))
+    expect(scores).not.toBeNull()
+    expect(riasecCode(scores ?? { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 })[0]).toBe('S')
+    expect(scores?.S).toBeCloseTo(0.5 * (1 - SITUATION_WEIGHT) + SITUATION_WEIGHT)
+    expect(scores?.R).toBeCloseTo(0.5 * (1 - SITUATION_WEIGHT))
+  })
+
+  it('shares the votes between interests: half of the situations to one already counts as all', () => {
+    const picks = choicesFor('I')
+    const ids = Object.keys(picks)
+    ids.slice(0, 6).forEach((id) => (picks[id] = 'A'))
+    const flat = answersFor({ R: 3, I: 3, A: 3, S: 3, E: 3, C: 3 })
+    const scores = scoreAnswers(QUESTIONS, flat, picks)
+    expect(scores?.A).toBeCloseTo(scores?.I ?? -1)
+  })
+
+  it('waits until every question is answered, statements and situations alike', () => {
     const answers = answersFor()
-    delete answers.R1
+    const choices = choicesFor()
+    expect(scoreAnswers(QUESTIONS, answers, choices)).not.toBeNull()
     expect(scoreAnswers(QUESTIONS, answers)).toBeNull()
+    delete answers.R1
+    expect(scoreAnswers(QUESTIONS, answers, choices)).toBeNull()
     expect(scoreAnswers([], {})).toBeNull()
+  })
+
+  it('knows which question has an answer', () => {
+    const [statement, situation] = [
+      QUESTIONS.find((q) => q.kind === 'statement'),
+      QUESTIONS.find((q) => q.kind === 'situation'),
+    ]
+    if (!statement || !situation) throw new Error('questions missing')
+    expect(isAnswered(statement, { [statement.id]: 3 }, {})).toBe(true)
+    expect(isAnswered(statement, {}, { [situation.id]: 'R' })).toBe(false)
+    expect(isAnswered(situation, {}, { [situation.id]: 'R' })).toBe(true)
+    expect(isAnswered(situation, { [statement.id]: 3 }, {})).toBe(false)
   })
 })
 

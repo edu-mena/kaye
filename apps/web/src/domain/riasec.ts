@@ -6,25 +6,60 @@ import {
   type RiasecProfile,
 } from '../data/types'
 
-/** Average of each dimension, from 1–5 answers to 0–1. Null until every question is answered. */
+/** What the situation questions weigh in the profile; the statements weigh the rest (ADR 0017). */
+export const SITUATION_WEIGHT = 0.3
+/** Picking the same interest in this share of the situations, or more, already counts as the maximum. */
+const SITUATION_FULL = 0.5
+
+/** Whether a question has an answer: a 1–5 value for a statement, a card for a situation. */
+export function isAnswered(
+  question: AssessmentQuestion,
+  answers: Record<string, Likert>,
+  choices: Record<string, RiasecKey>,
+): boolean {
+  return question.kind === 'statement'
+    ? answers[question.id] !== undefined
+    : choices[question.id] !== undefined
+}
+
+/**
+ * Each interest from 0 to 1. The statements give its average (1–5 turned into 0–1); each situation gives a vote
+ * to the interest of the card picked, and the share of votes counts 30% of the score (`SITUATION_WEIGHT`). Null until every
+ * question is answered.
+ */
 export function scoreAnswers(
   questions: AssessmentQuestion[],
   answers: Record<string, Likert>,
+  choices: Record<string, RiasecKey> = {},
 ): RiasecProfile | null {
-  if (questions.length === 0 || questions.some((question) => answers[question.id] === undefined)) return null
+  if (questions.length === 0 || questions.some((question) => !isAnswered(question, answers, choices)))
+    return null
 
-  const totals = Object.fromEntries(RIASEC_KEYS.map((key) => [key, { sum: 0, count: 0 }])) as Record<
+  const statements = Object.fromEntries(RIASEC_KEYS.map((key) => [key, { sum: 0, count: 0 }])) as Record<
     RiasecKey,
     { sum: number; count: number }
   >
+  const votes = Object.fromEntries(RIASEC_KEYS.map((key) => [key, 0])) as Record<RiasecKey, number>
+  let situations = 0
   for (const question of questions) {
-    const total = totals[question.dimension]
-    total.sum += ((answers[question.id] ?? 1) - 1) / 4
-    total.count += 1
+    if (question.kind === 'statement') {
+      const total = statements[question.dimension]
+      total.sum += ((answers[question.id] ?? 1) - 1) / 4
+      total.count += 1
+    } else {
+      const picked = choices[question.id]
+      if (picked) votes[picked] += 1
+      situations += 1
+    }
   }
 
   return Object.fromEntries(
-    RIASEC_KEYS.map((key) => [key, totals[key].count ? totals[key].sum / totals[key].count : 0]),
+    RIASEC_KEYS.map((key) => {
+      const fromStatements = statements[key].count ? statements[key].sum / statements[key].count : 0
+      if (situations === 0) return [key, fromStatements]
+      const fromSituations = Math.min(1, votes[key] / situations / SITUATION_FULL)
+      return [key, (1 - SITUATION_WEIGHT) * fromStatements + SITUATION_WEIGHT * fromSituations]
+    }),
   ) as RiasecProfile
 }
 

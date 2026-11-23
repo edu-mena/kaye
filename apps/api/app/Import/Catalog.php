@@ -171,7 +171,8 @@ final class Catalog
                 'thumbnail' => $r->get('thumbnail'), 'consent_at' => $r->get('consentAt'), 'recorded_at' => $r->get('recordedAt'),
             ]),
             $catalog->flat('assessment-questions', AssessmentQuestion::class, 'assessment-questions', fn (Record $r): array => [
-                'dimension' => $r->get('dimension'), 'text' => $r->t('text'),
+                'kind' => $r->get('kind', 'statement'), 'dimension' => $r->get('dimension'), 'context' => $r->get('context'),
+                'text' => $r->t('text'), 'options' => $r->t('options'),
             ]),
             $catalog->flat('access-exam-questions', AccessExamQuestion::class, 'access-exam-questions', fn (Record $r): array => [
                 'subject' => $r->get('subject'), 'topic' => $r->get('topic'), 'level' => $r->get('level'),
