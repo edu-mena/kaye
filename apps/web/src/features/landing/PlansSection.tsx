@@ -97,7 +97,7 @@ export function PlansSection({ signIn }: { signIn: string }) {
               </li>
             ))}
           </ul>
-          <ButtonLink to="#lista-de-espera" size="lg" variant="onDark" className="mt-8 w-full">
+          <ButtonLink to={signIn} size="lg" variant="onDark" className="mt-8 w-full">
             {t('landing.planPlusCta')}
           </ButtonLink>
         </Card>
