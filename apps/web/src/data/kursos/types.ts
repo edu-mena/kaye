@@ -37,7 +37,12 @@ export type Block =
 type Lesson = { id: string; title: string; estimatedMinutes: number; blocks: Block[] }
 
 /** The written part of a unit: its lessons and the review that closes it, with a grade. */
-export type UnitContent = { lessons: Lesson[]; review: ExerciseBlock[] }
+export type UnitContent = {
+  lessons: Lesson[]
+  review: ExerciseBlock[]
+  /** Engine exercises of the topic (8 or more) for training and the exam; the lesson shows the first ones. */
+  bank?: ((seed: string) => Exercise)[]
+}
 
 export type Unit = {
   id: string

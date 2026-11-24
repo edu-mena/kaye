@@ -1,6 +1,22 @@
-import type { AnnouncedCourse, Course } from './types'
+import { TOPICS } from './programacao/topics'
+import type { AnnouncedCourse, Course, Unit, UnitContent } from './types'
 
 // The Kursos catalogue: the courses written (test versions) and the ones announced as "Em breve".
+
+// One topic = one unit with one short lesson (docs/decisoes/0025). A topic without its file yet shows as "Em breve".
+const TOPIC_FILES = import.meta.glob<{ default: UnitContent }>('./programacao/t[0-9][0-9].ts')
+
+function programmingUnits(): Unit[] {
+  return TOPICS.map((topic, at) => {
+    const load = TOPIC_FILES[`./programacao/${topic.id}.ts`]
+    const unit: Unit = { id: topic.id, number: at + 1, title: topic.title, summary: topic.summary }
+    if (load) {
+      unit.load = () => load().then((module) => module.default)
+      unit.lessons = [{ id: 'l1', title: topic.title, estimatedMinutes: 5 }]
+    }
+    return unit
+  })
+}
 
 const ENGLISH_A1: Course = {
   id: 'ingles-a1',
@@ -356,42 +372,8 @@ const PROGRAMMING: Course = {
     'Distinguir os tipos int, float, str e bool e converter entre eles.',
     'Fazer perguntas ao utilizador com input e calcular com as respostas.',
   ],
-  units: [
-    {
-      id: 'u1',
-      number: 1,
-      title: 'O que é programar',
-      summary: 'Algoritmo, programa, o Python e a função print.',
-      load: () => import('./programacao/unit1').then((module) => module.default),
-      lessons: [
-        { id: 'l1', title: 'O que é um algoritmo', estimatedMinutes: 15 },
-        { id: 'l2', title: 'Programas, linguagens e o Python', estimatedMinutes: 15 },
-        { id: 'l3', title: 'A função print', estimatedMinutes: 20 },
-      ],
-    },
-    {
-      id: 'u2',
-      number: 2,
-      title: 'Variáveis e tipos',
-      summary: 'Números, texto, input e conversões.',
-      load: () => import('./programacao/unit2').then((module) => module.default),
-      lessons: [
-        { id: 'l1', title: 'Variáveis', estimatedMinutes: 15 },
-        { id: 'l2', title: 'Tipos de dados e operações', estimatedMinutes: 20 },
-        { id: 'l3', title: 'input e conversões', estimatedMinutes: 20 },
-      ],
-    },
-    { id: 'u3', number: 3, title: 'Decisões', summary: 'if, elif, else e comparações.' },
-    { id: 'u4', number: 4, title: 'Repetições', summary: 'Os ciclos for e while.' },
-    { id: 'u5', number: 5, title: 'Funções', summary: 'Criar as tuas funções e reutilizar código.' },
-    {
-      id: 'u6',
-      number: 6,
-      title: 'Listas e um pequeno projeto',
-      summary: 'Listas e uma calculadora de propinas, do início ao fim.',
-    },
-  ],
-  loadExam: () => import('./programacao/exam').then((module) => module.default),
+  units: programmingUnits(),
+  loadExam: () => import('./programacao/exam').then((module) => module.default()),
   credits: [
     {
       title: 'Python Programming (Wikibooks)',
