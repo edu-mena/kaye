@@ -387,7 +387,7 @@ export const en: Messages = {
     building2: "Comparing them with Kayé's careers",
     building3: 'Finding the next steps',
     signupTitle: 'Your plan is ready. Create your free account to see it.',
-    signupHint: 'Kayé is free.',
+    signupHint: 'Getting started is free.',
     minorTitle: 'You are under 18',
     minorBody: 'You can use Kayé freely. For your safety, your profile is never public.',
     guardian: 'My parent or guardian knows I use Kayé',

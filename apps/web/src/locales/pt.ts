@@ -385,7 +385,7 @@ export const pt = {
     building2: 'A comparar com as profissões do Kayé',
     building3: 'A procurar os próximos passos',
     signupTitle: 'O teu plano está pronto. Cria a tua conta grátis para o veres.',
-    signupHint: 'O Kayé é gratuito.',
+    signupHint: 'Começar é grátis.',
     minorTitle: 'Tens menos de 18 anos',
     minorBody: 'Podes usar o Kayé à vontade. Por segurança, o teu perfil nunca fica público.',
     guardian: 'O meu encarregado de educação sabe que uso o Kayé',
