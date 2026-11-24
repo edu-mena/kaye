@@ -639,7 +639,7 @@ Detalhe em [organizacao-do-codigo.md](organizacao-do-codigo.md#app-appsweb). O a
   1. se é preciso notificar a APD (Agência de Protecção de Dados);
   2. as regras para guardar dados em servidores fora de Angola (a Hostinger não tem servidores em Angola);
   3. os termos de cada site de vagas de onde recolhemos dados;
-  4. os Termos de uso e a Política de privacidade da app (`/termos` e `/privacidade`, hoje marcados como versão provisória), incluindo quem é o responsável pelo tratamento e o e-mail de contacto.
+  4. os Termos de uso e a Política de privacidade da app (`/termos` e `/privacidade`): redigidos a 24/11/2026 sem advogado, e o que falta fazer no mundo real (entidade, NIF, APD, pagamento) está em [legal.md](legal.md).
 
 ## 9. Infraestrutura e deploy
 

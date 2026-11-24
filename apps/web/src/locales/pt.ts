@@ -402,7 +402,7 @@ export const pt = {
     startBody: 'Leva um minuto. Depois, o teste vocacional mostra-te as profissões que combinam contigo.',
     startCta: 'Criar perfil',
     explore: 'Explorar carreiras',
-    freeBadge: 'Grátis · imparcial',
+    freeBadge: 'Explorar é grátis · imparcial',
     howTitle: 'Como funciona',
     howStep1Title: 'Faz o teste',
     howStep1Body: '42 perguntas sobre os teus interesses: descobre o teu perfil vocacional (RIASEC).',
@@ -2616,8 +2616,6 @@ export const pt = {
     terms: 'Termos de uso',
     privacy: 'Política de privacidade',
     version: 'Versão de {{date}}',
-    draft:
-      'Versão provisória: este texto vai ser revisto por um advogado antes do lançamento público do Kayé.',
     summary: 'Em poucas palavras',
     contents: 'Nesta página',
     back: 'Voltar às configurações',

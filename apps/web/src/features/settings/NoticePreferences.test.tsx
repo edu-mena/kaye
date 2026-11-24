@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { LEGAL_VERSION } from '../../data/legalVersion'
 import { renderWithApp } from '../../test/render'
 import { NoticePreferences } from './NoticePreferences'
 
@@ -62,7 +63,7 @@ describe('NoticePreferences', () => {
     expect(toggle('Novidades da semana, por email')).toHaveAttribute('aria-checked', 'false')
     await userEvent.click(toggle('Novidades da semana, por email'))
 
-    expect(mocks.giveConsent).toHaveBeenCalledWith('email_marketing', '2026-11-12')
+    expect(mocks.giveConsent).toHaveBeenCalledWith('email_marketing', LEGAL_VERSION)
     expect(toggle('Novidades da semana, por email')).toHaveAttribute('aria-checked', 'true')
   })
 
@@ -109,7 +110,7 @@ describe('NoticePreferences', () => {
     expect(mocks.subscribePush).not.toHaveBeenCalled()
     await userEvent.click(push)
 
-    expect(mocks.giveConsent).toHaveBeenCalledWith('push_service', '2026-11-12')
+    expect(mocks.giveConsent).toHaveBeenCalledWith('push_service', LEGAL_VERSION)
     expect(mocks.subscribePush).toHaveBeenCalledWith('BPublicKey')
     expect(push).toHaveAttribute('aria-checked', 'true')
   })
@@ -121,7 +122,7 @@ describe('NoticePreferences', () => {
 
     await userEvent.click(await screen.findByRole('switch', { name: 'Novidades da semana, no browser' }))
 
-    expect(mocks.giveConsent).toHaveBeenCalledWith('push_marketing', '2026-11-12')
+    expect(mocks.giveConsent).toHaveBeenCalledWith('push_marketing', LEGAL_VERSION)
     expect(mocks.subscribePush).not.toHaveBeenCalled()
   })
 
