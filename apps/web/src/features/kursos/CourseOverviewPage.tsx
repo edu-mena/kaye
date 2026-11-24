@@ -10,7 +10,7 @@ import { REVIEW, stepKey } from '../../data/kursos'
 import type { Unit } from '../../data/kursos/types'
 import { courseState, EXAM_SIZE, formatMinutes, nextAttemptAt } from '../../domain/kursos'
 import type { KursoProgress } from '../../state/userStore'
-import { percent, resumeStep, stepHref, totalMinutes, useCourse } from './shared'
+import { isTopicLocked, percent, resumeStep, stepHref, totalMinutes, useCourse, useTopicGate } from './shared'
 import { TestBanner } from './TestBanner'
 
 type UnitStatus = 'done' | 'current' | 'todo' | 'soon'
@@ -36,6 +36,7 @@ const STATUS_LABEL = {
 export default function CourseOverviewPage() {
   const { t } = useTranslation()
   const { course, progress } = useCourse()
+  const gate = useTopicGate()
   if (!course) return <Navigate to="/kursos" replace />
 
   const state = courseState(course, progress.done)
@@ -107,6 +108,7 @@ export default function CourseOverviewPage() {
         <ol className="relative space-y-4 before:absolute before:top-4 before:bottom-4 before:left-5 before:w-0.5 before:bg-line">
           {course.units.map((unit) => {
             const status = unitStatus(unit, progress)
+            const locked = status !== 'soon' && isTopicLocked(gate, unit.id, course, progress.done)
             return (
               <li key={unit.id} className="relative flex gap-4">
                 <span
@@ -120,7 +122,13 @@ export default function CourseOverviewPage() {
                           : 'bg-surface text-night ring-2 ring-line'
                   }`}
                 >
-                  {status === 'done' ? <Icon name="check" className="size-5" /> : unit.number}
+                  {status === 'done' ? (
+                    <Icon name="check" className="size-5" />
+                  ) : locked ? (
+                    <Icon name="lock" className="size-4" />
+                  ) : (
+                    unit.number
+                  )}
                 </span>
                 <Card className={`min-w-0 flex-1 p-5 ${status === 'soon' ? 'opacity-70' : ''}`}>
                   <div className="flex flex-wrap items-start justify-between gap-2">
@@ -132,10 +140,15 @@ export default function CourseOverviewPage() {
                       <p className="text-sm text-muted">{unit.summary}</p>
                     </div>
                     <Chip tone={status === 'done' ? 'success' : status === 'current' ? 'night' : 'neutral'}>
-                      {t(`kursos.${STATUS_LABEL[status]}`)}
+                      {locked ? t('kursos.topicLockedChip') : t(`kursos.${STATUS_LABEL[status]}`)}
                     </Chip>
                   </div>
-                  {unit.load && (
+                  {locked && (
+                    <p className="mt-3 text-sm text-muted">
+                      {gate.promotable ? t('kursos.topicLocked') : t('kursos.topicLockedMinor')}
+                    </p>
+                  )}
+                  {unit.load && !locked && (
                     <ul className="mt-3 space-y-1">
                       {[
                         ...(unit.lessons ?? []),
@@ -184,7 +197,12 @@ export default function CourseOverviewPage() {
             <Card tone={state.unitsDone ? 'notice' : 'gray'} className="min-w-0 flex-1 space-y-3 p-5">
               <h3 className="font-semibold text-night">{t('kursos.exam')}</h3>
               <p className="text-sm text-ink">{t('kursos.examBody', { count: EXAM_SIZE })}</p>
-              {progress.completedAt ? (
+              {gate.limited ? (
+                <p className="flex items-center gap-2 text-sm font-semibold text-night">
+                  <Icon name="lock" className="size-4" />
+                  {gate.promotable ? t('kursos.plusOnly') : t('kursos.plusOnlyMinor')}
+                </p>
+              ) : progress.completedAt ? (
                 <>
                   <p className="text-sm font-semibold text-success">
                     {t('kursos.examPassed', { value: percent(best) })}

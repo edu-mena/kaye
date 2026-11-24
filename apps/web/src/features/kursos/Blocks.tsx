@@ -1,8 +1,10 @@
-import { useId, useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon } from '../../components/icons'
 import { Button } from '../../components/ui/Button'
 import type { Block, ChoiceItem, ExerciseBlock, GapItem, MatchItem, OrderItem } from '../../data/kursos/types'
+import { ChoiceOptions } from './ChoiceOptions'
+import { PracticeCard } from './ExerciseCard'
 import { itemCorrect, itemKey, shuffle, type Answer } from '../../domain/kursos'
 
 // The pieces of a lesson, typeset like a textbook page.
@@ -117,6 +119,8 @@ export function BlockView({ block, lang }: { block: Block; lang: string }) {
       )
     case 'exercise':
       return <PracticeExercise block={block} lang={lang} />
+    case 'practice':
+      return <PracticeCard make={block.make} />
     case 'summary':
       return <Summary points={block.points} />
   }
@@ -344,36 +348,3 @@ function OrderInput({ item, onChange }: { item: OrderItem; onChange: (value: str
 
 const itemId = (item: ChoiceItem | GapItem | MatchItem | OrderItem) =>
   'prompt' in item ? item.prompt : 'left' in item ? item.left : item.answer
-
-type ChoiceOptionsProps = {
-  label: string
-  options: string[]
-  value: Answer
-  onChange: (choice: number) => void
-  disabled?: boolean
-}
-
-/** One-of-several answers as pills, on real radio buttons. */
-export function ChoiceOptions({ label, options, value, onChange, disabled = false }: ChoiceOptionsProps) {
-  const name = useId()
-  return (
-    <fieldset disabled={disabled} className="flex flex-wrap gap-2">
-      <legend className="sr-only">{label}</legend>
-      {options.map((option, choice) => (
-        <label
-          key={option}
-          className="cursor-pointer rounded-full border border-line px-3.5 py-1.5 text-sm text-night transition-colors hover:bg-ash-100 has-checked:border-night has-checked:bg-night has-checked:text-white has-focus-visible:ring-2 has-focus-visible:ring-blue"
-        >
-          <input
-            type="radio"
-            name={name}
-            className="sr-only"
-            checked={value === choice}
-            onChange={() => onChange(choice)}
-          />
-          {option}
-        </label>
-      ))}
-    </fieldset>
-  )
-}

@@ -44,13 +44,13 @@ export type DailyInput = {
   showSalaries: boolean
 }
 
-type Random = () => number
+export type Random = () => number
 
 /** To the nearest 10 000 Kz, never below it: the options of a salary question. */
 const round = (amount: number) => Math.max(10_000, Math.round(amount / 10_000) * 10_000)
 
 /** A small deterministic generator (mulberry32) seeded from a text such as the date. */
-function seeded(seed: string): Random {
+export function seeded(seed: string): Random {
   let state = 0
   for (const char of seed) state = (Math.imul(state, 31) + char.charCodeAt(0)) >>> 0
   return () => {

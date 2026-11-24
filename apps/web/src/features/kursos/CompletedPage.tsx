@@ -10,7 +10,7 @@ import { nextCourse } from '../../data/kursos'
 import { formatMinutes } from '../../domain/kursos'
 import { userActions, useUser } from '../../state/userStore'
 import { downloadCertificate } from './certificatePdf'
-import { percent, useCourse } from './shared'
+import { percent, useCourse, useTopicGate } from './shared'
 import { TestBanner } from './TestBanner'
 
 /** After the exam: the grade, time, grade per unit, the certificate and what comes next. */
@@ -18,6 +18,7 @@ export default function CompletedPage() {
   const { t } = useTranslation()
   const { course, progress } = useCourse()
   const { profile } = useUser()
+  const gate = useTopicGate()
   const [busy, setBusy] = useState(false)
   const [added, setAdded] = useState(false)
 
@@ -90,10 +91,17 @@ export default function CompletedPage() {
           </div>
         </dl>
         <div className="flex flex-wrap gap-2">
-          <Button variant="onDark" onClick={() => void download()} disabled={busy}>
-            <Icon name="download" className="size-4" />
-            {busy ? t('kursos.downloading') : t('kursos.download')}
-          </Button>
+          {gate.limited ? (
+            <p className="flex items-center gap-2 font-semibold">
+              <Icon name="lock" className="size-4" />
+              {gate.promotable ? t('kursos.plusOnly') : t('kursos.plusOnlyMinor')}
+            </p>
+          ) : (
+            <Button variant="onDark" onClick={() => void download()} disabled={busy}>
+              <Icon name="download" className="size-4" />
+              {busy ? t('kursos.downloading') : t('kursos.download')}
+            </Button>
+          )}
           <Button variant="onDarkOutline" onClick={addToCv} disabled={added}>
             <Icon name="document" className="size-4" />
             {t('kursos.addCv')}

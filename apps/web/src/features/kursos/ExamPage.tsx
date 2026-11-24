@@ -15,9 +15,9 @@ import {
   type Answer,
 } from '../../domain/kursos'
 import { userActions } from '../../state/userStore'
-import { ChoiceOptions } from './Blocks'
+import { ChoiceOptions } from './ChoiceOptions'
 import { Reader } from './Reader'
-import { percent, useActiveTime, useCourse } from './shared'
+import { percent, useActiveTime, useCourse, useTopicGate } from './shared'
 
 const time = (at: number) => new Date(at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
@@ -28,6 +28,7 @@ export default function ExamPage() {
   const [questions, setQuestions] = useState<ExamQuestion[] | null>(null)
   const [answers, setAnswers] = useState<Answer[]>([])
   const [result, setResult] = useState<number | null>(null)
+  const gate = useTopicGate()
   useActiveTime(course?.id)
 
   useEffect(() => {
@@ -47,6 +48,8 @@ export default function ExamPage() {
   }, [course])
 
   if (!course) return <Navigate to="/kursos" replace />
+  // The final exam is Plus (ADR 0025): the free account sees it locked on the course page.
+  if (gate.limited) return <Navigate to={`/kursos/${course.id}`} replace />
   const state = courseState(course, progress.done)
   const blockedUntil = result === null ? nextAttemptAt(progress.exam) : null
 

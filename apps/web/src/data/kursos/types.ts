@@ -3,6 +3,8 @@
 // exercises are in the language taught; in any other course they are short Angolan cases, in
 // Portuguese. Each unit lives in its own file and downloads when opened.
 
+import type { Exercise } from '../../domain/exercises/types'
+
 export type ChoiceItem = { prompt: string; options: string[]; /** Index in `options`. */ answer: number }
 /** `prompt` has one "___" for the gap; any of `answers` is right (see domain/kursos.ts). */
 export type GapItem = { prompt: string; answers: string[] }
@@ -28,6 +30,8 @@ export type Block =
   /** A code listing, shown as written (no colours, never run in the browser). */
   | { type: 'code'; caption?: string; language: string; code: string }
   | ExerciseBlock
+  /** An exercise from the engine: make gets the day's seed (domain/exercises), so the numbers change. */
+  | { type: 'practice'; id: string; make: (seed: string) => Exercise }
   | { type: 'summary'; points: string[] }
 
 type Lesson = { id: string; title: string; estimatedMinutes: number; blocks: Block[] }

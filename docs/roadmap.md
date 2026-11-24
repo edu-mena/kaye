@@ -195,8 +195,8 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 
 Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Kursos, a conta grátis faz **um tópico por dia** (conta ao concluir), vê os outros com cadeado e não recebe o certificado. O resto é do Kayé Plus. Primeiro **Programação** e **Contabilidade** (30+ tópicos cada), depois **Finanças** e **Gestão de Empresas**.
 
-- [ ] Motor de exercícios: tipos por área, variantes por parâmetros com semente, correção com tolerância, teste de integridade do banco
-- [ ] Tópico diário no Kurso: conclusão, cadeado, mensagem, limite mole no aparelho
+- [x] Motor de exercícios: tipos por área, variantes por parâmetros com semente, correção com tolerância, teste de integridade do banco
+- [x] Tópico diário no Kurso: conclusão, cadeado, mensagem, limite mole no aparelho
 - [x] Landing: secção "Grátis vs Plus" (`PlansSection`), textos de "explorar é grátis" em pt, en e fr
 - [x] Voz do guia regravada com a frase `onboarding.signupHint` nova ("Começar é grátis."), 24/11/2026 ([ADR 0013](decisoes/0013-voz-do-guia-em-audio-pre-gerado.md))
 - [x] Termos atualizados (24/11/2026): o Plus inclui os Kursos sem limite, o certificado e os lembretes; um tópico por dia na conta grátis; menores sem certificado; Plus grátis no teste de Natal, com 30 dias de aviso antes de passar a pago
