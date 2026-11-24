@@ -10,7 +10,9 @@ import { SIMULATIONS } from '../../data/demo/simulations'
 import { useCareers } from '../../data/queries'
 import type { Simulation, SimulationMoment, SimulationOption } from '../../data/types'
 import { resultOf } from '../../domain/simulations'
+import { usePlus } from '../../lib/plan'
 import { userActions, useUser } from '../../state/userStore'
+import { PlusGate } from '../plus/PlusGate'
 import { Authorship } from './Authorship'
 import { Comments } from './Comments'
 
@@ -31,7 +33,11 @@ export default function SimulationPage() {
     )
   }
   // A key per simulation: opening another one starts at its intro.
-  return <Run key={simulation.id} simulation={simulation} />
+  return (
+    <PlusGate key={simulation.id} feature="simulations">
+      <Run simulation={simulation} />
+    </PlusGate>
+  )
 }
 
 /** The step the person is at: the intro, a moment of the day, or the end. */
@@ -41,13 +47,18 @@ function Run({ simulation }: { simulation: Simulation }) {
   const { t } = useTranslation()
   const { data: careers = [] } = useCareers()
   const career = careers.find((entry) => entry.slug === simulation.careerSlug)
+  const plus = usePlus()
   const [step, setStep] = useState<Step>('intro')
   // What the person chose at each decision, by moment id. Only lives on this screen.
   const [picked, setPicked] = useState<Record<string, string>>({})
   const total = simulation.moments.length
 
   const moment = typeof step === 'number' ? simulation.moments[step] : undefined
-  const advance = () => setStep(typeof step === 'number' ? (step + 1 < total ? step + 1 : 'end') : 0)
+  const advance = () => {
+    // Starting is what uses the free try; the person finishes this one.
+    if (step === 'intro') plus.spendTrial('simulations')
+    setStep(typeof step === 'number' ? (step + 1 < total ? step + 1 : 'end') : 0)
+  }
   const restart = () => {
     setPicked({})
     setStep('intro')

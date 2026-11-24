@@ -39,11 +39,12 @@ import { useUrlFilters, useUrlText } from '../../lib/useUrlFilters'
 import { useRiasecProfile } from '../../state/useRiasecProfile'
 import { useShowsSalaries } from '../../state/useShowsSalaries'
 
+const isField = (value: string | null): value is MarketArea => MARKET_AREAS.some((area) => area === value)
 const isGroup = (value: string | null): value is CareerGroup => CAREER_GROUPS.some((group) => group === value)
 const DEMANDS: Demand[] = ['alta', 'media', 'baixa']
 const GUIDES = ['guia', 'curadoria'] as const
 /** The list's filters in the URL; "Limpar filtros" removes them all (and the page). */
-const FILTER_KEYS = ['area', 'procura', 'salario', 'guia', 'entrada']
+const FILTER_KEYS = ['campo', 'area', 'procura', 'salario', 'guia', 'entrada']
 /** "Sem licenciatura": the shortest path asks no degree (the `entry` of domain/recommend.ts). */
 const NO_DEGREE = 'sem-licenciatura'
 
@@ -95,6 +96,9 @@ export default function CareersPage() {
   const [search, setSearch] = useUrlText('q')
   const groupParam = params.get('area')
   const group = isGroup(groupParam) ? groupParam : null
+  // A market area (from an area page): every group of it.
+  const fieldParam = params.get('campo')
+  const field = isField(fieldParam) ? fieldParam : null
   const sortParam = params.get('ordem')
   const showsSalaries = useShowsSalaries()
   const sorts: CareerSort[] = [
@@ -123,10 +127,15 @@ export default function CareersPage() {
 
   return (
     <QueryState query={query} loading={<ListSkeleton />}>
-      {(everyCareer) => {
+      {(allCareers) => {
+        const everyCareer = field
+          ? allCareers.filter((career) => GROUP_AREAS[career.group] === field)
+          : allCareers
         // The person's areas, unless they chose an area themselves or are searching: then they asked for it.
         const { items: careers, hidden } =
-          group || search ? { items: everyCareer, hidden: 0 } : interest.apply(everyCareer, careerSubject)
+          group || field || search
+            ? { items: everyCareer, hidden: 0 }
+            : interest.apply(everyCareer, careerSubject)
         const results = filterCareers(careers, {
           query: search,
           group,
@@ -181,6 +190,15 @@ export default function CareersPage() {
                   onChange={setFilter}
                   onClear={() => setParam('pagina', null, FILTER_KEYS)}
                   filters={[
+                    {
+                      key: 'campo',
+                      label: t('areas.fieldLabel'),
+                      placeholder: t('areas.anyField'),
+                      value: field,
+                      options: MARKET_AREAS.filter((area) =>
+                        allCareers.some((career) => GROUP_AREAS[career.group] === area),
+                      ).map((area) => ({ value: area, label: t(`market.area_${area}`) })),
+                    },
                     {
                       key: 'area',
                       label: t('careers.groupsLabel'),

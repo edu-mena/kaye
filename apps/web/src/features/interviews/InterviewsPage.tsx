@@ -25,7 +25,9 @@ import {
 } from '../../domain/interviews'
 import { ApiError } from '../../lib/api'
 import { useFocus } from '../../lib/focusMode'
+import { usePlus } from '../../lib/plan'
 import { userActions, useUser } from '../../state/userStore'
+import { PlusGate } from '../plus/PlusGate'
 import { AREA_ICONS } from '../../components/areaIcons'
 import { InterviewRunner } from './InterviewRunner'
 import { useShowsSalaries } from '../../state/useShowsSalaries'
@@ -96,12 +98,14 @@ export default function InterviewsPage() {
           onQuit={() => setStage({ name: 'setup' })}
         />
       ) : stage.name === 'send' ? (
-        <Send
-          session={stage.session}
-          answers={stage.answers}
-          onSent={() => setStage({ name: 'sent', session: stage.session })}
-          onQuit={() => setStage({ name: 'setup' })}
-        />
+        <PlusGate feature="interview_feedback">
+          <Send
+            session={stage.session}
+            answers={stage.answers}
+            onSent={() => setStage({ name: 'sent', session: stage.session })}
+            onQuit={() => setStage({ name: 'setup' })}
+          />
+        </PlusGate>
       ) : stage.name === 'sent' ? (
         <Sent session={stage.session} onBack={() => setStage({ name: 'setup' })} />
       ) : (
@@ -300,6 +304,7 @@ type SendProps = { session: Session; answers: InterviewAnswer[]; onSent: () => v
 function Send({ session, answers, onSent, onQuit }: SendProps) {
   const { t, i18n } = useTranslation()
   const { profile, publicPage } = useUser()
+  const plus = usePlus()
   const [contact, setContact] = useState(publicPage?.card.email ?? publicPage?.card.whatsapp ?? '')
   const [consent, setConsent] = useState(false)
   const [guardian, setGuardian] = useState(profile?.guardianInformed ?? false)
@@ -331,6 +336,7 @@ function Send({ session, answers, onSent, onQuit }: SendProps) {
         },
         answers,
       })
+      plus.spendTrial('interview_feedback')
       userActions.addInterview({
         at: new Date().toISOString(),
         area: session.area,

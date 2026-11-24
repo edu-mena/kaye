@@ -5,11 +5,12 @@ import { Icon } from '../../components/icons'
 import { Loading, RowsSkeleton } from '../../components/PageStates'
 import { QueryState } from '../../components/QueryState'
 import { Button } from '../../components/ui/Button'
+import { Chip } from '../../components/ui/Chip'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { Panel } from '../../components/ui/Panel'
 import { Segmented } from '../../components/ui/Segmented'
 import { useNews } from '../../data/queries'
-import { NEWS_KINDS, type NewsItem, type NewsKind } from '../../data/types'
+import { MARKET_AREAS, NEWS_KINDS, type NewsItem, type NewsKind } from '../../data/types'
 import { byInterest } from '../../domain/interests'
 import { stagger } from '../../lib/ui'
 import { InterestNotice } from '../../components/InterestNotice'
@@ -95,7 +96,11 @@ function Feed({ news: everyPiece }: { news: NewsItem[] }) {
   const filters: Filter[] = [...(hasForYou ? (['para-ti'] as const) : []), 'tudo', ...NEWS_KINDS]
   const fallback: Filter = hasForYou ? 'para-ti' : 'tudo'
   const filter = filters.find((value) => value === params.get('tipo')) ?? fallback
-  const shown = (filter === 'para-ti' ? ordered : news).filter(matches(filter))
+  // ?area= (the home's "Ver tudo"): only the pieces about one area.
+  const area = MARKET_AREAS.find((value) => value === params.get('area')) ?? null
+  const shown = (filter === 'para-ti' ? ordered : news)
+    .filter(matches(filter))
+    .filter((item) => area === null || areasOf(item).includes(area))
   // Events in the order they happen, the ones still to come first.
   if (filter === 'eventos') shown.sort(byEventDate)
   const count = (value: Filter) => (value === 'para-ti' ? forYou.length : news.filter(matches(value)).length)
@@ -134,6 +139,14 @@ function Feed({ news: everyPiece }: { news: NewsItem[] }) {
         </div>
         {subscribing && (
           <SubscribeDialog open onClose={() => setSubscribing(false)} current={subscriptions} />
+        )}
+        {area && (
+          <div className="flex items-center gap-2">
+            <Chip>{t('news.areaFilter', { area: t(`market.area_${area}`) })}</Chip>
+            <Button variant="ghost" size="xs" onClick={() => setParam('area', null)}>
+              {t('common.clear')}
+            </Button>
+          </div>
         )}
         <InterestNotice filter={interest} hidden={everyPiece.length - news.length} />
         <ul className="space-y-3">

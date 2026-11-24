@@ -9,6 +9,7 @@ import { DetailLayout, DetailSection, StatBlock, Subheading } from '../../compon
 import { Icon, type IconName } from '../../components/icons'
 import { FilteredGrid } from '../../components/FilteredGrid'
 import { DetailSkeleton, NotFoundState } from '../../components/PageStates'
+import { WhoHiresRail } from '../../components/RelatedRails'
 import { QueryState } from '../../components/QueryState'
 import { Chip } from '../../components/ui/Chip'
 import { useAdmissions, useCareers, useCourse } from '../../data/queries'
@@ -123,6 +124,7 @@ function CourseView({ course }: { course: CatalogCourse }) {
             intro={t('course.marketIntro')}
             none={t('course.marketNone')}
           />
+          <WhoHiresRail slugs={course.careers} seeAllTo="/empresas" className="mt-10" />
         </DetailSection>
       )}
       {active === 'ofertas' && <Offers course={course} offers={offers} chosen={chosen} />}

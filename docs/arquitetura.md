@@ -534,12 +534,13 @@ Ficam no aparelho por agora e só passam a rotas quando forem precisas no servid
 
 ### Navegação
 
-- **Computador:** uma barra lateral preta flutuante, que se minimiza só com ícones. Tem dois grupos e, em baixo, Suporte e Configurações.
-- **Telemóvel:** uma barra de baixo com os 5 destinos mais usados. Na barra de cima ficam o sino das notificações e o menu (hamburger), que tem o resto.
+- **Computador:** uma barra lateral preta flutuante, que se minimiza só com ícones. Tem quatro grupos (Descobrir, Preparar-te, Oportunidades, Para ti), definidos em `components/navItems.ts` e usados também pelo menu do telemóvel, e em baixo Suporte e Configurações.
+- **Telemóvel:** uma barra de baixo com os 5 destinos mais usados. Na barra de cima ficam o sino das notificações e o menu (hamburger), que tem tudo, nos mesmos grupos da barra lateral.
 
 | Grupo | Secção | Conteúdo | Telemóvel |
 |---|---|---|---|
-| Explorar | Início | Teste vocacional, recomendações, progresso, próxima ação | Barra de baixo |
+| Descobrir | Início | Quem tem perfil: o feed «Para ti» (sequência, desafio do dia, novidades da área, carreiras, quem contrata, onde estudar, prazos) e a jornada; sem perfil, a página de entrada ([design.md](design.md#home-para-ti-com-perfil)) | Barra de baixo |
+| | Áreas (`/areas`, `/areas/:area`) | O catálogo por área do Mercado: as carreiras, os cursos, onde estudar, quem contrata, bolsas, estágios, prazos e as novidades da área | Menu |
 | | Pesquisa | Carreiras (também os ofícios), cursos, academias, bolsas, estágios, empresas, as pessoas das empresas (só nome e cargo) e as páginas da app ("plano", "exames de acesso"…) num só sítio | Barra de baixo |
 | | Carreiras | Todas as profissões e a página de cada uma (ver abaixo) | Barra de baixo |
 | | Testes (`/testes`) | Todos os testes num só sítio, com o estado de cada um: teste vocacional (`/teste`), psicotécnicos (`/treino`), simulação de entrevistas (`/entrevistas`), treino para os exames de acesso (`/exames-de-acesso`: disciplinas e datas do exame de cada curso, treino por disciplina e simulação com tempo) e exames dos Kursos. O item fica ativo também nessas páginas | Menu |
@@ -554,7 +555,8 @@ Ficam no aparelho por agora e só passam a rotas quando forem precisas no servid
 | | Empresas | As empresas líderes de cada setor, com as pessoas (nome e cargo), as publicações e as profissões que contratam | Menu |
 | | Mercado | Cada área de ponta a ponta, em separadores (Resumo, Vagas, Estado, Formação, Por área), com dados reais e sem veredictos: o que as vagas dos sites de emprego mostram, atualizado todas as semanas (vagas por área, província, quem mais recruta e a fonte de cada número, sempre agregado), os concursos públicos (lugares e quem os abre), os diplomados por curso e área (INE e Ministério do Ensino Superior), os programas para jovens e os cursos que abrem portas no estrangeiro. As áreas ficam lado a lado (o peso nas vagas e nos diplomados) para ajudar a decidir, nunca para desencorajar uma carreira | Menu |
 | | Novidades | Notícias sobre trabalho, ensino e dados; o que as academias publicam | Menu |
-| Para ti | O meu plano (`/plano`) | Uma carreira e um caminho, com passos, progresso e prazos; guardado só no telemóvel | Menu |
+| Para ti | Kayé Plus (`/plus`) | Só com `VITE_PLUS_ENABLED` e para maiores de 18 anos: o que inclui, o preço (1.999 Kz/mês), perguntas frequentes e "Avisa-me quando abrir" ([ADR 0024](decisoes/0024-plano-kaye-plus.md)). Não cobra nada | Menu |
+| | O meu plano (`/plano`) | Uma carreira e um caminho, com passos, progresso e prazos; guardado só no telemóvel | Menu |
 | | CV | Editor, modelos visuais e CVs modelo por área | Barra de baixo |
 | | Notificações | Uma Novidade torna-se Notificação quando é sobre a pessoa (carreira guardada, província); em cima, os prazos da pessoa a ≤ 14 dias | Sino |
 | | Perfil | Conta, resultado do teste, competências, guardados | Menu |

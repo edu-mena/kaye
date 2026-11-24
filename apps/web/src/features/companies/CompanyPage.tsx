@@ -87,6 +87,8 @@ function CompanyView({ company }: { company: Company }) {
   const { data: allCareers = [] } = useCareers()
   const { data: academies = [] } = useAcademies()
   const careers = allCareers.filter((career) => company.careers.includes(career.slug))
+  // Opened from a career page (?profissao=): the way back goes there.
+  const from = careers.find((career) => career.slug === params.get('profissao'))
   const partners = academies.filter((academy) => company.partners.includes(academy.id))
   const tabs = TABS.map((tab) => ({ id: tab.id, icon: tab.icon, label: t(`company.tab_${tab.id}`) }))
   const active: TabId =
@@ -98,7 +100,11 @@ function CompanyView({ company }: { company: Company }) {
       header={
         <DetailHero
           entity={company}
-          back={{ to: '/empresas', label: t('company.back') }}
+          back={
+            from
+              ? { to: `/carreiras/${from.slug}`, label: t('related.backTo', { name: from.name }) }
+              : { to: '/empresas', label: t('company.back') }
+          }
           meta={t(`companies.sector_${company.sector}`)}
           actions={
             <>

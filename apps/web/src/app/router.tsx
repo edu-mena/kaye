@@ -99,6 +99,16 @@ export const router = createBrowserRouter([
       },
       { path: 'pesquisa', lazy: page(() => import('../features/search/SearchPage')) },
       {
+        path: 'areas',
+        handle: { wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/areas/AreasPage')),
+      },
+      {
+        path: 'areas/:area',
+        handle: { wide: true } satisfies RouteHandle,
+        lazy: page(() => import('../features/areas/AreaPage')),
+      },
+      {
         path: 'academias',
         handle: { wide: true } satisfies RouteHandle,
         lazy: page(() => import('../features/academies/AcademiesPage')),
@@ -134,6 +144,7 @@ export const router = createBrowserRouter([
       { path: 'simulacoes/:id', lazy: page(() => import('../features/simulations/SimulationPage')) },
       { path: 'agentes/:id', lazy: page(() => import('../features/simulations/AgentPage')) },
       { path: 'plano', lazy: personalPage(() => import('../features/plan/PlanPage')) },
+      { path: 'plus', lazy: page(() => import('../features/plus/PlusPage')) },
       { path: 'prazos', lazy: personalPage(() => import('../features/deadlines/DeadlinesPage')) },
       { path: 'estagios', Component: () => <KeepQuery to="estagios" /> },
       {

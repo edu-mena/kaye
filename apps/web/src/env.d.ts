@@ -9,6 +9,8 @@ interface ImportMetaEnv {
   readonly VITE_KAYE_EMAIL?: string
   /** Kayé's WhatsApp number, digits only with the country code (244…), for mentor requests. */
   readonly VITE_KAYE_WHATSAPP?: string
+  /** `true` shows Kayé Plus (padlocks, card, /plus). Off by default: nothing is charged yet (docs/decisoes/0024). */
+  readonly VITE_PLUS_ENABLED?: 'true' | 'false'
 }
 
 interface ImportMeta {

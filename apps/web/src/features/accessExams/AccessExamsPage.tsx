@@ -33,8 +33,10 @@ import {
 } from '../../domain/accessExams'
 import { admissionsFor } from '../../domain/admissions'
 import { useFocus } from '../../lib/focusMode'
+import { usePlus } from '../../lib/plan'
 import { useUrlFilters } from '../../lib/useUrlFilters'
 import { userActions, useUser } from '../../state/userStore'
+import { PlusGate } from '../plus/PlusGate'
 import { AdmissionBlock } from '../training/AdmissionBlock'
 
 type Session = {
@@ -109,8 +111,12 @@ export default function AccessExamsPage() {
   const exam = useChosenExam()
   useFocus(session !== null)
 
+  const plus = usePlus()
+
   const start: Start = (subject, mode, topic) => {
     setFinished(null)
+    // "Treinar outra vez" on the result skips the screens where the gate is: it must not skip the gate.
+    if (plus.blocked('training')) return
     setSession({
       subject,
       mode,
@@ -133,6 +139,7 @@ export default function AccessExamsPage() {
       mode: session.mode,
       topics,
     })
+    plus.spendTrial('training')
     setFinished({ ...session, picks, topics, timedOut })
     setSession(null)
     window.scrollTo({ top: 0 })
@@ -151,10 +158,12 @@ export default function AccessExamsPage() {
       {finished ? (
         <Result finished={finished} onStart={start} onBack={() => setFinished(null)} />
       ) : (
-        <div className="space-y-6">
-          <YourExam exam={exam} onStart={start} />
-          <Subjects inExam={exam.subjects} onStart={start} />
-        </div>
+        <PlusGate feature="training">
+          <div className="space-y-6">
+            <YourExam exam={exam} onStart={start} />
+            <Subjects inExam={exam.subjects} onStart={start} />
+          </div>
+        </PlusGate>
       )}
     </>
   )

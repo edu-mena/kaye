@@ -13,6 +13,7 @@ import {
   RowsSkeleton,
 } from '../../components/PageStates'
 import { PhotoImg } from '../../components/PhotoImg'
+import { WhereToStudyRail, WhoHiresRail } from '../../components/RelatedRails'
 import { PathMark } from '../../components/PathMark'
 import { QueryState } from '../../components/QueryState'
 import { ScoreRing } from '../../components/ScoreRing'
@@ -201,10 +202,12 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
 
       <Dialog open={aboutOpen} onClose={() => setAboutOpen(false)} title={career.name}>
         <div className="mb-3 flex flex-wrap gap-2">
-          <Chip tone="night">
-            <Icon name={GROUP_ICONS[career.group]} className="size-3.5" />
-            {t(`groups.${career.group}`)}
-          </Chip>
+          <Link to={`/areas/${GROUP_AREAS[career.group]}`} className="hover:opacity-80">
+            <Chip tone="night">
+              <Icon name={GROUP_ICONS[career.group]} className="size-3.5" />
+              {t(`groups.${career.group}`)} · {t(`market.area_${GROUP_AREAS[career.group]}`)}
+            </Chip>
+          </Link>
           <Chip tone={career.demand === 'alta' ? 'success' : 'neutral'}>
             <Icon name="signal" className="size-3.5" />
             {t(`demand.${career.demand}`)}
@@ -586,9 +589,7 @@ function Study({ career }: { career: Career }) {
                   const { program } = item
                   return (
                     <li key={program.id}>
-                      <button
-                        type="button"
-                        onClick={() => setOpenId(program.id)}
+                      <div
                         className={`group flex w-full items-center gap-4 rounded-2xl border bg-surface p-4 text-left transition duration-300 hover:-translate-y-0.5 hover:shadow-card ${index === 0 ? 'border-night' : 'border-line hover:border-ash-300'}`}
                       >
                         <span
@@ -598,12 +599,22 @@ function Study({ career }: { career: Career }) {
                           {index + 1}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="flex flex-wrap items-center gap-2 text-base font-semibold text-night">
+                          <button
+                            type="button"
+                            onClick={() => setOpenId(program.id)}
+                            className="flex flex-wrap items-center gap-2 text-left text-base font-semibold text-night"
+                          >
                             {program.name}
                             {index === 0 && <Chip tone="night">{t('career.studyBest')}</Chip>}
-                          </span>
+                          </button>
                           <span className="mt-1 block text-xs font-light text-muted">
-                            {program.institution.name} · {program.institution.province}
+                            <Link
+                              to={`/academias/${program.institution.id}?carreira=${career.slug}`}
+                              className="text-night underline underline-offset-2 hover:text-blue"
+                            >
+                              {program.institution.name}
+                            </Link>{' '}
+                            · {program.institution.province}
                           </span>
                           <span className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-light text-muted">
                             <span className="inline-flex items-center gap-1">
@@ -622,12 +633,19 @@ function Study({ career }: { career: Career }) {
                             )}
                           </span>
                         </span>
-                        <ScoreRing score={item.score} />
-                        <Icon
-                          name="chevronRight"
-                          className="size-5 shrink-0 text-muted transition group-hover:translate-x-0.5"
-                        />
-                      </button>
+                        <button
+                          type="button"
+                          aria-label={t('career.studyOpen', { name: program.name })}
+                          onClick={() => setOpenId(program.id)}
+                          className="flex shrink-0 items-center gap-4"
+                        >
+                          <ScoreRing score={item.score} />
+                          <Icon
+                            name="chevronRight"
+                            className="size-5 text-muted transition group-hover:translate-x-0.5"
+                          />
+                        </button>
+                      </div>
                     </li>
                   )
                 })}
@@ -643,6 +661,12 @@ function Study({ career }: { career: Career }) {
           )
         }}
       </QueryState>
+      <WhereToStudyRail
+        slugs={[career.slug]}
+        careerSlug={career.slug}
+        seeAllTo="/academias"
+        className="mt-10"
+      />
       <ScholarshipLinks areas={[GROUP_AREAS[career.group]]} className="mt-10" />
     </Section>
   )
@@ -653,6 +677,7 @@ function MarketSection({ career }: { career: Career }) {
   return (
     <Section id="market" title={t('career.market')} icon="chart">
       <CareerMarket career={career} />
+      <WhoHiresRail slugs={[career.slug]} careerSlug={career.slug} seeAllTo="/empresas" className="mt-10" />
       <ButtonLink to={`/entrevistas?carreira=${career.slug}`} variant="secondary" className="mt-6">
         <Icon name="message" className="size-4" />
         {t('interviews.train')}

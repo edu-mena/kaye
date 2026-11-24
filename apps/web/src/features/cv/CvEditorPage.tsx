@@ -1,7 +1,7 @@
 import { useDeferredValue, useEffect, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon } from '../../components/icons'
-import { Button, ButtonLink } from '../../components/ui/Button'
+import { ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
 import { TextAreaField, TextField } from '../../components/ui/Field'
 import { PageHeader } from '../../components/ui/PageHeader'
@@ -12,6 +12,7 @@ import { activeCv, userActions, useUser } from '../../state/userStore'
 import { CvDesignPanel } from './CvDesignPanel'
 import { CvFillPanel } from './CvFillPanel'
 import { EntryList, ListField, type EntrySection } from './cvFields'
+import { CvDownloadButton } from './CvDownloadButton'
 import { downloadCvPdf } from './cvPdf'
 import { ScaledSheet } from './CvSheet'
 import { useCareerTips } from './useCareerTips'
@@ -58,13 +59,10 @@ function Editor({ document }: { document: CvDocument }) {
           <ButtonLink to="/cv/passo-a-passo" size="sm" variant="secondary">
             {t('cv.wizTitle')}
           </ButtonLink>
-          <Button
+          <CvDownloadButton
             size="sm"
-            onClick={() => void downloadCvPdf({ cv, template, style, photo, arrangement }, labels)}
-          >
-            <Icon name="download" className="size-4" />
-            {t('cv.download')}
-          </Button>
+            onDownload={() => void downloadCvPdf({ cv, template, style, photo, arrangement }, labels)}
+          />
         </span>
       </div>
       {/* On a wide screen the preview is always there, so it needs no tab. */}
