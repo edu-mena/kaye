@@ -1,7 +1,7 @@
 // The topics of the Programação Kurso, in order (docs/decisoes/0025: one topic = one unit = one short lesson).
 // Titles live here so the roadmap shows them without downloading the topic.
 
-export type TopicMeta = { id: string; title: string; summary: string }
+import type { TopicMeta } from '../topicCourse'
 
 export const TOPICS: TopicMeta[] = [
   {

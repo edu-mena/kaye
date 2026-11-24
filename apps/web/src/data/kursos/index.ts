@@ -1,22 +1,13 @@
-import { TOPICS } from './programacao/topics'
-import type { AnnouncedCourse, Course, Unit, UnitContent } from './types'
+import { TOPICS as ACCOUNTING_TOPICS } from './contabilidade/topics'
+import { TOPICS as PROGRAMMING_TOPICS } from './programacao/topics'
+import { topicUnits } from './topicCourse'
+import type { AnnouncedCourse, Course, UnitContent } from './types'
 
 // The Kursos catalogue: the courses written (test versions) and the ones announced as "Em breve".
 
 // One topic = one unit with one short lesson (docs/decisoes/0025). A topic without its file yet shows as "Em breve".
-const TOPIC_FILES = import.meta.glob<{ default: UnitContent }>('./programacao/t[0-9][0-9].ts')
-
-function programmingUnits(): Unit[] {
-  return TOPICS.map((topic, at) => {
-    const load = TOPIC_FILES[`./programacao/${topic.id}.ts`]
-    const unit: Unit = { id: topic.id, number: at + 1, title: topic.title, summary: topic.summary }
-    if (load) {
-      unit.load = () => load().then((module) => module.default)
-      unit.lessons = [{ id: 'l1', title: topic.title, estimatedMinutes: 5 }]
-    }
-    return unit
-  })
-}
+const PROGRAMMING_FILES = import.meta.glob<{ default: UnitContent }>('./programacao/t[0-9][0-9].ts')
+const ACCOUNTING_FILES = import.meta.glob<{ default: UnitContent }>('./contabilidade/t[0-9][0-9].ts')
 
 const ENGLISH_A1: Course = {
   id: 'ingles-a1',
@@ -372,7 +363,7 @@ const PROGRAMMING: Course = {
     'Criar funções, ler e escrever ficheiros de texto e tratar erros com try/except.',
     'Ler um problema, depurar um erro e acabar 5 mini-projetos: média de notas, tabuada, caixa registadora em Kz, lista de contactos e jogo de adivinhar.',
   ],
-  units: programmingUnits(),
+  units: topicUnits('programacao', PROGRAMMING_TOPICS, PROGRAMMING_FILES),
   loadExam: () => import('./programacao/exam').then((module) => module.default()),
   credits: [
     {
@@ -388,6 +379,57 @@ const PROGRAMMING: Course = {
       license: 'CC BY-SA 4.0',
       url: 'https://en.wikipedia.org/wiki/Algorithm',
       use: 'Origem do Python e dos termos técnicos (algoritmo, módulo, função), só como confirmação de significados.',
+    },
+  ],
+}
+
+const ACCOUNTING: Course = {
+  id: 'contabilidade',
+  title: 'Contabilidade: Nível Iniciante',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'wallet',
+  tone: 'success',
+  subtitle: 'Registar, somar e perceber as contas de uma loja angolana, passo a passo e com exercícios.',
+  audience:
+    'Para quem tem ou quer ter um pequeno negócio, para quem vai trabalhar num escritório ou numa loja e para quem pensa em cursos de contabilidade, gestão ou economia. Basta saber somar e subtrair.',
+  goals: [
+    'Distinguir ativo, passivo e capital próprio e usar a equação fundamental.',
+    'Fazer lançamentos a débito e a crédito no diário e verificar o balancete.',
+    'Registar compras, vendas, IVA, existências, caixa, bancos, clientes, fornecedores e salários.',
+    'Calcular amortizações e acréscimos e ler a demonstração de resultados e o balanço de uma loja.',
+  ],
+  units: topicUnits('contabilidade', ACCOUNTING_TOPICS, ACCOUNTING_FILES),
+  loadExam: () => import('./contabilidade/exam').then((module) => module.default()),
+  credits: [
+    {
+      title: 'Accounting; Double-entry bookkeeping; Balance sheet; Income statement (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Double-entry_bookkeeping',
+      use: 'Fonte principal, só como tema (equação fundamental, débito e crédito, razão, balancete, balanço, demonstração de resultados, amortização): as lições e as perguntas são escritas de raiz em português; as empresas, as pessoas e os valores em Kz são inventados.',
+    },
+    {
+      title: 'Plano Geral de Contabilidade (Decreto n.º 82/01, de 16 de Novembro)',
+      author: 'Governo de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Existência do plano e organização das contas em classes. Os nomes das classes e das contas usadas no Kurso estão por confirmar no texto em vigor no Diário da República.',
+    },
+    {
+      title: 'Código do Imposto sobre o Valor Acrescentado (Lei n.º 7/19, republicado pela Lei n.º 14/23)',
+      author: 'Assembleia Nacional de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://cms.law/pt/prt/publication/angola-alteracoes-ao-codigo-do-imposto-sobre-o-valor-acrescentado',
+      use: 'Taxa geral de 14% (art. 19.º, n.º 1, alínea a), por confirmar no Diário da República). As outras taxas e os regimes especiais não são ensinados.',
+    },
+    {
+      title:
+        'Regime de contribuições para a Segurança Social (Decreto Presidencial n.º 227/18, de 27 de Setembro)',
+      author: 'Presidente da República de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://lex.ao/docs/presidente-da-republica/2018/decreto-presidencial-n-o-227-18-de-27-de-setembro/',
+      use: 'Taxas de 8% (entidade empregadora) e 3% (trabalhador) sobre a remuneração; artigos e base de incidência por confirmar no Diário da República.',
     },
   ],
 }
@@ -473,6 +515,7 @@ export const KURSOS: Course[] = [
   CYBERSECURITY,
   DIGITAL_MARKETING,
   PROGRAMMING,
+  ACCOUNTING,
   DATA_ANALYSIS,
 ]
 
@@ -483,12 +526,6 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     title: 'Economia',
     body: 'Oferta, procura, preços e inflação, com exemplos do mercado angolano.',
     icon: 'chart',
-  },
-  {
-    id: 'contabilidade',
-    title: 'Contabilidade',
-    body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
-    icon: 'wallet',
   },
 ]
 
