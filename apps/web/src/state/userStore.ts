@@ -23,6 +23,7 @@ import type {
 } from '../data/types'
 import { NEWS_KINDS } from '../data/types'
 import { newEntry, newId } from '../domain/cv'
+import { withCompletion, type TopicCompletion } from '../domain/dailyTopic'
 import { todayIso } from '../domain/scholarships'
 import type { Discovery } from '../domain/discovery'
 import { MAX_SIMULATIONS, withResult, type SimulationResult } from '../domain/simulations'
@@ -76,6 +77,8 @@ export type KursoProgress = {
   exam: KursoExamAttempt[]
   completedAt?: string
   certificate?: string
+  /** Topics (units) finished, with the local day (docs/decisoes/0025). Optional: older copies lack it. */
+  doneOn?: TopicCompletion[]
 }
 
 export const EMPTY_KURSO: KursoProgress = { done: [], scores: {}, position: null, seconds: 0, exam: [] }
@@ -626,8 +629,19 @@ export const userActions = {
       ...progress,
       done: progress.done.includes(step) ? progress.done : [...progress.done, step],
       scores: score ? { ...progress.scores, [score.unit]: score.value } : progress.scores,
+      // A unit's review is its last step: finishing it finishes the topic, and the day counts.
+      ...(score ? { doneOn: withCompletion(progress.doneOn, score.unit, todayIso()) } : {}),
     }))
     update(withActivity)
+  },
+
+  /** Topics finished on the account (maybe on another device) join this device's list. */
+  mergeKursoCompletions: (done: { course: string; topic: string; completedOn: string }[]) => {
+    for (const entry of done)
+      updateKurso(entry.course, (progress) => {
+        const doneOn = withCompletion(progress.doneOn, entry.topic, entry.completedOn)
+        return doneOn.length === (progress.doneOn?.length ?? 0) ? progress : { ...progress, doneOn }
+      })
   },
 
   openKursoStep: (course: string, step: string) =>

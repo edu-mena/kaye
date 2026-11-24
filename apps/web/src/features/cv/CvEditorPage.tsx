@@ -11,6 +11,7 @@ import type { CvData, CvDocument, CvSection } from '../../data/types'
 import { activeCv, userActions, useUser } from '../../state/userStore'
 import { CvDesignPanel } from './CvDesignPanel'
 import { CvFillPanel } from './CvFillPanel'
+import { CvKeywordsPanel } from './CvKeywordsPanel'
 import { EntryList, ListField, type EntrySection } from './cvFields'
 import { CvDownloadButton } from './CvDownloadButton'
 import { downloadCvPdf } from './cvPdf'
@@ -100,6 +101,7 @@ function Editor({ document }: { document: CvDocument }) {
             className={`min-w-0 space-y-6 ${view === 'preview' ? 'hidden lg:block' : ''}`}
           >
             <CvFillPanel document={document} onApplied={() => setFills((count) => count + 1)} />
+            <CvKeywordsPanel document={document} onApplied={() => setFills((count) => count + 1)} />
 
             <Card className="space-y-4 p-6">
               <TextField

@@ -28,7 +28,7 @@
 - Termos ingleses do ofício aparecem entre parênteses na primeira vez: âmbito (scope), partes interessadas (stakeholders).
 - O PMBOK é protegido e não é usado. A fonte principal é "Project Management, 2nd ed." (Adrienne Watt, BCcampus, CC BY 4.0).
 - As respostas escritas ignoram acentos ("ambito" = "âmbito"), porque no telemóvel muita gente escreve sem eles.
-- Os cursos anunciados ("Em breve") são dados (`ANNOUNCED` em `data/kursos/index.ts`), um de cada vez: Economia, Contabilidade, Programação.
+- Os cursos anunciados ("Em breve") são dados (`ANNOUNCED` em `data/kursos/index.ts`), um de cada vez: Economia (Contabilidade e Programação já estão escritas).
 
 ## Nota (13 de novembro de 2026): Fundamentos da Cibersegurança
 
@@ -57,3 +57,25 @@
 - Fonte principal: OpenIntro Statistics, 4.ª ed. (CC BY-SA 3.0, confirmada na página de licenças da OpenIntro), com a Wikipedia (CC BY-SA 4.0).
 - Todos os dados são inventados e marcados como tal (turmas, cantinas e associações fictícias). Não há dados pessoais reais.
 - As fórmulas de folha de cálculo usam o bloco `code`, com os nomes das funções em pt-PT e, depois de //, em inglês. O separador de argumentos é ";", como na configuração portuguesa.
+
+## Nota (24 de novembro de 2026): Programação com 30 tópicos (ADR 0025)
+
+- O Kurso passa de 6 unidades no roadmap (2 escritas) a **30 tópicos**: 1 tópico = 1 unidade com 1 lição curta (cerca de 5 minutos), porque a conta grátis faz um tópico por dia. Os tópicos antigos 1 e 2 foram refeitos nos novos 1 a 7.
+- Plano: variáveis e tipos, operadores, texto, input, decisões, ciclos `for` e `while`, listas, dicionários, funções, ficheiros de texto, erros e `try`, módulos, ler um problema, depuração e 5 mini-projetos (média de notas, tabuada, caixa registadora em Kz, lista de contactos, jogo de adivinhar).
+- Cada tópico tem 8 a 10 exercícios no banco (`bank`), com os tipos do motor: `output` («o que imprime»), `fill`, `order`, `choice` e `case`. As 5 primeiras entram na lição como blocos `practice`; todas servem para o treino e o exame. A resposta de cada «o que imprime» é **calculada em TypeScript** na variante, nunca escrita à mão nem corrida (CSP).
+- A revisão da unidade e o exame usam as 3 perguntas de escolha de cada tópico (90 no banco do exame).
+- Fontes: as mesmas (Wikibook Python Programming e Wikipedia, CC BY-SA 4.0), só como tema; as perguntas e os dados (nomes, valores em Kz, telefones 900 000 xxx) são inventados. Cada exercício tem o campo `source`.
+- `bank.test.ts` garante 8 ou mais exercícios por tópico, uma só resposta certa em cada escolha, `source` preenchida e ids únicos, para 12 sementes.
+
+## Nota (24 de novembro de 2026): Contabilidade com 30 tópicos (ADR 0025)
+
+- Mesmo formato da Programação: 30 tópicos (1 tópico = 1 unidade com 1 lição curta de cerca de 5 minutos), 8 a 9 exercícios no banco por tópico, as 3 perguntas de escolha de cada tópico na revisão e no exame (90 no banco). O código partilhado (unidades e exame por tópicos) fica em `data/kursos/topicCourse.ts`.
+- Plano: para que serve, património, equação fundamental, Plano Geral de Contabilidade, débito e crédito, diário, razão, balancete, compras, vendas, IVA (2 tópicos), existências, caixa, bancos, clientes, fornecedores, descontos e devoluções, salários e segurança social, imobilizado, amortizações, acréscimos e diferimentos, demonstração de resultados, balanço, fecho do exercício e 5 casos de uma loja inventada.
+- Tipos do motor usados: `entries` (lançamentos), `numeric` (cálculos em Kz, com tolerância), `choice`, `fill`, `order` e `case`. Os valores calculam-se em TypeScript a partir da semente: as bases são múltiplos de 50 Kz para o IVA dar sempre um inteiro, e os casos partilham os mesmos números por dia (`c.shared`). Cada lançamento verifica que os débitos igualam os créditos ao ser construído.
+- Fontes: Wikipedia (CC BY-SA 4.0) só como tema; as perguntas, as empresas, as pessoas e os valores são inventados. A lei foi só consultada, não copiada.
+- **A confirmar no Diário da República** (os textos dizem «confirmar» onde aparecem):
+  - Plano Geral de Contabilidade: Decreto n.º 82/01, de 16 de Novembro (confirmado por fontes secundárias); os **nomes das 8 classes** e das contas usadas (por exemplo «Meios fixos e investimentos», «Terceiros», «Meios monetários») e se há alterações posteriores ao plano.
+  - Código do IVA: Lei n.º 7/19 (a data, 24 de Abril, vem de fontes secundárias) e republicação pela Lei n.º 14/23; a **taxa geral de 14%** (art. 19.º, n.º 1, alínea a), segundo uma fonte secundária) e a regra de reporte ou reembolso do IVA dedutível em excesso, que o Kurso não ensina. As taxas reduzidas e os regimes especiais não são ensinados.
+  - Segurança social: Decreto Presidencial n.º 227/18, de 27 de Setembro; as **taxas de 8% (entidade empregadora) e 3% (trabalhador)** e a base de incidência. O IRT e o imposto industrial não são ensinados.
+  - Amortizações: as taxas e os limites fiscais não são ensinados; o Kurso só usa o método das quotas constantes com valores dados.
+- O lançamento de apuramento do IVA (liquidado e dedutível contra «Estado (IVA a pagar)») e a passagem do lucro para a conta «Capital» são simplificações de ensino; num plano de contas real, o lucro vai para resultados transitados.

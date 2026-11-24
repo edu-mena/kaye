@@ -663,7 +663,7 @@ As perguntas do treino de entrevistas (`data/demo/interviews.ts`).
 | `model`\* | json | Uma resposta modelo curta para um primeiro emprego |
 | `mistakes`\* | json | Os erros habituais |
 
-O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`) a partir das listas de analogias, sinónimos e palavras inventadas, que ficam em `datasets` (`psychotech`).
+O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`) a partir das listas de analogias, sinónimos e palavras inventadas, que ficam em `datasets` (`psychotech`). A competência quantitativa (geometria, percentagens, proporções, médias e probabilidades) não usa listas: `domain/psychotechMath.ts` calcula cada resposta a partir dos números da semente, e a simulação completa tem 24 perguntas (4 de cada uma das 6 competências) em 18 minutos.
 
 #### `kursos`
 
@@ -757,7 +757,7 @@ Prova de cada consentimento (Lei n.º 22/11).
 |---|---|---|
 | `user_id` | fk → `users`, pode ser vazio | Vazio para quem está só na lista de espera |
 | `waitlist_id` | fk → `waitlist`, pode ser vazio, `cascadeOnDelete` | |
-| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `push_service`, `push_marketing`, `whatsapp_marketing` (o antigo `push` passou a `push_service`) |
+| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `push_service`, `push_marketing`, `whatsapp_marketing`, `community_count` (contar a pessoa nos números da comunidade de uma área) (o antigo `push` passou a `push_service`) |
 | `version` | varchar(16) | Versão do texto aceite |
 | `source` | varchar(16), pode ser vazio | Onde foi dado: `app`, `landing`, `onboarding` |
 | `ip_prefix` | varchar(45), pode ser vazio | O IP truncado: IPv4 sem o último byte, IPv6 com 48 bits |
@@ -797,6 +797,18 @@ Críticas, ideias e erros (`Feedback`).
 | `locale` | varchar(5) | O `lang` da app |
 | `status` | varchar(10) | `new`, `read`, `done` |
 | `created_at`, `updated_at` | timestamp | |
+
+#### `kurso_completions` e `kurso_question_stats`
+
+Os Kursos na conta ([ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md)). `users.plus_until` (timestamp, pode ser vazio) diz até quando o Plus está ativo; a permissão `kursos.unlimited` (Gate) é Plus ativo **e** maior de 18 anos.
+
+`kurso_completions` (apagada com a conta): `user_id` (fk), `course` (slug do Kurso), `topic` (slug da unidade, ou `exam`), `completed_on` (o dia local enviado pelo aparelho, validado a ±1 dia e nunca antes do último), `score` (0 a 1, pode ser vazio), único por `user_id`+`course`+`topic`. Sem Plus, um tópico por dia; o `exam` não conta para o limite.
+
+`kurso_question_stats` (**sem ligação à pessoa**, só contadores; ficam quando a conta é apagada): `course`, `question_id`, `answered`, `correct`, único por `course`+`question_id`. Alimenta «Perguntas mais falhadas» no painel (mínimo de 20 respostas).
+
+#### `area_memberships` e `area_counters`
+
+As comunidades por área ([ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md)). `area_memberships` (apagada com a conta): `user_id` (fk), `area` (o slug da área do mercado), `level` (`student`, `aspirant`, `graduate`, `professional`; autodeclarado, nunca verificado; menores e quem não tem ano de nascimento ficam sempre `student`), `pioneer_number` (pode ser vazio; só se atribui a maiores, depois do primeiro tópico concluído num Kurso da área), único por `user_id`+`area` e por `area`+`pioneer_number`. `area_counters` (`area`, `last_number`) guarda o último número dado em cada área e **não** se apaga com a conta, por isso um número nunca se repete. A contagem pública (`GET /areas/{area}/community`) só conta quem deu o consentimento próprio `community_count` e só aparece a partir de 50 pessoas.
 
 #### `comments` e `comment_reports`
 

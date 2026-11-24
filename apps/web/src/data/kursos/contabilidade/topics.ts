@@ -1,0 +1,45 @@
+import type { TopicMeta } from '../topicCourse'
+
+// The topics of the Contabilidade Kurso, in order (docs/decisoes/0025: one topic = one unit = one short lesson).
+// Titles live here so the roadmap shows them without downloading the topic.
+
+export const TOPICS: TopicMeta[] = [
+  { id: 't01', title: 'Para que serve a contabilidade', summary: 'Registar, resumir e decidir com números.' },
+  { id: 't02', title: 'O património', summary: 'Ativo, passivo e capital próprio.' },
+  { id: 't03', title: 'A equação fundamental', summary: 'Ativo = Passivo + Capital próprio.' },
+  {
+    id: 't04',
+    title: 'O Plano Geral de Contabilidade',
+    summary: 'As classes de contas e para que serve cada uma.',
+  },
+  { id: 't05', title: 'Débito e crédito', summary: 'Os dois lados de uma conta e a regra de cada tipo.' },
+  { id: 't06', title: 'O diário e as partidas dobradas', summary: 'Do documento ao lançamento.' },
+  { id: 't07', title: 'O razão e o saldo', summary: 'Juntar os movimentos de cada conta.' },
+  { id: 't08', title: 'O balancete', summary: 'Verificar que débitos e créditos se igualam.' },
+  { id: 't09', title: 'Compras de mercadorias', summary: 'Comprar a pronto e a crédito.' },
+  { id: 't10', title: 'Vendas de mercadorias', summary: 'Vender a pronto e a crédito.' },
+  { id: 't11', title: 'IVA: o que é e como se calcula', summary: 'Base, taxa e valor com IVA.' },
+  { id: 't12', title: 'IVA liquidado, dedutível e a pagar', summary: 'O IVA nas compras e nas vendas.' },
+  { id: 't13', title: 'Existências e custo das vendas', summary: 'Quanto custou o que se vendeu.' },
+  { id: 't14', title: 'A caixa', summary: 'Entradas, saídas e o saldo de caixa.' },
+  { id: 't15', title: 'Os bancos', summary: 'Depósitos, levantamentos e a conciliação.' },
+  { id: 't16', title: 'Clientes', summary: 'Vendas a crédito e recebimentos.' },
+  { id: 't17', title: 'Fornecedores', summary: 'Compras a crédito e pagamentos.' },
+  { id: 't18', title: 'Descontos e devoluções', summary: 'Quando o preço ou a mercadoria voltam atrás.' },
+  { id: 't19', title: 'Salários e segurança social', summary: 'Bruto, descontos e líquido.' },
+  { id: 't20', title: 'O imobilizado', summary: 'O que dura vários anos e como se regista.' },
+  { id: 't21', title: 'As amortizações', summary: 'Repartir o custo de um bem pelos anos de uso.' },
+  { id: 't22', title: 'Acréscimos e diferimentos', summary: 'Pôr cada custo e proveito no ano certo.' },
+  { id: 't23', title: 'A demonstração de resultados', summary: 'Proveitos menos custos.' },
+  { id: 't24', title: 'O balanço', summary: 'A fotografia do património numa data.' },
+  { id: 't25', title: 'O fecho do exercício', summary: 'Apurar o resultado e abrir o ano seguinte.' },
+  { id: 't26', title: 'Caso: a loja abre', summary: 'Capital, equipamento e primeiras compras.' },
+  {
+    id: 't27',
+    title: 'Caso: uma semana de vendas',
+    summary: 'Vendas a pronto, a crédito e custo das vendas.',
+  },
+  { id: 't28', title: 'Caso: salários e IVA do mês', summary: 'Pagar a equipa e apurar o IVA.' },
+  { id: 't29', title: 'Caso: o balancete do mês', summary: 'Juntar os movimentos e verificar.' },
+  { id: 't30', title: 'Caso: o fecho do ano da loja', summary: 'Amortização, resultado e balanço final.' },
+]

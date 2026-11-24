@@ -2,7 +2,9 @@ import { useSyncExternalStore } from 'react'
 import {
   ACCOUNTS,
   deleteAccount,
+  completeKursoTopic,
   getData,
+  getKursoProgress,
   getMe,
   giveConsent,
   logout,
@@ -14,6 +16,7 @@ import {
 } from '../data/account'
 import { ApiError } from '../lib/api'
 import { LEGAL_VERSION } from '../data/legalVersion'
+import { todayIso } from '../domain/scholarships'
 import { getUser, replaceUser, subscribeUser, toAccount, userActions, type UserData } from './userStore'
 
 // Offline first (ADR 0019): the app always works on this device's copy (userStore) and sends it to
@@ -162,10 +165,35 @@ async function connect() {
 
   const record = readRecord()
   if (record?.user !== me.id) return firstLogin(me)
-  if (record.dirty) return send()
-  // Another device may have written since: its copy comes down.
-  const remote = await getData<Partial<UserData>>()
-  if (remote.version !== record.version) apply(remote, me.id)
+  if (record.dirty) await send()
+  else {
+    // Another device may have written since: its copy comes down.
+    const remote = await getData<Partial<UserData>>()
+    if (remote.version !== record.version) apply(remote, me.id)
+  }
+  await pullKursos()
+}
+
+/** The topics finished on the account join this device's (the server is the one that counts the days). */
+async function pullKursos() {
+  try {
+    userActions.mergeKursoCompletions((await getKursoProgress()).completions)
+  } catch {
+    // No network: this device's copy stays as it is.
+  }
+}
+
+/**
+ * A topic (or the passed exam) was finished on this device: the account records it with the local day.
+ * The device keeps its own copy either way; a refusal (daily limit) is the server's word for the day.
+ */
+export async function reportKursoTopic(course: string, topic: string, score?: number) {
+  if (account.status !== 'signedIn') return
+  try {
+    await completeKursoTopic(course, topic, todayIso(), score)
+  } catch {
+    // Offline or refused: the next pull brings the account's truth.
+  }
 }
 
 /** Starts the sync once, at launch, in the build with accounts. */

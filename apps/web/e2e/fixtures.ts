@@ -73,12 +73,21 @@ export async function expectAccessible(page: Page) {
   // Measure the settled page: text mid-entrance is still fading in, so its contrast
   // is not the real one. Endless animations (the "Estás aqui" pulse) are ignored.
   // Scroll-driven animations (the landing's reveals) follow the scroll, not the clock: they never end.
-  await page.waitForFunction(() =>
-    document
-      .getAnimations()
-      .filter((animation) => animation.timeline instanceof DocumentTimeline)
-      .filter((animation) => animation.effect?.getTiming().iterations !== Infinity)
-      .every((animation) => animation.playState !== 'running'),
+  // A page whose data arrives from the API draws (and starts its entrance) a frame after it is loaded,
+  // so "no animation running" must hold for several frames in a row, not only at one instant.
+  await page.waitForFunction(
+    () => {
+      const w = window as unknown as { quietFrames?: number }
+      const settled = document
+        .getAnimations()
+        .filter((animation) => animation.timeline instanceof DocumentTimeline)
+        .filter((animation) => animation.effect?.getTiming().iterations !== Infinity)
+        .every((animation) => animation.playState !== 'running')
+      w.quietFrames = settled ? (w.quietFrames ?? 0) + 1 : 0
+      return w.quietFrames >= 30
+    },
+    undefined,
+    { polling: 'raf' },
   )
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])

@@ -508,6 +508,8 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 | GET | `/me` | A conta: nome, email, foto do Google, ano de nascimento, província, escolaridade, língua, `minor` e os consentimentos ativos. O perfil muda-se em `/me/data` (o servidor copia-o para `users`); não há `PATCH /me` |
 | GET, PUT | `/me/data` | `{version, data}`: o `UserData` sem a foto e a capa (até 1 MB). Um `PUT` com uma versão antiga recebe 409 com a cópia atual |
 | POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
+| GET | `/areas/{area}/community` | `{count}`: o total da comunidade da área, só a partir de 50 pessoas (`null` abaixo); nunca devolve pessoas |
+| GET, PUT | `/me/communities/{area}` | O nível autodeclarado da pessoa e o número de pioneiro (`{level, pioneerNumber}`) |
 | GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
 | DELETE | `/me/consents/{kind}` | Retirar um consentimento |
 | POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o Web Push neste browser (só com um consentimento push) |

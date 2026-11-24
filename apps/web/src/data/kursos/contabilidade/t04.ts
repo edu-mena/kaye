@@ -1,0 +1,146 @@
+import { defineTopic, type Ctx } from './kit'
+
+// Topic 4: the Plano Geral de Contabilidade (PGC) and its classes. Theme from the official PGC (Decreto n.º 82/01,
+// de 16 de Novembro; class names to confirm against the text in force); written from scratch.
+
+const CLASSES = [
+  'Classe 1: Meios fixos e investimentos',
+  'Classe 2: Existências',
+  'Classe 3: Terceiros',
+  'Classe 4: Meios monetários',
+  'Classe 5: Capital e reservas',
+  'Classe 6: Custos e perdas',
+  'Classe 7: Proveitos e ganhos',
+  'Classe 8: Resultados',
+]
+
+/** Account → index of its class in CLASSES. */
+const ACCOUNTS: [string, number][] = [
+  ['Equipamento da loja', 0],
+  ['Mercadorias', 1],
+  ['Clientes', 2],
+  ['Fornecedores', 2],
+  ['Caixa', 3],
+  ['Depósitos bancários', 3],
+  ['Capital do dono', 4],
+  ['Custos com o pessoal', 5],
+  ['Vendas', 6],
+]
+
+const classOf = (index: number) => CLASSES[index] ?? ''
+
+/** "Which class is this account in?": two other classes as wrong options. */
+function classQuestion(c: Ctx, slot: number) {
+  const [name, at] = ACCOUNTS[(slot * 2 + c.int(0, 1)) % ACCOUNTS.length] ?? ['Caixa', 3]
+  const others = CLASSES.filter((_, index) => index !== at)
+  const first = c.int(0, others.length - 1)
+  const second = (first + c.int(1, others.length - 1)) % others.length
+  return c.ask(
+    `Em que classe do PGC fica «${name}»?`,
+    classOf(at),
+    [others[first] ?? '', others[second] ?? ''],
+    `${name} pertence a «${classOf(at)}».`,
+  )
+}
+
+export default defineTopic({
+  id: 't04',
+  intro: [
+    'Em Angola, as empresas organizam as contas pelo Plano Geral de Contabilidade (PGC), aprovado pelo Decreto n.º 82/01, de 16 de Novembro (confirmar sempre o texto em vigor). O plano arruma as contas por classes, para que todos usem os mesmos nomes e os relatórios se possam comparar.',
+    'As classes de 1 a 5 são o património: meios fixos, existências, terceiros (clientes, fornecedores, Estado, pessoal), meios monetários e capital. As classes 6 e 7 são os custos e os proveitos do ano, e a classe 8 junta tudo no resultado.',
+  ],
+  rule: 'Cada conta tem a sua classe: 1 a 5 são o património (balanço); 6 e 7 são custos e proveitos; 8 é o resultado.',
+  extra: [
+    {
+      type: 'table',
+      caption: 'As classes do PGC (confirmar os nomes no texto oficial).',
+      head: ['Classe', 'O que tem', 'Exemplos'],
+      rows: [
+        ['1. Meios fixos e investimentos', 'Bens que duram anos', 'Equipamento, viaturas'],
+        ['2. Existências', 'O que se compra para vender ou usar', 'Mercadorias'],
+        ['3. Terceiros', 'Pessoas e entidades de fora', 'Clientes, fornecedores, Estado, pessoal'],
+        ['4. Meios monetários', 'Dinheiro', 'Caixa, depósitos bancários'],
+        ['5. Capital e reservas', 'O que é do dono', 'Capital, reservas'],
+        ['6. Custos e perdas', 'O que se gasta', 'Salários, rendas'],
+        ['7. Proveitos e ganhos', 'O que se ganha', 'Vendas, serviços'],
+        ['8. Resultados', 'O saldo final do ano', 'Resultado do exercício'],
+      ],
+    },
+  ],
+  points: [
+    'O PGC dá a todos as mesmas classes e os mesmos nomes de contas.',
+    'Classes 1 a 5: o património. Classes 6 e 7: custos e proveitos. Classe 8: resultados.',
+    'Clientes e fornecedores ficam na classe 3 (terceiros).',
+  ],
+  quiz: [
+    {
+      prompt: 'Em que classe ficam os clientes e os fornecedores?',
+      options: ['Classe 2', 'Classe 3', 'Classe 6'],
+      answer: 1,
+    },
+    {
+      prompt: 'Que classes mostram o que a empresa ganhou e gastou no ano?',
+      options: ['6 e 7', '1 e 2', '4 e 5'],
+      answer: 0,
+    },
+    {
+      prompt: 'Onde fica a conta Caixa?',
+      options: ['Classe 4: meios monetários', 'Classe 5: capital', 'Classe 7: proveitos'],
+      answer: 0,
+    },
+  ],
+  exercises: [
+    ...[0, 1, 2, 3].map((slot) => (c: Ctx) => classQuestion(c, slot)),
+    (c) =>
+      c.ask(
+        'Que classes do PGC mostram os ganhos e os gastos do ano?',
+        'As classes 6 e 7',
+        ['As classes 1 e 2', 'As classes 4 e 5'],
+        'A classe 6 tem os custos e a classe 7 tem os proveitos.',
+      ),
+    (c) =>
+      c.ask(
+        'Que classe do PGC mostra o dinheiro que o dono investiu?',
+        classOf(4),
+        [classOf(0), classOf(6)],
+        'O que é do dono fica em capital e reservas.',
+      ),
+    (c) =>
+      c.fill(
+        'Classe 7: ___ e ganhos',
+        [['proveitos']],
+        'A classe 6 tem custos e perdas; a classe 7 tem proveitos e ganhos.',
+        'Completa o nome da classe.',
+      ),
+    (c) =>
+      c.ask(
+        'Para que serve o PGC?',
+        'Para que todas as empresas usem as mesmas classes e nomes de contas',
+        ['Para fixar os preços das mercadorias', 'Para dizer quantos funcionários contratar'],
+        'Com o mesmo plano, as contas de empresas diferentes podem ler-se e comparar-se.',
+      ),
+    (c) =>
+      c.decide(
+        [
+          'A Ana criou uma conta chamada «Dinheiro do Paulo» para as vendas do irmão, e outra «Coisas da loja» para tudo o resto.',
+          'O contabilista não percebe as contas.',
+        ],
+        [
+          {
+            text: 'Usar contas com os nomes do PGC: Caixa, Mercadorias, Clientes, Vendas.',
+            consequence: 'Qualquer contabilista percebe e os relatórios saem certos.',
+          },
+          {
+            text: 'Manter os nomes e explicar de vez em quando.',
+            consequence: 'Cada pessoa que lê as contas tem de adivinhar o que significam.',
+          },
+          {
+            text: 'Juntar tudo numa conta só.',
+            consequence: 'Já não se sabe o que é dinheiro, mercadoria ou dívida.',
+          },
+        ],
+        0,
+        'O que deve fazer a Ana?',
+      ),
+  ],
+})

@@ -47,11 +47,11 @@ beforeEach(() => {
 describe('PsychotechPage', () => {
   it('runs the full simulation against the clock and keeps only the scores', SLOW, async () => {
     renderWithApp(<PsychotechPage />, { route: '/treino' })
-    expect(await screen.findByText(/20 perguntas de todas as competências, 15 minutos/)).toBeInTheDocument()
+    expect(await screen.findByText(/24 perguntas de todas as competências, 18 minutos/)).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: 'Começar' }))
 
     expect(within(panel()).getAllByRole('timer')[0]).toBeInTheDocument()
-    await answerAll(20)
+    await answerAll(24)
 
     expect(await screen.findByRole('heading', { name: /resultado/i })).toBeInTheDocument()
     expect(getUser().psychotech).toHaveLength(1)
@@ -72,6 +72,7 @@ describe('PsychotechPage', () => {
     ['Numérico', 'numerical'],
     ['Lógico', 'logical'],
     ['Abstrato', 'abstract'],
+    ['Quantitativo', 'quantitative'],
     ['Verbal', 'verbal'],
     ['Atenção', 'attention'],
   ])('practises %s alone, ten questions', SLOW, async (label, skill) => {
@@ -90,7 +91,7 @@ describe('PsychotechPage', () => {
     renderWithApp(<PsychotechPage />, { route: '/treino' })
     await userEvent.click(await screen.findByRole('button', { name: 'Fácil' }))
     await userEvent.click(screen.getByRole('button', { name: 'Começar' }))
-    await answerAll(20)
+    await answerAll(24)
     await screen.findByRole('heading', { name: /resultado/i })
 
     // Always choosing the first option leaves a weak skill (about one in four right).
@@ -116,7 +117,7 @@ describe('PsychotechPage', () => {
 
         await userEvent.click(screen.getByRole('button', { name: 'Simulação completa' }))
         await userEvent.click(screen.getByRole('button', { name: 'Começar' }))
-        await jumpTime(15 * 60 * 1000 + 1000)
+        await jumpTime(18 * 60 * 1000 + 1000)
         expect(await screen.findByText(/O tempo acabou/)).toBeInTheDocument()
         expect(getUser().psychotech[0]).toMatchObject({ mode: 'full' })
       } finally {

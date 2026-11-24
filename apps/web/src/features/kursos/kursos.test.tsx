@@ -126,7 +126,8 @@ describe('CourseOverviewPage', () => {
 })
 
 describe('LessonPage', () => {
-  it('opens every written lesson of every course, with its blocks', SLOW, async () => {
+  // One lesson per written topic of every course (about 90): it grows with each topic written.
+  it('opens every written lesson of every course, with its blocks', { timeout: 180000 }, async () => {
     for (const course of KURSOS) {
       for (const step of courseSteps(course).filter((item) => item.lesson !== REVIEW)) {
         const { unmount } = renderWithApp(<LessonPage />, {

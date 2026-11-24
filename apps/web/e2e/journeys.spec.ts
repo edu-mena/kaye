@@ -166,6 +166,8 @@ test.describe('journeys', () => {
 
   test('a model CV becomes the start of the person’s own CV', async ({ page, consoleErrors }) => {
     await page.goto('/cv/modelos/frontend-primeiro-emprego')
+    // The model comes from the API: wait for the page to be drawn before measuring it.
+    await expect(page.getByRole('button', { name: 'Começar a partir deste modelo' })).toBeVisible()
     await expectAccessible(page)
     await page.getByRole('button', { name: 'Começar a partir deste modelo' }).click()
 

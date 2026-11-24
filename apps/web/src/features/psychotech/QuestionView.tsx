@@ -1,5 +1,6 @@
+import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { Figure, Question, Statement } from '../../domain/psychotech'
+import type { Diagram, Figure, Question, Statement } from '../../domain/psychotech'
 
 const OPTION =
   'rounded-2xl border border-line bg-surface px-4 py-3 text-left text-sm font-normal text-night transition-colors hover:border-night hover:bg-ash-100'
@@ -32,6 +33,105 @@ function FigureMark({ figure }: { figure: Figure }) {
           return <polygon key={i} points={`${x},7 ${x + 8},22 ${x - 8},22`} {...paint} />
         return <polygon key={i} points={`${x},6 ${x + 8},15 ${x},24 ${x - 8},15`} {...paint} />
       })}
+    </svg>
+  )
+}
+
+const scale = (value: number, longest: number) => (value / longest) * 120
+
+/** The geometry of a question, drawn to scale from its numbers; the text of the question has them too. */
+function DiagramView({ diagram, label }: { diagram: Diagram; label: string }) {
+  const paint = { fill: 'none', stroke: 'currentColor', strokeWidth: 2 }
+  const text = { fill: 'currentColor', fontSize: 11, textAnchor: 'middle' as const }
+  let body: ReactNode
+  if (diagram.kind === 'rect') {
+    const longest = Math.max(diagram.w, diagram.h)
+    const [w, h] = [scale(diagram.w, longest), scale(diagram.h, longest)]
+    body = (
+      <>
+        <rect x={30} y={10} width={w} height={h} {...paint} />
+        <text x={30 + w / 2} y={h + 24} {...text}>
+          {diagram.w}
+        </text>
+        <text x={18} y={10 + h / 2} {...text}>
+          {diagram.h}
+        </text>
+      </>
+    )
+  } else if (diagram.kind === 'rightTriangle') {
+    const longest = Math.max(diagram.a, diagram.b)
+    const [a, b] = [scale(diagram.a, longest), scale(diagram.b, longest)]
+    body = (
+      <>
+        <polygon points={`30,${10 + b} ${30 + a},${10 + b} 30,10`} {...paint} />
+        <text x={30 + a / 2} y={b + 24} {...text}>
+          {diagram.a}
+        </text>
+        <text x={18} y={10 + b / 2} {...text}>
+          {diagram.b}
+        </text>
+      </>
+    )
+  } else if (diagram.kind === 'lShape') {
+    const longest = Math.max(diagram.w, diagram.h)
+    const [w, h] = [scale(diagram.w, longest), scale(diagram.h, longest)]
+    const [cw, ch] = [scale(diagram.cw, longest), scale(diagram.ch, longest)]
+    body = (
+      <>
+        <polygon
+          points={`30,10 ${30 + w - cw},10 ${30 + w - cw},${10 + ch} ${30 + w},${10 + ch} ${30 + w},${10 + h} 30,${10 + h}`}
+          {...paint}
+        />
+        <text x={30 + w / 2} y={h + 24} {...text}>
+          {diagram.w}
+        </text>
+        <text x={18} y={10 + h / 2} {...text}>
+          {diagram.h}
+        </text>
+        <text x={30 + w - cw / 2} y={6} {...text}>
+          {diagram.cw}
+        </text>
+      </>
+    )
+  } else if (diagram.kind === 'trapezoid') {
+    const longest = Math.max(diagram.bottom, diagram.height * 1.4)
+    const [top, bottom, height] = [
+      scale(diagram.top, longest),
+      scale(diagram.bottom, longest),
+      scale(diagram.height, longest),
+    ]
+    const inset = (bottom - top) / 2
+    body = (
+      <>
+        <polygon
+          points={`${30 + inset},10 ${30 + inset + top},10 ${30 + bottom},${10 + height} 30,${10 + height}`}
+          {...paint}
+        />
+        <text x={30 + bottom / 2} y={height + 24} {...text}>
+          {diagram.bottom}
+        </text>
+        <text x={30 + bottom / 2} y={6} {...text}>
+          {diagram.top}
+        </text>
+      </>
+    )
+  } else {
+    body = (
+      <>
+        <rect x={30} y={30} width={80} height={80} {...paint} />
+        <polygon points="30,30 55,10 135,10 110,30" {...paint} />
+        <polygon points="110,30 135,10 135,90 110,110" {...paint} />
+        <text x={70} y={126} {...text}>
+          {diagram.edge}
+        </text>
+      </>
+    )
+  }
+  return (
+    // An inline drawing made from the question's numbers, so there is no file for an <img>.
+    // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
+    <svg viewBox="0 0 170 135" role="img" aria-label={label} className="h-32 w-44 text-night">
+      {body}
     </svg>
   )
 }
@@ -142,6 +242,16 @@ export function QuestionView({ question, onAnswer }: Props) {
           </div>
         </div>
       )
+    case 'math': {
+      const text = t(`psychotech.math_${question.topic}`, question.params)
+      return (
+        <div className="space-y-5">
+          {question.diagram && <DiagramView diagram={question.diagram} label={t('psychotech.diagram')} />}
+          <p className="text-lg font-normal text-night">{text}</p>
+          {textOptions(question.options)}
+        </div>
+      )
+    }
     case 'analogy':
       return (
         <div className="space-y-5">

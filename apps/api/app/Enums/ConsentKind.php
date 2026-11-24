@@ -16,6 +16,8 @@ enum ConsentKind: string
     case WhatsappMarketing = 'whatsapp_marketing';
     case PushService = 'push_service';
     case PushMarketing = 'push_marketing';
+    /** To be counted in the numbers of an area's community (ADR 0025). Not marketing: a minor may give it. */
+    case CommunityCount = 'community_count';
 
     /** The consent a message on this channel and with this purpose needs. */
     public static function for(MessageChannel $channel, MessagePurpose $purpose): self

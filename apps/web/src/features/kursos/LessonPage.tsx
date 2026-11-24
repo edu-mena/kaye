@@ -5,10 +5,19 @@ import { Button, ButtonLink } from '../../components/ui/Button'
 import { courseSteps, REVIEW, stepKey } from '../../data/kursos'
 import type { ExerciseBlock } from '../../data/kursos/types'
 import { courseState, itemCorrect, type Answer } from '../../domain/kursos'
+import { reportKursoTopic } from '../../state/accountSync'
 import { userActions } from '../../state/userStore'
 import { BlockView, ExerciseView } from './Blocks'
 import { Reader } from './Reader'
-import { percent, stepHref, useActiveTime, useCourse, useUnitContent } from './shared'
+import {
+  isTopicLocked,
+  percent,
+  stepHref,
+  useActiveTime,
+  useCourse,
+  useTopicGate,
+  useUnitContent,
+} from './shared'
 
 /** One lesson, or a unit's review, in the reader. */
 export default function LessonPage() {
@@ -18,6 +27,7 @@ export default function LessonPage() {
   const { course, progress } = useCourse()
   const unit = course?.units.find((entry) => entry.id === unidade)
   const content = useUnitContent(unit)
+  const gate = useTopicGate()
   const steps = course ? courseSteps(course) : []
   const key = `${unidade}/${licao}`
   const index = steps.findIndex((step) => stepKey(step) === key)
@@ -29,6 +39,9 @@ export default function LessonPage() {
 
   if (!course) return <Navigate to="/kursos" replace />
   if (!unit?.load || index < 0) return <Navigate to={`/kursos/${course.id}`} replace />
+  // Today's topic is done: the next unit waits for tomorrow (a finished unit can always be read again).
+  if (isTopicLocked(gate, unit.id, course, progress.done))
+    return <Navigate to={`/kursos/${course.id}`} replace />
 
   const previous = steps[index - 1]
   const next = steps[index + 1]
@@ -44,6 +57,7 @@ export default function LessonPage() {
       key,
       score === undefined ? undefined : { unit: unit.id, value: score },
     )
+    if (score !== undefined) void reportKursoTopic(course.id, unit.id, score)
     void navigate(next ? stepHref(course, next) : `/kursos/${course.id}`)
   }
 

@@ -46,6 +46,7 @@ class User extends Authenticatable implements FilamentUser, ReceivesNotices
             'birth_year' => 'integer',
             'xp' => 'integer',
             'last_login_at' => 'datetime',
+            'plus_until' => 'datetime',
         ];
     }
 
@@ -89,6 +90,12 @@ class User extends Authenticatable implements FilamentUser, ReceivesNotices
     public function isAdult(): bool
     {
         return $this->birth_year !== null && $this->age() >= self::ADULT_AGE;
+    }
+
+    /** Kayé Plus is active (ADR 0024). Nothing charges it yet: it is set by hand until payment exists. */
+    public function hasPlus(): bool
+    {
+        return $this->plus_until !== null && $this->plus_until->isFuture();
     }
 
     public function canReceiveMarketing(): bool
