@@ -19,6 +19,11 @@
 
     RewriteEngine On
 
+    # One address for the site: www.example.ao goes to example.ao, in the same step as the https redirect below,
+    # so cookies and the Google login only ever see one site.
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
     # HTTPS only (ADR 0002). Not on this machine: the container and the tests run on http://localhost.
     RewriteCond %{HTTPS} off
     RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]

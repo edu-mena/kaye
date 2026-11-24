@@ -8,7 +8,7 @@ Como o Kayé é construído, testado e publicado. A arquitetura das peças está
 |---|---|---|---|
 | Local | O teu PC: PHP em `C:\php` + MariaDB do XAMPP (ou `docker compose`) | `kaye`, `kaye_test` | Desenvolver e testar |
 | CI | GitHub Actions (Ubuntu) | MariaDB 11.4 em serviço ou em container | Verificar cada push e cada PR |
-| Produção (temporário) | `https://steady-darkgoldenrod-goshawk-92.hostingersite.com`, Hostinger Cloud Startup | Produção | Utilizadores e apresentações, até haver domínio |
+| Produção | `https://kayeangola.com` (o `www` redireciona para aqui), Hostinger Cloud Startup | Produção | Utilizadores e apresentações |
 | Staging | Subdomínio `staging.` na Hostinger (depois do domínio) | Separada | Testar a release antes de produção |
 | Produção (domínio) | Domínio principal na Hostinger + Cloudflare | Produção | Utilizadores |
 | Demonstração | Vercel (`kaye-indol.vercel.app`) | Dados de demonstração dentro da app | Plano B, sem servidor |
@@ -90,7 +90,7 @@ flowchart LR
 - **A raiz do site** (`public_html`) é a pasta da app. Só `public/` é servido: o `.htaccess` da raiz (`apps/api/.htaccess`) reescreve tudo para lá e força HTTPS. Assim `.env`, `vendor/` e `storage/` nunca são acessíveis; o teste de fumo confirma-o.
 - **O que o servidor guarda e o `git pull` não toca:** `.env`, `storage/` (logs, cache, sessões) e tudo o que não está no ramo.
 - **Fila e cache** na base de dados. Uma só linha de cron no hPanel: `* * * * * cd ~/domains/<site>/public_html && php artisan schedule:run >> /dev/null 2>&1`. O agendador bate o pulso do cron todos os minutos (`CronHeartbeat`), e `GET /api/v1/health` mostra `checks.cron`: `ok`, `stale` (parou há mais de 5 minutos) ou `unknown` (nunca bateu). O teste de fumo na Hostinger exige `ok`.
-- **O endereço** vem todo de `APP_URL`: o redirecionamento do Google (`APP_URL/auth/google/callback`), o domínio com sessão (Sanctum) e os links dos emails. Trocar o endereço temporário pelo domínio é mudar o `APP_URL` no `.env`, juntar o novo endereço no Google Cloud e correr `php artisan optimize`. Nenhum código muda.
+- **O endereço** vem todo de `APP_URL`: o redirecionamento do Google (`APP_URL/auth/google/callback`), o domínio com sessão (Sanctum) e os links dos emails. O domínio de produção é `kayeangola.com` (24 de novembro de 2026). Trocar de endereço é mudar o `APP_URL` no `.env`, juntar o novo endereço no Google Cloud (origem e URI de redirecionamento), mudar na GitHub (ambiente `production`) o segredo `HOSTINGER_SITE_DIR` e a variável `SITE_URL` (e a variável `KAYE_API_URL`, da recolha de dados) e correr `php artisan optimize`. Os `.htaccess` mandam o `www.` para o domínio sem `www` e o `http` para `https`, para as cookies e o login Google verem um só site.
 - **PWA e HTTPS** (ADR 0002): `worker-src 'self'` e `manifest-src 'self'` na CSP (`SecurityHeaders`); `Cache-Control: no-cache` no `sw.js` e no `manifest.webmanifest`, ficheiros do `/spa/assets/` imutáveis, e `Service-Worker-Allowed: /` no `sw.js` (`apps/api/public/.htaccess`). O `.htaccess` da raiz também apaga o cabeçalho `X-Powered-By` (o PHP da Hostinger ignora o `docker/php.ini`, por isso o `expose_php=Off` não chega lá). O `.htaccess` manda o http para https, menos em `localhost` (container e testes). `X-Forwarded-Proto` é aceite por trás do proxy da Hostinger e, mais tarde, do Cloudflare.
 
 #### Pôr no ar pela primeira vez
@@ -99,8 +99,8 @@ flowchart LR
 
 1. **Chave SSH.** No teu PC: `ssh-keygen -t ed25519 -f ~/.ssh/kaye_hostinger -C "kaye-deploy"` (sem usar a senha da Hostinger). No hPanel → *Avançado → Acesso SSH*, cola o conteúdo de `kaye_hostinger.pub`. A chave **privada** (`kaye_hostinger`) nunca sai do teu PC, exceto para o segredo do GitHub abaixo. Testa: `ssh -i ~/.ssh/kaye_hostinger -p 65002 u727672645@93.127.189.106`.
 2. **Base de dados.** hPanel → *Bases de dados MySQL*: cria a base e o utilizador só para o Kayé. A senha escreve-se no `.env` do servidor, nunca na conversa.
-3. **O `.env` do servidor**, por SSH, na pasta do site: copia `apps/api/.env.example` e preenche como na tabela abaixo: `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://steady-darkgoldenrod-goshawk-92.hostingersite.com`, `SESSION_SECURE_COOKIE=true`, `LOG_STACK=json`, os dados da base, o email (SMTP da Hostinger), `ADMIN_EMAILS`, `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`, as chaves VAPID e `SENTRY_LARAVEL_DSN`. A `APP_KEY` gera-se uma vez com `php artisan key:generate`, depois de o primeiro deploy trazer o código.
-4. **Google Cloud** → Credenciais → ID de cliente OAuth (aplicação web): origem `https://steady-darkgoldenrod-goshawk-92.hostingersite.com` e URI de redirecionamento `https://steady-darkgoldenrod-goshawk-92.hostingersite.com/auth/google/callback`.
+3. **O `.env` do servidor**, por SSH, na pasta do site: copia `apps/api/.env.example` e preenche como na tabela abaixo: `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://kayeangola.com`, `SESSION_SECURE_COOKIE=true`, `LOG_STACK=json`, os dados da base, o email (SMTP da Hostinger), `ADMIN_EMAILS`, `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`, as chaves VAPID e `SENTRY_LARAVEL_DSN`. A `APP_KEY` gera-se uma vez com `php artisan key:generate`, depois de o primeiro deploy trazer o código.
+4. **Google Cloud** → Credenciais → ID de cliente OAuth (aplicação web): origem `https://kayeangola.com` e URI de redirecionamento `https://kayeangola.com/auth/google/callback`.
 5. **Git no hPanel** (*Avançado → Git*): repositório `git@github.com:edu-mena/kaye.git` (SSH), ramo `deploy`, pasta de destino vazia (a raiz do site). O hPanel mostra uma **chave de deploy** pública: no GitHub, *Settings → Deploy keys → Add*, só leitura. Depois copia o URL do **webhook** do hPanel e põe-no no GitHub, *Settings → Webhooks → Add* (tipo `application/json`, evento *push*).
 6. **PHP 8.4.** hPanel → *Avançado → Configuração do PHP*: 8.4, com as extensões `intl`, `pdo_mysql`, `mbstring`, `zip`, `gd`, `sodium`, `openssl`. Se o `php` da linha de comandos não for 8.4 (`php -v`), usa `PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh`.
 7. **Cron:** a linha acima, em *Avançado → Cron Jobs*.
@@ -117,10 +117,10 @@ Primeiro espera que o `composer install` do Git da Hostinger acabe (ela corre-o 
 
 Corre o *Deploy* à mão (*Run workflow*) escolhendo o commit anterior do `main`: o ramo `deploy` recebe a versão antiga e a Hostinger puxa-a. As migrações são sempre compatíveis com a versão anterior ([base-de-dados.md](base-de-dados.md#migrações)), por isso não se desfazem. Se o `main` já tiver avançado, faz `git revert` do commit mau.
 
-### O teste de fumo no endereço temporário
+### O teste de fumo no endereço de produção
 
 ```sh
-SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh https://steady-darkgoldenrod-goshawk-92.hostingersite.com
+SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh https://kayeangola.com
 ```
 
 Além do que corre no CI, em `https://` confirma que o http vai para o https, o HSTS, o `sw.js` e o manifest sem cache, o `Service-Worker-Allowed: /`, o `worker-src` na CSP e o pulso do cron.

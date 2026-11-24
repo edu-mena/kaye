@@ -49,6 +49,19 @@ class HostingTest extends TestCase
         $this->assertStringContainsString('RewriteCond %{HTTPS} off', $rules);
     }
 
+    public function test_both_htaccess_files_send_www_to_the_bare_domain_before_anything_else(): void
+    {
+        foreach (['.htaccess', 'public/.htaccess'] as $path) {
+            $rules = $this->file($path);
+
+            $www = strpos($rules, 'RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]');
+            $this->assertNotFalse($www, "$path does not redirect www.");
+            $this->assertStringContainsString('RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]', $rules);
+            // Before the https rule, so the visitor goes to https://domain in one step.
+            $this->assertLessThan(strpos($rules, 'RewriteCond %{HTTPS} off'), $www, "$path: www must come before the https rule.");
+        }
+    }
+
     public function test_the_root_htaccess_hides_the_php_version_on_hosts_that_ignore_php_ini(): void
     {
         $rules = $this->file('.htaccess');
