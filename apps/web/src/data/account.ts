@@ -26,7 +26,7 @@ export type Me = {
 /** The account's copy of the data and its version; `data` is null before the first write. */
 export type Remote<T> = { version: number; data: T | null }
 
-export type ConsentKind = 'terms' | 'privacy' | 'guardian_informed' | NoticeConsent
+export type ConsentKind = 'terms' | 'privacy' | 'guardian_informed' | 'community_count' | NoticeConsent
 
 /** The notices, one consent per channel and purpose: service (saved deadlines) or marketing (the news). */
 export type NoticeConsent = 'email_service' | 'email_marketing' | 'push_service' | 'push_marketing'
@@ -89,3 +89,17 @@ export const completeKursoTopic = (course: string, topic: string, day: string, s
 export const logout = () => api<void>('/auth/logout', { method: 'POST' })
 
 export const deleteAccount = () => api<void>('/me', { method: 'DELETE' })
+
+/** How a person relates to an area. Self-declared, never verified (ADR 0025). */
+export const COMMUNITY_LEVELS = ['student', 'aspirant', 'graduate', 'professional'] as const
+export type CommunityLevel = (typeof COMMUNITY_LEVELS)[number]
+export type Membership = { level: CommunityLevel | null; pioneerNumber: number | null }
+
+/** The people in an area's community: null while there are fewer than 50, so nothing is invented. */
+export const getCommunityCount = (area: string) =>
+  api<{ count: number | null }>(`/areas/${area}/community`).then((answer) => answer.count)
+
+export const getMembership = (area: string) => api<Membership>(`/me/communities/${area}`)
+
+export const setMembership = (area: string, level: CommunityLevel) =>
+  api<Membership>(`/me/communities/${area}`, { method: 'PUT', ...json({ level }) })

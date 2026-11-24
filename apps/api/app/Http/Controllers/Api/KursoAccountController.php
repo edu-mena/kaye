@@ -8,6 +8,7 @@ use App\Models\Kurso;
 use App\Models\KursoCompletion;
 use App\Models\KursoUnit;
 use App\Models\User;
+use App\Support\Communities;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -75,6 +76,8 @@ class KursoAccountController extends Controller
             'completed_on' => $day->toDateString(),
             'score' => $input['score'] ?? null,
         ]);
+
+        Communities::afterTopic($user, $course);
 
         return response()->json(['completedOn' => $day->toDateString()]);
     }

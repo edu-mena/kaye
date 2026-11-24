@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Http\Resources\MeResource;
+use App\Models\AreaMembership;
 use App\Models\Comment;
 use App\Models\Consent;
 use App\Models\KursoCompletion;
@@ -126,6 +127,11 @@ class Accounts
                 'completedOn' => $done->completed_on->toDateString(),
                 'score' => $done->score,
             ])->all(),
+            'communities' => AreaMembership::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (AreaMembership $membership): array => [
+                'area' => $membership->area,
+                'level' => $membership->level,
+                'pioneerNumber' => $membership->pioneer_number,
+            ])->all(),
             'comments' => Comment::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (Comment $comment): array => [
                 'on' => $comment->subject_type.':'.$comment->subject_id,
                 'text' => $comment->body,
@@ -154,6 +160,8 @@ class Accounts
             $user->consents()->delete();
             // The anonymous counters of kurso_question_stats stay: they never pointed at the person.
             KursoCompletion::query()->where('user_id', $user->getKey())->delete();
+            // The membership goes; `area_counters` stays, so the pioneer number is never given again.
+            AreaMembership::query()->where('user_id', $user->getKey())->delete();
             Comment::query()->where('user_id', $user->getKey())->delete();
             DB::table('comment_reports')->where('user_id', $user->getKey())->delete();
             // A morph relation: no foreign key deletes them by itself.

@@ -206,7 +206,7 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 - [x] Kurso de Contabilidade com 30 tópicos (24/11/2026): 8 a 9 exercícios no banco por tópico, com lançamentos e cálculos em Kz; falta confirmar no Diário da República os pontos listados no [ADR 0016](decisoes/0016-kursos-livro-tecnico.md)
 - [ ] Depois da Contabilidade: Finanças e Gestão de Empresas
 - [x] Vista de administração com as perguntas mais falhadas
-- [ ] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
+- [x] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
 - [ ] Motor de palavras-chave do CV (PDF lido no aparelho, dicionário de competências, a pessoa confirma)
 
 ### Espera pelo servidor

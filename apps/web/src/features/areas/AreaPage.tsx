@@ -19,6 +19,7 @@ import { InternshipsForArea } from '../internships/InternshipLinks'
 import { newsHref } from '../news/links'
 import { ScholarshipLinks } from '../scholarships/ScholarshipLinks'
 import { ProgramCard } from '../training/ProgramCard'
+import { AreaCommunity } from './AreaCommunity'
 import { areaStats, type AreaStats } from './stats'
 
 const SHOWN = 6
@@ -130,6 +131,8 @@ function AreaView({ stats }: { stats: AreaStats }) {
       </header>
 
       <AreaNews area={area} />
+
+      <AreaCommunity area={area} />
 
       <AreaSection
         id="area-careers"

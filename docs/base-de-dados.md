@@ -757,7 +757,7 @@ Prova de cada consentimento (Lei n.º 22/11).
 |---|---|---|
 | `user_id` | fk → `users`, pode ser vazio | Vazio para quem está só na lista de espera |
 | `waitlist_id` | fk → `waitlist`, pode ser vazio, `cascadeOnDelete` | |
-| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `push_service`, `push_marketing`, `whatsapp_marketing` (o antigo `push` passou a `push_service`) |
+| `kind` | varchar(24) | `terms`, `privacy`, `guardian_informed`, `email_service`, `email_marketing`, `push_service`, `push_marketing`, `whatsapp_marketing`, `community_count` (contar a pessoa nos números da comunidade de uma área) (o antigo `push` passou a `push_service`) |
 | `version` | varchar(16) | Versão do texto aceite |
 | `source` | varchar(16), pode ser vazio | Onde foi dado: `app`, `landing`, `onboarding` |
 | `ip_prefix` | varchar(45), pode ser vazio | O IP truncado: IPv4 sem o último byte, IPv6 com 48 bits |
@@ -805,6 +805,10 @@ Os Kursos na conta ([ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis
 `kurso_completions` (apagada com a conta): `user_id` (fk), `course` (slug do Kurso), `topic` (slug da unidade, ou `exam`), `completed_on` (o dia local enviado pelo aparelho, validado a ±1 dia e nunca antes do último), `score` (0 a 1, pode ser vazio), único por `user_id`+`course`+`topic`. Sem Plus, um tópico por dia; o `exam` não conta para o limite.
 
 `kurso_question_stats` (**sem ligação à pessoa**, só contadores; ficam quando a conta é apagada): `course`, `question_id`, `answered`, `correct`, único por `course`+`question_id`. Alimenta «Perguntas mais falhadas» no painel (mínimo de 20 respostas).
+
+#### `area_memberships` e `area_counters`
+
+As comunidades por área ([ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md)). `area_memberships` (apagada com a conta): `user_id` (fk), `area` (o slug da área do mercado), `level` (`student`, `aspirant`, `graduate`, `professional`; autodeclarado, nunca verificado; menores e quem não tem ano de nascimento ficam sempre `student`), `pioneer_number` (pode ser vazio; só se atribui a maiores, depois do primeiro tópico concluído num Kurso da área), único por `user_id`+`area` e por `area`+`pioneer_number`. `area_counters` (`area`, `last_number`) guarda o último número dado em cada área e **não** se apaga com a conta, por isso um número nunca se repete. A contagem pública (`GET /areas/{area}/community`) só conta quem deu o consentimento próprio `community_count` e só aparece a partir de 50 pessoas.
 
 #### `comments` e `comment_reports`
 
