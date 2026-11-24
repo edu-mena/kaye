@@ -45,11 +45,12 @@ class KursoAccountController extends Controller
     public function complete(Request $request, string $course, string $topic): JsonResponse
     {
         $user = MeController::user($request);
-        $input = $request->validate([
+        $request->validate([
             'day' => ['required', 'date_format:Y-m-d'],
             'score' => ['nullable', 'numeric', 'between:0,1'],
         ]);
-        $day = Carbon::createFromFormat('!Y-m-d', is_string($input['day']) ? $input['day'] : '') ?: now();
+        $score = $request->filled('score') ? $request->float('score') : null;
+        $day = Carbon::createFromFormat('!Y-m-d', $request->string('day')->value()) ?: now();
         abort_unless($this->kursoExists($course) && $this->topicExists($course, $topic), 404);
         // A device's local day is at most a day away from the server's (time zones). The clock cannot
         // go back either: a day before the last one already finished is not a new day.
@@ -64,7 +65,7 @@ class KursoAccountController extends Controller
 
         if ($topic === KursoCompletion::EXAM) {
             abort_unless($user->can('kursos.unlimited'), 403);
-            abort_unless(isset($input['score']) && (float) $input['score'] >= self::EXAM_PASS, 422, 'The exam was not passed.');
+            abort_unless($score !== null && $score >= self::EXAM_PASS, 422, 'The exam was not passed.');
         } elseif (! $user->can('kursos.unlimited') && $this->finishedOn($user, $day) >= 1) {
             return response()->json(['code' => 'daily_limit', 'opensOn' => $day->copy()->addDay()->toDateString()], 409);
         }
@@ -74,7 +75,7 @@ class KursoAccountController extends Controller
             'course' => $course,
             'topic' => $topic,
             'completed_on' => $day->toDateString(),
-            'score' => $input['score'] ?? null,
+            'score' => $score,
         ]);
 
         Communities::afterTopic($user, $course);
@@ -98,24 +99,24 @@ class KursoAccountController extends Controller
             'course' => $kurso->getTranslation('title', $user->locale->value),
             'date' => $exam->completed_on->toDateString(),
             // Always the same for the same person and Kurso, and not guessable without the app key.
-            'code' => strtoupper(substr(hash_hmac('sha256', $user->getKey().'|'.$course, (string) config('app.key')), 0, 12)),
+            'code' => strtoupper(substr(hash_hmac('sha256', $user->id.'|'.$course, config()->string('app.key')), 0, 12)),
         ]);
     }
 
     /** `{question_id, correct}` and nothing else: it raises two counters and keeps no trace of who. */
     public function answer(Request $request, string $course): JsonResponse
     {
-        $input = $request->validate([
+        $request->validate([
             'question_id' => ['required', 'string', 'max:120'],
             'correct' => ['required', 'boolean'],
         ]);
         abort_unless($this->kursoExists($course), 404);
 
-        $key = ['course' => $course, 'question_id' => $input['question_id']];
+        $key = ['course' => $course, 'question_id' => $request->string('question_id')->value()];
         DB::table('kurso_question_stats')->insertOrIgnore($key + ['answered' => 0, 'correct' => 0]);
         DB::table('kurso_question_stats')->where($key)->update([
             'answered' => DB::raw('answered + 1'),
-            'correct' => DB::raw('correct + '.($input['correct'] ? 1 : 0)),
+            'correct' => DB::raw('correct + '.($request->boolean('correct') ? 1 : 0)),
         ]);
 
         return response()->json(null, 204);
