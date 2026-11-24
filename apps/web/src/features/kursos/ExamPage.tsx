@@ -14,6 +14,7 @@ import {
   scoreByUnit,
   type Answer,
 } from '../../domain/kursos'
+import { reportKursoTopic } from '../../state/accountSync'
 import { userActions } from '../../state/userStore'
 import { ChoiceOptions } from './ChoiceOptions'
 import { Reader } from './Reader'
@@ -59,6 +60,7 @@ export default function ExamPage() {
     const score = right / questions.length
     const attempt = { at: new Date().toISOString(), score, units: scoreByUnit(questions, answers) }
     userActions.addKursoExam(course.id, attempt, score >= EXAM_PASS ? certificateCode() : undefined)
+    if (score >= EXAM_PASS) void reportKursoTopic(course.id, 'exam', score)
     setResult(score)
     window.scrollTo({ top: 0 })
   }

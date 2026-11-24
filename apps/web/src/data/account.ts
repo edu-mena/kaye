@@ -74,6 +74,18 @@ export const savePushSubscription = (subscription: PushSubscriptionBody) =>
 export const deletePushSubscription = (endpoint: string) =>
   api<void>('/me/push-subscriptions', { method: 'DELETE', ...json({ endpoint }) })
 
+/** A topic of a Kurso finished on the account (`topic` is a unit, or `exam`), on a local day (ADR 0025). */
+export type KursoDone = { course: string; topic: string; completedOn: string; score: number | null }
+
+export const getKursoProgress = () => api<{ completions: KursoDone[] }>('/kursos/progress')
+
+/** The server refuses a second topic a day without Plus: 409 with `code: 'daily_limit'`. */
+export const completeKursoTopic = (course: string, topic: string, day: string, score?: number) =>
+  api<{ completedOn: string }>(`/kursos/${course}/topics/${topic}/complete`, {
+    method: 'POST',
+    ...json({ day, score }),
+  })
+
 export const logout = () => api<void>('/auth/logout', { method: 'POST' })
 
 export const deleteAccount = () => api<void>('/me', { method: 'DELETE' })

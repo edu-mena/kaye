@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
 use App\Http\Controllers\Api\InterviewController;
 use App\Http\Controllers\Api\InterviewQuestionController;
+use App\Http\Controllers\Api\KursoAccountController;
 use App\Http\Controllers\Api\KursoController;
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\MeDataController;
@@ -130,5 +131,9 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
         Route::delete('/me/consents/{kind}', [ConsentController::class, 'destroy']);
         Route::post('/me/push-subscriptions', [PushSubscriptionController::class, 'store']);
         Route::delete('/me/push-subscriptions', [PushSubscriptionController::class, 'destroy']);
+        Route::get('/kursos/progress', [KursoAccountController::class, 'progress']);
+        Route::post('/kursos/{course}/topics/{topic}/complete', [KursoAccountController::class, 'complete']);
+        Route::get('/kursos/{course}/certificate', [KursoAccountController::class, 'certificate']);
+        Route::post('/kursos/{course}/answers', [KursoAccountController::class, 'answer']);
     });
 });

@@ -798,6 +798,14 @@ Críticas, ideias e erros (`Feedback`).
 | `status` | varchar(10) | `new`, `read`, `done` |
 | `created_at`, `updated_at` | timestamp | |
 
+#### `kurso_completions` e `kurso_question_stats`
+
+Os Kursos na conta ([ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md)). `users.plus_until` (timestamp, pode ser vazio) diz até quando o Plus está ativo; a permissão `kursos.unlimited` (Gate) é Plus ativo **e** maior de 18 anos.
+
+`kurso_completions` (apagada com a conta): `user_id` (fk), `course` (slug do Kurso), `topic` (slug da unidade, ou `exam`), `completed_on` (o dia local enviado pelo aparelho, validado a ±1 dia e nunca antes do último), `score` (0 a 1, pode ser vazio), único por `user_id`+`course`+`topic`. Sem Plus, um tópico por dia; o `exam` não conta para o limite.
+
+`kurso_question_stats` (**sem ligação à pessoa**, só contadores; ficam quando a conta é apagada): `course`, `question_id`, `answered`, `correct`, único por `course`+`question_id`. Alimenta «Perguntas mais falhadas» no painel (mínimo de 20 respostas).
+
 #### `comments` e `comment_reports`
 
 Comentários nas notícias, empresas e simulações (`Comment`). Só com conta; filtro automático (palavrões, telefones, emails, links); 3 denúncias escondem; o autor apaga o seu. A resposta da API traz só o id, o assunto, o autor (nome; só o primeiro nome se for menor ou a idade for desconhecida), o texto e a data.

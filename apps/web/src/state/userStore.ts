@@ -635,6 +635,15 @@ export const userActions = {
     update(withActivity)
   },
 
+  /** Topics finished on the account (maybe on another device) join this device's list. */
+  mergeKursoCompletions: (done: { course: string; topic: string; completedOn: string }[]) => {
+    for (const entry of done)
+      updateKurso(entry.course, (progress) => {
+        const doneOn = withCompletion(progress.doneOn, entry.topic, entry.completedOn)
+        return doneOn.length === (progress.doneOn?.length ?? 0) ? progress : { ...progress, doneOn }
+      })
+  },
+
   openKursoStep: (course: string, step: string) =>
     updateKurso(course, (progress) =>
       progress.position === step ? progress : { ...progress, position: step },

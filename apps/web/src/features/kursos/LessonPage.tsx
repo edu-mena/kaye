@@ -5,6 +5,7 @@ import { Button, ButtonLink } from '../../components/ui/Button'
 import { courseSteps, REVIEW, stepKey } from '../../data/kursos'
 import type { ExerciseBlock } from '../../data/kursos/types'
 import { courseState, itemCorrect, type Answer } from '../../domain/kursos'
+import { reportKursoTopic } from '../../state/accountSync'
 import { userActions } from '../../state/userStore'
 import { BlockView, ExerciseView } from './Blocks'
 import { Reader } from './Reader'
@@ -56,6 +57,7 @@ export default function LessonPage() {
       key,
       score === undefined ? undefined : { unit: unit.id, value: score },
     )
+    if (score !== undefined) void reportKursoTopic(course.id, unit.id, score)
     void navigate(next ? stepHref(course, next) : `/kursos/${course.id}`)
   }
 

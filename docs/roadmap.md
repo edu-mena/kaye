@@ -201,11 +201,11 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 - [x] Voz do guia regravada com a frase `onboarding.signupHint` nova ("Começar é grátis."), 24/11/2026 ([ADR 0013](decisoes/0013-voz-do-guia-em-audio-pre-gerado.md))
 - [x] Termos atualizados (24/11/2026): o Plus inclui os Kursos sem limite, o certificado e os lembretes; um tópico por dia na conta grátis; menores sem certificado; Plus grátis no teste de Natal, com 30 dias de aviso antes de passar a pago
 - [ ] Política de privacidade: rever quando o progresso, as respostas por pergunta e a comunidade por área passarem a ser guardados no servidor
-- [ ] Servidor: tópicos concluídos por conta, limite diário real, certificado verificável, permissão do Plus
+- [x] Servidor: tópicos concluídos por conta, limite diário real, certificado (dados), permissão do Plus (24/11/2026; o código de verificação pública e o pagamento ficam para depois)
 - [x] Kurso de Programação com 30 tópicos (24/11/2026)
 - [x] Kurso de Contabilidade com 30 tópicos (24/11/2026): 8 a 9 exercícios no banco por tópico, com lançamentos e cálculos em Kz; falta confirmar no Diário da República os pontos listados no [ADR 0016](decisoes/0016-kursos-livro-tecnico.md)
 - [ ] Depois da Contabilidade: Finanças e Gestão de Empresas
-- [ ] Vista de administração com as perguntas mais falhadas
+- [x] Vista de administração com as perguntas mais falhadas
 - [ ] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
 - [ ] Motor de palavras-chave do CV (PDF lido no aparelho, dicionário de competências, a pessoa confirma)
 
