@@ -367,10 +367,10 @@ const PROGRAMMING: Course = {
   audience:
     'Para quem nunca programou e quer perceber como funciona: estudantes, quem pensa em cursos de informática ou dados e quem quer automatizar tarefas. Basta um telemóvel com navegador.',
   goals: [
-    'Explicar o que é um algoritmo e um programa.',
-    'Escrever e ler programas curtos em Python com print, variáveis e operações.',
-    'Distinguir os tipos int, float, str e bool e converter entre eles.',
-    'Fazer perguntas ao utilizador com input e calcular com as respostas.',
+    'Escrever e ler programas curtos em Python com variáveis, tipos, operadores, texto e input.',
+    'Decidir e repetir com if, for e while; guardar dados em listas e dicionários.',
+    'Criar funções, ler e escrever ficheiros de texto e tratar erros com try/except.',
+    'Ler um problema, depurar um erro e acabar 5 mini-projetos: média de notas, tabuada, caixa registadora em Kz, lista de contactos e jogo de adivinhar.',
   ],
   units: programmingUnits(),
   loadExam: () => import('./programacao/exam').then((module) => module.default()),
@@ -380,14 +380,14 @@ const PROGRAMMING: Course = {
       author: 'Contribuidores do Wikibooks',
       license: 'CC BY-SA 4.0',
       url: 'https://en.wikibooks.org/wiki/Python_Programming',
-      use: 'Fonte principal: print, variáveis, tipos de dados, números, input e conversões, adaptados e escritos de raiz em português; os programas de exemplo são nossos.',
+      use: 'Fonte principal, só como tema (variáveis, tipos, texto, decisões, ciclos, listas, dicionários, funções, ficheiros, erros e módulos): as lições e as perguntas são escritas de raiz em português, com variantes por parâmetros; os programas e os dados (nomes, valores em Kz) são nossos e inventados.',
     },
     {
       title: 'Algorithm; Python (programming language) (Wikipedia)',
       author: 'Contribuidores da Wikipedia',
       license: 'CC BY-SA 4.0',
       url: 'https://en.wikipedia.org/wiki/Algorithm',
-      use: 'Definição de algoritmo e origem da palavra; autor e ano da primeira versão do Python.',
+      use: 'Origem do Python e dos termos técnicos (algoritmo, módulo, função), só como confirmação de significados.',
     },
   ],
 }

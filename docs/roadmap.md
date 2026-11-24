@@ -143,7 +143,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Kursos: Fundamentos da Gestão de Projetos em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (âmbito e EAP, cronograma, orçamento e riscos, acompanhar e fechar) e a revisão do conteúdo
 - [x] Kursos: Fundamentos da Cibersegurança em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (o telemóvel seguro, redes e navegação, privacidade e redes sociais, carreiras em cibersegurança) e a revisão do conteúdo
 - [x] Kursos: Fundamentos do Marketing Digital em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (conteúdo e calendário, anúncios pagos básicos, métricas, ética e lei) e a revisão do conteúdo
-- [x] Kursos: Programação: Nível Iniciante (Python) em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (decisões, repetições, funções, listas e um pequeno projeto) e a revisão do conteúdo
+- [x] Kursos: Programação: Nível Iniciante (Python) em versão de teste (ADR 0016, nota de 24/11/2026): 30 tópicos (1 tópico = 1 lição curta), cada um com 8 a 10 exercícios no banco, revisão e exame. Falta a revisão do conteúdo
 - [x] Kursos: Fundamentos da Análise de Dados em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (resumir, gráficos, folha de cálculo, contar uma história com dados) e a revisão do conteúdo. Seguem-se, um de cada vez: Economia, Contabilidade
 - [x] "Mostrar à família": na carreira, um PDF de uma página criado no telemóvel (o que faz, salários, procura, custo do curso, reconhecimento, como pagar, testemunho real e, se o jovem quiser, as razões do teste só com o primeiro nome), para enviar pelo WhatsApp ou imprimir. Falta a ficha do curso ("este curso, nesta instituição": propina, duração, exame de acesso), depois do 1A/1B
 - [x] Modo para pais e encarregados: "Mostrar à família" oferece "Enviar link" e "PDF". O link abre `/familia`, pública, com o que o teste diz e até 3 carreiras (o que faz, procura, onde estudar, reconhecimento, custo, bolsas, caminho mais curto, "como podem ajudar"); os dados vão no `#` e nada fica no servidor; salários só para maiores ([ADR 0018](decisoes/0018-link-da-familia-com-dados-no-fragmento.md))
@@ -202,7 +202,8 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 - [x] Termos atualizados (24/11/2026): o Plus inclui os Kursos sem limite, o certificado e os lembretes; um tópico por dia na conta grátis; menores sem certificado; Plus grátis no teste de Natal, com 30 dias de aviso antes de passar a pago
 - [ ] Política de privacidade: rever quando o progresso, as respostas por pergunta e a comunidade por área passarem a ser guardados no servidor
 - [ ] Servidor: tópicos concluídos por conta, limite diário real, certificado verificável, permissão do Plus
-- [ ] Kursos de Programação e Contabilidade com 30+ tópicos cada; depois Finanças e Gestão de Empresas
+- [x] Kurso de Programação com 30 tópicos (24/11/2026)
+- [ ] Kurso de Contabilidade com 30+ tópicos; depois Finanças e Gestão de Empresas
 - [ ] Vista de administração com as perguntas mais falhadas
 - [ ] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
 - [ ] Motor de palavras-chave do CV (PDF lido no aparelho, dicionário de competências, a pessoa confirma)
