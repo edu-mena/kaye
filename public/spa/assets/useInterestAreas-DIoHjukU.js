@@ -1,1 +1,0 @@
-import{n as e}from"./useInterestFilter-DLQzgyUT.js";function t(){return e().areas}export{t};
