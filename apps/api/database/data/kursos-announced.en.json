@@ -1,12 +1,5 @@
 [
   {
-    "id": "contabilidade",
-    "title": "Contabilidade",
-    "body": "Receitas, despesas, balanço e as contas de um pequeno negócio.",
-    "icon": "wallet",
-    "position": 1
-  },
-  {
     "id": "economia",
     "title": "Economia",
     "body": "Oferta, procura, preços e inflação, com exemplos do mercado angolano.",

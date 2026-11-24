@@ -89,11 +89,11 @@ const hash = (text: string) => {
   return value.toString(36)
 }
 
-function context(topic: string, n: number, random: Random, seed: string): Ctx {
+function context(topic: string, n: number, random: Random, seed: string, source: string): Ctx {
   const meta = (key: string, prompt: string) => ({
     id: `${topic}-${n}-${hash(key)}`,
     topic,
-    source: SOURCE,
+    source,
     prompt,
   })
   const int = (min: number, max: number) => min + Math.floor(random() * (max - min + 1))
@@ -134,9 +134,9 @@ function context(topic: string, n: number, random: Random, seed: string): Ctx {
 
 /** Exercise number `n` of a topic: the seed (day + device) picks the variant. */
 const exercise =
-  (topic: string, n: number, build: (c: Ctx) => Exercise): Make =>
+  (topic: string, n: number, build: (c: Ctx) => Exercise, source: string): Make =>
   (seed) =>
-    build(context(topic, n, seeded(`${seed}|${topic}|${n}`), seed))
+    build(context(topic, n, seeded(`${seed}|${topic}|${n}`), seed, source))
 
 export type TopicSpec = {
   id: string
@@ -153,10 +153,11 @@ export type TopicSpec = {
   exercises: ((c: Ctx) => Exercise)[]
 }
 
-export function defineTopic(spec: TopicSpec): UnitContent {
-  const meta: TopicMeta | undefined = TOPICS.find((topic) => topic.id === spec.id)
+/** `topics` and `source` default to the Iniciante course; another course (the PGC one) passes its own. */
+export function defineTopic(spec: TopicSpec, topics: TopicMeta[] = TOPICS, source = SOURCE): UnitContent {
+  const meta: TopicMeta | undefined = topics.find((topic) => topic.id === spec.id)
   if (!meta) throw new Error(`Unknown topic ${spec.id}`)
-  const bank = spec.exercises.map((build, at) => exercise(spec.id, at + 1, build))
+  const bank = spec.exercises.map((build, at) => exercise(spec.id, at + 1, build, source))
   return {
     lessons: [
       {

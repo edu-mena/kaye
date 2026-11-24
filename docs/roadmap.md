@@ -204,6 +204,8 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 - [x] Servidor: tópicos concluídos por conta, limite diário real, certificado (dados), permissão do Plus (24/11/2026; o código de verificação pública e o pagamento ficam para depois)
 - [x] Kurso de Programação com 30 tópicos (24/11/2026)
 - [x] Kurso de Contabilidade com 30 tópicos (24/11/2026): 8 a 9 exercícios no banco por tópico, com lançamentos e cálculos em Kz; falta confirmar no Diário da República os pontos listados no [ADR 0016](decisoes/0016-kursos-livro-tecnico.md)
+- [x] Mini Kurso «Contabilidade Angolana: PGC na Prática» com 12 tópicos (24/11/2026), a partir dos temas e da ordem do livro «PGC Angolano: Casos Práticos e Exercícios Resolvidos» (ATF, 2014), reescritos de raiz: imobilizado, três métodos de amortização, mais e menos-valias, FIFO/LIFO/médio, provisões, Imposto Industrial, câmbio e aplicação de resultados. As taxas vêm sempre no enunciado; falta confirmar no Diário da República o Código do Imposto Industrial e os nomes das contas
+- [x] Testes psicotécnicos: competência quantitativa (geometria, percentagens, proporções, probabilidades) e séries intercaladas no nível difícil; simulação de 24 perguntas em 18 minutos
 - [ ] Depois da Contabilidade: Finanças e Gestão de Empresas
 - [x] Vista de administração com as perguntas mais falhadas
 - [x] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"

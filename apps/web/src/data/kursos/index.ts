@@ -1,4 +1,5 @@
 import { TOPICS as ACCOUNTING_TOPICS } from './contabilidade/topics'
+import { TOPICS as ACCOUNTING_PGC_TOPICS } from './contabilidade-pgc/topics'
 import { TOPICS as PROGRAMMING_TOPICS } from './programacao/topics'
 import { topicUnits } from './topicCourse'
 import type { AnnouncedCourse, Course, UnitContent } from './types'
@@ -8,6 +9,8 @@ import type { AnnouncedCourse, Course, UnitContent } from './types'
 // One topic = one unit with one short lesson (docs/decisoes/0025). A topic without its file yet shows as "Em breve".
 const PROGRAMMING_FILES = import.meta.glob<{ default: UnitContent }>('./programacao/t[0-9][0-9].ts')
 const ACCOUNTING_FILES = import.meta.glob<{ default: UnitContent }>('./contabilidade/t[0-9][0-9].ts')
+
+const ACCOUNTING_PGC_FILES = import.meta.glob<{ default: UnitContent }>('./contabilidade-pgc/t[0-9][0-9].ts')
 
 const ENGLISH_A1: Course = {
   id: 'ingles-a1',
@@ -434,6 +437,50 @@ const ACCOUNTING: Course = {
   ],
 }
 
+const ACCOUNTING_PGC: Course = {
+  id: 'contabilidade-pgc',
+  title: 'Contabilidade Angolana: PGC na Prática',
+  level: 'Intermédio',
+  lang: 'pt',
+  icon: 'wallet',
+  tone: 'gold',
+  subtitle:
+    'Os casos do Plano Geral de Contabilidade que mais aparecem no ano de uma empresa, com cálculos que mudam todos os dias.',
+  audience:
+    'Para quem já sabe débito e crédito (o Kurso de Contabilidade: Nível Iniciante chega) e quer passar aos casos reais: imobilizado, existências, imposto, câmbio e capital.',
+  goals: [
+    'Calcular o custo de um imobilizado e amortizá-lo por quotas constantes, dígitos ou produção.',
+    'Registar a venda e o abate de um bem, com mais-valias e menos-valias.',
+    'Custear existências em FIFO, LIFO e custo médio, e provisionar o que perdeu valor.',
+    'Fazer notas de crédito, provisões, o apuramento do imposto industrial, diferenças cambiais e a aplicação do resultado.',
+  ],
+  units: topicUnits('contabilidade-pgc', ACCOUNTING_PGC_TOPICS, ACCOUNTING_PGC_FILES),
+  loadExam: () => import('./contabilidade-pgc/exam').then((module) => module.default()),
+  credits: [
+    {
+      title: 'PGC Angolano: Casos Práticos e Exercícios Resolvidos (Almeida, Miranda e outros, ATF, 2014)',
+      author: 'Rui M. P. de Almeida, Sabino José Miranda e outros',
+      license: 'Todos os direitos reservados: usado só como guia dos temas e da ordem dos casos',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Os temas (custo de aquisição, métodos de amortização, custeio, provisões, câmbio, aplicação de resultados) e a progressão dos casos. Texto, empresas e valores são escritos de raiz pelo Kayé; nada é copiado.',
+    },
+    {
+      title: 'Plano Geral de Contabilidade (Decreto n.º 82/01, de 16 de Novembro)',
+      author: 'Governo de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Existência do plano e dos critérios de reconhecimento. Os nomes das contas usadas no Kurso são nossos e estão por confirmar no texto em vigor.',
+    },
+    {
+      title: 'Código do Imposto Industrial',
+      author: 'Assembleia Nacional de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/',
+      use: 'Só a ideia de matéria coletável e de pagamentos por conta. A taxa vem sempre no enunciado e está por confirmar no Diário da República.',
+    },
+  ],
+}
+
 const DATA_ANALYSIS: Course = {
   id: 'analise-dados',
   title: 'Fundamentos da Análise de Dados',
@@ -516,6 +563,7 @@ export const KURSOS: Course[] = [
   DIGITAL_MARKETING,
   PROGRAMMING,
   ACCOUNTING,
+  ACCOUNTING_PGC,
   DATA_ANALYSIS,
 ]
 
