@@ -69,7 +69,7 @@ export const loopOutput: Generator = (seed) => {
   })
 }
 
-export const GENERATORS: Record<string, Generator> = { compoundInterest, purchaseEntry, loopOutput }
+const GENERATORS: Record<string, Generator> = { compoundInterest, purchaseEntry, loopOutput }
 
 /** The seed of the day: the local day plus an id kept on the device, so two people see different numbers. */
 export const exerciseSeed = (day: string, deviceId: string) => `${day}|${deviceId}`

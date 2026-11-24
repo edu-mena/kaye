@@ -9,7 +9,7 @@ import { TOPICS } from './topics'
 // engine (domain/exercises). Every right answer is computed here, in TypeScript, from the numbers of the variant.
 // Companies, people and amounts are invented; the books only give themes (ADR 0016).
 
-export const SOURCE =
+const SOURCE =
   'Wikipedia (CC BY-SA 4.0) e textos oficiais (PGC, Decreto n.º 82/01; CIVA, Lei n.º 7/19; INSS, Decreto Presidencial n.º 227/18) só como tema; pergunta escrita de raiz pelo Kayé, empresas e valores inventados'
 
 /** Names of the accounts used in the entries; the same words in every topic. */
@@ -54,7 +54,7 @@ export function kz(amount: number): string {
 /** 14% VAT of a base that is a multiple of 50 Kz is always a whole number. */
 export const vat = (base: number) => (base * 14) / 100
 
-export type Make = (seed: string) => Exercise
+type Make = (seed: string) => Exercise
 
 export type Ctx = {
   int: (min: number, max: number) => number
@@ -133,7 +133,7 @@ function context(topic: string, n: number, random: Random, seed: string): Ctx {
 }
 
 /** Exercise number `n` of a topic: the seed (day + device) picks the variant. */
-export const exercise =
+const exercise =
   (topic: string, n: number, build: (c: Ctx) => Exercise): Make =>
   (seed) =>
     build(context(topic, n, seeded(`${seed}|${topic}|${n}`), seed))

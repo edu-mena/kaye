@@ -8,7 +8,7 @@ import { TOPICS } from './topics'
 // engine (domain/exercises). The code is never run: the answer of an "o que imprime" is computed here, in TypeScript,
 // by the author of each variant. All sample data is invented.
 
-export const SOURCE =
+const SOURCE =
   'Wikibook Python Programming e Wikipedia (CC BY-SA 4.0): só o tema; pergunta escrita de raiz pelo Kayé, dados inventados'
 
 /** Python's `/`, `//` and `%` for the numbers a variant uses, formatted as print() shows them. */
@@ -18,9 +18,9 @@ export const py = {
   mod: (a: number, b: number) => a - b * Math.floor(a / b),
 }
 
-export type Make = (seed: string) => Exercise
+type Make = (seed: string) => Exercise
 
-export type Ctx = {
+type Ctx = {
   int: (min: number, max: number) => number
   pick: <T>(list: readonly T[]) => T
   /** "What does it print?": `answer` is computed by the variant, the listing is never run. */
@@ -74,7 +74,7 @@ function context(topic: string, n: number, random: Random): Ctx {
 }
 
 /** Exercise number `n` of a topic: the seed (day + device) picks the variant. */
-export const exercise =
+const exercise =
   (topic: string, n: number, build: (c: Ctx) => Exercise): Make =>
   (seed) =>
     build(context(topic, n, seeded(`${seed}|${topic}|${n}`)))

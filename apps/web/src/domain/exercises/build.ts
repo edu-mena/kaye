@@ -13,7 +13,7 @@ import type {
 // Builders: each takes what the author knows and returns an exercise whose `check` is already written.
 
 /** Case, accents and spacing do not matter ("Ambito" = "âmbito"); code keeps its punctuation. */
-export function fold(text: string): string {
+function fold(text: string): string {
   return text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '').replace(/\s+/g, ' ').trim()
 }
 

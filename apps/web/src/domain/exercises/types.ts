@@ -6,7 +6,7 @@ export type Verdict = { correct: boolean; explanation: string }
 /** One line of an accounting entry: an account, the side it moves and the amount in Kz. */
 export type EntryLine = { account: string; side: 'debit' | 'credit'; amount: number }
 
-export type Base<K extends string, A> = {
+type Base<K extends string, A> = {
   id: string
   kind: K
   /** The topic (unit) it practises. */

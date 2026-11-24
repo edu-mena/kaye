@@ -4,7 +4,7 @@
 /** A topic (a unit of a Kurso) finished on a local day. */
 export type TopicCompletion = { topic: string; day: string }
 
-export const FREE_DAILY_TOPICS = 1
+const FREE_DAILY_TOPICS = 1
 
 /**
  * The limit that applies: only with the Plus flag on and without Plus, for adults and minors alike (minors get no

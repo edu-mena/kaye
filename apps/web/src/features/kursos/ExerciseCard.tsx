@@ -19,7 +19,7 @@ export function PracticeCard({ make }: { make: (seed: string) => Exercise }) {
   return <ExerciseCard key={exercise.id} exercise={exercise} />
 }
 
-export function ExerciseCard({ exercise }: { exercise: Exercise }) {
+function ExerciseCard({ exercise }: { exercise: Exercise }) {
   switch (exercise.kind) {
     case 'choice':
       return <ChoiceCard exercise={exercise} />
