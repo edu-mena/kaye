@@ -13,6 +13,7 @@ import { safeNext } from '../../lib/ui'
 import { AREA_ICONS } from '../../components/areaIcons'
 import { ContactSection } from './ContactSection'
 import { FeedbackForm } from './FeedbackForm'
+import { PlansSection } from './PlansSection'
 import { ScreensSection } from './ScreensSection'
 import { WaitlistSection } from './WaitlistSection'
 import { WelcomeBanner } from './WelcomeBanner'
@@ -153,6 +154,8 @@ export function LandingPage() {
         </div>
 
         <ScreensSection />
+
+        <PlansSection signIn={signIn} />
 
         <section className="mx-auto max-w-5xl px-4 py-20 lg:py-28">
           <h2 className="mx-auto max-w-2xl text-center text-3xl leading-tight font-extrabold text-night sm:text-4xl">

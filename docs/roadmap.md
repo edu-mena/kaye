@@ -191,6 +191,21 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 - **Financiamento de impacto:** UNICEF, PNUD, Banco Mundial e fundações de empregabilidade jovem.
 - **Premium para o utilizador**, só depois e barato: modelos extra de CV, revisão humana do CV, simulação de entrevista com feedback.
 
+### Kursos diários (24 de novembro de 2026, [ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md))
+
+Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Kursos, a conta grátis faz **um tópico por dia** (conta ao concluir), vê os outros com cadeado e não recebe o certificado. O resto é do Kayé Plus. Primeiro **Programação** e **Contabilidade** (30+ tópicos cada), depois **Finanças** e **Gestão de Empresas**.
+
+- [ ] Motor de exercícios: tipos por área, variantes por parâmetros com semente, correção com tolerância, teste de integridade do banco
+- [ ] Tópico diário no Kurso: conclusão, cadeado, mensagem, limite mole no aparelho
+- [x] Landing: secção "Grátis vs Plus" (`PlansSection`), textos de "explorar é grátis" em pt, en e fr
+- [ ] Regravar a voz do guia com a frase `onboarding.signupHint` nova ("Começar é grátis."): hoje diz "O Kayé é gratuito." porque mudar a frase sem regravar dá 404 no áudio ([ADR 0013](decisoes/0013-voz-do-guia-em-audio-pre-gerado.md))
+- [ ] Revisão dos Termos e da política de privacidade (preço, limite diário, certificado, dados guardados)
+- [ ] Servidor: tópicos concluídos por conta, limite diário real, certificado verificável, permissão do Plus
+- [ ] Kursos de Programação e Contabilidade com 30+ tópicos cada; depois Finanças e Gestão de Empresas
+- [ ] Vista de administração com as perguntas mais falhadas
+- [ ] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
+- [ ] Motor de palavras-chave do CV (PDF lido no aparelho, dicionário de competências, a pessoa confirma)
+
 ### Espera pelo servidor
 
 O frontend está fechado; o que falta precisa do Laravel na Hostinger:

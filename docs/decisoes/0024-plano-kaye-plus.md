@@ -23,6 +23,10 @@
 - **Menores (14–17):** a promoção do Plus não aparece a menores de 18 anos (nem o cartão, nem o item de menu, nem os distintivos, nem `/plus`). Para eles as funcionalidades continuam abertas enquanto não houver fluxo com o encarregado de educação: sem pressão comercial. Quem não tem perfil, e por isso não tem idade conhecida, conta como menor. A decisão final (Plus para menores com o encarregado, ou nunca) fica em aberto.
 - Sem urgência falsa nem mensagens de culpa nos bloqueios.
 
+## Nota (24 de novembro de 2026)
+
+O [ADR 0025](0025-kursos-diarios-e-fim-do-tudo-gratis.md) acrescenta ao Plus os Kursos sem limite diário e o certificado, e retira a promessa de que tudo o resto é grátis. Para menores, a regra "tudo aberto" deste ADR passa a ser: um tópico por dia e sem certificado, sem promoção do Plus.
+
 ## Em aberto
 
 - O meio de pagamento (Multicaixa Express, Unitel Money…) e a faturação.
