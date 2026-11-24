@@ -59,6 +59,7 @@ export const PRIVACY: LegalDoc = {
         body: [
           'Não pedimos a tua morada, o número do bilhete de identidade, a data de nascimento completa, a tua localização exata, a lista de contactos do telemóvel, nem dados sobre saúde, religião, origem étnica, vida sexual ou opiniões políticas ou sindicais. Pedimos-te que não os escrevas em campos livres, como o CV, as respostas das entrevistas ou as críticas.',
           'A foto e a capa do teu perfil nunca saem do teu aparelho: são cortadas e reduzidas no próprio aparelho e o nosso servidor não as recebe.',
+          'Se carregares um CV teu em PDF ou colares o texto para o Kayé encontrar competências, o texto é lido só no teu aparelho: não sai de lá, não o guardamos e nunca vai para o Sentry. Só ficam no CV as competências que confirmares.',
         ],
       },
       {
@@ -256,6 +257,7 @@ export const PRIVACY: LegalDoc = {
         body: [
           'We do not ask for your address, your ID card number, your full date of birth, your exact location, your phone’s contact list, or data on health, religion, ethnic origin, sex life or political or trade union opinions. Please do not write them in free-text fields, such as the CV, interview answers or criticism.',
           'Your profile photo and cover never leave your device: they are cropped and reduced on the device itself and our server does not receive them.',
+          'If you upload your own CV as a PDF or paste its text so Kayé can find skills, the text is read only on your device: it never leaves it, we do not keep it and it never goes to Sentry. Only the skills you confirm are added to your CV.',
         ],
       },
       {
@@ -453,6 +455,7 @@ export const PRIVACY: LegalDoc = {
         body: [
           'Nous ne demandons pas ton adresse, ton numéro de carte d’identité, ta date de naissance complète, ta localisation exacte, la liste de contacts de ton téléphone, ni de données sur la santé, la religion, l’origine ethnique, la vie sexuelle ou les opinions politiques ou syndicales. Nous te demandons de ne pas les écrire dans les champs libres, comme le CV, les réponses des entretiens ou les critiques.',
           'La photo et la couverture de ton profil ne quittent jamais ton appareil : elles sont recadrées et réduites sur l’appareil lui-même et notre serveur ne les reçoit pas.',
+          'Si tu charges ton CV en PDF ou colles son texte pour que Kayé trouve des compétences, le texte est lu uniquement sur ton appareil : il ne le quitte pas, nous ne le gardons pas et il ne va jamais vers Sentry. Seules les compétences que tu confirmes sont ajoutées à ton CV.',
         ],
       },
       {

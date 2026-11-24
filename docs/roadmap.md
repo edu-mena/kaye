@@ -207,7 +207,7 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 - [ ] Depois da Contabilidade: Finanças e Gestão de Empresas
 - [x] Vista de administração com as perguntas mais falhadas
 - [x] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
-- [ ] Motor de palavras-chave do CV (PDF lido no aparelho, dicionário de competências, a pessoa confirma)
+- [x] Motor de palavras-chave do CV (24/11/2026): PDF lido no aparelho com o pdf.js (o worker é um ficheiro do próprio domínio, CSP igual), ou texto colado; dicionário de competências pt/en; a pessoa confirma as etiquetas; menores saltam o passo. O texto nunca sai do aparelho (política de privacidade atualizada)
 
 ### Espera pelo servidor
 
