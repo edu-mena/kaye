@@ -24,6 +24,11 @@ function problems(exercise: Exercise, topic: string): string[] {
     wrong(exercise.check(null).correct, 'null is right')
   }
   if (exercise.kind === 'numeric') wrong(exercise.check(null).correct, 'nothing is right')
+  if (exercise.kind === 'steps') {
+    wrong(exercise.steps.length < 2, 'fewer than 2 steps')
+    wrong(exercise.check(exercise.steps.map(() => '')).correct, 'empty cells are right')
+    wrong(exercise.check(exercise.steps.map(() => '0')).correct, 'zeros are right')
+  }
   if (exercise.kind === 'entries') wrong(exercise.check([]).correct, 'an empty entry is right')
   if (exercise.kind === 'output') {
     wrong(exercise.code.trim() === '', 'empty code')

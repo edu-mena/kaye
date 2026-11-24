@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { buildSession, seeded, SKILLS } from './psychotech'
 import { fraction, MATH_TOPICS, mathItemOf, type MathTopic } from './psychotechMath'
 
@@ -10,32 +10,32 @@ const SEEDS = Array.from({ length: 300 }, (_, i) => i + 1)
 
 /** A second, independent route to each answer, written from the wording of the question. */
 const SOLVE: Record<MathTopic, (p: Record<string, number | string>) => string> = {
-  rectArea: (p) => `${Number(p.w) * Number(p.h)} cmÂ²`,
+  rectArea: (p) => `${Number(p.w) * Number(p.h)} cm²`,
   rectPerimeter: (p) => `${(Number(p.w) + Number(p.h)) * 2} cm`,
   percentOf: (p) => String((Number(p.total) / 100) * Number(p.percent)),
   ruleOfThree: (p) => String((Number(p.cost) / Number(p.a)) * Number(p.b)),
-  triangleAngle: (p) => `${180 - Number(p.a) - Number(p.b)}Â°`,
+  triangleAngle: (p) => `${180 - Number(p.a) - Number(p.b)}°`,
   average: (p) => {
     const values = String(p.values).split(', ').map(Number)
     return String(values.reduce((sum, value) => sum + value, 0) / values.length)
   },
   pythagoras: (p) => `${Math.hypot(Number(p.a), Number(p.b))} cm`,
-  polygonAngles: (p) => `${(Number(p.sides) - 2) * 180}Â°`,
+  polygonAngles: (p) => `${(Number(p.sides) - 2) * 180}°`,
   discount: (p) => `${Number(p.price) * (1 - Number(p.percent) / 100)} Kz`,
   speed: (p) =>
     `${String((Number(p.speed) * (Number(p.minutes) / 60)).toFixed(2).replace(/\.?0+$/, '')).replace('.', ',')} km`,
-  cubeVolume: (p) => `${Number(p.edge) * Number(p.edge) * Number(p.edge)} cmÂ³`,
+  cubeVolume: (p) => `${Number(p.edge) * Number(p.edge) * Number(p.edge)} cm³`,
   marbles: (p) => fraction(Number(p.red), Number(p.red) + Number(p.blue) + Number(p.green)),
-  squareFromPerimeter: (p) => `${(Number(p.perimeter) / 4) ** 2} cmÂ²`,
+  squareFromPerimeter: (p) => `${(Number(p.perimeter) / 4) ** 2} cm²`,
   lShape: (p) =>
-    `${(Number(p.w) - Number(p.cw)) * Number(p.ch) + Number(p.w) * (Number(p.h) - Number(p.ch))} cmÂ²`,
+    `${(Number(p.w) - Number(p.cw)) * Number(p.ch) + Number(p.w) * (Number(p.h) - Number(p.ch))} cm²`,
   diagonal: (p) => `${Math.hypot(Number(p.w), Number(p.h))} cm`,
   successivePercent: (p) => `${1000 * (1 + Number(p.percent) / 100) * (1 - Number(p.percent) / 100)} Kz`,
   similar: (p) => `${(Number(p.big) / Number(p.a)) * Number(p.b)} m`,
   // Pairs of people, times the two ways of giving them the two roles.
   arrangements: (p) => String(((Number(p.people) * (Number(p.people) - 1)) / 2) * 2),
   workTogether: (p) => String(1 / (1 / Number(p.x) + 1 / Number(p.y))),
-  trapezoid: (p) => `${((Number(p.top) + Number(p.bottom)) / 2) * Number(p.height)} cmÂ²`,
+  trapezoid: (p) => `${((Number(p.top) + Number(p.bottom)) / 2) * Number(p.height)} cm²`,
   twoDraws: (p) => {
     const [red, total] = [Number(p.red), Number(p.red) + Number(p.blue)]
     return fraction(red * (red - 1), total * (total - 1))

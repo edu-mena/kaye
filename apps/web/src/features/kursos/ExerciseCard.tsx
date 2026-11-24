@@ -29,6 +29,8 @@ function ExerciseCard({ exercise }: { exercise: Exercise }) {
       return <NumericCard exercise={exercise} />
     case 'entries':
       return <EntriesCard exercise={exercise} />
+    case 'steps':
+      return <StepsCard exercise={exercise} />
     case 'order':
       return <LinesCard exercise={exercise} />
     case 'fill':
@@ -147,6 +149,39 @@ function NumericCard({ exercise }: { exercise: Extract<Exercise, { kind: 'numeri
         />
         {exercise.unit && <span className="text-muted">{exercise.unit}</span>}
       </label>
+    </Frame>
+  )
+}
+
+/** A calculation in steps or a table: one labelled box per cell, checked all together. */
+function StepsCard({ exercise }: { exercise: Extract<Exercise, { kind: 'steps' }> }) {
+  const [values, setValues] = useState<string[]>(() => Array<string>(exercise.steps.length).fill(''))
+  const [verdict, run, clear] = useVerdict()
+  return (
+    <Frame title={exercise.prompt} verdict={verdict} onCheck={() => run(() => exercise.check(values))}>
+      {exercise.data && (
+        <ul className="list-disc space-y-1 pl-5 text-sm text-ink">
+          {exercise.data.map((fact) => (
+            <li key={fact}>{fact}</li>
+          ))}
+        </ul>
+      )}
+      {exercise.steps.map((step, index) => (
+        <label key={step.label} className="flex flex-wrap items-center gap-2 text-sm text-night">
+          <span className="min-w-40 flex-1">{step.label}</span>
+          <input
+            value={values[index] ?? ''}
+            inputMode="decimal"
+            autoComplete="off"
+            onChange={(event) => {
+              setValues(values.map((value, at) => (at === index ? event.target.value : value)))
+              clear()
+            }}
+            className={`${INPUT} w-36`}
+          />
+          {step.unit && <span className="text-muted">{step.unit}</span>}
+        </label>
+      ))}
     </Frame>
   )
 }

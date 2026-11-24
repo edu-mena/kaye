@@ -1,4 +1,4 @@
-﻿// The quantitative part of the psychotechnical practice: geometry, proportions, percentages and chance.
+// The quantitative part of the psychotechnical practice: geometry, proportions, percentages and chance.
 // Every number comes from the seed and the right answer is computed here, never typed by hand; the wrong
 // options are the usual slips (forgetting a step, mixing area with perimeter). The wording lives in the
 // locales (psychotech.math_<topic>), so a topic only carries its numbers.
@@ -52,14 +52,14 @@ const int = (random: Random, min: number, max: number) => min + Math.floor(rando
 const pick = <T>(random: Random, list: readonly T[]): T => list[Math.floor(random() * list.length)] as T
 
 const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b))
-/** 6/8 â†’ "3/4"; a whole number stays whole. */
+/** 6/8 → "3/4"; a whole number stays whole. */
 export function fraction(top: number, bottom: number): string {
   const divisor = gcd(top, bottom)
   const [n, d] = [top / divisor, bottom / divisor]
   return d === 1 ? String(n) : `${n}/${d}`
 }
 
-/** 2.5 â†’ "2,5": the decimal comma of Portuguese and French; plain digits otherwise. */
+/** 2.5 → "2,5": the decimal comma of Portuguese and French; plain digits otherwise. */
 const num = (value: number) => String(Math.round(value * 100) / 100).replace('.', ',')
 
 /** Right-angled triangles with whole sides, so the hypotenuse is a whole number. */
@@ -79,8 +79,8 @@ const MAKERS: Record<MathTopic, Maker> = {
       topic: 'rectArea',
       params: { w, h },
       diagram: { kind: 'rect', w, h },
-      correct: `${w * h} cmÂ²`,
-      wrong: [`${2 * (w + h)} cmÂ²`, `${w + h} cmÂ²`, `${w * h + w} cmÂ²`, `${w * h - h} cmÂ²`],
+      correct: `${w * h} cm²`,
+      wrong: [`${2 * (w + h)} cm²`, `${w + h} cm²`, `${w * h + w} cm²`, `${w * h - h} cm²`],
     }
   },
   rectPerimeter(random) {
@@ -126,8 +126,8 @@ const MAKERS: Record<MathTopic, Maker> = {
     return {
       topic: 'triangleAngle',
       params: { a, b },
-      correct: `${180 - a - b}Â°`,
-      wrong: [`${360 - a - b}Â°`, `${90 - a}Â°`, `${180 - a}Â°`, `${a + b}Â°`],
+      correct: `${180 - a - b}°`,
+      wrong: [`${360 - a - b}°`, `${90 - a}°`, `${180 - a}°`, `${a + b}°`],
     }
   },
   average(random) {
@@ -159,8 +159,8 @@ const MAKERS: Record<MathTopic, Maker> = {
     return {
       topic: 'polygonAngles',
       params: { sides },
-      correct: `${(sides - 2) * 180}Â°`,
-      wrong: [`${sides * 180}Â°`, `${(sides - 1) * 180}Â°`, `${(sides - 2) * 90}Â°`, `${360}Â°`],
+      correct: `${(sides - 2) * 180}°`,
+      wrong: [`${sides * 180}°`, `${(sides - 1) * 180}°`, `${(sides - 2) * 90}°`, `${360}°`],
     }
   },
   discount(random) {
@@ -201,8 +201,8 @@ const MAKERS: Record<MathTopic, Maker> = {
       topic: 'cubeVolume',
       params: { edge },
       diagram: { kind: 'cube', edge },
-      correct: `${edge ** 3} cmÂ³`,
-      wrong: [`${edge ** 2 * 6} cmÂ³`, `${edge ** 2} cmÂ³`, `${edge * 3} cmÂ³`, `${edge ** 3 + edge} cmÂ³`],
+      correct: `${edge ** 3} cm³`,
+      wrong: [`${edge ** 2 * 6} cm³`, `${edge ** 2} cm³`, `${edge * 3} cm³`, `${edge ** 3 + edge} cm³`],
     }
   },
   marbles(random) {
@@ -230,8 +230,8 @@ const MAKERS: Record<MathTopic, Maker> = {
       topic: 'squareFromPerimeter',
       params: { perimeter: side * 4 },
       diagram: { kind: 'rect', w: side, h: side },
-      correct: `${side ** 2} cmÂ²`,
-      wrong: [`${side * 4} cmÂ²`, `${(side * 4) ** 2} cmÂ²`, `${side * 2} cmÂ²`, `${side ** 2 + side} cmÂ²`],
+      correct: `${side ** 2} cm²`,
+      wrong: [`${side * 4} cm²`, `${(side * 4) ** 2} cm²`, `${side * 2} cm²`, `${side ** 2 + side} cm²`],
     }
   },
   lShape(random) {
@@ -241,13 +241,8 @@ const MAKERS: Record<MathTopic, Maker> = {
       topic: 'lShape',
       params: { w, h, cw, ch },
       diagram: { kind: 'lShape', w, h, cw, ch },
-      correct: `${w * h - cw * ch} cmÂ²`,
-      wrong: [
-        `${w * h} cmÂ²`,
-        `${w * h + cw * ch} cmÂ²`,
-        `${2 * (w + h)} cmÂ²`,
-        `${(w - cw) * (h - ch)} cmÂ²`,
-      ],
+      correct: `${w * h - cw * ch} cm²`,
+      wrong: [`${w * h} cm²`, `${w * h + cw * ch} cm²`, `${2 * (w + h)} cm²`, `${(w - cw) * (h - ch)} cm²`],
     }
   },
   diagonal(random) {
@@ -339,12 +334,12 @@ const MAKERS: Record<MathTopic, Maker> = {
       topic: 'trapezoid',
       params: { top, bottom, height },
       diagram: { kind: 'trapezoid', top, bottom, height },
-      correct: `${((top + bottom) * height) / 2} cmÂ²`,
+      correct: `${((top + bottom) * height) / 2} cm²`,
       wrong: [
-        `${(top + bottom) * height} cmÂ²`,
-        `${top * bottom} cmÂ²`,
-        `${((top + bottom) * height) / 2 + height} cmÂ²`,
-        `${top * height} cmÂ²`,
+        `${(top + bottom) * height} cm²`,
+        `${top * bottom} cm²`,
+        `${((top + bottom) * height) / 2 + height} cm²`,
+        `${top * height} cm²`,
       ],
     }
   },

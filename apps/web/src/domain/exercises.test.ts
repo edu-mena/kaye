@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { choice, decision, entries, fill, numeric, order, output, parseNumber } from './exercises/build'
+import {
+  choice,
+  decision,
+  entries,
+  fill,
+  numeric,
+  order,
+  output,
+  parseNumber,
+  steps,
+} from './exercises/build'
 import { compoundInterest, exerciseSeed, generate, loopOutput, purchaseEntry } from './exercises/generators'
 
 const meta = { id: 'x', topic: 'topic', source: 'Kayé', prompt: '?' }
@@ -30,6 +40,36 @@ describe('numeric', () => {
   it('rejects text and empty answers', () => {
     for (const typed of ['', 'abc', null, '12abc']) expect(exercise.check(typed).correct).toBe(false)
     expect(parseNumber('1.000.000')).toBe(1_000_000)
+  })
+})
+
+describe('steps', () => {
+  const exercise = steps({
+    ...meta,
+    data: ['Custo: 1.000 Kz.'],
+    steps: [
+      { label: 'Quota', answer: 250, unit: 'Kz' },
+      { label: 'VLC', answer: 750 },
+    ],
+    why: 'Conta.',
+  })
+  it('is right only when every cell is right, in the formats people type', () => {
+    expect(exercise.check(['250', '750']).correct).toBe(true)
+    expect(exercise.check(['250,00 Kz', 750]).correct).toBe(true)
+    expect(exercise.check(['250', '700']).correct).toBe(false)
+    expect(exercise.check(['251', '750']).correct).toBe(false)
+  })
+  it('rejects empty, missing and text cells, and the key lists every cell', () => {
+    expect(exercise.check(['', '']).correct).toBe(false)
+    expect(exercise.check(['250']).correct).toBe(false)
+    expect(exercise.check(['250', 'abc']).correct).toBe(false)
+    expect(exercise.check([null, null]).correct).toBe(false)
+    expect(exercise.check(['1', '2']).explanation).toContain('Quota 250; VLC 750')
+  })
+  it('keeps the cells and the data of the case', () => {
+    expect(exercise.kind).toBe('steps')
+    expect(exercise.steps).toEqual([{ label: 'Quota', unit: 'Kz' }, { label: 'VLC' }])
+    expect(exercise.data).toEqual(['Custo: 1.000 Kz.'])
   })
 })
 

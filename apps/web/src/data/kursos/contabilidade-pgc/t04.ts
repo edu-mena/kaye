@@ -126,5 +126,22 @@ export default defineTopic({
         ['Aumenta o resultado', 'Não tem efeito', 'Reduz o capital subscrito'],
         'A amortização é um custo do exercício, sem saída de dinheiro.',
       ),
+    (c) => {
+      const years = c.pick([4, 5])
+      const quota = c.int(6, 20) * 10000
+      const residual = c.int(1, 4) * 10000
+      const cost = quota * years + residual
+      return c.steps(
+        'Calcula a amortização por quotas constantes.',
+        [`Custo: ${kz(cost)}.`, `Valor residual: ${kz(residual)}.`, `Vida útil: ${years} anos.`],
+        [
+          { label: 'Valor a amortizar', answer: cost - residual, unit: 'Kz' },
+          { label: 'Quota anual', answer: quota, unit: 'Kz' },
+          { label: 'Amortizações acumuladas ao fim de 2 anos', answer: quota * 2, unit: 'Kz' },
+          { label: 'VLC ao fim de 2 anos', answer: cost - quota * 2, unit: 'Kz' },
+        ],
+        'Valor a amortizar = custo − residual; quota = valor ÷ anos; VLC = custo − acumuladas.',
+      )
+    },
   ],
 })

@@ -8613,6 +8613,7 @@
             null,
             null,
             null,
+            null,
             null
           ]
         }
@@ -8755,6 +8756,7 @@
             }
           ],
           "bank": [
+            null,
             null,
             null,
             null,
@@ -9035,6 +9037,7 @@
             }
           ],
           "bank": [
+            null,
             null,
             null,
             null,
@@ -9471,6 +9474,7 @@
             null,
             null,
             null,
+            null,
             null
           ]
         }
@@ -9498,23 +9502,23 @@
                   "type": "text",
                   "title": "Compras em moeda estrangeira",
                   "body": [
-                    "Muitas compras de importaÃ§Ã£o sÃ£o faturadas em dÃ³lares. A dÃ­vida regista-se em Kz ao cÃ¢mbio do dia da compra. Mas quando se paga, o cÃ¢mbio jÃ¡ Ã© outro, e a diferenÃ§a Ã© uma diferenÃ§a de cÃ¢mbio.",
-                    "Se o dÃ³lar subiu entre a compra e o pagamento, a empresa paga mais Kz do que registou: Ã© uma diferenÃ§a desfavorÃ¡vel (um custo). Se o dÃ³lar desceu, paga menos: Ã© favorÃ¡vel (um proveito).",
-                    "A conta Ã© simples: valor em dÃ³lares Ã— (cÃ¢mbio do pagamento âˆ’ cÃ¢mbio da compra). Um resultado positivo Ã© custo; negativo Ã© proveito."
+                    "Muitas compras de importação são faturadas em dólares. A dívida regista-se em Kz ao câmbio do dia da compra. Mas quando se paga, o câmbio já é outro, e a diferença é uma diferença de câmbio.",
+                    "Se o dólar subiu entre a compra e o pagamento, a empresa paga mais Kz do que registou: é uma diferença desfavorável (um custo). Se o dólar desceu, paga menos: é favorável (um proveito).",
+                    "A conta é simples: valor em dólares × (câmbio do pagamento − câmbio da compra). Um resultado positivo é custo; negativo é proveito."
                   ]
                 },
                 {
                   "type": "rule",
                   "title": "Regra",
-                  "body": "DiferenÃ§a = USD Ã— (cÃ¢mbio ao pagar âˆ’ cÃ¢mbio na compra). Positiva: custo (desfavorÃ¡vel). Negativa: proveito (favorÃ¡vel)."
+                  "body": "Diferença = USD × (câmbio ao pagar − câmbio na compra). Positiva: custo (desfavorável). Negativa: proveito (favorável)."
                 },
                 {
                   "type": "table",
-                  "caption": "Uma dÃ­vida de 1.000 USD, comprada a 900 Kz/USD.",
+                  "caption": "Uma dívida de 1.000 USD, comprada a 900 Kz/USD.",
                   "head": [
-                    "CÃ¢mbio ao pagar",
+                    "Câmbio ao pagar",
                     "Paga em Kz",
-                    "DiferenÃ§a"
+                    "Diferença"
                   ],
                   "rows": [
                     [
@@ -9530,7 +9534,7 @@
                     [
                       "870",
                       "870.000",
-                      "âˆ’30.000 (proveito)"
+                      "−30.000 (proveito)"
                     ]
                   ]
                 },
@@ -9557,9 +9561,9 @@
                 {
                   "type": "summary",
                   "points": [
-                    "A dÃ­vida regista-se ao cÃ¢mbio do dia da compra.",
-                    "Se o dÃ³lar sobe antes de pagar, hÃ¡ custo; se desce, hÃ¡ proveito.",
-                    "A diferenÃ§a Ã© calculada sobre o valor em dÃ³lares."
+                    "A dívida regista-se ao câmbio do dia da compra.",
+                    "Se o dólar sobe antes de pagar, há custo; se desce, há proveito.",
+                    "A diferença é calculada sobre o valor em dólares."
                   ]
                 }
               ]
@@ -9573,16 +9577,16 @@
               "instruction": "Escolhe a resposta certa.",
               "items": [
                 {
-                  "prompt": "Compraste a 900 Kz/USD e pagas a 950 Kz/USD. A diferenÃ§a de cÃ¢mbio Ã©â€¦",
+                  "prompt": "Compraste a 900 Kz/USD e pagas a 950 Kz/USD. A diferença de câmbio é…",
                   "options": [
-                    "DesfavorÃ¡vel (custo)",
-                    "FavorÃ¡vel (proveito)",
+                    "Desfavorável (custo)",
+                    "Favorável (proveito)",
                     "Nula"
                   ],
                   "answer": 0
                 },
                 {
-                  "prompt": "Em que cÃ¢mbio se regista a dÃ­vida na compra?",
+                  "prompt": "Em que câmbio se regista a dívida na compra?",
                   "options": [
                     "No do dia da compra",
                     "No do dia do pagamento",
@@ -9591,7 +9595,7 @@
                   "answer": 0
                 },
                 {
-                  "prompt": "O dÃ³lar desceu entre a compra e o pagamento. A empresa pagaâ€¦",
+                  "prompt": "O dólar desceu entre a compra e o pagamento. A empresa paga…",
                   "options": [
                     "Menos Kz do que registou",
                     "Mais Kz do que registou",
@@ -9603,6 +9607,7 @@
             }
           ],
           "bank": [
+            null,
             null,
             null,
             null,
@@ -9739,6 +9744,7 @@
             }
           ],
           "bank": [
+            null,
             null,
             null,
             null,
@@ -10117,10 +10123,10 @@
         "id": "t11-q1",
         "unit": "t11",
         "kind": "choice",
-        "prompt": "Compraste a 900 Kz/USD e pagas a 950 Kz/USD. A diferenÃ§a de cÃ¢mbio Ã©â€¦",
+        "prompt": "Compraste a 900 Kz/USD e pagas a 950 Kz/USD. A diferença de câmbio é…",
         "options": [
-          "DesfavorÃ¡vel (custo)",
-          "FavorÃ¡vel (proveito)",
+          "Desfavorável (custo)",
+          "Favorável (proveito)",
           "Nula"
         ],
         "answer": 0
@@ -10129,7 +10135,7 @@
         "id": "t11-q2",
         "unit": "t11",
         "kind": "choice",
-        "prompt": "Em que cÃ¢mbio se regista a dÃ­vida na compra?",
+        "prompt": "Em que câmbio se regista a dívida na compra?",
         "options": [
           "No do dia da compra",
           "No do dia do pagamento",
@@ -10141,7 +10147,7 @@
         "id": "t11-q3",
         "unit": "t11",
         "kind": "choice",
-        "prompt": "O dÃ³lar desceu entre a compra e o pagamento. A empresa pagaâ€¦",
+        "prompt": "O dólar desceu entre a compra e o pagamento. A empresa paga…",
         "options": [
           "Menos Kz do que registou",
           "Mais Kz do que registou",

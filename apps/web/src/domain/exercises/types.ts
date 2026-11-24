@@ -22,6 +22,12 @@ export type ChoiceExercise = Base<'choice', number | null> & { options: string[]
 /** The answer is a number or text such as "1.250,50"; right within `tolerance` (absolute). */
 export type NumericExercise = Base<'numeric', string | number | null> & { unit?: string; tolerance: number }
 export type EntriesExercise = Base<'entries', EntryLine[]> & { accounts: string[] }
+/** A calculation in several steps, or a table to complete: one number per labelled cell, all of them must be right. */
+export type StepsExercise = Base<'steps', (string | number | null)[]> & {
+  steps: { label: string; unit?: string }[]
+  /** Optional facts shown above the cells (the data of the case). */
+  data?: string[]
+}
 export type OrderExercise = Base<'order', string[]> & { lines: string[] }
 /** `template` has one "___" per blank. */
 export type FillExercise = Base<'fill', string[]> & { template: string; blanks: number }
@@ -32,6 +38,7 @@ export type Exercise =
   | ChoiceExercise
   | NumericExercise
   | EntriesExercise
+  | StepsExercise
   | OrderExercise
   | FillExercise
   | OutputExercise

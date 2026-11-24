@@ -132,5 +132,28 @@ export default defineTopic({
         ],
         'Resultado mais os custos que o Estado não aceita.',
       ),
+    (c) => {
+      const result = c.int(10, 60) * 100000
+      const extra = c.int(1, 8) * 10000
+      const rate = c.pick([25, 30])
+      const paid = c.int(1, 3) * 100000
+      const base = result + extra
+      const tax = (base * rate) / 100
+      return c.steps(
+        'Do resultado ao imposto a pagar, passo a passo.',
+        [
+          `Resultado antes de impostos: ${kz(result)}.`,
+          `Custos não aceites fiscalmente: ${kz(extra)}.`,
+          `Taxa: ${rate}%. Já pagos por conta: ${kz(paid)}.`,
+        ],
+        [
+          { label: 'Matéria coletável', answer: base, unit: 'Kz' },
+          { label: 'Imposto do ano', answer: tax, unit: 'Kz' },
+          { label: 'Imposto a pagar', answer: tax - paid, unit: 'Kz' },
+          { label: 'Resultado líquido (resultado − imposto)', answer: result - tax, unit: 'Kz' },
+        ],
+        'Matéria coletável × taxa = imposto; menos o que foi pago por conta = a pagar.',
+      )
+    },
   ],
 })

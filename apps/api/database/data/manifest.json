@@ -394,17 +394,17 @@
     "pt": {
       "file": "kursos.pt.json",
       "records": 8,
-      "sha256": "d0a684d00a177bbd1e709cac4c92594c03dacfd8533671f608789d8f427ec78e"
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     },
     "en": {
       "file": "kursos.en.json",
       "records": 8,
-      "sha256": "d0a684d00a177bbd1e709cac4c92594c03dacfd8533671f608789d8f427ec78e"
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     },
     "fr": {
       "file": "kursos.fr.json",
       "records": 8,
-      "sha256": "d0a684d00a177bbd1e709cac4c92594c03dacfd8533671f608789d8f427ec78e"
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     }
   },
   "kursos-announced": {

@@ -136,5 +136,21 @@ export default defineTopic({
         1,
         'Que método escolhes?',
       ),
+    (c) => {
+      const part = c.int(5, 20) * 10000
+      const amount = part * 10
+      return c.steps(
+        'Completa o plano de amortização pelo método dos dígitos (4 anos, soma = 10).',
+        [`Valor a amortizar: ${kz(amount)}.`],
+        [
+          { label: 'Quota do ano 1 (4/10)', answer: part * 4, unit: 'Kz' },
+          { label: 'Quota do ano 2 (3/10)', answer: part * 3, unit: 'Kz' },
+          { label: 'Quota do ano 3 (2/10)', answer: part * 2, unit: 'Kz' },
+          { label: 'Quota do ano 4 (1/10)', answer: part, unit: 'Kz' },
+          { label: 'Amortizações acumuladas no fim do ano 2', answer: part * 7, unit: 'Kz' },
+        ],
+        'As quotas descem 4, 3, 2 e 1 décimos e somam o valor a amortizar.',
+      )
+    },
   ],
 })

@@ -7,6 +7,7 @@ import type {
   NumericExercise,
   OrderExercise,
   OutputExercise,
+  StepsExercise,
   Verdict,
 } from './types'
 
@@ -84,6 +85,34 @@ export function entries(
         .reduce((sum, line) => sum + line.amount, 0)
       const ok = lines.map(entryKey).toSorted().join('#') === key && Math.abs(debit - credit) < 0.005
       return verdict(ok, `${describe(answer)}.`, why)
+    },
+  }
+}
+
+/** Every cell must be right (within `tolerance`); the key lists them all, so a wrong one shows what to fix. */
+export function steps(
+  meta: Meta & {
+    steps: { label: string; answer: number; unit?: string }[]
+    data?: string[]
+    tolerance?: number
+    why: string
+  },
+): StepsExercise {
+  const { steps: cells, data, tolerance = 0.5, why, ...rest } = meta
+  return {
+    ...rest,
+    kind: 'steps',
+    ...(data && { data }),
+    steps: cells.map(({ label, unit }) => ({ label, ...(unit && { unit }) })),
+    check: (given) => {
+      const numbers = given.map(parseNumber)
+      const ok =
+        given.length === cells.length &&
+        cells.every((cell, at) => {
+          const typed = numbers[at]
+          return typed !== null && typed !== undefined && Math.abs(typed - cell.answer) <= tolerance + 1e-9
+        })
+      return verdict(ok, `${cells.map((cell) => `${cell.label} ${cell.answer}`).join('; ')}.`, why)
     },
   }
 }

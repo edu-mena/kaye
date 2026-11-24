@@ -1,5 +1,5 @@
 import { seeded, type Random } from '../../../domain/daily'
-import { choice, decision, entries, fill, numeric, order } from '../../../domain/exercises/build'
+import { choice, decision, entries, fill, numeric, order, steps } from '../../../domain/exercises/build'
 import type { EntryLine, Exercise } from '../../../domain/exercises/types'
 import type { TopicMeta } from '../topicCourse'
 import type { Block, ChoiceItem, UnitContent } from '../types'
@@ -72,6 +72,13 @@ export type Ctx = {
   num: (prompt: string, answer: number, why: string, unit?: string, tolerance?: number) => Exercise
   /** An entry: the right lines are given; the account list shown is the lines' accounts plus `extra`, sorted. */
   entry: (prompt: string, lines: EntryLine[], why: string, extra?: string[]) => Exercise
+  /** A calculation in steps or a table: every cell has its own right number, computed by the variant. */
+  steps: (
+    prompt: string,
+    data: string[],
+    cells: { label: string; answer: number; unit?: string }[],
+    why: string,
+  ) => Exercise
   fill: (template: string, answers: string[][], why: string, prompt?: string) => Exercise
   order: (prompt: string, lines: string[], why: string) => Exercise
   /** A small case with decisions: `best` is the index of the right one. */
@@ -124,6 +131,8 @@ function context(topic: string, n: number, random: Random, seed: string, source:
         why,
       })
     },
+    steps: (prompt, data, cells, why) =>
+      steps({ ...meta(prompt + cells.map((cell) => cell.label).join(), prompt), data, steps: cells, why }),
     fill: (template, answers, why, prompt = 'Completa.') =>
       fill({ ...meta(template, prompt), template, answers, why }),
     order: (prompt, lines, why) => order({ ...meta(prompt + lines.join(), prompt), lines, why }),

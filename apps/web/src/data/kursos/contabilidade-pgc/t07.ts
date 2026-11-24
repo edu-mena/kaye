@@ -168,5 +168,19 @@ export default defineTopic({
         1,
         'Como calculas o custo?',
       ),
+    (c) => {
+      const { first, second, sold } = scene(c)
+      const price = average([first, second])
+      return c.steps(
+        'Compara as três fórmulas de custeio.',
+        [text(first, second, sold)],
+        [
+          { label: 'Custo das vendas em FIFO', answer: take([first, second], sold), unit: 'Kz' },
+          { label: 'Custo das vendas em LIFO', answer: take([second, first], sold), unit: 'Kz' },
+          { label: 'Custo das vendas pelo custo médio', answer: sold * price, unit: 'Kz' },
+        ],
+        'Com preços a subir: FIFO < médio < LIFO no custo das vendas.',
+      )
+    },
   ],
 })

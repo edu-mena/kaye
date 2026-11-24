@@ -137,5 +137,24 @@ export default defineTopic({
         ],
         'Reservas ficam na empresa; dividendos saem para os sócios.',
       ),
+    (c) => {
+      const result = c.int(5, 40) * 500000
+      const reserve = c.pick([10, 20])
+      const dividend = c.pick([30, 50])
+      return c.steps(
+        'Aplica o resultado líquido.',
+        [`Resultado líquido: ${kz(result)}. Reserva legal: ${reserve}%. Dividendos: ${dividend}%.`],
+        [
+          { label: 'Reserva legal', answer: (result * reserve) / 100, unit: 'Kz' },
+          { label: 'Dividendos', answer: (result * dividend) / 100, unit: 'Kz' },
+          {
+            label: 'Resultados transitados',
+            answer: result - (result * reserve) / 100 - (result * dividend) / 100,
+            unit: 'Kz',
+          },
+        ],
+        'O que não vai para reserva nem para dividendos fica transitado.',
+      )
+    },
   ],
 })
