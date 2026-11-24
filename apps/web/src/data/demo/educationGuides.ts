@@ -173,7 +173,12 @@ const teacherRoutes = (degreeName: string): Career['pathways'] => [
     id: 'agregacao',
     name: 'Licenciatura noutra área',
     summary: 'Para quem estudou a matéria num curso sem formação de professor.',
-    steps: [AGGREGATION, COMPETITION_STEP],
+    // The route starts from a degree in the subject (in another area), so the degree is required here too.
+    steps: [
+      { ...degree(degreeName, 'Num curso da matéria, sem formação de professor.'), need: 'essencial' },
+      AGGREGATION,
+      COMPETITION_STEP,
+    ],
     totalCost: null,
   },
 ]

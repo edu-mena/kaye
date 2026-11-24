@@ -348,8 +348,9 @@ export const SCHOLARSHIPS: Scholarship[] = [
       '2 anos de experiência de trabalho (2800 horas)',
       'Oferta incondicional de um mestrado no Reino Unido',
       'Voltar a Angola por 2 anos',
+      'Ronda 2027/28 fechou a 6/10/2026; a seguinte abre por volta de Agosto de 2027',
     ],
-    deadline: null,
+    deadline: '2026-10-06',
     recurring: true,
     url: 'https://www.chevening.org/scholarship/angola/',
     sources: [

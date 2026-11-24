@@ -2,12 +2,15 @@ import type { AcademyOffer, MarketArea, Scholarship } from '../data/types'
 
 // Bolsas: which scholarships suit a career or a course, and which are open now.
 
-/** Open to apply: the deadline has not passed, or it comes back every year (a scholarship, an application). */
+/**
+ * Open to apply. With a deadline, open until that day, even if it comes back every year (the next edition is not
+ * this one). Without a deadline, open if it is always open (a recurring programme), closed if it was a one-off.
+ */
 export function isOpen(
   { deadline, recurring }: { deadline: string | null; recurring: boolean },
   today: string,
 ): boolean {
-  return recurring || (deadline !== null && deadline >= today)
+  return deadline === null ? recurring : deadline >= today
 }
 
 export type ScholarshipFilters = {

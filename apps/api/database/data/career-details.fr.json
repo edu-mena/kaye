@@ -104,7 +104,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Teatro",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Artes ou na Faculdade de Artes da Universidade de Luanda.",
             "months": {
               "min": 48,
@@ -361,7 +361,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Matemática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Estatística, Economia ou Finanças. A especialização em ciências actuariais costuma fazer-se depois, muitas vezes no estrangeiro.",
             "months": {
               "min": 48,
@@ -604,7 +604,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -930,7 +930,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Redes e Telecomunicações",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática ou Redes e Administração de Sistemas.",
             "months": {
               "min": 48,
@@ -1252,7 +1252,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -1577,7 +1577,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -2129,7 +2129,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Informática de Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática. Junta a tecnologia à forma como uma empresa funciona.",
             "months": {
               "min": 48,
@@ -2454,7 +2454,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -2749,7 +2749,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -3324,7 +3324,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Economia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de microeconomia, macroeconomia e estatística.",
             "months": {
               "min": 48,
@@ -3569,7 +3569,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -3800,7 +3800,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -4050,7 +4050,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Informática de Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática. Junta a tecnologia à forma como uma empresa funciona.",
             "months": {
               "min": 48,
@@ -4284,7 +4284,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -4558,7 +4558,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciência Política",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Relações Internacionais, Sociologia ou Filosofia.",
             "months": {
               "min": 48,
@@ -4803,7 +4803,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Antropologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Oferta rara no país: confirma onde abre.",
             "months": {
               "min": 48,
@@ -5047,7 +5047,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Arquitectura",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Arquitectura e Urbanismo. Dá a base de projecto, desenho e construção.",
             "months": {
               "min": 48,
@@ -5304,7 +5304,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciência da Informação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou História.",
             "months": {
               "min": 48,
@@ -5549,7 +5549,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Artes Visuais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Artes ou na Faculdade de Artes da Universidade de Luanda.",
             "months": {
               "min": 48,
@@ -5829,7 +5829,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Comunicação Social",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Comunicação ou Jornalismo.",
             "months": {
               "min": 48,
@@ -6339,7 +6339,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Serviço Social",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de políticas sociais, intervenção e ética.",
             "months": {
               "min": 48,
@@ -6566,7 +6566,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade e Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Auditoria, ou Gestão Financeira.",
             "months": {
               "min": 48,
@@ -6834,7 +6834,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade e Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Auditoria, ou Gestão Financeira.",
             "months": {
               "min": 48,
@@ -7083,7 +7083,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Biológicas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Biologia, num instituto de ciências da educação.",
             "months": {
               "min": 48,
@@ -7328,7 +7328,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Biologia Marinha",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências Biológicas.",
             "months": {
               "min": 48,
@@ -7572,7 +7572,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Biotecnologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Oferta rara no país: confirma onde abre.",
             "months": {
               "min": 48,
@@ -9154,7 +9154,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências da Computação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Estatística, Matemática ou Engenharia Informática. O que conta é a base de matemática e programação.",
             "months": {
               "min": 48,
@@ -9798,7 +9798,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Informática de Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática. Junta a tecnologia à forma como uma empresa funciona.",
             "months": {
               "min": 48,
@@ -10084,7 +10084,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -10285,7 +10285,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Empresas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão e Administração, ou Economia.",
             "months": {
               "min": 48,
@@ -10535,7 +10535,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade e Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Auditoria, ou Gestão Financeira.",
             "months": {
               "min": 48,
@@ -10829,7 +10829,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -12120,7 +12120,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Geodemografia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Estatística. A oferta de Geodemografia é rara.",
             "months": {
               "min": 48,
@@ -12604,7 +12604,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -13381,7 +13381,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -13751,7 +13751,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -14115,7 +14115,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Design de Moda",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Artes ou na Faculdade de Artes da Universidade de Luanda.",
             "months": {
               "min": 48,
@@ -14393,7 +14393,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Design",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Artes Visuais. Dá a base de desenho, cor e composição.",
             "months": {
               "min": 48,
@@ -15049,7 +15049,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Direito.",
             "months": {
               "min": 48,
@@ -15311,7 +15311,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Relações Internacionais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Direito ou Ciência Política. Aprende bem uma língua de trabalho das Nações Unidas: inglês, francês, espanhol, árabe, russo ou chinês.",
             "months": {
               "min": 48,
@@ -15520,7 +15520,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências da Educação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou um curso de ensino.",
             "months": {
               "min": 48,
@@ -15760,7 +15760,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em na área que queres ensinar",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Uma boa média ajuda na entrada como assistente.",
             "months": {
               "min": 48,
@@ -15986,7 +15986,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Economia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de microeconomia, macroeconomia e estatística.",
             "months": {
               "min": 48,
@@ -16275,7 +16275,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Cinema e Televisão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Comunicação Social e Imagem.",
             "months": {
               "min": 48,
@@ -16519,7 +16519,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação de Infância",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ensino Pré-Escolar.",
             "months": {
               "min": 48,
@@ -17490,7 +17490,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Tecnologia Agro-Alimentar",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Engenharia.",
             "months": {
               "min": 48,
@@ -17748,7 +17748,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Agronómica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Agronomia. Vários institutos politécnicos e universidades dão o curso.",
             "months": {
               "min": 48,
@@ -18000,7 +18000,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Civil",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de estruturas, solos, materiais e obras.",
             "months": {
               "min": 48,
@@ -18268,7 +18268,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -18516,7 +18516,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Energética",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Electrotécnica, com cadeiras de energias renováveis.",
             "months": {
               "min": 48,
@@ -18768,7 +18768,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Mecânica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Electromecânica, ou Organização e Manutenção Industrial.",
             "months": {
               "min": 48,
@@ -19067,7 +19067,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Minas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de geologia, desmonte e planeamento de minas.",
             "months": {
               "min": 48,
@@ -19335,7 +19335,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Petróleos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Com as cadeiras de perfuração e completação de poços.",
             "months": {
               "min": 48,
@@ -19595,7 +19595,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Petróleos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de geologia, reservatórios, perfuração e produção.",
             "months": {
               "min": 48,
@@ -19837,7 +19837,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Refinação de Petróleos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Química, que abre também outras indústrias.",
             "months": {
               "min": 48,
@@ -20073,7 +20073,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia e Gestão Industrial",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Produção Industrial.",
             "months": {
               "min": 48,
@@ -20335,7 +20335,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -20654,7 +20654,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Telecomunicações",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Electrónica e Telecomunicações. Dá a base de sinais, redes e rádio.",
             "months": {
               "min": 48,
@@ -20905,7 +20905,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia dos Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Gestão Logística e dos Transportes.",
             "months": {
               "min": 48,
@@ -21136,7 +21136,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -21394,7 +21394,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia do Ambiente",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Recursos Naturais e Ambiente.",
             "months": {
               "min": 48,
@@ -21651,7 +21651,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Electrotécnica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Eléctrica. Dá a base de circuitos, máquinas e energia.",
             "months": {
               "min": 48,
@@ -21904,7 +21904,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Florestal",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Oferta rara: confirma onde abre.",
             "months": {
               "min": 48,
@@ -22145,7 +22145,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Hidráulica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia em Recursos Hídricos. Dá a base de água, redes e obras.",
             "months": {
               "min": 48,
@@ -22397,7 +22397,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Mecânica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Electromecânica. Dá a base de máquinas, materiais e energia.",
             "months": {
               "min": 48,
@@ -22650,7 +22650,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Mecatrónica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de mecânica, electrónica e controlo.",
             "months": {
               "min": 48,
@@ -22907,7 +22907,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia de Metalurgia e Materiais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Na Universidade Lueji A’Nkonde e na Universidade do Namibe.",
             "months": {
               "min": 48,
@@ -23171,7 +23171,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Química",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de química, processos e energia.",
             "months": {
               "min": 48,
@@ -23423,7 +23423,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências da Educação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Pedagogia.",
             "months": {
               "min": 48,
@@ -23667,7 +23667,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Estatística",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Matemática.",
             "months": {
               "min": 48,
@@ -24475,7 +24475,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Física",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa faculdade de ciências ou num instituto de ciências da educação.",
             "months": {
               "min": 48,
@@ -24985,7 +24985,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática ou Informática Educativa.",
             "months": {
               "min": 48,
@@ -25513,7 +25513,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Geofísica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de física da Terra, sinais e sísmica.",
             "months": {
               "min": 48,
@@ -25774,7 +25774,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Geologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Geológica. Dá a base de rochas, minerais e cartografia.",
             "months": {
               "min": 48,
@@ -26012,7 +26012,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Comercial e Marketing",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão e Marketing.",
             "months": {
               "min": 48,
@@ -26275,7 +26275,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Artes Visuais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Artes ou na Faculdade de Artes da Universidade de Luanda.",
             "months": {
               "min": 48,
@@ -26502,7 +26502,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -26733,7 +26733,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Empresas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão e Administração, ou Economia.",
             "months": {
               "min": 48,
@@ -27026,7 +27026,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Empresas Agrárias",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Economia Agrária ou Agronomia.",
             "months": {
               "min": 48,
@@ -27272,7 +27272,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Logística e Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Logística e Gestão Comercial.",
             "months": {
               "min": 48,
@@ -27794,7 +27794,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Comercial e Marketing",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão e Marketing.",
             "months": {
               "min": 48,
@@ -28066,7 +28066,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Comercial e Marketing",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Comunicação Social.",
             "months": {
               "min": 48,
@@ -29002,7 +29002,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -29239,7 +29239,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Recursos Humanos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Psicologia do Trabalho ou Gestão de Empresas.",
             "months": {
               "min": 48,
@@ -29539,7 +29539,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Comunicação Social",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Comunicação ou Jornalismo.",
             "months": {
               "min": 48,
@@ -29798,7 +29798,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Hoteleira",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hotelaria e Turismo.",
             "months": {
               "min": 48,
@@ -30049,7 +30049,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Computação. Dá a base de programação, algoritmos, redes e bases de dados.",
             "months": {
               "min": 48,
@@ -30294,7 +30294,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação Física e Desporto",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências do Desporto. Dá a base de treino, corpo e pedagogia.",
             "months": {
               "min": 48,
@@ -30539,7 +30539,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Hoteleira",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hotelaria e Turismo.",
             "months": {
               "min": 48,
@@ -30788,7 +30788,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Logística e Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Logística e Gestão Comercial.",
             "months": {
               "min": 48,
@@ -31002,7 +31002,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Turismo",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hotelaria e Turismo.",
             "months": {
               "min": 48,
@@ -31248,7 +31248,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em História",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto de ciências da educação ou numa faculdade.",
             "months": {
               "min": 48,
@@ -31490,7 +31490,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia dos Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou engenharia, pilotagem ou manutenção de aeronaves.",
             "months": {
               "min": 48,
@@ -32032,7 +32032,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Língua e Literatura",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Inglesa, francesa ou portuguesa, conforme a língua com que queres trabalhar.",
             "months": {
               "min": 48,
@@ -32289,7 +32289,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Biológicas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Química, Física ou outra ciência: a área define a linha de investigação.",
             "months": {
               "min": 48,
@@ -32545,7 +32545,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Criminais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Ciências Policiais e Criminais ou no Instituto Superior Politécnico de Ciências e Tecnologia.",
             "months": {
               "min": 48,
@@ -32773,7 +32773,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Sociologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou História, Filosofia ou Antropologia.",
             "months": {
               "min": 48,
@@ -33017,7 +33017,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Comunicação Social",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Comunicação ou Jornalismo.",
             "months": {
               "min": 48,
@@ -33301,7 +33301,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -33527,7 +33527,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -33772,7 +33772,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Línguas e Literaturas Africanas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Na Universidade Agostinho Neto ou num instituto de ciências da educação.",
             "months": {
               "min": 48,
@@ -34019,7 +34019,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Matemática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa faculdade de ciências ou num instituto de ciências da educação.",
             "months": {
               "min": 48,
@@ -34829,7 +34829,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -41477,7 +41477,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Medicina Veterinária",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Oferta rara: confirma onde abre.",
             "months": {
               "min": 48,
@@ -41772,7 +41772,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Civil",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Construção Civil.",
             "months": {
               "min": 48,
@@ -42016,7 +42016,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Meteorologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Física.",
             "months": {
               "min": 48,
@@ -42516,7 +42516,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Música",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Artes ou na Faculdade de Artes da Universidade de Luanda.",
             "months": {
               "min": 48,
@@ -42797,7 +42797,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -43310,7 +43310,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Oceanografia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Oferta rara no país. Biologia e Física também servem.",
             "months": {
               "min": 48,
@@ -43529,7 +43529,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Navegação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ciências Náuticas ou curso equivalente.",
             "months": {
               "min": 48,
@@ -43786,7 +43786,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -44006,7 +44006,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Criminais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior de Ciências Policiais e Criminais General Osvaldo Serra Van-Dúnem.",
             "months": {
               "min": 48,
@@ -44250,7 +44250,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -46107,7 +46107,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Pedagogia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Educação.",
             "months": {
               "min": 48,
@@ -46635,7 +46635,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Criminais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Química, Biologia ou Farmácia também dão base para o laboratório.",
             "months": {
               "min": 48,
@@ -47124,7 +47124,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação Física e Desporto",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências do Desporto. Dá a base de treino, corpo e pedagogia.",
             "months": {
               "min": 48,
@@ -47370,7 +47370,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa das muitas universidades do país que têm o curso. Dá a base de todas as carreiras jurídicas.",
             "months": {
               "min": 48,
@@ -47597,7 +47597,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Informática de Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Informática. Junta a tecnologia à forma como uma empresa funciona.",
             "months": {
               "min": 48,
@@ -47861,7 +47861,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Biologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -47886,6 +47886,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Biologia",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -48128,7 +48139,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação Especial",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ensino Especial.",
             "months": {
               "min": 48,
@@ -48366,7 +48377,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação Física e Desporto",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências do Desporto. Dá a base de treino, corpo e pedagogia.",
             "months": {
               "min": 48,
@@ -48617,7 +48628,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Filosofia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -48642,6 +48653,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Filosofia",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -48894,7 +48916,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Física",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -48919,6 +48941,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Física",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -49171,7 +49204,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Geografia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -49196,6 +49229,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Geografia",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -49443,7 +49487,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da História",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -49468,6 +49512,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da História",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -49720,7 +49775,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Informática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -49745,6 +49800,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Informática",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -49997,7 +50063,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Língua Portuguesa",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -50022,6 +50088,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Língua Portuguesa",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -50274,7 +50351,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Língua Inglesa",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -50299,6 +50376,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Língua Inglesa",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -50546,7 +50634,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Matemática",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -50571,6 +50659,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Matemática",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -50823,7 +50922,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino da Química",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Num instituto superior de ciências da educação ou numa escola superior pedagógica.",
             "months": {
               "min": 48,
@@ -50848,6 +50947,17 @@
         "name": "Licenciatura noutra área",
         "summary": "Para quem estudou a matéria num curso sem formação de professor.",
         "steps": [
+          {
+            "kind": "academico",
+            "level": "licenciatura",
+            "title": "Licenciatura em Ensino da Química",
+            "need": "essencial",
+            "description": "Num curso da matéria, sem formação de professor.",
+            "months": {
+              "min": 48,
+              "max": 60
+            }
+          },
           {
             "kind": "certificacao",
             "title": "Agregação pedagógica",
@@ -51095,7 +51205,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ensino Primário",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Educação Primária.",
             "months": {
               "min": 48,
@@ -51370,7 +51480,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em uma área técnica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou um curso de ensino técnico, como Ensino da Produção Agropecuária.",
             "months": {
               "min": 48,
@@ -51886,7 +51996,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Psicologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Muitas universidades têm o curso. Algumas já têm ramos do trabalho, escolar ou jurídico.",
             "months": {
               "min": 48,
@@ -52131,7 +52241,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Psicologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Muitas universidades têm o curso. Algumas já têm ramos do trabalho, escolar ou jurídico.",
             "months": {
               "min": 48,
@@ -52376,7 +52486,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Psicologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Muitas universidades têm o curso. Algumas já têm ramos do trabalho, escolar ou jurídico.",
             "months": {
               "min": 48,
@@ -52596,7 +52706,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Química",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Numa faculdade de ciências ou num instituto de ciências da educação.",
             "months": {
               "min": 48,
@@ -52845,7 +52955,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Cinema e Televisão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "No Instituto Superior Politécnico Metropolitano.",
             "months": {
               "min": 48,
@@ -53156,7 +53266,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Hoteleira",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hotelaria e Turismo.",
             "months": {
               "min": 48,
@@ -53375,7 +53485,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Língua Portuguesa e Comunicação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Língua e Literatura Portuguesa.",
             "months": {
               "min": 48,
@@ -54186,7 +54296,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Secretariado",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Línguas e Administração ou Gestão.",
             "months": {
               "min": 48,
@@ -54772,7 +54882,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Sociologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de métodos, teoria social e inquéritos.",
             "months": {
               "min": 48,
@@ -55363,7 +55473,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Agronómica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Agronomia. Vários institutos politécnicos e universidades dão o curso.",
             "months": {
               "min": 48,
@@ -56406,7 +56516,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão do Ambiente",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia do Ambiente.",
             "months": {
               "min": 48,
@@ -56650,7 +56760,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Aquicultura",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Pescas ou Biologia Marinha. Oferta rara: confirma onde abre.",
             "months": {
               "min": 48,
@@ -57139,7 +57249,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Comércio Internacional",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão Comercial ou Logística.",
             "months": {
               "min": 48,
@@ -57416,7 +57526,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Direito",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Economia, Finanças ou Gestão.",
             "months": {
               "min": 48,
@@ -57647,7 +57757,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Empresas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão e Administração, ou Economia.",
             "months": {
               "min": 48,
@@ -57947,7 +58057,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências Biológicas",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Biologia.",
             "months": {
               "min": 48,
@@ -58222,7 +58332,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade e Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Auditoria, ou Gestão Financeira.",
             "months": {
               "min": 48,
@@ -58485,7 +58595,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Administração Pública",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão, Direito ou Economia.",
             "months": {
               "min": 48,
@@ -58738,7 +58848,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Relações Internacionais",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Economia, Gestão ou a área técnica do projecto, como a saúde.",
             "months": {
               "min": 48,
@@ -58985,7 +59095,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Ciências da Educação",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Psicologia, Sociologia ou Gestão de Recursos Humanos.",
             "months": {
               "min": 48,
@@ -59792,7 +59902,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Contabilidade e Gestão",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Auditoria, ou Gestão Financeira.",
             "months": {
               "min": 48,
@@ -60402,7 +60512,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Logística e Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Logística e Gestão Comercial.",
             "months": {
               "min": 48,
@@ -61001,7 +61111,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Civil",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Construção Civil.",
             "months": {
               "min": 48,
@@ -61533,7 +61643,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em História",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Antropologia ou Arqueologia.",
             "months": {
               "min": 48,
@@ -61772,7 +61882,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Aquicultura",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia de Pescas ou Biologia Marinha. Oferta rara: confirma onde abre.",
             "months": {
               "min": 48,
@@ -62276,7 +62386,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Agro-Alimentar",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Química ou Tecnologia de Alimentos.",
             "months": {
               "min": 48,
@@ -62509,7 +62619,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Recursos Humanos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Psicologia do Trabalho ou Gestão de Empresas.",
             "months": {
               "min": 48,
@@ -62772,7 +62882,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Hidráulica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hidráulica e Recursos Hídricos, ou Geologia.",
             "months": {
               "min": 48,
@@ -62995,7 +63105,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Recursos Humanos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Psicologia do Trabalho ou Gestão de Empresas.",
             "months": {
               "min": 48,
@@ -63295,7 +63405,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Comunicação Social",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências da Comunicação ou Jornalismo.",
             "months": {
               "min": 48,
@@ -63554,7 +63664,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Recursos Humanos",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Psicologia do Trabalho ou Gestão de Empresas.",
             "months": {
               "min": 48,
@@ -63817,7 +63927,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Sociologia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Serviço Social, Antropologia ou Direito.",
             "months": {
               "min": 48,
@@ -64116,7 +64226,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Industrial",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou outra engenharia, com formação em segurança.",
             "months": {
               "min": 48,
@@ -64349,7 +64459,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão de Empresas ou Economia.",
             "months": {
               "min": 48,
@@ -65192,7 +65302,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão Logística e Transportes",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Logística e Gestão Comercial.",
             "months": {
               "min": 48,
@@ -65436,7 +65546,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Gestão de Turismo",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Hotelaria e Turismo.",
             "months": {
               "min": 48,
@@ -67894,7 +68004,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Administração Pública",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Gestão Pública. Os concursos também aceitam áreas como Direito e Contabilidade, conforme o aviso.",
             "months": {
               "min": 48,
@@ -68096,7 +68206,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Finanças",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Contabilidade e Finanças, Economia ou Gestão Bancária.",
             "months": {
               "min": 48,
@@ -68398,7 +68508,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Engenharia Geográfica",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Dá a base de topografia, cartografia e sistemas de informação geográfica.",
             "months": {
               "min": 48,
@@ -68644,7 +68754,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Língua e Literatura",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Inglesa, francesa ou portuguesa, conforme a língua com que queres trabalhar.",
             "months": {
               "min": 48,
@@ -68893,7 +69003,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Educação Física e Desporto",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Ciências do Desporto. Dá a base de treino, corpo e pedagogia.",
             "months": {
               "min": 48,
@@ -69134,7 +69244,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Arquitectura e Urbanismo",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Planeamento Regional e Urbano.",
             "months": {
               "min": 48,
@@ -69374,7 +69484,7 @@
             "kind": "academico",
             "level": "licenciatura",
             "title": "Licenciatura em Zootecnia",
-            "need": "recomendado",
+            "need": "essencial",
             "description": "Ou Engenharia Agropecuária.",
             "months": {
               "min": 48,

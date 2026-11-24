@@ -236,7 +236,17 @@ export const universityRoute = (summary: string, steps: PathwayStep[]): Career['
   id: 'universitaria',
   name: 'Via universitária',
   summary,
-  steps: [SECONDARY, ...steps],
+  // The university route is the way in through the degree: a licenciatura or mestrado on it is required, even where
+  // `degree()` says "recomendado" (that default is for the routes that have a job without it). Otherwise a career
+  // whose only route is this one reads as "no degree needed" in "Sem universidade" and in the recommendations.
+  steps: [
+    SECONDARY,
+    ...steps.map((step) =>
+      step.kind === 'academico' && (step.level === 'licenciatura' || step.level === 'mestrado')
+        ? { ...step, need: 'essencial' as const }
+        : step,
+    ),
+  ],
   totalCost: null,
 })
 export const technicalRoute = (summary: string, steps: PathwayStep[]): Career['pathways'][number] => ({
