@@ -106,3 +106,26 @@ describe('API data source', () => {
     await expect(source.getCareer('analista-de-dados')).rejects.toMatchObject({ status: 500 })
   })
 })
+
+describe('API data source and the demo module', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+    vi.doUnmock('./source.demo')
+  })
+
+  it('never loads the demo module: the production bundle leaves the demo data out', async () => {
+    const loaded = vi.fn<() => void>()
+    vi.doMock('./source.demo', () => {
+      loaded()
+      return {}
+    })
+    const source = await apiSource()
+    mockFetchJson([])
+
+    await source.listCareers()
+    await source.listCompanies()
+    await source.getAssessment('pt')
+
+    expect(loaded).not.toHaveBeenCalled()
+  })
+})

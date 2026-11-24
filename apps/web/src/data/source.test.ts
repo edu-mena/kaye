@@ -61,3 +61,59 @@ describe('demo data source', () => {
     }
   })
 })
+
+describe('demo data source, every read', () => {
+  it('answers each list and detail from the bundled demo data, and null for what is not there', async () => {
+    const source = await import('./source')
+    const lists: Array<() => Promise<unknown[]>> = [
+      source.listCareers,
+      source.listCareerTraits,
+      source.listSkills,
+      source.listSupportPrograms,
+      source.listAcademies,
+      source.listCourses,
+      source.listCompanies,
+      source.listNews,
+      source.listScholarships,
+      source.listInternships,
+      source.listFreeCourses,
+      source.listAdmissions,
+      source.listFigures,
+      source.listCvExamples,
+      source.listTestimonials,
+      () => source.getAssessment('pt'),
+    ]
+    for (const list of lists) expect(await list()).toEqual(expect.any(Array))
+    for (const list of [
+      source.listCareers,
+      source.listAcademies,
+      source.listCourses,
+      source.listCompanies,
+      source.listNews,
+    ]) {
+      expect((await list()).length).toBeGreaterThan(0)
+    }
+
+    const [career] = await source.listCareers()
+    const [academy] = await source.listAcademies()
+    const [course] = await source.listCourses()
+    const [company] = await source.listCompanies()
+    expect((await source.getCareer(career!.slug))?.slug).toBe(career!.slug)
+    expect((await source.getAcademy(academy!.id))?.id).toBe(academy!.id)
+    expect((await source.getCourse(course!.id))?.id).toBe(course!.id)
+    expect((await source.getCompany(company!.id))?.id).toBe(company!.id)
+    expect(await source.getCareer('nao-existe')).toBeNull()
+    expect(await source.getAcademy('nao-existe')).toBeNull()
+    expect(await source.getCourse('nao-existe')).toBeNull()
+    expect(await source.getCompany('nao-existe')).toBeNull()
+
+    expect(await source.listPrograms()).toEqual(expect.any(Array))
+    expect(await source.listPrograms('nao-existe')).toEqual([])
+    expect(await source.listFreeCourses('nao-existe')).toEqual([])
+    expect(await source.listCvExamples('nao-existe')).toEqual([])
+    expect(await source.listTestimonials('nao-existe')).toEqual([])
+    expect((await source.getJobMarket()).postings).toBeGreaterThan(0)
+    expect(await source.getEducation()).toBeTruthy()
+    expect(await source.getEmployment()).toBeTruthy()
+  })
+})
