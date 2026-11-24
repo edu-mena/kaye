@@ -31,6 +31,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0022](0022-gitleaks-ignora-o-vendor-do-ramo-deploy.md) | O Gitleaks ignora o `vendor/` do ramo `deploy` (código de terceiros), e só isso | Aceite |
 | [0023](0023-resumo-das-noticias-por-ia.md) | Cada notícia traz um resumo com os dados que importam (excerto por regras; IA opcional com chave) | Aceite |
 | [0024](0024-plano-kaye-plus.md) | Kayé Plus: 1.999 Kz por mês, atrás de uma flag, sem cobrar nada ainda | Aceite |
+| [0025](0025-kursos-diarios-e-fim-do-tudo-gratis.md) | Kursos diários: um tópico por dia na conta grátis, certificado só no Plus, e o fim do "tudo grátis" | Aceite |
 
 Modelo para um novo ADR:
 
