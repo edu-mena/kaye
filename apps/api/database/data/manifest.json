@@ -257,18 +257,18 @@
   "scholarships": {
     "pt": {
       "file": "scholarships.pt.json",
-      "records": 19,
-      "sha256": "1e670aca84992504d4eeb61165461556c8ded96a802779ec8f059ac00256be0c"
+      "records": 16,
+      "sha256": "b0cccf280a0e7580459f3fb7006d7b3a99604de1e21ab94efb1f4a5587edfd02"
     },
     "en": {
       "file": "scholarships.en.json",
-      "records": 19,
-      "sha256": "1e670aca84992504d4eeb61165461556c8ded96a802779ec8f059ac00256be0c"
+      "records": 16,
+      "sha256": "b0cccf280a0e7580459f3fb7006d7b3a99604de1e21ab94efb1f4a5587edfd02"
     },
     "fr": {
       "file": "scholarships.fr.json",
-      "records": 19,
-      "sha256": "1e670aca84992504d4eeb61165461556c8ded96a802779ec8f059ac00256be0c"
+      "records": 16,
+      "sha256": "b0cccf280a0e7580459f3fb7006d7b3a99604de1e21ab94efb1f4a5587edfd02"
     }
   },
   "internships": {

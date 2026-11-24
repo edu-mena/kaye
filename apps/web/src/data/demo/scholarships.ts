@@ -1,9 +1,10 @@
 import type { Scholarship } from '../types'
 
 /*
- * Real scholarships open to young Angolans, checked on 3 November 2026 in official pages (INAGBE, Chevening,
- * Gulbenkian, Stipendium Hungaricum, Türkiye Bursları, DAAD) and Angolan news (Ver Angola, Expansão).
- * Ages, grades and deadlines only when a source gives them. Sources and gaps: docs/recolha-de-dados.md.
+ * Real scholarships open to young Angolans, only from sources published in 2024 to 2026 (official pages and Angolan
+ * news: Ver Angola, Expansão). Ages, grades and deadlines only when a source gives them: with `deadline: null` the card
+ * says "Prazo por confirmar" and is never shown as open. A scholarship with no 2024 to 2026 source is not listed
+ * (China, DAAD and Fulbright were taken out on 24 November 2026). Sources and gaps: docs/recolha-de-dados.md.
  */
 
 const CHECKED = '2026-11-03'
@@ -81,7 +82,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
       'Prioridade a engenharias, saúde, ciências exactas e naturais e tecnologias',
     ],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://www.inagbe.gov.ao',
     sources: [
       EXPANSAO_EXTERNAS,
@@ -103,7 +104,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
     covers: INAGBE_EXTERNAL_COVERS,
     requirements: ['Nacionalidade angolana', 'Áreas STEAM', 'Inclui curso de língua'],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://www.inagbe.gov.ao',
     sources: [EXPANSAO_EXTERNAS],
     checkedAt: CHECKED,
@@ -119,7 +120,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
     covers: INAGBE_EXTERNAL_COVERS,
     requirements: ['Nacionalidade angolana', 'Inclui curso de língua'],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://www.inagbe.gov.ao',
     sources: [EXPANSAO_EXTERNAS],
     checkedAt: CHECKED,
@@ -155,39 +156,15 @@ export const SCHOLARSHIPS: Scholarship[] = [
       'Nacionalidade angolana e residência em Angola',
       'Ensino médio com média de 14 valores ou mais',
       'Sem bolsa do INAGBE nos últimos 3 anos',
+      'Candidaturas de 11 a 25/07/2025 (ingresso em 2026); a próxima ronda ainda não foi anunciada',
     ],
-    deadline: null,
+    deadline: '2025-07-25',
     recurring: true,
     url: 'https://www.inagbe.gov.ao',
     sources: [
       {
         label: 'Ver Angola (07/2025)',
         url: 'https://www.verangola.net/va/pt/072025/Educacao/45115/INAGBE-anuncia-abertura-de-candidaturas-para-bolsas-de-estudo-externas-para-licenciaturas-no-Brasil.htm',
-      },
-    ],
-    checkedAt: CHECKED,
-  },
-  {
-    id: 'inagbe-china',
-    name: 'Bolsa do Governo Chinês',
-    provider: 'Governo da China, via INAGBE',
-    kind: 'governo_estrangeiro',
-    destination: 'exterior',
-    levels: ['licenciatura', 'mestrado'],
-    areas: ['agriculture', 'technology', 'health', 'sciences', 'engineering', 'business'],
-    covers: ['propina', 'alojamento', 'subsidio'],
-    requirements: [
-      'Nacionalidade angolana e residência em Angola',
-      'Média de 14 valores no ciclo anterior',
-      'Em 2021: até 22 anos (licenciatura) ou 35 (mestrado)',
-    ],
-    deadline: null,
-    recurring: true,
-    url: 'https://www.inagbe.gov.ao',
-    sources: [
-      {
-        label: 'Ver Angola (01/2021)',
-        url: 'https://www.verangola.net/va/pt/012021/Educacao/23619/China-oferece-40-bolsas-de-estudo-a-estudantes-angolanos.htm',
       },
     ],
     checkedAt: CHECKED,
@@ -203,7 +180,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
     covers: ['propina', 'subsidio', 'viagem'],
     requirements: ['Candidatura no portal education-in-russia.com', 'Escolher uma só área de estudo'],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://education-in-russia.com',
     sources: [
       {
@@ -229,7 +206,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
     covers: ['propina', 'subsidio', 'alojamento'],
     requirements: ['Nomeação pelo parceiro angolano (Sending Partner)', 'Até 50 bolsas por ano para Angola'],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://stipendiumhungaricum.hu/apply/',
     sources: [
       { label: 'Stipendium Hungaricum: Apply', url: 'https://stipendiumhungaricum.hu/apply/' },
@@ -253,11 +230,20 @@ export const SCHOLARSHIPS: Scholarship[] = [
     levels: ['licenciatura', 'mestrado'],
     areas: [],
     covers: ['subsidio', 'alojamento', 'viagem'],
-    requirements: ['Licenciatura: menos de 21 anos', 'Inclui curso de turco e seguro de saúde'],
+    requirements: [
+      'Licenciatura: menos de 21 anos',
+      'Inclui curso de turco e seguro de saúde',
+      'Ronda de 2026: candidaturas de 10/01 a 20/02/2026; as datas da seguinte ainda não foram anunciadas',
+    ],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://www.turkiyeburslari.gov.tr',
-    sources: [{ label: 'Türkiye Bursları', url: 'https://www.turkiyeburslari.gov.tr' }],
+    sources: [
+      {
+        label: 'Türkiye Bursları: candidaturas de 2026',
+        url: 'https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121',
+      },
+    ],
     checkedAt: CHECKED,
   },
   {
@@ -288,27 +274,6 @@ export const SCHOLARSHIPS: Scholarship[] = [
     checkedAt: CHECKED,
   },
   {
-    id: 'daad-mirempet',
-    name: 'Programa de bolsas do Governo de Angola com o DAAD',
-    provider: 'DAAD e MIREMPET',
-    kind: 'estado',
-    destination: 'exterior',
-    levels: ['mestrado'],
-    areas: ['engineering', 'sciences', 'oil_mining'],
-    covers: [],
-    requirements: ['Nacionalidade angolana', 'Mestrado na Alemanha'],
-    deadline: null,
-    recurring: true,
-    url: 'https://www.daad.de/go/en/stipa57588180',
-    sources: [
-      {
-        label: 'DAAD (10/02/2020)',
-        url: 'https://www2.daad.de/der-daad/daad-aktuell/de/75756-neues-regierungsstipendienprogramm-mit-angola/',
-      },
-    ],
-    checkedAt: CHECKED,
-  },
-  {
     id: 'gulbenkian-mestrado-palop',
     name: 'Bolsas de mestrado para estudantes dos PALOP',
     provider: 'Fundação Calouste Gulbenkian',
@@ -322,14 +287,15 @@ export const SCHOLARSHIPS: Scholarship[] = [
       'Licenciatura numa universidade angolana com média de 14 ou mais',
       'Residência permanente em Angola',
       'Matemática, Física, Química ou Biologia; mestrado em Portugal',
+      'Concurso de 2026 aberto a 04/02/2026 (regulamento oficial); data de fecho por confirmar',
     ],
-    deadline: '2026-06-08',
-    recurring: true,
+    deadline: null,
+    recurring: false,
     url: 'https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/',
     sources: [
       {
-        label: 'Fundação Gulbenkian (concurso 2026)',
-        url: 'https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/',
+        label: 'Fundação Gulbenkian: regulamento 2026',
+        url: 'https://cdn.gulbenkian.pt/wp-content/uploads/2023/03/Regulamento-Palop_2026-v2.pdf',
       },
     ],
     checkedAt: CHECKED,
@@ -364,35 +330,6 @@ export const SCHOLARSHIPS: Scholarship[] = [
     checkedAt: CHECKED,
   },
   {
-    id: 'fulbright',
-    name: 'Fulbright Foreign Student Program',
-    provider: 'Governo dos EUA (Embaixada em Luanda)',
-    kind: 'governo_estrangeiro',
-    destination: 'exterior',
-    levels: ['mestrado'],
-    areas: [],
-    covers: [],
-    requirements: [
-      'Licenciatura concluída',
-      'Prova de inglês (TOEFL ou teste da embaixada)',
-      'Voltar a Angola',
-    ],
-    deadline: null,
-    recurring: true,
-    url: 'https://ao.usembassy.gov',
-    sources: [
-      {
-        label: 'Ver Angola (02/2021)',
-        url: 'https://www.verangola.net/va/pt/022021/Educacao/24240/EUA-oferecem-bolsas-de-estudo-a-estudantes-angolanos-Candidaturas-já-abriram.htm',
-      },
-      {
-        label: 'ECA: Fulbright in Angola',
-        url: 'https://2012-2025.eca.state.gov/fulbright/country/angola.html',
-      },
-    ],
-    checkedAt: CHECKED,
-  },
-  {
     id: 'bci-excelencia',
     name: 'Bolsas de Excelência BCI',
     provider: 'BCI (Banco de Comércio e Indústria)',
@@ -410,7 +347,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
       'Concurso interno em cada universidade parceira',
     ],
     deadline: null,
-    recurring: true,
+    recurring: false,
     url: 'https://www.bci.ao',
     sources: [
       BCI_EXPANSAO,
