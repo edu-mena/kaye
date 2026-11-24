@@ -22,7 +22,7 @@ Pensa assim: o **GitHub é a cozinha**, o ramo `deploy` é o **prato pronto** e 
 
 | Coisa | Onde |
 |---|---|
-| Conta Hostinger com o site criado | já tens (endereço temporário) |
+| Conta Hostinger com o site criado | já tens (`kayeangola.com`) |
 | Acesso ao repositório no GitHub (és dono) | github.com |
 | Conta Google (para criar o login Google) | console.cloud.google.com |
 | Um terminal no teu PC (PowerShell serve) | já tens |
@@ -77,9 +77,9 @@ O Kayé só deixa entrar com Google. O Google precisa de saber que o teu site é
 1. Vai a console.cloud.google.com → escolhe (ou cria) um projeto "Kayé".
 2. **APIs e serviços → Credenciais → Criar credenciais → ID de cliente OAuth**, tipo **Aplicação Web**.
 3. Em **Origens JavaScript autorizadas** põe:
-   `https://steady-darkgoldenrod-goshawk-92.hostingersite.com`
+   `https://kayeangola.com`
 4. Em **URIs de redirecionamento autorizados** põe:
-   `https://steady-darkgoldenrod-goshawk-92.hostingersite.com/auth/google/callback`
+   `https://kayeangola.com/auth/google/callback`
 5. Guarda. O Google mostra o **ID de cliente** e o **Segredo do cliente**. Copia os dois para o gestor de senhas.
 
 **Atenção:** o endereço tem de ser **exatamente** este, com `https` e sem `/` no fim da origem. Uma letra diferente e o login dá erro `redirect_uri_mismatch`.
@@ -123,10 +123,10 @@ A Hostinger **não te dá** a chave de deploy: gera-se no próprio servidor, e �
 O `.env` é o ficheiro com as **senhas e configurações**. Fica só no servidor, o `git pull` não lhe toca.
 
 1. Entra por SSH (comando do passo 1).
-2. Vai à pasta do site: `cd ~/domains/steady-darkgoldenrod-goshawk-92.hostingersite.com/public_html`
+2. Vai à pasta do site: `cd ~/domains/kayeangola.com/public_html`
    (se o caminho não existir, corre `ls ~/domains` e vê o nome certo).
 3. O modelo `.env.example` **não vem no deploy** (os ficheiros `.env*` são excluídos de propósito). Envia-o do teu computador, a partir da raiz do projeto, num PowerShell:
-   `scp -i $HOME\.ssh\kaye_hostinger -P 65002 apps\api\.env.example u727672645@93.127.189.106:domains/steady-darkgoldenrod-goshawk-92.hostingersite.com/public_html/.env`
+   `scp -i $HOME\.ssh\kaye_hostinger -P 65002 apps\api\.env.example u727672645@93.127.189.106:domains/kayeangola.com/public_html/.env`
    Depois, no servidor: `chmod 600 .env` e abre com `nano .env`.
 4. Muda estas linhas (o resto fica como está):
 
@@ -134,7 +134,7 @@ O `.env` é o ficheiro com as **senhas e configurações**. Fica só no servidor
 |---|---|
 | `APP_ENV` | `production` |
 | `APP_DEBUG` | `false` |
-| `APP_URL` | `https://steady-darkgoldenrod-goshawk-92.hostingersite.com` |
+| `APP_URL` | `https://kayeangola.com` |
 | `SESSION_SECURE_COOKIE` | `true` |
 | `LOG_STACK` | `json` |
 | `DB_HOST` | o *host* do passo 2 (normalmente `localhost`) |
@@ -162,7 +162,7 @@ scripts/post-deploy.sh
 
 O `post-deploy.sh` faz, por ordem: espera que o `composer install` da própria Hostinger acabe, tira as ferramentas de desenvolvimento que ele volta a instalar (o `kaye:check-production` recusa-as), cria as tabelas da base de dados (`migrate`), carrega o catálogo de carreiras (`kaye:import`), prepara as caches (`optimize`), verifica a configuração de produção e corre o teste de fumo. **Pára no primeiro erro** e diz qual.
 
-**Como sei que correu bem:** acaba com tudo verde. Abre `https://steady-darkgoldenrod-goshawk-92.hostingersite.com` no telemóvel: deve aparecer a landing do Kayé. Se aparecer "Erro 500", vê o fim do ficheiro `storage/logs/` (`tail -n 50 storage/logs/*.log`).
+**Como sei que correu bem:** acaba com tudo verde. Abre `https://kayeangola.com` no telemóvel: deve aparecer a landing do Kayé. Se aparecer "Erro 500", vê o fim do ficheiro `storage/logs/` (`tail -n 50 storage/logs/*.log`).
 
 ---
 
@@ -184,7 +184,7 @@ Este é o comando **que foi testado e bate todos os minutos** (20/11/2026). Duas
 
 Usa o caminho completo do PHP 8.4: o `php` simples do servidor é a 8.1 e o Kayé não arranca com ela. A saída (poucas linhas) vê-se em **Ver resultado**; não vai para email nem para fora.
 
-**Como sei que correu bem:** espera 2 minutos e abre `https://steady-darkgoldenrod-goshawk-92.hostingersite.com/api/v1/health`. Tem de aparecer `"cron": "ok"`. Se disser `unknown`, o cron nunca correu; se disser `stale`, parou.
+**Como sei que correu bem:** espera 2 minutos e abre `https://kayeangola.com/api/v1/health`. Tem de aparecer `"cron": "ok"`. Se disser `unknown`, o cron nunca correu; se disser `stale`, parou.
 
 ---
 
@@ -202,9 +202,9 @@ Agora que a mesa está montada, ensina-se o GitHub a entrar no servidor.
 | `HOSTINGER_SSH_USER` | `u727672645` |
 | `HOSTINGER_SSH_KEY` | o conteúdo **todo** do ficheiro `kaye_hostinger` (a **privada**), incluindo as linhas `BEGIN` e `END` |
 | `HOSTINGER_SSH_KNOWN_HOSTS` | a saída de `ssh-keyscan -p 65002 93.127.189.106` |
-| `HOSTINGER_SITE_DIR` | o caminho da pasta do site, p. ex. `domains/steady-darkgoldenrod-goshawk-92.hostingersite.com/public_html` |
+| `HOSTINGER_SITE_DIR` | o caminho da pasta do site, p. ex. `domains/kayeangola.com/public_html` |
 
-3. E uma **Variable** (não segredo): `SITE_URL` = `https://steady-darkgoldenrod-goshawk-92.hostingersite.com`
+3. E uma **Variable** (não segredo): `SITE_URL` = `https://kayeangola.com`
 4. **Actions → Deploy → Run workflow** (ramo `main`).
 
 **Como sei que correu bem:** o workflow termina verde, com duas etapas: *publish* e *finish*. A partir daqui, cada merge no `main` faz tudo sozinho.
