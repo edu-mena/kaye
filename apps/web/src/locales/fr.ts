@@ -2832,6 +2832,47 @@ export const fr: Messages = {
       'Avant de commencer, fixe la forme du symbole commun et cherche le trait qui manque ou qui est en trop.',
     tip_attention_3:
       'Entraîne-toi par séances courtes et fréquentes : l’attention fatigue et s’améliore avec la pratique.',
+    skill_quantitative: 'Quantitatif',
+    skillBody_quantitative: 'Géométrie, pourcentages, proportions, moyennes et probabilités.',
+    diagram: 'Dessin de la figure du problème',
+    tip_quantitative_1: 'Fais toujours un dessin et note dessus les nombres de l’énoncé.',
+    tip_quantitative_2:
+      'Ne confonds pas l’aire (ce que ça couvre) et le périmètre (le tour) : les mauvaises options jouent là-dessus.',
+    tip_quantitative_3:
+      'Avec les pourcentages, passe à la fraction (25 % = 1/4) et, quand un prix monte puis baisse, multiplie les facteurs au lieu d’additionner.',
+    math_rectArea: 'Un rectangle mesure {{w}} cm sur {{h}} cm. Quelle est son aire ?',
+    math_rectPerimeter: 'Un rectangle mesure {{w}} cm sur {{h}} cm. Quel est son périmètre ?',
+    math_percentOf: 'Combien font {{percent}} % de {{total}} ?',
+    math_ruleOfThree:
+      '{{a}} cahiers coûtent {{cost}} Kz. Combien coûtent {{b}} cahiers au même prix, en Kz ?',
+    math_triangleAngle:
+      'Dans un triangle, deux angles mesurent {{a}}° et {{b}}°. Combien mesure le troisième ?',
+    math_average: 'Quelle est la moyenne de {{values}} ?',
+    math_pythagoras:
+      'Un triangle rectangle a des côtés de l’angle droit de {{a}} cm et {{b}} cm. Combien mesure l’hypoténuse ?',
+    math_polygonAngles: 'Quelle est la somme des angles intérieurs d’un polygone à {{sides}} côtés ?',
+    math_discount: 'Un téléphone coûte {{price}} Kz avec {{percent}} % de remise. Combien paie-t-on ?',
+    math_speed:
+      'Une voiture roule à {{speed}} km/h pendant {{minutes}} minutes. Quelle distance parcourt-elle ?',
+    math_cubeVolume: 'Un cube a une arête de {{edge}} cm. Quel est son volume ?',
+    math_marbles:
+      'Un sac contient {{red}} billes rouges, {{blue}} bleues et {{green}} vertes. En en tirant une au hasard, quelle est la probabilité qu’elle soit rouge ?',
+    math_squareFromPerimeter: 'Le périmètre d’un carré est de {{perimeter}} cm. Quelle est son aire ?',
+    math_lShape:
+      'Un rectangle de {{w}} cm sur {{h}} cm perd un coin rectangulaire de {{cw}} cm sur {{ch}} cm et prend la forme d’un L. Quelle aire reste-t-il ?',
+    math_diagonal: 'Un rectangle mesure {{w}} cm sur {{h}} cm. Combien mesure sa diagonale ?',
+    math_successivePercent:
+      'Un prix de 1000 Kz augmente de {{percent}} % puis baisse de {{percent}} %. Quel est le prix final ?',
+    math_similar:
+      'Deux triangles sont semblables. Dans le petit, deux côtés mesurent {{a}} m et {{b}} m. Dans le grand, le côté qui correspond à celui de {{a}} m mesure {{big}} m. Combien mesure celui qui correspond à celui de {{b}} m ?',
+    math_arrangements:
+      'Un groupe compte {{people}} personnes. De combien de façons peut-on choisir un président et un secrétaire (personnes différentes) ?',
+    math_workTogether:
+      'Un ouvrier fait un travail en {{x}} jours et un autre en {{y}} jours. Ensemble, en combien de jours le font-ils ?',
+    math_trapezoid:
+      'Un trapèze a des bases de {{top}} cm et {{bottom}} cm et une hauteur de {{height}} cm. Quelle est son aire ?',
+    math_twoDraws:
+      'Un sac contient {{red}} boules rouges et {{blue}} bleues. On en tire deux, l’une après l’autre, sans remise. Quelle est la probabilité que les deux soient rouges ?',
   },
   interviews: {
     title: "Simulateur d'entretien",
@@ -2992,7 +3033,7 @@ export const fr: Messages = {
       'Deux parties : ce que tu aimes et ce que tu sais déjà. À la fin, des métiers de tous les domaines et un CV plus complet.',
     psychotechTitle: 'Tests psychotechniques',
     psychotechBody:
-      'Entraînement numérique, logique, abstrait, verbal et d’attention, comme aux épreuves de sélection.',
+      'Entraînement numérique, logique, abstrait, quantitatif (géométrie comprise), verbal et d’attention, comme aux épreuves de sélection.',
     interviewsTitle: "Simulation d'entretien",
     interviewsBody:
       "Entraîne-toi à répondre aux questions de ton domaine. L'équipe Kayé les relit et te fait un retour.",

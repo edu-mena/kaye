@@ -663,7 +663,7 @@ As perguntas do treino de entrevistas (`data/demo/interviews.ts`).
 | `model`\* | json | Uma resposta modelo curta para um primeiro emprego |
 | `mistakes`\* | json | Os erros habituais |
 
-O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`) a partir das listas de analogias, sinónimos e palavras inventadas, que ficam em `datasets` (`psychotech`).
+O psicotécnico não tem tabela: as perguntas são geradas no aparelho (`domain/psychotech.ts`) a partir das listas de analogias, sinónimos e palavras inventadas, que ficam em `datasets` (`psychotech`). A competência quantitativa (geometria, percentagens, proporções, médias e probabilidades) não usa listas: `domain/psychotechMath.ts` calcula cada resposta a partir dos números da semente, e a simulação completa tem 24 perguntas (4 de cada uma das 6 competências) em 18 minutos.
 
 #### `kursos`
 

@@ -2783,6 +2783,44 @@ export const en: Messages = {
     tip_attention_2:
       'Before starting, fix the shape of the common symbol and look for the stroke that is missing or extra.',
     tip_attention_3: 'Practise in short, frequent sessions: attention tires and improves with practice.',
+    skill_quantitative: 'Quantitative',
+    skillBody_quantitative: 'Geometry, percentages, proportions, averages and probability.',
+    diagram: 'Drawing of the problem’s figure',
+    tip_quantitative_1: 'Always make a drawing and write the numbers of the problem on it.',
+    tip_quantitative_2:
+      'Do not mix up area (how much it covers) with perimeter (the distance around): the wrong options play on it.',
+    tip_quantitative_3:
+      'With percentages, switch to a fraction (25% = 1/4) and, when a price goes up then down, multiply the factors instead of adding.',
+    math_rectArea: 'A rectangle measures {{w}} cm by {{h}} cm. What is its area?',
+    math_rectPerimeter: 'A rectangle measures {{w}} cm by {{h}} cm. What is its perimeter?',
+    math_percentOf: 'What is {{percent}}% of {{total}}?',
+    math_ruleOfThree:
+      '{{a}} notebooks cost {{cost}} Kz. How much do {{b}} notebooks cost at the same price, in Kz?',
+    math_triangleAngle: 'In a triangle, two angles measure {{a}}° and {{b}}°. How much is the third?',
+    math_average: 'What is the average of {{values}}?',
+    math_pythagoras: 'A right triangle has legs of {{a}} cm and {{b}} cm. How long is the hypotenuse?',
+    math_polygonAngles: 'What is the sum of the interior angles of a polygon with {{sides}} sides?',
+    math_discount: 'A phone costs {{price}} Kz and has {{percent}}% off. How much do you pay?',
+    math_speed: 'A car drives at {{speed}} km/h for {{minutes}} minutes. How far does it go?',
+    math_cubeVolume: 'A cube has an edge of {{edge}} cm. What is its volume?',
+    math_marbles:
+      'A bag has {{red}} red, {{blue}} blue and {{green}} green marbles. Taking one at random, what is the probability that it is red?',
+    math_squareFromPerimeter: 'The perimeter of a square is {{perimeter}} cm. What is its area?',
+    math_lShape:
+      'A rectangle of {{w}} cm by {{h}} cm loses a rectangular corner of {{cw}} cm by {{ch}} cm, leaving an L shape. What area is left?',
+    math_diagonal: 'A rectangle measures {{w}} cm by {{h}} cm. How long is its diagonal?',
+    math_successivePercent:
+      'A price of 1000 Kz goes up {{percent}}% and then down {{percent}}%. What is the final price?',
+    math_similar:
+      'Two triangles are similar. In the small one, two sides measure {{a}} m and {{b}} m. In the big one, the side matching the {{a}} m side measures {{big}} m. How long is the side matching the {{b}} m one?',
+    math_arrangements:
+      'A group has {{people}} people. In how many ways can a president and a secretary (different people) be chosen?',
+    math_workTogether:
+      'One worker does a job in {{x}} days and another in {{y}} days. Working together, in how many days do they finish it?',
+    math_trapezoid:
+      'A trapezoid has bases of {{top}} cm and {{bottom}} cm and a height of {{height}} cm. What is its area?',
+    math_twoDraws:
+      'A bag has {{red}} red and {{blue}} blue balls. Two are drawn one after the other without putting them back. What is the probability that both are red?',
   },
   interviews: {
     title: 'Interview simulator',
@@ -2938,7 +2976,8 @@ export const en: Messages = {
     vocationalBody:
       'Two parts: what you enjoy and what you already know. At the end, careers from every area and a fuller CV.',
     psychotechTitle: 'Aptitude tests',
-    psychotechBody: 'Numerical, logical, abstract, verbal and attention practice, as in selection exams.',
+    psychotechBody:
+      'Numerical, logical, abstract, quantitative (geometry included), verbal and attention practice, as in selection exams.',
     interviewsTitle: 'Interview practice',
     interviewsBody:
       'Practise answering questions from your field. The Kayé team reviews them and gives you feedback.',

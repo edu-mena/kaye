@@ -1,10 +1,13 @@
 import { ANALOGIES, NONSENSE_WORDS, SYNONYMS } from '../data/demo/psychotech'
+import { mathItem, type Diagram, type MathTopic } from './psychotechMath'
+
+export type { Diagram }
 
 // Psychotechnical practice: the kinds of questions found in public competitions and scholarship
 // selections. Never an IQ test and never an IQ number. Every question is built from a seed by the
 // pure functions below, so they never run out and copy no published battery.
 
-export const SKILLS = ['numerical', 'logical', 'abstract', 'verbal', 'attention'] as const
+export const SKILLS = ['numerical', 'logical', 'abstract', 'quantitative', 'verbal', 'attention'] as const
 export type Skill = (typeof SKILLS)[number]
 
 export const LEVELS = ['easy', 'medium', 'hard'] as const
@@ -13,8 +16,9 @@ export type Level = (typeof LEVELS)[number]
 /** "Simulação completa" or one skill. */
 export type Mode = 'full' | Skill
 
-export const FULL_QUESTIONS = 20
-export const FULL_SECONDS = 15 * 60
+/** Four questions of each of the six skills. */
+export const FULL_QUESTIONS = 24
+export const FULL_SECONDS = 18 * 60
 export const PRACTICE_QUESTIONS = 10
 /** Attention questions are against the clock: unanswered in time counts as wrong. */
 export const ATTENTION_SECONDS: Record<Level, number> = { easy: 20, medium: 15, hard: 12 }
@@ -33,6 +37,12 @@ export type Question =
   | (Base<'logical', string> & { kind: 'series'; terms: string[] })
   | (Base<'logical', Statement> & { kind: 'syllogism'; premises: Statement[] })
   | (Base<'abstract', Figure> & { kind: 'matrix'; cells: (Figure | null)[] })
+  | (Base<'quantitative', string> & {
+      kind: 'math'
+      topic: MathTopic
+      params: Record<string, number | string>
+      diagram?: Diagram
+    })
   | (Base<'verbal', string> & { kind: 'analogy'; a: string; b: string; c: string })
   | (Base<'verbal', string> & { kind: 'synonym'; word: string })
   | (Base<'attention', string> & { kind: 'odd'; columns: number })
@@ -103,7 +113,15 @@ function numberSeries(random: Random, level: Level): number[] {
     }
     return terms
   }
-  const kind = int(random, 0, 2)
+  const kind = int(random, 0, 3)
+  if (kind === 3) {
+    // Two series woven together: the odd places grow by one step, the even places by another.
+    const [first, second] = [int(random, 1, 9), int(random, 20, 40)]
+    const [up, down] = [int(random, 2, 5), int(random, 2, 6)]
+    return Array.from({ length: 6 }, (_, i) =>
+      i % 2 === 0 ? first + (i / 2) * up : second - ((i - 1) / 2) * down,
+    )
+  }
   if (kind === 0) {
     // Two operations, one after the other: ×2, +k, ×2, +k…
     const add = int(random, 1, 6)
@@ -244,6 +262,23 @@ function abstract(random: Random, level: Level): Question {
   return { skill: 'abstract', level, kind: 'matrix', cells: [...cells.slice(0, 8), null], options, answer }
 }
 
+// ---------- Quantitative: geometry, proportions, percentages and chance ----------
+
+function quantitative(random: Random, level: Level): Question {
+  const item = mathItem(random, level)
+  const { options, answer } = choices(random, item.correct, item.wrong)
+  return {
+    skill: 'quantitative',
+    level,
+    kind: 'math',
+    topic: item.topic,
+    params: item.params,
+    ...(item.diagram && { diagram: item.diagram }),
+    options,
+    answer,
+  }
+}
+
 // ---------- Verbal: analogies and synonyms (our own lists) ----------
 
 function verbal(random: Random, level: Level): Question {
@@ -295,6 +330,7 @@ const GENERATORS: Record<Skill, (random: Random, level: Level) => Question> = {
   numerical,
   logical,
   abstract,
+  quantitative,
   verbal,
   attention,
 }

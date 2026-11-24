@@ -2782,6 +2782,44 @@ export const pt = {
     tip_attention_1: 'Percorre a grelha linha a linha, sempre na mesma direção, sem saltar.',
     tip_attention_2: 'Antes de começar, fixa a forma do símbolo comum e procura o traço que falta ou sobra.',
     tip_attention_3: 'Treina em sessões curtas e frequentes: a atenção cansa e melhora com a prática.',
+    skill_quantitative: 'Quantitativo',
+    skillBody_quantitative: 'Geometria, percentagens, proporções, médias e probabilidades.',
+    diagram: 'Desenho da figura do problema',
+    tip_quantitative_1: 'Faz sempre um desenho e escreve nele os números do enunciado.',
+    tip_quantitative_2:
+      'Não confundas área (quanto cobre) com perímetro (quanto mede à volta): as opções erradas jogam com isso.',
+    tip_quantitative_3:
+      'Nas percentagens, passa para fração (25% = 1/4) e, quando sobe e desce, multiplica os fatores em vez de somar.',
+    math_rectArea: 'Um retângulo mede {{w}} cm por {{h}} cm. Qual é a área?',
+    math_rectPerimeter: 'Um retângulo mede {{w}} cm por {{h}} cm. Qual é o perímetro?',
+    math_percentOf: 'Quanto é {{percent}}% de {{total}}?',
+    math_ruleOfThree:
+      '{{a}} cadernos custam {{cost}} Kz. Quanto custam {{b}} cadernos ao mesmo preço, em Kz?',
+    math_triangleAngle: 'Num triângulo, dois ângulos medem {{a}}° e {{b}}°. Quanto mede o terceiro?',
+    math_average: 'Qual é a média de {{values}}?',
+    math_pythagoras: 'Um triângulo retângulo tem catetos de {{a}} cm e {{b}} cm. Quanto mede a hipotenusa?',
+    math_polygonAngles: 'Qual é a soma dos ângulos internos de um polígono de {{sides}} lados?',
+    math_discount: 'Um telemóvel custa {{price}} Kz e tem {{percent}}% de desconto. Quanto se paga?',
+    math_speed: 'Um carro anda a {{speed}} km/h durante {{minutes}} minutos. Que distância percorre?',
+    math_cubeVolume: 'Um cubo tem {{edge}} cm de aresta. Qual é o volume?',
+    math_marbles:
+      'Um saco tem {{red}} berlindes vermelhos, {{blue}} azuis e {{green}} verdes. Tirando um ao acaso, qual é a probabilidade de ser vermelho?',
+    math_squareFromPerimeter: 'O perímetro de um quadrado é {{perimeter}} cm. Qual é a área?',
+    math_lShape:
+      'Um retângulo de {{w}} cm por {{h}} cm perde um canto retangular de {{cw}} cm por {{ch}} cm, e fica em forma de L. Qual é a área que sobra?',
+    math_diagonal: 'Um retângulo mede {{w}} cm por {{h}} cm. Quanto mede a diagonal?',
+    math_successivePercent:
+      'Um preço de 1000 Kz sobe {{percent}}% e depois desce {{percent}}%. Qual é o preço final?',
+    math_similar:
+      'Dois triângulos são semelhantes. No pequeno, dois lados medem {{a}} m e {{b}} m. No grande, o lado que corresponde ao de {{a}} m mede {{big}} m. Quanto mede o que corresponde ao de {{b}} m?',
+    math_arrangements:
+      'Um grupo tem {{people}} pessoas. De quantas maneiras se escolhem um presidente e um secretário (pessoas diferentes)?',
+    math_workTogether:
+      'Um trabalhador faz uma obra em {{x}} dias e outro em {{y}} dias. Juntos, em quantos dias a fazem?',
+    math_trapezoid:
+      'Um trapézio tem bases de {{top}} cm e {{bottom}} cm e altura de {{height}} cm. Qual é a área?',
+    math_twoDraws:
+      'Um saco tem {{red}} bolas vermelhas e {{blue}} azuis. Tiram-se duas, uma a seguir à outra e sem repor. Qual é a probabilidade de serem as duas vermelhas?',
   },
   interviews: {
     title: 'Simulador de entrevistas',
@@ -2941,7 +2979,7 @@ export const pt = {
       'Duas partes: o que gostas e o que já sabes. No fim, carreiras de todas as áreas e o teu CV mais completo.',
     psychotechTitle: 'Psicotécnicos',
     psychotechBody:
-      'Treino de raciocínio numérico, lógico, abstrato, verbal e de atenção, como nas provas de seleção.',
+      'Treino de raciocínio numérico, lógico, abstrato, quantitativo (geometria incluída), verbal e de atenção, como nas provas de seleção.',
     interviewsTitle: 'Simulação de entrevistas',
     interviewsBody: 'Treina as respostas a perguntas da tua área. A equipa do Kayé revê e dá-te feedback.',
     examsTitle: 'Exames dos Kursos',
