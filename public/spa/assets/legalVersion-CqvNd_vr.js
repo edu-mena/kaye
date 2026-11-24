@@ -1,0 +1,1 @@
+var e=`2026-11-24`;export{e as t};

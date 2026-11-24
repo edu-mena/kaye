@@ -1,1 +1,0 @@
-import{i as e,n as t,r as n,t as r}from"./relations-aRnVcikI.js";function i(i,{careers:a,programs:o,academies:s,companies:c}){let l=t(a,i),u=l.map(e=>e.slug),d=e(o,u);return{area:i,careers:l,programs:d,academies:r(s,u).length,companies:n(c,u).length,courses:new Set(d.map(e=>e.course.id)).size,photo:l.find(e=>e.image)?.image}}export{i as t};
