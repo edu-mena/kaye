@@ -14,7 +14,7 @@ use stdClass;
  * - Records are merged key by key, except the ones that only make sense whole (the profile, the
  *   plan): two different ones are never mixed, and the server's wins.
  * - Two different values: the server's wins, except counters that only grow (Kurso study time and
- *   grades) and the last time the notifications were opened, where the larger wins.
+ *   grades) and the last time the notifications were opened or the home's news were seen, where the larger wins.
  */
 class UserDataMerger
 {
@@ -23,7 +23,7 @@ class UserDataMerger
 
     private const WHOLE = ['profile', 'discovery', 'plan', 'publicPage'];
 
-    private const LARGEST = ['/^kursos\.[^.]+\.seconds$/', '/^kursos\.[^.]+\.scores\.[^.]+$/', '/^notificationsSeenAt$/'];
+    private const LARGEST = ['/^kursos\.[^.]+\.seconds$/', '/^kursos\.[^.]+\.scores\.[^.]+$/', '/^notificationsSeenAt$/', '/^newsSeenAt$/'];
 
     public function merge(stdClass $server, stdClass $device): stdClass
     {

@@ -33,6 +33,14 @@ export function achievements(user: Progress): Achievement[] {
   return RULES.map((rule) => ({ id: rule.id, xp: rule.xp, earned: rule.earned(user) }))
 }
 
-export function totalXp(list: Achievement[]): number {
-  return list.reduce((sum, achievement) => sum + (achievement.earned ? achievement.xp : 0), 0)
+/** The challenge of the day: answering earns for the habit, being right earns a little more. */
+export const DAILY_XP = 20
+export const DAILY_XP_CORRECT = 10
+
+const dailyXp = (daily: Record<string, { correct: boolean }> = {}): number =>
+  Object.values(daily).reduce((sum, day) => sum + DAILY_XP + (day.correct ? DAILY_XP_CORRECT : 0), 0)
+
+/** The points of the achievements earned, plus those of the daily challenges answered (`daily`). */
+export function totalXp(list: Achievement[], daily?: Record<string, { correct: boolean }>): number {
+  return list.reduce((sum, achievement) => sum + (achievement.earned ? achievement.xp : 0), dailyXp(daily))
 }

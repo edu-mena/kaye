@@ -739,7 +739,7 @@ A tabela já existe ([acima](#users)). Acrescenta-se `last_login_at` (timestamp)
 
 #### `user_data`
 
-O estado da pessoa na app (`UserData` de `state/userStore.ts`): plano, guardados, respostas e resultados dos testes, CVs, Kursos, valências, subscrições das Novidades.
+O estado da pessoa na app (`UserData` de `state/userStore.ts`): plano, guardados, respostas e resultados dos testes, CVs, Kursos, valências, subscrições das Novidades e, da home «Para ti», os campos opcionais `activity` (dias com uma ação útil, no máximo 60), `daily` (a resposta ao desafio de cada dia, no máximo 60), `dismissed` (cartões do feed ocultados, no máximo 200), `newsSeenAt` (a última vez que viu as novidades da home) e `plusTrials` (as experiências grátis do Kayé Plus já usadas). Como são opcionais, não sobe a `version` do `UserData`; na fusão, as listas juntam-se e `newsSeenAt` fica com a data maior (`UserDataMerger`).
 
 | Coluna | Tipo | Notas |
 |---|---|---|
@@ -776,7 +776,7 @@ A lista de espera, migrada do Upstash.
 | `name` | varchar | |
 | `email` | varchar, pode ser vazio, único | |
 | `whatsapp` | varchar(20), pode ser vazio, único | E.164 |
-| `source` | varchar(12) | `landing`, `onboarding` |
+| `source` | varchar(12) | `landing`, `onboarding`, `plus` (quem quer ser avisado quando o Kayé Plus abrir) |
 | `locale` | varchar(5) | O `lang` da app |
 | `consent_at` | timestamp | |
 | `confirmed_at`, `unsubscribed_at` | timestamp, podem ser vazios | |

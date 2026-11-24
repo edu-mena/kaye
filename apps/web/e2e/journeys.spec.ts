@@ -1,4 +1,18 @@
+import type { Page } from '@playwright/test'
 import { expect, expectAccessible, test } from './fixtures'
+
+/** The cards fade in: the contrast is only measured once they stopped. */
+async function settled(page: Page) {
+  const finish = () =>
+    page
+      .evaluate(() => Promise.all(document.getAnimations().map((animation) => animation.finished)))
+      // A page that reloads under our feet (the service worker taking over) has nothing left to wait for.
+      .catch(() => undefined)
+  // Cards keep arriving while the data loads: finish, give them a moment, finish again.
+  await finish()
+  await page.waitForTimeout(1000)
+  await finish()
+}
 
 test.describe('the first visit', () => {
   test.use({ signedIn: false })
@@ -381,5 +395,74 @@ test.describe('the links in the emails', () => {
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(247, 244, 238)')
     await expectAccessible(page)
     expect(csp).toEqual([])
+  })
+})
+
+test.describe('the home, the menu and the links between careers and institutes', () => {
+  test('the phone menu reaches the CV and the courses, which are also on the bottom bar', async ({
+    page,
+    consoleErrors,
+  }) => {
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Menu' }).click()
+    const menu = page.getByRole('navigation', { name: 'Mais opções' })
+    await expect(menu.getByRole('link', { name: 'Cursos' })).toBeVisible()
+    await expectAccessible(page)
+    await menu.getByRole('link', { name: 'CV' }).click()
+    await expect(page).toHaveURL(/\/cv$/)
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('the home shows the news of the person and answers the challenge of the day', async ({
+    page,
+    consoleErrors,
+  }) => {
+    await page.goto('/')
+    await expect(page.getByRole('heading', { level: 1, name: 'Olá, Joana!' })).toBeVisible()
+    await expect(page.getByRole('region', { name: 'Novidades' })).toBeVisible()
+    await expect(page.getByRole('region', { name: 'Para ti' })).toBeVisible()
+    await settled(page)
+    await expectAccessible(page)
+
+    const challenge = page.getByRole('group', { name: 'Escolhe uma resposta' })
+    await expect(challenge).toBeVisible()
+    await challenge.getByRole('radio').first().check({ force: true })
+    await expect(page.getByText('Amanhã há outro desafio.')).toBeVisible()
+    await expect(challenge.getByRole('radio').first()).toBeDisabled()
+    await settled(page)
+    await expectAccessible(page)
+
+    // Doing something counts for the streak; the home never did.
+    await expect(page.getByRole('region', { name: /dia seguido/ })).toBeVisible()
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('from a career to an institute that teaches it, and back to the career', async ({
+    page,
+    consoleErrors,
+  }) => {
+    await page.goto('/carreiras/desenvolvedor-frontend?secao=study')
+    const rail = page.getByRole('region', { name: 'Onde estudar' }).first()
+    await expect(rail).toBeVisible()
+    await rail.getByRole('list').getByRole('link').first().click()
+    await expect(page).toHaveURL(/\/academias\/[^?]+\?carreira=desenvolvedor-frontend$/)
+    await expectAccessible(page)
+
+    await page.getByRole('link', { name: 'Voltar a Desenvolvedor Frontend' }).click()
+    await expect(page).toHaveURL(/\/carreiras\/desenvolvedor-frontend/)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Desenvolvedor Frontend')
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('an area leads to its page, on the phone', async ({ page, consoleErrors }) => {
+    await page.goto('/areas')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.goto('/areas/health')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Saúde')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+      await page.evaluate(() => document.documentElement.clientWidth),
+    )
+    await expectAccessible(page)
+    expect(consoleErrors).toEqual([])
   })
 })

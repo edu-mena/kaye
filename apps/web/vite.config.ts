@@ -37,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
         // main.tsx and router wiring are covered by the end-to-end tests (e2e/).
         exclude: ['src/main.tsx', 'src/app/App.tsx', 'src/app/router.tsx', 'src/test/**', 'src/**/*.d.ts'],
         // Below the 90/85 of ADR 0001 until prompt 10, rising at each step (ADR 0020): it may only go up.
-        thresholds: { statements: 82, branches: 72, functions: 80, lines: 84 },
+        thresholds: { statements: 84, branches: 74, functions: 82, lines: 85 },
       },
     },
   }

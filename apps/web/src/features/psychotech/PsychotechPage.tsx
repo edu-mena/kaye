@@ -29,7 +29,9 @@ import {
 } from '../../domain/psychotech'
 import { useFocus } from '../../lib/focusMode'
 import { shareFile } from '../../lib/shareFile'
+import { usePlus } from '../../lib/plan'
 import { userActions, useUser } from '../../state/userStore'
+import { PlusGate } from '../plus/PlusGate'
 import { QuestionView } from './QuestionView'
 import { storyImage } from './storyImage'
 
@@ -54,9 +56,13 @@ export default function PsychotechPage() {
   const [finished, setFinished] = useState<Finished | null>(null)
   useFocus(session !== null)
 
+  const plus = usePlus()
+
   const start = (nextMode: Mode = mode) => {
     setMode(nextMode)
     setFinished(null)
+    // "Treinar outra vez" on the result skips the setup screen, where the gate is: it must not skip the gate.
+    if (plus.blocked('training')) return
     setSession({
       mode: nextMode,
       level,
@@ -74,6 +80,7 @@ export default function PsychotechPage() {
       level: session.level,
       scores,
     })
+    plus.spendTrial('training')
     setFinished({ mode: session.mode, level: session.level, scores, timedOut })
     setSession(null)
   }
@@ -93,7 +100,9 @@ export default function PsychotechPage() {
       ) : finished ? (
         <Result finished={finished} onAgain={() => setFinished(null)} onTrain={start} />
       ) : (
-        <Setup mode={mode} level={level} onMode={setMode} onLevel={setLevel} onStart={() => start()} />
+        <PlusGate feature="training">
+          <Setup mode={mode} level={level} onMode={setMode} onLevel={setLevel} onStart={() => start()} />
+        </PlusGate>
       )}
     </>
   )

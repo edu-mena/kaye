@@ -114,7 +114,7 @@ function Hero() {
     )
   }
 
-  const xp = totalXp(achievements(user))
+  const xp = totalXp(achievements(user), user.daily)
   const cv = Math.round(bestCvCompleteness(user.cvs) * 100)
   // A picked picture is checked, then placed in the cropper before anything is saved.
   const pick = (file: File, kind: 'photo' | 'cover') => {

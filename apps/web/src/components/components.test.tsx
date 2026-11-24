@@ -71,6 +71,82 @@ describe('navigation', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
+  it('gives the sidebar and the phone menu the same four groups, and every item of one is in the other', async () => {
+    const groups = ['Descobrir', 'Preparar-te', 'Oportunidades', 'Para ti']
+    const sidebar = renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />)
+    const sidebarHrefs = screen.getAllByRole('link').map((link) => link.getAttribute('href'))
+    for (const group of groups) expect(screen.getAllByText(group).length).toBeGreaterThan(0)
+    sidebar.unmount()
+
+    renderWithApp(<TopBar />)
+    await userEvent.click(screen.getByRole('button', { name: 'Menu' }))
+    const menu = screen.getByRole('navigation', { name: 'Mais opções' })
+    for (const group of groups) expect(within(menu).getAllByText(group).length).toBeGreaterThan(0)
+    const menuHrefs = within(menu)
+      .getAllByRole('link')
+      .map((link) => link.getAttribute('href'))
+    // Everything in the sidebar (the logo is its first link) can be reached from the phone menu, in the same order.
+    expect(menuHrefs).toEqual(sidebarHrefs.slice(1))
+  })
+
+  it('reaches the CV and the Cursos from the phone menu, although they are also on the bottom bar', async () => {
+    renderWithApp(<TopBar />)
+    await userEvent.click(screen.getByRole('button', { name: 'Menu' }))
+    const menu = screen.getByRole('navigation', { name: 'Mais opções' })
+    for (const name of ['Início', 'Pesquisa', 'Carreiras', 'Cursos', 'CV', 'Simulações', 'Áreas']) {
+      expect(within(menu).getByRole('link', { name })).toBeInTheDocument()
+    }
+  })
+
+  it('is exactly the same as before when the Plus is off: no Kayé Plus item, no badge', () => {
+    seedUser({
+      profile: {
+        name: 'Ana',
+        birthYear: 1990,
+        province: 'Luanda',
+        education: 'licenciatura',
+        guardianInformed: false,
+      },
+    })
+    renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />)
+    expect(screen.queryByRole('link', { name: /Kayé Plus/ })).not.toBeInTheDocument()
+    expect(screen.queryByText('Plus')).not.toBeInTheDocument()
+  })
+
+  it('shows the Kayé Plus item and the badges to an adult when the Plus is on', () => {
+    vi.stubEnv('VITE_PLUS_ENABLED', 'true')
+    seedUser({
+      profile: {
+        name: 'Ana',
+        birthYear: 1990,
+        province: 'Luanda',
+        education: 'licenciatura',
+        guardianInformed: false,
+      },
+    })
+    renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />)
+    expect(screen.getByRole('link', { name: 'Kayé Plus' })).toHaveAttribute('href', '/plus')
+    expect(within(screen.getByRole('link', { name: /^CV/ })).getByText('Plus')).toBeInTheDocument()
+    vi.unstubAllEnvs()
+  })
+
+  it('shows no Plus at all to a minor, even when the Plus is on', () => {
+    vi.stubEnv('VITE_PLUS_ENABLED', 'true')
+    seedUser({
+      profile: {
+        name: 'Rui',
+        birthYear: 2010,
+        province: 'Luanda',
+        education: 'ii_ciclo',
+        guardianInformed: true,
+      },
+    })
+    renderWithApp(<Sidebar collapsed={false} onToggle={() => {}} />)
+    expect(screen.queryByRole('link', { name: /Kayé Plus/ })).not.toBeInTheDocument()
+    expect(screen.queryByText('Plus')).not.toBeInTheDocument()
+    vi.unstubAllEnvs()
+  })
+
   it('leads to Pesquisa from the bar, except on Pesquisa itself', () => {
     const { unmount } = renderWithApp(<TopBar />, { route: '/carreiras' })
     expect(screen.getByRole('link', { name: /Pesquisar carreiras/ })).toHaveAttribute('href', '/pesquisa')

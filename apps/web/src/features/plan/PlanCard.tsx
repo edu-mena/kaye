@@ -7,42 +7,16 @@ import { nextSteps } from '../../domain/plan'
 import { usePlan } from '../../state/usePlan'
 import { usePlanText } from './usePlanText'
 
-/** "O meu plano" on top of the home: the progress and the next step, or an invitation to make one. */
+/** "O meu plano" as a card of the home feed: the progress and the next step (the feed only has it for who made one). */
 export function PlanCard() {
   const { t } = useTranslation()
   const text = usePlanText()
   const { view, loading } = usePlan()
-  if (loading) return null
-
-  if (!view) {
-    return (
-      <Card
-        as="section"
-        tone="notice"
-        aria-labelledby="home-plan"
-        data-tour="plan"
-        className="flex flex-wrap items-center gap-4 p-5"
-      >
-        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-blue text-white">
-          <Icon name="path" className="size-5" />
-        </span>
-        <div className="min-w-0 flex-1 basis-56">
-          <h2 id="home-plan" className="text-base font-semibold text-night">
-            {t('plan.title')}
-          </h2>
-          <p className="mt-0.5 text-sm font-light text-copy">{t('plan.homeEmpty')}</p>
-        </div>
-        <ButtonLink to="/plano">
-          {t('plan.homeCta')}
-          <Icon name="arrowRight" className="size-4" />
-        </ButtonLink>
-      </Card>
-    )
-  }
+  if (loading || !view) return null
 
   const next = nextSteps(view.items, 1)[0]
   return (
-    <Card as="section" tone="coal" aria-labelledby="home-plan" data-tour="plan" className="p-5 sm:p-6">
+    <Card as="article" tone="coal" aria-labelledby="home-plan" data-tour="plan" className="p-5 sm:p-6">
       <div className="flex flex-wrap items-start gap-4">
         <div className="min-w-0 flex-1 basis-56">
           <p className="text-xs font-light text-white/70">{t('plan.title')}</p>

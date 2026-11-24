@@ -181,3 +181,113 @@ describe('userStore', () => {
     expect(localStorage.getItem('kaye.user.v1')).toBeNull()
   })
 })
+
+const today = () => new Date().toLocaleDateString('sv-SE')
+
+describe('userStore: the home (streak, challenge, feed)', () => {
+  it('counts a day once, however many things are done in it', () => {
+    seedUser()
+    userActions.recordActivity()
+    userActions.recordActivity()
+    expect(getUser().activity).toEqual([today()])
+  })
+
+  it('counts what is useful, and only that', () => {
+    seedUser({ savedCareers: ['a'] })
+    // Opening the home, searching or removing a saved career is not an action that counts.
+    userActions.toggleSaved('a')
+    userActions.addSearch('enfermeiro')
+    expect(getUser().activity ?? []).toEqual([])
+
+    userActions.toggleSaved('b')
+    expect(getUser().activity).toEqual([today()])
+  })
+
+  it.each([
+    ['visiting a career', () => userActions.visitCareer('x')],
+    ['saving an academy', () => userActions.toggleSavedAcademy('x')],
+    ['saving a company', () => userActions.toggleSavedCompany('x')],
+    ['answering a test question', () => userActions.answer('R1', 3)],
+    ['choosing a card in a situation', () => userActions.choose('S1', 'I')],
+    ['finishing a step of a Kurso', () => userActions.completeKursoStep('ingles', 'u1/l1')],
+  ])('%s counts for the streak', (_name, act) => {
+    seedUser()
+    act()
+    expect(getUser().activity).toEqual([today()])
+  })
+
+  it('keeps at most 60 days, the newest', () => {
+    const old = Array.from(
+      { length: 70 },
+      (_, index) => `2026-01-${String((index % 28) + 1).padStart(2, '0')}-${index}`,
+    )
+    seedUser({ activity: old })
+    userActions.recordActivity()
+    expect(getUser().activity).toHaveLength(60)
+    expect(getUser().activity).toContain(today())
+  })
+
+  it('keeps the first answer of the challenge of a day, and counts the day', () => {
+    seedUser()
+    userActions.answerDaily('2026-11-24', 1, true)
+    userActions.answerDaily('2026-11-24', 2, false)
+    expect(getUser().daily).toEqual({ '2026-11-24': { picked: 1, correct: true } })
+    expect(getUser().activity).toEqual([today()])
+  })
+
+  it('keeps the answers of the last 60 days only', () => {
+    const daily = Object.fromEntries(
+      Array.from({ length: 60 }, (_, index) => [
+        `2026-0${1 + Math.floor(index / 28)}-${String((index % 28) + 1).padStart(2, '0')}`,
+        { picked: 0, correct: false },
+      ]),
+    )
+    seedUser({ daily })
+    userActions.answerDaily('2026-12-01', 0, true)
+    expect(Object.keys(getUser().daily ?? {})).toHaveLength(60)
+    expect(getUser().daily?.['2026-12-01']).toBeDefined()
+  })
+
+  it('hides a card of the feed once, and caps the list', () => {
+    seedUser()
+    userActions.dismiss('career:a')
+    userActions.dismiss('career:a')
+    expect(getUser().dismissed).toEqual(['career:a'])
+
+    for (let index = 0; index < 210; index += 1) userActions.dismiss(`news:${index}`)
+    expect(getUser().dismissed).toHaveLength(200)
+    expect(getUser().dismissed).toContain('news:209')
+  })
+
+  it('remembers when the news of the home were seen', () => {
+    seedUser()
+    expect(getUser().newsSeenAt ?? null).toBeNull()
+    userActions.markNewsSeen()
+    expect(Date.parse(getUser().newsSeenAt ?? '')).not.toBeNaN()
+  })
+
+  it('remembers the free tries of the Plus, each once', () => {
+    seedUser()
+    userActions.spendPlusTrial('cv_pdf')
+    userActions.spendPlusTrial('cv_pdf')
+    expect(getUser().plusTrials).toEqual({ cv_pdf: true })
+  })
+
+  it('cuts what an account copy brings to the sizes the app keeps', () => {
+    seedUser()
+    replaceUser({
+      version: 1,
+      activity: Array.from({ length: 80 }, (_, index) => `2026-02-${String(index + 1).padStart(3, '0')}`),
+      dismissed: Array.from({ length: 250 }, (_, index) => `news:${index}`),
+    })
+    expect(getUser().activity).toHaveLength(60)
+    expect(getUser().dismissed).toHaveLength(200)
+  })
+
+  it('opens an old copy, from before the home, without these fields', () => {
+    seedUser()
+    replaceUser({ version: 1, savedCareers: ['a'] })
+    expect(getUser().savedCareers).toEqual(['a'])
+    expect(getUser().activity ?? []).toEqual([])
+  })
+})

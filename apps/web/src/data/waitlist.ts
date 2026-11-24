@@ -10,7 +10,7 @@ const KAYE_WHATSAPP = '244927450909'
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE = /^\+?\d{7,16}$/
 
-type SignupSource = 'landing' | 'onboarding'
+type SignupSource = 'landing' | 'onboarding' | 'plus'
 export type Signup = {
   name: string
   email: string
@@ -51,6 +51,8 @@ export const whatsappLink = (text: string) =>
   `https://wa.me/${KAYE_WHATSAPP}?text=${encodeURIComponent(text)}`
 
 const JOINED = 'kaye.waitlist.joined'
+// The Kayé Plus list is a different list: being on the launch list says nothing about it.
+const JOINED_PLUS = 'kaye.waitlist.joined.plus'
 const PENDING = 'kaye.waitlist.pending'
 
 function read(key: string): string | null {
@@ -70,8 +72,10 @@ function write(key: string, value: string | null): void {
   }
 }
 
-export const hasJoined = () => read(JOINED) === '1'
-export const markJoined = () => write(JOINED, '1')
+export const hasJoined = (source: SignupSource = 'landing') =>
+  read(source === 'plus' ? JOINED_PLUS : JOINED) === '1'
+export const markJoined = (source: SignupSource = 'landing') =>
+  write(source === 'plus' ? JOINED_PLUS : JOINED, '1')
 
 /**
  * Sends a contact without making the person wait. It is kept on the device until the server

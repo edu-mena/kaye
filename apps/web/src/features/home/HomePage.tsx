@@ -1,92 +1,22 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Icon, type IconName } from '../../components/icons'
-import { InstallCard } from '../../components/InstallApp'
 import { PathMark } from '../../components/PathMark'
 import { PhotoImg } from '../../components/PhotoImg'
 import { ButtonLink } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
 import { Chip } from '../../components/ui/Chip'
-import { Hexagon } from '../../components/ui/Hexagon'
 import { SectionHeading } from '../../components/ui/PageHeader'
-import { ProgressBar } from '../../components/ui/ProgressBar'
-import { useAcademies, useCareer, useCareers, useCompanies, useCourses } from '../../data/queries'
+import { useAcademies, useCareers, useCompanies, useCourses } from '../../data/queries'
 import { MARKET_AREAS } from '../../data/types'
-import { achievements, totalXp } from '../../domain/achievements'
-import { cvCompleteness } from '../../domain/cv'
-import { quickestPathway } from '../../domain/education'
-import { riasecCode } from '../../domain/riasec'
 import { stagger } from '../../lib/ui'
-import { useRiasecProfile } from '../../state/useRiasecProfile'
-import { strengthsDone } from '../../domain/strengths'
-import { activeCv, useUser } from '../../state/userStore'
-import { DeadlineRow } from '../deadlines/DeadlineRow'
-import { PlanCard } from '../plan/PlanCard'
-import { NoDegreeCard } from '../noDegree/NoDegreeCard'
-import { NewStories } from '../videos/VideoStories'
-import { useDeadlines } from '../../state/useDeadlines'
-import { BentoGrid, Tile } from './Bento'
-import {
-  CareersTile,
-  EventsTile,
-  HeroTile,
-  KursosTile,
-  MarketTile,
-  NewsTile,
-  OpportunitiesTile,
-  TrainingTile,
-} from './HomeTiles'
-
-const LINK = 'text-sm font-normal text-blue underline-offset-4 hover:underline'
-
-/** A small card title with its icon in a circle of the main blue. */
-function CardTitle({ icon, id, children }: { icon: IconName; id?: string; children: string }) {
-  return (
-    <h2 id={id} className="flex items-center gap-3 text-base font-semibold text-night">
-      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-blue text-white">
-        <Icon name={icon} className="size-4" />
-      </span>
-      {children}
-    </h2>
-  )
-}
+import { useUser } from '../../state/userStore'
+import { CardHeading } from './CardHeading'
+import { ForYouHome } from './ForYouHome'
 
 export default function HomePage() {
   const user = useUser()
-
-  if (!user.profile) return <Welcome />
-
-  return (
-    <div className="space-y-4">
-      <InstallCard />
-      <PlanCard />
-      <NoDegreeCard />
-      <NewStories />
-      {/* A bento: the first tile always says what to do next; then a bit of everything. */}
-      <BentoGrid>
-        <HeroTile aside={<TargetCard />} />
-        <Tile size="square" tone="plain" labelledBy="home-test" index={1} data-tour="test">
-          <TestCard headingId="home-test" />
-        </Tile>
-        <Tile size="square" tone="plain" labelledBy="home-cv" index={2} data-tour="cv">
-          <CvCard headingId="home-cv" />
-        </Tile>
-        <NewsTile index={3} />
-        <EventsTile index={4} />
-        <Tile size="tall" tone="plain" labelledBy="home-deadlines" index={5}>
-          <UpcomingDeadlines headingId="home-deadlines" />
-        </Tile>
-        <CareersTile index={6} />
-        <KursosTile index={7} />
-        <TrainingTile index={8} />
-        <MarketTile index={9} />
-        <OpportunitiesTile index={10} />
-        <Tile size="wide" tone="plain" labelledBy="home-progress" index={11}>
-          <Progress headingId="home-progress" />
-        </Tile>
-      </BentoGrid>
-    </div>
-  )
+  return user.profile ? <ForYouHome /> : <Welcome />
 }
 
 function Welcome() {
@@ -324,7 +254,9 @@ function Coverage() {
         </div>
         <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-6">
           {MARKET_AREAS.map((area) => (
-            <Chip key={area}>{t(`market.area_${area}`)}</Chip>
+            <Link key={area} to={`/areas/${area}`} className="hover:opacity-70">
+              <Chip>{t(`market.area_${area}`)}</Chip>
+            </Link>
           ))}
         </div>
       </Card>
@@ -340,188 +272,12 @@ function FinalCta() {
       className="flex rise flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"
     >
       <div>
-        <CardTitle icon="target">{t('home.startTitle')}</CardTitle>
+        <CardHeading icon="target">{t('home.startTitle')}</CardHeading>
         <p className="mt-2 pl-11 text-sm font-light text-copy">{t('home.startBody')}</p>
       </div>
       <ButtonLink to="/entrar" size="lg" className="w-full shrink-0 sm:w-auto">
         {t('home.startCtaFinal')}
       </ButtonLink>
-    </Card>
-  )
-}
-
-type HeadingProps = { headingId: string }
-
-function TestCard({ headingId }: HeadingProps) {
-  const { t } = useTranslation()
-  const { profile, answered, total, completed } = useRiasecProfile()
-  const { strengths } = useUser()
-
-  if (completed && profile) {
-    return (
-      <Card className="flex h-full items-center gap-4 p-6">
-        <Hexagon>{riasecCode(profile)}</Hexagon>
-        <div className="min-w-0 flex-1">
-          <h2 id={headingId} className="text-xs font-light text-muted">
-            {t('home.profileCode')}
-          </h2>
-          <Link
-            to="/teste/resultado"
-            className="mt-1 block text-base font-semibold text-night underline-offset-4 hover:underline"
-          >
-            {t('home.seeResult')}
-          </Link>
-          {!strengthsDone(strengths) && (
-            <Link to="/teste/valencias" className="mt-1 block text-sm font-normal text-blue hover:underline">
-              {t('assessment.completeStrengths')}
-            </Link>
-          )}
-        </div>
-        <Icon name="chevronRight" className="size-5 shrink-0 text-muted" />
-      </Card>
-    )
-  }
-
-  return (
-    <Card tone="coal" className="flex h-full flex-col items-start p-6">
-      <h2 id={headingId} className="text-xl font-extrabold">
-        {t('home.testTitle')}
-      </h2>
-      <p className="mt-2 max-w-prose text-sm font-light text-white/80">{t('home.testBody')}</p>
-      {answered > 0 && (
-        <ProgressBar
-          value={answered / Math.max(total, 1)}
-          label={t('home.testTitle')}
-          tone="gold"
-          track="bg-white/15"
-          className="mt-6 w-full"
-        />
-      )}
-      <ButtonLink to="/teste" variant="onDark" className="mt-6">
-        {answered > 0 ? t('home.testContinue', { answered, total }) : t('home.testCta')}
-        <Icon name="arrowRight" className="size-4" />
-      </ButtonLink>
-    </Card>
-  )
-}
-
-function CvCard({ headingId }: HeadingProps) {
-  const { t } = useTranslation()
-  const user = useUser()
-  const document = activeCv(user)
-
-  return (
-    <Card tone="notice" className="flex h-full flex-col items-start p-6">
-      <CardTitle icon="document" id={headingId}>
-        {t('home.cvTitle')}
-      </CardTitle>
-      {document ? (
-        <>
-          <p className="mt-2 text-sm font-light text-copy">{t('home.cvSome', { count: user.cvs.length })}</p>
-          <ProgressBar
-            value={cvCompleteness(document.cv)}
-            label={t('home.cvTitle')}
-            className="mt-4 w-full"
-          />
-        </>
-      ) : (
-        <p className="mt-2 text-sm font-light text-copy">{t('home.cvBody')}</p>
-      )}
-      <ButtonLink to="/cv" variant="secondary" className="mt-6">
-        {document ? t('home.cvOpen') : t('home.cvCta')}
-        <Icon name="arrowRight" className="size-4" />
-      </ButtonLink>
-    </Card>
-  )
-}
-
-function TargetCard() {
-  const { t } = useTranslation()
-  const user = useUser()
-  const { data: career } = useCareer(user.targetCareer ?? '')
-
-  if (!user.targetCareer || !career) {
-    return (
-      <Card className="p-6">
-        <CardTitle icon="target">{t('home.targetTitle')}</CardTitle>
-        <p className="mt-2 text-sm font-light text-copy">{t('home.targetEmpty')}</p>
-        <ButtonLink to="/carreiras" variant="secondary" size="sm" className="mt-4">
-          {t('home.explore')}
-        </ButtonLink>
-      </Card>
-    )
-  }
-
-  const quickest = quickestPathway(career, user.profile?.education ?? null)
-  const next = quickest?.steps[0]
-  return (
-    <Card tone="notice" className="p-6">
-      <p className="text-xs font-light text-muted">{t('home.targetTitle')}</p>
-      <Link
-        to={`/carreiras/${career.slug}?secao=path`}
-        className="mt-1 block text-lg font-semibold text-night underline-offset-4 hover:underline"
-      >
-        {career.name}
-      </Link>
-      {quickest && (
-        <p className="mt-1 text-sm font-light text-copy">
-          {t('home.targetSteps', { count: quickest.steps.length })}
-        </p>
-      )}
-      {next && (
-        <div className="mt-4 rounded-2xl bg-ash-100 p-4">
-          <p className="text-xs font-light text-muted">{t('home.nextStep')}</p>
-          <p className="mt-1 text-sm font-normal text-night">{next.title}</p>
-        </div>
-      )}
-    </Card>
-  )
-}
-
-/** Próximos prazos: the person's three nearest deadlines (or anyone's, when none is theirs). */
-function UpcomingDeadlines({ headingId }: HeadingProps) {
-  const { t } = useTranslation()
-  const deadlines = useDeadlines()
-  const shown = (deadlines.mine.length > 0 ? deadlines.mine : deadlines.all).slice(0, 3)
-
-  return (
-    <Card className="p-6">
-      <CardTitle icon="calendar" id={headingId}>
-        {t('deadlines.homeTitle')}
-      </CardTitle>
-      {shown.length === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.deadlinesEmpty')}</p>}
-      <ul className="mt-4 space-y-2">
-        {shown.map((item) => (
-          <li key={item.id}>
-            <DeadlineRow item={item} today={deadlines.today} compact />
-          </li>
-        ))}
-      </ul>
-      <Link to="/prazos" className={`mt-4 inline-block ${LINK}`}>
-        {t('common.seeAll')}
-      </Link>
-    </Card>
-  )
-}
-
-function Progress({ headingId }: HeadingProps) {
-  const { t } = useTranslation()
-  const list = achievements(useUser())
-  const earned = list.filter((achievement) => achievement.earned).length
-
-  return (
-    <Card className="p-6">
-      <div className="flex items-center justify-between gap-4">
-        <CardTitle icon="award" id={headingId}>
-          {t('home.progressTitle')}
-        </CardTitle>
-        <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
-      </div>
-      {earned === 0 && <p className="mt-2 text-sm font-light text-copy">{t('home.progressEmpty')}</p>}
-      <ProgressBar value={earned / list.length} label={t('home.progressTitle')} className="mt-4" />
-      <Link to="/perfil" className={`mt-4 inline-block ${LINK}`}>
-        {t('profile.achievements')} · {earned}/{list.length}
-      </Link>
     </Card>
   )
 }

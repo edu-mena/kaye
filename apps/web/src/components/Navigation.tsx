@@ -5,119 +5,22 @@ import logo from '../assets/kaye-logo.png'
 import { useHideOnScroll } from '../lib/useHideOnScroll'
 import { useUnseenNotifications } from '../state/notifications'
 import { useUser } from '../state/userStore'
-import { Icon, type IconName } from './icons'
-import { MENTORS } from '../data/demo/mentors'
+import { usePlus } from '../lib/plan'
+import { Icon } from './icons'
+import { BOTTOM, FOOTER, NAV_GROUPS, PLUS, type NavGroup, type NavItem } from './navItems'
+import { PlusBadge } from './PlusBadge'
 import { Dialog } from './ui/Dialog'
 import { SignInButton } from './SignInButton'
 
-type NavKey =
-  | 'home'
-  | 'search'
-  | 'careers'
-  | 'tests'
-  | 'courses'
-  | 'kursos'
-  | 'academies'
-  | 'opportunities'
-  | 'deadlines'
-  | 'noDegree'
-  | 'mentors'
-  | 'companies'
-  | 'market'
-  | 'news'
-  | 'cv'
-  | 'plan'
-  | 'notifications'
-  | 'profile'
-  | 'support'
-  | 'settings'
-
-type NavItem = {
-  to: string
-  key: NavKey
-  icon: IconName
-  /** White icon instead of gold: Suporte and Configurações stay in the background. */
-  quiet?: boolean
-  /** On large screens the tutorial points at the sidebar link (components/Tour.tsx). */
-  tour?: string
-  /** Other addresses that belong to this item: the tests it gathers, for example. */
-  also?: string[]
+/** The navigation as this person sees it: with "Kayé Plus" under "Para ti" only while the Plus is on and they are an adult. */
+function useNavGroups(): NavGroup[] {
+  const { promotable } = usePlus()
+  return promotable
+    ? NAV_GROUPS.map((group) =>
+        group.key === 'groupYou' ? { ...group, items: [...group.items, PLUS] } : group,
+      )
+    : NAV_GROUPS
 }
-type NavGroup = { key: 'groupExplore' | 'groupYou' | 'groupHelp'; items: NavItem[] }
-
-const HOME: NavItem = { to: '/', key: 'home', icon: 'home' }
-const SEARCH: NavItem = { to: '/pesquisa', key: 'search', icon: 'search' }
-const CAREERS: NavItem = { to: '/carreiras', key: 'careers', icon: 'compass' }
-const TESTS: NavItem = {
-  to: '/testes',
-  key: 'tests',
-  icon: 'brain',
-  also: ['/teste', '/treino', '/entrevistas'],
-}
-const COURSES: NavItem = { to: '/cursos', key: 'courses', icon: 'cap' }
-const KURSOS: NavItem = { to: '/kursos', key: 'kursos', icon: 'book' }
-const ACADEMIES: NavItem = { to: '/academias', key: 'academies', icon: 'landmark' }
-const OPPORTUNITIES: NavItem = { to: '/oportunidades', key: 'opportunities', icon: 'award' }
-const DEADLINES: NavItem = { to: '/prazos', key: 'deadlines', icon: 'calendar', tour: 'deadlines' }
-const NO_DEGREE: NavItem = { to: '/sem-universidade', key: 'noDegree', icon: 'helmet' }
-// Only once Kayé has approved mentors (docs/mentores.md).
-const MENTORS_ITEM: NavItem[] = MENTORS.length > 0 ? [{ to: '/mentores', key: 'mentors', icon: 'users' }] : []
-const COMPANIES: NavItem = { to: '/empresas', key: 'companies', icon: 'building' }
-const MARKET: NavItem = { to: '/mercado', key: 'market', icon: 'chart' }
-const NEWS: NavItem = { to: '/novidades', key: 'news', icon: 'newspaper' }
-const CV: NavItem = { to: '/cv', key: 'cv', icon: 'document' }
-const PLAN: NavItem = { to: '/plano', key: 'plan', icon: 'path' }
-const NOTIFICATIONS: NavItem = { to: '/notificacoes', key: 'notifications', icon: 'bell' }
-const PROFILE: NavItem = { to: '/perfil', key: 'profile', icon: 'user' }
-const SUPPORT: NavItem = { to: '/suporte', key: 'support', icon: 'help', quiet: true }
-const SETTINGS: NavItem = { to: '/configuracoes', key: 'settings', icon: 'sliders', quiet: true }
-
-// One map for every navigation: the sidebar shows it all, phones split it
-// between the bottom bar (the five used most) and the menu.
-const SIDEBAR: NavGroup[] = [
-  {
-    key: 'groupExplore',
-    items: [
-      HOME,
-      SEARCH,
-      CAREERS,
-      TESTS,
-      COURSES,
-      KURSOS,
-      ACADEMIES,
-      OPPORTUNITIES,
-      DEADLINES,
-      NO_DEGREE,
-      ...MENTORS_ITEM,
-      COMPANIES,
-      MARKET,
-      NEWS,
-    ],
-  },
-  { key: 'groupYou', items: [PLAN, CV, NOTIFICATIONS, PROFILE] },
-]
-const SIDEBAR_FOOTER = [SUPPORT, SETTINGS]
-const BOTTOM = [HOME, SEARCH, CAREERS, COURSES, CV]
-const MENU: NavGroup[] = [
-  {
-    key: 'groupExplore',
-    items: [
-      TESTS,
-      KURSOS,
-      ACADEMIES,
-      OPPORTUNITIES,
-      DEADLINES,
-      NO_DEGREE,
-      ...MENTORS_ITEM,
-      COMPANIES,
-      MARKET,
-      NEWS,
-    ],
-  },
-  { key: 'groupYou', items: [PLAN, NOTIFICATIONS, PROFILE] },
-  { key: 'groupHelp', items: SIDEBAR_FOOTER },
-]
-
 const GROUP_LABEL = 'mb-2 px-3 text-xs font-semibold text-white'
 
 type DarkLinkProps = { item: NavItem; iconOnly?: boolean; onNavigate?: () => void }
@@ -125,6 +28,7 @@ type DarkLinkProps = { item: NavItem; iconOnly?: boolean; onNavigate?: () => voi
 /** A link on the near-black menus: white text, gold icon; a lighter pill when active. */
 function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
   const { t } = useTranslation()
+  const { promotable } = usePlus()
   const label = t(`nav.${item.key}`)
   const { pathname } = useLocation()
   const alsoActive = (item.also ?? []).some((path) => pathname === path || pathname.startsWith(`${path}/`))
@@ -143,6 +47,7 @@ function DarkLink({ item, iconOnly = false, onNavigate }: DarkLinkProps) {
     >
       <Icon name={item.icon} className={`size-5 shrink-0 ${item.quiet ? 'text-white' : 'text-gold'}`} />
       <span className={iconOnly ? 'sr-only' : 'truncate'}>{label}</span>
+      {item.plus && promotable && !iconOnly && <PlusBadge className="ml-auto" />}
     </NavLink>
   )
 }
@@ -169,6 +74,7 @@ type SidebarProps = { collapsed: boolean; onToggle: () => void }
 /** Large screens: a floating black sidebar, inset from the edges, that folds to icons. */
 export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const { t } = useTranslation()
+  const groups = useNavGroups()
 
   return (
     <aside
@@ -199,7 +105,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
       </div>
 
       <nav aria-label={t('nav.label')} className="-mx-1 no-scrollbar flex-1 overflow-y-auto px-1">
-        {SIDEBAR.map((group, index) => (
+        {groups.map((group, index) => (
           <div key={group.key} className="mb-5">
             {collapsed ? (
               <>
@@ -221,7 +127,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
       </nav>
 
       <ul className="space-y-1 border-t border-white/10 pt-4">
-        {SIDEBAR_FOOTER.map((item) => (
+        {FOOTER.map((item) => (
           <li key={item.key}>
             <DarkLink item={item} iconOnly={collapsed} />
           </li>
@@ -240,6 +146,7 @@ const ROUND_BUTTON = 'grid size-10 place-items-center rounded-full bg-ash-100 te
  */
 export function TopBar() {
   const { t } = useTranslation()
+  const groups = useNavGroups()
   const { photo, profile } = useUser()
   const unseen = useUnseenNotifications()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -316,7 +223,7 @@ export function TopBar() {
 
       <Dialog open={menuOpen} onClose={() => setMenuOpen(false)} title={t('nav.menu')} variant="drawer">
         <nav aria-label={t('nav.more')}>
-          {MENU.map((group) => (
+          {[...groups, { key: 'groupHelp' as const, items: FOOTER }].map((group) => (
             <div key={group.key} className="mb-6">
               <p className={GROUP_LABEL}>{t(`nav.${group.key}`)}</p>
               <ul className="space-y-1">

@@ -30,6 +30,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0021](0021-explorar-sem-conta.md) | Explorar sem conta; o registo só aparece quando a pessoa guarda, comenta ou faz o plano | Aceite |
 | [0022](0022-gitleaks-ignora-o-vendor-do-ramo-deploy.md) | O Gitleaks ignora o `vendor/` do ramo `deploy` (código de terceiros), e só isso | Aceite |
 | [0023](0023-resumo-das-noticias-por-ia.md) | Cada notícia traz um resumo com os dados que importam (excerto por regras; IA opcional com chave) | Aceite |
+| [0024](0024-plano-kaye-plus.md) | Kayé Plus: 1.999 Kz por mês, atrás de uma flag, sem cobrar nada ainda | Aceite |
 
 Modelo para um novo ADR:
 

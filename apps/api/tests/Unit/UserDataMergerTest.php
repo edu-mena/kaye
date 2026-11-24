@@ -35,6 +35,35 @@ class UserDataMergerTest extends TestCase
         $this->assertSame(99, data_get($merged, 'kursos.k.seconds'));
     }
 
+    public function test_the_home_state_joins_without_losing_days_answers_or_hidden_cards(): void
+    {
+        $merged = $this->merge(
+            [
+                'activity' => ['2026-11-22', '2026-11-23'],
+                'daily' => ['2026-11-22' => ['picked' => 1, 'correct' => true]],
+                'dismissed' => ['career:a'],
+                'newsSeenAt' => '2026-11-01T00:00:00Z',
+                'plusTrials' => ['cv_pdf' => true],
+            ],
+            [
+                'activity' => ['2026-11-23', '2026-11-24'],
+                'daily' => ['2026-11-22' => ['picked' => 0, 'correct' => false], '2026-11-24' => ['picked' => 2, 'correct' => true]],
+                'dismissed' => ['career:a', 'news:n1'],
+                'newsSeenAt' => '2026-11-09T00:00:00Z',
+                'plusTrials' => ['training' => true],
+            ],
+        );
+
+        $this->assertSame(['2026-11-22', '2026-11-23', '2026-11-24'], $merged['activity']);
+        $this->assertSame(['career:a', 'news:n1'], $merged['dismissed']);
+        // The answer already on the server stands; the day only the device has is added.
+        $this->assertSame(1, data_get($merged, 'daily.2026-11-22.picked'));
+        $this->assertSame(2, data_get($merged, 'daily.2026-11-24.picked'));
+        // The larger date wins: what was seen is never "unseen" again.
+        $this->assertSame('2026-11-09T00:00:00Z', $merged['newsSeenAt']);
+        $this->assertSame(['cv_pdf' => true, 'training' => true], $merged['plusTrials']);
+    }
+
     public function test_records_with_an_id_count_once_and_the_servers_copy_wins(): void
     {
         $merged = $this->merge(

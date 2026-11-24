@@ -60,6 +60,13 @@ class WaitlistTest extends TestCase
         $this->assertNull(WaitlistEntry::query()->where('whatsapp', '+244931111111')->value('email'));
     }
 
+    public function test_the_plus_list_keeps_its_own_source(): void
+    {
+        $this->join(['source' => 'plus'])->assertCreated();
+
+        $this->assertSame('plus', WaitlistEntry::query()->sole()->source);
+    }
+
     public function test_unknown_source_and_language_fall_back(): void
     {
         $this->join(['source' => 'ads', 'lang' => 'de'])->assertCreated();

@@ -25,7 +25,7 @@ class WaitlistController extends Controller
 {
     private const MAX_BODY = 8_000;
 
-    private const SOURCES = ['landing', 'onboarding'];
+    private const SOURCES = ['landing', 'onboarding', 'plus'];
 
     public function store(Request $request): JsonResponse
     {

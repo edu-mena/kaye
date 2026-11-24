@@ -5,6 +5,7 @@ import { CareerRow, LIST_ROW } from '../../components/CareerRow'
 import { Icon } from '../../components/icons'
 import { InstitutionLogo } from '../../components/InstitutionLogo'
 import { DetailSkeleton, NotFoundState } from '../../components/PageStates'
+import { WhoHiresRail } from '../../components/RelatedRails'
 import { PhotoImg } from '../../components/PhotoImg'
 import { QueryState } from '../../components/QueryState'
 import { ScoreRing } from '../../components/ScoreRing'
@@ -124,6 +125,8 @@ export default function CoursePage() {
                     ))}
                   </ul>
                 </section>
+
+                <WhoHiresRail slugs={program.careers} seeAllTo="/empresas" />
               </div>
             </div>
           </div>

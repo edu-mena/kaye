@@ -79,6 +79,8 @@ function AcademyView({ academy }: { academy: Academy }) {
   const { data: allCareers = [] } = useCareers()
   const slugs = [...new Set(academy.offers.flatMap((offer) => offer.careers))]
   const careers = allCareers.filter((career) => slugs.includes(career.slug))
+  // Opened from a career page (?carreira=): the way back goes there.
+  const from = allCareers.find((career) => career.slug === params.get('carreira'))
   const tabs = TABS.map((tab) => ({ id: tab.id, icon: tab.icon, label: t(`academy.tab_${tab.id}`) }))
   // Opened on a course (?curso=, from a course page): its tab, with the offer open.
   const active: TabId =
@@ -89,7 +91,11 @@ function AcademyView({ academy }: { academy: Academy }) {
       header={
         <DetailHero
           entity={academy}
-          back={{ to: '/academias', label: t('academy.back') }}
+          back={
+            from
+              ? { to: `/carreiras/${from.slug}`, label: t('related.backTo', { name: from.name }) }
+              : { to: '/academias', label: t('academy.back') }
+          }
           meta={academyMeta(academy, t)}
           actions={
             <>

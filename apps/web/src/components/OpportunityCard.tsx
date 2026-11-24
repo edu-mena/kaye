@@ -195,7 +195,7 @@ export function OpportunityLinks({
   return (
     <div className={className}>
       <Subheading>{title}</Subheading>
-      <ul className="grid gap-2 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {items.slice(0, SHOWN).map((item) => (
           <li key={item.id}>
             <a href={item.url} target="_blank" rel="noopener noreferrer" className={`${LIST_ROW} h-full`}>

@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Icon } from '../../components/icons'
-import { Button, ButtonLink } from '../../components/ui/Button'
+import { ButtonLink } from '../../components/ui/Button'
 import { TextAreaField, TextField } from '../../components/ui/Field'
 import type { CvDocument, CvEntry, CvTemplate } from '../../data/types'
 import { newEntry, parseList } from '../../domain/cv'
@@ -9,6 +9,7 @@ import { userActions, useUser } from '../../state/userStore'
 import { CvArrangePanel } from './CvArrangePanel'
 import { ScaledSheet } from './CvSheet'
 import { EntryList, ListField } from './cvFields'
+import { CvDownloadButton } from './CvDownloadButton'
 import { downloadCvPdf } from './cvPdf'
 import { useCareerTips } from './useCareerTips'
 import { useCvLabels } from './useCvLabels'
@@ -249,14 +250,11 @@ function DoneStep({ document }: BodyProps) {
   return (
     <div className="space-y-4">
       <p className="text-center text-sm font-light text-copy">{t('cv.wizDoneBody')}</p>
-      <Button
+      <CvDownloadButton
         size="lg"
         className="w-full"
-        onClick={() => void downloadCvPdf({ cv, template, style, photo, arrangement }, labels)}
-      >
-        <Icon name="download" className="size-5" />
-        {t('cv.download')}
-      </Button>
+        onDownload={() => void downloadCvPdf({ cv, template, style, photo, arrangement }, labels)}
+      />
       <div className="flex flex-wrap justify-center gap-2">
         <ButtonLink to="/cv/cartao" variant="secondary" size="sm">
           {t('cv.wizCard')}

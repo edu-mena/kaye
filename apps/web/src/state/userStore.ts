@@ -23,9 +23,11 @@ import type {
 } from '../data/types'
 import { NEWS_KINDS } from '../data/types'
 import { newEntry, newId } from '../domain/cv'
+import { todayIso } from '../domain/scholarships'
 import type { Discovery } from '../domain/discovery'
 import { MAX_SIMULATIONS, withResult, type SimulationResult } from '../domain/simulations'
 import { EMPTY_STRENGTHS, withAllStrengths, type Strengths, type StrengthStep } from '../domain/strengths'
+import type { PlusFeature } from '../lib/plan'
 import type { Level, Mode, Scores } from '../domain/psychotech'
 import type { ExamMode, TopicScores } from '../domain/accessExams'
 import type { ExamSubject } from '../data/demo/accessExams'
@@ -138,7 +140,19 @@ export type UserData = {
   /** Part 2 of the career test: languages, skills, experience, how and where they want to work. */
   strengths: Strengths
   plan: Plan | null
+  /** The days (local, "2026-11-24") with at least one useful action: the streak. Unique, newest last, at most MAX_DAYS. Optional: older copies lack it. */
+  activity?: string[]
+  /** The challenge of the day, by date: what was picked and whether it was right. At most MAX_DAYS days. */
+  daily?: Record<string, DailyAnswer>
+  /** The ids of the feed cards the person hid ("Não me interessa"), at most MAX_DISMISSED. */
+  dismissed?: string[]
+  /** When Novidades on the home were last seen (ISO), so the newest are marked "Novo". */
+  newsSeenAt?: string | null
+  /** The Kayé Plus features the person already tried once for free (lib/plan.ts). */
+  plusTrials?: Partial<Record<PlusFeature, true>>
 }
+
+export type DailyAnswer = { picked: number; correct: boolean }
 
 export const EMPTY_CV: CvData = {
   name: '',
@@ -194,6 +208,8 @@ export const MAX_SEARCHES = 6
 const MAX_PSYCHOTECH = 30
 const MAX_INTERVIEWS = 30
 const MAX_ACCESS_EXAMS = 60
+const MAX_DAYS = 60
+const MAX_DISMISSED = 200
 const KEY = 'kaye.user.v1'
 const listeners = new Set<() => void>()
 let state: UserData = load()
@@ -300,8 +316,32 @@ export function replaceUser(data: Partial<UserData>) {
       accessExams: next.accessExams.slice(0, MAX_ACCESS_EXAMS),
       interviews: next.interviews.slice(0, MAX_INTERVIEWS),
       simulations: next.simulations.slice(0, MAX_SIMULATIONS),
+      activity: capDays(next.activity),
+      daily: capDaily(next.daily),
+      dismissed: next.dismissed?.slice(-MAX_DISMISSED),
     }
   })
+}
+
+/** The newest MAX_DAYS days, oldest first (a merge of two devices joins two lists). */
+function capDays(days: string[] = []): string[] {
+  return [...new Set(days)].toSorted().slice(-MAX_DAYS)
+}
+
+function capDaily(daily: Record<string, DailyAnswer> = {}): Record<string, DailyAnswer> {
+  return Object.fromEntries(
+    Object.entries(daily)
+      .toSorted(([a], [b]) => a.localeCompare(b))
+      .slice(-MAX_DAYS),
+  )
+}
+
+/** The user with today counted as a day of activity (idempotent). */
+function withActivity(user: UserData): UserData {
+  const today = todayIso()
+  return user.activity?.includes(today)
+    ? user
+    : { ...user, activity: capDays([...(user.activity ?? []), today]) }
 }
 
 /** Reloads from storage (tests, and after "apagar os meus dados"). */
@@ -405,11 +445,11 @@ export const userActions = {
   subscribe: (subscriptions: Subscriptions) => update((user) => ({ ...user, subscriptions })),
 
   answer: (questionId: string, value: Likert) =>
-    update((user) => ({ ...user, answers: { ...user.answers, [questionId]: value } })),
+    update((user) => withActivity({ ...user, answers: { ...user.answers, [questionId]: value } })),
 
   /** The card picked in a situation question. */
   choose: (questionId: string, dimension: RiasecKey) =>
-    update((user) => ({ ...user, choices: { ...user.choices, [questionId]: dimension } })),
+    update((user) => withActivity({ ...user, choices: { ...user.choices, [questionId]: dimension } })),
 
   completeAssessment: () =>
     update((user) => logged({ ...user, assessmentCompletedAt: new Date().toISOString() }, 'test')),
@@ -439,14 +479,20 @@ export const userActions = {
   toggleSaved: (slug: string) =>
     update((user) => {
       const next = { ...user, savedCareers: toggle(user.savedCareers, slug) }
-      return user.savedCareers.includes(slug) ? next : logged(next, 'saved', slug)
+      return user.savedCareers.includes(slug) ? next : withActivity(logged(next, 'saved', slug))
     }),
 
   toggleSavedAcademy: (id: string) =>
-    update((user) => ({ ...user, savedAcademies: toggle(user.savedAcademies, id) })),
+    update((user) => {
+      const next = { ...user, savedAcademies: toggle(user.savedAcademies, id) }
+      return user.savedAcademies.includes(id) ? next : withActivity(next)
+    }),
 
   toggleSavedCompany: (id: string) =>
-    update((user) => ({ ...user, savedCompanies: toggle(user.savedCompanies, id) })),
+    update((user) => {
+      const next = { ...user, savedCompanies: toggle(user.savedCompanies, id) }
+      return user.savedCompanies.includes(id) ? next : withActivity(next)
+    }),
 
   toggleReminder: (id: string) =>
     update((user) => ({ ...user, remindedDeadlines: toggle(user.remindedDeadlines, id) })),
@@ -455,7 +501,7 @@ export const userActions = {
     update((user) =>
       user.visitedCareers.includes(slug)
         ? user
-        : logged({ ...user, visitedCareers: [...user.visitedCareers, slug] }, 'visit', slug),
+        : withActivity(logged({ ...user, visitedCareers: [...user.visitedCareers, slug] }, 'visit', slug)),
     ),
 
   setTarget: (slug: string | null) =>
@@ -575,12 +621,14 @@ export const userActions = {
     update((user) => ({ ...user, interviews: [result, ...user.interviews].slice(0, MAX_INTERVIEWS) })),
 
   /** "Concluir e seguir": the step is done, with its grade when it is a unit review. */
-  completeKursoStep: (course: string, step: string, score?: { unit: string; value: number }) =>
+  completeKursoStep: (course: string, step: string, score?: { unit: string; value: number }) => {
     updateKurso(course, (progress) => ({
       ...progress,
       done: progress.done.includes(step) ? progress.done : [...progress.done, step],
       scores: score ? { ...progress.scores, [score.unit]: score.value } : progress.scores,
-    })),
+    }))
+    update(withActivity)
+  },
 
   openKursoStep: (course: string, step: string) =>
     updateKurso(course, (progress) =>
@@ -622,6 +670,34 @@ export const userActions = {
     ),
 
   clearPlan: () => update((user) => ({ ...user, plan: null })),
+
+  /** Counts today for the streak. Opening the home does not count: only doing something does. */
+  recordActivity: () => update(withActivity),
+
+  /** The answer to the challenge of `date`; the first answer stands (it is not a quiz to retry). */
+  answerDaily: (date: string, picked: number, correct: boolean) =>
+    update((user) =>
+      user.daily?.[date]
+        ? user
+        : withActivity({ ...user, daily: capDaily({ ...user.daily, [date]: { picked, correct } }) }),
+    ),
+
+  /** "Não me interessa": the card never comes back to the feed. */
+  dismiss: (id: string) =>
+    update((user) =>
+      user.dismissed?.includes(id)
+        ? user
+        : { ...user, dismissed: [...(user.dismissed ?? []), id].slice(-MAX_DISMISSED) },
+    ),
+
+  /** The news on the home were seen: what is dated until now stops being "Novo". */
+  markNewsSeen: () => update((user) => ({ ...user, newsSeenAt: new Date().toISOString() })),
+
+  /** The free try of a Plus feature was used. */
+  spendPlusTrial: (feature: PlusFeature) =>
+    update((user) =>
+      user.plusTrials?.[feature] ? user : { ...user, plusTrials: { ...user.plusTrials, [feature]: true } },
+    ),
 
   clearSearches: () => update((user) => ({ ...user, searches: [] })),
 

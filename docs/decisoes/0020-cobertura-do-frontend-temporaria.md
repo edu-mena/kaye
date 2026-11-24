@@ -25,6 +25,8 @@
 
   **18 de novembro de 2026: etapa do prompt 6 cumprida.** Os avisos (preferências nas Definições, Web Push e o service worker) chegaram com os seus testes, e testes novos para o tutorial e para o que cada empresa pede levaram a cobertura a 84% das linhas, 83% das instruções, 80% das funções e 72% dos ramos. O mínimo passou a 84 / 82 / 80 / 72 (linhas, instruções, funções, ramos).
 
+  **24 de novembro de 2026:** com a home «Para ti», as áreas e o Kayé Plus (e os seus testes) a cobertura medida passou a 85,6% das linhas, 84,4% das instruções, 82,5% das funções e 74,6% dos ramos. O mínimo subiu para 85 / 84 / 82 / 74 (linhas, instruções, funções, ramos).
+
   Subir o valor no `vite.config.ts` faz parte de cada um desses prompts. Se uma etapa não for cumprida, a seguinte não começa sem nova decisão escrita aqui.
 - **A regra "sem testes no frontend" acaba.** Código novo ou alterado na app web leva testes, como na API. Só as mudanças de conteúdo (os ficheiros de `src/data`, textos e imagens) dispensam testes novos; os testes que já existem continuam a ter de passar.
 - A API não muda: continua nos 90%.

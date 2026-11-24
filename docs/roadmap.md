@@ -220,7 +220,22 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [ ] 9. Painel de administração completo, com o design do site
 - [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
 
+## UX da home, áreas e Kayé Plus (24 de novembro de 2026)
+
+Sem commit até ao fim: tudo na branch `feat/web-home-for-you`, num só PR depois dos testes.
+
+- [x] Menu completo e agrupado (Descobrir, Preparar-te, Oportunidades, Para ti), igual na barra lateral e no menu do telemóvel
+- [x] Áreas (`/areas`, `/areas/:area`), `RelatedRail` e as ligações entre carreiras, cursos, institutos e empresas
+- [x] Home «Para ti»: sequência, desafio do dia, novidades da área, feed e jornada
+- [x] Kayé Plus atrás de uma flag desligada (ADR 0024): `PlusGate`, cartão, `/plus`, lista de espera própria
+- [x] Testes de tudo o que ficou por testar (domínio puro, `RelatedRail`, `PlusGate`, acessibilidade da home, e2e do menu e da home) e corrigir os que partiram (24/11/2026)
+- [ ] Escolher o meio de pagamento do Plus em Angola (Multicaixa Express, Unitel Money…) e ligar `isPlus` à conta
+- [ ] Fluxo com o encarregado de educação para menores usarem o Plus (hoje ficam fora, com tudo aberto)
+- [ ] Rever os Termos e a política de privacidade, e a landing (`home.freeBadge`: passa a dizer que *explorar* é grátis), antes de ligar `VITE_PLUS_ENABLED`
+
 ## Fase 3 — Monetização
+
+O primeiro passo está decidido no [ADR 0024](decisoes/0024-plano-kaye-plus.md): Kayé Plus a 1.999 Kz/mês, atrás de uma flag, ainda sem cobrar.
 
 - Decidir com dados o que é premium. Candidatos: download do CV e modelos extra, cartão QR personalizado, "O meu plano" com acompanhamento, histórico e comparações detalhadas.
 - Testar o preço (entre 2.000 e 2.999 Kz/mês).

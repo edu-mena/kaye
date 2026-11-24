@@ -198,7 +198,7 @@ describe('CareerPage', () => {
     extra.programs.push(PROGRAM)
     open('desenvolvedor-frontend')
     await openTab('Onde estudar')
-    const study = (await screen.findByRole('heading', { name: 'Onde estudar' })).closest('section')!
+    const study = (await screen.findByRole('heading', { level: 2, name: 'Onde estudar' })).closest('section')!
     expect(await within(study).findByText('Desenvolvimento Web com React')).toBeInTheDocument()
     expect(within(study).getByRole('link', { name: /Ver todos os cursos/ })).toHaveAttribute(
       'href',
@@ -231,7 +231,9 @@ describe('Where to study', () => {
     extra.programs.push(PROGRAM)
     open('desenvolvedor-frontend')
     await openTab('Onde estudar')
-    await userEvent.click(await screen.findByRole('button', { name: /Desenvolvimento Web com React/ }))
+    await userEvent.click(
+      (await screen.findAllByRole('button', { name: /Desenvolvimento Web com React/ }))[0]!,
+    )
     const popup = screen.getByRole('dialog', { name: 'Desenvolvimento Web com React' })
     expect(within(popup).getByRole('region', { name: 'Instituição' })).toHaveTextContent(
       'Academia Digital Exemplo',

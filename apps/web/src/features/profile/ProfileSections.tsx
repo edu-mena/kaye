@@ -216,7 +216,9 @@ function Achievements() {
         title={t('profile.achievements')}
         icon="award"
         action={
-          <span className="text-sm font-semibold text-gold-ink">{t('common.xp', { xp: totalXp(list) })}</span>
+          <span className="text-sm font-semibold text-gold-ink">
+            {t('common.xp', { xp: totalXp(list, user.daily) })}
+          </span>
         }
       />
       <p className="-mt-2 mb-6 max-w-prose text-sm font-light text-copy">{t('profile.achievementsBody')}</p>
