@@ -61,6 +61,11 @@ export type Ctx = {
   pick: <T>(list: readonly T[]) => T
   /** A whole base amount, a multiple of 50 Kz, between `min` and `max` thousands. */
   base: (min: number, max: number) => number
+  /**
+   * A number the whole topic shares for the day (a case's facts stay the same across its exercises):
+   * the same `key` gives the same value in every exercise of the topic, a multiple of `step` in [min, max].
+   */
+  shared: (key: string, min: number, max: number, step?: number) => number
   /** A choice question; the right option lands in a random place. */
   ask: (prompt: string, right: string, wrong: string[], why: string) => Exercise
   /** A calculation: `answer` is computed by the variant. */
@@ -84,7 +89,7 @@ const hash = (text: string) => {
   return value.toString(36)
 }
 
-function context(topic: string, n: number, random: Random): Ctx {
+function context(topic: string, n: number, random: Random, seed: string): Ctx {
   const meta = (key: string, prompt: string) => ({
     id: `${topic}-${n}-${hash(key)}`,
     topic,
@@ -96,6 +101,8 @@ function context(topic: string, n: number, random: Random): Ctx {
     int,
     pick: (list) => list[int(0, list.length - 1)] as never,
     base: (min, max) => int(min * 20, max * 20) * 50,
+    shared: (key, min, max, step = 1) =>
+      min + step * Math.floor(seeded(`${seed}|${topic}|${key}`)() * (Math.floor((max - min) / step) + 1)),
     ask: (prompt, right, wrong, why) => {
       const options = [...wrong]
       const answer = int(0, options.length)
@@ -129,7 +136,7 @@ function context(topic: string, n: number, random: Random): Ctx {
 export const exercise =
   (topic: string, n: number, build: (c: Ctx) => Exercise): Make =>
   (seed) =>
-    build(context(topic, n, seeded(`${seed}|${topic}|${n}`)))
+    build(context(topic, n, seeded(`${seed}|${topic}|${n}`), seed))
 
 export type TopicSpec = {
   id: string
