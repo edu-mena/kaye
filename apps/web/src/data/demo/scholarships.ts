@@ -17,10 +17,6 @@ const EXPANSAO_EXTERNAS = {
   label: 'Expansão (15/08/2026)',
   url: 'https://expansao.co.ao/universidade/detalhe/portugal-servia-marrocos-e-argelia-disponibilizam-mais-de-600-bolsas-73960.html',
 }
-const BCI_EXPANSAO = {
-  label: 'Expansão (01/06/2024)',
-  url: 'https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html',
-}
 
 /** INAGBE's external scholarships (2026/27 round), as Expansão lists what they cover. */
 const INAGBE_EXTERNAL_COVERS: Scholarship['covers'] = ['propina', 'alojamento', 'subsidio']
@@ -330,35 +326,6 @@ export const SCHOLARSHIPS: Scholarship[] = [
     checkedAt: CHECKED,
   },
   {
-    id: 'bci-excelencia',
-    name: 'Bolsas de Excelência BCI',
-    provider: 'BCI (Banco de Comércio e Indústria)',
-    companyId: 'bci',
-    kind: 'empresa',
-    destination: 'angola',
-    levels: ['licenciatura'],
-    areas: ['health', 'business', 'legal', 'agriculture'],
-    covers: ['propina'],
-    minAge: 17,
-    maxAge: 30,
-    requirements: [
-      'Medicina (UPRA, Unipiaget), Economia e Direito (UCAN), ULAN',
-      'Média de 17 no médio e 16 na entrada, ou 15 a 17 na universidade',
-      'Concurso interno em cada universidade parceira',
-    ],
-    deadline: null,
-    recurring: false,
-    url: 'https://www.bci.ao',
-    sources: [
-      BCI_EXPANSAO,
-      {
-        label: 'Ver Angola (10/2024)',
-        url: "https://www.verangola.net/va/pt/102024/Educacao/41929/BCI-e-Universidade-Lueji-A'nkonde-juntam-se-para-conceder-bolsas-de-estudo.htm",
-      },
-    ],
-    checkedAt: CHECKED,
-  },
-  {
     id: 'mca-isptec',
     name: 'Bolsas de mérito MCA no ISPTEC',
     provider: 'Grupo MCA',
@@ -380,28 +347,6 @@ export const SCHOLARSHIPS: Scholarship[] = [
       {
         label: 'Ver Angola (05/2026)',
         url: 'https://www.verangola.net/va/pt/052026/Educacao/48842/Alunos-de-mérito-do-ISPTEC-vão-beneficiar-de-bolsas-de-estudo-e-estágios.htm',
-      },
-    ],
-    checkedAt: CHECKED,
-  },
-  {
-    id: 'mca-uan-engenharia',
-    name: 'Bolsas MCA na Faculdade de Engenharia da UAN',
-    provider: 'Grupo MCA',
-    companyId: 'mca',
-    kind: 'empresa',
-    destination: 'angola',
-    levels: ['licenciatura'],
-    areas: ['engineering'],
-    covers: ['propina', 'subsidio'],
-    requirements: ['Aluno da Faculdade de Engenharia da UAN', '25 bolsas em 2024/25'],
-    deadline: null,
-    recurring: false,
-    url: 'https://www.uan.ao',
-    sources: [
-      {
-        label: 'Ver Angola (12/2024)',
-        url: 'https://www.verangola.net/va/pt/122024/Educacao/42632/MCA-tem-25-bolsas-para-alunos-da-Faculdade-de-Engenharia-da-UAN-para-ajudar-com-propinas-e-alimentação.htm',
       },
     ],
     checkedAt: CHECKED,

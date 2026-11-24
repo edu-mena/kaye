@@ -23,7 +23,7 @@ O que a app tem no fecho do frontend, contado a partir de `apps/web/src/data/sou
 | Academias | 167 | Instituições reais |
 | Cursos no catálogo | 422 | |
 | Empresas | 252 | 252 com posições, percurso e estudo (estimados); 22 com líderes, 77 com site, 5 com citações |
-| Bolsas | 16 | |
+| Bolsas | 14 | |
 | Estágios e programas de trainee | 13 | |
 | Admissões (exames e candidaturas) | 14 | |
 | Perguntas dos exames de acesso | 260 | Matemática 126, Língua Portuguesa 134; originais |
@@ -312,12 +312,11 @@ Em `apps/web/src/data/demo/scholarships.ts` (ainda sem ecrã). Verificadas a 24/
 | MIREMPET e Embaixada de França | 1 | [Ver Angola (23/10/2026)](https://www.verangola.net/va/pt/102026/Educacao/50527/Abertas-inscrições-para-30-bolsas-de-estudo-em-institutos-franceses-Saiba-como-se-candidatar.htm) | O que cobre |
 | Fundação Calouste Gulbenkian | 1 | [Regulamento 2026](https://cdn.gulbenkian.pt/wp-content/uploads/2023/03/Regulamento-Palop_2026-v2.pdf) | Data de fecho de 2026 (o PDF bloqueia leitura automática) e concurso 2027 |
 | Chevening (Reino Unido) | 1 | [chevening.org](https://www.chevening.org/scholarship/angola/) | Ronda 2027/28 fechou a 06/10/2026 |
-| BCI (Bolsas de Excelência) | 1 | [Expansão (2024)](https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html) | Edital 2026/27 |
-| Grupo MCA (ISPTEC e UAN) | 2 | [Ver Angola (05/2026)](https://www.verangola.net/va/pt/052026/Educacao/48842/Alunos-de-mérito-do-ISPTEC-vão-beneficiar-de-bolsas-de-estudo-e-estágios.htm), [Ver Angola (12/2024)](https://www.verangola.net/va/pt/122024/Educacao/42632/MCA-tem-25-bolsas-para-alunos-da-Faculdade-de-Engenharia-da-UAN-para-ajudar-com-propinas-e-alimentação.htm) | Número de bolsas no ISPTEC; se a da UAN se repete |
+| Grupo MCA (ISPTEC) | 1 | [Ver Angola (05/2026)](https://www.verangola.net/va/pt/052026/Educacao/48842/Alunos-de-mérito-do-ISPTEC-vão-beneficiar-de-bolsas-de-estudo-e-estágios.htm) | Número de bolsas no ISPTEC |
 
-O BCI e o Grupo MCA também estão na tabela Empresas (ligados por `companyId`).
+O Grupo MCA também está na tabela Empresas (ligado por `companyId`).
 
-Retiradas a 24/11/2026 por só terem fonte anterior a 2024: Governo da China (edital de 2021), DAAD (2020) e Fulbright (2021).
+Retiradas a 24/11/2026 por só terem fonte anterior a 2024: Governo da China (edital de 2021), DAAD (2020) e Fulbright (2021). Retiradas por serem edições antigas: Bolsas de Excelência do BCI (2024) e bolsas MCA na UAN (2024/25).
 
 Descartadas por falta de fonte com chamada aberta a quem não é funcionário: Sonangol (só relatórios de bolsas dadas), Unitel (curso de uma semana, não bolsa), Mastercard Foundation e União Africana (sem chamada confirmada para Angola), Erasmus Mundus e Campus France (depende de cada curso).
 
