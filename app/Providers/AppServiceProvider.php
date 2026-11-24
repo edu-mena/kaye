@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Support\Submission;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureRateLimiting();
+
+        // Kursos without the daily limit, and the certificate: Plus, and never a minor (ADR 0025).
+        Gate::define('kursos.unlimited', fn (User $user): bool => $user->hasPlus() && $user->isAdult());
     }
 
     /**

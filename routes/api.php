@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AccessExamController;
 use App\Http\Controllers\Api\AdmissionController;
 use App\Http\Controllers\Api\AgentController;
+use App\Http\Controllers\Api\AreaCommunityController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
 use App\Http\Controllers\Api\CommentController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
 use App\Http\Controllers\Api\InterviewController;
 use App\Http\Controllers\Api\InterviewQuestionController;
+use App\Http\Controllers\Api\KursoAccountController;
 use App\Http\Controllers\Api\KursoController;
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\MeDataController;
@@ -46,6 +48,7 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 Route::get('/health', HealthController::class);
 
 Route::get('/areas', [AreaController::class, 'index']);
+Route::get('/areas/{area}/community', [AreaCommunityController::class, 'show']);
 Route::get('/career-groups', [AreaController::class, 'groups']);
 
 Route::get('/occupations', [OccupationController::class, 'index']);
@@ -130,5 +133,11 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
         Route::delete('/me/consents/{kind}', [ConsentController::class, 'destroy']);
         Route::post('/me/push-subscriptions', [PushSubscriptionController::class, 'store']);
         Route::delete('/me/push-subscriptions', [PushSubscriptionController::class, 'destroy']);
+        Route::get('/me/communities/{area}', [AreaCommunityController::class, 'mine']);
+        Route::put('/me/communities/{area}', [AreaCommunityController::class, 'update']);
+        Route::get('/kursos/progress', [KursoAccountController::class, 'progress']);
+        Route::post('/kursos/{course}/topics/{topic}/complete', [KursoAccountController::class, 'complete']);
+        Route::get('/kursos/{course}/certificate', [KursoAccountController::class, 'certificate']);
+        Route::post('/kursos/{course}/answers', [KursoAccountController::class, 'answer']);
     });
 });
