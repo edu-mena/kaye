@@ -303,7 +303,7 @@ test.describe('journeys', () => {
       .getByRole('link', { name: /Os teus direitos/ })
       .click()
     await expect(page).toHaveURL(/\/privacidade#direitos$/)
-    await expect(page.getByRole('heading', { name: '7. Os teus direitos' })).toBeInViewport()
+    await expect(page.getByRole('heading', { name: '13. Os teus direitos' })).toBeInViewport()
     await expectAccessible(page)
 
     await page.getByRole('link', { name: 'Termos de uso' }).click()

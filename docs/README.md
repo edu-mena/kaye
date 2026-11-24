@@ -9,6 +9,7 @@
 | [design.md](design.md) | Como a app se vê: cores, letras, peças, padrões, gráficos, acessibilidade |
 | [base-de-dados.md](base-de-dados.md) | As tabelas que existem, as convenções e as regras das migrações |
 | [seguranca.md](seguranca.md) | Modelo de ameaças, controlos, privacidade, segredos, incidentes |
+| [legal.md](legal.md) | A lei que se aplica ao Kayé, o que os Termos e a Política de privacidade prometem e o que falta fazer |
 | [observabilidade.md](observabilidade.md) | Logs, erros, saúde, alertas e o que fazer quando algo falha |
 | [infraestrutura.md](infraestrutura.md) | Ambientes, containers, CI/CD, deploy, variáveis de ambiente |
 | [guia-hostinger.md](guia-hostinger.md) | Guia passo a passo, para principiantes, de pôr o Kayé na Hostinger |

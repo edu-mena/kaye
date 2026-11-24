@@ -2,9 +2,9 @@ import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Icon } from '../../components/icons'
-import { Card } from '../../components/ui/Card'
 import { PageHeader } from '../../components/ui/PageHeader'
 import { LEGAL_VERSION } from '../../data/legalVersion'
+import { operatorDetails } from '../../data/operator'
 import type { Locale } from '../../lib/i18n'
 
 // The terms of use and the privacy policy. They are long, so they live here and travel with
@@ -29,9 +29,10 @@ const PATHS = { terms: '/termos', privacy: '/privacidade' } as const
 
 const LINK = 'font-normal text-night underline underline-offset-2 hover:text-blue'
 
-function withEmail(text: string): ReactNode {
-  const [before, after] = text.split('{email}')
-  if (after === undefined) return text
+function withEmail(text: string, locale: Locale): ReactNode {
+  const filled = text.replace('{operator}', operatorDetails(locale))
+  const [before, after] = filled.split('{email}')
+  if (after === undefined) return filled
   return (
     <>
       {before}
@@ -48,7 +49,8 @@ type LegalDocumentProps = { kind: 'terms' | 'privacy'; doc: LegalDoc }
 /** A legal text: the version, the summary in plain words, then the full text with its contents. */
 export function LegalDocument({ kind, doc }: LegalDocumentProps) {
   const { t, i18n } = useTranslation()
-  const text = doc[i18n.language as Locale]
+  const locale = i18n.language as Locale
+  const text = doc[locale]
   const other = kind === 'terms' ? 'privacy' : 'terms'
   const date = new Intl.DateTimeFormat(i18n.language, { dateStyle: 'long' }).format(
     new Date(`${LEGAL_VERSION}T12:00:00`),
@@ -62,11 +64,6 @@ export function LegalDocument({ kind, doc }: LegalDocumentProps) {
         back={{ to: '/configuracoes', label: t('legal.back') }}
       />
       <p className="-mt-5 mb-6 text-sm font-light text-muted">{t('legal.version', { date })}</p>
-
-      <Card tone="notice" className="mb-6 flex items-start gap-3">
-        <Icon name="info" className="mt-0.5 size-5 shrink-0 text-blue" />
-        <p className="text-sm font-light">{t('legal.draft')}</p>
-      </Card>
 
       <section aria-labelledby="summary" className="rise rounded-card bg-night p-6 text-white sm:p-10">
         <h2 id="summary" className="text-xl font-extrabold sm:text-2xl">
@@ -110,11 +107,11 @@ export function LegalDocument({ kind, doc }: LegalDocumentProps) {
               <div className="mt-3 max-w-prose space-y-3 text-sm leading-relaxed font-light text-copy sm:text-base">
                 {section.body.map((block) =>
                   typeof block === 'string' ? (
-                    <p key={block}>{withEmail(block)}</p>
+                    <p key={block}>{withEmail(block, locale)}</p>
                   ) : (
                     <ul key={block.join()} className="list-disc space-y-1.5 pl-5">
                       {block.map((item) => (
-                        <li key={item}>{withEmail(item)}</li>
+                        <li key={item}>{withEmail(item, locale)}</li>
                       ))}
                     </ul>
                   ),
