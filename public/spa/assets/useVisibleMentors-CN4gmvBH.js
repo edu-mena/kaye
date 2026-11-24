@@ -1,0 +1,1 @@
+import{c as e}from"./userStore-BMTytNgW.js";import{n as t}from"./education-D6e7_4F7.js";import{t as n}from"./mentors-Bsu_0J3u.js";function r(){let{profile:n}=e();return!n||t(n.birthYear)}function i(){let e=r();return n.filter(t=>!e||t.availability===`grupo`)}export{i as n,r as t};
