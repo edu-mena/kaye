@@ -36,8 +36,8 @@ class ErrorTrackingTest extends TestCase
         $event = Event::createEvent();
         $event->setUser(new UserDataBag(7, 'ana@example.com', '41.223.10.5', 'ana'));
         $event->setRequest([
-            'url' => 'https://kayeangola.com/api/v1/waitlist/export?token=secret-1234567890',
-            'query_string' => 'token=secret-1234567890',
+            'url' => 'https://kayeangola.com/api/v1/waitlist/export?token=xxxxxxxxxxxx',
+            'query_string' => 'token=xxxxxxxxxxxx',
             'data' => ['email' => 'ana@example.com', 'whatsapp' => '+244 923 456 789'],
             'cookies' => ['kaye_session' => 'abc'],
             'headers' => ['Cookie' => ['kaye_session=abc'], 'Authorization' => ['Bearer 1|abcdef'], 'X-Forwarded-For' => ['41.223.10.5'], 'Accept-Language' => ['pt']],
@@ -54,7 +54,7 @@ class ErrorTrackingTest extends TestCase
             $scrubbed->getBreadcrumbs()[0]->getMessage(), $scrubbed->getBreadcrumbs()[0]->getMetadata(), $scrubbed->getExtra(),
         ]);
 
-        foreach (['ana@example.com', 'joana@example.com', '923 456 789', '41.223.10.5', 'secret-1234567890', 'abcdef', 'kaye_session'] as $personal) {
+        foreach (['ana@example.com', 'joana@example.com', '923 456 789', '41.223.10.5', 'xxxxxxxxxxxx', 'abcdef', 'kaye_session'] as $personal) {
             $this->assertStringNotContainsString($personal, $json);
         }
         $this->assertSame(7, $scrubbed->getUser()?->getId());
