@@ -6,6 +6,7 @@ use App\Models\Concerns\BelongsToCourse;
 use App\Models\Concerns\BelongsToInstitution;
 use App\Models\Concerns\HasContentStatus;
 use App\Models\Concerns\LinksToCareers;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\ProgramFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     /** @use HasFactory<ProgramFactory> */
-    use BelongsToCourse, BelongsToInstitution, HasContentStatus, HasFactory, LinksToCareers;
+    use BelongsToCourse, BelongsToInstitution, HasContentStatus, HasFactory, LinksToCareers, LogsContentChanges;
 
     /**
      * @return array<string, string>

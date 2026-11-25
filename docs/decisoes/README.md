@@ -32,6 +32,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0023](0023-resumo-das-noticias-por-ia.md) | Cada notícia traz um resumo com os dados que importam (excerto por regras; IA opcional com chave) | Aceite |
 | [0024](0024-plano-kaye-plus.md) | Kayé Plus: 1.999 Kz por mês, atrás de uma flag, sem cobrar nada ainda | Aceite |
 | [0025](0025-kursos-diarios-e-fim-do-tudo-gratis.md) | Kursos diários: um tópico por dia na conta grátis, certificado só no Plus, e o fim do "tudo grátis" | Aceite |
+| [0026](0026-papeis-2fa-copias-e-saude.md) | Papéis da equipa (spatie), 2FA obrigatória no painel, lista de espera cifrada, saúde com token, Pulse, cópias S3 com teste de reposição | Aceite |
 
 Modelo para um novo ADR:
 

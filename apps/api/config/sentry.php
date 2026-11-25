@@ -55,6 +55,11 @@ return [
     // request bodies leave the server (docs/seguranca.md).
     'send_default_pii' => false,
 
+    // The last door: takes out any email, phone, IP, token, cookie or request body still in the event (fixed in
+    // the code, like send_default_pii). Tested by ErrorTrackingTest.
+    'before_send' => [App\Support\SentryScrubber::class, 'beforeSend'],
+    'before_send_transaction' => [App\Support\SentryScrubber::class, 'beforeSend'],
+
     // Configures which data is collected automatically, `null` keeps collecting data based on `send_default_pii`
     'data_collection' => null,
 

@@ -47,6 +47,21 @@ return [
             'report' => false,
         ],
 
+        // The daily copies, off Hostinger (config/backup.php: BACKUP_DISK=backups). Any S3-compatible storage:
+        // AWS S3, Cloudflare R2, Backblaze B2. The key only needs to read, write and delete in this bucket.
+        'backups' => [
+            'driver' => 's3',
+            'key' => env('BACKUP_S3_KEY'),
+            'secret' => env('BACKUP_S3_SECRET'),
+            'region' => env('BACKUP_S3_REGION', 'auto'),
+            'bucket' => env('BACKUP_S3_BUCKET'),
+            'endpoint' => env('BACKUP_S3_ENDPOINT'),
+            'use_path_style_endpoint' => (bool) env('BACKUP_S3_PATH_STYLE', false),
+            'visibility' => 'private',
+            'throw' => true,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -10,6 +10,7 @@ use App\Filament\Resources\Messages\Pages\CreateMessage;
 use App\Filament\Resources\Messages\Pages\EditMessage;
 use App\Filament\Resources\Messages\Pages\ListMessages;
 use App\Models\Message;
+use App\Support\AuditLog;
 use BackedEnum;
 use Closure;
 use Filament\Actions\Action;
@@ -27,7 +28,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Campaigns by email or push (docs/seguranca.md, "Avisos"): write, choose the audience, send in batches, and
@@ -115,14 +116,12 @@ class MessageResource extends Resource
                     ->requiresConfirmation()
                     ->modalDescription('Sai em lotes, dentro do limite por hora, só para quem consentiu neste canal. As novidades nunca chegam a menores.')
                     ->visible(fn (Message $record): bool => $record->status === MessageStatus::Draft)
-                    ->action(fn (Message $record): bool => $record->update(['status' => MessageStatus::Sending])),
+                    ->authorize(fn (Message $record): bool => Auth::user()?->can('send', $record) ?? false)
+                    ->action(function (Message $record): void {
+                        $record->update(['status' => MessageStatus::Sending]);
+                        AuditLog::admin('message_sent', $record, ['channel' => $record->channel->value]);
+                    }),
             ]);
-    }
-
-    /** Only a draft changes: what went out stays as it was sent. */
-    public static function canEdit(Model $record): bool
-    {
-        return $record instanceof Message && $record->status === MessageStatus::Draft;
     }
 
     public static function getPages(): array

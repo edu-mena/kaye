@@ -123,8 +123,11 @@ Antes de criar alguma coisa, procura se já existe:
 | Um ecrã que precisa de perfil | `withProfile()` em `router.tsx` |
 | Montar um componente num teste | `renderWithApp`, `mockFetchJson`; dados da pessoa com `seedUser`, `seedTested` (`src/test/user.ts`) |
 | A lista de idiomas no PHP | `App\Enums\Locale` |
-| Papéis de utilizador | `App\Enums\UserRole` |
-| Um utilizador de teste | `User::factory()`, com os estados `admin()` e `minor()` |
+| Papéis e permissões da equipa | `App\Enums\StaffRole` e `StaffPermission`; a policy de cada modelo em `App\Support\ModelKinds` |
+| Um utilizador de teste | `User::factory()`, com os estados `admin()`, `editor()`, `reviewer()` (já com 2FA; `withoutTotp()` tira-o) e `minor()` |
+| Registar na auditoria um login ou uma ação da equipa | `App\Support\AuditLog` (o conteúdo regista-se sozinho com `LogsContentChanges`) |
+| Cifrar um campo pessoal e continuar a procurá-lo | O cast `encrypted` e uma coluna `*_hash` com `App\Support\BlindIndex` (ver `WaitlistEntry`) |
+| Uma rota protegida por um segredo | `App\Support\AccessToken` e `throttle:secret` |
 | Validar um email ou um WhatsApp no PHP (os mesmos padrões da app) | `App\Support\Contact` |
 | Uma escrita sem conta: corpo JSON com limite, campo-isco, resposta `no-store` | `App\Support\Submission` |
 | Um limite de pedidos por hora para uma rota sem conta | `AppServiceProvider::HOURLY_WRITES` e `throttle:<nome>` |

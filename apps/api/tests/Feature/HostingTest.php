@@ -30,6 +30,12 @@ class HostingTest extends TestCase
         $this->assertStringContainsString('max-age=31536000, immutable', $rules);
     }
 
+    public function test_the_files_apache_serves_by_itself_are_never_type_sniffed(): void
+    {
+        // Before, the JavaScript, the styles and the images left without X-Content-Type-Options (ZAP rule 10021).
+        $this->assertMatchesRegularExpression('/<IfModule mod_headers\.c>.*Header set X-Content-Type-Options "nosniff".*<\/IfModule>/s', $this->file('public/.htaccess'));
+    }
+
     public function test_the_public_htaccess_forces_https_except_on_this_machine(): void
     {
         $rules = $this->file('public/.htaccess');
@@ -111,17 +117,19 @@ class HostingTest extends TestCase
     public function test_health_says_the_cron_is_unknown_until_it_beats(): void
     {
         Cache::forget('kaye.cron.heartbeat');
+        config(['kaye.health_token' => str_repeat('h', 20)]);
 
-        $this->getJson('/api/v1/health')->assertOk()->assertJsonPath('checks.cron', 'unknown');
+        $this->getJson('/api/v1/health', ['X-Health-Token' => str_repeat('h', 20)])->assertServiceUnavailable()->assertJsonPath('checks.cron.status', 'unknown');
     }
 
     public function test_health_says_the_cron_is_ok_after_a_beat_and_stale_when_it_stops(): void
     {
         CronHeartbeat::beat();
-        $this->getJson('/api/v1/health')->assertJsonPath('checks.cron', 'ok');
+        config(['kaye.health_token' => str_repeat('h', 20)]);
+        $this->getJson('/api/v1/health', ['X-Health-Token' => str_repeat('h', 20)])->assertJsonPath('checks.cron.status', 'ok');
 
         $this->travel(CronHeartbeat::STALE_AFTER_SECONDS + 1)->seconds();
-        $this->getJson('/api/v1/health')->assertOk()->assertJsonPath('checks.cron', 'stale');
+        $this->getJson('/api/v1/health', ['X-Health-Token' => str_repeat('h', 20)])->assertServiceUnavailable()->assertJsonPath('checks.cron.status', 'stale');
     }
 
     public function test_the_scheduler_beats_every_minute(): void

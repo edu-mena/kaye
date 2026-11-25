@@ -23,7 +23,7 @@ kaye/
 
 | Pasta | O que vai lá | Exemplo |
 |---|---|---|
-| `app/Enums` | Listas fixas de valores, com tipo | `Locale`, `UserRole` |
+| `app/Enums` | Listas fixas de valores, com tipo | `Locale`, `StaffRole` |
 | `app/Models` | Modelos Eloquent: uma tabela, as suas regras e relações | `User` |
 | `app/Http/Controllers` | Um controlador por recurso ou ação. Fino: valida, chama, responde | `HealthController`, `SpaController` |
 | `app/Http/Middleware` | O que se aplica a muitos pedidos | `SecurityHeaders`, `AssignRequestId`, `SetLocaleFromRequest` |
@@ -76,7 +76,7 @@ O `domain` sem React quer dizer que as regras se testam sem ecrãs e que, quando
 | URLs da app | Português | `/carreiras`, `/formacao` |
 | Textos para o utilizador | Chaves em inglês, textos em pt, en e fr | `t('nav.jobs')` |
 | Classes PHP | PascalCase, uma por ficheiro | `CheckProductionConfig` |
-| Casos de enum | TitleCase | `UserRole::Moderator` |
+| Casos de enum | TitleCase | `StaffRole::Reviewer` |
 | Componentes React | PascalCase, ficheiro com o mesmo nome | `CareerCard.tsx` |
 | Hooks | `use` + o que devolvem | `useApiHealth`, `useUrlFilters` |
 | Testes web | Ao lado do ficheiro, `.test.ts(x)`; um ficheiro pode cobrir a área inteira | `riasec.test.ts`, `cv.test.tsx` |

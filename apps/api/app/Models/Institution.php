@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\InstitutionFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,7 +20,7 @@ use Spatie\Translatable\HasTranslations;
 class Institution extends Model
 {
     /** @use HasFactory<InstitutionFactory> */
-    use HasContentStatus, HasFactory, HasTranslations;
+    use HasContentStatus, HasFactory, HasTranslations, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.
