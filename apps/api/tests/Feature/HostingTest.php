@@ -88,6 +88,8 @@ class HostingTest extends TestCase
         $this->assertNotFalse($migrate);
         $this->assertTrue($wait < $strip && $strip < $migrate, 'Wait, then remove dev tools, then migrate.');
         $this->assertStringContainsString('vendor/laravel/boost', $script);
+        // The images approved in the panel are served from public/storage.
+        $this->assertStringContainsString('[ -e public/storage ] || "$php" artisan storage:link', $script);
         // The cron is checked on the server, before the smoke test: the public /health no longer shows it.
         $health = strpos($script, 'artisan kaye:health');
         $this->assertNotFalse($health, 'The deploy does not check the cron.');
