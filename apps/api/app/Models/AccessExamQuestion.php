@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\AccessExamQuestionFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccessExamQuestion extends Model
 {
     /** @use HasFactory<AccessExamQuestionFactory> */
-    use HasContentStatus, HasFactory;
+    use HasContentStatus, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

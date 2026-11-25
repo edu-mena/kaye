@@ -14,7 +14,7 @@ MySQL/MariaDB, relacional. Este documento descreve **o que existe hoje**, as reg
 | Datas em UTC (`timestamp`); a app mostra-as na hora de Angola | Sem confusões com fusos horários |
 | `created_at` e `updated_at` em todas as tabelas de negócio | Saber quando mudou |
 | `deleted_at` (*soft delete*) só onde for preciso recuperar | Apagar a conta remove os dados pessoais a sério (ver [seguranca.md](seguranca.md#dados-pessoais-e-menores)) |
-| Valores fixos guardados como texto curto e convertidos para enum no PHP | `role` → `App\Enums\UserRole` |
+| Valores fixos guardados como texto curto e convertidos para enum no PHP | `locale` → `App\Enums\Locale` |
 | `country_code` (sempre `AO` por agora) em instituições, vagas e estatísticas | Preparado para outros países |
 | Todos os dados recolhidos têm `source_url` e `last_verified_at` | Transparência |
 
@@ -53,12 +53,15 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 | `province` | varchar(64) | Província, nunca a morada |
 | `current_education_level` | varchar(32) | |
 | `locale` | varchar(5), por omissão `pt` | `pt`, `en` ou `fr` (`App\Enums\Locale`) |
-| `role` | varchar(16), por omissão `user`, indexado | `user`, `moderator` ou `admin` (`App\Enums\UserRole`) |
+| `app_authentication_secret`, `app_authentication_recovery_codes` | text, podem ser vazios, **cifradas** | O segundo fator (TOTP) do painel e os códigos de recuperação. Nunca saem no JSON do modelo |
 | `xp` | int | Pontos da gamificação |
 | `last_login_at` | timestamp, pode ser vazio | O último login com o Google |
 | `password` | varchar, pode ser vazio | **Só para o admin local**, até o painel passar para o login Google. Os utilizadores nunca têm senha |
 | `remember_token` | varchar | Sessão do painel |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | |
+
+Os papéis da equipa (`admin`, `editor`, `reviewer`) já não estão numa coluna: vivem em `roles` e `model_has_roles` (`spatie/laravel-permission`, [ADR 0026](decisoes/0026-papeis-2fa-copias-e-saude.md)), com as permissões de `App\Enums\StaffRole`. A migração passou `admin` a `admin` e `moderator` a `reviewer`.
+
 
 ### Pessoas (login, ADR 0019)
 
@@ -774,8 +777,10 @@ A lista de espera, migrada do Upstash.
 | Coluna | Tipo | Notas |
 |---|---|---|
 | `name` | varchar | |
-| `email` | varchar, pode ser vazio, único | |
-| `whatsapp` | varchar(20), pode ser vazio, único | E.164 |
+| `email` | text, pode ser vazio, **cifrado** com a `APP_KEY` | |
+| `email_hash` | char(64), pode ser vazio, único | HMAC-SHA256 do email em minúsculas, com a `APP_KEY`: encontra duplicados e é por onde o painel procura (`BlindIndex`) |
+| `whatsapp` | text, pode ser vazio, **cifrado** | E.164 |
+| `whatsapp_hash` | char(64), pode ser vazio, único | Como `email_hash` |
 | `source` | varchar(12) | `landing`, `onboarding`, `plus` (quem quer ser avisado quando o Kayé Plus abrir) |
 | `locale` | varchar(5) | O `lang` da app |
 | `consent_at` | timestamp | |
@@ -915,7 +920,7 @@ Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A 
 
 | Tabela | Pacote | Dados pessoais |
 |---|---|---|
-| `activity_log` | `spatie/laravel-activitylog` | O id de quem mudou; nunca o conteúdo de `user_data` |
+| `activity_log` | `spatie/laravel-activitylog` | O id de quem mudou, e nos logins o IP truncado; nunca o conteúdo de `user_data` nem um email (as falhas de login guardam um *hash*). Um ano; os logins de uma pessoa vão com a conta |
 | `roles`, `permissions`, `model_has_roles`, `model_has_permissions`, `role_has_permissions` | `spatie/laravel-permission` | Não |
 | `pulse_entries`, `pulse_aggregates`, `pulse_values` | `laravel/pulse` | Ids de utilizador nos pedidos lentos; limpas ao fim de 7 dias |
 

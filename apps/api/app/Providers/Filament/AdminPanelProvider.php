@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -28,6 +29,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            // The second factor is required (docs/seguranca.md): an app code (TOTP), with recovery codes for a
+            // lost phone. Until it is set up, the panel only shows the page that sets it up.
+            ->multiFactorAuthentication([AppAuthentication::make()->recoverable()], isRequired: true)
             ->brandName('Kayé · Admin')
             ->colors([
                 // Brand: amarelo #FFC000 and azul-marinho #1B2A43.

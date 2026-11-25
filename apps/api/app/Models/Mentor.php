@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
 use App\Models\Concerns\LinksToCareers;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\MentorFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ use Spatie\Translatable\HasTranslations;
 class Mentor extends Model
 {
     /** @use HasFactory<MentorFactory> */
-    use HasContentStatus, HasFactory, HasTranslations, LinksToCareers;
+    use HasContentStatus, HasFactory, HasTranslations, LinksToCareers, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.

@@ -56,6 +56,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Health and alerts
+    |--------------------------------------------------------------------------
+    |
+    | HEALTH_TOKEN opens every check of GET /api/v1/health (the uptime monitor
+    | sends it); without it the answer only says whether the Kayé works.
+    | Shorter than 16 characters, or empty: nobody sees the details. The queue
+    | counts as stuck when a job waits longer than QUEUE_STUCK_MINUTES, and the
+    | disk as full below DISK_MIN_FREE_PERCENT free. Alerts go to ADMIN_EMAILS.
+    |
+    */
+
+    'health_token' => (string) env('HEALTH_TOKEN', ''),
+
+    'queue_stuck_minutes' => (int) env('QUEUE_STUCK_MINUTES', 15),
+
+    'disk_min_free_percent' => (int) env('DISK_MIN_FREE_PERCENT', 10),
+
+    /*
+    |--------------------------------------------------------------------------
     | API reads per minute
     |--------------------------------------------------------------------------
     |

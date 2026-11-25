@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Support\Accounts;
+use App\Support\AuditLog;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,10 +34,14 @@ class GoogleLoginController extends Controller
         try {
             $google = Socialite::driver('google')->user();
         } catch (Throwable) {
+            AuditLog::signInFailed('web', 'invalid_callback');
+
             return redirect('/?login=failed');
         }
 
         if (! $google instanceof GoogleUser || ($google->user['email_verified'] ?? false) !== true || ! is_string($google->getEmail())) {
+            AuditLog::signInFailed('web', 'unverified_email');
+
             return redirect('/?login=failed');
         }
 
@@ -48,6 +53,8 @@ class GoogleLoginController extends Controller
                 'picture' => $google->getAvatar(),
             ]);
         } catch (AuthorizationException) {
+            AuditLog::signInFailed('web', 'closed_account', $google->getEmail());
+
             return redirect('/?login=closed');
         }
 

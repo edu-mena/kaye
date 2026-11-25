@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsContentChanges;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
 #[Guarded(['id'])]
 class KursoQuestionStat extends Model
 {
+    use LogsContentChanges;
+
     public $timestamps = false;
 
     /** Under this many answers the rate says nothing. */
