@@ -212,6 +212,7 @@ Só no site de teste (Vercel): `KV_REST_API_URL` e `KV_REST_API_TOKEN`, criadas 
 | `HOSTINGER_SSH_HOST`, `HOSTINGER_SSH_PORT`, `HOSTINGER_SSH_USER` | `staging`, `production` |
 | `HOSTINGER_SITE_DIR` (a pasta do site no servidor, p. ex. `domains/<site>/public_html`) | `production` |
 | Variável (não segredo) `SITE_URL`: o endereço a testar depois do deploy | `production` |
+| `HEALTH_TOKEN` (opcional, o mesmo valor do `.env` do servidor): com ele, o teste de fumo de fora também lê o cron | `production` |
 | `HOSTINGER_SSH_KEY` (chave privada só para o deploy) | `staging`, `production` |
 | `HOSTINGER_SSH_KNOWN_HOSTS` (impressão digital do servidor) | `staging`, `production` |
 
