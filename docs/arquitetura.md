@@ -689,7 +689,7 @@ Basta uma linha de cron no hPanel: `* * * * * php artisan schedule:run`.
 |---|---|
 | A cada minuto | Processar a fila (vagas, emails) |
 | De 2 em 2 horas | `kaye:fetch-news`: notícias de Angola sobre formação, emprego e carreiras ([fontes-de-noticias.md](fontes-de-noticias.md)) |
-| De 2 em 2 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
+| De 3 em 3 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
 | Diário, 02:00 | Expirar vagas antigas, limpar tokens velhos |
 | Sábado, 22:00 | Scrapers completos no GitHub Actions |
 | Domingo, 03:00 | Recalcular `market_stats` |

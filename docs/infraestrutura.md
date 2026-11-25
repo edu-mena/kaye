@@ -211,7 +211,7 @@ Só no site de teste (Vercel): `KV_REST_API_URL` e `KV_REST_API_TOKEN`, criadas 
 
 | Item | Custo |
 |---|---|
-| GitHub (repositório privado, Actions, Dependabot) | Grátis; o GitHub Student Developer Pack dá o GitHub Pro (ambientes com aprovação em repositórios privados) |
+| GitHub (repositório público desde 25/11/2026, Actions, Dependabot) | Grátis: num repositório público o Actions não tem limite de minutos. O Dependabot é mensal, um PR por ecossistema, e a corrida leve das vagas é de 3 em 3 horas ([scrapers/README.md](../scrapers/README.md)), para gastar pouco na mesma |
 | Sentry, UptimeRobot, Cloudflare | Planos grátis |
 | Docker Desktop | Grátis para uso pessoal e educativo |
 | Hostinger, domínio, Google Play | Ver [arquitetura.md](arquitetura.md#custos-previstos) |

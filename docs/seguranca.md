@@ -125,7 +125,7 @@ As páginas dos links são do Laravel (`resources/views/notices/page.blade.php`)
 - Os scripts de instalação npm estão bloqueados (`.npmrc`: `ignore-scripts=true`).
 - Uma dependência indireta vulnerável (`uuid`, usada pela ferramenta iOS do Capacitor) foi forçada para a versão corrigida, em `overrides` no `package.json`.
 - As GitHub Actions estão fixadas pelo hash do commit, não pela etiqueta.
-- O Dependabot propõe atualizações todas as semanas, com 7 dias de espera para versões novas. As correções de segurança passam à frente.
+- O Dependabot propõe atualizações uma vez por mês, um PR por ecossistema (composer, npm, actions, docker), com 7 dias de espera para versões novas. As correções de segurança não esperam pelo mês: chegam assim que o aviso é publicado.
 - **Duas regras do Semgrep estão excluídas, com motivo:**
   - *idade mínima de publicação no npm*: o npm 11.12 não a suporta; o `npm ci` e a espera do Dependabot cobrem o risco;
   - *atividade Android exportada*: a atividade principal tem de estar exportada para o ícone abrir a app.
