@@ -35,6 +35,8 @@ fi
 
 step "Migrations"
 "$php" artisan migrate --force
+step "Public files (the approved images, docs/ia.md)"
+[ -e public/storage ] || "$php" artisan storage:link
 step "Catalogue (only what changed)"
 "$php" artisan kaye:import
 step "Caches (config, routes, views)"

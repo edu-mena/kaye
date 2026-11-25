@@ -195,7 +195,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 | `position` | smallint, por omissão `0` | A ordem em que a app mostra a lista (o `position` da exportação) |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | *Soft delete*: o conteúdo apagado recupera-se no painel |
 
-**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA traduz para en e fr no prompt 8 (`ai_tasks` do tipo `translate`), e cada tradução entra em `revisions` até ser aprovada.
+**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA pode propor as traduções en e fr (um pedido como "traduz os resumos das empresas" em "Pesquisar com IA", ou pelo MCP), e cada tradução entra em `revisions` até ser aprovada ([ia.md](ia.md)).
 
 **Dados de exemplo.** O que foi inventado para a demonstração (as instituições com `example`, os `programs` delas, as novidades e os testemunhos com `example`) é importado com `status = draft`: fica na base de dados, **invisível em produção**, até haver dados reais que o substituam.
 
@@ -882,39 +882,46 @@ Do pacote `laravel-notification-channels/webpush`: `subscribable_type`, `subscri
 
 #### `ai_tasks`
 
-Cada pedido à IA (pesquisa, rascunho, tradução, verificação de fonte).
+Cada pesquisa pedida à IA no painel ("Pesquisar com IA", [ia.md](ia.md)). Corre na fila (`RunAiTask`).
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `kind` | varchar(12) | `research`, `draft`, `translate`, `verify` |
-| `target_type`, `target_id` | varchar, bigint, podem ser vazios | O registo sobre o qual trabalha |
-| `prompt` | text | Nunca com dados de pessoas |
-| `status` | varchar(10), indexado | `queued`, `running`, `done`, `failed` |
-| `result` | json, pode ser vazio | |
-| `sources` | json, pode ser vazio | As fontes que encontrou |
-| `model` | varchar(48) | |
-| `input_tokens`, `output_tokens` | int | |
-| `cost_usd` | decimal(8,4) | |
-| `requested_by` | fk → `users` | |
+| `kind` | varchar(12), por omissão `research` | |
+| `content_type` | varchar(32) | Um tipo de `App\Support\ContentTypes` (`institution`, `company`…) |
+| `target_slug` | varchar(191), pode ser vazio | Vazio: a IA escolhe os registos a que faltam dados |
+| `prompt` | text | O pedido da equipa. Nunca com dados de pessoas |
+| `status` | varchar(10), indexado | `queued`, `running`, `done`, `failed`, `skipped` (orçamento do dia gasto) |
+| `result` | text, pode ser vazio | O resumo final da IA |
+| `sources` | json, pode ser vazio | As fontes das propostas que fez |
+| `model` | varchar(48) | O modelo que respondeu (pode ser o de *fallback*) |
+| `input_tokens`, `output_tokens`, `web_searches` | int | Somados em todas as voltas |
+| `cost_usd` | decimal(8,4) | Conta para `AI_DAILY_BUDGET_USD` |
+| `requested_by` | fk → `users`, pode ser vazio | |
 | `started_at`, `finished_at` | timestamp, podem ser vazios | |
-| `error` | text, pode ser vazio | |
+| `error` | varchar(255), pode ser vazio | O motivo de parar (orçamento, limite, recusa) ou a classe do erro; nunca o corpo de uma resposta |
 | `created_at`, `updated_at` | timestamp | |
 
 #### `revisions`
 
-Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A IA só escreve aqui** (ADR 0019).
+Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A IA só escreve aqui** ([ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)). As propostas de um registo são o seu histórico.
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `revisable_type`, `revisable_id` | varchar, bigint | `revisable_id` vazio = registo novo |
-| `ai_task_id` | fk → `ai_tasks`, pode ser vazio | |
-| `author_id` | fk → `users`, pode ser vazio | |
-| `changes` | json | Campo → valor novo |
-| `original` | json, pode ser vazio | Os valores antes, para mostrar a diferença |
+| `content_type` | varchar(32) | O tipo em `ContentTypes` |
+| `revisable_type`, `revisable_id` | varchar, bigint, indexados | `revisable_id` vazio = registo novo (preenchido ao aprovar) |
+| `slug` | varchar(191) | O slug do registo, ou o do registo novo |
+| `ai_task_id` | fk → `ai_tasks`, pode ser vazio | A pesquisa que a fez |
+| `author_id` | fk → `users`, pode ser vazio | Quem a fez pelo MCP; vazio quando veio de uma pesquisa |
+| `changes` | json | Campo → valor novo. Uma imagem é `ai-image:<ficheiro privado>` até ser aprovada |
+| `original` | json, pode ser vazio | Os valores no momento da proposta: se mudarem, a aprovação fica bloqueada |
 | `source_url` | varchar(2048) | **Obrigatório** |
+| `note` | text, pode ser vazio | A nota de quem propôs |
 | `status` | varchar(10), indexado | `pending`, `approved`, `rejected` |
-| `reviewed_by`, `reviewed_at`, `note` | fk → `users`, timestamp, text | |
+| `reviewed_by`, `reviewed_at` | fk → `users`, timestamp | Quem aprovou ou rejeitou (nunca o autor) |
+| `rejection_reason` | text, pode ser vazio | Obrigatório ao rejeitar |
 | `created_at`, `updated_at` | timestamp | |
+
+O `kaye:import` não volta a escrever os campos de uma proposta aprovada (nem `sources`, `source_url` e `source_checked_at` desse registo).
 
 #### Dos pacotes
 

@@ -88,6 +88,8 @@ class HostingTest extends TestCase
         $this->assertNotFalse($migrate);
         $this->assertTrue($wait < $strip && $strip < $migrate, 'Wait, then remove dev tools, then migrate.');
         $this->assertStringContainsString('vendor/laravel/boost', $script);
+        // The images approved in the panel are served from public/storage.
+        $this->assertStringContainsString('[ -e public/storage ] || "$php" artisan storage:link', $script);
     }
 
     public function test_the_deploy_workflow_retries_only_the_transient_ssh_failure(): void

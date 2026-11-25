@@ -19,6 +19,7 @@
 | [videos.md](videos.md) | Como gravar um vídeo "O meu dia como…", o consentimento e onde pôr os ficheiros |
 | [apresentacao.md](apresentacao.md) | O roteiro de 10 minutos para mostrar o Kayé: o que abrir, por que ordem, as empresas e academias seguras e o que dizer sobre o que falta |
 | [mentores.md](mentores.md) | Regras para os mentores, como são aprovados e o consentimento |
+| [ia.md](ia.md) | Como ligar o Claude ao catálogo (MCP), pedir pesquisas no painel e rever as propostas da IA |
 | [decisoes/](decisoes/README.md) | Porque decidimos o que decidimos (ADR) |
 
 Para pôr o projeto a correr, vê o [README](../README.md) na raiz.
