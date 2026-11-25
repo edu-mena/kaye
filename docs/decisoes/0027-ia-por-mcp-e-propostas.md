@@ -1,6 +1,6 @@
 # 0027. A IA liga-se por MCP e só escreve propostas
 
-25 de novembro de 2026 · Estado: Aceite
+25 de novembro de 2026 · Estado: Aceite (o ponto 6 foi alargado às edições do painel pelo [ADR 0028](0028-painel-completo.md))
 
 ## Contexto
 

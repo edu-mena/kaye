@@ -21,9 +21,9 @@ Como o Kayé é construído, testado e publicado. A arquitetura das peças está
 
 | Ficheiro | O que faz |
 |---|---|
-| `docker/Dockerfile` | Imagem em 4 etapas: compila a app React → base PHP 8.4 + Apache → dependências de produção → imagem final |
+| `docker/Dockerfile` | Imagem em 5 etapas: compila a app React → base PHP 8.4 + Apache → dependências de produção → tema do painel (Vite, sobre o CSS do Filament em `vendor/`) → imagem final |
 | `docker/php.ini` | Definições de produção (`expose_php=Off`, opcache, limites) |
-| `docker/entrypoint.sh` | No arranque: valida a `APP_KEY`, corre as migrações (se pedido) e põe a configuração em cache |
+| `docker/entrypoint.sh` | No arranque: valida a `APP_KEY`, corre as migrações (se pedido), cria a conta de teste do painel (só com `E2E_ADMIN_PASSWORD`) e põe a configuração em cache |
 | `compose.yaml` | Stack local e de CI: a imagem + MariaDB 11.4 |
 | `.dockerignore` | Deixa de fora segredos (`.env`), `vendor`, `node_modules`, Android e docs |
 
@@ -72,10 +72,10 @@ O job `package` corre `scripts/package-release.sh <versão>` e guarda `kaye-<ver
 
 - o Laravel com as dependências de produção (`--no-dev`, *classmap* otimizado);
 - a app React compilada em `public/spa`;
-- os ficheiros do Filament;
+- os ficheiros do Filament e o tema do painel compilado em `public/build` (`npm run build` em `apps/api`, [design.md](design.md#painel-de-administração-admin));
 - um ficheiro `RELEASE` com a versão.
 
-Não leva `.env`, testes nem ferramentas de desenvolvimento. O script falha se encontrar o Laravel Boost.
+Não leva `.env`, testes, `node_modules` nem ferramentas de desenvolvimento. O script falha se encontrar o Laravel Boost ou se faltar o tema do painel (`public/build/manifest.json`), e o `publish-deploy.sh` volta a verificar o tema antes de o pôr no ramo `deploy`.
 
 ### O deploy na Hostinger
 
@@ -203,6 +203,10 @@ Além do que corre no CI, em `https://` confirma que o http vai para o https, o 
 | `DB_RESTORE_USERNAME`, `DB_RESTORE_PASSWORD` | vazio (usa `DB_USERNAME`) | o utilizador dessa base, **secreta** | |
 
 Só nos containers: `ALLOW_EPHEMERAL_APP_KEY` (cria uma `APP_KEY` descartável; nunca em produção), `RUN_MIGRATIONS` (corre as migrações no arranque) e `RUN_IMPORT` (corre `kaye:import` a seguir, para o catálogo estar na base; o `compose.yaml` liga-o).
+
+Só nos testes E2E (o `compose.yaml` e o servidor local do `playwright.config.ts`): `E2E_ADMIN_EMAIL` (por omissão `admin@kaye.test`, que tem de estar em `ADMIN_EMAILS`), `E2E_ADMIN_PASSWORD` (12 caracteres ou mais) e `E2E_ADMIN_TOTP_SECRET` (o segredo base32 do segundo fator). Com elas, `php artisan db:seed --class=E2eAdminSeeder` cria o administrador com que `e2e/admin.spec.ts` entra no painel; sem elas, o *seeder* recusa-se. **Nunca em produção.**
+
+**Definições no painel.** `ANTHROPIC_API_KEY`, `AI_DAILY_BUDGET_USD`, `AI_TASK_MAX_TOKENS`, `MCP_TOKEN_DAYS`, `MAIL_HOURLY_LIMIT`, `PUSH_HOURLY_LIMIT`, `HEALTH_TOKEN`, `INGEST_TOKEN` e `WAITLIST_EXPORT_TOKEN` também se mudam no painel (Sistema → Definições, só administradores). O valor gravado lá, cifrado com a `APP_KEY` na tabela `settings`, vale em vez do `.env`; "Voltar ao .env" apaga-o ([ADR 0028](decisoes/0028-painel-completo.md)).
 
 > O `DocumentationTest` também falha se uma variável `VITE_*` de `apps/web/src/env.d.ts` não estiver descrita aqui.
 

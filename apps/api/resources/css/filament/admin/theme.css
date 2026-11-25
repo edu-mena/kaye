@@ -1,0 +1,197 @@
+/*
+ * The panel's theme: the site's look (docs/design.md, "Painel"). The colours come from the panel provider
+ * (App\Filament\KayeTheme, the same values as apps/web/src/index.css); here are the font, the shapes and the
+ * black sidebar with yellow icons. Everything is served from our own domain (the panel's CSP, ADR 0002).
+ */
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    --radius-card: 1.75rem;
+    --shadow-card: 0 1px 2px rgb(22 23 27 / 0.03), 0 12px 40px -16px rgb(22 23 27 / 0.08);
+}
+
+/* The yellow focus ring of the site, on every control. */
+:focus-visible {
+    outline: 3px solid #ffc000;
+    outline-offset: 2px;
+}
+
+::selection {
+    background: #ffe7a3;
+    color: #16171b;
+}
+
+/* Cards: the site's 28 px corners and soft shadow. */
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat,
+.fi-fo-tabs,
+.fi-sc-tabs,
+.fi-modal-window {
+    @apply rounded-(--radius-card);
+}
+
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat {
+    @apply shadow-(--shadow-card) dark:shadow-none;
+}
+
+.fi-input-wrp,
+.fi-btn,
+.fi-dropdown-panel {
+    @apply rounded-xl;
+}
+
+/* Headings: weight, not capitals or letter spacing (docs/design.md, "Hierarquia"). */
+.fi-header-heading {
+    @apply font-extrabold;
+}
+
+/* The black sidebar of the site: light white text, yellow icons, a lighter pill for the active item. */
+.fi-sidebar {
+    @apply bg-gray-950 dark:bg-gray-950 lg:bg-gray-950 dark:lg:bg-gray-950;
+}
+
+.fi-body-has-topbar .fi-sidebar {
+    @apply lg:start-3 lg:top-[calc(var(--topbar-height)+0.75rem)] lg:h-[calc(100dvh-var(--topbar-height)-1.5rem)] lg:rounded-(--radius-card) lg:shadow-(--shadow-card);
+}
+
+.fi-sidebar .fi-sidebar-header {
+    @apply bg-gray-950 ring-white/10;
+}
+
+.fi-sidebar .fi-sidebar-group-label,
+.fi-sidebar .fi-sidebar-group-btn .fi-icon {
+    @apply text-white/70;
+}
+
+.fi-sidebar .fi-sidebar-item-label {
+    @apply font-light text-white;
+}
+
+.fi-sidebar .fi-sidebar-item-btn > .fi-icon {
+    @apply text-[#ffc000];
+}
+
+.fi-sidebar .fi-sidebar-item.fi-sidebar-item-has-url > .fi-sidebar-item-btn {
+    @apply hover:bg-white/10 focus-visible:bg-white/10;
+}
+
+.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    @apply bg-white/15;
+
+    & > .fi-icon,
+    & > .fi-sidebar-item-label {
+        @apply font-normal text-white;
+    }
+
+    & > .fi-icon {
+        @apply text-[#ffc000];
+    }
+}
+
+.fi-sidebar .fi-sidebar-item-badge-ctn .fi-badge {
+    @apply bg-[#ffc000] text-gray-950 ring-0;
+}
+
+.fi-sidebar .fi-sidebar-header-controls {
+    @apply after:border-white/10;
+}
+
+/* The logo is white on the black sidebar (the coloured one stays on the sign-in page). */
+.fi-sidebar .fi-logo img,
+.fi-topbar .fi-logo img,
+.dark .fi-logo img {
+    filter: brightness(0) invert(1);
+}
+
+.fi-topbar .fi-logo img {
+    @apply dark:filter-none;
+}
+
+/* The top bar is a white card floating 12 px from the edges, as on the site. */
+.fi-topbar-ctn {
+    @apply px-3 pt-3;
+}
+
+.fi-topbar {
+    @apply rounded-(--radius-card) shadow-(--shadow-card) ring-0 dark:ring-1;
+}
+
+.fi-body-has-topbar .fi-main-ctn {
+    @apply lg:ps-3;
+}
+
+/* The app's paper background in light mode; the site's almost-black (coal and night) in dark mode. */
+.fi-body {
+    @apply bg-gray-50 dark:bg-gray-950;
+}
+
+/* Side-by-side difference of a proposal (Caixa da IA). */
+.kaye-diff {
+    @apply w-full text-sm;
+
+    & th,
+    & td {
+        @apply px-2 py-2 align-top;
+    }
+
+    & thead th {
+        @apply text-start font-semibold text-gray-600 dark:text-gray-300;
+    }
+
+    & tbody th {
+        @apply text-start font-normal whitespace-nowrap text-gray-600 dark:text-gray-300;
+    }
+
+    & tbody tr {
+        @apply border-t border-gray-200 dark:border-white/10;
+    }
+
+    & td {
+        @apply break-words whitespace-pre-wrap text-gray-950 dark:text-white;
+    }
+
+    & del {
+        @apply rounded bg-danger-50 text-danger-700 line-through decoration-danger-700 dark:bg-danger-500/20 dark:text-danger-300;
+    }
+
+    & ins {
+        @apply rounded bg-success-50 text-success-700 no-underline dark:bg-success-500/20 dark:text-success-300;
+    }
+}
+
+/* Small tables inside the panel's own pages (dashboard, templates). */
+.kaye-table {
+    @apply w-full text-sm;
+
+    & th,
+    & td {
+        @apply px-3 py-2 text-start align-top;
+    }
+
+    & thead th {
+        @apply font-semibold text-gray-600 dark:text-gray-300;
+    }
+
+    & tbody tr {
+        @apply border-t border-gray-200 dark:border-white/10;
+    }
+
+    & td {
+        @apply text-gray-950 dark:text-white;
+    }
+
+    & .kaye-num {
+        @apply text-end tabular-nums;
+    }
+}
+
+.kaye-muted {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+}

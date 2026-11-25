@@ -69,7 +69,7 @@ O Kayé diz "A confirmar" onde não tem fonte, em vez de inventar. Mas uma pági
 
 **"E o domínio próprio?"** Já está: `kayeangola.com`, com `https` e o `www` a redirecionar. Foi a 24 de novembro de 2026.
 
-**"Há um painel para gerir isto?"** Há o essencial: um painel (Filament) onde se vê a lista de espera, as críticas dos utilizadores e as campanhas de email (por lotes, só com consentimento). O painel completo, com o design do site, é a próxima etapa ([roadmap.md](roadmap.md), «Fecho do backend», ponto 9). Até lá, os conteúdos mudam-se no código e entram por uma importação, com revisão.
+**"Há um painel para gerir isto?"** Há o essencial: um painel (Filament) onde se vê a lista de espera, as críticas dos utilizadores e as campanhas de email (por lotes, só com consentimento). O painel é completo e tem o design do site: todas as tabelas do catálogo, a Caixa da IA, moderação, comunicação e definições ([design.md](design.md#painel-de-administração-admin)). As edições feitas lá não são desfeitas pelas importações.
 
 **"E a inteligência artificial?"** Hoje as recomendações **não** usam IA: usam regras abertas, que se explicam (o que a pessoa gosta contra o que a profissão pede). É de propósito: um jovem tem de poder perguntar "porquê esta profissão?" e ter resposta. A IA entra a seguir, só do lado da equipa: o Claude ajuda a pesquisar e a propor rascunhos de conteúdo (e a tradução para inglês e francês), **sempre com fonte e sempre revistos por uma pessoa antes de publicar** ([roadmap.md](roadmap.md), ponto 8). Nada pago influencia as recomendações.
 

@@ -19,6 +19,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | End-to-end tests' admin
+    |--------------------------------------------------------------------------
+    |
+    | Only for the E2E stacks (compose.yaml, the local Playwright server): the
+    | panel's test account, with a known password and second factor, written by
+    | `db:seed --class=E2eAdminSeeder`. Empty everywhere else, and the seeder
+    | then refuses to run. Never set these in production.
+    |
+    */
+
+    'e2e_admin' => [
+        'email' => (string) env('E2E_ADMIN_EMAIL', 'admin@kaye.test'),
+        'password' => (string) env('E2E_ADMIN_PASSWORD', ''),
+        'totp_secret' => (string) env('E2E_ADMIN_TOTP_SECRET', ''),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Content export
     |--------------------------------------------------------------------------
     |

@@ -14,7 +14,7 @@ class ListAiTasks extends ListRecords
 
     public function getSubheading(): string
     {
-        return sprintf('Gasto hoje: %.2f de %.2f USD (AI_DAILY_BUDGET_USD). Tudo o que a IA encontra vai para "Propostas a rever".',
+        return sprintf('Gasto hoje: %.2f de %.2f USD (AI_DAILY_BUDGET_USD). Tudo o que a IA encontra vai para a "Caixa da IA".',
             AiBudget::spentToday(), Config::float('ai.daily_budget_usd'));
     }
 

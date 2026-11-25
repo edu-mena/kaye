@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use UnitEnum;
 
 /**
  * "Pesquisar com IA" (docs/ia.md): each research asked, its state, what it cost and what it proposed. A new one is
@@ -27,7 +28,11 @@ class AiTaskResource extends Resource
 
     protected static ?string $pluralModelLabel = 'pesquisas com IA';
 
-    protected static ?string $navigationLabel = 'Pesquisar com IA';
+    protected static ?string $navigationLabel = 'Pesquisas';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Caixa da IA';
+
+    protected static ?int $navigationSort = 2;
 
     public static function table(Table $table): Table
     {

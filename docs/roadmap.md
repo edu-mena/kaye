@@ -237,7 +237,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 6. Comunicação: email e Web Push, só com consentimento (menores sem marketing), feito a 18/11/2026: confirmação dupla e "deixar de receber" assinados, campanhas em lotes no painel, lembretes dos prazos guardados, preferências nas Definições. Sem WhatsApp (o Eduardo manda à mão a partir do CSV) nem push nativo no Android (FCM), que ficam para depois
 - [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
 - [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos
-- [ ] 9. Painel de administração completo, com o design do site
+- [x] 9. Painel de administração completo, com o design do site, feito a 25/11/2026 ([ADR 0028](decisoes/0028-painel-completo.md)): tema do site (cores, letra, barra lateral preta, modo escuro), uma lista por tabela do catálogo com filtros, ações em massa, "Ver na app", relações e imagens com origem; Caixa da IA lado a lado, Moderação (com "Colar vaga"), Comunicação, Pessoas, Equipa e papéis, Auditoria, Definições cifradas e Tokens MCP. As edições do painel deixam de ser desfeitas pelo `kaye:import`
 - [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
 
 ## UX da home, áreas e Kayé Plus (24 de novembro de 2026)

@@ -1,6 +1,6 @@
 # Ligação à IA
 
-O Claude ajuda a completar o catálogo: pesquisa na web e propõe valores. **A IA nunca publica.** Tudo o que escreve fica como proposta em *Propostas a rever* no painel, com a fonte. Uma pessoa vê a diferença (antes e depois) e aprova, e só então o registo muda e fica publicado. Também pode rejeitar, com o motivo. Ver o [ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md).
+O Claude ajuda a completar o catálogo: pesquisa na web e propõe valores. **A IA nunca publica.** Tudo o que escreve fica como proposta na *Caixa da IA* do painel, com a fonte. Uma pessoa vê a diferença (antes e depois) e aprova, e só então o registo muda e fica publicado. Também pode rejeitar, com o motivo. Ver o [ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md).
 
 Há duas portas, com as mesmas ferramentas e as mesmas regras:
 
@@ -11,7 +11,7 @@ Há duas portas, com as mesmas ferramentas e as mesmas regras:
 
 ## Ligar o teu Claude
 
-1. No painel, abre **Ligação à IA** e clica em **Criar token**. Copia-o logo: só aparece uma vez. Dura 90 dias (`MCP_TOKEN_DAYS`) e só serve para o MCP.
+1. No painel, abre **Caixa da IA → Tokens MCP** e clica em **Criar token**. Copia-o logo: só aparece uma vez. Dura 90 dias (`MCP_TOKEN_DAYS`) e só serve para o MCP.
 2. **Claude Code** (no terminal):
 
    ```sh
@@ -82,4 +82,4 @@ As mesmas da recolha à mão ([recolha-de-dados.md](recolha-de-dados.md)):
 - O valor entra no registo, a fonte entra em `sources` e em `source_url`, e o registo fica `published`. A auditoria (`activity_log`) regista a alteração com quem a aprovou.
 - O `kaye:import` de cada deploy **não volta a escrever** um campo aprovado: a partir daí, o valor do painel é o que conta. Os outros campos continuam a vir do JSON do frontend.
 - Uma proposta fica bloqueada se o campo mudou depois de ela ser feita: rejeita-a e pede de novo.
-- O histórico de um registo são as suas propostas: filtra *Propostas a rever* pelo slug.
+- O histórico de um registo são as suas propostas: filtra a *Caixa da IA* pelo slug (as gravações feitas no painel também lá aparecem, como «Editadas no painel»).
