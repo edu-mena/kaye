@@ -915,6 +915,7 @@ class ComposerStaticInit4761753a63b24b8e07ff2fe0583a74bd
         'App\\Console\\Commands\\CheckQueue' => __DIR__ . '/../..' . '/app/Console/Commands/CheckQueue.php',
         'App\\Console\\Commands\\DeadlineReminders' => __DIR__ . '/../..' . '/app/Console/Commands/DeadlineReminders.php',
         'App\\Console\\Commands\\FetchNews' => __DIR__ . '/../..' . '/app/Console/Commands/FetchNews.php',
+        'App\\Console\\Commands\\Health' => __DIR__ . '/../..' . '/app/Console/Commands/Health.php',
         'App\\Console\\Commands\\ImportContent' => __DIR__ . '/../..' . '/app/Console/Commands/ImportContent.php',
         'App\\Console\\Commands\\MigrateRedis' => __DIR__ . '/../..' . '/app/Console/Commands/MigrateRedis.php',
         'App\\Console\\Commands\\SendMessages' => __DIR__ . '/../..' . '/app/Console/Commands/SendMessages.php',

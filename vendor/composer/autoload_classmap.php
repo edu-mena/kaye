@@ -42,6 +42,7 @@ return array(
     'App\\Console\\Commands\\CheckQueue' => $baseDir . '/app/Console/Commands/CheckQueue.php',
     'App\\Console\\Commands\\DeadlineReminders' => $baseDir . '/app/Console/Commands/DeadlineReminders.php',
     'App\\Console\\Commands\\FetchNews' => $baseDir . '/app/Console/Commands/FetchNews.php',
+    'App\\Console\\Commands\\Health' => $baseDir . '/app/Console/Commands/Health.php',
     'App\\Console\\Commands\\ImportContent' => $baseDir . '/app/Console/Commands/ImportContent.php',
     'App\\Console\\Commands\\MigrateRedis' => $baseDir . '/app/Console/Commands/MigrateRedis.php',
     'App\\Console\\Commands\\SendMessages' => $baseDir . '/app/Console/Commands/SendMessages.php',
