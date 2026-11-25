@@ -27,6 +27,16 @@ class ApiRateLimitTest extends TestCase
             ->assertHeader('Retry-After');
     }
 
+    public function test_the_read_limit_comes_from_the_config_for_the_test_container(): void
+    {
+        config(['kaye.api_reads_per_minute' => 5]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            $this->getJson('/api/v1/health')->assertOk();
+        }
+        $this->getJson('/api/v1/health')->assertTooManyRequests();
+    }
+
     public function test_guests_get_60_writes_per_minute_then_429_and_still_read(): void
     {
         for ($i = 1; $i <= 60; $i++) {

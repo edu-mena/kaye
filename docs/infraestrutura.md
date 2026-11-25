@@ -171,6 +171,7 @@ Além do que corre no CI, em `https://` confirma que o http vai para o https, o 
 | `ADMIN_EMAILS` | `admin@kaye.test` | os emails da equipa | Vazio = ninguém entra no painel |
 | `CORS_ALLOWED_ORIGINS` | `https://localhost,capacitor://localhost` | igual | As origens das apps nativas |
 | `SANCTUM_TOKEN_EXPIRATION` | `43200` | `43200` | 30 dias |
+| `API_READS_PER_MINUTE` | `300` | `300` | Leituras da API por minuto, por conta ou IP ([seguranca.md](seguranca.md)). Só o container de testes (`compose.yaml`) sobe para 5000: os testes E2E abrem muitos browsers ao mesmo tempo a partir de um só IP, e passavam o limite (429) |
 | `SANCTUM_STATEFUL_DOMAINS` | não se define | não se define | Os domínios cujo browser usa a sessão com CSRF. Sem ela, só o de `APP_URL`; nunca `localhost` sozinho, que é a origem da app Android |
 | `GOOGLE_CLIENT_ID` | o ID de cliente web de teste | o ID de cliente web | Login Google ([arquitetura.md, 5.1](arquitetura.md#51-login-com-google)). É também o `aud` aceite nos tokens do Android. Vazio = ninguém entra. O URI de redirecionamento a registar no Google Cloud é `APP_URL/auth/google/callback` |
 | `GOOGLE_CLIENT_SECRET` | o segredo de teste | **secreta** | Só para a troca do código do OAuth na web |
