@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Feedback;
 
 use App\Filament\Resources\Feedback\Pages\ListFeedback;
 use App\Models\Feedback;
+use App\Support\AuditLog;
 use App\Support\FeedbackReplies;
 use BackedEnum;
 use Filament\Actions\Action;
@@ -50,6 +51,7 @@ class FeedbackResource extends Resource
                     ->schema([Textarea::make('reply')->label('Resposta')->required()->rows(6)->maxLength(4000)])
                     ->action(function (Feedback $record, array $data): void {
                         FeedbackReplies::send($record, is_string($data['reply'] ?? null) ? $data['reply'] : '');
+                        AuditLog::admin('feedback_replied', $record);
                     }),
             ]);
     }

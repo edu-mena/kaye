@@ -6,6 +6,7 @@ use App\Enums\ContentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Kurso;
 use App\Models\KursoCompletion;
+use App\Models\KursoExamQuestion;
 use App\Models\KursoUnit;
 use App\Models\User;
 use App\Support\Communities;
@@ -111,6 +112,10 @@ class KursoAccountController extends Controller
             'correct' => ['required', 'boolean'],
         ]);
         abort_unless($this->kursoExists($course), 404);
+        // Only a question of this Kurso's exam: any other text would add a row for nothing, without end.
+        abort_unless(KursoExamQuestion::query()->where('slug', $request->string('question_id')->value())
+            ->where('status', ContentStatus::Published->value)
+            ->whereHas('kurso', fn ($query) => $query->where('slug', $course))->exists(), 422, 'Unknown question.');
 
         $key = ['course' => $course, 'question_id' => $request->string('question_id')->value()];
         DB::table('kurso_question_stats')->insertOrIgnore($key + ['answered' => 0, 'correct' => 0]);

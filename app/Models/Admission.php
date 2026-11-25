@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\BelongsToInstitution;
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\AdmissionFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ use Spatie\Translatable\HasTranslations;
 class Admission extends Model
 {
     /** @use HasFactory<AdmissionFactory> */
-    use BelongsToInstitution, HasContentStatus, HasFactory, HasTranslations;
+    use BelongsToInstitution, HasContentStatus, HasFactory, HasTranslations, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.

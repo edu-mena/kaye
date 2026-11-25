@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\UserRole;
+use App\Enums\StaffRole;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
  */
 class UserFactory extends Factory
 {
+    /** A TOTP secret for tests: the panel requires the second factor to be set up. */
+    public const TOTP_SECRET = 'JBSWY3DPEHPK3PXP';
+
     /**
      * The current password being used by the factory.
      */
@@ -45,13 +48,36 @@ class UserFactory extends Factory
     }
 
     /**
-     * An admin who can sign in to the panel with a password (local only).
+     * An admin who can sign in to the panel with a password (local only), with the second factor set up.
      */
     public function admin(): static
     {
+        return $this->staff(StaffRole::Admin);
+    }
+
+    public function editor(): static
+    {
+        return $this->staff(StaffRole::Editor);
+    }
+
+    public function reviewer(): static
+    {
+        return $this->staff(StaffRole::Reviewer);
+    }
+
+    /**
+     * A member of the team. Without the second factor (`withoutTotp`), the panel sends them to set it up.
+     */
+    public function staff(StaffRole $role): static
+    {
         return $this->state(fn (array $attributes) => [
-            'role' => UserRole::Admin,
             'password' => static::$password ??= Hash::make('password'),
-        ]);
+            'app_authentication_secret' => self::TOTP_SECRET,
+        ])->afterCreating(fn (User $user) => $user->assignRole($role->value));
+    }
+
+    public function withoutTotp(): static
+    {
+        return $this->state(fn (array $attributes) => ['app_authentication_secret' => null]);
     }
 }

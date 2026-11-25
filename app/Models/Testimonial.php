@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Concerns\BelongsToCareer;
 use App\Models\Concerns\BelongsToCompany;
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\TestimonialFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ use Spatie\Translatable\HasTranslations;
 class Testimonial extends Model
 {
     /** @use HasFactory<TestimonialFactory> */
-    use BelongsToCareer, BelongsToCompany, HasContentStatus, HasFactory, HasTranslations;
+    use BelongsToCareer, BelongsToCompany, HasContentStatus, HasFactory, HasTranslations, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.

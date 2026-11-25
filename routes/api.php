@@ -45,6 +45,7 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 // Everything here is served under /api/v1 (see bootstrap/app.php). The public reads: docs/arquitetura.md, section 6.
 
+// Public: only whether it works. With HEALTH_TOKEN: every check (docs/observabilidade.md).
 Route::get('/health', HealthController::class);
 
 Route::get('/areas', [AreaController::class, 'index']);
@@ -98,9 +99,9 @@ Route::get('/kursos/{slug}/exam', [KursoController::class, 'exam']);
 // Writes without an account, moved from the Vercel functions with the same answers (docs/arquitetura.md, 6).
 // Each has its own hourly limit per IP (docs/seguranca.md), on top of the general one.
 Route::post('/waitlist', [WaitlistController::class, 'store'])->middleware('throttle:waitlist');
-Route::get('/waitlist/export', [WaitlistController::class, 'export']);
+Route::get('/waitlist/export', [WaitlistController::class, 'export'])->middleware('throttle:secret');
 // The scrapers' facts, with INGEST_TOKEN (docs/arquitetura.md, 5.2).
-Route::post('/ingest/jobs', [IngestJobsController::class, 'store']);
+Route::post('/ingest/jobs', [IngestJobsController::class, 'store'])->middleware('throttle:secret');
 Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('throttle:feedback');
 Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
 Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
@@ -109,7 +110,7 @@ Route::get('/public-cards/{slug}', [PublicCardController::class, 'show']);
 // The public VAPID key for Web Push (null while push is off).
 Route::get('/push/key', [PushSubscriptionController::class, 'key']);
 Route::put('/public-cards/{slug}', [PublicCardController::class, 'update'])->middleware('throttle:public-cards');
-Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy']);
+Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy'])->middleware('throttle:secret');
 
 // Accounts (docs/arquitetura.md, 5.1 and 6). These routes, and only these, start the web session:
 // the public reads above stay without cookies, so they can be cached.
@@ -138,6 +139,6 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
         Route::get('/kursos/progress', [KursoAccountController::class, 'progress']);
         Route::post('/kursos/{course}/topics/{topic}/complete', [KursoAccountController::class, 'complete']);
         Route::get('/kursos/{course}/certificate', [KursoAccountController::class, 'certificate']);
-        Route::post('/kursos/{course}/answers', [KursoAccountController::class, 'answer']);
+        Route::post('/kursos/{course}/answers', [KursoAccountController::class, 'answer'])->middleware('throttle:kurso-answers');
     });
 });

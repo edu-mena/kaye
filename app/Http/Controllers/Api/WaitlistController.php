@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\WaitlistConfirmation;
 use App\Models\WaitlistEntry;
 use App\Support\AccessToken;
+use App\Support\AuditLog;
 use App\Support\Consents;
 use App\Support\Contact;
 use App\Support\ListExport;
@@ -68,6 +69,7 @@ class WaitlistController extends Controller
         if (! is_string($kind) || ! in_array($kind, ListExport::KINDS, true)) {
             return Submission::invalid();
         }
+        AuditLog::admin('csv_export', details: ['kind' => $kind, 'channel' => 'token']);
 
         return ListExport::download($kind);
     }

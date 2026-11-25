@@ -7,6 +7,7 @@ use App\Enums\MessageChannel;
 use App\Enums\MessagePurpose;
 use App\Enums\MessageStatus;
 use App\Enums\MessageTemplate;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\MessageFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -37,7 +38,7 @@ use Illuminate\Support\Carbon;
 class Message extends Model
 {
     /** @use HasFactory<MessageFactory> */
-    use HasFactory;
+    use HasFactory, LogsContentChanges;
 
     protected $attributes = [
         'status' => 'draft',

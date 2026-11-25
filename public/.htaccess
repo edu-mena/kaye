@@ -10,6 +10,10 @@
         Header set Cache-Control "no-cache"
     </Files>
     Header set Cache-Control "public, max-age=31536000, immutable" env=KAYE_IMMUTABLE
+    # The files Apache serves by itself (code, styles, images) never pass through Laravel's SecurityHeaders:
+    # without this, a browser could guess their type (docs/seguranca.md). `set` replaces Laravel's copy, never doubles it.
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 <IfModule mod_rewrite.c>
