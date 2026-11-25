@@ -7,6 +7,7 @@ use App\Support\Submission;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
@@ -56,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
             $reads = $request->isMethodSafe();
             $who = $request->user()?->getAuthIdentifier() ?? $request->ip();
 
-            return Limit::perMinute($reads ? 300 : 60)
+            return Limit::perMinute($reads ? Config::integer('kaye.api_reads_per_minute') : 60)
                 ->by(($reads ? 'read:' : 'write:').(is_int($who) || is_string($who) ? $who : 'unknown'));
         });
 
