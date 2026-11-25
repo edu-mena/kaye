@@ -55,6 +55,8 @@ grep '"request_id":"07a6947d' storage/logs/kaye.json-*.log | jq .
 | `GET /api/v1/health` | 200 com `checks.database: ok`, ou **503** com `down` | O que a app usa ("estado do serviço"). Nunca mostra detalhes do erro |
 | `GET /api/v1/health` com `HEALTH_TOKEN` (cabeçalho `X-Health-Token`, `Authorization: Bearer` ou `?token=`) | Todas as verificações, e **503** se alguma falhar | O monitor externo |
 
+No servidor, `php artisan kaye:health` mostra as mesmas verificações sem precisar do token, e falha (código 1) se alguma não estiver bem. O deploy corre-o depois de cada versão, antes do teste de fumo: o cron é verificado em cada deploy, mesmo sem `HEALTH_TOKEN`.
+
 Com o token, a resposta tem:
 
 | Verificação | Campos | Falha quando |
