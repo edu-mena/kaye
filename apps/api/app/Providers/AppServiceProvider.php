@@ -139,6 +139,13 @@ class AppServiceProvider extends ServiceProvider
         // scrapers and monitors make a few requests a minute; guessing a secret takes millions.
         RateLimiter::for('secret', fn (Request $request): Limit => Limit::perMinute(30)->by('secret:'.$request->ip()));
 
+        // The team's AI at /mcp: a research makes a few calls a second at most.
+        RateLimiter::for('mcp', function (Request $request): Limit {
+            $who = $request->user()?->getAuthIdentifier() ?? $request->ip();
+
+            return Limit::perMinute(120)->by('mcp:'.(is_int($who) || is_string($who) ? $who : 'unknown'));
+        });
+
         // The anonymous answer counters of the Kursos: an exam has a few dozen questions.
         RateLimiter::for('kurso-answers', function (Request $request): Limit {
             $who = $request->user()?->getAuthIdentifier() ?? $request->ip();

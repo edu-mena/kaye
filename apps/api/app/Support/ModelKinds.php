@@ -3,8 +3,10 @@
 namespace App\Support;
 
 use App\Models;
+use App\Policies\AiTaskPolicy;
 use App\Policies\CommentPolicy;
 use App\Policies\MessagePolicy;
+use App\Policies\RevisionPolicy;
 use App\Policies\UserPolicy;
 
 /**
@@ -75,5 +77,8 @@ final class ModelKinds
         Models\Message::class => MessagePolicy::class,
         Models\Comment::class => CommentPolicy::class,
         Models\User::class => UserPolicy::class,
+        // The proposals are the history themselves; the tasks keep their own record (cost, status).
+        Models\Revision::class => RevisionPolicy::class,
+        Models\AiTask::class => AiTaskPolicy::class,
     ];
 }

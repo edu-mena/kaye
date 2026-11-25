@@ -128,6 +128,9 @@ Antes de criar alguma coisa, procura se já existe:
 | Registar na auditoria um login ou uma ação da equipa | `App\Support\AuditLog` (o conteúdo regista-se sozinho com `LogsContentChanges`) |
 | Cifrar um campo pessoal e continuar a procurá-lo | O cast `encrypted` e uma coluna `*_hash` com `App\Support\BlindIndex` (ver `WaitlistEntry`) |
 | Uma rota protegida por um segredo | `App\Support\AccessToken` e `throttle:secret` |
+| Os tipos e as regras dos campos do catálogo (formulários, MCP, IA) | `App\Support\ContentTypes` |
+| Propor ou aprovar uma alteração ao catálogo | `ContentEditor::propose` e `Revisions::approve`/`reject` (`App\Support`) |
+| Ler valores de JSON sem confiar neles | `App\Support\JsonValue` |
 | Validar um email ou um WhatsApp no PHP (os mesmos padrões da app) | `App\Support\Contact` |
 | Uma escrita sem conta: corpo JSON com limite, campo-isco, resposta `no-store` | `App\Support\Submission` |
 | Um limite de pedidos por hora para uma rota sem conta | `AppServiceProvider::HOURLY_WRITES` e `throttle:<nome>` |
