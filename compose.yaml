@@ -28,6 +28,8 @@ services:
       CACHE_STORE: database
       QUEUE_CONNECTION: database
       ADMIN_EMAILS: admin@kaye.test
+      # The end-to-end tests: many browsers at once from one IP (production keeps 300, config/kaye.php).
+      API_READS_PER_MINUTE: '5000'
     depends_on:
       db:
         condition: service_healthy
