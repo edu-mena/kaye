@@ -104,6 +104,17 @@
       0 => 'NotificationChannels\\WebPush\\WebPushServiceProvider',
     ),
   ),
+  'laravel/mcp' => 
+  array (
+    'aliases' => 
+    array (
+      'Mcp' => 'Laravel\\Mcp\\Facades\\Mcp',
+    ),
+    'providers' => 
+    array (
+      0 => 'Laravel\\Mcp\\Server\\McpServiceProvider',
+    ),
+  ),
   'laravel/pulse' => 
   array (
     'aliases' => 
