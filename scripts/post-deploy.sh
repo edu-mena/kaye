@@ -46,6 +46,11 @@ step "Production check"
 step "Queue workers pick up the new code"
 "$php" artisan queue:restart
 
+step "Health: database, queue, cron, disk"
+# From the server itself, so the cron is checked on every deploy without HEALTH_TOKEN (the public /health no longer
+# shows it, docs/observabilidade.md).
+"$php" artisan kaye:health
+
 url="$(grep -E '^APP_URL=' .env | head -1 | cut -d= -f2- | tr -d '"' | tr -d "'")"
 step "Smoke test: $url"
-SMOKE_REQUIRE_CRON="${SMOKE_REQUIRE_CRON:-1}" scripts/smoke-test.sh "$url"
+scripts/smoke-test.sh "$url"

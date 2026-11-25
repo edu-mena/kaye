@@ -90,6 +90,10 @@ class HostingTest extends TestCase
         $this->assertStringContainsString('vendor/laravel/boost', $script);
         // The images approved in the panel are served from public/storage.
         $this->assertStringContainsString('[ -e public/storage ] || "$php" artisan storage:link', $script);
+        // The cron is checked on the server, before the smoke test: the public /health no longer shows it.
+        $health = strpos($script, 'artisan kaye:health');
+        $this->assertNotFalse($health, 'The deploy does not check the cron.');
+        $this->assertLessThan(strpos($script, 'scripts/smoke-test.sh'), $health);
     }
 
     public function test_the_deploy_workflow_retries_only_the_transient_ssh_failure(): void
