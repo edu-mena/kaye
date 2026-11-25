@@ -81,7 +81,7 @@ Uma tarefa só está pronta quando cumpre **tudo**:
 | Dependências vulneráveis | `composer audit`, `npm audit`, Trivy | CI | Há uma vulnerabilidade conhecida |
 | Imagem Docker | Trivy | CI | Há uma vulnerabilidade CRITICAL ou HIGH com correção disponível |
 | Mensagens | commitlint, título do PR | commit-msg, CI | Fora do formato |
-| Atualizações | Dependabot | GitHub, todas as semanas | Abre um PR, que passa pelo CI como qualquer outro |
+| Atualizações | Dependabot | GitHub, uma vez por mês (um PR por ecossistema); as correções de segurança logo | Abre um PR, que passa pelo CI como qualquer outro |
 
 ## Estratégia de testes
 

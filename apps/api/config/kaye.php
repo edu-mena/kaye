@@ -75,6 +75,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | API reads per minute
+    |--------------------------------------------------------------------------
+    |
+    | Per account or IP (docs/seguranca.md). 300 in production. Only the test
+    | container raises it (compose.yaml): the end-to-end tests run many
+    | browsers at once from one IP, which is not a real visitor.
+    |
+    */
+
+    'api_reads_per_minute' => (int) env('API_READS_PER_MINUTE', 300),
+
+    /*
+    |--------------------------------------------------------------------------
     | Legal texts
     |--------------------------------------------------------------------------
     |

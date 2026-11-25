@@ -8,7 +8,7 @@ name: Market data
 on:
   schedule:
     - cron: '0 21 * * 6' # Saturday 22:00 in Luanda: the full run
-    - cron: '15 */2 * * *' # every 2 hours: the light run
+    - cron: '15 */3 * * *' # every 3 hours: the light run
   workflow_dispatch:
 
 permissions:
@@ -19,7 +19,7 @@ permissions:
 jobs:
   collect:
     name: Collect and count
-    if: github.event.schedule != '15 */2 * * *'
+    if: github.event.schedule != '15 */3 * * *'
     concurrency:
       group: market-data
       cancel-in-progress: false
@@ -107,11 +107,11 @@ jobs:
             --title 'chore(data): weekly market counts' \
             --body 'Counts from the weekly collection (job sites, Jobartis post pages, Diário da República dispatches). Only aggregates: the facts stay in the run artifact.'
 
-  # The light run: the posts of the last 3 days only, no artifact, nothing but the API. If the month passes 1500
-  # Actions minutes, change the cron above to every 3 hours (docs/arquitetura.md, 5.2, and scrapers/README.md).
+  # The light run: the posts of the last 3 days only, no artifact, nothing but the API. Every 3 hours since
+  # 25/11/2026, when November passed 2000 Actions minutes (scrapers/README.md).
   light:
     name: Light run
-    if: github.event.schedule == '15 */2 * * *'
+    if: github.event.schedule == '15 */3 * * *'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
