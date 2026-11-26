@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Filament\Resources\KursoQuestionStats\Pages\ListKursoQuestionStats;
 use App\Models\Kurso;
 use App\Models\KursoCompletion;
+use App\Models\KursoExamQuestion;
 use App\Models\KursoQuestionStat;
 use App\Models\KursoUnit;
 use App\Models\User;
@@ -29,8 +30,9 @@ class KursosDiariosTest extends TestCase
         parent::setUp();
         $kurso = Kurso::factory()->create(['slug' => 'contabilidade', 'status' => 'published']);
         foreach (['t1', 't2'] as $slug) {
-            KursoUnit::factory()->create(['kurso_id' => $kurso->id, 'slug' => $slug, 'status' => 'published']);
+            $unit = KursoUnit::factory()->create(['kurso_id' => $kurso->id, 'slug' => $slug, 'status' => 'published']);
         }
+        KursoExamQuestion::factory()->create(['kurso_id' => $kurso->id, 'kurso_unit_id' => $unit->id, 'slug' => 'q1', 'status' => 'published']);
     }
 
     /** @return TestResponse<\Illuminate\Http\JsonResponse> */
@@ -103,6 +105,17 @@ class KursosDiariosTest extends TestCase
         $stat = KursoQuestionStat::query()->sole();
         $this->assertSame([2, 1], [$stat->answered, $stat->correct]);
         $this->assertSame(['id', 'course', 'question_id', 'answered', 'correct'], Schema::getColumnListing('kurso_question_stats'));
+    }
+
+    public function test_only_the_questions_of_the_kursos_exam_are_counted(): void
+    {
+        Sanctum::actingAs(User::factory()->create());
+
+        // Before: any text added a row, without end.
+        $this->postJson('/api/v1/kursos/contabilidade/answers', ['question_id' => 'junk-'.str_repeat('x', 100), 'correct' => true])->assertUnprocessable();
+        $this->postJson('/api/v1/kursos/outro/answers', ['question_id' => 'q1', 'correct' => true])->assertNotFound();
+
+        $this->assertSame(0, KursoQuestionStat::query()->count());
     }
 
     public function test_erasing_the_data_removes_the_completions_but_not_the_counters(): void

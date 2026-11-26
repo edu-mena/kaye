@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\DatasetFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dataset extends Model
 {
     /** @use HasFactory<DatasetFactory> */
-    use HasContentStatus, HasFactory;
+    use HasContentStatus, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

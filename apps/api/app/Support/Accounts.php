@@ -166,6 +166,7 @@ class Accounts
             DB::table('comment_reports')->where('user_id', $user->getKey())->delete();
             // A morph relation: no foreign key deletes them by itself.
             $user->pushSubscriptions()->delete();
+            AuditLog::forget($user);
             $user->forceDelete();
         });
     }

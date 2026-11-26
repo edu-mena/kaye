@@ -11,6 +11,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 /**
  * «Perguntas mais falhadas»: the Kurso questions people get wrong most, from anonymous counters (ADR 0025).
@@ -28,6 +29,10 @@ class KursoQuestionStatResource extends Resource
     protected static ?string $pluralModelLabel = 'perguntas mais falhadas';
 
     protected static ?string $navigationLabel = 'Perguntas mais falhadas';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Testes e Kursos';
+
+    protected static ?int $navigationSort = 7;
 
     public static function table(Table $table): Table
     {

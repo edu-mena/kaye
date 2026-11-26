@@ -27,6 +27,13 @@ rsync -a \
   && composer install --no-dev --no-interaction --no-progress --prefer-dist --classmap-authoritative \
   && php artisan filament:assets)
 
+# 2b. The admin panel's theme (Vite + Tailwind, on Filament's CSS in vendor/) -> public/build
+(cd "$stage" && npm ci --ignore-scripts --no-audit --no-fund && npm run build && rm -rf node_modules)
+if [ ! -f "$stage/public/build/manifest.json" ]; then
+  echo "error: the admin panel's theme was not built (public/build/manifest.json)" >&2
+  exit 1
+fi
+
 # 3. Guard: dev tools must not ship (they inject scripts and open endpoints).
 if [ -d "$stage/vendor/laravel/boost" ]; then
   echo "error: laravel/boost is in the release package" >&2

@@ -19,6 +19,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | End-to-end tests' admin
+    |--------------------------------------------------------------------------
+    |
+    | Only for the E2E stacks (compose.yaml, the local Playwright server): the
+    | panel's test account, with a known password and second factor, written by
+    | `db:seed --class=E2eAdminSeeder`. Empty everywhere else, and the seeder
+    | then refuses to run. Never set these in production.
+    |
+    */
+
+    'e2e_admin' => [
+        'email' => (string) env('E2E_ADMIN_EMAIL', 'admin@kaye.test'),
+        'password' => (string) env('E2E_ADMIN_PASSWORD', ''),
+        'totp_secret' => (string) env('E2E_ADMIN_TOTP_SECRET', ''),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Content export
     |--------------------------------------------------------------------------
     |
@@ -53,6 +71,25 @@ return [
     */
 
     'ingest_token' => (string) env('INGEST_TOKEN', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Health and alerts
+    |--------------------------------------------------------------------------
+    |
+    | HEALTH_TOKEN opens every check of GET /api/v1/health (the uptime monitor
+    | sends it); without it the answer only says whether the Kayé works.
+    | Shorter than 16 characters, or empty: nobody sees the details. The queue
+    | counts as stuck when a job waits longer than QUEUE_STUCK_MINUTES, and the
+    | disk as full below DISK_MIN_FREE_PERCENT free. Alerts go to ADMIN_EMAILS.
+    |
+    */
+
+    'health_token' => (string) env('HEALTH_TOKEN', ''),
+
+    'queue_stuck_minutes' => (int) env('QUEUE_STUCK_MINUTES', 15),
+
+    'disk_min_free_percent' => (int) env('DISK_MIN_FREE_PERCENT', 10),
 
     /*
     |--------------------------------------------------------------------------

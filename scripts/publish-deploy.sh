@@ -14,6 +14,7 @@ root="$(cd "$(dirname "$0")/.." && pwd)"
 [ -f "$release/artisan" ] || { echo "error: $release is not a Laravel release" >&2; exit 1; }
 [ -d "$release/vendor" ] || { echo "error: the release has no vendor/" >&2; exit 1; }
 [ -d "$release/public/spa" ] || { echo "error: the release has no compiled web app (public/spa)" >&2; exit 1; }
+[ -f "$release/public/build/manifest.json" ] || { echo "error: the release has no admin panel theme (public/build)" >&2; exit 1; }
 [ -d "$tree/.git" ] || { echo "error: $tree is not a git checkout" >&2; exit 1; }
 for secret in .env auth.json; do
   [ ! -e "$release/$secret" ] || { echo "error: $secret is in the release" >&2; exit 1; }

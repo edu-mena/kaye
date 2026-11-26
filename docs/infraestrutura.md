@@ -21,9 +21,9 @@ Como o Kayé é construído, testado e publicado. A arquitetura das peças está
 
 | Ficheiro | O que faz |
 |---|---|
-| `docker/Dockerfile` | Imagem em 4 etapas: compila a app React → base PHP 8.4 + Apache → dependências de produção → imagem final |
+| `docker/Dockerfile` | Imagem em 5 etapas: compila a app React → base PHP 8.4 + Apache → dependências de produção → tema do painel (Vite, sobre o CSS do Filament em `vendor/`) → imagem final |
 | `docker/php.ini` | Definições de produção (`expose_php=Off`, opcache, limites) |
-| `docker/entrypoint.sh` | No arranque: valida a `APP_KEY`, corre as migrações (se pedido) e põe a configuração em cache |
+| `docker/entrypoint.sh` | No arranque: valida a `APP_KEY`, corre as migrações (se pedido), cria a conta de teste do painel (só com `E2E_ADMIN_PASSWORD`) e põe a configuração em cache |
 | `compose.yaml` | Stack local e de CI: a imagem + MariaDB 11.4 |
 | `.dockerignore` | Deixa de fora segredos (`.env`), `vendor`, `node_modules`, Android e docs |
 
@@ -52,12 +52,15 @@ flowchart LR
   P --> A["api<br/>Pint · PHPStan max · PHPUnit ≥90% · composer audit"]
   P --> W["web<br/>Prettier · oxlint · tsc · Knip · Vitest ≥90% · npm audit · build"]
   P --> R["reuse<br/>jscpd ≤3%"]
-  P --> C["container<br/>build · teste de fumo · Trivy imagem · E2E Playwright"]
+  P --> C["container<br/>build · teste de fumo · Trivy imagem · E2E Playwright · OWASP ZAP"]
   P --> S["security<br/>Gitleaks · Semgrep · Trivy fs"]
   A & W & R & C & S --> K["package (só main)<br/>kaye-&lt;versão&gt;.tar.gz"]
 ```
 
 - O CI só tem permissão de leitura (`permissions: contents: read`).
+- **Auditorias de dependências:** `composer audit` falha com qualquer aviso de segurança; `npm audit --audit-level=moderate` falha a partir de moderado, **incluindo** as dependências de desenvolvimento (mais rigoroso do que `--omit=dev` com `high`).
+- **OWASP ZAP *baseline*:** depois do E2E, o ZAP percorre o container (`http://localhost:8080`) e analisa as respostas sem atacar. As regras que fazem falhar o CI estão em `.zap/rules.tsv` (cabeçalhos de segurança, fugas de versão ou de erros); o relatório fica nos artefactos.
+- O job `api` instala o cliente MariaDB, para o `BackupTest` fazer um `mysqldump` real e repor a cópia em `kaye_test_restore`.
 - As actions estão fixadas pelo hash do commit; o Dependabot atualiza-as.
 - Um push novo no mesmo ramo cancela a execução anterior.
 
@@ -69,10 +72,10 @@ O job `package` corre `scripts/package-release.sh <versão>` e guarda `kaye-<ver
 
 - o Laravel com as dependências de produção (`--no-dev`, *classmap* otimizado);
 - a app React compilada em `public/spa`;
-- os ficheiros do Filament;
+- os ficheiros do Filament e o tema do painel compilado em `public/build` (`npm run build` em `apps/api`, [design.md](design.md#painel-de-administração-admin));
 - um ficheiro `RELEASE` com a versão.
 
-Não leva `.env`, testes nem ferramentas de desenvolvimento. O script falha se encontrar o Laravel Boost.
+Não leva `.env`, testes, `node_modules` nem ferramentas de desenvolvimento. O script falha se encontrar o Laravel Boost ou se faltar o tema do painel (`public/build/manifest.json`), e o `publish-deploy.sh` volta a verificar o tema antes de o pôr no ramo `deploy`.
 
 ### O deploy na Hostinger
 
@@ -179,11 +182,31 @@ Além do que corre no CI, em `https://` confirma que o http vai para o https, o 
 | `INGEST_TOKEN` | vazio | **secreta**, 16 caracteres ou mais; o mesmo valor no segredo `INGEST_TOKEN` do GitHub | A senha de `POST /api/v1/ingest/jobs`, com que as corridas do GitHub Actions enviam os factos das vagas. Vazia ou curta = fechado (401) |
 | `ANTHROPIC_API_KEY` | vazio | **secreta**, a chave da API do Claude (opcional, é paga) | Com chave, a IA escreve o resumo de cada notícia recolhida; vazia (o normal), o resumo é um excerto curto cortado por regras ([ADR 0023](decisoes/0023-resumo-das-noticias-por-ia.md)) |
 | `NEWS_AI_MODEL` | `claude-haiku-5-5` | o mesmo | O modelo que escreve os resumos das notícias |
+| `AI_MODEL` | `claude-sonnet-5-5` | o mesmo; `claude-opus-5-5` só a pedido | O modelo de "Pesquisar com IA" ([ia.md](ia.md)). Usa a mesma `ANTHROPIC_API_KEY`; sem ela, a pesquisa no painel fica desligada (o MCP funciona na mesma) |
+| `AI_EFFORT` | `medium` | `medium` | O esforço do modelo (`low` a `max`) |
+| `AI_DAILY_BUDGET_USD` | `2` | o que quiseres gastar por dia | O máximo, em dólares, de todas as pesquisas de um dia (hora de Angola). Gasto: as tarefas ficam `skipped` sem chamar a API |
+| `AI_TASK_MAX_TOKENS` | `300000` | `300000` | Os tokens (entrada + saída) de uma tarefa, somando todas as voltas |
+| `MCP_TOKEN_DAYS` | `90` | `90` | Quanto dura um token MCP criado no painel |
 | `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | vazio | só no dia da migração, depois apagam-se | O Upstash Redis das antigas funções do Vercel, lido uma vez por `php artisan kaye:migrate-redis`. Também aceita os nomes do Vercel, `KV_REST_API_URL` e `KV_REST_API_TOKEN` |
 | `SENTRY_LARAVEL_DSN` | vazio | o DSN do projeto | Obrigatório em produção |
 | `SENTRY_TRACES_SAMPLE_RATE` | `0.1` | `0.1` | |
+| `HEALTH_TOKEN` | vazio | **secreta**, 16 caracteres ou mais; a mesma no monitor externo | Abre todas as verificações de `GET /api/v1/health` (fila, cron, disco). Vazia ou curta: a resposta só diz se o Kayé funciona |
+| `QUEUE_STUCK_MINUTES` | `15` | `15` | Um trabalho à espera há mais tempo do que isto = fila parada: `/health` dá 503 e sai um email para `ADMIN_EMAILS` |
+| `DISK_MIN_FREE_PERCENT` | `10` | `10` | Abaixo disto de espaço livre, o `/health` com token dá 503 |
+| `PULSE_ENABLED` | `true` | `true` | O Pulse em `/admin/pulse` (pedidos e consultas lentas), guardado nesta base de dados. Nos testes fica `false` |
+| `BACKUP_DISK` | `local` | `backups` | Para onde vão as cópias diárias. `backups` = o bucket S3 abaixo, fora da Hostinger; `local` só em desenvolvimento |
+| `BACKUP_ARCHIVE_PASSWORD` | vazio | **secreta**, longa; guardada também fora da Hostinger (gestor de senhas) | Cifra o zip de cada cópia (AES-256). Sem ela, uma cópia perdida não se abre: guarda-a bem |
+| `BACKUP_S3_KEY`, `BACKUP_S3_SECRET` | vazio | **secretas**: uma chave só para este bucket | Acesso ao bucket das cópias (ler, escrever e apagar, nada mais) |
+| `BACKUP_S3_BUCKET`, `BACKUP_S3_REGION`, `BACKUP_S3_ENDPOINT`, `BACKUP_S3_PATH_STYLE` | vazio, `auto`, vazio, `false` | os do fornecedor | AWS: a região e endpoint vazio. Cloudflare R2: região `auto` e endpoint `https://<conta>.r2.cloudflarestorage.com`. Backblaze B2: o endpoint S3 do bucket |
+| `DB_DUMP_BINARY_PATH` | `C:/xampp/mysql/bin` no Windows | vazio (o `mysqldump` está no PATH) | Onde está o `mysqldump` |
+| `DB_RESTORE_DATABASE` | `kaye_restore` | uma base vazia **criada no hPanel** só para isto | Onde `kaye:backup-restore-test` repõe a cópia. Tudo o que lá estiver é apagado; nunca é a base real (o comando recusa). Vazia = o teste semanal não corre |
+| `DB_RESTORE_USERNAME`, `DB_RESTORE_PASSWORD` | vazio (usa `DB_USERNAME`) | o utilizador dessa base, **secreta** | |
 
 Só nos containers: `ALLOW_EPHEMERAL_APP_KEY` (cria uma `APP_KEY` descartável; nunca em produção), `RUN_MIGRATIONS` (corre as migrações no arranque) e `RUN_IMPORT` (corre `kaye:import` a seguir, para o catálogo estar na base; o `compose.yaml` liga-o).
+
+Só nos testes E2E (o `compose.yaml` e o servidor local do `playwright.config.ts`): `E2E_ADMIN_EMAIL` (por omissão `admin@kaye.test`, que tem de estar em `ADMIN_EMAILS`), `E2E_ADMIN_PASSWORD` (12 caracteres ou mais) e `E2E_ADMIN_TOTP_SECRET` (o segredo base32 do segundo fator). Com elas, `php artisan db:seed --class=E2eAdminSeeder` cria o administrador com que `e2e/admin.spec.ts` entra no painel; sem elas, o *seeder* recusa-se. **Nunca em produção.**
+
+**Definições no painel.** `ANTHROPIC_API_KEY`, `AI_DAILY_BUDGET_USD`, `AI_TASK_MAX_TOKENS`, `MCP_TOKEN_DAYS`, `MAIL_HOURLY_LIMIT`, `PUSH_HOURLY_LIMIT`, `HEALTH_TOKEN`, `INGEST_TOKEN` e `WAITLIST_EXPORT_TOKEN` também se mudam no painel (Sistema → Definições, só administradores). O valor gravado lá, cifrado com a `APP_KEY` na tabela `settings`, vale em vez do `.env`; "Voltar ao .env" apaga-o ([ADR 0028](decisoes/0028-painel-completo.md)).
 
 > O `DocumentationTest` também falha se uma variável `VITE_*` de `apps/web/src/env.d.ts` não estiver descrita aqui.
 
@@ -198,15 +221,32 @@ Só no site de teste (Vercel): `KV_REST_API_URL` e `KV_REST_API_TOKEN`, criadas 
 | `HOSTINGER_SSH_HOST`, `HOSTINGER_SSH_PORT`, `HOSTINGER_SSH_USER` | `staging`, `production` |
 | `HOSTINGER_SITE_DIR` (a pasta do site no servidor, p. ex. `domains/<site>/public_html`) | `production` |
 | Variável (não segredo) `SITE_URL`: o endereço a testar depois do deploy | `production` |
+| `HEALTH_TOKEN` (opcional, o mesmo valor do `.env` do servidor): com ele, o teste de fumo de fora também lê o cron | `production` |
 | `HOSTINGER_SSH_KEY` (chave privada só para o deploy) | `staging`, `production` |
 | `HOSTINGER_SSH_KNOWN_HOSTS` (impressão digital do servidor) | `staging`, `production` |
 
 ## Cópias de segurança
 
 - **As da Hostinger (Cloud Startup):** o plano inclui cópias diárias automáticas dos ficheiros e das bases de dados, guardadas durante alguns dias. **Confirma no hPanel** (*Websites → o site → Cópias de segurança*) que aparece a cópia de hoje: só tu vês essa página. Restaurar: nessa página, escolhe a data e *Restaurar* (ficheiros, base de dados ou ambos). Repor ficheiros pode apagar o `.env` e o `storage/`: guarda uma cópia do `.env` fora da Hostinger (num gestor de senhas) antes de restaurar, e depois corre o `scripts/post-deploy.sh`.
-- **Antes de cada deploy com migrações:** `mysqldump`, cifrado com uma chave que fica fora da Hostinger.
-- **Todas as semanas:** a mesma cópia, guardada fora da Hostinger.
-- **Todos os meses:** repor a última cópia numa base de teste e correr o teste de fumo contra ela.
+- **As nossas, fora da Hostinger (ADR 0026):** `spatie/laravel-backup`, pelo cron.
+
+| Quando (hora de Angola) | Comando | O quê |
+|---|---|---|
+| Diário, 03:00 | `kaye:backup` | Escreve as contagens de cada tabela (`backup-manifest.json`), faz o `mysqldump` e envia um zip cifrado (AES-256, `BACKUP_ARCHIVE_PASSWORD`) para `BACKUP_DISK` |
+| Diário, 03:30 | `backup:clean` | Apaga as cópias com mais de 30 dias |
+| Diário, 04:00 | `backup:monitor` | Email para `ADMIN_EMAILS` se a cópia mais recente tiver mais de um dia |
+| Domingo, 04:30 | `kaye:backup-restore-test` | Repõe a cópia mais recente em `DB_RESTORE_DATABASE`, compara as contagens com as do manifesto e esvazia essa base no fim. Falha (e aparece no log do cron) se faltar uma tabela ou uma linha |
+
+Só as falhas mandam email. As tabelas que mudam a cada segundo (sessões, cache, fila, Pulse, `activity_log`, tokens) só se verifica que existem.
+
+**Configurar (Eduardo, uma vez):**
+
+1. Cria um bucket privado num fornecedor compatível com S3. O mais simples e gratuito até 10 GB: Cloudflare R2 (*R2 → Create bucket*, depois *Manage API tokens → Object Read & Write* só para esse bucket).
+2. No `.env` da Hostinger: `BACKUP_DISK=backups`, as `BACKUP_S3_*` e uma `BACKUP_ARCHIVE_PASSWORD` longa. Guarda essa senha também no gestor de senhas: sem ela nenhuma cópia abre.
+3. No hPanel, cria uma segunda base de dados vazia (p. ex. `u123_kaye_restore`) e põe o nome e o utilizador em `DB_RESTORE_*`.
+4. Corre uma vez à mão: `php artisan kaye:backup` e depois `php artisan kaye:backup-restore-test`. O segundo tem de acabar em "restores".
+
+**Repor de verdade:** descarrega o zip mais recente do bucket, abre-o com a `BACKUP_ARCHIVE_PASSWORD`, e importa `db-dumps/mysql-<base>.sql` no phpMyAdmin do hPanel (ou `mysql < ficheiro.sql`) com o site em manutenção (`php artisan down`).
 
 ## Custos
 

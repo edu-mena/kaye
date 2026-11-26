@@ -26,3 +26,16 @@ Schedule::command('kaye:deadline-reminders')->dailyAt('08:00');
 // Angola's news about training, work and careers, every 2 hours (docs/fontes-de-noticias.md). One bounded request
 // per source; a source that fails is skipped.
 Schedule::command('kaye:fetch-news')->everyTwoHours()->withoutOverlapping();
+
+// A stuck queue sends an email (docs/observabilidade.md); a dead cron is seen by the uptime monitor (/health).
+Schedule::command('kaye:check-queue')->everyFiveMinutes();
+
+// The daily copy off Hostinger, kept 30 days, and the proof that it restores (docs/infraestrutura.md).
+Schedule::command('kaye:backup')->dailyAt('03:00')->withoutOverlapping();
+Schedule::command('backup:clean')->dailyAt('03:30');
+Schedule::command('backup:monitor')->dailyAt('04:00');
+Schedule::command('kaye:backup-restore-test')->weeklyOn(0, '04:30')
+    ->when(fn (): bool => filled(config('database.connections.restore.database')));
+
+// The audit log keeps a year (config/activitylog.php).
+Schedule::command('activitylog:clean')->dailyAt('02:30');

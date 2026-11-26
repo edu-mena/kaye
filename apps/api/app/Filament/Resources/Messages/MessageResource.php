@@ -9,7 +9,10 @@ use App\Enums\MessageTemplate;
 use App\Filament\Resources\Messages\Pages\CreateMessage;
 use App\Filament\Resources\Messages\Pages\EditMessage;
 use App\Filament\Resources\Messages\Pages\ListMessages;
+use App\Messaging\TestSend;
 use App\Models\Message;
+use App\Models\User;
+use App\Support\AuditLog;
 use BackedEnum;
 use Closure;
 use Filament\Actions\Action;
@@ -19,6 +22,7 @@ use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -27,7 +31,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use UnitEnum;
 
 /**
  * Campaigns by email or push (docs/seguranca.md, "Avisos"): write, choose the audience, send in batches, and
@@ -45,7 +50,11 @@ class MessageResource extends Resource
 
     protected static ?string $pluralModelLabel = 'mensagens';
 
-    protected static ?string $navigationLabel = 'Mensagens';
+    protected static ?string $navigationLabel = 'Campanhas';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Comunicação';
+
+    protected static ?int $navigationSort = 1;
 
     /** What a person in the panel may choose: the deadline reminders belong to the scheduler. */
     private const TEMPLATES = [
@@ -111,18 +120,31 @@ class MessageResource extends Resource
             ])
             ->recordActions([
                 EditAction::make(),
+                Action::make('sendTest')->label('Enviar teste para mim')->icon(Heroicon::Beaker)->color('gray')
+                    ->modalDescription('Só tu recebes, com "[Teste]" no assunto. A campanha continua em rascunho.')
+                    ->schema([Select::make('locale')->label('Língua')->options(self::LOCALES)->default('pt')->required()])
+                    ->visible(fn (Message $record): bool => $record->status === MessageStatus::Draft)
+                    ->authorize(fn (Message $record): bool => Auth::user()?->can('update', $record) ?? false)
+                    ->action(function (Message $record, array $data): void {
+                        $user = Auth::user();
+                        $locale = is_string($data['locale'] ?? null) && isset(self::LOCALES[$data['locale']]) ? $data['locale'] : 'pt';
+                        if (! $user instanceof User) {
+                            return;
+                        }
+                        app(TestSend::class)->send($record, $user, $locale)
+                            ? Notification::make()->title('Teste enviado para ti.')->success()->send()
+                            : Notification::make()->title('Este browser não está inscrito nos avisos: liga-os na app primeiro.')->warning()->send();
+                    }),
                 Action::make('send')->label('Enviar')->icon(Heroicon::PaperAirplane)
                     ->requiresConfirmation()
                     ->modalDescription('Sai em lotes, dentro do limite por hora, só para quem consentiu neste canal. As novidades nunca chegam a menores.')
                     ->visible(fn (Message $record): bool => $record->status === MessageStatus::Draft)
-                    ->action(fn (Message $record): bool => $record->update(['status' => MessageStatus::Sending])),
+                    ->authorize(fn (Message $record): bool => Auth::user()?->can('send', $record) ?? false)
+                    ->action(function (Message $record): void {
+                        $record->update(['status' => MessageStatus::Sending]);
+                        AuditLog::admin('message_sent', $record, ['channel' => $record->channel->value]);
+                    }),
             ]);
-    }
-
-    /** Only a draft changes: what went out stays as it was sent. */
-    public static function canEdit(Model $record): bool
-    {
-        return $record instanceof Message && $record->status === MessageStatus::Draft;
     }
 
     public static function getPages(): array

@@ -71,8 +71,15 @@ if [[ "$base" == https://* ]]; then
   echo "$page_headers" | grep -qi '^strict-transport-security:' && pass "HSTS" || fail "HSTS"
 fi
 
-# The cron beats every minute (hPanel: * * * * * php artisan schedule:run). A site without it sends nothing.
-cron="$(echo "$health" | grep -o '"cron":"[a-z]*"' | cut -d'"' -f4)"
+# The cron beats every minute (hPanel: * * * * * php artisan schedule:run). A site without it sends nothing. The
+# public /health no longer shows it: with SMOKE_HEALTH_TOKEN (the site's HEALTH_TOKEN) the detailed answer does. The
+# deploy also checks it on the server (php artisan kaye:health), where no token is needed.
+if [ -n "${SMOKE_HEALTH_TOKEN:-}" ]; then
+  detailed="$(curl -s -H "X-Health-Token: $SMOKE_HEALTH_TOKEN" "$base/api/v1/health")"
+  cron="$(echo "$detailed" | grep -o '"cron":{"status":"[a-z]*"' | cut -d'"' -f6)"
+else
+  cron="$(echo "$health" | grep -o '"cron":"[a-z]*"' | cut -d'"' -f4)"
+fi
 if [ "$cron" = ok ]; then
   pass "cron is beating"
 elif [ "${SMOKE_REQUIRE_CRON:-0}" = 1 ]; then

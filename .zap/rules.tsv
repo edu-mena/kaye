@@ -1,0 +1,8 @@
+10020	FAIL	(Anti-clickjacking header missing)
+10021	FAIL	(X-Content-Type-Options header missing)
+10023	FAIL	(Information disclosure: debug error messages)
+10036	FAIL	(Server leaks version information)
+10037	FAIL	(Server leaks information via X-Powered-By)
+10038	FAIL	(Content-Security-Policy header not set)
+10098	FAIL	(Cross-domain misconfiguration)
+90022	FAIL	(Application error disclosure)

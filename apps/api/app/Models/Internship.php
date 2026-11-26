@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\BelongsToCompany;
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\InternshipFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ use Spatie\Translatable\HasTranslations;
 class Internship extends Model
 {
     /** @use HasFactory<InternshipFactory> */
-    use BelongsToCompany, HasContentStatus, HasFactory, HasTranslations;
+    use BelongsToCompany, HasContentStatus, HasFactory, HasTranslations, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.

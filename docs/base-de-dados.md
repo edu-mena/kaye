@@ -14,7 +14,7 @@ MySQL/MariaDB, relacional. Este documento descreve **o que existe hoje**, as reg
 | Datas em UTC (`timestamp`); a app mostra-as na hora de Angola | Sem confusões com fusos horários |
 | `created_at` e `updated_at` em todas as tabelas de negócio | Saber quando mudou |
 | `deleted_at` (*soft delete*) só onde for preciso recuperar | Apagar a conta remove os dados pessoais a sério (ver [seguranca.md](seguranca.md#dados-pessoais-e-menores)) |
-| Valores fixos guardados como texto curto e convertidos para enum no PHP | `role` → `App\Enums\UserRole` |
+| Valores fixos guardados como texto curto e convertidos para enum no PHP | `locale` → `App\Enums\Locale` |
 | `country_code` (sempre `AO` por agora) em instituições, vagas e estatísticas | Preparado para outros países |
 | Todos os dados recolhidos têm `source_url` e `last_verified_at` | Transparência |
 
@@ -53,12 +53,15 @@ Uma pessoa com conta. O login é feito só com o Google (e, no iOS, com a Apple)
 | `province` | varchar(64) | Província, nunca a morada |
 | `current_education_level` | varchar(32) | |
 | `locale` | varchar(5), por omissão `pt` | `pt`, `en` ou `fr` (`App\Enums\Locale`) |
-| `role` | varchar(16), por omissão `user`, indexado | `user`, `moderator` ou `admin` (`App\Enums\UserRole`) |
+| `app_authentication_secret`, `app_authentication_recovery_codes` | text, podem ser vazios, **cifradas** | O segundo fator (TOTP) do painel e os códigos de recuperação. Nunca saem no JSON do modelo |
 | `xp` | int | Pontos da gamificação |
 | `last_login_at` | timestamp, pode ser vazio | O último login com o Google |
 | `password` | varchar, pode ser vazio | **Só para o admin local**, até o painel passar para o login Google. Os utilizadores nunca têm senha |
 | `remember_token` | varchar | Sessão do painel |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | |
+
+Os papéis da equipa (`admin`, `editor`, `reviewer`) já não estão numa coluna: vivem em `roles` e `model_has_roles` (`spatie/laravel-permission`, [ADR 0026](decisoes/0026-papeis-2fa-copias-e-saude.md)), com as permissões de `App\Enums\StaffRole`. A migração passou `admin` a `admin` e `moderator` a `reviewer`.
+
 
 ### Pessoas (login, ADR 0019)
 
@@ -192,7 +195,7 @@ O que o backend vai criar, a partir dos tipos de `apps/web/src/data/types.ts`. *
 | `position` | smallint, por omissão `0` | A ordem em que a app mostra a lista (o `position` da exportação) |
 | `created_at`, `updated_at`, `deleted_at` | timestamp | *Soft delete*: o conteúdo apagado recupera-se no painel |
 
-**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA traduz para en e fr no prompt 8 (`ai_tasks` do tipo `translate`), e cada tradução entra em `revisions` até ser aprovada.
+**Traduções.** As colunas marcadas com **\*** são traduzíveis: JSON `{"pt": "…", "en": "…", "fr": "…"}` com `spatie/laravel-translatable`. A língua vem do `Accept-Language`; uma língua em falta devolve o português. Uma coluna JSON marcada com \* (uma lista de textos) guarda a lista inteira por língua. Quase todo o conteúdo existe hoje só em português: a IA pode propor as traduções en e fr (um pedido como "traduz os resumos das empresas" em "Pesquisar com IA", ou pelo MCP), e cada tradução entra em `revisions` até ser aprovada ([ia.md](ia.md)).
 
 **Dados de exemplo.** O que foi inventado para a demonstração (as instituições com `example`, os `programs` delas, as novidades e os testemunhos com `example`) é importado com `status = draft`: fica na base de dados, **invisível em produção**, até haver dados reais que o substituam.
 
@@ -774,8 +777,10 @@ A lista de espera, migrada do Upstash.
 | Coluna | Tipo | Notas |
 |---|---|---|
 | `name` | varchar | |
-| `email` | varchar, pode ser vazio, único | |
-| `whatsapp` | varchar(20), pode ser vazio, único | E.164 |
+| `email` | text, pode ser vazio, **cifrado** com a `APP_KEY` | |
+| `email_hash` | char(64), pode ser vazio, único | HMAC-SHA256 do email em minúsculas, com a `APP_KEY`: encontra duplicados e é por onde o painel procura (`BlindIndex`) |
+| `whatsapp` | text, pode ser vazio, **cifrado** | E.164 |
+| `whatsapp_hash` | char(64), pode ser vazio, único | Como `email_hash` |
 | `source` | varchar(12) | `landing`, `onboarding`, `plus` (quem quer ser avisado quando o Kayé Plus abrir) |
 | `locale` | varchar(5) | O `lang` da app |
 | `consent_at` | timestamp | |
@@ -877,45 +882,63 @@ Do pacote `laravel-notification-channels/webpush`: `subscribable_type`, `subscri
 
 #### `ai_tasks`
 
-Cada pedido à IA (pesquisa, rascunho, tradução, verificação de fonte).
+Cada pesquisa pedida à IA no painel ("Pesquisar com IA", [ia.md](ia.md)). Corre na fila (`RunAiTask`).
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `kind` | varchar(12) | `research`, `draft`, `translate`, `verify` |
-| `target_type`, `target_id` | varchar, bigint, podem ser vazios | O registo sobre o qual trabalha |
-| `prompt` | text | Nunca com dados de pessoas |
-| `status` | varchar(10), indexado | `queued`, `running`, `done`, `failed` |
-| `result` | json, pode ser vazio | |
-| `sources` | json, pode ser vazio | As fontes que encontrou |
-| `model` | varchar(48) | |
-| `input_tokens`, `output_tokens` | int | |
-| `cost_usd` | decimal(8,4) | |
-| `requested_by` | fk → `users` | |
+| `kind` | varchar(12), por omissão `research` | |
+| `content_type` | varchar(32) | Um tipo de `App\Support\ContentTypes` (`institution`, `company`…) |
+| `target_slug` | varchar(191), pode ser vazio | Vazio: a IA escolhe os registos a que faltam dados |
+| `prompt` | text | O pedido da equipa. Nunca com dados de pessoas |
+| `status` | varchar(10), indexado | `queued`, `running`, `done`, `failed`, `skipped` (orçamento do dia gasto) |
+| `result` | text, pode ser vazio | O resumo final da IA |
+| `sources` | json, pode ser vazio | As fontes das propostas que fez |
+| `model` | varchar(48) | O modelo que respondeu (pode ser o de *fallback*) |
+| `input_tokens`, `output_tokens`, `web_searches` | int | Somados em todas as voltas |
+| `cost_usd` | decimal(8,4) | Conta para `AI_DAILY_BUDGET_USD` |
+| `requested_by` | fk → `users`, pode ser vazio | |
 | `started_at`, `finished_at` | timestamp, podem ser vazios | |
-| `error` | text, pode ser vazio | |
+| `error` | varchar(255), pode ser vazio | O motivo de parar (orçamento, limite, recusa) ou a classe do erro; nunca o corpo de uma resposta |
 | `created_at`, `updated_at` | timestamp | |
 
 #### `revisions`
 
-Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A IA só escreve aqui** (ADR 0019).
+Alterações propostas (pela IA ou por um editor) à espera de aprovação, e as gravações da equipa no painel (`edited`, [ADR 0028](decisoes/0028-painel-completo.md)). **A IA só escreve aqui** ([ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)). As revisões de um registo são o seu histórico.
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `revisable_type`, `revisable_id` | varchar, bigint | `revisable_id` vazio = registo novo |
-| `ai_task_id` | fk → `ai_tasks`, pode ser vazio | |
-| `author_id` | fk → `users`, pode ser vazio | |
-| `changes` | json | Campo → valor novo |
-| `original` | json, pode ser vazio | Os valores antes, para mostrar a diferença |
+| `content_type` | varchar(32) | O tipo em `ContentTypes`; nas gravações do painel de outras tabelas, o nome da tabela (`pathways`…) |
+| `revisable_type`, `revisable_id` | varchar, bigint, indexados | `revisable_id` vazio = registo novo (preenchido ao aprovar) |
+| `slug` | varchar(191) | O slug do registo, ou o do registo novo |
+| `ai_task_id` | fk → `ai_tasks`, pode ser vazio | A pesquisa que a fez |
+| `author_id` | fk → `users`, pode ser vazio | Quem a fez pelo MCP; vazio quando veio de uma pesquisa |
+| `changes` | json | Campo → valor novo. Uma imagem é `ai-image:<ficheiro privado>` até ser aprovada |
+| `original` | json, pode ser vazio | Os valores no momento da proposta: se mudarem, a aprovação fica bloqueada |
 | `source_url` | varchar(2048) | **Obrigatório** |
-| `status` | varchar(10), indexado | `pending`, `approved`, `rejected` |
-| `reviewed_by`, `reviewed_at`, `note` | fk → `users`, timestamp, text | |
+| `note` | text, pode ser vazio | A nota de quem propôs |
+| `status` | varchar(10), indexado | `pending`, `approved`, `rejected`, ou `edited` (gravado no painel por uma pessoa: aplicado logo, `reviewed_by` = quem gravou) |
+| `reviewed_by`, `reviewed_at` | fk → `users`, timestamp | Quem aprovou ou rejeitou (nunca o autor) |
+| `rejection_reason` | text, pode ser vazio | Obrigatório ao rejeitar |
+| `created_at`, `updated_at` | timestamp | |
+
+O `kaye:import` não volta a escrever os campos de uma proposta aprovada ou de uma gravação do painel (nem `sources`, `source_url` e `source_checked_at` desse registo). Uma ligação mudada no painel (as carreiras de uma empresa, por exemplo) fica em `changes` com o nome da relação e a lista de slugs: o importador deixa de a sincronizar.
+
+#### `settings`
+
+As chaves e os limites mudados no painel (Sistema → Definições, `App\Support\Settings`, [ADR 0028](decisoes/0028-painel-completo.md)). Cada valor vale em vez do `.env` a partir do arranque seguinte.
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `key` | varchar(64), chave primária | Uma das chaves de `Settings::KEYS` (`anthropic_api_key`, `ai_daily_budget_usd`…) |
+| `value` | text, **cifrado** com a `APP_KEY` | Nunca se mostra depois de gravado |
+| `updated_by` | fk → `users`, pode ser vazio | Quem gravou |
 | `created_at`, `updated_at` | timestamp | |
 
 #### Dos pacotes
 
 | Tabela | Pacote | Dados pessoais |
 |---|---|---|
-| `activity_log` | `spatie/laravel-activitylog` | O id de quem mudou; nunca o conteúdo de `user_data` |
+| `activity_log` | `spatie/laravel-activitylog` | O id de quem mudou, e nos logins o IP truncado; nunca o conteúdo de `user_data` nem um email (as falhas de login guardam um *hash*). Um ano; os logins de uma pessoa vão com a conta |
 | `roles`, `permissions`, `model_has_roles`, `model_has_permissions`, `role_has_permissions` | `spatie/laravel-permission` | Não |
 | `pulse_entries`, `pulse_aggregates`, `pulse_values` | `laravel/pulse` | Ids de utilizador nos pedidos lentos; limpas ao fim de 7 dias |
 
