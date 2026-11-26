@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\KayeTheme;
 use App\Filament\Pages\Dashboard;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
+use Filament\Facades\Filament;
 use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -23,6 +24,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use LogicException;
 
 /**
  * The admin panel (docs/design.md, "Painel"): the site's look (KayeTheme and resources/css/filament/admin), in
@@ -35,6 +37,15 @@ class AdminPanelProvider extends PanelProvider
         'Carreiras', 'Formação', 'Oportunidades', 'Novidades', 'Testes e Kursos', 'Mercado',
         'Caixa da IA', 'Moderação', 'Comunicação', 'Pessoas', 'Sistema',
     ];
+
+    /**
+     * The registered admin panel. This provider registers it, so a missing panel is a bug, not a case to handle
+     * (Filament 5.11 types the lookup as nullable).
+     */
+    public static function adminPanel(): Panel
+    {
+        return Filament::getPanel('admin') ?? throw new LogicException('The admin panel is not registered.');
+    }
 
     public function panel(Panel $panel): Panel
     {
