@@ -2,7 +2,7 @@
 
 namespace App\Filament\Content;
 
-use Filament\Facades\Filament;
+use App\Providers\Filament\AdminPanelProvider;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
@@ -34,7 +34,7 @@ abstract class ContentResource extends Resource
     public static function all(): array
     {
         $resources = [];
-        foreach (Filament::getPanel('admin')->getResources() as $resource) {
+        foreach (AdminPanelProvider::adminPanel()->getResources() as $resource) {
             if (is_subclass_of($resource, self::class)) {
                 $resources[] = $resource;
             }
