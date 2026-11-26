@@ -1,1 +1,0 @@
-import{y as e}from"./icons-HNss27Xa.js";import{a as t,r as n,s as r}from"./PageStates-B2YKCC2o.js";var i=e();function a({query:e,children:a,loading:o,compact:s=!1}){return e.isPending?o??(0,i.jsx)(t,{children:(0,i.jsx)(r,{})}):e.isError?(0,i.jsx)(n,{compact:s,onRetry:()=>void e.refetch()}):(0,i.jsx)(i.Fragment,{children:a(e.data)})}export{a as t};

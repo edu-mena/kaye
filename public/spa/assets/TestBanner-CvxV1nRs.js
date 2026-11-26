@@ -1,1 +1,0 @@
-import{n as e,y as t}from"./icons-HNss27Xa.js";var n=t();function r(){let{t}=e();return(0,n.jsx)(`p`,{role:`note`,title:t(`kursos.banner`),className:`truncate bg-gold/20 px-4 py-1.5 text-center text-xs text-night sm:whitespace-normal`,children:t(`kursos.banner`)})}export{r as t};

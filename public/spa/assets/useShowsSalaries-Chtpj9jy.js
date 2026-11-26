@@ -1,0 +1,1 @@
+import{n as e}from"./education-D6e7_4F7.js";import{c as t}from"./userStore-CmudpV7i.js";function n(){let{profile:n}=t();return n?!e(n.birthYear):!1}export{n as t};

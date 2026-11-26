@@ -1,0 +1,1 @@
+import{n as e}from"./useInterestFilter-CWKBTveQ.js";function t(){return e().areas}export{t};
