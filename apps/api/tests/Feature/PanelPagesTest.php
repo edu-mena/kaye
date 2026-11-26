@@ -12,9 +12,12 @@ use App\Models\MessageDelivery;
 use App\Models\Revision;
 use App\Models\User;
 use App\Models\WaitlistEntry;
+use App\Providers\Filament\AdminPanelProvider;
 use Filament\Facades\Filament;
+use Filament\PanelRegistry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
+use LogicException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
@@ -120,6 +123,16 @@ class PanelPagesTest extends TestCase
             ->assertOk()
             ->assertSee('Carreiras')
             ->assertSee('Pesquisar');
+    }
+
+    public function test_the_admin_panel_lookup_fails_loudly_when_the_panel_is_not_registered(): void
+    {
+        $this->assertSame('admin', AdminPanelProvider::adminPanel()->getId());
+
+        $this->app->instance(PanelRegistry::class, new PanelRegistry);
+
+        $this->expectException(LogicException::class);
+        AdminPanelProvider::adminPanel();
     }
 
     private static function staff(StaffRole $role): User
