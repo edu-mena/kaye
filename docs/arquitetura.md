@@ -214,7 +214,7 @@ erDiagram
 
 | Tabela | Campos principais | Notas |
 |---|---|---|
-| `users` | id, google_sub, apple_sub, email, name, avatar_url, birth_year, province, current_education_level, locale, role (user, moderator, admin), xp, created_at, deleted_at | Ano de nascimento em vez da data completa. |
+| `users` | id, google_sub, apple_sub, email, name, avatar_url, birth_year, province, current_education_level, locale, xp (papéis da equipa em `roles`, ADR 0026), created_at, deleted_at | Ano de nascimento em vez da data completa. |
 | `consents` | user_id, kind (termos, privacidade, menor_encarregado_informado, contribuicao_salarial, emails), version, granted_at, revoked_at | Prova de consentimento exigida pela lei. |
 | `assessment_questions` | id, version, dimension (R, I, A, S, E, C), text*, position | |
 | `assessment_attempts` | id, user_id, version, started_at, completed_at, scores (JSON), code (ex.: "IAC") | |
@@ -689,7 +689,7 @@ Basta uma linha de cron no hPanel: `* * * * * php artisan schedule:run`.
 |---|---|
 | A cada minuto | Processar a fila (vagas, emails) |
 | De 2 em 2 horas | `kaye:fetch-news`: notícias de Angola sobre formação, emprego e carreiras ([fontes-de-noticias.md](fontes-de-noticias.md)) |
-| De 2 em 2 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
+| De 3 em 3 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
 | Diário, 02:00 | Expirar vagas antigas, limpar tokens velhos |
 | Sábado, 22:00 | Scrapers completos no GitHub Actions |
 | Domingo, 03:00 | Recalcular `market_stats` |

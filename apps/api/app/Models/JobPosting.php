@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\JobPostingFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class JobPosting extends Model
 {
     /** @use HasFactory<JobPostingFactory> */
-    use HasFactory;
+    use HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

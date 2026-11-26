@@ -28,7 +28,7 @@ class NoticeLinksTest extends TestCase
             'name' => 'Ana', 'email' => $email, 'whatsapp' => $whatsapp, 'consent' => true, 'lang' => 'fr',
         ])->assertCreated();
 
-        return WaitlistEntry::query()->where('email', $email)->sole();
+        return WaitlistEntry::query()->withEmail($email)->sole();
     }
 
     public function test_a_signup_records_its_consents_and_asks_to_confirm_the_email(): void

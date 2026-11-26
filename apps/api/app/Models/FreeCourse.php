@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
 use App\Models\Concerns\LinksToCareers;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\FreeCourseFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 class FreeCourse extends Model
 {
     /** @use HasFactory<FreeCourseFactory> */
-    use HasContentStatus, HasFactory, LinksToCareers;
+    use HasContentStatus, HasFactory, LinksToCareers, LogsContentChanges;
 
     /**
      * @return array<string, string>

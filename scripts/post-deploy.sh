@@ -35,6 +35,8 @@ fi
 
 step "Migrations"
 "$php" artisan migrate --force
+step "Public files (the approved images, docs/ia.md)"
+[ -e public/storage ] || "$php" artisan storage:link
 step "Catalogue (only what changed)"
 "$php" artisan kaye:import
 step "Caches (config, routes, views)"
@@ -44,6 +46,11 @@ step "Production check"
 step "Queue workers pick up the new code"
 "$php" artisan queue:restart
 
+step "Health: database, queue, cron, disk"
+# From the server itself, so the cron is checked on every deploy without HEALTH_TOKEN (the public /health no longer
+# shows it, docs/observabilidade.md).
+"$php" artisan kaye:health
+
 url="$(grep -E '^APP_URL=' .env | head -1 | cut -d= -f2- | tr -d '"' | tr -d "'")"
 step "Smoke test: $url"
-SMOKE_REQUIRE_CRON="${SMOKE_REQUIRE_CRON:-1}" scripts/smoke-test.sh "$url"
+scripts/smoke-test.sh "$url"

@@ -66,9 +66,9 @@ class WaitlistExportTest extends TestCase
 
     public function test_a_withdrawn_consent_takes_its_contact_out_of_the_list(): void
     {
-        $ana = WaitlistEntry::query()->where('email', 'ana@example.com')->sole();
+        $ana = WaitlistEntry::query()->withEmail('ana@example.com')->sole();
         Consents::revoke($ana, ConsentKind::WhatsappMarketing);
-        $other = WaitlistEntry::query()->where('whatsapp', '+244931111111')->sole();
+        $other = WaitlistEntry::query()->withWhatsapp('+244931111111')->sole();
         Consents::revoke($other, ConsentKind::WhatsappMarketing);
 
         $csv = $this->get('/api/v1/waitlist/export', ['X-Export-Token' => self::TOKEN])->streamedContent();

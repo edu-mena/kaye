@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MeResource;
 use App\Support\Accounts;
+use App\Support\AuditLog;
 use App\Support\GoogleIdTokenVerifier;
 use App\Support\InvalidGoogleToken;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -27,10 +28,15 @@ class GoogleTokenController extends Controller
         try {
             $user = $accounts->fromGoogle($verifier->verify($request->string('id_token')->value()));
         } catch (InvalidGoogleToken) {
+            AuditLog::signInFailed('android', 'invalid_token');
+
             return response()->json(['message' => 'Invalid Google token.'], 401);
         } catch (AuthorizationException) {
+            AuditLog::signInFailed('android', 'closed_account');
+
             return response()->json(['message' => 'This account was closed.'], 403);
         }
+        AuditLog::signedIn($user, 'android');
 
         $token = $user->createToken(
             $request->filled('device_name') ? $request->string('device_name')->value() : 'android',

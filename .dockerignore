@@ -17,6 +17,7 @@ apps/api/storage/framework/sessions/*
 apps/api/storage/framework/views/*
 apps/api/storage/framework/testing
 apps/api/public/spa
+apps/api/public/build
 apps/api/public/css/filament
 apps/api/public/js/filament
 apps/api/public/fonts/filament

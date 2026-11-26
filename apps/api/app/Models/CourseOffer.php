@@ -6,6 +6,7 @@ use App\Models\Concerns\BelongsToCourse;
 use App\Models\Concerns\BelongsToInstitution;
 use App\Models\Concerns\HasContentStatus;
 use App\Models\Concerns\LinksToCareers;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\CourseOfferFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,7 +21,7 @@ use Spatie\Translatable\HasTranslations;
 class CourseOffer extends Model
 {
     /** @use HasFactory<CourseOfferFactory> */
-    use BelongsToCourse, BelongsToInstitution, HasContentStatus, HasFactory, HasTranslations, LinksToCareers;
+    use BelongsToCourse, BelongsToInstitution, HasContentStatus, HasFactory, HasTranslations, LinksToCareers, LogsContentChanges;
 
     /**
      * Stored as {"pt": …, "en": …, "fr": …}; a missing language falls back to Portuguese.
