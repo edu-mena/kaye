@@ -6,11 +6,11 @@ use App\Enums\StaffPermission;
 use App\Models\User;
 use App\Policies\ContentPolicy;
 use App\Policies\PersonalDataPolicy;
+use App\Providers\Filament\AdminPanelProvider;
 use App\Support\AuditLog;
 use App\Support\ModelKinds;
 use App\Support\Settings;
 use App\Support\Submission;
-use Filament\Facades\Filament;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -64,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Pulse, inside the panel: the panel's two locks, the second factor set up (Pulse is outside Filament's
         // middleware, which would ask for it), and the permission.
-        Gate::define('viewPulse', fn (User $user): bool => $user->canAccessPanel(Filament::getPanel('admin'))
+        Gate::define('viewPulse', fn (User $user): bool => $user->canAccessPanel(AdminPanelProvider::adminPanel())
             && $user->getAppAuthenticationSecret() !== null
             && $user->can(StaffPermission::MonitoringView->value));
     }

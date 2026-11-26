@@ -8,6 +8,7 @@ use Filament\Support\Services\RelationshipJoiner;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Database\Query\Grammars\SqlServerGrammar;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Znck\Eloquent\Relations\BelongsToThrough;
@@ -58,7 +59,7 @@ class SelectFilter extends BaseFilter
 
             $relationshipOptionLabels = null;
 
-            if ($filter->queriesRelationships()) {
+            if ($filter->hasRelationship()) {
                 $relationshipOptionLabels = $filter->getTable()->withAppliedFiltersFormState(static function () use ($filter): ?array {
                     $select = $filter->getTable()->getFiltersForm()->getComponentByStatePath(
                         $filter->getName() . '.' . ($filter->isMultiple() ? 'values' : 'value'),
@@ -78,7 +79,7 @@ class SelectFilter extends BaseFilter
             if ($filter->isMultiple()) {
                 if ($relationshipOptionLabels !== null) {
                     $labels = $relationshipOptionLabels;
-                } elseif ($filter->queriesRelationships()) {
+                } elseif ($filter->hasRelationship()) {
                     $relationshipQuery = $filter->getRelationshipQuery();
 
                     $labels = [];
@@ -98,7 +99,7 @@ class SelectFilter extends BaseFilter
                                 fn (Builder $query) => $query->distinct(),
                             )
                             ->when(
-                                $filter->getRelationshipKey(),
+                                $filter->getQualifiedRelatedKeyNameForRelationship(),
                                 fn (Builder $query, string $relationshipKey) => $query->whereIn($relationshipKey, $filter->getRelationshipQueryValues($state['values'])),
                                 fn (Builder $query) => $query->whereKey($state['values'])
                             )
@@ -129,7 +130,7 @@ class SelectFilter extends BaseFilter
 
             if ($relationshipOptionLabels !== null) {
                 $label = $relationshipOptionLabels[0] ?? null;
-            } elseif ($filter->queriesRelationships()) {
+            } elseif ($filter->hasRelationship()) {
                 if (
                     $filter->hasEmptyRelationshipOption() &&
                     ($state['value'] === static::EMPTY_RELATIONSHIP_OPTION_KEY)
@@ -138,7 +139,7 @@ class SelectFilter extends BaseFilter
                 } else {
                     $label = $filter->getRelationshipQuery()
                         ->when(
-                            $filter->getRelationshipKey(),
+                            $filter->getQualifiedRelatedKeyNameForRelationship(),
                             fn (Builder $query, string $relationshipKey) => $query->where($relationshipKey, $state['value']),
                             fn (Builder $query) => $query->whereKey($state['value'])
                         )
@@ -204,7 +205,7 @@ class SelectFilter extends BaseFilter
             return $query;
         }
 
-        if (! $this->queriesRelationships()) {
+        if (! $this->hasRelationship()) {
             return $query->{$isMultiple ? 'whereIn' : 'where'}(
                 $query->qualifyColumn($this->getAttribute()),
                 $values,
@@ -227,9 +228,18 @@ class SelectFilter extends BaseFilter
                         ]) ?? $query;
                     }
 
+                    if (
+                        ($query->getQuery()->getGrammar() instanceof SqlServerGrammar) &&
+                        ($query->getQuery()->limit === null) &&
+                        (! $query->getQuery()->offset) &&
+                        ($query->getQuery()->groupLimit === null)
+                    ) {
+                        $query->reorder();
+                    }
+
                     $queryValues = $isMultiple ? $filteredValues : $filteredValues[0];
 
-                    if ($relationshipKey = $this->getRelationshipKey($query)) {
+                    if ($relationshipKey = $this->getQualifiedRelatedKeyNameForRelationship($query)) {
                         $query->{$isMultiple ? 'whereIn' : 'where'}(
                             $relationshipKey,
                             $queryValues,
@@ -348,7 +358,7 @@ class SelectFilter extends BaseFilter
             ->native($this->isNative())
             ->optionsLimit($this->getOptionsLimit());
 
-        if ($this->queriesRelationships()) {
+        if ($this->hasRelationship()) {
             $field
                 ->relationship(
                     $this->getRelationshipName(),

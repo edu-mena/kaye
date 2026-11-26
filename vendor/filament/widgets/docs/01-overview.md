@@ -193,6 +193,8 @@ This command will create two files - a widget class in the `/Widgets` directory 
 
 The class is a [Livewire component](https://livewire.laravel.com/docs/components), so any Livewire features are available to you. The Blade view can contain any HTML you like, and you can access any public Livewire properties in the view. You can also access the Livewire component instance in the view using `$this`.
 
+You can also render widgets with React, Vue, Svelte, or framework-free JavaScript. Add `--react`, `--vue`, `--svelte`, or `--js` to the command to generate a renderer instead of a Blade view. See [custom widgets](custom-widgets) for the renderer lifecycle, PHP props, and dashboard filter synchronization.
+
 ## Filtering widget data
 
 You may add a form to the dashboard that allows the user to filter the data displayed across all widgets. When the filters are updated, the widgets will be reloaded with the new data.
@@ -235,8 +237,9 @@ In widget classes that require data from the filters, you need to add the `Inter
 ```php
 use App\Models\BlogPost;
 use Carbon\CarbonImmutable;
-use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
+use Filament\Widgets\StatsOverviewWidget;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\Builder;
 
 class BlogPostsOverview extends StatsOverviewWidget
@@ -249,7 +252,7 @@ class BlogPostsOverview extends StatsOverviewWidget
         $endDate = $this->pageFilters['endDate'] ?? null;
 
         return [
-            StatsOverviewWidget\Stat::make(
+            Stat::make(
                 label: 'Total posts',
                 value: BlogPost::query()
                     ->when($startDate, fn (Builder $query) => $query->whereDate('created_at', '>=', $startDate))
