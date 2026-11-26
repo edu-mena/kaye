@@ -13,11 +13,12 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * "Pesquisar com IA" on a type, or on one row when `$type` and `$slug` are given (the content resources use it on
- * each row). The task goes to the queue; what it finds becomes proposals.
+ * "Pesquisar com IA" on a type (the list's header), or on one row (each row of the catalogue lists and its edit
+ * page): the task goes to the queue; what it finds becomes proposals in the "Caixa da IA".
  */
 final class ResearchWithAi
 {
@@ -30,12 +31,14 @@ final class ResearchWithAi
             ->schema([
                 Select::make('type')->label('Tipo')->required()->default($type)->disabled($type !== null)
                     ->options(array_combine(ContentTypes::keys(), array_map(ContentTypes::label(...), ContentTypes::keys()))),
-                TextInput::make('slug')->label('Registo (slug)')->default($slug)->disabled($slug !== null)
+                TextInput::make('slug')->label('Registo (slug)')
+                    ->default(fn (?Model $record): ?string => $slug ?? self::slugOf($record))
+                    ->disabled(fn (?Model $record): bool => $slug !== null || $record !== null)
                     ->helperText('Vazio: a IA escolhe os registos a que faltam dados.'),
                 Textarea::make('prompt')->label('O que pesquisar')->required()->rows(4)->minLength(5)->maxLength(2000)
                     ->placeholder('Completa os contactos das universidades de Luanda.'),
             ])
-            ->action(function (array $data) use ($type, $slug): void {
+            ->action(function (array $data, ?Model $record) use ($type, $slug): void {
                 $user = Auth::user();
                 if (! $user instanceof User) {
                     return;
@@ -44,13 +47,20 @@ final class ResearchWithAi
                     $task = AiTasks::request(
                         $user,
                         $type ?? (is_string($data['type'] ?? null) ? $data['type'] : ''),
-                        $slug ?? (is_string($data['slug'] ?? null) ? $data['slug'] : null),
+                        $slug ?? self::slugOf($record) ?? (is_string($data['slug'] ?? null) && $data['slug'] !== '' ? $data['slug'] : null),
                         is_string($data['prompt'] ?? null) ? $data['prompt'] : '',
                     );
-                    Notification::make()->title("Pesquisa #{$task->id} na fila")->body('O resultado aparece em "Propostas a rever".')->success()->send();
+                    Notification::make()->title("Pesquisa #{$task->id} na fila")->body('O resultado aparece na "Caixa da IA".')->success()->send();
                 } catch (InvalidProposal $refused) {
                     Notification::make()->title('Não foi possível')->body($refused->getMessage())->danger()->send();
                 }
             });
+    }
+
+    private static function slugOf(?Model $record): ?string
+    {
+        $slug = $record?->getAttribute('slug');
+
+        return is_string($slug) ? $slug : null;
     }
 }

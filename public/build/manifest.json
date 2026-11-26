@@ -1,0 +1,28 @@
+{
+  "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-ext-opsz-normal.woff2": {
+    "file": "assets/bricolage-grotesque-latin-ext-opsz-normal-IcJDqblK.woff2",
+    "src": "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-ext-opsz-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2": {
+    "file": "assets/bricolage-grotesque-latin-opsz-normal-Cre6nC2_.woff2",
+    "src": "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-vietnamese-opsz-normal.woff2": {
+    "file": "assets/bricolage-grotesque-vietnamese-opsz-normal-D9N6E8K1.woff2",
+    "src": "node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-vietnamese-opsz-normal.woff2"
+  },
+  "resources/css/filament/admin/theme.css": {
+    "file": "assets/theme-BI-48JVR.css",
+    "name": "theme",
+    "names": [
+      "theme.css"
+    ],
+    "src": "resources/css/filament/admin/theme.css",
+    "isEntry": true,
+    "assets": [
+      "assets/bricolage-grotesque-vietnamese-opsz-normal-D9N6E8K1.woff2",
+      "assets/bricolage-grotesque-latin-ext-opsz-normal-IcJDqblK.woff2",
+      "assets/bricolage-grotesque-latin-opsz-normal-Cre6nC2_.woff2"
+    ]
+  }
+}

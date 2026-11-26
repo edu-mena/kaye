@@ -8,6 +8,7 @@ use App\Policies\ContentPolicy;
 use App\Policies\PersonalDataPolicy;
 use App\Support\AuditLog;
 use App\Support\ModelKinds;
+use App\Support\Settings;
 use App\Support\Submission;
 use Filament\Facades\Filament;
 use Illuminate\Auth\Events\Failed;
@@ -52,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // The keys and limits changed in the panel replace the .env's (ADR 0028).
+        Settings::apply();
         $this->configureRateLimiting();
         $this->configurePolicies();
         $this->configureAudit();

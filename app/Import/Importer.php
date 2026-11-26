@@ -119,6 +119,10 @@ final class Importer
      */
     public function sync(BelongsToMany $relation, array $ids): bool
     {
+        // Links changed in the panel (ADR 0028) belong to the database, like the approved columns.
+        if (in_array($relation->getRelationName(), $this->approvedColumns($relation->getParent()), true)) {
+            return false;
+        }
         $changes = $relation->sync($ids);
 
         return $changes['attached'] !== [] || $changes['detached'] !== [] || $changes['updated'] !== [];
@@ -172,7 +176,7 @@ final class Importer
     }
 
     /**
-     * The columns of this row that an approved revision set (plus the source columns it updated).
+     * The columns (and links) of this row that an approved revision or a panel edit set, plus the source columns.
      *
      * @return list<string>
      */
@@ -181,7 +185,7 @@ final class Importer
         $type = $model->getMorphClass();
         if (! isset($this->approved[$type])) {
             $this->approved[$type] = [];
-            $rows = Revision::query()->where('revisable_type', $type)->where('status', RevisionStatus::Approved->value)->get(['revisable_id', 'changes']);
+            $rows = Revision::query()->where('revisable_type', $type)->whereIn('status', RevisionStatus::applied())->get(['revisable_id', 'changes']);
             foreach ($rows as $revision) {
                 $columns = [...($this->approved[$type][$revision->revisable_id] ?? []), ...array_keys($revision->changes), 'sources', 'source_url', 'source_checked_at'];
                 $this->approved[$type][(int) $revision->revisable_id] = array_values(array_unique($columns));
@@ -207,7 +211,7 @@ final class Importer
      */
     private function update(Model $model, array $values): bool
     {
-        // A field a reviewer approved in the panel (docs/ia.md) now belongs to the database: the frontend's export
+        // A field approved or edited in the panel (docs/ia.md, ADR 0028) now belongs to the database: the export
         // still has the old value and would undo the approval on every deploy.
         $locked = $this->approvedColumns($model);
         $changed = array_filter(
