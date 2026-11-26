@@ -199,7 +199,7 @@ export const INTERNSHIPS: Internship[] = [
       '3 meses em Lagos (Nigéria) e 3 na Banking School of Excellence; viagem, alojamento e refeições pagos',
       'Edição de 2026 fechou a 13/04/2026',
     ],
-    deadline: null,
+    deadline: '2026-04-13',
     recurring: true,
     url: 'https://angola.accessbankplc.com',
     sources: [

@@ -15,7 +15,7 @@ import { bestCvCompleteness } from './cv'
 import { isStepDone } from './education'
 import { careerFit } from './fit'
 import { internshipsFor } from './internships'
-import { scholarshipsFor } from './scholarships'
+import { isOpen, scholarshipsFor } from './scholarships'
 
 // "O meu plano": a career and a path turned into steps the person ticks off. Everything is built
 // from the catalogue on this device; the ids stay the same when the plan is rebuilt, so what was
@@ -284,9 +284,7 @@ function skillSteps(career: Career, person: PlanPerson, sources: PlanSources): P
 function experienceSteps(career: Career, person: PlanPerson, sources: PlanSources, today: string) {
   const from = person.since < today ? person.since : today
   return internshipsFor(sources.internships, [GROUP_AREAS[career.group]], today)
-    .filter(
-      (internship) => internship.recurring || (internship.deadline !== null && internship.deadline >= from),
-    )
+    .filter((internship) => isOpen(internship, from))
     .slice(0, MAX_INTERNSHIPS)
     .map((internship): PlanStep => ({
       id: `experience-${internship.id}`,

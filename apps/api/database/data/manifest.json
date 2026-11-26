@@ -54,34 +54,34 @@
     "pt": {
       "file": "career-details.pt.json",
       "records": 256,
-      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+      "sha256": "f0b210ca7e8e85fda0a82b9941c428a92de671d74d25c1d38eac512a2f28d832"
     },
     "en": {
       "file": "career-details.en.json",
       "records": 256,
-      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+      "sha256": "f0b210ca7e8e85fda0a82b9941c428a92de671d74d25c1d38eac512a2f28d832"
     },
     "fr": {
       "file": "career-details.fr.json",
       "records": 256,
-      "sha256": "a4eacc82e9a8388e6d29bf9b9fa45828e9d83525ba38055ba8e0a4354b073cf8"
+      "sha256": "f0b210ca7e8e85fda0a82b9941c428a92de671d74d25c1d38eac512a2f28d832"
     }
   },
   "career-traits": {
     "pt": {
       "file": "career-traits.pt.json",
       "records": 256,
-      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
+      "sha256": "0fc203ff64d13fa76478e8fc14bc868c468d06e2b8d0369f407f1cd54feecabd"
     },
     "en": {
       "file": "career-traits.en.json",
       "records": 256,
-      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
+      "sha256": "0fc203ff64d13fa76478e8fc14bc868c468d06e2b8d0369f407f1cd54feecabd"
     },
     "fr": {
       "file": "career-traits.fr.json",
       "records": 256,
-      "sha256": "db22ab4815cffb66fd6cf379c34cd4ce9c53a0f09d8cce31905cde2c1ec6b5b9"
+      "sha256": "0fc203ff64d13fa76478e8fc14bc868c468d06e2b8d0369f407f1cd54feecabd"
     }
   },
   "skills": {
@@ -257,35 +257,35 @@
   "scholarships": {
     "pt": {
       "file": "scholarships.pt.json",
-      "records": 19,
-      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+      "records": 14,
+      "sha256": "578c284d7014b322cebe803c80b20ef9dad0e431697287218465e3b19b07ade2"
     },
     "en": {
       "file": "scholarships.en.json",
-      "records": 19,
-      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+      "records": 14,
+      "sha256": "578c284d7014b322cebe803c80b20ef9dad0e431697287218465e3b19b07ade2"
     },
     "fr": {
       "file": "scholarships.fr.json",
-      "records": 19,
-      "sha256": "a2ad84595799ed859807dda211381642969aa8a8b6e9e56a02d074e6b26f8b4a"
+      "records": 14,
+      "sha256": "578c284d7014b322cebe803c80b20ef9dad0e431697287218465e3b19b07ade2"
     }
   },
   "internships": {
     "pt": {
       "file": "internships.pt.json",
       "records": 13,
-      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+      "sha256": "716f3bb02ca26eac92dc14760502b1f35ef816a423647f9f4e947199eec62009"
     },
     "en": {
       "file": "internships.en.json",
       "records": 13,
-      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+      "sha256": "716f3bb02ca26eac92dc14760502b1f35ef816a423647f9f4e947199eec62009"
     },
     "fr": {
       "file": "internships.fr.json",
       "records": 13,
-      "sha256": "6ce4ce99195068d0b536e07f942622cdd3e207883dcdcb236652f386dd8ef6b8"
+      "sha256": "716f3bb02ca26eac92dc14760502b1f35ef816a423647f9f4e947199eec62009"
     }
   },
   "free-courses": {

@@ -37,7 +37,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda"
@@ -77,7 +77,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -128,8 +128,8 @@
       "Discrição"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -193,8 +193,8 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -251,8 +251,8 @@
       "Discrição"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -315,7 +315,7 @@
       "Sentido ético"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -422,7 +422,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Namibe",
@@ -481,8 +481,8 @@
       "Ética"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -535,7 +535,7 @@
       "Raciocínio com números"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -647,7 +647,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -705,7 +705,7 @@
       "Ética"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -751,7 +751,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -797,7 +797,7 @@
       "Sentido do negócio"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -862,7 +862,7 @@
       "Rigor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -921,7 +921,7 @@
       "Rigor com os factos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -973,7 +973,7 @@
       "Rigor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1019,7 +1019,7 @@
       "Persistência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1071,7 +1071,7 @@
       "Método"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1120,7 +1120,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Huíla",
@@ -1166,7 +1166,7 @@
       "Sentido político"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1272,7 +1272,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1319,7 +1319,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1378,7 +1378,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1433,7 +1433,7 @@
       "Gosto pela natureza"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1482,7 +1482,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1529,7 +1529,7 @@
       "Atenção ao pormenor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1798,7 +1798,7 @@
       "Explicar coisas difíceis com simplicidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -1929,8 +1929,8 @@
       "Boa apresentação"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Namibe",
@@ -1983,7 +1983,7 @@
       "Atenção ao pormenor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -2045,7 +2045,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -2107,8 +2107,8 @@
       "Cumprir prazos"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -2166,7 +2166,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -2406,7 +2406,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -2510,7 +2510,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda",
@@ -2663,7 +2663,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda",
@@ -2727,7 +2727,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda",
@@ -2786,7 +2786,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda"
@@ -2837,7 +2837,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Huíla",
@@ -2930,7 +2930,7 @@
       "Calma"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -2981,7 +2981,7 @@
       "Adaptação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3022,7 +3022,7 @@
       "Decisão"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3068,7 +3068,7 @@
       "Persistência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3124,7 +3124,7 @@
       "Rigor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3224,7 +3224,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Magistério"
     },
     "provinces": [
       "Bié",
@@ -3447,7 +3447,7 @@
       "Trabalho em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3494,7 +3494,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3553,7 +3553,7 @@
       "Responsabilidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3612,7 +3612,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3661,7 +3661,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3708,7 +3708,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -3765,7 +3765,7 @@
       "Viver longe da cidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3813,7 +3813,7 @@
       "Disciplina em segurança"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3860,7 +3860,7 @@
       "Resistência à pressão"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3906,7 +3906,7 @@
       "Curiosidade técnica"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -3948,7 +3948,7 @@
       "Melhorar sempre"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4005,8 +4005,8 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -4064,7 +4064,7 @@
       "Inglês técnico"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4113,7 +4113,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4170,7 +4170,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4229,7 +4229,7 @@
       "Honestidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4278,7 +4278,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4326,7 +4326,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4368,7 +4368,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4412,7 +4412,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4459,7 +4459,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4505,7 +4505,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4547,7 +4547,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4583,7 +4583,7 @@
       "Responsabilidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4639,7 +4639,7 @@
       "Clareza a explicar"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4782,7 +4782,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -4874,8 +4874,8 @@
       "Vontade de aprender"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Huíla",
@@ -4973,7 +4973,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5024,7 +5024,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5072,7 +5072,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5121,7 +5121,7 @@
       "Liderança"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5168,7 +5168,7 @@
       "Boa apresentação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5215,7 +5215,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda",
@@ -5271,7 +5271,7 @@
       "Resistência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5318,7 +5318,7 @@
       "Sentido de custos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5410,7 +5410,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5466,7 +5466,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda",
@@ -5652,7 +5652,7 @@
       "Negociação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5706,7 +5706,7 @@
       "Visão do negócio"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5814,7 +5814,7 @@
       "Sentido de negócio"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5864,7 +5864,7 @@
       "Comunicação"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5914,7 +5914,7 @@
       "Gosto pelo desporto"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -5964,7 +5964,7 @@
       "Sentido de negócio"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6014,7 +6014,7 @@
       "Calma"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6055,7 +6055,7 @@
       "Resistência física"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6102,7 +6102,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6145,7 +6145,7 @@
       "Honestidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6279,7 +6279,7 @@
       "Boa memória"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6326,7 +6326,7 @@
       "Independência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6423,7 +6423,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6477,7 +6477,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Licenciatura noutra área"
     },
     "provinces": [
       "Luanda",
@@ -6530,7 +6530,7 @@
       "Sentido de justiça"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6597,7 +6597,7 @@
       "Sentido prático"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6659,7 +6659,7 @@
       "Bom ouvido"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6706,7 +6706,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -6845,7 +6845,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8294,7 +8294,7 @@
       "Resistência física"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8394,7 +8394,7 @@
       "Curiosidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8475,7 +8475,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda"
@@ -8520,7 +8520,7 @@
       "Atendimento cordial"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8630,7 +8630,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8676,7 +8676,7 @@
       "Resistência física"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8785,7 +8785,7 @@
       "Respeito pelas pessoas"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -8826,8 +8826,8 @@
       "Rapidez"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -9177,7 +9177,7 @@
       "Tacto"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9276,7 +9276,7 @@
       "Honestidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9378,7 +9378,7 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9428,7 +9428,7 @@
       "Discrição"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9495,7 +9495,7 @@
       "Curiosidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9560,7 +9560,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9610,7 +9610,7 @@
       "Persistência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9653,7 +9653,7 @@
       "Trabalhar com crianças"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9708,7 +9708,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9768,7 +9768,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9828,7 +9828,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9884,7 +9884,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9944,7 +9944,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -9997,7 +9997,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10058,7 +10058,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10112,7 +10112,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10178,7 +10178,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10234,7 +10234,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Magistério"
     },
     "provinces": [
       "Luanda",
@@ -10288,7 +10288,7 @@
       "Justiça com os alunos"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10393,7 +10393,7 @@
       "Sentido prático"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10452,7 +10452,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10512,7 +10512,7 @@
       "Escuta"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10571,7 +10571,7 @@
       "Curiosidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10619,7 +10619,7 @@
     ],
     "entry": {
       "level": "short",
-      "pathway": "Via universitária"
+      "pathway": "Via autodidata"
     },
     "provinces": [
       "Luanda"
@@ -10709,7 +10709,7 @@
       "Gosto pela leitura"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -10883,8 +10883,8 @@
       "Calma sob pressão"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda"
@@ -10970,7 +10970,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11294,7 +11294,7 @@
       "Sentido prático"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11338,7 +11338,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11434,8 +11434,8 @@
       "Negociação"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Benguela",
@@ -11477,7 +11477,7 @@
       "Atenção ao detalhe"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11523,8 +11523,8 @@
       "Persistência"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Benguela",
@@ -11570,7 +11570,7 @@
       "Disciplina"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11620,8 +11620,8 @@
       "Trabalhar em equipa"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -11679,7 +11679,7 @@
       "Atenção ao pormenor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11729,7 +11729,7 @@
       "Autonomia"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11770,7 +11770,7 @@
       "Sentido social"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -11916,7 +11916,7 @@
       "Atenção ao detalhe"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12228,7 +12228,7 @@
       "Respeito pela memória"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12271,7 +12271,7 @@
       "Organização"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12375,7 +12375,7 @@
       "Firmeza"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12417,7 +12417,7 @@
       "Discrição"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12472,7 +12472,7 @@
       "Curiosidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12513,8 +12513,8 @@
       "Simpatia"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -12568,7 +12568,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12616,8 +12616,8 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -12671,7 +12671,7 @@
       "Honestidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12763,7 +12763,7 @@
       "Paciência"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12916,7 +12916,7 @@
       "Honestidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -12957,7 +12957,7 @@
       "Criatividade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -13419,7 +13419,7 @@
       "Clareza a escrever"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -13470,8 +13470,8 @@
       "Discrição"
     ],
     "entry": {
-      "level": "short",
-      "pathway": "Via universitária"
+      "level": "technical",
+      "pathway": "Via técnica"
     },
     "provinces": [
       "Luanda",
@@ -13561,7 +13561,7 @@
       "Curiosidade"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -13605,7 +13605,7 @@
       "Decisão"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -13650,7 +13650,7 @@
       "Rigor"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
@@ -13695,7 +13695,7 @@
       "Liderança"
     ],
     "entry": {
-      "level": "short",
+      "level": "degree",
       "pathway": "Via universitária"
     },
     "provinces": [
