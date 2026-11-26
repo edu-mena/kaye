@@ -14,6 +14,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 /**
  * The critiques, ideas and bugs sent from the site, to read and download.
@@ -31,6 +32,10 @@ class FeedbackResource extends Resource
     protected static ?string $pluralModelLabel = 'críticas e ideias';
 
     protected static ?string $navigationLabel = 'Críticas e ideias';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Moderação';
+
+    protected static ?int $navigationSort = 2;
 
     public static function table(Table $table): Table
     {

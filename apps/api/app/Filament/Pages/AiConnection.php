@@ -16,18 +16,23 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Laravel\Sanctum\PersonalAccessToken;
+use UnitEnum;
 
 /**
- * "Ligação à IA" (docs/ia.md): the MCP tokens of the person signed in. A token has only the `mcp` ability, expires
+ * "Tokens MCP" (docs/ia.md): the MCP tokens of the person signed in. A token has only the `mcp` ability, expires
  * after MCP_TOKEN_DAYS and is shown once; revoking it cuts the AI off at once.
  */
 class AiConnection extends Page
 {
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Key;
 
-    protected static ?string $navigationLabel = 'Ligação à IA';
+    protected static ?string $navigationLabel = 'Tokens MCP';
 
-    protected static ?string $title = 'Ligação à IA (MCP)';
+    protected static string|UnitEnum|null $navigationGroup = 'Caixa da IA';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $title = 'Tokens MCP (ligação à IA)';
 
     protected string $view = 'filament.pages.ai-connection';
 

@@ -13,6 +13,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 /**
  * The waiting list, to read and download. Nobody edits it by hand: people join from the site.
@@ -30,6 +31,10 @@ class WaitlistEntryResource extends Resource
     protected static ?string $pluralModelLabel = 'lista de espera';
 
     protected static ?string $navigationLabel = 'Lista de espera';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Pessoas';
+
+    protected static ?int $navigationSort = 2;
 
     public static function table(Table $table): Table
     {

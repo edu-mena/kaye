@@ -903,11 +903,11 @@ Cada pesquisa pedida à IA no painel ("Pesquisar com IA", [ia.md](ia.md)). Corre
 
 #### `revisions`
 
-Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A IA só escreve aqui** ([ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)). As propostas de um registo são o seu histórico.
+Alterações propostas (pela IA ou por um editor) à espera de aprovação, e as gravações da equipa no painel (`edited`, [ADR 0028](decisoes/0028-painel-completo.md)). **A IA só escreve aqui** ([ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)). As revisões de um registo são o seu histórico.
 
 | Coluna | Tipo | Notas |
 |---|---|---|
-| `content_type` | varchar(32) | O tipo em `ContentTypes` |
+| `content_type` | varchar(32) | O tipo em `ContentTypes`; nas gravações do painel de outras tabelas, o nome da tabela (`pathways`…) |
 | `revisable_type`, `revisable_id` | varchar, bigint, indexados | `revisable_id` vazio = registo novo (preenchido ao aprovar) |
 | `slug` | varchar(191) | O slug do registo, ou o do registo novo |
 | `ai_task_id` | fk → `ai_tasks`, pode ser vazio | A pesquisa que a fez |
@@ -916,12 +916,23 @@ Alterações propostas (pela IA ou por um editor) à espera de aprovação. **A 
 | `original` | json, pode ser vazio | Os valores no momento da proposta: se mudarem, a aprovação fica bloqueada |
 | `source_url` | varchar(2048) | **Obrigatório** |
 | `note` | text, pode ser vazio | A nota de quem propôs |
-| `status` | varchar(10), indexado | `pending`, `approved`, `rejected` |
+| `status` | varchar(10), indexado | `pending`, `approved`, `rejected`, ou `edited` (gravado no painel por uma pessoa: aplicado logo, `reviewed_by` = quem gravou) |
 | `reviewed_by`, `reviewed_at` | fk → `users`, timestamp | Quem aprovou ou rejeitou (nunca o autor) |
 | `rejection_reason` | text, pode ser vazio | Obrigatório ao rejeitar |
 | `created_at`, `updated_at` | timestamp | |
 
-O `kaye:import` não volta a escrever os campos de uma proposta aprovada (nem `sources`, `source_url` e `source_checked_at` desse registo).
+O `kaye:import` não volta a escrever os campos de uma proposta aprovada ou de uma gravação do painel (nem `sources`, `source_url` e `source_checked_at` desse registo). Uma ligação mudada no painel (as carreiras de uma empresa, por exemplo) fica em `changes` com o nome da relação e a lista de slugs: o importador deixa de a sincronizar.
+
+#### `settings`
+
+As chaves e os limites mudados no painel (Sistema → Definições, `App\Support\Settings`, [ADR 0028](decisoes/0028-painel-completo.md)). Cada valor vale em vez do `.env` a partir do arranque seguinte.
+
+| Coluna | Tipo | Notas |
+|---|---|---|
+| `key` | varchar(64), chave primária | Uma das chaves de `Settings::KEYS` (`anthropic_api_key`, `ai_daily_budget_usd`…) |
+| `value` | text, **cifrado** com a `APP_KEY` | Nunca se mostra depois de gravado |
+| `updated_by` | fk → `users`, pode ser vazio | Quem gravou |
+| `created_at`, `updated_at` | timestamp | |
 
 #### Dos pacotes
 

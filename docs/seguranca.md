@@ -110,6 +110,10 @@ A app web regista um service worker (`vite-plugin-pwa`, Workbox) para se instala
 | `audit.view` | Ler a auditoria | ✓ | | |
 | `monitoring.view` | Abrir o Pulse | ✓ | | |
 
+No painel ([design.md](design.md#painel-de-administração-admin)), cada página segue a mesma tabela: o catálogo e a Caixa da IA com `content.*`, os comentários com `comments.moderate`, as campanhas, os modelos e os relatórios com `messages.manage`, as Pessoas, a lista de espera, as críticas, as entrevistas e os consentimentos com `people.view`, a Equipa e as Definições com `staff.manage`, a Auditoria com `audit.view` e o Pulse com `monitoring.view`. Um editor escreve mas o campo do estado fica bloqueado: só quem publica muda o estado. `PanelPagesTest` (cada página aberta ao papel certo e fechada, 403, aos outros) e `PanelResourcesTest` (as 33 listas do catálogo: listar, criar, editar, 403) testam-no.
+
+**Pessoas no painel:** só para responder a um pedido (descarregar os dados, apagar a conta). Procura-se pelo email completo ou pelo número, nunca por um pedaço; o email aparece meio escondido e, num menor, o nome são as iniciais e a província não aparece. Apagar pede que se escreva APAGAR e fica na auditoria (`PanelPeopleTest`).
+
 Cada modelo tem uma *policy*, escolhida pelo tipo de dados em `App\Support\ModelKinds`: `ContentPolicy` (catálogo), `PersonalDataPolicy` (dados de uma pessoa: só se veem, nunca se editam no painel), e `MessagePolicy`, `CommentPolicy`, `UserPolicy`. O `StaffPermissionsTest` falha se aparecer um modelo sem lista ou sem *policy*.
 
 ## Auditoria
@@ -121,7 +125,8 @@ Tudo em `activity_log` (`spatie/laravel-activitylog`), guardado um ano (`activit
 | Cada alteração de conteúdo e de mensagens | `LogsContentChanges` em todos os modelos de `ModelKinds::CONTENT` e em `Message`: as colunas mudadas, antes e depois, e quem | `AuditLogTest`, `StaffPermissionsTest` (falha se um modelo de conteúdo não registar, ou se um de dados pessoais registar) |
 | Logins | Web (Google, sessão), Android (token) e painel (senha): quem, canal, IP truncado | `AuditLogTest` |
 | Falhas de login | Canal, motivo, IP truncado e *hash* do email (HMAC com a `APP_KEY`) | `AuditLogTest` |
-| Ações da equipa | CSV (painel ou token), envio de mensagens, resposta a críticas, papel dado ou tirado | `AuditLogTest` |
+| Ações da equipa | CSV (painel ou token), envio de mensagens e de testes, resposta a críticas, papel dado ou tirado, senha e 2FA repostos, comentário escondido ou mostrado, entrevista aberta, conta descarregada ou apagada, definição mudada (só o nome, nunca o valor) | `AuditLogTest`, `PanelWorkTest`, `PanelPeopleTest`, `PanelSettingsTest` |
+| Gravações no painel | Cada registo do catálogo gravado no painel fica também em `revisions` (`edited`: antes, depois, quem), o histórico que o registo mostra ([ADR 0028](decisoes/0028-painel-completo.md)) | `PanelEditsTest`, `PanelResourcesTest` |
 
 Os dados pessoais nunca se copiam para a auditoria: uma cópia sobreviveria ao apagamento da conta. Os logins de uma pessoa apagam-se com a conta (`Accounts::delete`).
 
@@ -132,8 +137,9 @@ Os dados pessoais nunca se copiam para a auditoria: uma cópia sobreviveria ao a
 | Email e WhatsApp da lista de espera | Cast `encrypted` (AES-256 com a `APP_KEY`) | `email_hash`, `whatsapp_hash`: HMAC-SHA256 do valor normalizado, com a `APP_KEY` (`App\Support\BlindIndex`). Encontra duplicados e procura no painel pelo contacto inteiro | `WaitlistTest` |
 | Candidato das entrevistas | `encrypted:array` (já existia) | Não se procura | `InterviewSubmissionTest` |
 | Segredo e códigos do 2FA | `encrypted` e `encrypted:array` (Filament) | Não se procura | `AdminAccessTest` |
+| Chaves e limites das Definições (`settings`) | `Crypt::encryptString` com a `APP_KEY`; a página e a auditoria nunca mostram uma chave | Não se procura | `PanelSettingsTest` |
 
-Rodar a `APP_KEY`: pôr a antiga em `APP_PREVIOUS_KEYS` (decifra os valores) e recalcular os *hashes* da lista de espera, que são feitos com a chave atual.
+Rodar a `APP_KEY`: pôr a antiga em `APP_PREVIOUS_KEYS` (decifra os valores) e recalcular os *hashes* da lista de espera, que são feitos com a chave atual. As Definições são cifradas com a chave atual: depois de rodar, grava-as outra vez no painel (até lá vale o `.env`).
 
 ## Revisão das rotas (25/11/2026)
 
@@ -187,6 +193,8 @@ As páginas dos links são do Laravel (`resources/views/notices/page.blade.php`)
 |---|---|---|
 | `APP_KEY`, senha da base de dados, DSN do Sentry, credenciais Google, senha do SMTP, `VAPID_PRIVATE_KEY` | `.env` no servidor; GitHub Secrets para o CI/CD | Código, imagem Docker, logs, conversas |
 | Chave SSH do deploy | GitHub Secrets (ambiente `production`) | PCs partilhados |
+| Chave da Anthropic, tokens da saúde, das vagas e do CSV | `.env`, ou gravados no painel (Definições: cifrados na base de dados, nunca mostrados outra vez) | Código, logs, auditoria, conversas |
+| Conta de teste do painel (`E2E_ADMIN_*`) | `compose.yaml` e `playwright.config.ts`: só nos E2E (local e CI) | Produção: o *seeder* recusa-se sem elas e o deploy nunca as define |
 
 - O `.dockerignore` exclui todos os `.env`, e a imagem apaga qualquer `.env` que lá chegue.
 - Se um segredo vazar, **roda-o primeiro** (gera um novo e invalida o antigo) e só depois investiga.
