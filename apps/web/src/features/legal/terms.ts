@@ -8,7 +8,7 @@ export const TERMS: LegalDoc = {
     intro:
       'As regras para usares o Kayé: o que podes esperar de nós, o que esperamos de ti e o que acontece quando algo corre mal.',
     summary: [
-      'Explorar o Kayé é grátis. Algumas funcionalidades (o Kayé Plus) vão ser pagas, e dizemos sempre antes o que custa.',
+      'Explorar o Kayé é grátis. Nos Kursos, a conta grátis faz um tópico por dia; o Kayé Plus (pago, para maiores de 18 anos) tira o limite e inclui o certificado e os lembretes. Durante o teste de Natal, o Plus é grátis para todos, e avisamos antes de passar a pago.',
       'O Kayé orienta, não decide por ti nem garante emprego, bolsa ou vaga num curso. A decisão é sempre tua.',
       'Nada que seja pago influencia as recomendações.',
       'A informação vem de fontes que indicamos, mas pode mudar ou ter erros: confirma com a instituição antes de pagar ou de te inscreveres.',
@@ -58,8 +58,11 @@ export const TERMS: LegalDoc = {
         title: 'Grátis, Kayé Plus e pagamentos',
         body: [
           'Explorar o Kayé é grátis: descobrir carreiras, áreas, cursos, instituições, empresas, o mercado, as notícias, os prazos, as bolsas e os estágios, fazer o teu primeiro teste vocacional, acompanhar a tua sequência e responder ao desafio do dia. O que hoje é grátis para exploração não passa a ser pago sem aviso prévio.',
-          'Algumas funcionalidades que dão trabalho à equipa ou que as pessoas repetem muito fazem parte do Kayé Plus, uma subscrição paga para maiores de 18 anos. O Kayé Plus inclui o CV em PDF, o treino psicotécnico e dos exames de acesso sem limite, as simulações sem limite e as entrevistas com feedback da equipa. Cada uma destas funcionalidades pode ser experimentada uma vez, de graça.',
-          'O Kayé Plus ainda não está disponível para pagamento. Quando estiver, mostramos antes de pagares, em kwanzas e com impostos incluídos, o preço, o período, as funcionalidades incluídas, o meio de pagamento e como cancelar. Só cobramos depois de aceitares essas condições.',
+          'O que é personalizado faz parte do Kayé Plus, uma subscrição paga para maiores de 18 anos: os Kursos sem limite diário e com exame final, o certificado dos Kursos, os lembretes e as subscrições (avisos de prazos por email e por notificações), o plano pessoal («O meu plano»), o CV em PDF, o treino psicotécnico e dos exames de acesso sem limite, as simulações sem limite e as entrevistas com feedback da equipa. O CV em PDF, o treino, as simulações e as entrevistas podem ser experimentados uma vez, de graça.',
+          'Nos Kursos, a conta grátis faz um tópico por dia: o dia conta quando concluis o tópico, e os outros ficam com cadeado até ao dia seguinte. A conta grátis não recebe o certificado dos Kursos. O certificado é um reconhecimento do Kayé: não é um diploma oficial, não substitui um curso reconhecido e não garante emprego, bolsa ou vaga.',
+          'Se tens menos de 18 anos, fazes um tópico por dia nos Kursos, sem certificado, e não vês promoções do Kayé Plus. Nunca te cobramos nada.',
+          'Presente de Natal: durante o período de teste, o Kayé Plus é grátis para todos e não cobramos nada. Avisamos-te na app e/ou por email com pelo menos 30 dias de antecedência antes de o Plus passar a ser pago, e só cobramos depois de aceitares as condições.',
+          'O preço previsto do Kayé Plus é de 1.999 kwanzas por mês e pode mudar antes de abrir. Antes de pagares, mostramos-te, em kwanzas e com impostos incluídos, o preço, o período, as funcionalidades incluídas, o meio de pagamento e como cancelar.',
           [
             'Se a subscrição se renovar automaticamente, avisamos-te antes de cada renovação e podes cancelar a qualquer momento nas Configurações; o cancelamento produz efeitos no fim do período já pago.',
             'Podemos alterar o preço do Kayé Plus. A alteração só vale para os períodos seguintes e avisamos-te com pelo menos 30 dias de antecedência, para decidires se continuas.',
@@ -246,7 +249,7 @@ export const TERMS: LegalDoc = {
     intro:
       'The rules for using Kayé: what you can expect from us, what we expect from you and what happens when something goes wrong.',
     summary: [
-      'Exploring Kayé is free. Some features (Kayé Plus) will be paid, and we always tell you the price first.',
+      'Exploring Kayé is free. In the Kursos, a free account does one topic a day; Kayé Plus (paid, for people over 18) removes the limit and includes the certificate and the reminders. During the Christmas trial, Plus is free for everyone, and we warn you before it becomes paid.',
       'Kayé guides, it does not decide for you, and it does not guarantee a job, a scholarship or a place on a course. The decision is always yours.',
       'Nothing paid influences the recommendations.',
       'The information comes from sources we name, but it can change or contain errors: check with the institution before you pay or enrol.',
@@ -296,8 +299,11 @@ export const TERMS: LegalDoc = {
         title: 'Free, Kayé Plus and payments',
         body: [
           'Exploring Kayé is free: discovering careers, areas, courses, institutions, companies, the market, news, deadlines, scholarships and internships, taking your first vocational test, following your streak and answering the challenge of the day. What is free for exploration today does not become paid without prior notice.',
-          'Some features that take the team’s work, or that people repeat a lot, are part of Kayé Plus, a paid subscription for people over 18. Kayé Plus includes the CV as a PDF, unlimited psychotechnical and access-exam practice, unlimited simulations and interviews with feedback from the team. Each of these features can be tried once, for free.',
-          'Kayé Plus is not yet available for payment. When it is, before you pay we show you, in kwanzas and with taxes included, the price, the period, the features included, the payment method and how to cancel. We only charge after you accept those conditions.',
+          'What is personalised is part of Kayé Plus, a paid subscription for people over 18: the Kursos with no daily limit and with a final exam, the Kursos certificate, reminders and subscriptions (deadline alerts by email and notifications), the personal plan (“My plan”), the CV as a PDF, unlimited psychotechnical and access-exam practice, unlimited simulations and interviews with feedback from the team. The CV as a PDF, the practice, the simulations and the interviews can be tried once, for free.',
+          'In the Kursos, a free account does one topic a day: the day counts when you finish the topic, and the others stay locked until the next day. A free account does not receive the Kursos certificate. The certificate is a recognition from Kayé: it is not an official diploma, it does not replace a recognised course and it does not guarantee a job, scholarship or place.',
+          'If you are under 18, you do one topic a day in the Kursos, without a certificate, and you do not see promotions for Kayé Plus. We never charge you anything.',
+          'Christmas gift: during the trial period, Kayé Plus is free for everyone and we charge nothing. We warn you in the app and/or by email at least 30 days before Plus becomes paid, and we only charge after you accept the conditions.',
+          'The expected price of Kayé Plus is 1,999 kwanzas a month and it may change before it opens. Before you pay, we show you, in kwanzas and with taxes included, the price, the period, the features included, the payment method and how to cancel.',
           [
             'If the subscription renews automatically, we warn you before each renewal and you can cancel at any time in Settings; cancelling takes effect at the end of the period already paid.',
             'We may change the price of Kayé Plus. The change only applies to later periods and we warn you at least 30 days ahead, so you can decide whether to continue.',
@@ -484,7 +490,7 @@ export const TERMS: LegalDoc = {
     intro:
       'Les règles pour utiliser Kayé : ce que tu peux attendre de nous, ce que nous attendons de toi et ce qui se passe quand quelque chose ne va pas.',
     summary: [
-      'Explorer Kayé est gratuit. Certaines fonctions (Kayé Plus) seront payantes, et nous disons toujours le prix avant.',
+      'Explorer Kayé est gratuit. Dans les Kursos, un compte gratuit fait un sujet par jour ; Kayé Plus (payant, pour les plus de 18 ans) enlève la limite et comprend le certificat et les rappels. Pendant l’essai de Noël, Plus est gratuit pour tous, et nous te prévenons avant qu’il devienne payant.',
       'Kayé oriente, il ne décide pas à ta place et ne garantit ni emploi, ni bourse, ni place dans une formation. La décision est toujours la tienne.',
       'Rien de payant n’influence les recommandations.',
       'L’information vient de sources que nous indiquons, mais elle peut changer ou contenir des erreurs : vérifie auprès de l’établissement avant de payer ou de t’inscrire.',
@@ -534,8 +540,11 @@ export const TERMS: LegalDoc = {
         title: 'Gratuit, Kayé Plus et paiements',
         body: [
           'Explorer Kayé est gratuit : découvrir les carrières, les domaines, les formations, les établissements, les entreprises, le marché, l’actualité, les échéances, les bourses et les stages, faire ton premier test d’orientation, suivre ta série et répondre au défi du jour. Ce qui est gratuit aujourd’hui pour l’exploration ne devient pas payant sans préavis.',
-          'Certaines fonctions qui demandent du travail à l’équipe, ou que les gens répètent beaucoup, font partie de Kayé Plus, un abonnement payant pour les plus de 18 ans. Kayé Plus comprend le CV en PDF, l’entraînement psychotechnique et aux examens d’accès sans limite, les simulations sans limite et les entretiens avec retour de l’équipe. Chacune de ces fonctions peut être essayée une fois, gratuitement.',
-          'Kayé Plus n’est pas encore disponible au paiement. Quand il le sera, avant que tu paies, nous te montrons, en kwanzas et taxes comprises, le prix, la période, les fonctions incluses, le moyen de paiement et comment résilier. Nous ne facturons qu’après ton acceptation de ces conditions.',
+          'Ce qui est personnalisé fait partie de Kayé Plus, un abonnement payant pour les plus de 18 ans : les Kursos sans limite par jour et avec examen final, le certificat des Kursos, les rappels et les abonnements (alertes d’échéances par email et par notifications), le plan personnel (« Mon plan »), le CV en PDF, l’entraînement psychotechnique et aux examens d’accès sans limite, les simulations sans limite et les entretiens avec retour de l’équipe. Le CV en PDF, l’entraînement, les simulations et les entretiens peuvent être essayés une fois, gratuitement.',
+          'Dans les Kursos, un compte gratuit fait un sujet par jour : le jour compte quand tu termines le sujet, et les autres restent verrouillés jusqu’au lendemain. Un compte gratuit ne reçoit pas le certificat des Kursos. Le certificat est une reconnaissance de Kayé : ce n’est pas un diplôme officiel, il ne remplace pas une formation reconnue et ne garantit ni emploi, ni bourse, ni place.',
+          'Si tu as moins de 18 ans, tu fais un sujet par jour dans les Kursos, sans certificat, et tu ne vois pas de promotions de Kayé Plus. Nous ne te facturons jamais rien.',
+          'Cadeau de Noël : pendant la période d’essai, Kayé Plus est gratuit pour tous et nous ne facturons rien. Nous te prévenons dans l’app et/ou par email au moins 30 jours avant que Plus devienne payant, et nous ne facturons qu’après ton acceptation des conditions.',
+          'Le prix prévu de Kayé Plus est de 1 999 kwanzas par mois et il peut changer avant l’ouverture. Avant que tu paies, nous te montrons, en kwanzas et taxes comprises, le prix, la période, les fonctions incluses, le moyen de paiement et comment résilier.',
           [
             'Si l’abonnement se renouvelle automatiquement, nous te prévenons avant chaque renouvellement et tu peux résilier à tout moment dans Paramètres ; la résiliation prend effet à la fin de la période déjà payée.',
             'Nous pouvons modifier le prix de Kayé Plus. Le changement ne vaut que pour les périodes suivantes et nous te prévenons au moins 30 jours à l’avance, pour que tu décides de continuer ou non.',

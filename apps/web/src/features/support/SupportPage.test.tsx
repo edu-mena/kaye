@@ -11,7 +11,7 @@ describe('SupportPage', () => {
     for (const name of ['O Kayé', 'A tua conta e os teus dados', 'O teste e as recomendações', 'O Mercado']) {
       expect(screen.getByRole('region', { name })).toBeInTheDocument()
     }
-    const answer = screen.getByText(/Tudo é grátis/)
+    const answer = screen.getByText(/Explorar é grátis.*Kayé Plus tira o limite/)
     expect(answer).not.toBeVisible()
     await userEvent.click(screen.getByText('Tenho de pagar alguma coisa?'))
     expect(answer).toBeVisible()

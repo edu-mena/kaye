@@ -303,4 +303,36 @@ describe('account sync', () => {
     expect(store.getUser().profile).not.toBeNull()
     expect(sync.getAccount().status).toBe('signedIn')
   })
+
+  it('pulls the topics finished on the account and reports a new one with the local day', async () => {
+    seedDevice({ profile: PROFILE })
+    localStorage.setItem('kaye.sync.v1', JSON.stringify({ user: 7, version: 3, dirty: false }))
+    serve({
+      'GET /me': { body: ME },
+      'GET /me/data': { body: { version: 3, data: null } },
+      'GET /kursos/progress': {
+        body: {
+          completions: [{ course: 'contabilidade', topic: 't1', completedOn: '2026-11-20', score: 1 }],
+        },
+      },
+      'POST /kursos/contabilidade/topics/t2/complete': { status: 409, body: { code: 'daily_limit' } },
+    })
+    const { sync, store } = await load()
+    await sync.startAccountSync()
+
+    expect(store.getUser().kursos.contabilidade?.doneOn).toEqual([{ topic: 't1', day: '2026-11-20' }])
+
+    await sync.reportKursoTopic('contabilidade', 't2', 0.9)
+    const [call] = sent('POST', '/kursos/contabilidade/topics/t2/complete')
+    expect(call?.body).toEqual({ day: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), score: 0.9 })
+  })
+
+  it('reports nothing without an account', async () => {
+    serve({})
+    const { sync } = await load()
+
+    await sync.reportKursoTopic('contabilidade', 't1', 1)
+
+    expect(calls).toEqual([])
+  })
 })

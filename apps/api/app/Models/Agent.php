@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\AgentFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Agent extends Model
 {
     /** @use HasFactory<AgentFactory> */
-    use HasContentStatus, HasFactory;
+    use HasContentStatus, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>

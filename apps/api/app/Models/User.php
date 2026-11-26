@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use App\Enums\Locale;
-use App\Enums\UserRole;
+use App\Enums\StaffRole;
 use App\Models\Contracts\ReceivesNotices;
 use Database\Factories\UserFactory;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthentication;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthenticationRecovery;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthentication;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthenticationRecovery;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -20,19 +24,19 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use NotificationChannels\WebPush\HasPushSubscriptions;
+use Spatie\Permission\Traits\HasRoles;
 
 #[Fillable(['name', 'email', 'avatar_url', 'birth_year', 'province', 'current_education_level', 'locale'])]
 #[Hidden(['google_sub', 'apple_sub', 'password', 'remember_token'])]
-class User extends Authenticatable implements FilamentUser, ReceivesNotices
+class User extends Authenticatable implements FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, ReceivesNotices
 {
     /** @use HasFactory<UserFactory> */
-    use HasApiTokens, HasFactory, HasPushSubscriptions, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, HasPushSubscriptions, HasRoles, InteractsWithAppAuthentication, InteractsWithAppAuthenticationRecovery, Notifiable, SoftDeletes;
 
     /** Under this age a person is a minor (docs/arquitetura.md, 8). */
     public const ADULT_AGE = 18;
 
     protected $attributes = [
-        'role' => 'user',
         'locale' => 'pt',
         'xp' => 0,
     ];
@@ -41,18 +45,28 @@ class User extends Authenticatable implements FilamentUser, ReceivesNotices
     {
         return [
             'password' => 'hashed',
-            'role' => UserRole::class,
             'locale' => Locale::class,
             'birth_year' => 'integer',
             'xp' => 'integer',
             'last_login_at' => 'datetime',
+            'plus_until' => 'datetime',
         ];
     }
 
+    /**
+     * Two locks (docs/seguranca.md): a staff role **and** the email in ADMIN_EMAILS. The panel then asks for the
+     * second factor (TOTP) before anything else.
+     */
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->role->canAccessAdmin()
+        return $this->isStaff()
             && in_array(Str::lower($this->email), Config::array('kaye.admin_emails'), true);
+    }
+
+    /** Has one of the team's roles (admin, editor, reviewer). */
+    public function isStaff(): bool
+    {
+        return $this->hasAnyRole(StaffRole::values());
     }
 
     /**
@@ -89,6 +103,12 @@ class User extends Authenticatable implements FilamentUser, ReceivesNotices
     public function isAdult(): bool
     {
         return $this->birth_year !== null && $this->age() >= self::ADULT_AGE;
+    }
+
+    /** Kayé Plus is active (ADR 0024). Nothing charges it yet: it is set by hand until payment exists. */
+    public function hasPlus(): bool
+    {
+        return $this->plus_until !== null && $this->plus_until->isFuture();
     }
 
     public function canReceiveMarketing(): bool

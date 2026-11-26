@@ -214,7 +214,7 @@ erDiagram
 
 | Tabela | Campos principais | Notas |
 |---|---|---|
-| `users` | id, google_sub, apple_sub, email, name, avatar_url, birth_year, province, current_education_level, locale, role (user, moderator, admin), xp, created_at, deleted_at | Ano de nascimento em vez da data completa. |
+| `users` | id, google_sub, apple_sub, email, name, avatar_url, birth_year, province, current_education_level, locale, xp (papéis da equipa em `roles`, ADR 0026), created_at, deleted_at | Ano de nascimento em vez da data completa. |
 | `consents` | user_id, kind (termos, privacidade, menor_encarregado_informado, contribuicao_salarial, emails), version, granted_at, revoked_at | Prova de consentimento exigida pela lei. |
 | `assessment_questions` | id, version, dimension (R, I, A, S, E, C), text*, position | |
 | `assessment_attempts` | id, user_id, version, started_at, completed_at, scores (JSON), code (ex.: "IAC") | |
@@ -441,7 +441,7 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 - As fotografias e os logótipos vêm como o caminho no código da app (`/src/assets/careers/…`, e `/eventos/…` de `public/`); em modo `api` a app troca-os pelos ficheiros do seu build (`apps/web/src/data/assets.ts`). Quando as fotos passarem para o servidor, a API manda URLs completos e a app deixa-os como estão.
 - Web: sessão em cookie `HttpOnly` com CSRF (ADR 0003). Android: `Authorization: Bearer` com o token Sanctum.
 - Limite de pedidos em todas: 300 leituras e 60 escritas por minuto, por conta ou IP ([seguranca.md](seguranca.md)); mais apertado nas escritas sem conta (lista de espera, críticas, entrevistas, cartões).
-- **A app** lê estas rotas com `VITE_DATA_SOURCE=api` (o build que o Laravel serve, `apps/web/.env.production`); sem ela, os dados de demonstração. Por agora mudam de fonte as funções de `source.ts`; os módulos lidos diretamente (Kursos, exames de acesso, entrevistas, mentores, vídeos, psicotécnicos, províncias) já têm rota e passam quando a app os pedir por `source.ts`.
+- **A app** lê estas rotas com `VITE_DATA_SOURCE=api` (o build que o Laravel serve, `apps/web/.env.production`); sem ela, os dados de demonstração, que vivem em `source.demo.ts` e só entram no build quando a fonte não é a API (o build de produção deixou de levar 1,3 MB de dados que a API já serve). Por agora mudam de fonte as funções de `source.ts`; os módulos lidos diretamente (Kursos, exames de acesso, entrevistas, mentores, vídeos, psicotécnicos, províncias) já têm rota e passam quando a app os pedir por `source.ts`.
 
 ### Públicas (leitura)
 
@@ -508,6 +508,8 @@ Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error"
 | GET | `/me` | A conta: nome, email, foto do Google, ano de nascimento, província, escolaridade, língua, `minor` e os consentimentos ativos. O perfil muda-se em `/me/data` (o servidor copia-o para `users`); não há `PATCH /me` |
 | GET, PUT | `/me/data` | `{version, data}`: o `UserData` sem a foto e a capa (até 1 MB). Um `PUT` com uma versão antiga recebe 409 com a cópia atual |
 | POST | `/me/data/merge` | Primeiro login: o aparelho envia o que tem e o servidor funde (nunca apaga) |
+| GET | `/areas/{area}/community` | `{count}`: o total da comunidade da área, só a partir de 50 pessoas (`null` abaixo); nunca devolve pessoas |
+| GET, PUT | `/me/communities/{area}` | O nível autodeclarado da pessoa e o número de pioneiro (`{level, pioneerNumber}`) |
 | GET, POST | `/me/consents` | Ver e dar consentimentos (menores não podem dar os de marketing) |
 | DELETE | `/me/consents/{kind}` | Retirar um consentimento |
 | POST, DELETE | `/me/push-subscriptions` | Ligar e desligar o Web Push neste browser (só com um consentimento push) |
@@ -687,7 +689,7 @@ Basta uma linha de cron no hPanel: `* * * * * php artisan schedule:run`.
 |---|---|
 | A cada minuto | Processar a fila (vagas, emails) |
 | De 2 em 2 horas | `kaye:fetch-news`: notícias de Angola sobre formação, emprego e carreiras ([fontes-de-noticias.md](fontes-de-noticias.md)) |
-| De 2 em 2 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
+| De 3 em 3 horas | Corrida leve das vagas no GitHub Actions (`market-data.yml`): só as primeiras páginas, só o que é novo, enviada a `/ingest/jobs` |
 | Diário, 02:00 | Expirar vagas antigas, limpar tokens velhos |
 | Sábado, 22:00 | Scrapers completos no GitHub Actions |
 | Domingo, 03:00 | Recalcular `market_stats` |

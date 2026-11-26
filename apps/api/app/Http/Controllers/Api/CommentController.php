@@ -85,7 +85,7 @@ class CommentController extends Controller
 
     public function destroy(Request $request, Comment $comment): Response|JsonResponse
     {
-        if ($comment->user_id !== MeController::user($request)->id) {
+        if (MeController::user($request)->cannot('delete', $comment)) {
             return Submission::json(['error' => 'forbidden'], 403);
         }
         $comment->delete();

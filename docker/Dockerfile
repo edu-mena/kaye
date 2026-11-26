@@ -52,6 +52,20 @@ RUN composer dump-autoload --no-dev --classmap-authoritative --no-scripts \
     && php artisan filament:assets
 
 # ---------------------------------------------------------------------------
+# 3b. The admin panel's theme (Vite + Tailwind): it builds on Filament's CSS
+#     from vendor/, so it comes after the PHP dependencies.
+# ---------------------------------------------------------------------------
+FROM node:${NODE_VERSION}-alpine AS admin-theme
+WORKDIR /build
+COPY apps/api/package.json apps/api/package-lock.json ./
+RUN npm ci --ignore-scripts --no-audit --no-fund
+COPY --from=vendor /var/www/html/vendor/filament ./vendor/filament
+COPY apps/api/vite.config.js ./
+COPY apps/api/resources ./resources
+COPY apps/api/app ./app
+RUN npx vite build
+
+# ---------------------------------------------------------------------------
 # 4. Final image
 # ---------------------------------------------------------------------------
 FROM base AS runtime
@@ -60,6 +74,7 @@ LABEL org.opencontainers.image.title="kaye" \
 
 COPY --from=vendor --chown=www-data:www-data /var/www/html ./
 COPY --from=web --chown=www-data:www-data /spa ./public/spa
+COPY --from=admin-theme --chown=www-data:www-data /build/public/build ./public/build
 COPY --chmod=755 docker/entrypoint.sh /usr/local/bin/kaye-entrypoint
 
 # Local secrets and files that must never be baked into the image.

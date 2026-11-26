@@ -126,7 +126,7 @@ class MigrateRedisTest extends TestCase
         $this->assertMatchesRegularExpression('/public_cards\s*\|\s*2\s*\|\s*0\s*\|\s*2\s*\|\s*0\s*\|\s*0\s*\|\s*2/', $output);
         $this->assertStringContainsString('Every row in Redis is in MySQL.', $output);
 
-        $number = WaitlistEntry::query()->where('whatsapp', '+244931111111')->sole();
+        $number = WaitlistEntry::query()->withWhatsapp('+244931111111')->sole();
         $this->assertNull($number->email);
         $this->assertSame(['onboarding', 'fr', '2026-11-11 09:00:00'], [$number->source, $number->locale, $number->created_at->toDateTimeString()]);
         $this->assertSame('2026-11-11 09:00:00', $number->consent_at->toDateTimeString());

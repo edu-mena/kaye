@@ -143,8 +143,8 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Kursos: Fundamentos da Gestão de Projetos em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (âmbito e EAP, cronograma, orçamento e riscos, acompanhar e fechar) e a revisão do conteúdo
 - [x] Kursos: Fundamentos da Cibersegurança em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (o telemóvel seguro, redes e navegação, privacidade e redes sociais, carreiras em cibersegurança) e a revisão do conteúdo
 - [x] Kursos: Fundamentos do Marketing Digital em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (conteúdo e calendário, anúncios pagos básicos, métricas, ética e lei) e a revisão do conteúdo
-- [x] Kursos: Programação: Nível Iniciante (Python) em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (decisões, repetições, funções, listas e um pequeno projeto) e a revisão do conteúdo
-- [x] Kursos: Fundamentos da Análise de Dados em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (resumir, gráficos, folha de cálculo, contar uma história com dados) e a revisão do conteúdo. Seguem-se, um de cada vez: Economia, Contabilidade
+- [x] Kursos: Programação: Nível Iniciante (Python) em versão de teste (ADR 0016, nota de 24/11/2026): 30 tópicos (1 tópico = 1 lição curta), cada um com 8 a 10 exercícios no banco, revisão e exame. Falta a revisão do conteúdo
+- [x] Kursos: Fundamentos da Análise de Dados em versão de teste (ADR 0016, nota de 13/11/2026); unidades 1 e 2 escritas, com exame e certificado. Faltam as unidades 3 a 6 (resumir, gráficos, folha de cálculo, contar uma história com dados) e a revisão do conteúdo. Segue-se, um de cada vez: Economia
 - [x] "Mostrar à família": na carreira, um PDF de uma página criado no telemóvel (o que faz, salários, procura, custo do curso, reconhecimento, como pagar, testemunho real e, se o jovem quiser, as razões do teste só com o primeiro nome), para enviar pelo WhatsApp ou imprimir. Falta a ficha do curso ("este curso, nesta instituição": propina, duração, exame de acesso), depois do 1A/1B
 - [x] Modo para pais e encarregados: "Mostrar à família" oferece "Enviar link" e "PDF". O link abre `/familia`, pública, com o que o teste diz e até 3 carreiras (o que faz, procura, onde estudar, reconhecimento, custo, bolsas, caminho mais curto, "como podem ajudar"); os dados vão no `#` e nada fica no servidor; salários só para maiores ([ADR 0018](decisoes/0018-link-da-familia-com-dados-no-fragmento.md))
 - Notificações push dos prazos (`/prazos`), mesmo com a app fechada: precisam de backend (guardar o token do telemóvel e um cron que envia)
@@ -191,6 +191,26 @@ Decisão: fechar o que já existe antes de abrir frentes novas. A primeira taref
 - **Financiamento de impacto:** UNICEF, PNUD, Banco Mundial e fundações de empregabilidade jovem.
 - **Premium para o utilizador**, só depois e barato: modelos extra de CV, revisão humana do CV, simulação de entrevista com feedback.
 
+### Kursos diários (24 de novembro de 2026, [ADR 0025](decisoes/0025-kursos-diarios-e-fim-do-tudo-gratis.md))
+
+Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Kursos, a conta grátis faz **um tópico por dia** (conta ao concluir), vê os outros com cadeado e não recebe o certificado. O resto é do Kayé Plus. Primeiro **Programação** e **Contabilidade** (30+ tópicos cada), depois **Finanças** e **Gestão de Empresas**.
+
+- [x] Motor de exercícios: tipos por área, variantes por parâmetros com semente, correção com tolerância, teste de integridade do banco
+- [x] Tópico diário no Kurso: conclusão, cadeado, mensagem, limite mole no aparelho
+- [x] Landing: secção "Grátis vs Plus" (`PlansSection`), textos de "explorar é grátis" em pt, en e fr
+- [x] Voz do guia regravada com a frase `onboarding.signupHint` nova ("Começar é grátis."), 24/11/2026 ([ADR 0013](decisoes/0013-voz-do-guia-em-audio-pre-gerado.md))
+- [x] Termos atualizados (24/11/2026): o Plus inclui os Kursos sem limite, o certificado e os lembretes; um tópico por dia na conta grátis; menores sem certificado; Plus grátis no teste de Natal, com 30 dias de aviso antes de passar a pago
+- [ ] Política de privacidade: rever quando o progresso, as respostas por pergunta e a comunidade por área passarem a ser guardados no servidor
+- [x] Servidor: tópicos concluídos por conta, limite diário real, certificado (dados), permissão do Plus (24/11/2026; o código de verificação pública e o pagamento ficam para depois)
+- [x] Kurso de Programação com 30 tópicos (24/11/2026)
+- [x] Kurso de Contabilidade com 30 tópicos (24/11/2026): 8 a 9 exercícios no banco por tópico, com lançamentos e cálculos em Kz; falta confirmar no Diário da República os pontos listados no [ADR 0016](decisoes/0016-kursos-livro-tecnico.md)
+- [x] Mini Kurso «Contabilidade Angolana: PGC na Prática» com 12 tópicos (24/11/2026), a partir dos temas e da ordem do livro «PGC Angolano: Casos Práticos e Exercícios Resolvidos» (ATF, 2014), reescritos de raiz: imobilizado, três métodos de amortização, mais e menos-valias, FIFO/LIFO/médio, provisões, Imposto Industrial, câmbio e aplicação de resultados. As taxas vêm sempre no enunciado; falta confirmar no Diário da República o Código do Imposto Industrial e os nomes das contas
+- [x] Testes psicotécnicos: competência quantitativa (geometria, percentagens, proporções, probabilidades) e séries intercaladas no nível difícil; simulação de 24 perguntas em 18 minutos
+- [ ] Depois da Contabilidade: Finanças e Gestão de Empresas
+- [x] Vista de administração com as perguntas mais falhadas
+- [x] Identificação por área (Estudante, Aspirante, Licenciado, Profissional), números das comunidades (a partir de 50) e selos "Pioneiro #N"
+- [x] Motor de palavras-chave do CV (24/11/2026): PDF lido no aparelho com o pdf.js (o worker é um ficheiro do próprio domínio, CSP igual), ou texto colado; dicionário de competências pt/en; a pessoa confirma as etiquetas; menores saltam o passo. O texto nunca sai do aparelho (política de privacidade atualizada)
+
 ### Espera pelo servidor
 
 O frontend está fechado; o que falta precisa do Laravel na Hostinger:
@@ -215,9 +235,9 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor (16/11/2026; para entrar a sério faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google)
 - [x] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado (18/11/2026; o comando `kaye:migrate-redis` está pronto, falta corrê-lo com as credenciais do Upstash)
 - [x] 6. Comunicação: email e Web Push, só com consentimento (menores sem marketing), feito a 18/11/2026: confirmação dupla e "deixar de receber" assinados, campanhas em lotes no painel, lembretes dos prazos guardados, preferências nas Definições. Sem WhatsApp (o Eduardo manda à mão a partir do CSV) nem push nativo no Android (FCM), que ficam para depois
-- [ ] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor
-- [ ] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos
-- [ ] 9. Painel de administração completo, com o design do site
+- [x] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor, feito a 25/11/2026 ([#49](https://github.com/edu-mena/kaye/pull/49), [ADR 0026](decisoes/0026-papeis-2fa-copias-e-saude.md)): papéis e 2FA no painel, auditoria, lista de espera cifrada, `/api/v1/health`, Pulse, Sentry sem dados pessoais, cópias diárias cifradas para S3 com teste de reposição semanal, OWASP ZAP no CI
+- [x] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos, feito a 25/11/2026 ([#55](https://github.com/edu-mena/kaye/pull/55), [ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)): servidor MCP com token próprio, revisões com fonte (aprovar publica, o autor nunca aprova a sua), "Pesquisar com IA" em fila com orçamento diário. As traduções en e fr entram como propostas pelo mesmo caminho, campo a campo; não há tradução em massa
+- [x] 9. Painel de administração completo, com o design do site, feito a 25/11/2026 ([ADR 0028](decisoes/0028-painel-completo.md)): tema do site (cores, letra, barra lateral preta, modo escuro), uma lista por tabela do catálogo com filtros, ações em massa, "Ver na app", relações e imagens com origem; Caixa da IA lado a lado, Moderação (com "Colar vaga"), Comunicação, Pessoas, Equipa e papéis, Auditoria, Definições cifradas e Tokens MCP. As edições do painel deixam de ser desfeitas pelo `kaye:import`
 - [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
 
 ## UX da home, áreas e Kayé Plus (24 de novembro de 2026)

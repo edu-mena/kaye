@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Feedback;
 
 use App\Filament\Resources\Feedback\Pages\ListFeedback;
 use App\Models\Feedback;
+use App\Support\AuditLog;
 use App\Support\FeedbackReplies;
 use BackedEnum;
 use Filament\Actions\Action;
@@ -13,6 +14,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 /**
  * The critiques, ideas and bugs sent from the site, to read and download.
@@ -30,6 +32,10 @@ class FeedbackResource extends Resource
     protected static ?string $pluralModelLabel = 'críticas e ideias';
 
     protected static ?string $navigationLabel = 'Críticas e ideias';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Moderação';
+
+    protected static ?int $navigationSort = 2;
 
     public static function table(Table $table): Table
     {
@@ -50,6 +56,7 @@ class FeedbackResource extends Resource
                     ->schema([Textarea::make('reply')->label('Resposta')->required()->rows(6)->maxLength(4000)])
                     ->action(function (Feedback $record, array $data): void {
                         FeedbackReplies::send($record, is_string($data['reply'] ?? null) ? $data['reply'] : '');
+                        AuditLog::admin('feedback_replied', $record);
                     }),
             ]);
     }

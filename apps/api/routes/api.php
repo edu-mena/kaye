@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AccessExamController;
 use App\Http\Controllers\Api\AdmissionController;
 use App\Http\Controllers\Api\AgentController;
+use App\Http\Controllers\Api\AreaCommunityController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
 use App\Http\Controllers\Api\CommentController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\InstitutionController;
 use App\Http\Controllers\Api\InternshipController;
 use App\Http\Controllers\Api\InterviewController;
 use App\Http\Controllers\Api\InterviewQuestionController;
+use App\Http\Controllers\Api\KursoAccountController;
 use App\Http\Controllers\Api\KursoController;
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\MeDataController;
@@ -43,9 +45,11 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 // Everything here is served under /api/v1 (see bootstrap/app.php). The public reads: docs/arquitetura.md, section 6.
 
+// Public: only whether it works. With HEALTH_TOKEN: every check (docs/observabilidade.md).
 Route::get('/health', HealthController::class);
 
 Route::get('/areas', [AreaController::class, 'index']);
+Route::get('/areas/{area}/community', [AreaCommunityController::class, 'show']);
 Route::get('/career-groups', [AreaController::class, 'groups']);
 
 Route::get('/occupations', [OccupationController::class, 'index']);
@@ -95,9 +99,9 @@ Route::get('/kursos/{slug}/exam', [KursoController::class, 'exam']);
 // Writes without an account, moved from the Vercel functions with the same answers (docs/arquitetura.md, 6).
 // Each has its own hourly limit per IP (docs/seguranca.md), on top of the general one.
 Route::post('/waitlist', [WaitlistController::class, 'store'])->middleware('throttle:waitlist');
-Route::get('/waitlist/export', [WaitlistController::class, 'export']);
+Route::get('/waitlist/export', [WaitlistController::class, 'export'])->middleware('throttle:secret');
 // The scrapers' facts, with INGEST_TOKEN (docs/arquitetura.md, 5.2).
-Route::post('/ingest/jobs', [IngestJobsController::class, 'store']);
+Route::post('/ingest/jobs', [IngestJobsController::class, 'store'])->middleware('throttle:secret');
 Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('throttle:feedback');
 Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
 Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
@@ -106,7 +110,7 @@ Route::get('/public-cards/{slug}', [PublicCardController::class, 'show']);
 // The public VAPID key for Web Push (null while push is off).
 Route::get('/push/key', [PushSubscriptionController::class, 'key']);
 Route::put('/public-cards/{slug}', [PublicCardController::class, 'update'])->middleware('throttle:public-cards');
-Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy']);
+Route::delete('/public-cards/{slug}', [PublicCardController::class, 'destroy'])->middleware('throttle:secret');
 
 // Accounts (docs/arquitetura.md, 5.1 and 6). These routes, and only these, start the web session:
 // the public reads above stay without cookies, so they can be cached.
@@ -130,5 +134,11 @@ Route::middleware(EnsureFrontendRequestsAreStateful::class)->group(function (): 
         Route::delete('/me/consents/{kind}', [ConsentController::class, 'destroy']);
         Route::post('/me/push-subscriptions', [PushSubscriptionController::class, 'store']);
         Route::delete('/me/push-subscriptions', [PushSubscriptionController::class, 'destroy']);
+        Route::get('/me/communities/{area}', [AreaCommunityController::class, 'mine']);
+        Route::put('/me/communities/{area}', [AreaCommunityController::class, 'update']);
+        Route::get('/kursos/progress', [KursoAccountController::class, 'progress']);
+        Route::post('/kursos/{course}/topics/{topic}/complete', [KursoAccountController::class, 'complete']);
+        Route::get('/kursos/{course}/certificate', [KursoAccountController::class, 'certificate']);
+        Route::post('/kursos/{course}/answers', [KursoAccountController::class, 'answer'])->middleware('throttle:kurso-answers');
     });
 });

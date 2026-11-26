@@ -62,6 +62,29 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+            // mysqldump for the backups (on Hostinger it is on the PATH; on Windows, e.g. C:/xampp/mysql/bin).
+            'dump' => array_filter([
+                'dump_binary_path' => env('DB_DUMP_BINARY_PATH'),
+                'use_single_transaction' => true,
+                'timeout' => 300,
+            ]),
+        ],
+
+        // Where `kaye:backup-restore-test` restores the newest copy: an empty database of its own (created in the
+        // hPanel; shared hosting cannot create one). Everything in it is dropped first, so it is never the real one.
+        'restore' => [
+            'driver' => 'mysql',
+            // Empty = the same server and user as the real database.
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => (string) env('DB_RESTORE_DATABASE', ''),
+            'username' => env('DB_RESTORE_USERNAME') ?: env('DB_USERNAME', 'root'),
+            'password' => env('DB_RESTORE_PASSWORD') ?: env('DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
         ],
 
         'mariadb' => [

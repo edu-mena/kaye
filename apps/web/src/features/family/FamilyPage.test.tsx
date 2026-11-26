@@ -72,7 +72,7 @@ describe('FamilyPage', () => {
     const career = await screen.findByRole('article')
     expect(within(career).getByRole('heading', { name: 'Analista de Cibersegurança' })).toBeInTheDocument()
     expect(within(career).getByText('Onde estudar')).toBeInTheDocument()
-    expect(within(career).getByText(/Kz/)).toBeInTheDocument()
+    expect(await within(career).findByText(/Kz/)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Como podem ajudar' })).toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: /PDF/ }))

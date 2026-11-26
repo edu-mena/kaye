@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Feedback;
 use App\Models\WaitlistEntry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
@@ -31,6 +32,20 @@ class WaitlistTest extends TestCase
             'lang' => 'fr',
             ...$overrides,
         ]);
+    }
+
+    public function test_the_contacts_are_encrypted_at_rest_and_found_by_their_hash(): void
+    {
+        $this->join()->assertCreated();
+
+        $row = DB::table('waitlist')->sole();
+        $stored = (string) json_encode($row);
+        $this->assertStringNotContainsString('ana@example.com', $stored);
+        $this->assertStringNotContainsString('923456789', $stored);
+        $this->assertSame('ana@example.com', WaitlistEntry::query()->withEmail('ANA@example.com ')->sole()->email);
+        $this->assertSame('+244923456789', WaitlistEntry::query()->withWhatsapp('+244923456789')->sole()->whatsapp);
+        // The same contact again is still recognised, encrypted or not.
+        $this->join(['email' => 'ana@EXAMPLE.com', 'whatsapp' => ''])->assertOk()->assertJson(['already' => true]);
     }
 
     public function test_a_signup_is_kept_clean(): void

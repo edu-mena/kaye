@@ -2,6 +2,8 @@
 
 namespace App\Import;
 
+use App\Enums\RevisionStatus;
+use App\Models\Revision;
 use BackedEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +31,9 @@ final class Importer
 
     /** @var list<string> */
     private array $problems = [];
+
+    /** @var array<string, array<int|string, list<string>>> morph class => id => approved columns */
+    private array $approved = [];
 
     /**
      * @param  list<Target>  $resources  every resource, so links know each model's key
@@ -114,6 +119,10 @@ final class Importer
      */
     public function sync(BelongsToMany $relation, array $ids): bool
     {
+        // Links changed in the panel (ADR 0028) belong to the database, like the approved columns.
+        if (in_array($relation->getRelationName(), $this->approvedColumns($relation->getParent()), true)) {
+            return false;
+        }
         $changes = $relation->sync($ids);
 
         return $changes['attached'] !== [] || $changes['detached'] !== [] || $changes['updated'] !== [];
@@ -167,6 +176,27 @@ final class Importer
     }
 
     /**
+     * The columns (and links) of this row that an approved revision or a panel edit set, plus the source columns.
+     *
+     * @return list<string>
+     */
+    private function approvedColumns(Model $model): array
+    {
+        $type = $model->getMorphClass();
+        if (! isset($this->approved[$type])) {
+            $this->approved[$type] = [];
+            $rows = Revision::query()->where('revisable_type', $type)->whereIn('status', RevisionStatus::applied())->get(['revisable_id', 'changes']);
+            foreach ($rows as $revision) {
+                $columns = [...($this->approved[$type][$revision->revisable_id] ?? []), ...array_keys($revision->changes), 'sources', 'source_url', 'source_checked_at'];
+                $this->approved[$type][(int) $revision->revisable_id] = array_values(array_unique($columns));
+            }
+        }
+        $key = $model->getKey();
+
+        return is_int($key) || is_string($key) ? ($this->approved[$type][$key] ?? []) : [];
+    }
+
+    /**
      * @param  array<string, mixed>  $values
      */
     private function create(Model $model, array $values): bool
@@ -181,9 +211,12 @@ final class Importer
      */
     private function update(Model $model, array $values): bool
     {
+        // A field approved or edited in the panel (docs/ia.md, ADR 0028) now belongs to the database: the export
+        // still has the old value and would undo the approval on every deploy.
+        $locked = $this->approvedColumns($model);
         $changed = array_filter(
             $values,
-            fn (mixed $value, string $column): bool => ! $this->same($model, $column, $value),
+            fn (mixed $value, string $column): bool => ! in_array($column, $locked, true) && ! $this->same($model, $column, $value),
             ARRAY_FILTER_USE_BOTH,
         );
         if ($changed === []) {

@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { courseSteps, findCourse, stepKey, type Step } from '../../data/kursos'
 import type { Course, CourseTone, Unit, UnitContent } from '../../data/kursos/types'
+import { exerciseSeed } from '../../domain/exercises/generators'
+import { canStartTopic, dailyLimit } from '../../domain/dailyTopic'
+import { todayIso } from '../../domain/scholarships'
+import { usePlus } from '../../lib/plan'
 import { EMPTY_KURSO, userActions, useUser, type KursoProgress } from '../../state/userStore'
 
 export function useCourse(): { course: Course | undefined; progress: KursoProgress } {
@@ -81,3 +85,50 @@ export const TONE_CLASS: Record<CourseTone, string> = {
 }
 
 export const percent = (share: number) => Math.round(share * 100)
+
+/** The daily-topic rule (docs/decisoes/0025): on the free account, one topic finished a day. */
+export function useTopicGate() {
+  const { kursos } = useUser()
+  const { enabled, isPlus, promotable } = usePlus()
+  const limit = dailyLimit(enabled, isPlus)
+  const completions = Object.values(kursos).flatMap((progress) => progress.doneOn ?? [])
+  return {
+    /** The rule is on for this person (flag on, no Plus), minors included. */
+    limited: Number.isFinite(limit),
+    /** Another topic may be finished today. */
+    open: canStartTopic(completions, todayIso(), limit),
+    /** The Plus may be mentioned (adults only: a minor never sees the promotion). */
+    promotable,
+  }
+}
+
+/** The unit is closed today: the rule is on, today's topic is done and this unit is not finished. */
+export function isTopicLocked(
+  gate: { limited: boolean; open: boolean },
+  unitId: string,
+  course: Course,
+  done: string[],
+): boolean {
+  if (!gate.limited || gate.open) return false
+  return !courseSteps(course)
+    .filter((step) => step.unit === unitId)
+    .every((step) => done.includes(stepKey(step)))
+}
+
+/** The seed of the day's exercises: the local day plus an id kept on this device. */
+export function useDailySeed(): string {
+  return exerciseSeed(todayIso(), deviceId())
+}
+
+function deviceId(): string {
+  try {
+    const key = 'kaye.device'
+    const saved = localStorage.getItem(key)
+    if (saved) return saved
+    const fresh = crypto.randomUUID()
+    localStorage.setItem(key, fresh)
+    return fresh
+  } catch {
+    return 'device'
+  }
+}

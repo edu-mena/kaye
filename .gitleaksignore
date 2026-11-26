@@ -1,0 +1,4 @@
+# Gitleaks false positives, one exact finding each (commit:file:rule:line), never a whole rule or path (ADR 0022).
+# The fake token of the Sentry scrubber test, which proves the token is taken out of the event:
+bf995e0d0bbc137f7c145acbe8e8b42750b075dc:apps/api/tests/Feature/ErrorTrackingTest.php:generic-api-key:39
+bf995e0d0bbc137f7c145acbe8e8b42750b075dc:apps/api/tests/Feature/ErrorTrackingTest.php:generic-api-key:40

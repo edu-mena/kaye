@@ -14,10 +14,11 @@ import {
   scoreByUnit,
   type Answer,
 } from '../../domain/kursos'
+import { reportKursoTopic } from '../../state/accountSync'
 import { userActions } from '../../state/userStore'
-import { ChoiceOptions } from './Blocks'
+import { ChoiceOptions } from './ChoiceOptions'
 import { Reader } from './Reader'
-import { percent, useActiveTime, useCourse } from './shared'
+import { percent, useActiveTime, useCourse, useTopicGate } from './shared'
 
 const time = (at: number) => new Date(at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
@@ -28,6 +29,7 @@ export default function ExamPage() {
   const [questions, setQuestions] = useState<ExamQuestion[] | null>(null)
   const [answers, setAnswers] = useState<Answer[]>([])
   const [result, setResult] = useState<number | null>(null)
+  const gate = useTopicGate()
   useActiveTime(course?.id)
 
   useEffect(() => {
@@ -47,6 +49,8 @@ export default function ExamPage() {
   }, [course])
 
   if (!course) return <Navigate to="/kursos" replace />
+  // The final exam is Plus (ADR 0025): the free account sees it locked on the course page.
+  if (gate.limited) return <Navigate to={`/kursos/${course.id}`} replace />
   const state = courseState(course, progress.done)
   const blockedUntil = result === null ? nextAttemptAt(progress.exam) : null
 
@@ -56,6 +60,7 @@ export default function ExamPage() {
     const score = right / questions.length
     const attempt = { at: new Date().toISOString(), score, units: scoreByUnit(questions, answers) }
     userActions.addKursoExam(course.id, attempt, score >= EXAM_PASS ? certificateCode() : undefined)
+    if (score >= EXAM_PASS) void reportKursoTopic(course.id, 'exam', score)
     setResult(score)
     window.scrollTo({ top: 0 })
   }

@@ -1,6 +1,16 @@
-import type { AnnouncedCourse, Course } from './types'
+import { TOPICS as ACCOUNTING_TOPICS } from './contabilidade/topics'
+import { TOPICS as ACCOUNTING_PGC_TOPICS } from './contabilidade-pgc/topics'
+import { TOPICS as PROGRAMMING_TOPICS } from './programacao/topics'
+import { topicUnits } from './topicCourse'
+import type { AnnouncedCourse, Course, UnitContent } from './types'
 
 // The Kursos catalogue: the courses written (test versions) and the ones announced as "Em breve".
+
+// One topic = one unit with one short lesson (docs/decisoes/0025). A topic without its file yet shows as "Em breve".
+const PROGRAMMING_FILES = import.meta.glob<{ default: UnitContent }>('./programacao/t[0-9][0-9].ts')
+const ACCOUNTING_FILES = import.meta.glob<{ default: UnitContent }>('./contabilidade/t[0-9][0-9].ts')
+
+const ACCOUNTING_PGC_FILES = import.meta.glob<{ default: UnitContent }>('./contabilidade-pgc/t[0-9][0-9].ts')
 
 const ENGLISH_A1: Course = {
   id: 'ingles-a1',
@@ -351,61 +361,122 @@ const PROGRAMMING: Course = {
   audience:
     'Para quem nunca programou e quer perceber como funciona: estudantes, quem pensa em cursos de informática ou dados e quem quer automatizar tarefas. Basta um telemóvel com navegador.',
   goals: [
-    'Explicar o que é um algoritmo e um programa.',
-    'Escrever e ler programas curtos em Python com print, variáveis e operações.',
-    'Distinguir os tipos int, float, str e bool e converter entre eles.',
-    'Fazer perguntas ao utilizador com input e calcular com as respostas.',
+    'Escrever e ler programas curtos em Python com variáveis, tipos, operadores, texto e input.',
+    'Decidir e repetir com if, for e while; guardar dados em listas e dicionários.',
+    'Criar funções, ler e escrever ficheiros de texto e tratar erros com try/except.',
+    'Ler um problema, depurar um erro e acabar 5 mini-projetos: média de notas, tabuada, caixa registadora em Kz, lista de contactos e jogo de adivinhar.',
   ],
-  units: [
-    {
-      id: 'u1',
-      number: 1,
-      title: 'O que é programar',
-      summary: 'Algoritmo, programa, o Python e a função print.',
-      load: () => import('./programacao/unit1').then((module) => module.default),
-      lessons: [
-        { id: 'l1', title: 'O que é um algoritmo', estimatedMinutes: 15 },
-        { id: 'l2', title: 'Programas, linguagens e o Python', estimatedMinutes: 15 },
-        { id: 'l3', title: 'A função print', estimatedMinutes: 20 },
-      ],
-    },
-    {
-      id: 'u2',
-      number: 2,
-      title: 'Variáveis e tipos',
-      summary: 'Números, texto, input e conversões.',
-      load: () => import('./programacao/unit2').then((module) => module.default),
-      lessons: [
-        { id: 'l1', title: 'Variáveis', estimatedMinutes: 15 },
-        { id: 'l2', title: 'Tipos de dados e operações', estimatedMinutes: 20 },
-        { id: 'l3', title: 'input e conversões', estimatedMinutes: 20 },
-      ],
-    },
-    { id: 'u3', number: 3, title: 'Decisões', summary: 'if, elif, else e comparações.' },
-    { id: 'u4', number: 4, title: 'Repetições', summary: 'Os ciclos for e while.' },
-    { id: 'u5', number: 5, title: 'Funções', summary: 'Criar as tuas funções e reutilizar código.' },
-    {
-      id: 'u6',
-      number: 6,
-      title: 'Listas e um pequeno projeto',
-      summary: 'Listas e uma calculadora de propinas, do início ao fim.',
-    },
-  ],
-  loadExam: () => import('./programacao/exam').then((module) => module.default),
+  units: topicUnits('programacao', PROGRAMMING_TOPICS, PROGRAMMING_FILES),
+  loadExam: () => import('./programacao/exam').then((module) => module.default()),
   credits: [
     {
       title: 'Python Programming (Wikibooks)',
       author: 'Contribuidores do Wikibooks',
       license: 'CC BY-SA 4.0',
       url: 'https://en.wikibooks.org/wiki/Python_Programming',
-      use: 'Fonte principal: print, variáveis, tipos de dados, números, input e conversões, adaptados e escritos de raiz em português; os programas de exemplo são nossos.',
+      use: 'Fonte principal, só como tema (variáveis, tipos, texto, decisões, ciclos, listas, dicionários, funções, ficheiros, erros e módulos): as lições e as perguntas são escritas de raiz em português, com variantes por parâmetros; os programas e os dados (nomes, valores em Kz) são nossos e inventados.',
     },
     {
       title: 'Algorithm; Python (programming language) (Wikipedia)',
       author: 'Contribuidores da Wikipedia',
       license: 'CC BY-SA 4.0',
       url: 'https://en.wikipedia.org/wiki/Algorithm',
-      use: 'Definição de algoritmo e origem da palavra; autor e ano da primeira versão do Python.',
+      use: 'Origem do Python e dos termos técnicos (algoritmo, módulo, função), só como confirmação de significados.',
+    },
+  ],
+}
+
+const ACCOUNTING: Course = {
+  id: 'contabilidade',
+  title: 'Contabilidade: Nível Iniciante',
+  level: 'Iniciante',
+  lang: 'pt',
+  icon: 'wallet',
+  tone: 'success',
+  subtitle: 'Registar, somar e perceber as contas de uma loja angolana, passo a passo e com exercícios.',
+  audience:
+    'Para quem tem ou quer ter um pequeno negócio, para quem vai trabalhar num escritório ou numa loja e para quem pensa em cursos de contabilidade, gestão ou economia. Basta saber somar e subtrair.',
+  goals: [
+    'Distinguir ativo, passivo e capital próprio e usar a equação fundamental.',
+    'Fazer lançamentos a débito e a crédito no diário e verificar o balancete.',
+    'Registar compras, vendas, IVA, existências, caixa, bancos, clientes, fornecedores e salários.',
+    'Calcular amortizações e acréscimos e ler a demonstração de resultados e o balanço de uma loja.',
+  ],
+  units: topicUnits('contabilidade', ACCOUNTING_TOPICS, ACCOUNTING_FILES),
+  loadExam: () => import('./contabilidade/exam').then((module) => module.default()),
+  credits: [
+    {
+      title: 'Accounting; Double-entry bookkeeping; Balance sheet; Income statement (Wikipedia)',
+      author: 'Contribuidores da Wikipedia',
+      license: 'CC BY-SA 4.0',
+      url: 'https://en.wikipedia.org/wiki/Double-entry_bookkeeping',
+      use: 'Fonte principal, só como tema (equação fundamental, débito e crédito, razão, balancete, balanço, demonstração de resultados, amortização): as lições e as perguntas são escritas de raiz em português; as empresas, as pessoas e os valores em Kz são inventados.',
+    },
+    {
+      title: 'Plano Geral de Contabilidade (Decreto n.º 82/01, de 16 de Novembro)',
+      author: 'Governo de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Existência do plano e organização das contas em classes. Os nomes das classes e das contas usadas no Kurso estão por confirmar no texto em vigor no Diário da República.',
+    },
+    {
+      title: 'Código do Imposto sobre o Valor Acrescentado (Lei n.º 7/19, republicado pela Lei n.º 14/23)',
+      author: 'Assembleia Nacional de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://cms.law/pt/prt/publication/angola-alteracoes-ao-codigo-do-imposto-sobre-o-valor-acrescentado',
+      use: 'Taxa geral de 14% (art. 19.º, n.º 1, alínea a), por confirmar no Diário da República). As outras taxas e os regimes especiais não são ensinados.',
+    },
+    {
+      title:
+        'Regime de contribuições para a Segurança Social (Decreto Presidencial n.º 227/18, de 27 de Setembro)',
+      author: 'Presidente da República de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://lex.ao/docs/presidente-da-republica/2018/decreto-presidencial-n-o-227-18-de-27-de-setembro/',
+      use: 'Taxas de 8% (entidade empregadora) e 3% (trabalhador) sobre a remuneração; artigos e base de incidência por confirmar no Diário da República.',
+    },
+  ],
+}
+
+const ACCOUNTING_PGC: Course = {
+  id: 'contabilidade-pgc',
+  title: 'Contabilidade Angolana: PGC na Prática',
+  level: 'Intermédio',
+  lang: 'pt',
+  icon: 'wallet',
+  tone: 'gold',
+  subtitle:
+    'Os casos do Plano Geral de Contabilidade que mais aparecem no ano de uma empresa, com cálculos que mudam todos os dias.',
+  audience:
+    'Para quem já sabe débito e crédito (o Kurso de Contabilidade: Nível Iniciante chega) e quer passar aos casos reais: imobilizado, existências, imposto, câmbio e capital.',
+  goals: [
+    'Calcular o custo de um imobilizado e amortizá-lo por quotas constantes, dígitos ou produção.',
+    'Registar a venda e o abate de um bem, com mais-valias e menos-valias.',
+    'Custear existências em FIFO, LIFO e custo médio, e provisionar o que perdeu valor.',
+    'Fazer notas de crédito, provisões, o apuramento do imposto industrial, diferenças cambiais e a aplicação do resultado.',
+  ],
+  units: topicUnits('contabilidade-pgc', ACCOUNTING_PGC_TOPICS, ACCOUNTING_PGC_FILES),
+  loadExam: () => import('./contabilidade-pgc/exam').then((module) => module.default()),
+  credits: [
+    {
+      title: 'PGC Angolano: Casos Práticos e Exercícios Resolvidos (Almeida, Miranda e outros, ATF, 2014)',
+      author: 'Rui M. P. de Almeida, Sabino José Miranda e outros',
+      license: 'Todos os direitos reservados: usado só como guia dos temas e da ordem dos casos',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Os temas (custo de aquisição, métodos de amortização, custeio, provisões, câmbio, aplicação de resultados) e a progressão dos casos. Texto, empresas e valores são escritos de raiz pelo Kayé; nada é copiado.',
+    },
+    {
+      title: 'Plano Geral de Contabilidade (Decreto n.º 82/01, de 16 de Novembro)',
+      author: 'Governo de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/paginas/decreto-presidencial/plano-geral-de-contabilidade-angolano-82a-01a.html',
+      use: 'Existência do plano e dos critérios de reconhecimento. Os nomes das contas usadas no Kurso são nossos e estão por confirmar no texto em vigor.',
+    },
+    {
+      title: 'Código do Imposto Industrial',
+      author: 'Assembleia Nacional de Angola',
+      license: 'Texto oficial (diploma legal), consultado e não copiado',
+      url: 'https://angolex.com/',
+      use: 'Só a ideia de matéria coletável e de pagamentos por conta. A taxa vem sempre no enunciado e está por confirmar no Diário da República.',
     },
   ],
 }
@@ -491,6 +562,8 @@ export const KURSOS: Course[] = [
   CYBERSECURITY,
   DIGITAL_MARKETING,
   PROGRAMMING,
+  ACCOUNTING,
+  ACCOUNTING_PGC,
   DATA_ANALYSIS,
 ]
 
@@ -501,12 +574,6 @@ export const ANNOUNCED: AnnouncedCourse[] = [
     title: 'Economia',
     body: 'Oferta, procura, preços e inflação, com exemplos do mercado angolano.',
     icon: 'chart',
-  },
-  {
-    id: 'contabilidade',
-    title: 'Contabilidade',
-    body: 'Receitas, despesas, balanço e as contas de um pequeno negócio.',
-    icon: 'wallet',
   },
 ]
 

@@ -393,35 +393,35 @@
   "kursos": {
     "pt": {
       "file": "kursos.pt.json",
-      "records": 6,
-      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+      "records": 8,
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     },
     "en": {
       "file": "kursos.en.json",
-      "records": 6,
-      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+      "records": 8,
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     },
     "fr": {
       "file": "kursos.fr.json",
-      "records": 6,
-      "sha256": "5312b66d81aa74846e42b282779c728c12be5335dfbcd3fbe93628256104d418"
+      "records": 8,
+      "sha256": "c4997b845dd603a4a6c69ab1a41b6af87ab88b278583ae1d5f620e024b7ba6a0"
     }
   },
   "kursos-announced": {
     "pt": {
       "file": "kursos-announced.pt.json",
-      "records": 2,
-      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+      "records": 1,
+      "sha256": "8e57bc6593b9d817c2f836849e8a0a690e262c8c13b299a86ea3268a3e7d64fb"
     },
     "en": {
       "file": "kursos-announced.en.json",
-      "records": 2,
-      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+      "records": 1,
+      "sha256": "8e57bc6593b9d817c2f836849e8a0a690e262c8c13b299a86ea3268a3e7d64fb"
     },
     "fr": {
       "file": "kursos-announced.fr.json",
-      "records": 2,
-      "sha256": "3ae04f6a26c1aff9c87550b5c2919973c0229cb18e76acb3cd9b96e69c09f0b9"
+      "records": 1,
+      "sha256": "8e57bc6593b9d817c2f836849e8a0a690e262c8c13b299a86ea3268a3e7d64fb"
     }
   },
   "access-exam-questions": {

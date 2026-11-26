@@ -3,8 +3,10 @@
 namespace App\Support;
 
 use App\Http\Resources\MeResource;
+use App\Models\AreaMembership;
 use App\Models\Comment;
 use App\Models\Consent;
+use App\Models\KursoCompletion;
 use App\Models\MessageDelivery;
 use App\Models\User;
 use App\Models\UserData;
@@ -119,6 +121,17 @@ class Accounts
                 'status' => $delivery->status->value,
                 'sentAt' => $delivery->sent_at?->toIso8601String(),
             ])->all(),
+            'kursoCompletions' => KursoCompletion::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (KursoCompletion $done): array => [
+                'course' => $done->course,
+                'topic' => $done->topic,
+                'completedOn' => $done->completed_on->toDateString(),
+                'score' => $done->score,
+            ])->all(),
+            'communities' => AreaMembership::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (AreaMembership $membership): array => [
+                'area' => $membership->area,
+                'level' => $membership->level,
+                'pioneerNumber' => $membership->pioneer_number,
+            ])->all(),
             'comments' => Comment::query()->where('user_id', $user->getKey())->oldest('id')->get()->map(fn (Comment $comment): array => [
                 'on' => $comment->subject_type.':'.$comment->subject_id,
                 'text' => $comment->body,
@@ -145,10 +158,15 @@ class Accounts
             DB::table('sessions')->where('user_id', $user->getKey())->delete();
             $user->userData()->delete();
             $user->consents()->delete();
+            // The anonymous counters of kurso_question_stats stay: they never pointed at the person.
+            KursoCompletion::query()->where('user_id', $user->getKey())->delete();
+            // The membership goes; `area_counters` stays, so the pioneer number is never given again.
+            AreaMembership::query()->where('user_id', $user->getKey())->delete();
             Comment::query()->where('user_id', $user->getKey())->delete();
             DB::table('comment_reports')->where('user_id', $user->getKey())->delete();
             // A morph relation: no foreign key deletes them by itself.
             $user->pushSubscriptions()->delete();
+            AuditLog::forget($user);
             $user->forceDelete();
         });
     }

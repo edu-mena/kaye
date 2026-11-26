@@ -230,6 +230,47 @@ A home de quem tem perfil é um feed (`features/home/ForYouHome.tsx`). Quem não
 - **Toque:** os alvos têm pelo menos 44 px (botão `md`).
 - **Verificação automática:** cada teste E2E corre o axe (WCAG 2.1 AA) e falha com problemas sérios ou críticos. A mensagem diz que elemento corrigir.
 
+## Painel de administração (`/admin`)
+
+O painel (Filament 5) usa a identidade da app, em português, para a equipa gerir tudo sem tocar no código ([ADR 0028](decisoes/0028-painel-completo.md)).
+
+**Tema** (`apps/api/resources/css/filament/admin/theme.css`, compilado com Vite em `apps/api`: `npm run build`)
+- **Cores:** as da tabela acima, em `App\Filament\KayeTheme`. O azul (`blue`, `blue-dark` ao passar) são os botões principais; os cinzentos quentes vão do papel (`paper`, o fundo) ao `night` e ao `coal`; verde e coral só para estados. O amarelo marca o foco e os ícones da barra lateral.
+- **Letra:** Bricolage Grotesque, servida pelo próprio domínio com o tema (a CSP do painel só aceita o domínio, [ADR 0002](decisoes/0002-csp-do-painel-admin.md)).
+- **Forma:** cartões, tabelas e janelas com os 28 px e a sombra leve do site (`rounded-card`, `shadow-card`); campos e botões `rounded-xl`; títulos a negrito, sem maiúsculas forçadas.
+- **Barra lateral preta** como a da app: texto branco leve, ícones amarelos, o ativo numa pílula mais clara; o logótipo fica branco. A barra de cima é um cartão branco a flutuar a 12 px das margens.
+- **Modo escuro:** os escuros do site (`coal` no fundo, `night` nos cartões), com o texto branco. Escolhe-se no menu da conta.
+
+**Navegação** (grupos pela ordem do trabalho, os do catálogo fechados por omissão)
+| Grupo | O que tem |
+|---|---|
+| Carreiras, Formação, Oportunidades, Novidades, Testes e Kursos, Mercado | Uma lista por tabela do catálogo (34) |
+| Caixa da IA | Propostas a rever, Pesquisas, Tokens MCP |
+| Moderação | Comentários, Críticas e ideias, Entrevistas, Colar vaga |
+| Comunicação | Campanhas, Modelos, Consentimentos, Relatórios |
+| Pessoas | Pessoas, Lista de espera |
+| Sistema | Equipa e papéis, Auditoria, Definições, Pulse |
+
+Cada página só aparece a quem tem a permissão ([seguranca.md](seguranca.md#papéis-e-permissões)).
+
+**As listas do catálogo** (`App\Filament\Content`)
+- **Lista:** o nome com o slug por baixo, o estado (Rascunho cinzento, Em revisão amarelo, Publicado verde, sempre com a palavra), estimado, fonte e quando mudou. Filtros: área, província, estado, estimado, sem fonte e apagados. Em massa: Publicar, Voltar a rascunho, Marcar revisto (a data de confirmação passa a hoje), Apagar e Recuperar. Em cada linha: Editar, "Ver na app" (abre a página da app num separador novo; só mostra o que está publicado) e "Pesquisar com IA" nos tipos que a IA escreve.
+- **Formulário em separadores:** Conteúdo; Português, English e Français (uma língua vazia não se guarda e a app mostra o português); Listas e dados (JSON, tal como a app os lê); Imagens; Publicação (slug, estado, fonte, data, estimado, ordem). O slug não muda depois de criado. Um sim/não que pode ser "não se sabe" (pago?) é uma escolha, não um interruptor. Os campos de escolha (tipo, setor, nível) só aceitam os valores que a app já conhece.
+- **Imagens:** carregar (JPG, PNG ou WebP, até 3 MB) pede a **origem**, que entra nas fontes do registo; nas fotografias, também o autor, a licença e o texto alternativo.
+- **Relações dentro do registo:** as ofertas, propinas, admissões e programas de uma instituição; os caminhos, CVs, testemunhos e vídeos de uma carreira; as unidades e o exame de um Kurso; e as ligações (carreiras de uma empresa, competências de uma carreira…) com "Ligar" e "Desligar".
+- **Histórico:** no topo do registo, as propostas da IA e as gravações da equipa, com quem e quando.
+
+**As outras páginas**
+- **Painel inicial:** lista de espera, entregas dos últimos 7 dias, a Caixa da IA e o custo da IA hoje (números grandes); "Registos por estado" (uma linha por tabela); "Campos em falta por área" (as carreiras de cada área sem guia, salário ou fotografia) e os campos importantes em falta por tipo; "Saúde" (base de dados, fila, cron e disco, cada um com a palavra "Bem" ou "Atenção").
+- **Caixa da IA:** a proposta lado a lado, Antes e Depois, com as palavras tiradas riscadas a vermelho e as postas sublinhadas a verde (`App\Support\TextDiff`, sempre escapado), a fonte e a nota; Aprovar e publicar, ou Rejeitar com o motivo.
+- **Comentários:** primeiro os denunciados; Esconder, Mostrar outra vez (as denúncias voltam a zero) e Apagar. O autor aparece pelo primeiro nome.
+- **Entrevistas:** a lista não mostra o contacto; "Abrir" mostra as respostas e o contacto (e fica na auditoria); a um menor junta-se se o encarregado sabe.
+- **Colar vaga:** cola-se a mensagem, "Ler a mensagem" preenche título, ligação, empresa, província e vagas; confirma-se e guarda-se. O texto não fica.
+- **Campanhas:** "Enviar teste para mim" na língua escolhida, com "[Teste]" no assunto. **Modelos:** os textos fixos de cada email nas três línguas. **Relatórios:** entregas por canal, consentimentos em vigor e as últimas campanhas.
+- **Pessoas:** encontra-se uma conta pelo email completo ou pelo número; o email aparece meio escondido e, num menor, o nome são as iniciais e a província não aparece. "Descarregar os dados" e "Apagar a conta" (escreve-se APAGAR).
+- **Equipa e papéis:** dar um papel a uma conta (com a senha do painel mostrada uma vez), mudar, repor o 2FA, nova senha, tirar da equipa; ninguém muda a própria conta; diz se o email está em `ADMIN_EMAILS`.
+- **Definições:** uma tabela com cada chave ou limite, de onde vem (Painel, .env, Vazio), quem mudou e quando; as chaves aparecem só como "Definida (escondida)".
+
 ## Textos
 
 - O português (`src/locales/pt.ts`) é a fonte. O TypeScript obriga a ter as mesmas chaves em `en.ts` e `fr.ts`.

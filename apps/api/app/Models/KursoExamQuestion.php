@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\BelongsToKurso;
 use App\Models\Concerns\HasContentStatus;
+use App\Models\Concerns\LogsContentChanges;
 use Database\Factories\KursoExamQuestionFactory;
 use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class KursoExamQuestion extends Model
 {
     /** @use HasFactory<KursoExamQuestionFactory> */
-    use BelongsToKurso, HasContentStatus, HasFactory;
+    use BelongsToKurso, HasContentStatus, HasFactory, LogsContentChanges;
 
     /**
      * @return array<string, string>
