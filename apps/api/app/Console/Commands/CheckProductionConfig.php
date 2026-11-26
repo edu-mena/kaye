@@ -48,7 +48,8 @@ class CheckProductionConfig extends Command
         $dsn = config('sentry.dsn');
 
         return [
-            'APP_ENV is production' => app()->isProduction(),
+            'APP_ENV is production (staging only on a staging. address)' => app()->isProduction()
+                || (app()->environment('staging') && is_string($url) && str_starts_with($url, 'https://staging.')),
             'APP_DEBUG is false' => config('app.debug') === false,
             'APP_KEY is set' => is_string($key) && $key !== '',
             'APP_URL uses https' => is_string($url) && str_starts_with($url, 'https://'),

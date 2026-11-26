@@ -74,6 +74,21 @@ class SecurityHeadersTest extends TestCase
             ->assertHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
     }
 
+    public function test_staging_asks_search_engines_not_to_index_it(): void
+    {
+        $this->app->instance('env', 'staging');
+
+        $this->get('/up')->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+        $this->get('/api/v1/health')->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    public function test_production_can_be_indexed(): void
+    {
+        $this->app->instance('env', 'production');
+
+        $this->get('/up')->assertHeaderMissing('X-Robots-Tag');
+    }
+
     /**
      * @param  TestResponse<Response>  $response
      */

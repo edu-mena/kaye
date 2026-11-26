@@ -207,13 +207,30 @@ Agora que a mesa está montada, ensina-se o GitHub a entrar no servidor.
 3. E uma **Variable** (não segredo): `SITE_URL` = `https://kayeangola.com`
 4. **Actions → Deploy → Run workflow** (ramo `main`).
 
-**Como sei que correu bem:** o workflow termina verde, com duas etapas: *publish* e *finish*. A partir daqui, cada merge no `main` faz tudo sozinho.
+**Como sei que correu bem:** o workflow termina verde, com quatro etapas: *publish*, *staging*, *promote* e *production* (o staging monta-se na secção [Staging](#staging)). A partir daqui, cada merge no `main` faz tudo sozinho.
 
 ---
 
 ## Passo 10: confirmar as cópias de segurança
 
 hPanel → **Websites → o teu site → Cópias de segurança**. Deve haver uma cópia de hoje ou de ontem. Para restaurar: escolhe a data e **Restaurar**. Antes disso, **guarda o `.env`** fora da Hostinger e depois corre `scripts/post-deploy.sh`.
+
+---
+
+## Staging
+
+O staging é uma cópia do site onde cada versão nova passa primeiro. Só se a versão ficar verde lá é que segue para `kayeangola.com` ([infraestrutura.md](infraestrutura.md#staging)). Monta-se uma vez, repetindo os passos acima com outros nomes:
+
+1. **Site:** hPanel → **Websites → Adicionar site** → *Site vazio / PHP* → domínio `staging.kayeangola.com` (subdomínio do teu domínio). Tem de ser um **site à parte**, com pasta própria `domains/staging.kayeangola.com/public_html`. **Não** uses *Domínios → Subdomínios*: esse põe a pasta dentro da de produção (`kayeangola.com/public_html/staging`) e o `.htaccess` de produção apanha-a.
+2. **PHP 8.4** nesse site, com as mesmas extensões (passo 5).
+3. **Base de dados:** no site de staging, *Bases de dados MySQL* → base `kaye_staging` e um utilizador só para ela (passo 2). A senha só no `.env`.
+4. **Git** (passo 4) no site de staging: repositório `https://github.com/edu-mena/kaye.git`, ramo **`deploy-staging`**, pasta vazia. Depois *Implementar*. O webhook, se aparecer, vai para o GitHub como no passo 4.
+5. **`.env`:** copia o de produção e muda só o que diz a tabela da [infraestrutura](infraestrutura.md#staging) (`APP_ENV=staging`, `APP_URL=https://staging.kayeangola.com`, base de dados, `HEALTH_TOKEN`, `MAIL_MAILER=log`, sem cópias). Depois, por SSH na pasta do staging: `/opt/alt/php84/usr/bin/php artisan key:generate --force` e `PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh`.
+6. **Cron** (passo 8) com o caminho do staging: `cd /home/<utilizador>/domains/staging.kayeangola.com/public_html && …`. É um segundo cron: o de produção fica como está.
+7. **GitHub:** o ambiente `staging` (*Settings → Environments*) com os mesmos segredos SSH do passo 9, `HOSTINGER_SITE_DIR` = `domains/staging.kayeangola.com/public_html`, `HEALTH_TOKEN` igual ao do `.env` do staging e a variável `SITE_URL` = `https://staging.kayeangola.com`.
+8. **Login Google (opcional):** no Google Cloud, junta `https://staging.kayeangola.com/auth/google/callback` aos URIs de redirecionamento e `https://staging.kayeangola.com` às origens.
+
+**Como sei que correu bem:** `https://staging.kayeangola.com/up` responde, o cabeçalho `X-Robots-Tag: noindex, nofollow` aparece (`curl -I https://staging.kayeangola.com/up`), e no GitHub o workflow *Deploy* mostra quatro etapas verdes: *publish*, *staging*, *promote* e *production*.
 
 ---
 
@@ -227,7 +244,7 @@ hPanel → **Websites → o teu site → Cópias de segurança**. Deve haver uma
 | `"cron": "unknown"` ou `"stale"` | cron não criado ou comando errado | passo 8 |
 | O site não muda depois do push | webhook falhou | GitHub → Webhooks → *Recent Deliveries*; ou *Deploy* no hPanel à mão |
 | `post-deploy.sh` diz "PHP 8.4 or newer" | o `php` do SSH é antigo | `PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh` |
-| Workflow Deploy falha na etapa *finish* | faltam segredos ou o servidor não puxou | passo 9; vê o texto do erro no GitHub |
+| Workflow Deploy falha na etapa *staging* ou *production* | faltam segredos nesse ambiente ou o servidor não puxou | passo 9 ou [Staging](#staging); vê o texto do erro no GitHub. Se falhar o *staging*, a produção não muda |
 
 ## Voltar atrás
 
