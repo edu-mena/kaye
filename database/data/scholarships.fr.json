@@ -1,47 +1,5 @@
 [
   {
-    "id": "bci-excelencia",
-    "name": "Bolsas de Excelência BCI",
-    "provider": "BCI (Banco de Comércio e Indústria)",
-    "companyId": "bci",
-    "kind": "empresa",
-    "destination": "angola",
-    "levels": [
-      "licenciatura"
-    ],
-    "areas": [
-      "health",
-      "business",
-      "legal",
-      "agriculture"
-    ],
-    "covers": [
-      "propina"
-    ],
-    "minAge": 17,
-    "maxAge": 30,
-    "requirements": [
-      "Medicina (UPRA, Unipiaget), Economia e Direito (UCAN), ULAN",
-      "Média de 17 no médio e 16 na entrada, ou 15 a 17 na universidade",
-      "Concurso interno em cada universidade parceira"
-    ],
-    "deadline": null,
-    "recurring": true,
-    "url": "https://www.bci.ao",
-    "sources": [
-      {
-        "label": "Expansão (01/06/2024)",
-        "url": "https://expansao.co.ao/universidade/interior/bci-atribui-bolsas-de-estudo-a-melhores-estudantes-universitarios-118622.html"
-      },
-      {
-        "label": "Ver Angola (10/2024)",
-        "url": "https://www.verangola.net/va/pt/102024/Educacao/41929/BCI-e-Universidade-Lueji-A'nkonde-juntam-se-para-conceder-bolsas-de-estudo.htm"
-      }
-    ],
-    "checkedAt": "2026-11-03",
-    "position": 16
-  },
-  {
     "id": "chevening",
     "name": "Chevening",
     "provider": "Governo do Reino Unido (FCDO)",
@@ -61,9 +19,10 @@
       "Licenciatura concluída há 2 anos ou mais",
       "2 anos de experiência de trabalho (2800 horas)",
       "Oferta incondicional de um mestrado no Reino Unido",
-      "Voltar a Angola por 2 anos"
+      "Voltar a Angola por 2 anos",
+      "Ronda 2027/28 fechou a 6/10/2026; a seguinte abre por volta de Agosto de 2027"
     ],
-    "deadline": null,
+    "deadline": "2026-10-06",
     "recurring": true,
     "url": "https://www.chevening.org/scholarship/angola/",
     "sources": [
@@ -81,70 +40,7 @@
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 14
-  },
-  {
-    "id": "daad-mirempet",
-    "name": "Programa de bolsas do Governo de Angola com o DAAD",
-    "provider": "DAAD e MIREMPET",
-    "kind": "estado",
-    "destination": "exterior",
-    "levels": [
-      "mestrado"
-    ],
-    "areas": [
-      "engineering",
-      "sciences",
-      "oil_mining"
-    ],
-    "covers": [],
-    "requirements": [
-      "Nacionalidade angolana",
-      "Mestrado na Alemanha"
-    ],
-    "deadline": null,
-    "recurring": true,
-    "url": "https://www.daad.de/go/en/stipa57588180",
-    "sources": [
-      {
-        "label": "DAAD (10/02/2020)",
-        "url": "https://www2.daad.de/der-daad/daad-aktuell/de/75756-neues-regierungsstipendienprogramm-mit-angola/"
-      }
-    ],
-    "checkedAt": "2026-11-03",
     "position": 12
-  },
-  {
-    "id": "fulbright",
-    "name": "Fulbright Foreign Student Program",
-    "provider": "Governo dos EUA (Embaixada em Luanda)",
-    "kind": "governo_estrangeiro",
-    "destination": "exterior",
-    "levels": [
-      "mestrado"
-    ],
-    "areas": [],
-    "covers": [],
-    "requirements": [
-      "Licenciatura concluída",
-      "Prova de inglês (TOEFL ou teste da embaixada)",
-      "Voltar a Angola"
-    ],
-    "deadline": null,
-    "recurring": true,
-    "url": "https://ao.usembassy.gov",
-    "sources": [
-      {
-        "label": "Ver Angola (02/2021)",
-        "url": "https://www.verangola.net/va/pt/022021/Educacao/24240/EUA-oferecem-bolsas-de-estudo-a-estudantes-angolanos-Candidaturas-já-abriram.htm"
-      },
-      {
-        "label": "ECA: Fulbright in Angola",
-        "url": "https://2012-2025.eca.state.gov/fulbright/country/angola.html"
-      }
-    ],
-    "checkedAt": "2026-11-03",
-    "position": 15
   },
   {
     "id": "gulbenkian-mestrado-palop",
@@ -167,19 +63,20 @@
     "requirements": [
       "Licenciatura numa universidade angolana com média de 14 ou mais",
       "Residência permanente em Angola",
-      "Matemática, Física, Química ou Biologia; mestrado em Portugal"
+      "Matemática, Física, Química ou Biologia; mestrado em Portugal",
+      "Concurso de 2026 aberto a 04/02/2026 (regulamento oficial); data de fecho por confirmar"
     ],
-    "deadline": "2026-06-08",
-    "recurring": true,
+    "deadline": null,
+    "recurring": false,
     "url": "https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/",
     "sources": [
       {
-        "label": "Fundação Gulbenkian (concurso 2026)",
-        "url": "https://gulbenkian.pt/en/bolsas-lista/masters-scholarships-for-students-from-palop/"
+        "label": "Fundação Gulbenkian: regulamento 2026",
+        "url": "https://cdn.gulbenkian.pt/wp-content/uploads/2023/03/Regulamento-Palop_2026-v2.pdf"
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 13
+    "position": 11
   },
   {
     "id": "inagbe-argelia-ensia",
@@ -235,9 +132,10 @@
     "requirements": [
       "Nacionalidade angolana e residência em Angola",
       "Ensino médio com média de 14 valores ou mais",
-      "Sem bolsa do INAGBE nos últimos 3 anos"
+      "Sem bolsa do INAGBE nos últimos 3 anos",
+      "Candidaturas de 11 a 25/07/2025 (ingresso em 2026); a próxima ronda ainda não foi anunciada"
     ],
-    "deadline": null,
+    "deadline": "2025-07-25",
     "recurring": true,
     "url": "https://www.inagbe.gov.ao",
     "sources": [
@@ -248,46 +146,6 @@
     ],
     "checkedAt": "2026-11-03",
     "position": 6
-  },
-  {
-    "id": "inagbe-china",
-    "name": "Bolsa do Governo Chinês",
-    "provider": "Governo da China, via INAGBE",
-    "kind": "governo_estrangeiro",
-    "destination": "exterior",
-    "levels": [
-      "licenciatura",
-      "mestrado"
-    ],
-    "areas": [
-      "agriculture",
-      "technology",
-      "health",
-      "sciences",
-      "engineering",
-      "business"
-    ],
-    "covers": [
-      "propina",
-      "alojamento",
-      "subsidio"
-    ],
-    "requirements": [
-      "Nacionalidade angolana e residência em Angola",
-      "Média de 14 valores no ciclo anterior",
-      "Em 2021: até 22 anos (licenciatura) ou 35 (mestrado)"
-    ],
-    "deadline": null,
-    "recurring": true,
-    "url": "https://www.inagbe.gov.ao",
-    "sources": [
-      {
-        "label": "Ver Angola (01/2021)",
-        "url": "https://www.verangola.net/va/pt/012021/Educacao/23619/China-oferece-40-bolsas-de-estudo-a-estudantes-angolanos.htm"
-      }
-    ],
-    "checkedAt": "2026-11-03",
-    "position": 7
   },
   {
     "id": "inagbe-internas-licenciatura",
@@ -379,7 +237,7 @@
       "Inclui curso de língua"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://www.inagbe.gov.ao",
     "sources": [
       {
@@ -411,7 +269,7 @@
       "Prioridade a engenharias, saúde, ciências exactas e naturais e tecnologias"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://www.inagbe.gov.ao",
     "sources": [
       {
@@ -452,7 +310,7 @@
       "Inclui curso de língua"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://www.inagbe.gov.ao",
     "sources": [
       {
@@ -495,40 +353,7 @@
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 17
-  },
-  {
-    "id": "mca-uan-engenharia",
-    "name": "Bolsas MCA na Faculdade de Engenharia da UAN",
-    "provider": "Grupo MCA",
-    "companyId": "mca",
-    "kind": "empresa",
-    "destination": "angola",
-    "levels": [
-      "licenciatura"
-    ],
-    "areas": [
-      "engineering"
-    ],
-    "covers": [
-      "propina",
-      "subsidio"
-    ],
-    "requirements": [
-      "Aluno da Faculdade de Engenharia da UAN",
-      "25 bolsas em 2024/25"
-    ],
-    "deadline": null,
-    "recurring": false,
-    "url": "https://www.uan.ao",
-    "sources": [
-      {
-        "label": "Ver Angola (12/2024)",
-        "url": "https://www.verangola.net/va/pt/122024/Educacao/42632/MCA-tem-25-bolsas-para-alunos-da-Faculdade-de-Engenharia-da-UAN-para-ajudar-com-propinas-e-alimentação.htm"
-      }
-    ],
-    "checkedAt": "2026-11-03",
-    "position": 18
+    "position": 13
   },
   {
     "id": "mirempet-franca",
@@ -561,7 +386,7 @@
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 11
+    "position": 10
   },
   {
     "id": "russia-quota",
@@ -584,7 +409,7 @@
       "Escolher uma só área de estudo"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://education-in-russia.com",
     "sources": [
       {
@@ -601,7 +426,7 @@
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 8
+    "position": 7
   },
   {
     "id": "stipendium-hungaricum",
@@ -624,7 +449,7 @@
       "Até 50 bolsas por ano para Angola"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://stipendiumhungaricum.hu/apply/",
     "sources": [
       {
@@ -641,7 +466,7 @@
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 9
+    "position": 8
   },
   {
     "id": "turkiye-burslari",
@@ -661,18 +486,19 @@
     ],
     "requirements": [
       "Licenciatura: menos de 21 anos",
-      "Inclui curso de turco e seguro de saúde"
+      "Inclui curso de turco e seguro de saúde",
+      "Ronda de 2026: candidaturas de 10/01 a 20/02/2026; as datas da seguinte ainda não foram anunciadas"
     ],
     "deadline": null,
-    "recurring": true,
+    "recurring": false,
     "url": "https://www.turkiyeburslari.gov.tr",
     "sources": [
       {
-        "label": "Türkiye Bursları",
-        "url": "https://www.turkiyeburslari.gov.tr"
+        "label": "Türkiye Bursları: candidaturas de 2026",
+        "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121"
       }
     ],
     "checkedAt": "2026-11-03",
-    "position": 10
+    "position": 9
   }
 ]
