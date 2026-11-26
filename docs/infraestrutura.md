@@ -9,9 +9,10 @@ Como o Kayé é construído, testado e publicado. A arquitetura das peças está
 | Local | O teu PC: PHP em `C:\php` + MariaDB do XAMPP (ou `docker compose`) | `kaye`, `kaye_test` | Desenvolver e testar |
 | CI | GitHub Actions (Ubuntu) | MariaDB 11.4 em serviço ou em container | Verificar cada push e cada PR |
 | Produção | `https://kayeangola.com` (o `www` redireciona para aqui), Hostinger Cloud Startup | Produção | Utilizadores e apresentações |
-| Staging | Subdomínio `staging.` na Hostinger (depois do domínio) | Separada | Testar a release antes de produção |
-| Produção (domínio) | Domínio principal na Hostinger + Cloudflare | Produção | Utilizadores |
-| Demonstração | Vercel (`kaye-indol.vercel.app`) | Dados de demonstração dentro da app | Plano B, sem servidor |
+| Staging | `https://staging.kayeangola.com`, um site à parte na mesma Hostinger (pasta `domains/staging.kayeangola.com/public_html`) | Própria (`…_kaye_staging`) | Cada release passa aqui primeiro; `APP_ENV=staging` e `noindex` |
+| Vercel (antigo site de teste) | `kaye-indol.vercel.app` | Nenhuma | Só redireciona (301) para `https://kayeangola.com`, com o mesmo caminho, até 26/12/2026; depois apagam-se o projeto do Vercel e a base Upstash |
+
+O Cloudflare à frente da Hostinger fica para depois do lançamento: o CDN da Hostinger já está à frente do site.
 
 ## Containers
 
@@ -83,13 +84,24 @@ Hostinger Cloud Startup, partilhado: sem Node, sem Composer no servidor, sem pro
 
 ```mermaid
 flowchart LR
-  M["push no main"] --> W["workflow Deploy<br/>(GitHub Actions)"]
-  W -->|"app web + vendor"| D["ramo deploy"]
-  D -->|"webhook"| H["Git do hPanel puxa<br/>para public_html"]
-  W -->|"SSH, quando o servidor puxou"| P["scripts/post-deploy.sh<br/>migrate · kaye:import · optimize<br/>check-production · smoke-test"]
+  M["push no main"] --> B["publish<br/>build uma vez"]
+  B --> DS["ramo deploy-staging"]
+  DS -->|"Git do hPanel puxa"| S["staging<br/>post-deploy.sh + teste de fumo"]
+  S -->|"verde"| PR["promote<br/>a mesma árvore"]
+  PR --> D["ramo deploy"]
+  D -->|"Git do hPanel puxa"| P["production<br/>post-deploy.sh + teste de fumo"]
 ```
 
-- **O ramo `deploy`** só tem builds: a app Laravel na raiz, `vendor/` sem ferramentas de desenvolvimento, a app web compilada em `public/spa/`, `scripts/` e um ficheiro `RELEASE` com o commit. Não se edita à mão. É o `scripts/publish-deploy.sh` que o monta (reutiliza o `scripts/package-release.sh`).
+O workflow `.github/workflows/deploy.yml` tem quatro jobs, sempre por esta ordem:
+
+1. **publish** constrói a release uma vez e põe-na no ramo `deploy-staging`.
+2. **staging** (ambiente `staging` do GitHub) espera que o site de staging puxe esse commit e corre `scripts/finish-deploy.sh`: o `post-deploy.sh` por SSH e o teste de fumo de fora.
+3. **promote** só corre com o staging verde: copia **exatamente a árvore testada** do `deploy-staging` para o ramo `deploy` (sem voltar a construir).
+4. **production** (ambiente `production`) faz o mesmo que o passo 2, no site de produção.
+
+Se o staging falhar, a produção não recebe nada. Um ambiente sem os seus segredos faz falhar o deploy (em vez de o saltar), para a produção nunca avançar sem staging.
+
+- **Os ramos `deploy-staging` e `deploy`** só têm builds: a app Laravel na raiz, `vendor/` sem ferramentas de desenvolvimento, a app web compilada em `public/spa/`, `scripts/` e um ficheiro `RELEASE` com o commit. Não se edita à mão. É o `scripts/publish-deploy.sh` que o monta (reutiliza o `scripts/package-release.sh`).
 - **A raiz do site** (`public_html`) é a pasta da app. Só `public/` é servido: o `.htaccess` da raiz (`apps/api/.htaccess`) reescreve tudo para lá e força HTTPS. Assim `.env`, `vendor/` e `storage/` nunca são acessíveis; o teste de fumo confirma-o.
 - **O que o servidor guarda e o `git pull` não toca:** `.env`, `storage/` (logs, cache, sessões) e tudo o que não está no ramo.
 - **Fila e cache** na base de dados. Uma só linha de cron no hPanel: `* * * * * cd ~/domains/<site>/public_html && php artisan schedule:run >> /dev/null 2>&1`. O agendador bate o pulso do cron todos os minutos (`CronHeartbeat`), e `GET /api/v1/health` mostra `checks.cron`: `ok`, `stale` (parou há mais de 5 minutos) ou `unknown` (nunca bateu). O teste de fumo na Hostinger exige `ok`.
@@ -110,15 +122,25 @@ flowchart LR
 8. **Segredos no GitHub** (*Settings → Environments → production*): os da tabela abaixo. A `HOSTINGER_SSH_KNOWN_HOSTS` obtém-se com `ssh-keyscan -p 65002 93.127.189.106`.
 9. **A primeira vez:** *Actions → Deploy → Run workflow*. Sem os segredos SSH, o workflow publica o ramo e avisa; nesse caso, depois do webhook, por SSH: `cd ~/domains/<site>/public_html && php artisan key:generate --force && scripts/post-deploy.sh`.
 
-Cada push no `main` repete: construir, publicar no `deploy`, a Hostinger puxa, e o workflow espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` (se acabar com 255, uma falha passageira da ligação ou do PHP, tenta mais duas vezes; com outro código, falha logo) e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
+Cada push no `main` repete, primeiro em staging e depois em produção: publicar no ramo, a Hostinger puxa, e o `scripts/finish-deploy.sh` espera pelo `RELEASE` certo (até 5 minutos; cada tentativa de SSH desiste ao fim de 10 segundos), corre o `post-deploy.sh` com `PHP=/opt/alt/php84/usr/bin/php` (se acabar com 255, uma falha passageira da ligação ou do PHP, tenta mais duas vezes; com outro código, falha logo) e o teste de fumo contra `SITE_URL`. Se uma etapa falhar, o workflow fica vermelho e diz qual.
 
 #### O que o `post-deploy.sh` faz
 
 Primeiro espera que o `composer install` do Git da Hostinger acabe (ela corre-o sozinha ao puxar, e correr o `artisan` a meio falha com 255) e, se esse `install` tiver trazido de volta o `laravel/boost` e as outras ferramentas de desenvolvimento, volta a instalar só as de produção (`composer install --no-dev`). Depois: `migrate --force`, `kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), `optimize` (config, rotas e vistas em cache), `kaye:check-production` (se falhar, pára), `queue:restart` e `scripts/smoke-test.sh` contra o `APP_URL`.
 
+### Staging
+
+Um site à parte no hPanel (`staging.kayeangola.com`), com tudo próprio: pasta, base de dados, `.env`, Git e cron. Partilha só o servidor e a conta SSH. Como se monta: [guia-hostinger.md](guia-hostinger.md#staging).
+
+- **`.env`:** igual ao de produção, menos isto: `APP_ENV=staging`, `APP_URL=https://staging.kayeangola.com`, `DB_*` da base de staging, uma `APP_KEY` própria, `HEALTH_TOKEN` próprio (o mesmo do segredo do ambiente `staging` no GitHub), `BACKUP_DISK=local` e sem `DB_RESTORE_DATABASE` (as cópias e o teste de reposição são só de produção), `MAIL_MAILER=log` (o staging nunca envia emails a pessoas reais) e sem `WAITLIST_EXPORT_TOKEN`, `INGEST_TOKEN` nem chaves VAPID.
+- **`noindex`:** fora de produção, o `SecurityHeaders` junta `X-Robots-Tag: noindex, nofollow` a todas as respostas do Laravel (`SecurityHeadersTest`), para o staging nunca aparecer no Google.
+- **`kaye:check-production`** aceita `APP_ENV=staging`, mas só com um `APP_URL` em `https://staging.`: um `.env` de staging copiado para produção por engano falha o deploy (`CheckProductionConfigTest`).
+- **O Sentry** recebe os erros de staging com o ambiente `staging` (vem do `APP_ENV`), separados dos de produção.
+- **Login Google no staging:** só funciona se `https://staging.kayeangola.com/auth/google/callback` estiver nos URIs de redirecionamento do ID de cliente no Google Cloud. O resto do site não precisa dele.
+
 ### Voltar atrás (rollback)
 
-Corre o *Deploy* à mão (*Run workflow*) escolhendo o commit anterior do `main`: o ramo `deploy` recebe a versão antiga e a Hostinger puxa-a. As migrações são sempre compatíveis com a versão anterior ([base-de-dados.md](base-de-dados.md#migrações)), por isso não se desfazem. Se o `main` já tiver avançado, faz `git revert` do commit mau.
+Corre o *Deploy* à mão (*Run workflow*) escolhendo o commit anterior do `main`: a versão antiga passa pelo staging e depois pelo ramo `deploy`, e a Hostinger puxa-a. As migrações são sempre compatíveis com a versão anterior ([base-de-dados.md](base-de-dados.md#migrações)), por isso não se desfazem. Se o `main` já tiver avançado, faz `git revert` do commit mau.
 
 ### O teste de fumo no endereço de produção
 
@@ -212,18 +234,28 @@ Só nos testes E2E (o `compose.yaml` e o servidor local do `playwright.config.ts
 
 Só na app: `VITE_DATA_SOURCE`, de onde vem o conteúdo: `api` lê `/api/v1` (o Laravel); sem ela, ou com `demo`, a app usa os dados de demonstração que traz dentro ([ADR 0005](decisoes/0005-frontend-primeiro-com-dados-de-demonstracao.md)). O `apps/web/.env.production` põe `api` no build que o Laravel serve (Docker, CI, Hostinger); o site de teste no Vercel (`--mode static`) e a app Android (`--mode native`) continuam com `demo` até à mudança. Em modo `api`, se a API falhar a app mostra o erro, nunca os dados de demonstração. `VITE_API_URL`, o endereço completo da API para as apps nativas (`https://<domínio>/api/v1`). A app web usa `/api/v1` no mesmo domínio. `VITE_KAYE_EMAIL`: o email do Kayé para correções ("Ajuda-nos a completar") e para os pedidos de conversa com mentores. `VITE_KAYE_WHATSAPP`: o número de WhatsApp do Kayé, só dígitos com o indicativo (`244…`), para os pedidos de conversa com mentores ([mentores.md](mentores.md)). Sem nenhuma das duas, o botão "Pedir conversa" não aparece; as duas são públicas (vão no código da app), por isso nunca um número ou email pessoal. `VITE_PLUS_ENABLED`: `true` mostra o Kayé Plus (cadeados nas funcionalidades pagas, o cartão na home, o item do menu e a página `/plus`); por defeito é `false` e a app fica exatamente como sem o Plus. Nada é cobrado em nenhum dos casos ([ADR 0024](decisoes/0024-plano-kaye-plus.md)). Está em `apps/web/.env.example`; é pública (vai no código da app).
 
-Só no site de teste (Vercel): `KV_REST_API_URL` e `KV_REST_API_TOKEN`, criadas ao ligar a base Upstash Redis ao projeto, para as páginas públicas ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md)). `WAITLIST_EXPORT_TOKEN`: a senha para descarregar a lista de espera e as críticas em CSV (ver o README).
+Só no antigo site de teste (Vercel), até ser apagado a 26/12/2026: `KV_REST_API_URL` e `KV_REST_API_TOKEN`, da base Upstash Redis das antigas funções ([ADR 0014](decisoes/0014-pagina-publica-do-cartao.md)), e `WAITLIST_EXPORT_TOKEN`. Desde 26/11/2026 o Vercel só redireciona e já não as usa.
 
 ## Segredos no GitHub (para o deploy)
 
 | Segredo | Ambiente |
 |---|---|
 | `HOSTINGER_SSH_HOST`, `HOSTINGER_SSH_PORT`, `HOSTINGER_SSH_USER` | `staging`, `production` |
-| `HOSTINGER_SITE_DIR` (a pasta do site no servidor, p. ex. `domains/<site>/public_html`) | `production` |
-| Variável (não segredo) `SITE_URL`: o endereço a testar depois do deploy | `production` |
-| `HEALTH_TOKEN` (opcional, o mesmo valor do `.env` do servidor): com ele, o teste de fumo de fora também lê o cron | `production` |
+| `HOSTINGER_SITE_DIR` (a pasta do site no servidor: `domains/kayeangola.com/public_html` e `domains/staging.kayeangola.com/public_html`) | `staging`, `production`, cada um a sua |
+| Variável (não segredo) `SITE_URL`: o endereço a testar depois do deploy | `staging`, `production`, cada um o seu |
+| `HEALTH_TOKEN` (opcional, o mesmo valor do `.env` desse site): com ele, o teste de fumo de fora também lê o cron | `staging`, `production`, cada um o seu |
 | `HOSTINGER_SSH_KEY` (chave privada só para o deploy) | `staging`, `production` |
 | `HOSTINGER_SSH_KNOWN_HOSTS` (impressão digital do servidor) | `staging`, `production` |
+
+## Monitor de disponibilidade
+
+UptimeRobot (plano grátis), conta do Eduardo:
+
+| Monitor | Tipo | Intervalo | Alerta |
+|---|---|---|---|
+| `https://kayeangola.com/api/v1/health` | HTTP(s), espera 2xx | 5 minutos | Email ao Eduardo quando cai e quando volta |
+
+Sem `HEALTH_TOKEN`, o `/api/v1/health` responde 200 se a base de dados responde e 503 se não ([observabilidade.md](observabilidade.md)). O cron, a fila e o disco veem-se no próprio deploy (`kaye:health`) e com o token. O staging não tem monitor: falha à vista no deploy.
 
 ## Cópias de segurança
 
@@ -246,7 +278,18 @@ Só as falhas mandam email. As tabelas que mudam a cada segundo (sessões, cache
 3. No hPanel, cria uma segunda base de dados vazia (p. ex. `u123_kaye_restore`) e põe o nome e o utilizador em `DB_RESTORE_*`.
 4. Corre uma vez à mão: `php artisan kaye:backup` e depois `php artisan kaye:backup-restore-test`. O segundo tem de acabar em "restores".
 
+Em produção, o bucket é do Cloudflare R2 (`BACKUP_S3_REGION=auto`, endpoint da conta) e a base de teste é `…_kaye_restore`. O staging não faz cópias (`BACKUP_DISK=local`, sem `DB_RESTORE_DATABASE`).
+
 **Repor de verdade:** descarrega o zip mais recente do bucket, abre-o com a `BACKUP_ARCHIVE_PASSWORD`, e importa `db-dumps/mysql-<base>.sql` no phpMyAdmin do hPanel (ou `mysql < ficheiro.sql`) com o site em manutenção (`php artisan down`).
+
+## Fim do Vercel
+
+O Vercel foi o site de teste antes do servidor. A mudança fez-se a 26/11/2026, por esta ordem:
+
+1. `apps/web/vercel.json` passou a só redirecionar (301) tudo para `https://kayeangola.com`, com o mesmo caminho e a mesma query (`kaye-indol.vercel.app/carreiras?x=1` → `kayeangola.com/carreiras?x=1`). Inscrições feitas no site antigo chegam assim ao Laravel.
+2. Só depois, em produção: `php artisan kaye:migrate-redis --dry-run` e a seguir sem `--dry-run`. As contagens no MySQL têm de ser iguais às do Redis.
+3. As credenciais do Upstash saíram do `.env` de produção logo a seguir.
+4. **A 26/12/2026** (30 dias): apagar o projeto `kaye` do Vercel e a base Upstash, e com eles as funções `apps/web/api`, o `apps/web/vercel.json` e o `.vercelignore`.
 
 ## Custos
 

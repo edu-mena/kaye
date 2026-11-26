@@ -110,25 +110,23 @@ SMOKE_REQUIRE_CRON=1 scripts/smoke-test.sh https://kayeangola.com   # confirma o
 |---|---|
 | `npm run build` | Compila a app web para `apps/api/public/spa`; o Laravel serve-a em http://127.0.0.1:8000 |
 | `npm run build:native` | Compila para o Android e copia para `apps/web/android` |
-| `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração, para testes no Vercel (`apps/web/vercel.json`: o projecto `kaye` do Vercel usa `apps/web` como pasta raiz; o `.vercelignore` da raiz só envia `apps/web`). Publicado em https://kaye-indol.vercel.app; `vercel deploy --prod` na raiz volta a publicar |
+| `npm run build:static` | Compila um site estático em `apps/web/dist`, só com os dados de demonstração. Era o site de teste no Vercel; desde 26/11/2026 o Vercel (`kaye-indol.vercel.app`) só redireciona (301) para https://kayeangola.com, até 26/12/2026 ([infraestrutura.md](docs/infraestrutura.md#fim-do-vercel)) |
 | `npm run android` | Abre o projeto Android no Android Studio |
 
 ## Lista de espera e críticas (pré-lançamento)
 
-No site de teste (Vercel), a landing guarda a lista de espera e as críticas no Redis (listas `waitlist` e `feedback`, `apps/web/api/_waitlist.ts`). Para as descarregar em CSV:
+O Laravel guarda a lista de espera, as críticas, as entrevistas e os cartões públicos em MySQL (`waitlist`, `feedback`, `interviews`, `public_cards`). Para os descarregar em CSV:
 
-| Variável | Onde | Para quê |
-|---|---|---|
-| `WAITLIST_EXPORT_TOKEN` | Vercel, projeto `kaye`, Production | Senha da exportação (16 caracteres ou mais); sem ela a exportação responde 401 |
+- **No painel** (`/admin`): Lista de espera ou Críticas e ideias → botão "Descarregar CSV".
+- **Por endereço**, com o `WAITLIST_EXPORT_TOKEN` (16 caracteres ou mais; no `.env` do servidor ou no painel, Sistema → Definições):
+  - Lista de espera: `https://kayeangola.com/api/v1/waitlist/export?kind=waitlist`
+  - Críticas: `https://kayeangola.com/api/v1/waitlist/export?kind=feedback`
 
-- Lista de espera: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=waitlist&token=<token>`
-- Críticas: `https://kaye-indol.vercel.app/api/v1/waitlist/export?kind=feedback&token=<token>`
+  O token vai no header `X-Export-Token` ou `Authorization: Bearer <token>` (não fica no histórico do navegador), ou em `&token=<token>`. Sem token válido a resposta é 401.
 
-O token também pode ir no header `X-Export-Token` ou `Authorization: Bearer <token>` (não fica no histórico do navegador).
+Até 26/11/2026 estes dados viviam no Redis (Upstash) das funções do Vercel. Foram copiados para o MySQL de produção nesse dia, com o comando abaixo.
 
-No Laravel, as mesmas rotas guardam em MySQL (`waitlist`, `feedback`, `interviews`, `public_cards`). O CSV descarrega-se no painel (Lista de espera e Críticas e ideias, botão "Descarregar CSV") ou em `/api/v1/waitlist/export` com `WAITLIST_EXPORT_TOKEN` no `.env`.
-
-**Passar os dados do Redis para o MySQL (uma vez, antes de mudar o site):** põe no `apps/api/.env` o `UPSTASH_REDIS_REST_URL` e o `UPSTASH_REDIS_REST_TOKEN` (no Vercel: Storage → a base Upstash → REST API) e corre em `apps/api`:
+**Passar os dados do Redis para o MySQL (feito em produção a 26/11/2026; fica para referência):** põe no `apps/api/.env` o `UPSTASH_REDIS_REST_URL` e o `UPSTASH_REDIS_REST_TOKEN` (no Vercel: Storage → a base Upstash → REST API) e corre em `apps/api`:
 
 ```bash
 php artisan kaye:migrate-redis --dry-run   # só conta, não grava

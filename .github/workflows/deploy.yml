@@ -1,6 +1,7 @@
-# Builds the release and publishes it to the `deploy` branch. The Hostinger Git link pulls that branch (webhook),
-# then this workflow finishes the job over SSH: migrations, catalogue, caches and the smoke test.
-# One-time setup on GitHub and in the hPanel: docs/infraestrutura.md ("Pôr no ar pela primeira vez").
+# Builds the release once and publishes it to staging first, then to production:
+#   publish (deploy-staging branch) -> staging (SSH + smoke test) -> promote (deploy branch) -> production (SSH + smoke test)
+# The hPanel Git link of each site pulls its branch (webhook); scripts/finish-deploy.sh finishes the job over SSH.
+# Production gets exactly the tree that passed on staging. Setup: docs/infraestrutura.md and docs/guia-hostinger.md.
 name: Deploy
 
 on:
@@ -18,15 +19,17 @@ concurrency:
 
 jobs:
   publish:
-    name: Build and publish to the deploy branch
+    name: Build and publish to the deploy-staging branch
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      tree: ${{ steps.push.outputs.tree }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: deploy
+          ref: deploy-staging
           path: deploy-tree
       - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
@@ -39,60 +42,75 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
       - name: Build the release (web app + Laravel with production dependencies)
         run: scripts/package-release.sh "$GITHUB_SHA"
-      - name: Put it in the deploy branch
+      - name: Put it in the deploy-staging branch
         run: |
           tar -xzf "build/kaye-$GITHUB_SHA.tar.gz" -C build
           scripts/publish-deploy.sh "build/kaye-$GITHUB_SHA" deploy-tree "$GITHUB_SHA"
       - name: Push
+        id: push
+        working-directory: deploy-tree
+        run: |
+          git push origin HEAD:deploy-staging
+          echo "tree=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  staging:
+    name: Finish on staging (SSH + smoke test)
+    needs: publish
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Wait for staging to pull the release, finish it and test it
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
+          SITE_DIR: ${{ secrets.HOSTINGER_SITE_DIR }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          # The site's HEALTH_TOKEN, so the outside test reads the cron too (docs/observabilidade.md).
+          HEALTH_TOKEN: ${{ secrets.HEALTH_TOKEN }}
+        run: scripts/finish-deploy.sh "$GITHUB_SHA"
+
+  promote:
+    name: Publish the tested release to the deploy branch
+    needs: [publish, staging]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.publish.outputs.tree }}
+          path: tested
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: deploy
+          path: deploy-tree
+      - name: Copy the staging tree into the deploy branch
+        run: scripts/publish-deploy.sh tested deploy-tree "$GITHUB_SHA"
+      - name: Push
         working-directory: deploy-tree
         run: git push origin HEAD:deploy
 
-  finish:
-    name: Finish on the server (SSH)
-    needs: publish
+  production:
+    name: Finish on production (SSH + smoke test)
+    needs: promote
     runs-on: ubuntu-latest
     environment: production
-    env:
-      SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-      SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
-      SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
-      SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
-      SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
-      SITE_DIR: ${{ secrets.HOSTINGER_SITE_DIR }}
-      SITE_URL: ${{ vars.SITE_URL }}
-      # Optional: the site's HEALTH_TOKEN, so the outside test can read the cron too (docs/observabilidade.md).
-      HEALTH_TOKEN: ${{ secrets.HEALTH_TOKEN }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Wait for the server to pull the release, then finish
-        run: |
-          if [ -z "$SSH_KEY" ] || [ -z "$SSH_HOST" ]; then
-            echo "::notice::No SSH secrets yet: the release is in the deploy branch; run scripts/post-deploy.sh on the server by hand."
-            exit 0
-          fi
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-          # ConnectTimeout: a blocked port fails in 10 s, not 2 minutes, so the 30 attempts really last about 5 minutes.
-          ssh_run() { ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 "$SSH_USER@$SSH_HOST" "$@"; }
-          # The webhook pulls within a minute or two; RELEASE holds the commit that was pulled.
-          for attempt in $(seq 1 30); do
-            [ "$(ssh_run "cat '$SITE_DIR/RELEASE' 2>/dev/null" || true)" = "$GITHUB_SHA" ] && break
-            [ "$attempt" = 30 ] && { echo "::error::The server did not pull $GITHUB_SHA in 5 minutes (hPanel > Git: webhook and branch)."; exit 1; }
-            sleep 10
-          done
-          # The server's default `php` is 8.1; the app needs 8.4 (docs/infraestrutura.md).
-          # Exit 255 = the SSH link or PHP died mid-way (a transient crash): try again. Exit 1 = a check failed for real: do not.
-          for attempt in 1 2 3; do
-            rc=0
-            ssh_run "cd '$SITE_DIR' && PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh" || rc=$?
-            [ "$rc" != 255 ] && break
-            echo "::warning::post-deploy ended with 255 (attempt $attempt of 3); trying again in 30 s"
-            sleep 30
-          done
-          exit "$rc"
-      - name: Smoke test from outside
-        run: |
-          [ -n "$SITE_URL" ] || { echo "::notice::SITE_URL is not set; skipping the outside test."; exit 0; }
-          # The cron is required on the server (kaye:health). From outside it can only be read with the token.
-          SMOKE_HEALTH_TOKEN="$HEALTH_TOKEN" SMOKE_REQUIRE_CRON="$([ -n "$HEALTH_TOKEN" ] && echo 1 || echo 0)" scripts/smoke-test.sh "$SITE_URL"
+      - name: Wait for production to pull the release, finish it and test it
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
+          SITE_DIR: ${{ secrets.HOSTINGER_SITE_DIR }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          # The site's HEALTH_TOKEN, so the outside test reads the cron too (docs/observabilidade.md).
+          HEALTH_TOKEN: ${{ secrets.HEALTH_TOKEN }}
+        run: scripts/finish-deploy.sh "$GITHUB_SHA"

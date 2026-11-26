@@ -31,6 +31,23 @@ class CheckProductionConfigTest extends TestCase
         $this->check()->assertFailed();
     }
 
+    public function test_staging_passes_on_its_own_address(): void
+    {
+        $this->useSafeProductionConfig();
+        $this->app->instance('env', 'staging');
+        config(['app.url' => 'https://staging.kaye.ao']);
+
+        $this->check()->assertSuccessful();
+    }
+
+    public function test_staging_on_the_production_address_fails(): void
+    {
+        $this->useSafeProductionConfig();
+        $this->app->instance('env', 'staging');
+
+        $this->check()->assertFailed();
+    }
+
     public function test_an_empty_admin_allowlist_fails(): void
     {
         $this->useSafeProductionConfig();

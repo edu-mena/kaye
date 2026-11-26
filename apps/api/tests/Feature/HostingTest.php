@@ -96,15 +96,29 @@ class HostingTest extends TestCase
         $this->assertLessThan(strpos($script, 'scripts/smoke-test.sh'), $health);
     }
 
-    public function test_the_deploy_workflow_retries_only_the_transient_ssh_failure(): void
+    public function test_the_deploy_retries_only_the_transient_ssh_failure(): void
+    {
+        $script = $this->file('../../scripts/finish-deploy.sh');
+
+        $this->assertStringContainsString('-o ConnectTimeout=10', $script);
+        $this->assertStringContainsString('PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh', $script);
+        $this->assertStringContainsString('[ "$rc" != 255 ] && break', $script);
+        $this->assertStringContainsString('for attempt in 1 2 3', $script);
+        $this->assertStringContainsString('exit "$rc"', $script);
+        // Production waits for staging: an environment without its secrets stops the line instead of skipping.
+        $this->assertMatchesRegularExpression('/\[ -z "\$missing" \] \|\| \{[^}]*exit 1; \}/', $script);
+    }
+
+    public function test_production_only_gets_the_release_after_staging_passed(): void
     {
         $workflow = $this->file('../../.github/workflows/deploy.yml');
 
-        $this->assertStringContainsString('-o ConnectTimeout=10', $workflow);
-        $this->assertStringContainsString('PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh', $workflow);
-        $this->assertStringContainsString('[ "$rc" != 255 ] && break', $workflow);
-        $this->assertStringContainsString('for attempt in 1 2 3', $workflow);
-        $this->assertStringContainsString('exit "$rc"', $workflow);
+        $this->assertStringContainsString('git push origin HEAD:deploy-staging', $workflow);
+        $this->assertMatchesRegularExpression('/  staging:.*needs: publish.*environment: staging.*scripts\/finish-deploy\.sh/s', $workflow);
+        $this->assertMatchesRegularExpression('/  promote:.*needs: \[publish, staging\].*ref: \$\{\{ needs\.publish\.outputs\.tree \}\}.*git push origin HEAD:deploy\n/s', $workflow);
+        $this->assertMatchesRegularExpression('/  production:.*needs: promote.*environment: production.*scripts\/finish-deploy\.sh/s', $workflow);
+        // The deploy branch is pushed only by the promote job.
+        $this->assertSame(1, substr_count($workflow, 'HEAD:deploy'."\n"));
     }
 
     public function test_the_app_knows_a_request_was_https_when_the_proxy_says_so(): void
