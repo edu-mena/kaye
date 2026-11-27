@@ -224,6 +224,15 @@ class SeoTest extends TestCase
         $this->assertStringNotContainsString('Disallow: /api', $robots);
     }
 
+    public function test_the_search_console_verification_file_stays_published(): void
+    {
+        // Google re-checks this file: removed, the site loses its Search Console verification (docs/seo.md).
+        $this->assertSame(
+            'google-site-verification: google968e73977fec3650.html',
+            trim(File::get(public_path('google968e73977fec3650.html'))),
+        );
+    }
+
     /**
      * The structured data of a type in the page (the nth of that type).
      *
