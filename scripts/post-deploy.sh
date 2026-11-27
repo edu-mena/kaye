@@ -16,22 +16,23 @@ step() { printf '\n== %s\n' "$1"; }
 
 step "Wait for the Git deploy's own composer install"
 # Hostinger runs `composer install` (with dev tools) after every pull. Running artisan while it is half done
-# crashes (exit 255), so wait until no composer has run for three checks in a row. `[c]` keeps pgrep from matching itself.
+# crashes (exit 255), so wait until no composer has run for six checks in a row (30 s: it sometimes starts late).
+# `[c]` keeps pgrep from matching itself.
 idle=0
 for _ in $(seq 1 60); do
   if pgrep -u "$(id -u)" -f '[c]omposer (install|update)' >/dev/null 2>&1; then idle=0; else idle=$((idle + 1)); fi
-  [ "$idle" -ge 3 ] && break
+  [ "$idle" -ge 6 ] && break
   sleep 5
 done
-[ "$idle" -ge 3 ] || { echo "error: composer was still running after 5 minutes." >&2; exit 1; }
+[ "$idle" -ge 6 ] || { echo "error: composer was still running after 5 minutes." >&2; exit 1; }
 
-# That install also brings back laravel/boost and the other dev tools, which kaye:check-production refuses.
-step "Production dependencies (no dev tools)"
-if [ -d vendor/laravel/boost ]; then
-  composer="$(command -v composer || true)"
-  [ -n "$composer" ] || composer=/usr/local/bin/composer
-  "$php" "$composer" install --no-dev --optimize-autoloader --no-interaction --quiet
-fi
+# That install brings back laravel/boost and the other dev tools (which kaye:check-production refuses), and when
+# it overlaps with this script it can leave vendor/ half written (artisan then dies with exit 255). The deploy
+# branch already holds the exact production vendor/, so put it back from git: no network, no composer, no race.
+step "Production dependencies (vendor/ exactly as in the deploy branch)"
+git checkout -q -- vendor bootstrap/cache
+git clean -fdq -- vendor
+[ -z "$(git status --porcelain -- vendor)" ] || { echo "error: vendor/ still differs from the deploy branch." >&2; exit 1; }
 
 step "Migrations"
 "$php" artisan migrate --force
