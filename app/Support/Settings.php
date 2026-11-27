@@ -51,7 +51,7 @@ final class Settings
     {
         try {
             /** @var array<string, string> $stored */
-            $stored = Cache::rememberForever(self::CACHE, fn (): array => DB::table('settings')->pluck('value', 'key')->all());
+            $stored = Cache::store(Config::string('cache.limiter'))->rememberForever(self::CACHE, fn (): array => DB::table('settings')->pluck('value', 'key')->all());
         } catch (QueryException) {
             // The table does not exist yet (a fresh database before its migrations): the .env rules.
             return;
@@ -134,7 +134,7 @@ final class Settings
 
     private static function changed(string $key, string $action): void
     {
-        Cache::forget(self::CACHE);
+        Cache::store(Config::string('cache.limiter'))->forget(self::CACHE);
         AuditLog::admin($action, details: ['key' => $key]);
     }
 }

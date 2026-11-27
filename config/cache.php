@@ -18,6 +18,13 @@ return [
     'default' => env('CACHE_STORE', 'database'),
 
     /*
+    | The rate limits count in the `local` store (files, exact increments), not in the default one: a request to
+    | the public API must not need a database connection (ADR 0029). The tests use the array store.
+    */
+
+    'limiter' => env('LOCAL_CACHE_STORE', 'local'),
+
+    /*
     |--------------------------------------------------------------------------
     | Cache Stores
     |--------------------------------------------------------------------------
@@ -51,6 +58,22 @@ return [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
             'lock_path' => storage_path('framework/cache/locks'),
+        ],
+
+        // The rate limits and the panel's settings (ADR 0029): files, with an exact increment() under a file lock
+        // (App\Support\AtomicFileStore), so a request to the public API never opens a database connection.
+        'local' => [
+            'driver' => 'atomic-file',
+            'path' => storage_path('framework/cache/local'),
+            'lock_path' => storage_path('framework/cache/local-locks'),
+        ],
+
+        // The public API's answers (App\Support\PublicContent): files on the server's disk, not the database, so
+        // a busy list never holds a database connection to read a 1 MB row (docs/infraestrutura.md, carga).
+        'content' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/content'),
+            'lock_path' => storage_path('framework/cache/content-locks'),
         ],
 
         'storage' => [

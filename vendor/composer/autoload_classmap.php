@@ -446,6 +446,7 @@ return array(
     'App\\Support\\Accounts' => $baseDir . '/app/Support/Accounts.php',
     'App\\Support\\AiBudget' => $baseDir . '/app/Support/AiBudget.php',
     'App\\Support\\AiTasks' => $baseDir . '/app/Support/AiTasks.php',
+    'App\\Support\\AtomicFileStore' => $baseDir . '/app/Support/AtomicFileStore.php',
     'App\\Support\\AuditLog' => $baseDir . '/app/Support/AuditLog.php',
     'App\\Support\\BackupManifest' => $baseDir . '/app/Support/BackupManifest.php',
     'App\\Support\\BlindIndex' => $baseDir . '/app/Support/BlindIndex.php',
