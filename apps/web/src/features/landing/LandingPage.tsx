@@ -18,6 +18,7 @@ import { ScreensSection } from './ScreensSection'
 import { WaitlistSection } from './WaitlistSection'
 import { WelcomeBanner } from './WelcomeBanner'
 import { CvScene, DiscoverScene, GuideSun, HeroScene, ManifestoScene, MarketScene, PathScene } from './scenes'
+import { SOCIALS } from '../../lib/socials'
 
 const PROMISES = [
   { id: 'free', icon: 'heart' },
@@ -225,6 +226,19 @@ export function LandingPage() {
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-8 text-sm font-light text-muted">
           <img src={logo} alt="" className="h-7 w-auto" />
           <p>{t('landing.developedBy')}</p>
+          <nav aria-label={t('landing.follow')} className="flex gap-4">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                rel="me noopener"
+                target="_blank"
+                className="hover:text-night"
+              >
+                {social.name}
+              </a>
+            ))}
+          </nav>
           <nav aria-label={t('landing.legal')} className="flex gap-4">
             <Link to="/termos" className="hover:text-night">
               {t('landing.terms')}

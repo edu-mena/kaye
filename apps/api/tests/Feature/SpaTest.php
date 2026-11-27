@@ -37,7 +37,10 @@ class SpaTest extends TestCase
 
     public function test_deep_links_serve_the_react_app(): void
     {
-        $this->get('/carreiras/desenvolvedor-backend')->assertOk()->assertSee('<div id="root">', false);
+        $this->get('/carreiras')->assertOk()->assertSee('<div id="root">', false);
+        $this->get('/oportunidades')->assertOk()->assertSee('<div id="root">', false);
+        // A career that does not exist still gets the app (React shows "not found"), with a real 404 (SeoTest).
+        $this->get('/carreiras/desenvolvedor-backend')->assertNotFound()->assertSee('<div id="root">', false);
     }
 
     /**

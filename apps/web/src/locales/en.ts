@@ -299,6 +299,7 @@ export const en: Messages = {
     legal: 'Legal information',
     terms: 'Terms',
     privacy: 'Privacy',
+    follow: 'Follow Kayé',
   },
   onboarding: {
     contactTitle: 'Before we start, how do we tell you about the launch?',

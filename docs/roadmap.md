@@ -219,7 +219,8 @@ O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [x] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0), feito a 26/11/2026
 - [ ] Notificações push dos prazos e do plano, mesmo com a app fechada: os prazos guardados com "Lembrar-me" já têm lembrete por email e Web Push (18/11/2026, 3 dias antes; em produção desde 27/11/2026, com o SMTP da caixa `ola@kayeangola.com` e as chaves VAPID); faltam os lembretes semanais do plano e o push nativo no Android (FCM)
-- [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
+- [x] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor: feito com o SEO a 27/11/2026 ([seo.md](seo.md)): cada página sai do servidor com título, descrição, Open Graph, dados estruturados (schema.org) e o conteúdo em HTML, `sitemap.xml` com ~1200 páginas
+- [ ] SEO, da parte do Eduardo: Google Search Console e Bing com o sitemap, o link do site nas bios do YouTube, TikTok e Facebook, e ligações das instituições e empresas ([seo.md](seo.md#o-que-só-o-eduardo-pode-fazer-uma-vez))
 - [ ] Painel B2B só com dados agregados, para escolas, INEFOP e programas de responsabilidade social
 - [ ] Páginas geridas pelas próprias instituições (preços e dados), sempre marcadas e fora das recomendações
 - [ ] Premium (Fase 3)

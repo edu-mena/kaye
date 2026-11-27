@@ -87,6 +87,8 @@ class SecurityHeadersTest extends TestCase
         $this->app->instance('env', 'production');
 
         $this->get('/up')->assertHeaderMissing('X-Robots-Tag');
+        // The API's JSON never ranks, even in production: the pages do (docs/seo.md).
+        $this->get('/api/v1/health')->assertHeader('X-Robots-Tag', 'noindex, nofollow');
     }
 
     /**
