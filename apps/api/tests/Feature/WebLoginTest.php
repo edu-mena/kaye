@@ -162,6 +162,14 @@ class WebLoginTest extends TestCase
         $this->deleteJson('/api/v1/me')->assertUnauthorized();
     }
 
+    public function test_a_guest_without_an_accept_header_gets_401_not_a_server_error(): void
+    {
+        // A browser tab or a crawler asks without "Accept: application/json"; the API must not try to redirect it.
+        $this->get('/api/v1/me')
+            ->assertUnauthorized()
+            ->assertExactJson(['message' => 'Unauthenticated.']);
+    }
+
     private function fakeRedirect(): void
     {
         $provider = Mockery::mock();
