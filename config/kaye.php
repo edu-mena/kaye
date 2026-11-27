@@ -149,4 +149,20 @@ return [
         'confirmation_days' => 7,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Kayé on the social networks
+    |--------------------------------------------------------------------------
+    |
+    | The official profiles: the `sameAs` of the Organization in the pages' structured data (docs/seo.md), which
+    | is how search engines tie the site to them, and the links at the foot of every page the server renders.
+    |
+    */
+
+    'socials' => [
+        'YouTube' => 'https://www.youtube.com/@KayeAngola',
+        'TikTok' => 'https://www.tiktok.com/@kaye_angola',
+        'Facebook' => 'https://www.facebook.com/profile.php?id=61596823982332',
+    ],
+
 ];

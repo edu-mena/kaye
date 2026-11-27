@@ -59,6 +59,20 @@ final class PublicContent
     }
 
     /**
+     * Anything else built from the public content (the server-rendered pages, the sitemap), kept like the answers
+     * and forgotten with them when the content changes.
+     *
+     * @template TValue
+     *
+     * @param  Closure(): TValue  $build
+     * @return TValue
+     */
+    public static function remember(string $name, Closure $build): mixed
+    {
+        return self::store()->remember(self::prefix().$name, self::SECONDS, $build);
+    }
+
+    /**
      * Forgets every cached answer (the content changed).
      */
     public static function flush(): void
@@ -81,11 +95,16 @@ final class PublicContent
 
     private function key(Request $request): string
     {
-        $version = self::store()->get(self::VERSION);
         $query = $request->query();
         ksort($query);
 
-        return 'public-content:'.(is_string($version) ? $version : '0').':'.app()->getLocale().':'
-            .$request->path().'?'.http_build_query($query);
+        return self::prefix().app()->getLocale().':'.$request->path().'?'.http_build_query($query);
+    }
+
+    private static function prefix(): string
+    {
+        $version = self::store()->get(self::VERSION);
+
+        return 'public-content:'.(is_string($version) ? $version : '0').':';
     }
 }

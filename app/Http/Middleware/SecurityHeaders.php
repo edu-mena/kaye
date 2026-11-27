@@ -63,8 +63,9 @@ class SecurityHeaders
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
         }
 
-        // Staging (and any copy that is not production) must never show up in search results.
-        if (! app()->isProduction()) {
+        // Staging (and any copy that is not production) must never show up in search results, nor the API's JSON:
+        // crawlers may fetch it (the app reads its content from it) but the pages are what should rank (docs/seo.md).
+        if (! app()->isProduction() || $request->is('api/*')) {
             $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
         }
 
