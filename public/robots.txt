@@ -1,2 +1,9 @@
+# Kayé (docs/seo.md). /api stays open: search engines run the app, and the app reads its content from /api/v1.
+# Private pages are not blocked here: they answer "noindex", which a crawler can only read if it may fetch them.
+# Staging answers noindex in every page's headers, so it never enters an index.
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /auth/
+
+Sitemap: https://kayeangola.com/sitemap.xml
