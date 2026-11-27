@@ -240,6 +240,7 @@ O staging é uma cópia do site onde cada versão nova passa primeiro. Só se a 
 |---|---|---|
 | `ssh` pede senha | chave pública mal colada | repete o passo 1.5 |
 | Erro 500 ao abrir o site | falta `.env` ou `APP_KEY` | passos 6 e 7; vê `storage/logs` |
+| `Access denied for user …` com a senha certa | a senha tem `#` (o `.env` corta o resto) ou uma aspa | põe o valor entre aspas simples (`'…'`), ou duplas se tiver `'`; o mais simples é uma senha só com letras, números, `-` e `_`. Testa com `php artisan db:show` (ou `--database=restore`) |
 | Login Google dá `redirect_uri_mismatch` | endereço diferente no Google | passo 3, copia o endereço exato |
 | `"cron": "unknown"` ou `"stale"` | cron não criado ou comando errado | passo 8 |
 | O site não muda depois do push | webhook falhou | GitHub → Webhooks → *Recent Deliveries*; ou *Deploy* no hPanel à mão |

@@ -255,6 +255,8 @@ UptimeRobot (plano grátis), conta do Eduardo:
 |---|---|---|---|
 | `https://kayeangola.com/api/v1/health` | HTTP(s), espera 2xx | 5 minutos | Email ao Eduardo quando cai e quando volta |
 
+Criado a 27/11/2026 (monitor `804824557`, região América do Norte, a do plano grátis).
+
 Sem `HEALTH_TOKEN`, o `/api/v1/health` responde 200 se a base de dados responde e 503 se não ([observabilidade.md](observabilidade.md)). O cron, a fila e o disco veem-se no próprio deploy (`kaye:health`) e com o token. O staging não tem monitor: falha à vista no deploy.
 
 ## Cópias de segurança
@@ -278,7 +280,7 @@ Só as falhas mandam email. As tabelas que mudam a cada segundo (sessões, cache
 3. No hPanel, cria uma segunda base de dados vazia (p. ex. `u123_kaye_restore`) e põe o nome e o utilizador em `DB_RESTORE_*`.
 4. Corre uma vez à mão: `php artisan kaye:backup` e depois `php artisan kaye:backup-restore-test`. O segundo tem de acabar em "restores".
 
-Em produção, o bucket é do Cloudflare R2 (`BACKUP_S3_REGION=auto`, endpoint da conta) e a base de teste é `…_kaye_restore`. O staging não faz cópias (`BACKUP_DISK=local`, sem `DB_RESTORE_DATABASE`).
+Em produção, o bucket é do Cloudflare R2 (`BACKUP_S3_REGION=auto`, `BACKUP_S3_PATH_STYLE=true`, endpoint da conta) e a base de teste é `u727672645_kaye_restore`. A primeira cópia (14,8 MB, cifrada) e o primeiro teste de reposição correram a 27/11/2026, ambos bem. O staging não faz cópias (`BACKUP_DISK=local`, sem `DB_RESTORE_DATABASE`).
 
 **Repor de verdade:** descarrega o zip mais recente do bucket, abre-o com a `BACKUP_ARCHIVE_PASSWORD`, e importa `db-dumps/mysql-<base>.sql` no phpMyAdmin do hPanel (ou `mysql < ficheiro.sql`) com o site em manutenção (`php artisan down`).
 
