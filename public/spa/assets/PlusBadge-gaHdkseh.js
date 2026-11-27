@@ -1,1 +1,0 @@
-import{t as e}from"./Chip-D6peVva6.js";import{y as t}from"./icons-CwyibDqE.js";var n=t();function r({className:t=``}){return(0,n.jsx)(e,{tone:`gold`,className:t,children:`Plus`})}export{r as t};

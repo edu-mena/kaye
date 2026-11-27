@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-WkwZ5CU-.js";import{y as t}from"./icons-BAP3w479.js";var n=e(t(),1),r=0,i=new Set,a=()=>i.forEach(e=>e()),o=e=>(i.add(e),()=>i.delete(e)),s=()=>(0,n.useSyncExternalStore)(o,()=>r>0);function c(e){(0,n.useEffect)(()=>{if(e)return r+=1,a(),window.scrollTo({top:0}),()=>{--r,a()}},[e])}export{s as n,c as t};

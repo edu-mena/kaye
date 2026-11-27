@@ -1,1 +1,0 @@
-import{n as e}from"./icons-CwyibDqE.js";function t(){let{t}=e();return e=>e.key===`name`?String(e.values?.name??``):t(e.key,e.values)}export{t};

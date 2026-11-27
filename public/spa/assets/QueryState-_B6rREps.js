@@ -1,1 +1,0 @@
-import{a as e,r as t,s as n}from"./PageStates-BcGK4abS.js";import{y as r}from"./icons-CwyibDqE.js";var i=r();function a({query:r,children:a,loading:o,compact:s=!1}){return r.isPending?o??(0,i.jsx)(e,{children:(0,i.jsx)(n,{})}):r.isError?(0,i.jsx)(t,{compact:s,onRetry:()=>void r.refetch()}):(0,i.jsx)(i.Fragment,{children:a(r.data)})}export{a as t};
