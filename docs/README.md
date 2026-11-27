@@ -12,6 +12,7 @@
 | [legal.md](legal.md) | A lei que se aplica ao Kayé, o que os Termos e a Política de privacidade prometem e o que falta fazer |
 | [observabilidade.md](observabilidade.md) | Logs, erros, saúde, alertas e o que fazer quando algo falha |
 | [infraestrutura.md](infraestrutura.md) | Ambientes, containers, CI/CD, deploy, variáveis de ambiente |
+| [seo.md](seo.md) | Aparecer nas pesquisas: título, dados estruturados e conteúdo de cada página no servidor, sitemap, Search Console |
 | [guia-hostinger.md](guia-hostinger.md) | Guia passo a passo, para principiantes, de pôr o Kayé na Hostinger |
 | [recolha-de-dados.md](recolha-de-dados.md) | Que dados reais temos de instituições, empresas e notícias, com fonte, e o que falta confirmar |
 | [noticias/colectanea-2026-11-22.md](noticias/colectanea-2026-11-22.md) | Colectânea de notícias (JA, NJ, O Telegrama, Gira, XAA) com imagem, créditos, área, curso e profissão; mais a matéria 3 e os temas futuros do Kayé Explica |

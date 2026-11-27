@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\GoogleLoginController;
 use App\Http\Controllers\NoticeLinkController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SpaController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ Route::middleware('throttle:notice-links')->group(function (): void {
     Route::get('/waitlist/confirm/{token}', [NoticeLinkController::class, 'confirm'])->name('waitlist.confirm');
     Route::match(['get', 'post'], '/unsubscribe/{token}', [NoticeLinkController::class, 'unsubscribe'])->name('unsubscribe');
 });
+
+// Every public page, for search engines (docs/seo.md). robots.txt (public/) points here.
+Route::get('/sitemap.xml', SitemapController::class);
 
 // /admin is registered by Filament. Every other page belongs to the React app.
 Route::get('/', SpaController::class);

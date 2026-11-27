@@ -297,6 +297,7 @@ export const pt = {
     legal: 'Informação legal',
     terms: 'Termos',
     privacy: 'Privacidade',
+    follow: 'Segue o Kayé',
   },
   onboarding: {
     contactTitle: 'Antes de começarmos, como te avisamos do lançamento?',

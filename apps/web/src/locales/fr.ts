@@ -301,6 +301,7 @@ export const fr: Messages = {
     legal: 'Informations légales',
     terms: 'Conditions',
     privacy: 'Confidentialité',
+    follow: 'Suivez Kayé',
   },
   onboarding: {
     contactTitle: 'Avant de commencer, comment te prévenir du lancement ?',
