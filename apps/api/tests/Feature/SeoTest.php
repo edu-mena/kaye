@@ -132,6 +132,8 @@ class SeoTest extends TestCase
     public function test_the_home_ties_the_site_to_the_kaye_social_profiles(): void
     {
         $response = $this->get('/')->assertOk();
+        // The brand once: "Kayé: …", never "Kayé: … | Kayé".
+        $this->assertStringContainsString('<title>Kayé: carreiras, cursos, universidades, bolsas e emprego em Angola</title>', (string) $response->getContent());
 
         $organization = $this->jsonLd($response, 'Organization');
         $this->assertSame([
