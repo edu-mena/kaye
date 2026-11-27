@@ -80,14 +80,20 @@ class HostingTest extends TestCase
         $script = $this->file('../../scripts/post-deploy.sh');
 
         $wait = strpos($script, "pgrep -u \"\$(id -u)\" -f '[c]omposer (install|update)'");
-        $strip = strpos($script, 'install --no-dev --optimize-autoloader');
+        $restore = strpos($script, 'git checkout -q -- vendor bootstrap/cache');
         $migrate = strpos($script, 'artisan migrate --force');
 
         $this->assertNotFalse($wait, 'The wait for the Git deploy composer is missing.');
-        $this->assertNotFalse($strip, 'The dev tools are not removed.');
+        $this->assertNotFalse($restore, 'vendor/ is not put back from the deploy branch.');
         $this->assertNotFalse($migrate);
-        $this->assertTrue($wait < $strip && $strip < $migrate, 'Wait, then remove dev tools, then migrate.');
-        $this->assertStringContainsString('vendor/laravel/boost', $script);
+        $this->assertTrue($wait < $restore && $restore < $migrate, 'Wait, then restore vendor/, then migrate.');
+        // Hostinger's composer sometimes starts late: 30 s without it before touching vendor/.
+        $this->assertStringContainsString('[ "$idle" -ge 6 ] && break', $script);
+        // The dev tools it brings back are removed, and a vendor/ that still differs stops the deploy.
+        $this->assertStringContainsString('git clean -fdq -- vendor', $script);
+        $this->assertStringContainsString('[ -z "$(git status --porcelain -- vendor)" ] || {', $script);
+        // No second composer run: it raced Hostinger's and left vendor/ half written (27/11/2026).
+        $this->assertStringNotContainsString('install --no-dev', $script);
         // The images approved in the panel are served from public/storage.
         $this->assertStringContainsString('[ -e public/storage ] || "$php" artisan storage:link', $script);
         // The cron is checked on the server, before the smoke test: the public /health no longer shows it.

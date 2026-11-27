@@ -126,7 +126,7 @@ Cada push no `main` repete, primeiro em staging e depois em produção: publicar
 
 #### O que o `post-deploy.sh` faz
 
-Primeiro espera que o `composer install` do Git da Hostinger acabe (ela corre-o sozinha ao puxar, e correr o `artisan` a meio falha com 255) e, se esse `install` tiver trazido de volta o `laravel/boost` e as outras ferramentas de desenvolvimento, volta a instalar só as de produção (`composer install --no-dev`). Depois: `migrate --force`, `kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), `optimize` (config, rotas e vistas em cache), `kaye:check-production` (se falhar, pára), `queue:restart` e `scripts/smoke-test.sh` contra o `APP_URL`.
+Primeiro espera que o `composer install` do Git da Hostinger acabe: ela corre-o sozinha ao puxar, às vezes com atraso, e correr o `artisan` a meio falha com 255. Por isso espera até passarem 30 segundos sem nenhum `composer` a correr. Depois **repõe o `vendor/` e o `bootstrap/cache` tal como estão no ramo `deploy`** (`git checkout` + `git clean`): esse `install` traz de volta o `laravel/boost` e as outras ferramentas de desenvolvimento, e pode deixar o `vendor/` a meio. Se o `vendor/` continuar diferente do ramo, o deploy pára. Não se corre um segundo `composer`: a 27/11/2026, um `composer install --no-dev` correu ao mesmo tempo que o da Hostinger, deixou o `vendor/` partido e o site deu erro 500 durante cerca de 3 minutos. Depois: `migrate --force`, `kaye:import` (o catálogo que a app lê de `/api/v1`; só muda o que difere), `optimize` (config, rotas e vistas em cache), `kaye:check-production` (se falhar, pára), `queue:restart` e `scripts/smoke-test.sh` contra o `APP_URL`.
 
 ### Staging
 

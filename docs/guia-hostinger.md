@@ -160,7 +160,7 @@ $PHP artisan key:generate --force
 scripts/post-deploy.sh
 ```
 
-O `post-deploy.sh` faz, por ordem: espera que o `composer install` da própria Hostinger acabe, tira as ferramentas de desenvolvimento que ele volta a instalar (o `kaye:check-production` recusa-as), cria as tabelas da base de dados (`migrate`), carrega o catálogo de carreiras (`kaye:import`), prepara as caches (`optimize`), verifica a configuração de produção e corre o teste de fumo. **Pára no primeiro erro** e diz qual.
+O `post-deploy.sh` faz, por ordem: espera que o `composer install` da própria Hostinger acabe, repõe o `vendor/` tal como está no ramo `deploy` (sem as ferramentas de desenvolvimento que esse `install` volta a trazer e que o `kaye:check-production` recusa), cria as tabelas da base de dados (`migrate`), carrega o catálogo de carreiras (`kaye:import`), prepara as caches (`optimize`), verifica a configuração de produção e corre o teste de fumo. **Pára no primeiro erro** e diz qual.
 
 **Como sei que correu bem:** acaba com tudo verde. Abre `https://kayeangola.com` no telemóvel: deve aparecer a landing do Kayé. Se aparecer "Erro 500", vê o fim do ficheiro `storage/logs/` (`tail -n 50 storage/logs/*.log`).
 
@@ -244,6 +244,7 @@ O staging é uma cópia do site onde cada versão nova passa primeiro. Só se a 
 | Login Google dá `redirect_uri_mismatch` | endereço diferente no Google | passo 3, copia o endereço exato |
 | `"cron": "unknown"` ou `"stale"` | cron não criado ou comando errado | passo 8 |
 | O site não muda depois do push | webhook falhou | GitHub → Webhooks → *Recent Deliveries*; ou *Deploy* no hPanel à mão |
+| Erro 500 logo a seguir a um deploy, `artisan` acaba com 255 sem mensagem | o `vendor/` ficou a meio | na pasta do site: `git checkout -- vendor bootstrap/cache && git clean -fd vendor` e depois `PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh` |
 | `post-deploy.sh` diz "PHP 8.4 or newer" | o `php` do SSH é antigo | `PHP=/opt/alt/php84/usr/bin/php scripts/post-deploy.sh` |
 | Workflow Deploy falha na etapa *staging* ou *production* | faltam segredos nesse ambiente ou o servidor não puxou | passo 9 ou [Staging](#staging); vê o texto do erro no GitHub. Se falhar o *staging*, a produção não muda |
 
