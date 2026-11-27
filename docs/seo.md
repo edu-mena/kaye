@@ -43,6 +43,7 @@ Tudo é construído a partir das mesmas linhas publicadas que a API serve (`App\
 | `GET /sitemap.xml` | Todas as páginas públicas (cerca de 1200 em novembro de 2026) |
 | `public/robots.txt` | Aponta para o sitemap; bloqueia só `/admin` e `/auth/` |
 | `public/google968e73977fec3650.html` | Verificação do Google Search Console. O Google volta a verificá-lo: não apagar |
+| `public/BingSiteAuth.xml` | Verificação do Bing Webmaster Tools. Também não apagar |
 | `config/kaye.php` (`socials`) e `apps/web/src/lib/socials.ts` | Os perfis oficiais: YouTube, TikTok e Facebook. As duas listas têm de ser iguais |
 
 ## O que só o Eduardo pode fazer (uma vez)
