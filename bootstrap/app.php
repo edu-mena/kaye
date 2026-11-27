@@ -31,6 +31,11 @@ return Application::configure(basePath: dirname(__DIR__))
         // The one-click unsubscribe of the mail apps (RFC 8058) cannot carry a CSRF token; its URL is signed.
         $middleware->validateCsrfTokens(except: ['unsubscribe/*']);
 
+        // The API never redirects a guest, even when the request has no "Accept: application/json" (a browser tab, a
+        // crawler): it answers 401. Without this, Laravel looks for a "login" route, which does not exist, and fails
+        // with 500. The app signs people in at /entrar.
+        $middleware->redirectGuestsTo(fn (Request $request): ?string => $request->is('api/*') ? null : '/entrar');
+
         $middleware->throttleApi();
         $middleware->api(append: [
             SetLocaleFromRequest::class,
