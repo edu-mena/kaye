@@ -3,17 +3,23 @@
 namespace App\Support;
 
 use Closure;
+use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * The public reads of /api/v1 (docs/arquitetura.md, section 6): each answer is built once per path, query and
- * language, kept in the cache store (the database in production) for 5 minutes and sent with an ETag, so a
- * client that already has it gets a 304. Any change to the content (a model saved or deleted, an import)
- * calls flush(): the version in the keys changes and the old answers are never read again.
+ * language, kept for 5 minutes and sent with an ETag, so a client that already has it gets a 304. Any change to
+ * the content (a model saved or deleted, an import) calls flush(): the version in the keys changes and the old
+ * answers are never read again; prune() empties the store once a day so they do not pile up on disk.
+ *
+ * The answers live in their own store, `content` (files on disk), not in the database: a list is up to 1 MB,
+ * and reading it from MySQL held a database connection per request. Under load the host refused new
+ * connections and the lists answered 500 (load test, 26/11/2026).
  */
 final class PublicContent
 {
@@ -26,7 +32,7 @@ final class PublicContent
      */
     public function respond(Request $request, Closure $build): Response
     {
-        $cached = Cache::remember($this->key($request), self::SECONDS, function () use ($build, $request): array {
+        $cached = self::store()->remember($this->key($request), self::SECONDS, function () use ($build, $request): array {
             $data = $build();
             if ($data === null) {
                 return ['status' => 404];
@@ -57,12 +63,25 @@ final class PublicContent
      */
     public static function flush(): void
     {
-        Cache::forever(self::VERSION, Str::random(12));
+        self::store()->forever(self::VERSION, Str::random(12));
+    }
+
+    /**
+     * Deletes every kept answer, current and old (the scheduler runs it daily). The next reads rebuild them.
+     */
+    public static function prune(): void
+    {
+        self::store()->clear();
+    }
+
+    private static function store(): Repository
+    {
+        return Cache::store(Config::string('kaye.content_cache_store'));
     }
 
     private function key(Request $request): string
     {
-        $version = Cache::get(self::VERSION);
+        $version = self::store()->get(self::VERSION);
         $query = $request->query();
         ksort($query);
 

@@ -35,6 +35,7 @@ Um ADR regista uma decisão difícil de desfazer: o contexto, o que se decidiu e
 | [0026](0026-papeis-2fa-copias-e-saude.md) | Papéis da equipa (spatie), 2FA obrigatória no painel, lista de espera cifrada, saúde com token, Pulse, cópias S3 com teste de reposição | Aceite |
 | [0027](0027-ia-por-mcp-e-propostas.md) | A IA liga-se por MCP e só escreve propostas; pesquisa em fila com orçamento diário; o import respeita as aprovações | Aceite |
 | [0028](0028-painel-completo.md) | Painel completo gerado das tabelas (uma classe base), edições do painel protegidas do import, definições cifradas na base de dados, "Colar vaga" | Aceite |
+| [0029](0029-cache-em-ficheiros.md) | As leituras públicas da API não usam a base de dados: respostas, limites de pedidos e definições em ficheiros (contador exato com cadeado), Pulse sem as leituras da cache | Aceite |
 
 Modelo para um novo ADR:
 

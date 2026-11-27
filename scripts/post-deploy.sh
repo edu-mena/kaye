@@ -34,6 +34,12 @@ git checkout -q -- vendor bootstrap/cache
 git clean -fdq -- vendor
 [ -z "$(git status --porcelain -- vendor)" ] || { echo "error: vendor/ still differs from the deploy branch." >&2; exit 1; }
 
+# The caches the last release wrote (config, routes, events) describe the old code: a new config key read at boot
+# would be missing, and `artisan` would die before it could clear them itself. Delete them by hand; optimize below
+# writes them again for this release.
+step "Old caches out"
+rm -f bootstrap/cache/config.php bootstrap/cache/events.php bootstrap/cache/routes-*.php
+
 step "Migrations"
 "$php" artisan migrate --force
 step "Public files (the approved images, docs/ia.md)"
