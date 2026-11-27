@@ -5,5 +5,5 @@ import type { PlanText } from '../../domain/plan'
 export function usePlanText() {
   const { t } = useTranslation()
   return (text: PlanText) =>
-    text.key === 'name' ? String(text.values?.name ?? '') : t(text.key as 'plan.title', text.values)
+    text.key === 'name' ? String(text.values?.name ?? '') : t(text.key as 'plan.title', text.values ?? {})
 }

@@ -332,16 +332,21 @@ export function ExperienceStep() {
   )
 }
 
+type WorkPair = 'place' | 'company' | 'security'
+/** i18next 27 cannot check a key built from a generic, so the keys are spelled out as concrete unions. */
+type WorkPairKey = `strengths.work_${WorkPair}`
+type WorkValueKey = `strengths.work_${NonNullable<WorkPrefs[WorkPair]>}`
+
 export function WorkStep() {
   const { t } = useTranslation()
   const { strengths } = useUser()
   const { work } = strengths
   const save = (change: Partial<WorkPrefs>) => userActions.saveStrengths({ work: { ...work, ...change } })
-  const pair = <K extends 'place' | 'company' | 'security'>(key: K, values: NonNullable<WorkPrefs[K]>[]) => (
-    <Row label={t(`strengths.work_${key}`)}>
+  const pair = <K extends WorkPair>(key: K, values: NonNullable<WorkPrefs[K]>[]) => (
+    <Row label={t(`strengths.work_${key}` as WorkPairKey)}>
       <Segmented
-        label={t(`strengths.work_${key}`)}
-        options={values.map((value) => ({ value, label: t(`strengths.work_${value}`) }))}
+        label={t(`strengths.work_${key}` as WorkPairKey)}
+        options={values.map((value) => ({ value, label: t(`strengths.work_${value}` as WorkValueKey) }))}
         value={work[key]}
         onChange={(value) => save({ [key]: value } as Partial<WorkPrefs>)}
         clearable
