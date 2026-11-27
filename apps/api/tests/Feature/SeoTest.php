@@ -224,12 +224,16 @@ class SeoTest extends TestCase
         $this->assertStringNotContainsString('Disallow: /api', $robots);
     }
 
-    public function test_the_search_console_verification_file_stays_published(): void
+    public function test_the_search_engine_verification_files_stay_published(): void
     {
         // Google re-checks this file: removed, the site loses its Search Console verification (docs/seo.md).
         $this->assertSame(
             'google-site-verification: google968e73977fec3650.html',
             trim(File::get(public_path('google968e73977fec3650.html'))),
+        );
+        $this->assertStringContainsString(
+            '<user>AF6A71A636D71BEEFC4136D61C40451A</user>',
+            File::get(public_path('BingSiteAuth.xml')),
         );
     }
 
