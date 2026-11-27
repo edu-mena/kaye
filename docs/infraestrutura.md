@@ -187,11 +187,11 @@ Além do que corre no CI, em `https://` confirma que o http vai para o https, o 
 | `MAIL_MAILER` | `log` (os emails vão para o log) | `smtp` | O SMTP da Hostinger |
 | `MAIL_SCHEME` | `null` | `smtps` | TLS desde o início, na porta 465 |
 | `MAIL_HOST`, `MAIL_PORT` | `127.0.0.1`, `2525` | `smtp.hostinger.com`, `465` | |
-| `MAIL_USERNAME`, `MAIL_PASSWORD` | `null` | a caixa `ola@` do hPanel, **secreta** | |
-| `MAIL_FROM_ADDRESS`, `MAIL_FROM_NAME` | `ola@kaye.ao`, `Kayé` | do domínio | Com SPF, DKIM e DMARC no DNS, ou os emails vão para o spam |
+| `MAIL_USERNAME`, `MAIL_PASSWORD` | `null` | `ola@kayeangola.com` e a senha dessa caixa, **secreta** (entre aspas simples) | |
+| `MAIL_FROM_ADDRESS`, `MAIL_FROM_NAME` | `ola@kayeangola.com`, `Kayé` | `ola@kayeangola.com` (caixa criada no hPanel a 27/11/2026), `Kayé` | O domínio já tem MX, SPF, DKIM e DMARC da Hostinger; sem eles os emails vão para o spam |
 | `MAIL_HOURLY_LIMIT` | `80` | abaixo do limite por hora do plano | Quantos emails as campanhas e os lembretes enviam por hora (`kaye:send-messages`) |
 | `PUSH_HOURLY_LIMIT` | `1000` | `1000` | O mesmo para o Web Push |
-| `VAPID_SUBJECT` | `mailto:ola@kaye.ao` | igual | O contacto que os serviços de push veem |
+| `VAPID_SUBJECT` | `mailto:ola@kayeangola.com` | igual | O contacto que os serviços de push veem |
 | `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY` | vazio (push desligado) | geradas uma vez, a privada **secreta** | `php artisan webpush:vapid --show` gera o par. A pública chega à app por `GET /api/v1/push/key`; vazia, a app não mostra o push. Mudá-las invalida todas as subscrições |
 | `ADMIN_EMAILS` | `admin@kaye.test` | os emails da equipa | Vazio = ninguém entra no painel |
 | `CORS_ALLOWED_ORIGINS` | `https://localhost,capacitor://localhost` | igual | As origens das apps nativas |

@@ -63,9 +63,9 @@ describe('TermsPage', () => {
     renderWithApp(<TermsPage />)
 
     const contact = screen.getByRole('region', { name: /Contacto$/ })
-    expect(within(contact).getByRole('link', { name: 'ola@kaye.ao' })).toHaveAttribute(
+    expect(within(contact).getByRole('link', { name: 'ola@kayeangola.com' })).toHaveAttribute(
       'href',
-      'mailto:ola@kaye.ao',
+      'mailto:ola@kayeangola.com',
     )
     await userEvent.click(screen.getByRole('link', { name: 'Política de privacidade' }))
     expect(screen.getByTestId('location')).toHaveTextContent('/privacidade')
@@ -88,7 +88,7 @@ describe('PrivacyPage', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Política de privacidade' })).toBeInTheDocument()
     const rights = screen.getByRole('region', { name: /Os teus direitos$/ })
     expect(within(rights).getAllByRole('listitem')).toHaveLength(4)
-    expect(within(rights).getByRole('link', { name: 'ola@kaye.ao' })).toBeInTheDocument()
+    expect(within(rights).getByRole('link', { name: 'ola@kayeangola.com' })).toBeInTheDocument()
     await userEvent.click(screen.getByRole('link', { name: 'Termos de uso' }))
     expect(screen.getByTestId('location')).toHaveTextContent('/termos')
   })

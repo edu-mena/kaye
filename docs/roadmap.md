@@ -107,7 +107,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Projeto no Google Cloud
 - [ ] Pôr a chave SSH do Kayé no hPanel (a senha nunca vai para a conversa)
 - [ ] Criar os IDs de cliente OAuth (web e Android) no Google Cloud
-- [ ] Enviar o DSN do Sentry
+- [x] Enviar o DSN do Sentry (está no `.env` de produção)
 - [ ] Ler os termos do angovagas no browser; enviar os pedidos de autorização ([modelo](fontes-de-vagas.md#pedido-de-autorização-modelo))
 - [ ] Mandar o resto da lista de sites de emprego e os canais de WhatsApp
 - [ ] Registar o domínio
@@ -218,7 +218,7 @@ O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [x] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0), feito a 26/11/2026
-- [ ] Notificações push dos prazos e do plano, mesmo com a app fechada: os prazos guardados com "Lembrar-me" já têm lembrete por email e Web Push (18/11/2026, 3 dias antes); faltam os lembretes semanais do plano e o push nativo no Android (FCM)
+- [ ] Notificações push dos prazos e do plano, mesmo com a app fechada: os prazos guardados com "Lembrar-me" já têm lembrete por email e Web Push (18/11/2026, 3 dias antes; em produção desde 27/11/2026, com o SMTP da caixa `ola@kayeangola.com` e as chaves VAPID); faltam os lembretes semanais do plano e o push nativo no Android (FCM)
 - [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
 - [ ] Painel B2B só com dados agregados, para escolas, INEFOP e programas de responsabilidade social
 - [ ] Páginas geridas pelas próprias instituições (preços e dados), sempre marcadas e fora das recomendações
@@ -240,7 +240,7 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos, feito a 25/11/2026 ([#55](https://github.com/edu-mena/kaye/pull/55), [ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)): servidor MCP com token próprio, revisões com fonte (aprovar publica, o autor nunca aprova a sua), "Pesquisar com IA" em fila com orçamento diário. As traduções en e fr entram como propostas pelo mesmo caminho, campo a campo; não há tradução em massa
 - [x] 9. Painel de administração completo, com o design do site, feito a 25/11/2026 ([ADR 0028](decisoes/0028-painel-completo.md)): tema do site (cores, letra, barra lateral preta, modo escuro), uma lista por tabela do catálogo com filtros, ações em massa, "Ver na app", relações e imagens com origem; Caixa da IA lado a lado, Moderação (com "Colar vaga"), Comunicação, Pessoas, Equipa e papéis, Auditoria, Definições cifradas e Tokens MCP. As edições do painel deixam de ser desfeitas pelo `kaye:import`
 - [x] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger, feito a 26/11/2026 ([#59](https://github.com/edu-mena/kaye/pull/59)): ensaio no Docker (contagens, gates, cron, cópia reposta, carga), staging antes de produção no deploy, Sentry na API, cópias diárias cifradas no Cloudflare R2 com o teste de reposição a passar em produção, Redis migrado para o MySQL e o Vercel só a redirecionar ([infraestrutura.md](infraestrutura.md#fim-do-vercel))
-- [ ] **26/12/2026:** fim do redirecionamento do Vercel: apagar o projeto `kaye` do Vercel e a base Upstash, e com eles `apps/web/api`, `apps/web/vercel.json` e o `.vercelignore`
+- [ ] **26/12/2026:** fim do redirecionamento do Vercel: apagar o projeto `kaye` do Vercel e a base Upstash, e com eles `apps/web/api`, `apps/web/vercel.json` e o `.vercelignore`; tirar da política de privacidade (`apps/web/src/features/legal/privacy.ts`, pt/en/fr) o ponto do site de demonstração
 
 ## UX da home, áreas e Kayé Plus (24 de novembro de 2026)
 

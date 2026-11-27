@@ -23,7 +23,7 @@ type LegalText = {
 /** The same text in every language the app speaks. */
 export type LegalDoc = Record<Locale, LegalText>
 
-const CONTACT_EMAIL = 'ola@kaye.ao'
+const CONTACT_EMAIL = 'ola@kayeangola.com'
 
 const PATHS = { terms: '/termos', privacy: '/privacidade' } as const
 
