@@ -106,6 +106,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Where the public API keeps its answers
+    |--------------------------------------------------------------------------
+    |
+    | The cache store of App\Support\PublicContent: `content`, files on disk
+    | (config/cache.php). Only the tests change it (phpunit.xml: array).
+    |
+    */
+
+    'content_cache_store' => env('CONTENT_CACHE_STORE', 'content'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Legal texts
     |--------------------------------------------------------------------------
     |

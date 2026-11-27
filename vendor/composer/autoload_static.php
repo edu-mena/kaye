@@ -1334,6 +1334,7 @@ class ComposerStaticInitbd9f22aecd8ecd97de84d3b9837765de
         'App\\Support\\Accounts' => __DIR__ . '/../..' . '/app/Support/Accounts.php',
         'App\\Support\\AiBudget' => __DIR__ . '/../..' . '/app/Support/AiBudget.php',
         'App\\Support\\AiTasks' => __DIR__ . '/../..' . '/app/Support/AiTasks.php',
+        'App\\Support\\AtomicFileStore' => __DIR__ . '/../..' . '/app/Support/AtomicFileStore.php',
         'App\\Support\\AuditLog' => __DIR__ . '/../..' . '/app/Support/AuditLog.php',
         'App\\Support\\BackupManifest' => __DIR__ . '/../..' . '/app/Support/BackupManifest.php',
         'App\\Support\\BlindIndex' => __DIR__ . '/../..' . '/app/Support/BlindIndex.php',

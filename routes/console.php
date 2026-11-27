@@ -2,6 +2,8 @@
 
 use App\Models\Interview;
 use App\Support\CronHeartbeat;
+use App\Support\PublicContent;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schedule;
 
 // Times are Angola time (app.schedule_timezone). Cron runs `php artisan schedule:run` every minute.
@@ -11,6 +13,13 @@ use Illuminate\Support\Facades\Schedule;
 Schedule::call(fn () => CronHeartbeat::beat())->name('cron-heartbeat')->everyMinute();
 
 Schedule::command('sanctum:prune-expired --hours=24')->dailyAt('02:00');
+
+// The public API's kept answers (files on disk): the old versions are never read again, so they go once a day.
+Schedule::call(fn () => PublicContent::prune())->name('public-content-prune')->dailyAt('04:45');
+
+// The database cache keeps a row per rate-limit counter and per lock, and never deletes the expired ones itself.
+Schedule::call(fn () => DB::table('cache')->where('expiration', '<', now()->getTimestamp())->delete())
+    ->name('cache-expired-rows')->dailyAt('04:50');
 
 // Interviews sent for review are kept 12 months, with the answers and the contact (docs/base-de-dados.md).
 Schedule::command('model:prune', ['--model' => [Interview::class]])->dailyAt('02:00');
