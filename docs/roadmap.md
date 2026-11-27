@@ -60,7 +60,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [x] Hostinger: domínio próprio (`kayeangola.com`, 24/11/2026) e staging (`staging.kayeangola.com`, 26/11/2026, [#59](https://github.com/edu-mena/kaye/pull/59)): cada release passa primeiro pelo staging e só segue para produção com o teste de fumo verde
 - [ ] Cloudflare à frente da Hostinger: adiado para depois do lançamento (o CDN da Hostinger já está à frente)
 - [x] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
-- [ ] Sentry: conta, DSN e Sentry na app React (o DSN está na API de produção, sem dados pessoais; falta a app React)
+- [x] Sentry: conta, DSN e Sentry na app React (os erros da app vão pela API, sem dados pessoais, feito a 27/11/2026)
 - [x] Monitor de disponibilidade: UptimeRobot em `https://kayeangola.com/api/v1/health`, de 5 em 5 minutos, com alerta por email (27/11/2026)
 
 ### 0.2 Recolha de vagas, só como dados (cedo: o histórico só se ganha com tempo)

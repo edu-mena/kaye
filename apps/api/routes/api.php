@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Api\AreaCommunityController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\AssessmentController;
+use App\Http\Controllers\Api\ClientErrorController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\ConsentController;
@@ -103,6 +104,8 @@ Route::get('/waitlist/export', [WaitlistController::class, 'export'])->middlewar
 // The scrapers' facts, with INGEST_TOKEN (docs/arquitetura.md, 5.2).
 Route::post('/ingest/jobs', [IngestJobsController::class, 'store'])->middleware('throttle:secret');
 Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('throttle:feedback');
+// The web app's errors, on to Sentry without personal data (docs/observabilidade.md).
+Route::post('/client-errors', [ClientErrorController::class, 'store'])->middleware('throttle:client-errors');
 Route::post('/interviews', [InterviewController::class, 'store'])->middleware('throttle:interviews');
 Route::post('/public-cards', [PublicCardController::class, 'store'])->middleware('throttle:public-cards');
 Route::get('/public-cards/{slug}', [PublicCardController::class, 'show']);
