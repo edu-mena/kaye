@@ -255,6 +255,8 @@ UptimeRobot (plano grátis), conta do Eduardo:
 |---|---|---|---|
 | `https://kayeangola.com/api/v1/health` | HTTP(s), espera 2xx | 5 minutos | Email ao Eduardo quando cai e quando volta |
 
+Criado a 27/11/2026 (monitor `804824557`, região América do Norte, a do plano grátis).
+
 Sem `HEALTH_TOKEN`, o `/api/v1/health` responde 200 se a base de dados responde e 503 se não ([observabilidade.md](observabilidade.md)). O cron, a fila e o disco veem-se no próprio deploy (`kaye:health`) e com o token. O staging não tem monitor: falha à vista no deploy.
 
 ## Cópias de segurança

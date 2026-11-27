@@ -61,7 +61,7 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Cloudflare à frente da Hostinger: adiado para depois do lançamento (o CDN da Hostinger já está à frente)
 - [x] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
 - [ ] Sentry: conta, DSN e Sentry na app React (o DSN está na API de produção, sem dados pessoais; falta a app React)
-- [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
+- [x] Monitor de disponibilidade: UptimeRobot em `https://kayeangola.com/api/v1/health`, de 5 em 5 minutos, com alerta por email (27/11/2026)
 
 ### 0.2 Recolha de vagas, só como dados (cedo: o histórico só se ganha com tempo)
 - [x] Primeiras 5 fontes avaliadas (`robots.txt`, feeds e termos): [fontes-de-vagas.md](fontes-de-vagas.md)
