@@ -1,5 +1,5 @@
 {{-- The <head> of one page (App\Support\Seo\SeoDocument). docs/seo.md --}}
-    <title>{{ $page['title'] === 'Kayé' ? 'Kayé' : $page['title'].' | Kayé' }}</title>
+    <title>{{ str_starts_with($page['title'], 'Kayé') ? $page['title'] : $page['title'].' | Kayé' }}</title>
     <meta name="description" content="{{ $page['description'] }}" />
     <meta name="robots" content="{{ $page['index'] ? 'index, follow, max-image-preview:large' : 'noindex, follow' }}" />
 @if ($page['index'])
