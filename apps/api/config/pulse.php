@@ -139,7 +139,8 @@ return [
 
     'recorders' => [
         Recorders\CacheInteractions::class => [
-            'enabled' => env('PULSE_CACHE_INTERACTIONS_ENABLED', true),
+            // Off: it wrote a row for every cache read, so every public request needed the database (ADR 0029).
+            'enabled' => env('PULSE_CACHE_INTERACTIONS_ENABLED', false),
             'sample_rate' => env('PULSE_CACHE_INTERACTIONS_SAMPLE_RATE', 1),
             'ignore' => [
                 ...Pulse::defaultVendorCacheKeys(),

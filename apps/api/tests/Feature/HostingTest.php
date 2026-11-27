@@ -92,6 +92,11 @@ class HostingTest extends TestCase
         // The dev tools it brings back are removed, and a vendor/ that still differs stops the deploy.
         $this->assertStringContainsString('git clean -fdq -- vendor', $script);
         $this->assertStringContainsString('[ -z "$(git status --porcelain -- vendor)" ] || {', $script);
+        // The old release's caches go before the first artisan call: a new config key read at boot would be
+        // missing and artisan could not even clear them (rehearsal on staging, 27/11/2026).
+        $clear = strpos($script, 'rm -f bootstrap/cache/config.php');
+        $this->assertNotFalse($clear, 'The old config cache is not removed.');
+        $this->assertTrue($restore < $clear && $clear < $migrate, 'Restore vendor/, drop the old caches, then migrate.');
         // No second composer run: it raced Hostinger's and left vendor/ half written (27/11/2026).
         $this->assertStringNotContainsString('install --no-dev', $script);
         // The images approved in the panel are served from public/storage.

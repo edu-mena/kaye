@@ -7,15 +7,21 @@ use App\Models\User;
 use App\Policies\ContentPolicy;
 use App\Policies\PersonalDataPolicy;
 use App\Providers\Filament\AdminPanelProvider;
+use App\Support\AtomicFileStore;
 use App\Support\AuditLog;
 use App\Support\ModelKinds;
 use App\Support\Settings;
 use App\Support\Submission;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Login;
+use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Contracts\Cache\Repository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
@@ -45,7 +51,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // The `local` cache store (config/cache.php): files with an exact increment(), for the rate limits and the
+        // settings, so a public read never needs the database (ADR 0029). Registered as soon as the cache exists,
+        // because other providers may ask for the rate limiter before this one boots.
+        $this->callAfterResolving('cache', function (CacheManager $cache): void {
+            $cache->extend('atomic-file', fn (Application $app, array $config): Repository => $cache->repository(
+                (new AtomicFileStore($app->make(Filesystem::class), Arr::string($config, 'path'), is_int($config['permission'] ?? null) ? $config['permission'] : null))
+                    ->setLockDirectory(Arr::string($config, 'lock_path')),
+                $config,
+            ));
+        });
     }
 
     /**
