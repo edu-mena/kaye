@@ -44,6 +44,8 @@ class AppServiceProvider extends ServiceProvider
         'feedback' => 10,
         'interviews' => 6,
         'public-cards' => 30,
+        // The web app sends at most 5 errors per page load; a loop of reloads must not fill the Sentry quota.
+        'client-errors' => 30,
     ];
 
     /**
