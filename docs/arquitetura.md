@@ -494,9 +494,10 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | GET, POST | `/unsubscribe/{token}?kind=…` | | "Deixar de receber" de cada email (URL assinada), sem conta; o `POST` é o botão de um clique do Gmail (`List-Unsubscribe-Post`) |
 | GET | `/push/key` | `data/account.ts` | A chave pública VAPID do Web Push (`null`: push desligado) |
 | POST | `/feedback` | `data/waitlist.ts` | Campo-isco `website` |
+| POST | `/client-errors` | `lib/errorReporting.ts` | Um erro da app, enviado ao Sentry sem dados pessoais; responde 202 ([observabilidade.md](observabilidade.md#erros-sentry)) |
 | GET | `/waitlist/export?kind=waitlist\|feedback` | | CSV para a equipa; token `WAITLIST_EXPORT_TOKEN` (`X-Export-Token`, `Bearer` ou `?token=`) |
 
-Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos). Os links dos emails: 20 por minuto.
+Estas escritas vieram das funções do Vercel com as mesmas respostas: `{"error": "invalid"}` (422), `{"error": "too_many"}` (429), `{"error": "forbidden"}` (403) e `{"error": "not_found"}` (404), todas com `Cache-Control: no-store`. Limites por IP e por hora: lista de espera 10, críticas 10, entrevistas 6, cartões 30 (criar e mudar contam juntos), erros da app 30. Os links dos emails: 20 por minuto.
 
 ### Com conta
 
