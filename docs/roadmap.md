@@ -57,9 +57,10 @@ Este roadmap não tem datas: cada fase termina quando cumpre o seu **critério d
 - [ ] Proteção do `main` (exige GitHub Pro nos repositórios privados: Student Developer Pack)
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
 - [x] Hostinger no endereço temporário (20/11/2026): Git do hPanel ligado ao ramo `deploy`, `.env`, base de dados, cron a bater todos os minutos, segredos do GitHub e workflow `deploy.yml` a correr de ponta a ponta (build, publicação, `post-deploy.sh` por SSH e teste de fumo de fora, tudo verde). O guia [guia-hostinger.md](guia-hostinger.md) reflete o que o primeiro deploy real ensinou
-- [ ] Hostinger: staging, domínio próprio e Cloudflare
+- [x] Hostinger: domínio próprio (`kayeangola.com`, 24/11/2026) e staging (`staging.kayeangola.com`, 26/11/2026, [#59](https://github.com/edu-mena/kaye/pull/59)): cada release passa primeiro pelo staging e só segue para produção com o teste de fumo verde
+- [ ] Cloudflare à frente da Hostinger: adiado para depois do lançamento (o CDN da Hostinger já está à frente)
 - [x] Hostinger: a PWA no `.htaccess` e no `SecurityHeaders`: `worker-src 'self'` e `manifest-src 'self'` na CSP, `Cache-Control: no-cache` para `/spa/sw.js` e `/spa/manifest.webmanifest`, e `Service-Worker-Allowed: /` no `sw.js` (os ficheiros estão em `/spa/`, as páginas em `/`). No Vercel já está feito (`apps/web/vercel.json`)
-- [ ] Sentry: conta, DSN e Sentry na app React
+- [ ] Sentry: conta, DSN e Sentry na app React (o DSN está na API de produção, sem dados pessoais; falta a app React)
 - [ ] Monitor de disponibilidade (UptimeRobot ou Better Stack)
 
 ### 0.2 Recolha de vagas, só como dados (cedo: o histórico só se ganha com tempo)
@@ -216,7 +217,7 @@ Decisão: o Kayé deixa de ser "tudo grátis". Explorar continua grátis; nos Ku
 O frontend está fechado; o que falta precisa do Laravel na Hostinger:
 
 - [ ] Login Google de ponta a ponta (web com cookie, Android com token): o servidor e a app web estão feitos e testados (16/11/2026); faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google
-- [ ] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0)
+- [x] Hostinger: staging e produção, cron, HTTPS e a PWA no `.htaccess` (Fase 0), feito a 26/11/2026
 - [ ] Notificações push dos prazos e do plano, mesmo com a app fechada: os prazos guardados com "Lembrar-me" já têm lembrete por email e Web Push (18/11/2026, 3 dias antes); faltam os lembretes semanais do plano e o push nativo no Android (FCM)
 - [ ] Pré-visualizações por página no WhatsApp (título, texto e imagem da carreira, bolsa ou curso), com HTML gerado no servidor
 - [ ] Painel B2B só com dados agregados, para escolas, INEFOP e programas de responsabilidade social
@@ -233,12 +234,13 @@ O Laravel passa a servir tudo, sem perder nenhum dado do frontend ([ADR 0019](de
 - [x] 2. Migrações, modelos e `kaye:import` idempotente: base de dados cheia
 - [x] 3. API pública v1 com teste de paridade e o frontend a ler do Laravel (`VITE_DATA_SOURCE`)
 - [x] 4. Contas: login Google de ponta a ponta, perfil e dados do aparelho fundidos no servidor (16/11/2026; para entrar a sério faltam os IDs de cliente OAuth e, no Android, o plugin nativo do Google)
-- [x] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado (18/11/2026; o comando `kaye:migrate-redis` está pronto, falta corrê-lo com as credenciais do Upstash)
+- [x] 5. Lista de espera, críticas, entrevistas e cartões: das funções do Vercel para o Laravel, Redis migrado (18/11/2026; `kaye:migrate-redis` correu em produção a 26/11/2026: 5 inscrições e 1 cartão)
 - [x] 6. Comunicação: email e Web Push, só com consentimento (menores sem marketing), feito a 18/11/2026: confirmação dupla e "deixar de receber" assinados, campanhas em lotes no painel, lembretes dos prazos guardados, preferências nas Definições. Sem WhatsApp (o Eduardo manda à mão a partir do CSV) nem push nativo no Android (FCM), que ficam para depois
 - [x] 7. Segurança e observabilidade: revisão completa, cópias de segurança, monitor, feito a 25/11/2026 ([#49](https://github.com/edu-mena/kaye/pull/49), [ADR 0026](decisoes/0026-papeis-2fa-copias-e-saude.md)): papéis e 2FA no painel, auditoria, lista de espera cifrada, `/api/v1/health`, Pulse, Sentry sem dados pessoais, cópias diárias cifradas para S3 com teste de reposição semanal, OWASP ZAP no CI
 - [x] 8. Ligação à IA: servidor MCP e pesquisa com o Claude, só rascunhos com fonte; tradução do conteúdo para en e fr, também como rascunhos, feito a 25/11/2026 ([#55](https://github.com/edu-mena/kaye/pull/55), [ADR 0027](decisoes/0027-ia-por-mcp-e-propostas.md)): servidor MCP com token próprio, revisões com fonte (aprovar publica, o autor nunca aprova a sua), "Pesquisar com IA" em fila com orçamento diário. As traduções en e fr entram como propostas pelo mesmo caminho, campo a campo; não há tradução em massa
 - [x] 9. Painel de administração completo, com o design do site, feito a 25/11/2026 ([ADR 0028](decisoes/0028-painel-completo.md)): tema do site (cores, letra, barra lateral preta, modo escuro), uma lista por tabela do catálogo com filtros, ações em massa, "Ver na app", relações e imagens com origem; Caixa da IA lado a lado, Moderação (com "Colar vaga"), Comunicação, Pessoas, Equipa e papéis, Auditoria, Definições cifradas e Tokens MCP. As edições do painel deixam de ser desfeitas pelo `kaye:import`
-- [ ] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger
+- [x] 10. Ensaio geral em local (Docker igual à Hostinger) e passagem para a Hostinger, feito a 26/11/2026 ([#59](https://github.com/edu-mena/kaye/pull/59)): ensaio no Docker (contagens, gates, cron, cópia reposta, carga), staging antes de produção no deploy, Sentry na API, cópias diárias cifradas no Cloudflare R2 com o teste de reposição a passar em produção, Redis migrado para o MySQL e o Vercel só a redirecionar ([infraestrutura.md](infraestrutura.md#fim-do-vercel))
+- [ ] **26/12/2026:** fim do redirecionamento do Vercel: apagar o projeto `kaye` do Vercel e a base Upstash, e com eles `apps/web/api`, `apps/web/vercel.json` e o `.vercelignore`
 
 ## UX da home, áreas e Kayé Plus (24 de novembro de 2026)
 
