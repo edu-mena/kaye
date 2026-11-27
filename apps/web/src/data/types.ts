@@ -957,6 +957,22 @@ export type MarketArea = (typeof MARKET_AREAS)[number]
 type ExperienceBand = 'none' | 'junior' | 'mid' | 'senior'
 
 /** What Angolan job sites published in the last 12 months, counted (scrapers/jobs/summarize.py). */
+/**
+ * The job posts of the last 7 days (today in Luanda included) and of the 7 before, counted live by the API from
+ * the scrapers' facts: the same post on two sites counts once. Only counts and employer names, never a post.
+ */
+export type MarketWeek = {
+  from: string
+  to: string
+  postings: number
+  previous: number
+  /** The employers with most posts this week, without the recruitment agencies. */
+  companies: { name: string; postings: number }[]
+  agencies: { postings: number; names: string[] }
+  /** When the last facts arrived (ISO, UTC); null with none. */
+  updated: string | null
+}
+
 export type JobMarket = {
   /** The newest post and the start of the 12 months. */
   updated: string

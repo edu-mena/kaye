@@ -460,6 +460,7 @@ A lista final do fecho do backend (ADR 0019). Cada rota pública corresponde a u
 | GET | `/courses`, `/courses/{slug}` | `listCourses`, `getCourse` | `CatalogCourse[]`, `CatalogCourse` |
 | GET | `/companies`, `/companies/{slug}` | `listCompanies`, `getCompany` | `Company[]`, `Company` |
 | GET | `/market/jobs` | `getJobMarket` | `JobMarket` |
+| GET | `/market/week` | `getMarketWeek` | `MarketWeek`: as vagas dos últimos 7 dias (o dia de hoje em Luanda incluído) e dos 7 anteriores, contadas na hora a partir de `job_postings` (`App\Support\WeeklyJobs`), e os 6 empregadores com mais vagas, sem as agências. A mesma vaga em dois sites (mesmo título e mesma empresa) conta uma vez. Só números e nomes de empresas, nunca uma vaga. No demo é `null` |
 | GET | `/market/education` | `getEducation` | `EducationStats` |
 | GET | `/market/employment` | `getEmployment` | `EmploymentStats` |
 | GET | `/comments?type=&id=` | — | Comentários visíveis de uma notícia (`news`), empresa (`company`) ou simulação (`simulation`): id, autor (só o primeiro nome nos menores), texto e data |

@@ -41,6 +41,7 @@ describe('API data source', () => {
       [() => source.listCompanies(), '/api/v1/companies'],
       [() => source.getCompany('africell'), '/api/v1/companies/africell'],
       [() => source.getJobMarket(), '/api/v1/market/jobs'],
+      [() => source.getMarketWeek(), '/api/v1/market/week'],
       [() => source.getEducation(), '/api/v1/market/education'],
       [() => source.getEmployment(), '/api/v1/market/employment'],
       [() => source.listNews(), '/api/v1/news'],

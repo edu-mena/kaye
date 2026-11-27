@@ -710,7 +710,7 @@ Os Kursos (`Course` de `data/kursos/types.ts`, ADR 0016) e os anunciados "Em bre
 
 #### `job_postings`
 
-Os factos de cada vaga enviados pelos scrapers a `POST /ingest/jobs` (`JobPosting`): nunca o texto do anúncio, nunca mostrados como vaga; só alimentam as contagens do Mercado.
+Os factos de cada vaga enviados pelos scrapers a `POST /ingest/jobs` (`JobPosting`): nunca o texto do anúncio, nunca mostrados como vaga; só alimentam as contagens do Mercado: as vagas da semana (`GET /market/week`, contadas na hora) e, pelos scrapers, os totais dos 12 meses.
 
 | Coluna | Tipo | Notas |
 |---|---|---|

@@ -1,12 +1,14 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import education from '../../data/market/education.json'
 import jobs from '../../data/market/jobs.json'
+import type { MarketWeek } from '../../data/types'
 import { renderWithApp } from '../../test/render'
 import MarketPage from './MarketPage'
 
 const failing = vi.hoisted(() => ({ careers: false }))
+const live = vi.hoisted(() => ({ week: null as MarketWeek | null }))
 vi.mock('../../data/source', async (importOriginal) => {
   const actual = await importOriginal<typeof import('../../data/source')>()
   return {
@@ -15,7 +17,25 @@ vi.mock('../../data/source', async (importOriginal) => {
       if (failing.careers) throw new Error('down')
       return actual.listCareers()
     },
+    getMarketWeek: async () => live.week,
   }
+})
+
+const WEEK: MarketWeek = {
+  from: '2026-11-21',
+  to: '2026-11-27',
+  postings: 132,
+  previous: 120,
+  companies: [
+    { name: 'Unitel', postings: 6 },
+    { name: 'Empregador Desconhecido', postings: 2 },
+  ],
+  agencies: { postings: 9, names: ['Kept People', 'Ascending'] },
+  updated: '2026-11-27T10:15:00Z',
+}
+
+afterEach(() => {
+  live.week = null
 })
 
 const region = (name: string | RegExp) => screen.findByRole('region', { name })
@@ -55,6 +75,60 @@ describe('MarketPage', () => {
     expect(first?.getAttribute('href')).toMatch(/^\/carreiras\//)
     // No salaries in the Mercado: they are still example data.
     expect(screen.queryByText(/Kz/)).not.toBeInTheDocument()
+    // The demo has no live facts: no week, rather than made-up numbers.
+    expect(screen.queryByRole('region', { name: 'Vagas desta semana' })).not.toBeInTheDocument()
+  })
+
+  it("shows this week's job ads against the week before, and who posted most", async () => {
+    live.week = WEEK
+    open('vagas')
+
+    const week = await region('Vagas desta semana')
+    expect(within(week).getByText('132')).toBeInTheDocument()
+    expect(within(week).getByText('+10% do que na semana anterior')).toBeInTheDocument()
+    expect(within(week).getByText(/^De 21 .* a 27 .* atualizado de 3 em 3 horas$/)).toBeInTheDocument()
+    expect(
+      within(week).getByRole('heading', { level: 3, name: 'Quem recrutou esta semana' }),
+    ).toBeInTheDocument()
+    // A known employer links to its page; an unknown one is only its name.
+    expect(within(week).getByRole('link', { name: /Unitel/ })).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^\/empresas\//),
+    )
+    expect(within(week).getByText('Empregador Desconhecido').closest('a')).toBeNull()
+    expect(
+      within(week).getByText('E 9 vagas de agências de recrutamento (Kept People, Ascending).'),
+    ).toBeInTheDocument()
+  })
+
+  it('says when the week fell or held, and leaves out what it does not have', async () => {
+    live.week = { ...WEEK, postings: 90, companies: [], agencies: { postings: 0, names: [] } }
+    const { unmount } = open('vagas')
+
+    const fell = await region('Vagas desta semana')
+    expect(within(fell).getByText('−25% do que na semana anterior')).toBeInTheDocument()
+    expect(within(fell).queryByText('Quem recrutou esta semana')).not.toBeInTheDocument()
+    unmount()
+
+    live.week = { ...WEEK, postings: 120 }
+    const held = open('vagas')
+    expect(
+      within(await region('Vagas desta semana')).getByText('Tantas como na semana anterior'),
+    ).toBeInTheDocument()
+    held.unmount()
+
+    // Without a week before there is nothing to compare.
+    live.week = { ...WEEK, previous: 0 }
+    open('vagas')
+    expect(within(await region('Vagas desta semana')).queryByText(/semana anterior/)).not.toBeInTheDocument()
+  })
+
+  it('leaves the week out when no job ad arrived', async () => {
+    live.week = { ...WEEK, postings: 0 }
+    open('vagas')
+
+    expect(await region('Vagas por área')).toBeInTheDocument()
+    expect(screen.queryByRole('region', { name: 'Vagas desta semana' })).not.toBeInTheDocument()
   })
 
   it('shows the public competitions and who opens them', async () => {

@@ -10,6 +10,7 @@ import {
   getEducation,
   getEmployment,
   getJobMarket,
+  getMarketWeek,
   listAcademies,
   listAdmissions,
   listCareerTraits,
@@ -117,6 +118,10 @@ export function useTestimonials(careerSlug?: string) {
 
 export function useJobMarket() {
   return useQuery({ queryKey: ['market', 'jobs'], queryFn: getJobMarket })
+}
+
+export function useMarketWeek() {
+  return useQuery({ queryKey: ['market', 'week'], queryFn: getMarketWeek })
 }
 
 export function useEducation() {

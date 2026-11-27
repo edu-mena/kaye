@@ -113,6 +113,8 @@ describe('demo data source, every read', () => {
     expect(await source.listCvExamples('nao-existe')).toEqual([])
     expect(await source.listTestimonials('nao-existe')).toEqual([])
     expect((await source.getJobMarket()).postings).toBeGreaterThan(0)
+    // The week is counted live by the API: the demo has none.
+    expect(await source.getMarketWeek()).toBeNull()
     expect(await source.getEducation()).toBeTruthy()
     expect(await source.getEmployment()).toBeTruthy()
   })
