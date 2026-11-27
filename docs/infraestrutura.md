@@ -224,7 +224,7 @@ Além do que corre no CI, em `https://` confirma que o http vai para o https, o 
 | `DB_RESTORE_DATABASE` | `kaye_restore` | uma base vazia **criada no hPanel** só para isto | Onde `kaye:backup-restore-test` repõe a cópia. Tudo o que lá estiver é apagado; nunca é a base real (o comando recusa). Vazia = o teste semanal não corre |
 | `DB_RESTORE_USERNAME`, `DB_RESTORE_PASSWORD` | vazio (usa `DB_USERNAME`) | o utilizador dessa base, **secreta** | |
 
-Só nos containers: `ALLOW_EPHEMERAL_APP_KEY` (cria uma `APP_KEY` descartável; nunca em produção), `RUN_MIGRATIONS` (corre as migrações no arranque) e `RUN_IMPORT` (corre `kaye:import` a seguir, para o catálogo estar na base; o `compose.yaml` liga-o).
+Só nos containers: o `compose.yaml` traz uma `APP_KEY` fixa e pública, só para a stack local e do CI (uma chave nova em cada arranque deixava ilegíveis as definições cifradas e o segundo fator do admin, porque a base sobrevive ao reinício); `RUN_MIGRATIONS` (corre as migrações no arranque) e `RUN_IMPORT` (corre `kaye:import` a seguir, para o catálogo estar na base; o `compose.yaml` liga-o).
 
 Só nos testes E2E (o `compose.yaml` e o servidor local do `playwright.config.ts`): `E2E_ADMIN_EMAIL` (por omissão `admin@kaye.test`, que tem de estar em `ADMIN_EMAILS`), `E2E_ADMIN_PASSWORD` (12 caracteres ou mais) e `E2E_ADMIN_TOTP_SECRET` (o segredo base32 do segundo fator). Com elas, `php artisan db:seed --class=E2eAdminSeeder` cria o administrador com que `e2e/admin.spec.ts` entra no painel; sem elas, o *seeder* recusa-se. **Nunca em produção.**
 

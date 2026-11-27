@@ -23,8 +23,11 @@ RUN npx tsc -b && npx vite build --outDir /spa --emptyOutDir
 # ---------------------------------------------------------------------------
 FROM php:${PHP_VERSION}-apache AS base
 # Debian security fixes newer than the base image (the Trivy scan in CI fails on HIGH and CRITICAL).
+# The MariaDB client gives kaye:backup its mysqldump, as on Hostinger; newer Debian names it mariadb-dump only.
 RUN apt-get update \
     && apt-get upgrade -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends mariadb-client \
+    && { command -v mysqldump || ln -s "$(command -v mariadb-dump)" /usr/local/bin/mysqldump; } \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=mlocati/php-extension-installer:2 /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions pdo_mysql intl zip opcache \

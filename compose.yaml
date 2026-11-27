@@ -15,7 +15,9 @@ services:
       - '8080:8080'
     environment:
       APP_URL: http://localhost:8080
-      ALLOW_EPHEMERAL_APP_KEY: 'true'
+      # Fixed and public, local/CI only: a key that changed on every start made the panel's encrypted settings and the
+      # admin's second factor unreadable after a restart, since the database volume survives it.
+      APP_KEY: 'base64:IPt7W+BAl60VHqfid9z6tlZSeyWzmkyrLdtVhurybYc=' # gitleaks:allow
       RUN_MIGRATIONS: 'true'
       RUN_IMPORT: 'true'
       DB_CONNECTION: mysql

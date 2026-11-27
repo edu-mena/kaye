@@ -105,7 +105,11 @@ jobs:
         run: docker compose up --build --detach --wait --wait-timeout 180
       - name: Smoke test (same script as after a deploy)
         run: scripts/smoke-test.sh http://localhost:8080
-      - name: Scan the image for known vulnerabilities
+      # kaye:backup needs mysqldump in the image, able to dump the stack's MariaDB.
+      - name: Backup client works against the database
+        run: |
+          docker compose exec -T app sh -c 'mysqldump --host=db --user=kaye --password=kaye-local-only --no-data kaye' \
+            | grep -q 'CREATE TABLE'      - name: Scan the image for known vulnerabilities
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: kaye:local
