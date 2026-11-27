@@ -1,0 +1,1 @@
+import{n as e}from"./useInterestFilter-CcK0CKEv.js";function t(){return e().areas}export{t};

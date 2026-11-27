@@ -1,1 +1,0 @@
-import{y as e}from"./icons-CwyibDqE.js";var t=e(),n={surface:`bg-surface text-ink shadow-card`,gray:`bg-ash-100 text-ink`,coal:`bg-coal text-white`,notice:`border-2 border-blue bg-surface text-night`};function r({tone:e=`surface`,as:r=`div`,className:i=``,...a}){return(0,t.jsx)(r,{className:`rounded-card p-5 ${n[e]} ${i}`,...a})}export{r as t};
