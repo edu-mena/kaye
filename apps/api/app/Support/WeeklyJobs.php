@@ -30,8 +30,32 @@ final class WeeklyJobs
     /** Employers a board hides behind a description ("Indústria do sector alimentar"). */
     private const string UNNAMED = '/^(industria d[oe] sector|a leading company|projecto de|empresa\b|confidencial|multinacional)/u';
 
+    /** A post's sector (scrapers/jobs/classify.py) to the Mercado's area: SECTOR_AREAS in scrapers/areas.py. */
+    private const array SECTOR_AREAS = [
+        'technology' => 'technology', 'telecom' => 'technology', 'engineering' => 'engineering',
+        'construction' => 'engineering', 'oil_mining' => 'oil_mining', 'health' => 'health', 'education' => 'education',
+        'finance' => 'business', 'sales' => 'business', 'administration' => 'business', 'marketing' => 'communication',
+        'legal' => 'legal', 'security' => 'public', 'public_admin' => 'public', 'agriculture' => 'agriculture',
+        'hospitality' => 'hospitality', 'logistics' => 'logistics',
+    ];
+
     /**
-     * @return array{from: string, to: string, postings: int, previous: int, companies: list<array{name: string, postings: int}>, agencies: array{postings: int, names: list<string>}, updated: string|null}
+     * The sites (SOURCES in scrapers/jobs/collect.py) and "Colar vaga": who published a post whose employer is not
+     * named, so the count points to them.
+     *
+     * @var array<string, array{name: string, url: string|null}>
+     */
+    private const array SOURCES = [
+        'angovagas' => ['name' => 'AngoVagas', 'url' => 'https://angovagas.net'],
+        'angoemprego' => ['name' => 'Ango Emprego', 'url' => 'https://angoemprego.com'],
+        'angorecruta' => ['name' => 'AngoRecruta', 'url' => 'https://angorecruta.com'],
+        'jobartis' => ['name' => 'Jobartis', 'url' => 'https://www.jobartis.com'],
+        'verangola' => ['name' => 'Ver Angola Empregos', 'url' => 'https://empregos.verangola.net'],
+        JobMessage::SOURCE => ['name' => 'WhatsApp', 'url' => null],
+    ];
+
+    /**
+     * @return array{from: string, to: string, postings: int, previous: int, areas: list<array{area: string, postings: int}>, companies: list<array{name: string, postings: int}>, unnamed: list<array{source: string, name: string, url: string|null, postings: int}>, agencies: array{postings: int, names: list<string>}, updated: string|null}
      */
     public static function summary(?CarbonImmutable $today = null): array
     {
@@ -42,7 +66,7 @@ final class WeeklyJobs
         /** @var Collection<int, JobPosting> $rows */
         $rows = JobPosting::query()
             ->whereBetween('date', [$before->toDateString(), $today->toDateString()])
-            ->get(['external_id', 'date', 'title', 'company', 'updated_at']);
+            ->get(['external_id', 'source', 'date', 'title', 'company', 'sector', 'updated_at']);
 
         $week = self::distinct($rows->filter(fn (JobPosting $row): bool => self::day($row) >= $from->toDateString()));
         $previous = self::distinct($rows->filter(fn (JobPosting $row): bool => self::day($row) < $from->toDateString()));
@@ -54,7 +78,9 @@ final class WeeklyJobs
             'to' => $today->toDateString(),
             'postings' => $week->count(),
             'previous' => $previous->count(),
+            'areas' => self::areas($week),
             'companies' => array_slice(self::employers($week, agencies: false), 0, self::TOP_COMPANIES),
+            'unnamed' => self::unnamed($week),
             'agencies' => [
                 'postings' => array_sum(array_column($agencies, 'postings')),
                 'names' => array_slice(array_column($agencies, 'name'), 0, self::AGENCY_NAMES),
@@ -102,6 +128,56 @@ final class WeeklyJobs
         foreach ($spellings as $variants) {
             arsort($variants);
             $list[] = ['name' => self::display((string) array_key_first($variants)), 'postings' => array_sum($variants)];
+        }
+        usort($list, fn (array $a, array $b): int => [$b['postings'], $a['name']] <=> [$a['postings'], $b['name']]);
+
+        return $list;
+    }
+
+    /**
+     * The posts of each area, most first; a sector no area takes (or none) is `other`.
+     *
+     * @param  Collection<string, JobPosting>  $rows
+     * @return list<array{area: string, postings: int}>
+     */
+    private static function areas(Collection $rows): array
+    {
+        $counts = $rows->countBy(fn (JobPosting $row): string => self::SECTOR_AREAS[(string) $row->sector] ?? 'other')->all();
+
+        return array_map(fn (array $entry): array => ['area' => $entry['name'], 'postings' => $entry['postings']], self::ranked($counts));
+    }
+
+    /**
+     * The posts whose employer is not named (boards like Jobartis often leave it out), by the site that published
+     * them: the site is the reference.
+     *
+     * @param  Collection<string, JobPosting>  $rows
+     * @return list<array{source: string, name: string, url: string|null, postings: int}>
+     */
+    private static function unnamed(Collection $rows): array
+    {
+        $counts = $rows->reject(fn (JobPosting $row): bool => self::named($row->company))
+            ->countBy(fn (JobPosting $row): string => $row->source)->all();
+
+        return array_map(fn (array $entry): array => [
+            'source' => $entry['name'],
+            'name' => self::SOURCES[$entry['name']]['name'] ?? $entry['name'],
+            'url' => self::SOURCES[$entry['name']]['url'] ?? null,
+            'postings' => $entry['postings'],
+        ], self::ranked($counts));
+    }
+
+    /**
+     * Counts as a list, most first, then by name.
+     *
+     * @param  array<array-key, int>  $counts
+     * @return list<array{name: string, postings: int}>
+     */
+    private static function ranked(array $counts): array
+    {
+        $list = [];
+        foreach ($counts as $name => $postings) {
+            $list[] = ['name' => (string) $name, 'postings' => $postings];
         }
         usort($list, fn (array $a, array $b): int => [$b['postings'], $a['name']] <=> [$a['postings'], $b['name']]);
 

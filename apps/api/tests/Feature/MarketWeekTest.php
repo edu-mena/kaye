@@ -71,6 +71,46 @@ class MarketWeekTest extends TestCase
             ->assertJsonPath('agencies.names', ['Ascending Outsourcing', 'Kept People Recruitment']);
     }
 
+    public function test_each_area_counts_its_sectors_and_the_rest_is_other(): void
+    {
+        $this->posting('2026-11-24', ['title' => 'Programador', 'sector' => 'technology']);
+        $this->posting('2026-11-24', ['title' => 'Técnico de redes', 'sector' => 'telecom']);
+        $this->posting('2026-11-24', ['title' => 'Contabilista', 'sector' => 'finance']);
+        $this->posting('2026-11-24', ['title' => 'Vendedor', 'sector' => 'sales']);
+        $this->posting('2026-11-24', ['title' => 'Enfermeiro', 'sector' => 'health']);
+        $this->posting('2026-11-24', ['title' => 'Ajudante', 'sector' => null]);
+        $this->posting('2026-11-24', ['title' => 'Estafeta', 'sector' => 'unknown_sector']);
+        $this->posting('2026-11-10', ['title' => 'Médico', 'sector' => 'health']); // not this week
+
+        $this->getJson('/api/v1/market/week')
+            ->assertOk()
+            ->assertJsonPath('areas', [
+                ['area' => 'business', 'postings' => 2],
+                ['area' => 'other', 'postings' => 2],
+                ['area' => 'technology', 'postings' => 2],
+                ['area' => 'health', 'postings' => 1],
+            ]);
+    }
+
+    public function test_posts_without_a_named_employer_point_to_the_site_that_published_them(): void
+    {
+        foreach (['Analista', 'Técnico', 'Gestor'] as $title) {
+            $this->posting('2026-11-24', ['source' => 'jobartis', 'title' => $title]);
+        }
+        $this->posting('2026-11-24', ['source' => 'jobartis', 'title' => 'Engenheiro', 'company' => 'Confidencial']);
+        $this->posting('2026-11-24', ['source' => 'whatsapp', 'title' => 'Motorista', 'company' => '']);
+        $this->posting('2026-11-24', ['source' => 'angovagas', 'title' => 'Caixa', 'company' => 'BAI']);
+
+        $this->getJson('/api/v1/market/week')
+            ->assertOk()
+            ->assertJsonPath('postings', 6)
+            ->assertJsonPath('companies', [['name' => 'BAI', 'postings' => 1]])
+            ->assertJsonPath('unnamed', [
+                ['source' => 'jobartis', 'name' => 'Jobartis', 'url' => 'https://www.jobartis.com', 'postings' => 4],
+                ['source' => 'whatsapp', 'name' => 'WhatsApp', 'url' => null, 'postings' => 1],
+            ]);
+    }
+
     public function test_only_the_top_employers_are_listed(): void
     {
         foreach (range(1, 8) as $index) {
@@ -100,7 +140,9 @@ class MarketWeekTest extends TestCase
                 'to' => '2026-11-27',
                 'postings' => 0,
                 'previous' => 0,
+                'areas' => [],
                 'companies' => [],
+                'unnamed' => [],
                 'agencies' => ['postings' => 0, 'names' => []],
                 'updated' => null,
             ]);

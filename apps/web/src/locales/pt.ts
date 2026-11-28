@@ -2432,7 +2432,10 @@ export const pt = {
     weekRange: 'De {{from}} a {{to}} · atualizado de 3 em 3 horas',
     weekNote:
       'A mesma vaga em dois sites conta uma vez. Durante a semana lemos só as páginas mais recentes dos sites; ao sábado, a recolha completa acerta o total.',
+    weekAreas: 'Em que áreas',
+    weekAreasLabel: 'Vagas de cada área nesta semana',
     weekRecruiters: 'Quem recrutou esta semana',
+    weekUnnamed: 'Vagas em que o anúncio não diz a empresa, pelo site que as publicou:',
     weekAgencies_one: 'E {{count}} vaga de agências de recrutamento ({{names}}).',
     weekAgencies_other: 'E {{count}} vagas de agências de recrutamento ({{names}}).',
     areasTitle: 'Vagas por área',

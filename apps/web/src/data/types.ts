@@ -966,8 +966,12 @@ export type MarketWeek = {
   to: string
   postings: number
   previous: number
+  /** Most first; a sector no area takes is `other`. */
+  areas: { area: MarketArea | 'other'; postings: number }[]
   /** The employers with most posts this week, without the recruitment agencies. */
   companies: { name: string; postings: number }[]
+  /** The posts that do not name the employer, by the site that published them (no link for WhatsApp). */
+  unnamed: { source: string; name: string; url: string | null; postings: number }[]
   agencies: { postings: number; names: string[] }
   /** When the last facts arrived (ISO, UTC); null with none. */
   updated: string | null

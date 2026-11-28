@@ -26,9 +26,18 @@ const WEEK: MarketWeek = {
   to: '2026-11-27',
   postings: 132,
   previous: 120,
+  areas: [
+    { area: 'business', postings: 50 },
+    { area: 'technology', postings: 33 },
+    { area: 'other', postings: 20 },
+  ],
   companies: [
     { name: 'Unitel', postings: 6 },
     { name: 'Empregador Desconhecido', postings: 2 },
+  ],
+  unnamed: [
+    { source: 'jobartis', name: 'Jobartis', url: 'https://www.jobartis.com', postings: 40 },
+    { source: 'whatsapp', name: 'WhatsApp', url: null, postings: 3 },
   ],
   agencies: { postings: 9, names: ['Kept People', 'Ascending'] },
   updated: '2026-11-27T10:15:00Z',
@@ -96,13 +105,27 @@ describe('MarketPage', () => {
       expect.stringMatching(/^\/empresas\//),
     )
     expect(within(week).getByText('Empregador Desconhecido').closest('a')).toBeNull()
+    // By area, with each share of the week.
+    const areas = within(week).getByRole('list', { name: 'Vagas de cada área nesta semana' })
+    expect(within(areas).getAllByRole('listitem')).toHaveLength(3)
+    expect(within(areas).getByText('Gestão, finanças e comércio')).toBeInTheDocument()
+    expect(within(areas).getByText('50 · 38%')).toBeInTheDocument()
+    expect(within(areas).getByText('Outras')).toBeInTheDocument()
+    // The posts without a named employer point to the site that published them.
+    expect(within(week).getByText(/não diz a empresa/)).toBeInTheDocument()
+    expect(within(week).getByRole('link', { name: 'Jobartis' })).toHaveAttribute(
+      'href',
+      'https://www.jobartis.com',
+    )
+    expect(within(week).getByText('40 vagas')).toBeInTheDocument()
+    expect(within(week).getByText('WhatsApp').closest('a')).toBeNull()
     expect(
       within(week).getByText('E 9 vagas de agências de recrutamento (Kept People, Ascending).'),
     ).toBeInTheDocument()
   })
 
   it('says when the week fell or held, and leaves out what it does not have', async () => {
-    live.week = { ...WEEK, postings: 90, companies: [], agencies: { postings: 0, names: [] } }
+    live.week = { ...WEEK, postings: 90, companies: [], unnamed: [], agencies: { postings: 0, names: [] } }
     const { unmount } = open('vagas')
 
     const fell = await region('Vagas desta semana')

@@ -2470,7 +2470,10 @@ export const fr: Messages = {
     weekRange: 'Du {{from}} au {{to}} · mis à jour toutes les 3 heures',
     weekNote:
       'La même offre sur deux sites ne compte qu’une fois. En semaine, nous ne lisons que les pages les plus récentes des sites ; le samedi, la collecte complète ajuste le total.',
+    weekAreas: 'Dans quels domaines',
+    weekAreasLabel: 'Offres de chaque domaine cette semaine',
     weekRecruiters: 'Qui a recruté cette semaine',
+    weekUnnamed: 'Offres qui ne nomment pas l’employeur, par le site qui les a publiées :',
     weekAgencies_one: 'Et {{count}} offre d’agences de recrutement ({{names}}).',
     weekAgencies_other: 'Et {{count}} offres d’agences de recrutement ({{names}}).',
     areasTitle: 'Offres par domaine',

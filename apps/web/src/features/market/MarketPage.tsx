@@ -398,7 +398,8 @@ function Jobs({ careers, companies, jobs, employment }: Data) {
 }
 
 /**
- * This week's job posts, live from the API, against the week before, and who posted most. Left out while it
+ * This week's job posts, live from the API, against the week before, by area, and who posted most; the posts
+ * that do not name the employer point to the site that published them. Left out while it
  * loads, if it fails, in the demo (no live facts) and with no posts: the 12 months below still tell the story.
  */
 function Week({ companies }: { companies: Company[] }) {
@@ -406,6 +407,7 @@ function Week({ companies }: { companies: Company[] }) {
   const { data: week } = useMarketWeek()
   if (!week || week.postings === 0) return null
 
+  const number = (value: number) => value.toLocaleString(i18n.language)
   const short = (iso: string) =>
     new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short' }).format(
       new Date(`${iso}T12:00:00`),
@@ -421,10 +423,10 @@ function Week({ companies }: { companies: Company[] }) {
       title={t('market.weekTitle')}
       className="md:col-span-6 lg:col-span-12"
     >
-      <div className="grid gap-4 lg:grid-cols-12">
-        <div className="lg:col-span-4">
+      <div className="grid gap-6 lg:grid-cols-12">
+        <div className="lg:col-span-3">
           <p className="-mt-1 text-3xl leading-none font-semibold text-night tabular-nums">
-            {week.postings.toLocaleString(i18n.language)}
+            {number(week.postings)}
           </p>
           {change !== null && (
             <p className="mt-2 text-sm font-semibold text-night">
@@ -438,10 +440,44 @@ function Week({ companies }: { companies: Company[] }) {
           </p>
           <p className="mt-3 text-xs font-light text-muted">{t('market.weekNote')}</p>
         </div>
-        {week.companies.length > 0 && (
-          <div className="lg:col-span-8">
+        <div className="lg:col-span-4">
+          <h3 className="mb-2 text-xs font-semibold text-night">{t('market.weekAreas')}</h3>
+          <BarList
+            label={t('market.weekAreasLabel')}
+            items={week.areas.slice(0, TOP + 1).map((entry, index) => ({
+              label: t(`market.area_${entry.area}`),
+              value: entry.postings / (week.areas[0]?.postings || 1),
+              valueLabel: t('market.areasValue', {
+                count: number(entry.postings),
+                share: share(entry.postings / week.postings),
+              }),
+              emphasized: index === 0,
+            }))}
+          />
+        </div>
+        {(week.companies.length > 0 || week.unnamed.length > 0 || week.agencies.postings > 0) && (
+          <div className="lg:col-span-5">
             <h3 className="mb-2 text-xs font-semibold text-night">{t('market.weekRecruiters')}</h3>
-            <Recruiters entries={week.companies} companies={companies} />
+            {week.companies.length > 0 && <Recruiters entries={week.companies} companies={companies} />}
+            {week.unnamed.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-light text-muted">{t('market.weekUnnamed')}</p>
+                <ul className="mt-1 space-y-1 text-xs">
+                  {week.unnamed.map((entry) => (
+                    <li key={entry.source} className="flex justify-between gap-3">
+                      {entry.url ? (
+                        <ExternalLink href={entry.url}>{entry.name}</ExternalLink>
+                      ) : (
+                        <span className="text-night">{entry.name}</span>
+                      )}
+                      <span className="font-light text-muted tabular-nums">
+                        {t('market.postingsCount', { count: entry.postings })}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {week.agencies.postings > 0 && (
               <p className="mt-3 text-xs font-light text-muted">
                 {t('market.weekAgencies', {

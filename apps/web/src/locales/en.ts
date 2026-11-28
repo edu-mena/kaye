@@ -2434,7 +2434,10 @@ export const en: Messages = {
     weekRange: 'From {{from}} to {{to}} · updated every 3 hours',
     weekNote:
       'The same job ad on two sites counts once. During the week we read only the newest pages of each site; on Saturday the full collection settles the total.',
+    weekAreas: 'In which areas',
+    weekAreasLabel: 'Job ads in each area this week',
     weekRecruiters: 'Who hired this week',
+    weekUnnamed: 'Job ads that do not name the employer, by the site that published them:',
     weekAgencies_one: 'And {{count}} job ad from recruitment agencies ({{names}}).',
     weekAgencies_other: 'And {{count}} job ads from recruitment agencies ({{names}}).',
     areasTitle: 'Job ads by area',
