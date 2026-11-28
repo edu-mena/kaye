@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\InterviewController;
 use App\Http\Controllers\Api\InterviewQuestionController;
 use App\Http\Controllers\Api\KursoAccountController;
 use App\Http\Controllers\Api\KursoController;
+use App\Http\Controllers\Api\MarketWeekController;
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\MeDataController;
 use App\Http\Controllers\Api\MentorController;
@@ -73,6 +74,8 @@ Route::get('/companies/{slug}', [CompanyController::class, 'show']);
 Route::get('/market/jobs', [DatasetController::class, 'show'])->defaults('dataset', 'jobs');
 Route::get('/market/education', [DatasetController::class, 'show'])->defaults('dataset', 'education');
 Route::get('/market/employment', [DatasetController::class, 'show'])->defaults('dataset', 'employment');
+// The last 7 days, counted live from the scrapers' facts (never a post).
+Route::get('/market/week', [MarketWeekController::class, 'show']);
 Route::get('/psychotech', [DatasetController::class, 'show'])->defaults('dataset', 'psychotech');
 Route::get('/provinces', [DatasetController::class, 'show'])->defaults('dataset', 'provinces');
 
