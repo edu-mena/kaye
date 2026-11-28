@@ -13,7 +13,7 @@ import { PageHeader } from '../../components/ui/PageHeader'
 import { Panel } from '../../components/ui/Panel'
 import { Soon } from '../../components/ui/Rows'
 import { TabPanel, Tabs } from '../../components/ui/Tabs'
-import { useCatalog, useEducation, useEmployment, useJobMarket } from '../../data/queries'
+import { useCatalog, useEducation, useEmployment, useJobMarket, useMarketWeek } from '../../data/queries'
 import {
   EDUCATION_LEVELS,
   type CareerSummary,
@@ -72,6 +72,8 @@ const day = (iso: string, language: string) =>
   new Intl.DateTimeFormat(language, { day: 'numeric', month: 'short', year: 'numeric' }).format(
     new Date(`${iso}T12:00:00`),
   )
+
+type Employer = { name: string; postings: number }
 
 type Data = {
   careers: CareerSummary[]
@@ -294,6 +296,7 @@ function Jobs({ careers, companies, jobs, employment }: Data) {
 
   return (
     <Grid>
+      <Week companies={companies} />
       {ranking.length > 0 && (
         <Highlight ranking={ranking.slice(0, TOP)} className="md:col-span-6 lg:col-span-5 lg:row-span-2" />
       )}
@@ -362,7 +365,7 @@ function Jobs({ careers, companies, jobs, employment }: Data) {
         title={t('market.recruitersTitle')}
         className="md:col-span-3 lg:col-span-7"
       >
-        <Recruiters jobs={jobs} companies={companies} />
+        <Recruiters entries={jobs.companies} companies={companies} />
         {jobs.agencies.postings > 0 && (
           <p className="mt-3 text-xs font-light text-muted">
             {t('market.agenciesLine', {
@@ -391,6 +394,102 @@ function Jobs({ careers, companies, jobs, employment }: Data) {
         <Unemployment employment={employment} />
       </Panel>
     </Grid>
+  )
+}
+
+/**
+ * This week's job posts, live from the API, against the week before, by area, and who posted most; the posts
+ * that do not name the employer point to the site that published them. Left out while it
+ * loads, if it fails, in the demo (no live facts) and with no posts: the 12 months below still tell the story.
+ */
+function Week({ companies }: { companies: Company[] }) {
+  const { t, i18n } = useTranslation()
+  const { data: week } = useMarketWeek()
+  if (!week || week.postings === 0) return null
+
+  const number = (value: number) => value.toLocaleString(i18n.language)
+  const short = (iso: string) =>
+    new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short' }).format(
+      new Date(`${iso}T12:00:00`),
+    )
+  const change =
+    week.previous > 0 ? Math.round(((week.postings - week.previous) / week.previous) * 100) : null
+
+  return (
+    <Panel
+      id="week"
+      level={2}
+      icon="calendar"
+      title={t('market.weekTitle')}
+      className="md:col-span-6 lg:col-span-12"
+    >
+      <div className="grid gap-6 lg:grid-cols-12">
+        <div className="lg:col-span-3">
+          <p className="-mt-1 text-3xl leading-none font-semibold text-night tabular-nums">
+            {number(week.postings)}
+          </p>
+          {change !== null && (
+            <p className="mt-2 text-sm font-semibold text-night">
+              {change === 0
+                ? t('market.weekSame')
+                : t(change > 0 ? 'market.weekUp' : 'market.weekDown', { share: `${Math.abs(change)}%` })}
+            </p>
+          )}
+          <p className="mt-1 text-xs font-light text-muted">
+            {t('market.weekRange', { from: short(week.from), to: short(week.to) })}
+          </p>
+          <p className="mt-3 text-xs font-light text-muted">{t('market.weekNote')}</p>
+        </div>
+        <div className="lg:col-span-4">
+          <h3 className="mb-2 text-xs font-semibold text-night">{t('market.weekAreas')}</h3>
+          <BarList
+            label={t('market.weekAreasLabel')}
+            items={week.areas.slice(0, TOP + 1).map((entry, index) => ({
+              label: t(`market.area_${entry.area}`),
+              value: entry.postings / (week.areas[0]?.postings || 1),
+              valueLabel: t('market.areasValue', {
+                count: number(entry.postings),
+                share: share(entry.postings / week.postings),
+              }),
+              emphasized: index === 0,
+            }))}
+          />
+        </div>
+        {(week.companies.length > 0 || week.unnamed.length > 0 || week.agencies.postings > 0) && (
+          <div className="lg:col-span-5">
+            <h3 className="mb-2 text-xs font-semibold text-night">{t('market.weekRecruiters')}</h3>
+            {week.companies.length > 0 && <Recruiters entries={week.companies} companies={companies} />}
+            {week.unnamed.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-light text-muted">{t('market.weekUnnamed')}</p>
+                <ul className="mt-1 space-y-1 text-xs">
+                  {week.unnamed.map((entry) => (
+                    <li key={entry.source} className="flex justify-between gap-3">
+                      {entry.url ? (
+                        <ExternalLink href={entry.url}>{entry.name}</ExternalLink>
+                      ) : (
+                        <span className="text-night">{entry.name}</span>
+                      )}
+                      <span className="font-light text-muted tabular-nums">
+                        {t('market.postingsCount', { count: entry.postings })}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {week.agencies.postings > 0 && (
+              <p className="mt-3 text-xs font-light text-muted">
+                {t('market.weekAgencies', {
+                  count: week.agencies.postings,
+                  names: week.agencies.names.join(', '),
+                })}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+    </Panel>
   )
 }
 
@@ -579,7 +678,7 @@ function Highlight({ ranking, className }: { ranking: Ranked[]; className: strin
 }
 
 /** The employers with the most job ads; with their logo and page when Kayé knows them. */
-function Recruiters({ jobs, companies }: { jobs: JobMarket; companies: Company[] }) {
+function Recruiters({ entries, companies }: { entries: Employer[]; companies: Company[] }) {
   const { t } = useTranslation()
   const known = (name: string) => {
     const key = normalize(name)
@@ -591,7 +690,7 @@ function Recruiters({ jobs, companies }: { jobs: JobMarket; companies: Company[]
   const tile = 'flex h-full flex-col items-center gap-1.5 rounded-xl bg-paper px-2 py-3 text-center'
   return (
     <ul className="grid grid-cols-3 gap-2">
-      {jobs.companies.slice(0, WALL).map((entry) => {
+      {entries.slice(0, WALL).map((entry) => {
         const company = known(entry.name)
         const content = (
           <>

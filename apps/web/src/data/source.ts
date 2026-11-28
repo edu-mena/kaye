@@ -17,6 +17,7 @@ import type {
   Figure,
   FreeCourse,
   JobMarket,
+  MarketWeek,
   NewsItem,
   Program,
   PublicCard,
@@ -167,6 +168,15 @@ export async function getCompany(id: string): Promise<Company | null> {
 export async function getJobMarket(): Promise<JobMarket> {
   if (FROM_API) return read('/market/jobs')
   return demo().getJobMarket()
+}
+
+/**
+ * GET /market/week — the last 7 days, counted live by the API. The demo has no live facts: null, and the
+ * Mercado leaves the block out rather than show made-up numbers.
+ */
+export async function getMarketWeek(): Promise<MarketWeek | null> {
+  if (FROM_API) return read('/market/week')
+  return null
 }
 
 /** GET /market/education — graduates per course and area, from the official yearbooks. */
