@@ -104,7 +104,9 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
   const badge = 'ml-2 inline-grid size-8 place-items-center rounded-full align-[0.3em] ring-1'
 
   return (
-    <header className="relative h-72 overflow-hidden rounded-card bg-night text-white sm:h-80 lg:h-96">
+    // A minimum height, not a fixed one: a long name ("Inspector da Aviação Civil") takes three lines on a phone
+    // and the card grows downwards, instead of pushing the name up under the way back and out of the card.
+    <header className="relative flex min-h-72 flex-col justify-end overflow-hidden rounded-card bg-night text-white sm:min-h-80 lg:min-h-96">
       {image ? (
         <PhotoImg
           photo={image}
@@ -127,15 +129,18 @@ function CareerHero({ career, facts, onFit, actions }: CareerHeroProps) {
 
       <Link
         to="/carreiras"
-        className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-coal/85 px-3 py-1.5 text-sm font-light backdrop-blur-sm hover:bg-coal lg:left-10"
+        className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-coal/85 px-3 py-1.5 text-sm font-light backdrop-blur-sm hover:bg-coal lg:left-10"
       >
         <Icon name="arrowLeft" className="size-4" />
         {t('careers.title')}
       </Link>
 
-      <div className="absolute inset-x-0 bottom-0 px-4 pb-6 lg:px-10 lg:pb-8">
+      {/* In the flow, below the way back (pt-16), so the card is always as tall as its content. */}
+      <div className="relative px-4 pt-16 pb-6 lg:px-10 lg:pb-8">
         <div className="max-w-3xl">
-          <h1 className="inline text-[2rem] leading-[1.05] font-bold sm:text-5xl">{career.name}</h1>
+          <h1 className="inline text-[2rem] leading-[1.05] font-bold break-words hyphens-auto sm:text-5xl">
+            {career.name}
+          </h1>
           <span title={t(`groups.${career.group}`)} className={`${badge} bg-coal text-white ring-white/15`}>
             <Icon name={GROUP_ICONS[career.group]} className="size-4" />
             <span className="sr-only">{t(`groups.${career.group}`)}</span>

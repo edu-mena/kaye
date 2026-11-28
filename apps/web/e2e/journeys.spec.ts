@@ -456,6 +456,31 @@ test.describe('the home, the menu and the links between careers and institutes',
     expect(consoleErrors).toEqual([])
   })
 
+  test('a long career name fits its card on the phone, under the way back', async ({
+    page,
+    consoleErrors,
+  }) => {
+    await page.goto('/carreiras/inspector-de-aviacao-civil')
+    const hero = page.locator('header').filter({ has: page.getByRole('heading', { level: 1 }) })
+    const title = hero.getByRole('heading', { level: 1, name: 'Inspector da Aviação Civil' })
+    await expect(title).toBeVisible()
+
+    const card = await hero.boundingBox()
+    const name = await title.boundingBox()
+    const back = await hero.getByRole('link', { name: 'Carreiras' }).boundingBox()
+    const actions = await hero.getByRole('button', { name: /Guardar|Guardada/ }).boundingBox()
+    if (!card || !name || !back || !actions) throw new Error('the career card is not laid out')
+    // The whole name inside the card, below the "Carreiras" link, and the buttons inside it too.
+    expect(name.y).toBeGreaterThanOrEqual(back.y + back.height)
+    expect(name.y + name.height).toBeLessThanOrEqual(card.y + card.height)
+    expect(actions.y + actions.height).toBeLessThanOrEqual(card.y + card.height)
+    expect(name.x + name.width).toBeLessThanOrEqual(card.x + card.width)
+    // Nothing of the card covers the way back.
+    await hero.getByRole('link', { name: 'Carreiras' }).click()
+    await expect(page).toHaveURL(/\/carreiras$/)
+    expect(consoleErrors).toEqual([])
+  })
+
   test('an area leads to its page, on the phone', async ({ page, consoleErrors }) => {
     await page.goto('/areas')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
