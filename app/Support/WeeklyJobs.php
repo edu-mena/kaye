@@ -55,7 +55,10 @@ final class WeeklyJobs
     ];
 
     /**
-     * @return array{from: string, to: string, postings: int, previous: int, areas: list<array{area: string, postings: int}>, companies: list<array{name: string, postings: int}>, unnamed: list<array{source: string, name: string, url: string|null, postings: int}>, agencies: array{postings: int, names: list<string>}, updated: string|null}
+     * `previous` is null until the facts have arrived since the week before began: a week counted only from its
+     * last days (the first days of the collection) would make any week look like a boom.
+     *
+     * @return array{from: string, to: string, postings: int, previous: int|null, areas: list<array{area: string, postings: int}>, companies: list<array{name: string, postings: int}>, unnamed: list<array{source: string, name: string, url: string|null, postings: int}>, agencies: array{postings: int, names: list<string>}, updated: string|null}
      */
     public static function summary(?CarbonImmutable $today = null): array
     {
@@ -77,7 +80,7 @@ final class WeeklyJobs
             'from' => $from->toDateString(),
             'to' => $today->toDateString(),
             'postings' => $week->count(),
-            'previous' => $previous->count(),
+            'previous' => self::collectedSince($before) ? $previous->count() : null,
             'areas' => self::areas($week),
             'companies' => array_slice(self::employers($week, agencies: false), 0, self::TOP_COMPANIES),
             'unnamed' => self::unnamed($week),
@@ -184,15 +187,31 @@ final class WeeklyJobs
         return $list;
     }
 
+    /** Whether the first facts reached the table by that moment, so the days after it were collected as they came. */
+    private static function collectedSince(CarbonImmutable $start): bool
+    {
+        $first = JobPosting::query()->min('created_at');
+
+        return is_string($first) && CarbonImmutable::parse($first, 'UTC')->lessThanOrEqualTo($start);
+    }
+
     private static function named(?string $name): bool
     {
         return $name !== null && trim($name) !== '' && preg_match(self::UNNAMED, self::fold($name)) !== 1;
     }
 
-    /** 'UNITEL S.A.' and 'Unitel' are the same employer, and so are 'MINEA - RECLIMA' and 'MINEA (UCP)'. */
+    /**
+     * 'UNITEL S.A.' and 'Unitel' are the same employer, and so are 'MINEA - RECLIMA' and 'MINEA (UCP)', and
+     * 'Noble Group-Sector Industrial' and 'Noble Group-Industrial Sector': a bare hyphen after two words or more
+     * starts a division, while 'Coca-Cola' stays whole.
+     */
     private static function companyKey(string $name): string
     {
         $first = preg_split('/\s+-\s+|\s*\(/u', $name)[0] ?? $name;
+        $head = explode('-', $first)[0];
+        if (str_contains($first, '-') && count(preg_split('/\s+/u', trim($head)) ?: []) >= 2) {
+            $first = $head;
+        }
         $key = preg_replace(self::LEGAL_FORM, '', self::fold($first)) ?? '';
         $key = preg_replace('/\bangola\b/u', '', $key) ?? '';
 
