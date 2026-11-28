@@ -90,6 +90,7 @@ Uma tarefa só está pronta quando cumpre **tudo**:
 | Unitário | Vitest + Testing Library | Lógica e componentes isolados; o `fetch` é simulado | `apps/web/src/**/*.test.tsx` |
 | Feature | PHPUnit | Pedidos HTTP reais à app Laravel com MySQL real | `apps/api/tests/Feature` |
 | End-to-end | Playwright | A app compilada num browser real, em modo de produção | `apps/web/e2e` |
+| Scrapers | `unittest` (Python, só a biblioteca padrão) | As regras dos factos das vagas e dos nomes das empresas, partilhadas com a API; correm no CI, no passo "Scrapers' tests" | `scrapers/tests` |
 
 Regras:
 

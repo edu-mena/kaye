@@ -93,6 +93,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run duplication
+      # The scrapers' rules (employer names, facts) are shared with the API: their tests run on every change.
+      # Standard library only, the Python of the runner, as in market-data.yml.
+      - name: Scrapers' tests
+        working-directory: scrapers
+        run: python3 -m unittest discover -s tests -t .
       - name: Lint the workflows (actionlint + shellcheck)
         run: docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.12 -color
 
