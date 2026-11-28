@@ -140,10 +140,15 @@ describe('MarketPage', () => {
     ).toBeInTheDocument()
     held.unmount()
 
-    // Without a week before there is nothing to compare.
-    live.week = { ...WEEK, previous: 0 }
-    open('vagas')
-    expect(within(await region('Vagas desta semana')).queryByText(/semana anterior/)).not.toBeInTheDocument()
+    // Without a week before, or before the collection covers all of it (null), there is nothing to compare.
+    for (const previous of [0, null]) {
+      live.week = { ...WEEK, previous }
+      const view = open('vagas')
+      const week = await region('Vagas desta semana')
+      expect(within(week).getByText('132')).toBeInTheDocument()
+      expect(within(week).queryByText(/semana anterior/)).not.toBeInTheDocument()
+      view.unmount()
+    }
   })
 
   it('leaves the week out when no job ad arrived', async () => {

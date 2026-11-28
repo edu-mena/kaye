@@ -965,7 +965,8 @@ export type MarketWeek = {
   from: string
   to: string
   postings: number
-  previous: number
+  /** null until the collection covers the whole week before: a half-counted week is no comparison. */
+  previous: number | null
   /** Most first; a sector no area takes is `other`. */
   areas: { area: MarketArea | 'other'; postings: number }[]
   /** The employers with most posts this week, without the recruitment agencies. */

@@ -35,8 +35,14 @@ BLOCK_MONTHS = 3
 
 
 def _company_key(name: str) -> str:
-    """'UNITEL S.A.' and 'Unitel' are the same employer, and so are 'MINEA - RECLIMA' and 'MINEA (UCP)'."""
-    key = LEGAL_FORM.sub('', fold(re.split(r'\s+-\s+|\s*\(', name)[0]))
+    """'UNITEL S.A.' and 'Unitel' are the same employer, and so are 'MINEA - RECLIMA' and 'MINEA (UCP)', and
+    'Noble Group-Sector Industrial' and 'Noble Group-Industrial Sector': a bare hyphen after two words or more
+    starts a division, while 'Coca-Cola' stays whole."""
+    first = re.split(r'\s+-\s+|\s*\(', name)[0]
+    head = first.split('-')[0]
+    if '-' in first and len(head.split()) >= 2:
+        first = head
+    key = LEGAL_FORM.sub('', fold(first))
     key = re.sub(r'\bangola\b', '', key)
     return re.sub(r'[^a-z0-9]+', ' ', key).strip()
 

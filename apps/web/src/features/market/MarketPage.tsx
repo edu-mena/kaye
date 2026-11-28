@@ -412,8 +412,7 @@ function Week({ companies }: { companies: Company[] }) {
     new Intl.DateTimeFormat(i18n.language, { day: 'numeric', month: 'short' }).format(
       new Date(`${iso}T12:00:00`),
     )
-  const change =
-    week.previous > 0 ? Math.round(((week.postings - week.previous) / week.previous) * 100) : null
+  const change = week.previous ? Math.round(((week.postings - week.previous) / week.previous) * 100) : null
 
   return (
     <Panel

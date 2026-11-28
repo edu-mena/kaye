@@ -27,7 +27,8 @@ class MarketWeekTest extends TestCase
         $this->posting('2026-11-21');
         $this->posting('2026-11-20');
         $this->posting('2026-11-14');
-        $this->posting('2026-11-13'); // older than both weeks
+        // Older than both weeks, and the first fact to arrive: the collection covers the week before.
+        $this->posting('2026-11-13', ['created_at' => '2026-11-13 12:00:00']);
         $this->posting('2026-11-28'); // a board's date in the future
 
         $this->getJson('/api/v1/market/week')
@@ -69,6 +70,32 @@ class MarketWeekTest extends TestCase
             ])
             ->assertJsonPath('agencies.postings', 2)
             ->assertJsonPath('agencies.names', ['Ascending Outsourcing', 'Kept People Recruitment']);
+    }
+
+    public function test_there_is_no_week_before_to_compare_until_the_collection_covers_all_of_it(): void
+    {
+        // The first facts arrived on the 18th: the 14th to the 17th were never collected as they came.
+        $this->posting('2026-11-16', ['created_at' => '2026-11-18 09:00:00']);
+        $this->posting('2026-11-25');
+
+        $this->getJson('/api/v1/market/week')
+            ->assertOk()
+            ->assertJsonPath('postings', 1)
+            ->assertJsonPath('previous', null);
+    }
+
+    public function test_divisions_of_one_group_count_as_one_employer(): void
+    {
+        $this->posting('2026-11-24', ['title' => 'Soldador', 'company' => 'Noble Group-Industrial Sector (Future Group)']);
+        $this->posting('2026-11-24', ['title' => 'Torneiro', 'company' => 'Noble Group-Sector Industrial']);
+        $this->posting('2026-11-24', ['title' => 'Motorista', 'company' => 'Coca-Cola Bottling']);
+        $this->posting('2026-11-24', ['title' => 'Vendedor', 'company' => 'Coca']);
+
+        $this->getJson('/api/v1/market/week')
+            ->assertOk()
+            ->assertJsonPath('companies.0.postings', 2)
+            ->assertJsonPath('companies.0.name', fn (string $name): bool => str_starts_with($name, 'Noble Group-'))
+            ->assertJsonCount(3, 'companies');
     }
 
     public function test_each_area_counts_its_sectors_and_the_rest_is_other(): void
@@ -139,7 +166,7 @@ class MarketWeekTest extends TestCase
                 'from' => '2026-11-21',
                 'to' => '2026-11-27',
                 'postings' => 0,
-                'previous' => 0,
+                'previous' => null,
                 'areas' => [],
                 'companies' => [],
                 'unnamed' => [],
